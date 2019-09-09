@@ -1,0 +1,11 @@
+body {
+    color: #333;
+    background: #eee;
+    margin: 40px 5vw;
+    padding: 0;
+}
+
+.cms-link {
+    text-align: center;
+    margin: 10px;
+}
