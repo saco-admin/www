@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Str</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Str</h1>
+<p>Convert a numerical or enumeration value to a string.</p>
+<h2>Declaration</h2>
+<p>Source position: system.fpd line 61</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> Str<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>X<span class="sym">: </span>TNumericType<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>S<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Str</var> returns a string which represents the value of X. X can be any numerical or enumerated type. The actual declaration of <var>Str</var> is not  according to pascal syntax, and should be </p>
+<pre><span class="kw">procedure</span> Str<span class="sym">(</span><span class="kw">var</span> X<span class="sym">:</span> TNumericType<span class="sym">[</span><span class="sym">:</span>NumPlaces<span class="sym">[</span><span class="sym">:</span>Decimals<span class="sym">]</span><span class="sym">]</span><span class="sym">;</span><span class="kw">var</span> S<span class="sym">:</span> String<span class="sym">)</span>
+</pre>
+<p>Where the optional <var>NumPlaces</var> and <var>Decimals</var> specifiers control the formatting of the string: <var>NumPlaces</var> gives the total width of the string, and <var>Decimals</var> the number of decimals after the decimal separator char. </p>
+<p><var>Str</var> can also be used to convert an enumerated type value to a string representation of the declared enumeration value. That means that the following will work: </p>
+<pre><span class="kw">Type</span>
+  TMyEnum <span class="sym">=</span> <span class="sym">(</span>OnE<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  S <span class="sym">:</span> String<span class="sym">;</span>
+<span class="kw">begin</span>
+  Str<span class="sym">(</span>one<span class="sym">,</span> s<span class="sym">)</span><span class="sym">;</span> 
+  Writeln<span class="sym">(</span>S<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>        
+</pre>
+<p>This will write <var>OnE</var> on the screen, which is consistent with the following - equivalent - program: </p>
+<pre><span class="kw">Type</span>
+  TMyEnum <span class="sym">=</span> <span class="sym">(</span>OnE<span class="sym">)</span><span class="sym">;</span>
+     
+<span class="kw">Var</span>
+  S <span class="sym">:</span> String<span class="sym">;</span>
+  E <span class="sym">:</span> TMyEnum<span class="sym">;</span>
+<span class="kw">begin</span>
+  E<span class="sym">:=</span>one<span class="sym">;</span>
+  Str<span class="sym">(</span>E<span class="sym">,</span>s<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>S<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>   
+</pre>
+<p>For scoped enumerated types, only the value is written, which means the following program will have the same output: </p>
+<pre><span class="dir">{$SCOPEDENUMS+}</span>
+<span class="kw">Type</span>  
+  TMyEnum <span class="sym">=</span> <span class="sym">(</span>OnE<span class="sym">)</span><span class="sym">;</span>
+  
+<span class="kw">Var</span>
+  S <span class="sym">:</span> String<span class="sym">;</span>
+  
+<span class="kw">begin</span>
+  Str<span class="sym">(</span>one<span class="sym">,</span> s<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>S<span class="sym">)</span><span class="sym">;</span> 
+<span class="kw">end</span><span class="sym">.</span>          
+</pre>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/val.html">Val</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate numerical/enumerated value of a string.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example68<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Str function. }</span>
+<span class="kw">Var</span> S <span class="sym">:</span> String<span class="sym">;</span>
+
+<span class="kw">Function</span> IntToStr <span class="sym">(</span>I <span class="sym">:</span> Longint<span class="sym">)</span> <span class="sym">:</span> String<span class="sym">;</span>
+
+<span class="kw">Var</span> S <span class="sym">:</span> String<span class="sym">;</span>
+
+<span class="kw">begin</span>
+ Str <span class="sym">(</span>I<span class="sym">,</span>S<span class="sym">)</span><span class="sym">;</span>
+ IntToStr<span class="sym">:=</span>S<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  S<span class="sym">:=</span><span class="chr">'*'</span><span class="sym">+</span>IntToStr<span class="sym">(</span><span class="sym">-</span><span class="num">233</span><span class="sym">)</span><span class="sym">+</span><span class="chr">'*'</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span>S<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

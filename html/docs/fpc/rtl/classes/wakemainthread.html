@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>WakeMainThread</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>WakeMainThread</h1>
+<p>Handler which is called if a thread wants to synchronize with the main application thread.</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 2069</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">var</span> WakeMainThread<span class="sym">: </span><a href="../classes/tnotifyevent.html">TNotifyEvent</a> <span class="sym">=</span> <span class="kw">Nil</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>WakeMainThread</var> is a handler, which, when set, is called by the <a href="../classes/tthread.synchronize.html">TThread.Synchronize</a> routine to signal the main thread that a synchronization routine is waiting in the queue.  </p>
+<p>This handler is by default empty. An actual implementation depends on the main program logic (usually an event loop) and must be provided by the event loop logic: the event loop will normally call <a href="../classes/checksynchronize.html">CheckSynchronize</a> at regular intervals. The <var>WakeMainThread</var> can make sure this happens as soon as possible. </p>
+<p>While this handle should alert the main program thread that a thread is waiting for synchronization, the call is executed by the thread, and should therefore NOT synchronize the thread, but should somehow signal the main thread that a thread is waiting for synchronization. For example, by sending a message. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/checksynchronize.html">CheckSynchronize</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether there are any synchronize calls in the synchronize queue.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tthread.synchronize.html">TThread.Synchronize</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Synchronizes the thread by executing the method in the main thread.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

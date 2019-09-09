@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Tmatrix3_double</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../matrix/index.html">Overview</a>][<a href="../matrix/index-3.html">Types</a>][<a href="../matrix/index-4.html">Classes</a>][<a href="../matrix/index-5.html">Procedures and functions</a>][<a href="../matrix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'matrix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Tmatrix3_double</h1>
+<p>[<a href="../matrix/tmatrix3_double-1.html" onClick="window.open('../matrix/tmatrix3_double-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../matrix/tmatrix3_double-2.html" onClick="window.open('../matrix/tmatrix3_double-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../matrix/tmatrix3_double-3.html" onClick="window.open('../matrix/tmatrix3_double-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../matrix/tmatrix3_double-4.html" onClick="window.open('../matrix/tmatrix3_double-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../matrix/tmatrix3_double-5.html" onClick="window.open('../matrix/tmatrix3_double-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../matrix/tmatrix3_double-6.html" onClick="window.open('../matrix/tmatrix3_double-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Double precision matrix of three scalars</p>
+<h2>Declaration</h2>
+<p>Source position: matrix.pp line 199</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> Tmatrix3_double <span class="sym">=</span> <span class="kw">object</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../matrix/tmatrix3_double.data.html">data</a><span class="sym">: </span><a href="../matrix/tmatrix3_double_data.html">Tmatrix3_double_data</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Internal data of Tmatrix3.double</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../matrix/tmatrix3_double.init_zero.html">init_zero</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Initializes the matrix and sets its elements to zero</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../matrix/tmatrix3_double.init_identity.html">init_identity</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Initializes the matrix and sets its elements to the identity matrix.   </p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../matrix/tmatrix3_double.init.html">init</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Initializes the matrix, setting its elements to the values passed     to the constructor.   </p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../matrix/tmatrix3_double.get_column.html">get_column</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the c-th column of the matrix as vector.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../matrix/tmatrix3_double.get_row.html">get_row</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the r-th row of the matrix as vector.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../matrix/tmatrix3_double.set_column.html">set_column</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Sets c-th column of the matrix with a vector.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../matrix/tmatrix3_double.set_row.html">set_row</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Sets r-th row of the matrix with a vector.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../matrix/tmatrix3_double.determinant.html">determinant</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculates the determinant of the matrix.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../matrix/tmatrix3_double.inverse.html">inverse</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculates the inverse of the matrix.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../matrix/tmatrix3_double.transpose.html">transpose</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the transposition of the matrix.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../matrix/tmatrix3_double.html">Tmatrix3_double</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Double precision matrix of three scalars</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>The <var>Tmatrix3_double</var> object provides a matrix of 3*3 double precision     scalars.   </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

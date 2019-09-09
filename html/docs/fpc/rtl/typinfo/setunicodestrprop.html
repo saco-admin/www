@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>SetUnicodeStrProp</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../typinfo/index.html">Overview</a>][<a href="../typinfo/index-2.html">Constants</a>][<a href="../typinfo/index-3.html">Types</a>][<a href="../typinfo/index-4.html">Classes</a>][<a href="../typinfo/index-5.html">Procedures and functions</a>][<a href="../typinfo/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'typinfo' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>SetUnicodeStrProp</h1>
+<p>Set UnicodeString-valued property</p>
+<h2>Declaration</h2>
+<p>Source position: typinfo.pp line 373</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> SetUnicodeStrProp<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Instance<span class="sym">: </span><a href="../system/tobject.html">TObject</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>PropName<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Value<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> SetUnicodeStrProp<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Instance<span class="sym">: </span><a href="../system/tobject.html">TObject</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;PropInfo<span class="sym">: </span><a href="../typinfo/ppropinfo.html">PPropInfo</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Value<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>SetUnicodeStrProp</var> sets the UnicodeString property from <var>Instance</var> to <var>Value</var>, where the property is  identified by the <var>PropInfo</var> pointer or the <var>PropertyName</var>. </p>
+<h2>Errors</h2>
+<p>If no property of the indicated name exists, or it is not of type  unicodestring,  an exception will occur. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../typinfo/setstrprop.html">SetStrProp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set value of a string property</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../typinfo/getunicodestrprop.html">GetUnicodeStrProp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get UnicodeString-valued property</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

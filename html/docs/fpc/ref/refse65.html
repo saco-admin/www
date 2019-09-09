@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Inheritance</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 7123--><div class="crosslinks"><p class="noindent">[<a 
+href="refse66.html" >next</a>] [<a 
+href="refse64.html" >prev</a>] [<a 
+href="refse64.html#tailrefse64.html" >prev-tail</a>] [<a 
+href="#tailrefse65.html">tail</a>] [<a 
+href="refch10.html#refse65.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.6   </span> <a 
+href="ref.html#QQ2-126-154" id="x126-14800010.6">Inheritance</a></h3>
+<!--l. 7124--><p class="noindent" >As noted in the previous section, it is possible to create descendants of helper classes. Since only
+the last helper class in the current scope can be used, it is necessary to descend a helper class from
+another one if methods of both helpers must be used. More on this in a subsequent
+section.
+<!--l. 7129--><p class="noindent" >A descendent of a class helper can extend a different class than its parent. The following is a valid
+class helper for <span 
+class="cmtt-10">TMyObject</span>:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-301">
+TObjectHelper&#x00A0;=&#x00A0;class&#x00A0;helper&#x00A0;for&#x00A0;TObject
+&#x00A0;<br />&#x00A0;&#x00A0;procedure&#x00A0;SomeMethod;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />TMyObject&#x00A0;=&#x00A0;class(TObject)
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />TMyObjectHelper&#x00A0;=&#x00A0;class&#x00A0;helper(TObjectHelper)&#x00A0;for&#x00A0;TMyObject
+&#x00A0;<br />&#x00A0;&#x00A0;procedure&#x00A0;SomeOtherMethod;
+&#x00A0;<br />end;
+</div>
+<!--l. 7142--><p class="nopar" >The <span 
+class="cmtt-10">TMyObjectHelper </span>extends <span 
+class="cmtt-10">TObjectHelper</span>, but does not extend the <span 
+class="cmtt-10">TObject </span>class, it only
+extends the <span 
+class="cmtt-10">TMyObject </span>class.
+<!--l. 7146--><p class="noindent" >Since records know no inheritance, it is obvious that descendants of record helpers can only extend
+the same record.
+<!--l. 7149--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> For maximum delphi compatibility, it is impossible to create descendants of record helpers in
+Delphi mode.
+                                                                            
+
+                                                                            
+<!--l. 7154--><div class="crosslinks"><p class="noindent">[<a 
+href="refse66.html" >next</a>] [<a 
+href="refse64.html" >prev</a>] [<a 
+href="refse64.html#tailrefse64.html" >prev-tail</a>] [<a 
+href="refse65.html" >front</a>] [<a 
+href="refch10.html#refse65.html" >up</a>] </p></div>
+<!--l. 7154--><p class="noindent" ><a 
+ id="tailrefse65.html"></a>  
+</body></html> 

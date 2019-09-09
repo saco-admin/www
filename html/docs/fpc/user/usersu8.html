@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Include files</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 727--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu9.html" >next</a>] [<a 
+href="usersu7.html" >prev</a>] [<a 
+href="usersu7.html#tailusersu7.html" >prev-tail</a>] [<a 
+href="#tailusersu8.html">tail</a>] [<a 
+href="userse9.html#usersu8.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.1.3   </span> <a 
+href="user.html#QQ2-22-31" id="x22-290003.1.3">Include files</a></h4>
+<!--l. 728--><p class="noindent" >If you include a file in your source with the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$I filename</span><span 
+class="cmsy-10">} </span>directive, the compiler will look for it
+in the following places:
+<!--l. 731--><p class="noindent" >
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x22-29002x1">It will look in the path specified in the include file name.
+     </li>
+     <li 
+  class="enumerate" id="x22-29004x2">It will look in the directory where the current source file is.
+     </li>
+     <li 
+  class="enumerate" id="x22-29006x3">it will look in all directories specified in the include file search path.</li></ol>
+<!--l. 737--><p class="noindent" >You can add files to the include file search path with the <span 
+class="cmtt-10">-I </span>(see page <a 
+href="usersu14.html#x37-440005.1.3">107<!--tex4ht:ref: option:I --></a>) or <span 
+class="cmtt-10">-Fi </span>(see page <a 
+href="usersu14.html#x37-440005.1.3">106<!--tex4ht:ref: option:Fi --></a>)
+options.
+<!--l. 740--><p class="noindent" >As an example, consider the following include statement in a file <span 
+class="cmss-10">units/foo.pp</span>:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-35">
+&#x00A0;<br />{$i&#x00A0;../bar.inc}
+&#x00A0;<br />
+</div>
+<!--l. 746--><p class="nopar" >Then the following command :
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-36">
+fpc&#x00A0;-Iincfiles&#x00A0;units/foo.pp
+</div>
+<!--l. 750--><p class="nopar" >will cause the compiler to look in the following directories for <span 
+class="cmss-10">bar.inc</span>:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x22-29008x1">The parent directory of the current directory.
+     </li>
+     <li 
+  class="enumerate" id="x22-29010x2">The <span 
+class="cmss-10">units </span>subdirectory of the current directory.
+     </li>
+     <li 
+  class="enumerate" id="x22-29012x3">The <span 
+class="cmss-10">incfiles </span>subdirectory of the current directory.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 760--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu9.html" >next</a>] [<a 
+href="usersu7.html" >prev</a>] [<a 
+href="usersu7.html#tailusersu7.html" >prev-tail</a>] [<a 
+href="usersu8.html" >front</a>] [<a 
+href="userse9.html#usersu8.html" >up</a>] </p></div>
+<!--l. 760--><p class="noindent" ><a 
+ id="tailusersu8.html"></a>  
+</body></html> 

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TResourceFactory</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../resfactory/index.html">Overview</a>][<a href="../resfactory/index-1.html">Resource strings</a>][<a href="../resfactory/index-4.html">Classes</a>][<a href="../resfactory/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'resfactory' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TResourceFactory</h1>
+<p>[<a href="../resfactory/tresourcefactory-1.html" onClick="window.open('../resfactory/tresourcefactory-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../resfactory/tresourcefactory-2.html" onClick="window.open('../resfactory/tresourcefactory-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../resfactory/tresourcefactory-3.html" onClick="window.open('../resfactory/tresourcefactory-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../resfactory/tresourcefactory-4.html" onClick="window.open('../resfactory/tresourcefactory-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../resfactory/tresourcefactory-5.html" onClick="window.open('../resfactory/tresourcefactory-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../resfactory/tresourcefactory-6.html" onClick="window.open('../resfactory/tresourcefactory-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Factory class for resources</p>
+<h2>Declaration</h2>
+<p>Source position: resfactory.pp line 36</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TResourceFactory <span class="sym">=</span> <span class="kw">class</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class procedure </span><a href="../resfactory/tresourcefactory.registerresourceclass.html">RegisterResourceClass</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Registers a resource class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../resfactory/tresourcefactory.createresource.html">CreateResource</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a new resource</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../resfactory/tresourcefactory.html">TResourceFactory</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Factory class for resources</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TObject</span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Resources are represented by descendants of <a href="../resource/tabstractresource.html">TAbstractResource</a>. Some applications don't need specialized resource classes, and a <a href="../resource/tgenericresource.html">TGenericResource</a> can be enough. On the other hand, sometimes it is required that a resource of a specific type is created with a more specialized class. This class provides a centralized point for the creation of resources.</p>
+<p><a href="../resfactory/tresourcefactory.html">TResourceFactory</a> holds a list of registered classes with an associated resource type. When it is requested to create a resource for a given type, it creates a resource of the class associated with that type. If no class matching that type is found, <a href="../resource/tgenericresource.html">TGenericResource</a> is used.</p>
+<p>Usually each resource class registers itself in the <var>initialization</var> section of the unit in which it is implemented.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../resfactory/tresourcefactory.registerresourceclass.html">TResourceFactory.RegisterResourceClass</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Registers a resource class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resfactory/tresourcefactory.createresource.html">TResourceFactory.CreateResource</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a new resource</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresource.html">TAbstractResource</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base abstract resource class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tgenericresource.html">TGenericResource</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Generic resource class</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

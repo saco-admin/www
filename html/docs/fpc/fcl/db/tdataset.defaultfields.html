@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDataSet.DefaultFields</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDataSet.DefaultFields</h1>
+<p>Is the dataset using persisten fields or not.</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1672</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../db/tdataset.html">TDataSet</a><span class="sym">.</span>DefaultFields<span class="sym"> : </span>Boolean<br>&nbsp;&nbsp;<span class="kw">read </span>FDefaultFields<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>DefaultFields</var> is <var>True</var> if the fields were generated dynamically when the dataset was opened.  If it is <var>False</var> then the field instances are persistent, i;e. they were created at desin time with the fields editor. If <var>DefaultFields</var> is <var>True</var>, then for each item in the <a href="../db/tdataset.fielddefs.html">TDataset.FieldDefs</a> property, a field  instance is created. These fields instances are freed again when the dataset is closed. </p>
+<p>If <var>DefaultFields</var> is <var>False</var>, then there may be less field instances than there are items in the <var>FieldDefs</var> property. This can be the case for instance when opening a DBF file at runtime which has more fields than the file used at design time. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdataset.fielddefs.html">TDataset.FieldDefs</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Definitions of available fields in the underlying database</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.fields.html">TDataset.Fields</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed access to the fields of the dataset.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfield.html">TField</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Provide access to the contents of a single field in a record</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

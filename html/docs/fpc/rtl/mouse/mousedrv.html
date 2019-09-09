@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Writing a custom mouse driver</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../mouse/index.html">Up</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Mouse' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>Writing a custom mouse driver</h2>
+<p>The <span class="file">mouse</span> unit has support for adding a custom mouse driver. This can be used to add support for mouses not supported by the standard Free Pascal driver, but also to enhance an existing driver for instance to log mouse events or to implement a record and playback function.  </p>
+<p>The following unit shows how a mouse driver can be enhanced by adding some logging capabilities to the driver. </p>
+<h2>Example</h2>
+<pre><span class="kw">unit</span> logmouse<span class="sym">;</span>
+
+<span class="kw">interface</span>
+
+<span class="kw">Procedure</span> StartMouseLogging<span class="sym">;</span>
+<span class="kw">Procedure</span> StopMouseLogging<span class="sym">;</span>
+<span class="kw">Function</span>  IsMouseLogging <span class="sym">:</span> Boolean<span class="sym">;</span>
+<span class="kw">Procedure</span> SetMouseLogFileName<span class="sym">(</span>FileName <span class="sym">:</span> String<span class="sym">)</span><span class="sym">;</span>
+
+
+<span class="kw">implementation</span>
+
+<span class="kw">uses</span> sysutils<span class="sym">,</span>Mouse<span class="sym">;</span>
+
+<span class="kw">var</span>
+  NewMouseDriver<span class="sym">,</span>
+  OldMouseDriver <span class="sym">:</span> TMouseDriver<span class="sym">;</span>
+  Active<span class="sym">,</span>Logging <span class="sym">:</span> Boolean<span class="sym">;</span>
+  LogFileName <span class="sym">:</span> String<span class="sym">;</span>
+  MouseLog <span class="sym">:</span> Text<span class="sym">;</span>
+
+<span class="kw">Function</span> TimeStamp <span class="sym">:</span> String<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  TimeStamp<span class="sym">:=</span>FormatDateTime<span class="sym">(</span><span class="str">'hh:nn:ss'</span><span class="sym">,</span>Time<span class="sym">(</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> StartMouseLogging<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Logging<span class="sym">:=</span>True<span class="sym">;</span>
+  Writeln<span class="sym">(</span>MouseLog<span class="sym">,</span><span class="str">'Start logging mouse events at: '</span><span class="sym">,</span>TimeStamp<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> StopMouseLogging<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Writeln<span class="sym">(</span>MouseLog<span class="sym">,</span><span class="str">'Stop logging mouse events at: '</span><span class="sym">,</span>TimeStamp<span class="sym">)</span><span class="sym">;</span>
+  Logging<span class="sym">:=</span>False<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Function</span> IsMouseLogging <span class="sym">:</span> Boolean<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  IsMouseLogging<span class="sym">:=</span>Logging<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> LogGetMouseEvent<span class="sym">(</span><span class="kw">Var</span> Event <span class="sym">:</span> TMouseEvent<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  M <span class="sym">:</span> TMouseEvent<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  OldMouseDriver<span class="sym">.</span>GetMouseEvent<span class="sym">(</span>M<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> Logging <span class="kw">then</span>
+    <span class="kw">begin</span>
+    Write<span class="sym">(</span>MouseLog<span class="sym">,</span>TimeStamp<span class="sym">,</span><span class="str">': Mouse '</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">With</span> M <span class="kw">do</span>
+      <span class="kw">begin</span>
+      <span class="kw">Case</span> Action <span class="kw">of</span>
+        MouseActionDown <span class="sym">:</span> Write<span class="sym">(</span>MouseLog<span class="sym">,</span><span class="str">'down'</span><span class="sym">)</span><span class="sym">;</span>
+        MouseActionUp   <span class="sym">:</span> Write<span class="sym">(</span>MouseLog<span class="sym">,</span><span class="str">'up'</span><span class="sym">)</span><span class="sym">;</span>
+        MouseActionMove <span class="sym">:</span> Write<span class="sym">(</span>MouseLog<span class="sym">,</span><span class="str">'move'</span><span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">end</span><span class="sym">;</span>
+      Write<span class="sym">(</span>MouseLog<span class="sym">,</span><span class="str">' event at '</span><span class="sym">,</span>X<span class="sym">,</span><span class="chr">','</span><span class="sym">,</span>Y<span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">If</span> <span class="sym">(</span>Buttons<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span><span class="sym">)</span> <span class="kw">then</span>
+        <span class="kw">begin</span>
+        Write<span class="sym">(</span>MouseLog<span class="sym">,</span><span class="str">' for buttons: '</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">If</span> <span class="sym">(</span>Buttons <span class="kw">and</span> MouseLeftbutton<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+          Write<span class="sym">(</span>MouseLog<span class="sym">,</span><span class="str">'Left '</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">If</span> <span class="sym">(</span>Buttons <span class="kw">and</span> MouseRightbutton<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+          Write<span class="sym">(</span>MouseLog<span class="sym">,</span><span class="str">'Right '</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">If</span> <span class="sym">(</span>Buttons <span class="kw">and</span> MouseMiddlebutton<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+          Write<span class="sym">(</span>MouseLog<span class="sym">,</span><span class="str">'Middle '</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">end</span><span class="sym">;</span>
+      Writeln<span class="sym">(</span>MouseLog<span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">end</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> LogInitMouse<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  OldMouseDriver<span class="sym">.</span>InitDriver<span class="sym">(</span><span class="sym">)</span><span class="sym">;</span>
+  Assign<span class="sym">(</span>MouseLog<span class="sym">,</span>logFileName<span class="sym">)</span><span class="sym">;</span>
+  Rewrite<span class="sym">(</span>MouseLog<span class="sym">)</span><span class="sym">;</span>
+  Active<span class="sym">:=</span>True<span class="sym">;</span>
+  StartMouseLogging<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> LogDoneMouse<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  StopMouseLogging<span class="sym">;</span>
+  Close<span class="sym">(</span>MouseLog<span class="sym">)</span><span class="sym">;</span>
+  Active<span class="sym">:=</span>False<span class="sym">;</span>
+  OldMouseDriver<span class="sym">.</span>DoneDriver<span class="sym">(</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> SetMouseLogFileName<span class="sym">(</span>FileName <span class="sym">:</span> String<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">If</span> <span class="kw">Not</span> Active <span class="kw">then</span>
+    LogFileName<span class="sym">:=</span>FileName<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Initialization</span>
+  GetMouseDriver<span class="sym">(</span>OldMouseDriver<span class="sym">)</span><span class="sym">;</span>
+  NewMouseDriver<span class="sym">:=</span>OldMouseDriver<span class="sym">;</span>
+  NewMouseDriver<span class="sym">.</span>GetMouseEvent<span class="sym">:=</span><span class="sym">@</span>LogGetMouseEvent<span class="sym">;</span>
+  NewMouseDriver<span class="sym">.</span>InitDriver<span class="sym">:=</span><span class="sym">@</span>LogInitMouse<span class="sym">;</span>
+  NewMouseDriver<span class="sym">.</span>DoneDriver<span class="sym">:=</span><span class="sym">@</span>LogDoneMouse<span class="sym">;</span>
+  LogFileName<span class="sym">:=</span><span class="str">'Mouse.log'</span><span class="sym">;</span>
+  Logging<span class="sym">:=</span>False<span class="sym">;</span>
+  SetMouseDriver<span class="sym">(</span>NewMouseDriver<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>  
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

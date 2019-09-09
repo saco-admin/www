@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$a00146.html" title="Unguarded loser tree, keeping only pointers to the elements in the tree structure." alt="" coords="7,30,455,58"/>
+<area shape="rect" id="node3" href="$a00144.html" title="Stable unguarded _LoserTree variant storing pointers." alt="" coords="504,5,981,33"/>
+<area shape="rect" id="node5" href="$a00145.html" title="Unstable unguarded _LoserTree variant storing pointers." alt="" coords="515,55,971,83"/>
+</map>

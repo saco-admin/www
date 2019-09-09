@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00774.html" title="Provides input iterator semantics for streambufs." alt="" coords="2211,106,2781,134"/>
+<area shape="rect" id="node5" href="$a00438.html" title="std::iterator\&lt; output_iterator_tag, void, void, void, void \&gt;" alt="" coords="2307,157,2685,185"/>
+<area shape="rect" id="node19" href="$a00438.html" title="std::iterator\&lt; std::output_iterator_tag, void, void, void, void \&gt;" alt="" coords="2293,207,2699,235"/>
+<area shape="rect" id="node21" href="$a00438.html" title="std::iterator\&lt; std::random_access_iterator_tag, bool \&gt;" alt="" coords="2313,258,2679,286"/>
+<area shape="rect" id="node23" href="$a00438.html" title="std::iterator\&lt; input_iterator_tag, _Tp, _Dist, const _Tp *, const _Tp &amp; \&gt;" alt="" coords="2264,309,2728,337"/>
+<area shape="rect" id="node27" href="$a00438.html" title="std::iterator\&lt; input_iterator_tag, _CharT, _Traits::off_type, _CharT *, _CharT \&gt;" alt="" coords="2245,359,2747,387"/>
+<area shape="rect" id="node29" href="$a00438.html" title="std::iterator\&lt; std::random_access_iterator_tag, _CharT \&gt;" alt="" coords="2305,410,2687,438"/>
+<area shape="rect" id="node31" href="$a00438.html" title="std::iterator\&lt; iterator_traits\&lt; _Iterator \&gt;::iterator_category, iterator_traits\&lt; _Iterator \&gt;::value_type, iterator_traits\&lt; _Iterator \&gt;::difference_type, iterator_traits\&lt; _Iterator \&gt;::pointer, iterator_traits\&lt; _Iterator \&gt;::reference \&gt;" alt="" coords="1792,461,3200,489"/>
+<area shape="rect" id="node7" href="$a00557.html" title="Turns assignment into insertion." alt="" coords="3284,5,3553,33"/>
+<area shape="rect" id="node9" href="$a00649.html" title="Turns assignment into insertion." alt="" coords="3284,55,3553,83"/>
+<area shape="rect" id="node11" href="$a00710.html" title="Turns assignment into insertion." alt="" coords="3301,106,3536,134"/>
+<area shape="rect" id="node13" href="$a00844.html" title="Provides output iterator semantics for streams." alt="" coords="3268,157,3569,185"/>
+<area shape="rect" id="node15" href="$a00845.html" title="Provides output iterator semantics for streambufs." alt="" coords="3273,207,3564,235"/>
+<area shape="rect" id="node17" href="$a00874.html" title="std::raw_storage_iterator\&lt; _OutputIterator, _Tp \&gt;" alt="" coords="3252,258,3585,286"/>
+<area shape="rect" id="node25" href="$a00773.html" title="Provides input iterator semantics for streams." alt="" coords="3252,309,3585,337"/>
+<area shape="rect" id="node33" href="$a00887.html" title="std::reverse_iterator\&lt; _Iterator \&gt;" alt="" coords="3304,461,3533,489"/>
+</map>

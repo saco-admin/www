@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TThread</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TThread</h1>
+<p>[<a href="../classes/tthread-1.html" onClick="window.open('../classes/tthread-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../classes/tthread-2.html" onClick="window.open('../classes/tthread-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../classes/tthread-3.html" onClick="window.open('../classes/tthread-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../classes/tthread-4.html" onClick="window.open('../classes/tthread-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../classes/tthread-5.html" onClick="window.open('../classes/tthread-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../classes/tthread-6.html" onClick="window.open('../classes/tthread-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Abstract Thread class.</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 1589</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TThread <span class="sym">=</span> <span class="kw">class</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">Type</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../classes/tthread.tsystemtimes.html">TSystemTimes</a><span class="sym"> = </span><span class="kw">record</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Record for returning processor usage</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;IdleTime<span class="sym">: </span><a href="../system/qword.html">QWord</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Processor idle time</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;UserTime<span class="sym">: </span><a href="../system/qword.html">QWord</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">User code execution time</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;KernelTime<span class="sym">: </span><a href="../system/qword.html">QWord</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Kernel (OS) code execution time</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;NiceTime<span class="sym">: </span><a href="../system/qword.html">QWord</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Nice (reduced priority) code execution time</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">protected</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tthread.execute.html">Execute</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute method. Must be overridden in a descendant thread.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tthread.synchronize.html">Synchronize</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Synchronizes the thread by executing the method in the main thread.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tthread.queue.html">Queue</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Queue a method for execution in the main thread</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../classes/tthread.create.html">Create</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a new thread.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../classes/tthread.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Destroys the thread object.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../classes/tthread.createanonymousthread.html">CreateAnonymousThread</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute code in an anonymous thread</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class procedure </span><a href="../classes/tthread.namethreadfordebugging.html">NameThreadForDebugging</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set a thread name</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class procedure </span><a href="../classes/tthread.setreturnvalue.html">SetReturnValue</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set return value of a thread</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../classes/tthread.checkterminated.html">CheckTerminated</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if the current thread has finished executing.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class procedure </span><a href="../classes/tthread.removequeuedevents.html">RemoveQueuedEvents</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Remove methods scheduled for execution from queue</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class procedure </span><a href="../classes/tthread.spinwait.html">SpinWait</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Prevent thread execution in a spin-wait loop</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class procedure </span><a href="../classes/tthread.sleep.html">Sleep</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Prevent thread execution</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class procedure </span><a href="../classes/tthread.yield.html">Yield</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Yield execution to other threads</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class procedure </span><a href="../classes/tthread.getsystemtimes.html">GetSystemTimes</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return CPU stats</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../classes/tthread.gettickcount.html">GetTickCount</a><span class="sym">;</span><span class="kw"> deprecated</span> <span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return tick count (32-bit)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../classes/tthread.gettickcount64.html">GetTickCount64</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return tick count (64-bit)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../classes/tthread.executeinthread.html">ExecuteInThread</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute a method or static procedure in a thread</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tthread.afterconstruction.html">AfterConstruction</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Code to be executed after construction but before execute.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tthread.start.html">Start</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Starts a thread that was created in a suspended state.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tthread.resume.html">Resume</a><span class="sym">;</span><span class="kw"> deprecated</span> <span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Resumes the thread's execution. Deprecated, see <var>TThread.Start</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tthread.suspend.html">Suspend</a><span class="sym">;</span><span class="kw"> deprecated</span> <span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Suspends the thread's execution.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tthread.terminate.html">Terminate</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Signals the thread it should terminate.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../classes/tthread.waitfor.html">WaitFor</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Waits for the thread to terminate and returns the exit status.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/tthread.currentthread.html">CurrentThread</a><span class="sym">: </span><a href="../classes/tthread.html">TThread</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return current thread instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/tthread.processorcount.html">ProcessorCount</a><span class="sym">: </span><a href="../system/longword.html">LongWord</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the processor count for this system</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/tthread.issingleprocessor.html">IsSingleProcessor</a><span class="sym">: </span>Boolean<span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the current system single processor or not</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/tthread.freeonterminate.html">FreeOnTerminate</a><span class="sym">: </span>Boolean<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indicates whether the thread should free itself when it stops executing.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/tthread.handle.html">Handle</a><span class="sym">: </span><a href="../system/tthreadid.html">TThreadID</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the thread handle.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/tthread.externalthread.html">ExternalThread</a><span class="sym">: </span>Boolean<span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the thread instance an external thread ?</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/tthread.priority.html">Priority</a><span class="sym">: </span><a href="../classes/tthreadpriority.html">TThreadPriority</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the thread priority.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/tthread.suspended.html">Suspended</a><span class="sym">: </span>Boolean<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indicates whether the thread is suspended.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/tthread.finished.html">Finished</a><span class="sym">: </span>Boolean<span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Has the thread finished executing</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/tthread.threadid.html">ThreadID</a><span class="sym">: </span><a href="../system/tthreadid.html">TThreadID</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the thread ID.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/tthread.onterminate.html">OnTerminate</a><span class="sym">: </span><a href="../classes/tnotifyevent.html">TNotifyEvent</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event called when the thread terminates.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/tthread.fatalexception.html">FatalException</a><span class="sym">: </span><a href="../system/tobject.html">TObject</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Exception that occurred during thread execution</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../classes/tthread.html">TThread</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Abstract Thread class.</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TObject</span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>The <var>TThread</var> class encapsulates the native thread support of the operating system. To create a thread, declare a descendant of the <var>TThread</var> object and override the <a href="../classes/tthread.execute.html">Execute</a> method. In this method, the tthread's code should be executed. To run a thread, create an instance of the tthread descendant, and call it's execute method. </p>
+<p>It is also possible to simply execute a method or static procedure in a thread using the  <a href="../classes/tthread.executeinthread.html">TThread.ExecuteInThread</a> class method. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/ethread.html">EThread</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Thread error exception.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tthread.execute.html">TThread.Execute</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute method. Must be overridden in a descendant thread.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tthread.executeinthread.html">TThread.ExecuteInThread</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute a method or static procedure in a thread</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

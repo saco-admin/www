@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TBase64EncodingStream</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../base64/index.html">Overview</a>][<a href="../base64/index-3.html">Types</a>][<a href="../base64/index-4.html">Classes</a>][<a href="../base64/index-5.html">Procedures and functions</a>][<a href="../base64/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'base64' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TBase64EncodingStream</h1>
+<p>[<a href="../base64/tbase64encodingstream-1.html" onClick="window.open('../base64/tbase64encodingstream-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../base64/tbase64encodingstream-2.html" onClick="window.open('../base64/tbase64encodingstream-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../base64/tbase64encodingstream-3.html" onClick="window.open('../base64/tbase64encodingstream-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../base64/tbase64encodingstream-4.html" onClick="window.open('../base64/tbase64encodingstream-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../base64/tbase64encodingstream-5.html" onClick="window.open('../base64/tbase64encodingstream-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../base64/tbase64encodingstream-6.html" onClick="window.open('../base64/tbase64encodingstream-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Base64 encoding stream.</p>
+<h2>Declaration</h2>
+<p>Source position: base64.pp line 33</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TBase64EncodingStream <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../../rtl/classes/townerstream.html">TOwnerStream</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../base64/tbase64encodingstream.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Remove a <var>TBase64EncodingStream</var> instance from memory</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../base64/tbase64encodingstream.flush.html">Flush</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Flush the remaining bytes to the output stream.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../base64/tbase64encodingstream.write.html">Write</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write data to the stream.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../base64/tbase64encodingstream.seek.html">Seek</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Position the stream</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../base64/tbase64encodingstream.html">TBase64EncodingStream</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base64 encoding stream.</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/townerstream.html">TOwnerStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tstream.html">TStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TBase64EncodingStream</var> can be used to encode data using the base64 algorithm. At creation time, a destination stream is specified. Any data written to the <var>TBase64EncodingStream</var> instance will be base64 encoded, and subsequently written to the destination stream. </p>
+<p>The <var>TBase64EncodingStream</var> stream is a write-only stream. Obviously it is also not seekable. It is meant to be included in   a chain of streams. </p>
+<p>By the nature of base64 encoding, when a buffer is written to the stream, the output stream does not yet contain all output: input must be a multiple of 3. In order to be sure that the output contains all encoded bytes, the <a href="../base64/tbase64encodingstream.flush.html">Flush</a> method can be used. The destructor will automatically call <var>Flush</var>, so all data is written to the destination stream when the decodes is destroyed.   </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../base64/tbase64decodingstream.html">TBase64DecodingStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base64 Decoding stream</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

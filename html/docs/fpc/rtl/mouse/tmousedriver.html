@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TMouseDriver</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../mouse/index.html">Overview</a>][<a href="../mouse/index-2.html">Constants</a>][<a href="../mouse/index-3.html">Types</a>][<a href="../mouse/index-5.html">Procedures and functions</a>][<a href="../mouse/index-6.html">Variables</a>][<a href="../mouse/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Mouse' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TMouseDriver</h1>
+<p>Mouse driver structure</p>
+<h2>Declaration</h2>
+<p>Source position: mouseh.inc line 48</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TMouseDriver<span class="sym"> = </span><span class="kw">record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;UseDefaultQueue<span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should the default event queue mechanism be used.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;InitDriver<span class="sym">: </span><span class="kw">procedure</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called when the driver must be initialized</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;DoneDriver<span class="sym">: </span><span class="kw">procedure</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called when the driver will be unloaded.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;DetectMouse<span class="sym">: </span><span class="kw">function</span><span class="sym">: </span><a href="../system/byte.html">Byte</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Function called when the mouse must be detected.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ShowMouse<span class="sym">: </span><span class="kw">procedure</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Function called when the mouse cursor must be shown.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;HideMouse<span class="sym">: </span><span class="kw">procedure</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Function called when the mouse cursor must be hidden.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;GetMouseX<span class="sym">: </span><span class="kw">function</span><span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called to get the mouse cursors horizontal position.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;GetMouseY<span class="sym">: </span><span class="kw">function</span><span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called to get the mouse cursors vertical position.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;GetMouseButtons<span class="sym">: </span><span class="kw">function</span><span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called to get the currently pressed mouse buttons.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;SetMouseXY<span class="sym">: </span><span class="kw">procedure</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called when the current mouse position must be set.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;x<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;y<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;GetMouseEvent<span class="sym">: </span><span class="kw">procedure</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called to get the next mouse event. Waits if needed.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>MouseEvent<span class="sym">: </span><a href="../mouse/tmouseevent.html">TMouseEvent</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;PollMouseEvent<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called to get the next mouse event. Does not wait.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>MouseEvent<span class="sym">: </span><a href="../mouse/tmouseevent.html">TMouseEvent</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;PutMouseEvent<span class="sym">: </span><span class="kw">procedure</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called to put a mouse event back in the queue.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>MouseEvent<span class="sym">: </span><a href="../mouse/tmouseevent.html">TMouseEvent</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>The <var>TMouseDriver</var> record is used to implement a mouse driver in the <a href="../mouse/setmousedriver.html">SetMouseDriver</a> function. Its fields must be filled in before calling the <a href="../mouse/setmousedriver.html">SetMouseDriver</a> function. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../mouse/setmousedriver.html">SetMouseDriver</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set a new mouse driver.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

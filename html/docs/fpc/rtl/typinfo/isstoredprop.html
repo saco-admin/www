@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>IsStoredProp</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../typinfo/index.html">Overview</a>][<a href="../typinfo/index-2.html">Constants</a>][<a href="../typinfo/index-3.html">Types</a>][<a href="../typinfo/index-4.html">Classes</a>][<a href="../typinfo/index-5.html">Procedures and functions</a>][<a href="../typinfo/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'typinfo' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>IsStoredProp</h1>
+<p>Check whether a property is stored.</p>
+<h2>Declaration</h2>
+<p>Source position: typinfo.pp line 335</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> IsStoredProp<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Instance<span class="sym">: </span><a href="../system/tobject.html">TObject</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;PropInfo<span class="sym">: </span><a href="../typinfo/ppropinfo.html">PPropInfo</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><br><br><span class="kw">function</span> IsStoredProp<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Instance<span class="sym">: </span><a href="../system/tobject.html">TObject</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>PropName<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>IsStoredProp</var> returns <var>True</var> if the <var>Stored</var> modifier evaluates to <var>True</var> for the property described by <var>PropInfo</var> or with name <var>PropName</var> for object <var>Instance</var>.  It returns <var>False</var> otherwise. If the function returns <var>True</var>, this indicates that the property should be written when streaming the object <var>Instance</var>. </p>
+<p>If there was no <var>stored</var> modifier in the declaration of the property,  <var>True</var> will be returned.  </p>
+<h2>Errors</h2>
+<p>No checking is done whether <var>Instance</var> is non-nil, or whether <var>PropInfo</var> describes a valid property of <var>Instance</var>. Specifying an invalid property name in <var>PropName</var> will result in an <var>EPropertyError</var> exception.                                                  </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../typinfo/ispublishedprop.html">IsPublishedProp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a published property exists.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../typinfo/propistype.html">PropIsType</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check the type of a published property.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> example11<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the IsStoredProp function }</span>
+
+<span class="dir">{$mode objfpc}</span>
+
+<span class="kw">uses</span> rttiobj<span class="sym">,</span>typinfo<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  O <span class="sym">:</span> TMyTestObject<span class="sym">;</span>
+  PI <span class="sym">:</span> PPropInfo<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  O<span class="sym">:=</span>TMyTestObject<span class="sym">.</span>Create<span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Stored tests    : '</span><span class="sym">)</span><span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'IsStoredProp(O,StoredIntegerConstFalse)    : '</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>IsStoredProp<span class="sym">(</span>O<span class="sym">,</span><span class="str">'StoredIntegerConstFalse'</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'IsStoredProp(O,StoredIntegerConstTrue)     : '</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>IsStoredProp<span class="sym">(</span>O<span class="sym">,</span><span class="str">'StoredIntegerConstTrue'</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'IsStoredProp(O,StoredIntegerMethod)        : '</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>IsStoredProp<span class="sym">(</span>O<span class="sym">,</span><span class="str">'StoredIntegerMethod'</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'IsStoredProp(O,StoredIntegerVirtualMethod) : '</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>IsStoredProp<span class="sym">(</span>O<span class="sym">,</span><span class="str">'StoredIntegerVirtualMethod'</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  O<span class="sym">.</span>Free<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

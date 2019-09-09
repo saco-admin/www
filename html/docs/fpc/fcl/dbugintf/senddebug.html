@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>SendDebug</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dbugintf/index.html">Overview</a>][<a href="../dbugintf/index-1.html">Resource strings</a>][<a href="../dbugintf/index-2.html">Constants</a>][<a href="../dbugintf/index-3.html">Types</a>][<a href="../dbugintf/index-5.html">Procedures and functions</a>][<a href="../dbugintf/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dbugintf' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>SendDebug</h1>
+<p>Send a message to the debug server.</p>
+<h2>Declaration</h2>
+<p>Source position: dbugintf.pp line 30</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> SendDebug<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Msg<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Msg</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The message to be sent to the server.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>SendDebug</var> sends the message <var>Msg</var> to the debug server as an informational message (debug level <var>dlInformation</var>). If no debug server is running, then an attempt will be made to start the  server first. </p>
+<p>The binary that is started is called <span class="file">debugserver</span> and should be somewhere on the <var>PATH</var>. A sample binary which writes received messages to standard output is included in the FCL, it is called <span class="file">dbugsrv</span>. This binary can be renamed to <span class="file">debugserver</span> or can be started before the program is started. </p>
+<h2>Errors</h2>
+<p>Errors are silently ignored, any exception messages are stored in <a href="../dbugintf/senderror.html">SendError</a>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dbugintf/senddebugex.html">SendDebugEx</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Send debug message other than informational messages</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dbugintf/senddebugfmt.html">SendDebugFmt</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Format and send a debug message</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dbugintf/senddebugfmtex.html">SendDebugFmtEx</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Format and send message with alternate type</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

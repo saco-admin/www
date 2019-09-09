@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>get_meminfo</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../go32/index.html">Overview</a>][<a href="../go32/index-2.html">Constants</a>][<a href="../go32/index-3.html">Types</a>][<a href="../go32/index-5.html">Procedures and functions</a>][<a href="../go32/index-6.html">Variables</a>][<a href="../go32/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'go32' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>get_meminfo</h1>
+<p>Return information on the available memory</p>
+<h2>Declaration</h2>
+<p>Source position: go32.pp line 131</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> get_meminfo<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>meminfo<span class="sym">: </span><a href="../go32/tmeminfo.html">tmeminfo</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Returns information about the amount of available physical memory, linear address space, and disk space for page swapping. </p>
+<p>Parameters: </p>
+<dl>
+<dt>meminfo</dt>
+<dd>buffer to fill memory information into.</dd>
+</dl>
+<p>Return values: Due to an implementation bug this function always returns <var>False</var>, but it always succeeds. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>Notes: Only the first field of the returned structure is guaranteed to contain a valid value. Any fields that are not supported by the DPMI host will be set by the host to <var>-1 (0FFFFFFFFH)</var> to indicate that the information is not available. The size of the pages used by the DPMI host can be obtained with the <a href="../go32/get_page_size.html">get_page_size</a>  function. </td>
+</tr>
+</table>
+<h2>Errors</h2>
+<p>Check the <a href="../go32/int31error.html">int31error</a> variable. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../go32/get_page_size.html">get_page_size</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the page size</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="cmt">{ Shows how to obtain memory information via get_meminfo();</span>
+<span class="cmt"></span>
+<span class="cmt">notice the checks if any of the returned information is invalid (-1)</span>
+<span class="cmt">}</span>
+
+<span class="kw">uses</span>
+        go32<span class="sym">;</span>
+
+<span class="kw">var</span>
+        meminfo <span class="sym">:</span> tmeminfo<span class="sym">;</span>
+
+<span class="kw">begin</span>
+        get_meminfo<span class="sym">(</span>meminfo<span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">if</span> <span class="sym">(</span>int31error <span class="sym">&lt;</span><span class="sym">&gt;</span> <span class="num">0</span><span class="sym">)</span>  <span class="kw">then</span> <span class="kw">begin</span>
+                Writeln<span class="sym">(</span><span class="str">'Error getting DPMI memory information... Halting'</span><span class="sym">)</span><span class="sym">;</span>
+                Writeln<span class="sym">(</span><span class="str">'DPMI error number : '</span><span class="sym">,</span> int31error<span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">end</span> <span class="kw">else</span> <span class="kw">begin</span>
+                <span class="kw">with</span> meminfo <span class="kw">do</span> <span class="kw">begin</span>
+                        Writeln<span class="sym">(</span><span class="str">'Largest available free block : '</span><span class="sym">,</span>
+                                available_memory <span class="kw">div</span> <span class="num">1024</span><span class="sym">,</span> <span class="str">' kbytes'</span><span class="sym">)</span><span class="sym">;</span>
+                        <span class="kw">if</span> <span class="sym">(</span>available_pages <span class="sym">&lt;</span><span class="sym">&gt;</span> <span class="sym">-</span><span class="num">1</span><span class="sym">)</span> <span class="kw">then</span>
+                                Writeln<span class="sym">(</span><span class="str">'Maximum available unlocked pages : '</span><span class="sym">,</span>
+                                        available_pages<span class="sym">)</span><span class="sym">;</span>
+                        <span class="kw">if</span> <span class="sym">(</span>available_lockable_pages <span class="sym">&lt;</span><span class="sym">&gt;</span> <span class="sym">-</span><span class="num">1</span><span class="sym">)</span> <span class="kw">then</span>
+                                Writeln<span class="sym">(</span><span class="str">'Maximum lockable available pages : '</span><span class="sym">,</span>
+                                        available_lockable_pages<span class="sym">)</span><span class="sym">;</span>
+                        <span class="kw">if</span> <span class="sym">(</span>linear_space <span class="sym">&lt;</span><span class="sym">&gt;</span> <span class="sym">-</span><span class="num">1</span><span class="sym">)</span> <span class="kw">then</span>
+                                Writeln<span class="sym">(</span><span class="str">'Linear address space size : '</span><span class="sym">,</span>
+                                        linear_space<span class="sym">*</span>get_page_size <span class="kw">div</span> <span class="num">1024</span><span class="sym">,</span> <span class="str">' kbytes'</span><span class="sym">)</span><span class="sym">;</span>
+                        <span class="kw">if</span> <span class="sym">(</span>unlocked_pages <span class="sym">&lt;</span><span class="sym">&gt;</span> <span class="sym">-</span><span class="num">1</span><span class="sym">)</span> <span class="kw">then</span>
+                                Writeln<span class="sym">(</span><span class="str">'Total number of unlocked pages : '</span><span class="sym">,</span>
+                                        unlocked_pages<span class="sym">)</span><span class="sym">;</span>
+                        <span class="kw">if</span> <span class="sym">(</span>available_physical_pages <span class="sym">&lt;</span><span class="sym">&gt;</span> <span class="sym">-</span><span class="num">1</span><span class="sym">)</span> <span class="kw">then</span>
+                                Writeln<span class="sym">(</span><span class="str">'Total number of free pages : '</span><span class="sym">,</span>
+                                        available_physical_pages<span class="sym">)</span><span class="sym">;</span>
+                        <span class="kw">if</span> <span class="sym">(</span>total_physical_pages <span class="sym">&lt;</span><span class="sym">&gt;</span> <span class="sym">-</span><span class="num">1</span><span class="sym">)</span> <span class="kw">then</span>
+                                Writeln<span class="sym">(</span><span class="str">'Total number of physical pages : '</span><span class="sym">,</span>
+                                        total_physical_pages<span class="sym">)</span><span class="sym">;</span>
+                        <span class="kw">if</span> <span class="sym">(</span>free_linear_space <span class="sym">&lt;</span><span class="sym">&gt;</span> <span class="sym">-</span><span class="num">1</span><span class="sym">)</span> <span class="kw">then</span>
+                                Writeln<span class="sym">(</span><span class="str">'Free linear address space : '</span><span class="sym">,</span>
+                                        free_linear_space<span class="sym">*</span>get_page_size <span class="kw">div</span> <span class="num">1024</span><span class="sym">,</span>
+                                        <span class="str">' kbytes'</span><span class="sym">)</span><span class="sym">;</span>
+                        <span class="kw">if</span> <span class="sym">(</span>max_pages_in_paging_file <span class="sym">&lt;</span><span class="sym">&gt;</span> <span class="sym">-</span><span class="num">1</span><span class="sym">)</span> <span class="kw">then</span>
+                                Writeln<span class="sym">(</span><span class="str">'Maximum size of paging file : '</span><span class="sym">,</span>
+                                        max_pages_in_paging_file<span class="sym">*</span>get_page_size <span class="kw">div</span> <span class="num">1024</span><span class="sym">,</span>
+                                        <span class="str">' kbytes'</span><span class="sym">)</span><span class="sym">;</span>
+                <span class="kw">end</span><span class="sym">;</span>
+        <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

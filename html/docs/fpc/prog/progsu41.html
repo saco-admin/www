@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$I or $INCLUDE : Include compiler info</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 883--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu42.html" >next</a>] [<a 
+href="progsu40.html" >prev</a>] [<a 
+href="progsu40.html#tailprogsu40.html" >prev-tail</a>] [<a 
+href="#tailprogsu41.html">tail</a>] [<a 
+href="progse2.html#progsu41.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.41   </span> <a 
+href="prog.html#QQ2-48-47" id="x48-470001.2.41"><span 
+class="cmtt-10">$I </span>or <span 
+class="cmtt-10">$INCLUDE </span>: Include compiler info</a></h4>
+<!--l. 884--><p class="noindent" >In this form:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-41">
+{$INCLUDE&#x00A0;%XXX%}
+</div>
+<!--l. 887--><p class="nopar" >the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$INCLUDE</span><span 
+class="cmsy-10">} </span>directive inserts a string constant in the source code.
+<!--l. 891--><p class="noindent" >Here <span 
+class="cmtt-10">XXX </span>can be one of the following:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">DATE</span> </dt><dd 
+class="description">Inserts the current date. It will be formatted as YYYY/MM/DD.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">FPCTARGET</span> </dt><dd 
+class="description">Inserts the target CPU name. (deprecated, use <span 
+class="cmtt-10">FPCTARGETCPU</span>)
+     </dd><dt class="description">
+<span 
+class="cmbx-10">FPCTARGETCPU</span> </dt><dd 
+class="description">Inserts the target CPU name.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">FPCTARGETOS</span> </dt><dd 
+class="description">Inserts the target OS name.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">FPCVERSION</span> </dt><dd 
+class="description">Current compiler version number.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">FILE</span> </dt><dd 
+class="description">Filename in which the directive is found.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">LINE</span> </dt><dd 
+class="description">Line number on which the directive is found.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">LINENUM</span> </dt><dd 
+class="description">Line number on which the directive is found. In this case, the result is an
+     integer, not a string.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">TIME</span> </dt><dd 
+class="description">Current time, formatted as HH:MM:SS</dd></dl>
+<!--l. 905--><p class="noindent" >If <span 
+class="cmtt-10">XXX </span>is none of the above, then it is assumed to be the name of an environment variable. Its value
+will be fetched from the environment, if it exists, otherwise an empty string is inserted. As a result,
+this will generate a macro with the value of the <span 
+class="cmtt-10">XXX </span>specifier, as if it were a string (or, in the case
+of LINENUM, an integer).
+<!--l. 911--><p class="noindent" >For example, the following program
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-42">
+Program&#x00A0;InfoDemo;
+&#x00A0;<br />
+&#x00A0;<br />Const&#x00A0;User&#x00A0;=&#x00A0;{$I&#x00A0;%USER%};
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Write&#x00A0;(&#8217;This&#x00A0;program&#x00A0;was&#x00A0;compiled&#x00A0;at&#x00A0;&#8217;,{$I&#x00A0;%TIME%});
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;&#x00A0;on&#x00A0;&#8217;,{$I&#x00A0;%DATE%});
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;By&#x00A0;&#8217;,User);
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Compiler&#x00A0;version:&#x00A0;&#8217;,{$I&#x00A0;%FPCVERSION%});
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Target&#x00A0;CPU:&#x00A0;&#8217;,{$I&#x00A0;%FPCTARGET%});
+&#x00A0;<br />end.
+</div>
+<!--l. 924--><p class="nopar" >Creates the following output:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-43">
+This&#x00A0;program&#x00A0;was&#x00A0;compiled&#x00A0;at&#x00A0;17:40:18&#x00A0;on&#x00A0;1998/09/09
+&#x00A0;<br />By&#x00A0;michael
+&#x00A0;<br />Compiler&#x00A0;version:&#x00A0;0.99.7
+&#x00A0;<br />Target&#x00A0;CPU:&#x00A0;i386
+</div>
+<!--l. 931--><p class="nopar" >
+<!--l. 933--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Note that the inclusion of DATE and TIME will not cause the compiler to recompile the unit
+every time it is used: the date and time will be the date and time when the unit was last
+compiled.
+                                                                            
+
+                                                                            
+<!--l. 949--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu42.html" >next</a>] [<a 
+href="progsu40.html" >prev</a>] [<a 
+href="progsu40.html#tailprogsu40.html" >prev-tail</a>] [<a 
+href="progsu41.html" >front</a>] [<a 
+href="progse2.html#progsu41.html" >up</a>] </p></div>
+<!--l. 949--><p class="noindent" ><a 
+ id="tailprogsu41.html"></a>  
+</body></html> 

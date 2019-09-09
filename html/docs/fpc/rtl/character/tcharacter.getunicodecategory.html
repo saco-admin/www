@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCharacter.GetUnicodeCategory</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../character/index.html">Overview</a>][<a href="../character/index-3.html">Types</a>][<a href="../character/index-4.html">Classes</a>][<a href="../character/index-5.html">Procedures and functions</a>][<a href="../character/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'character' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TCharacter.GetUnicodeCategory</h1>
+<p>Get the unicode category of a character</p>
+<h2>Declaration</h2>
+<p>Source position: character.pas line 93</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">class function</span> <a href="../character/tcharacter.html">TCharacter</a><span class="sym">.</span>GetUnicodeCategory<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AChar<span class="sym">: </span><a href="../system/unicodechar.html">UnicodeChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../character/tunicodecategory.html">TUnicodeCategory</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">class function</span> <a href="../character/tcharacter.html">TCharacter</a><span class="sym">.</span>GetUnicodeCategory<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AString<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AIndex<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../character/tunicodecategory.html">TUnicodeCategory</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AChar</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">UTF16 Character</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>The unicode character category</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AString</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String containing UTF-16 encoded characters</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AIndex</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Index of UTF16 encoded character in <var>AString</var> to be checked.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TCharacter.GetUnicodeCategory</var> returns the unicode category of a character. The character can be presented in 2 ways: <var>AChar</var>, a UTF16 unicode character, or a surrogate pair in a unicode string <var>AString</var> starting at position <var>AIndex</var>. </p>
+<h2>Errors</h2>
+<p>If <var>AIndex</var> is not a valid character index in the string <var>AString</var>, an <a href="../sysutils/eargumentoutofrangeexception.html">EArgumentOutOfRangeException</a> exception is raised.  If the character at that position is not complete, an <a href="../sysutils/eargumentexception.html">EArgumentException</a> exception is raised.  </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../character/tunicodecategory.html">TUnicodeCategory</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unicode code point (character) category</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

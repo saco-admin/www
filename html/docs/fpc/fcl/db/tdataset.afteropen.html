@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDataSet.AfterOpen</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDataSet.AfterOpen</h1>
+<p>Event triggered after the dataset is opened.</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1692</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../db/tdataset.html">TDataSet</a><span class="sym">.</span>AfterOpen<span class="sym"> : </span><a href="../db/tdatasetnotifyevent.html">TDataSetNotifyEvent</a><br>&nbsp;&nbsp;<span class="kw">read </span>FAfterOpen<br>&nbsp;&nbsp;<span class="kw">write </span>FAfterOpen<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>AfterOpen</var> is triggered after the dataset is opened. The dataset has fetched its data and is in <var>dsBrowse</var> state when  this event is triggered. If the dataset is not empty, then a <a href="../db/tdataset.afterscroll.html">TDataset.AfterScroll</a> event will be triggered immediately after the <var>AfterOpen</var> event.  If an exception is raised during the event  handler, the dataset remains open, but the <var>AfterScroll</var>  event will not be triggered. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdataset.afteropen.html">TDataset.AfterOpen</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event triggered after the dataset is opened.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.state.html">TDataset.State</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Current operational state of the dataset</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.afterscroll.html">TDataset.AfterScroll</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event triggered after the cursor has changed position.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

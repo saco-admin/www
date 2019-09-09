@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TWinBindings.ErrCode</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../daemonapp/index.html">Overview</a>][<a href="../daemonapp/index-1.html">Resource strings</a>][<a href="../daemonapp/index-3.html">Types</a>][<a href="../daemonapp/index-4.html">Classes</a>][<a href="../daemonapp/index-5.html">Procedures and functions</a>][<a href="../daemonapp/index-6.html">Variables</a>][<a href="../daemonapp/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'daemonapp' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TWinBindings.ErrCode</h1>
+<p>Service specific error code</p>
+<h2>Declaration</h2>
+<p>Source position: daemonapp.pp line 197</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../daemonapp/twinbindings.html">TWinBindings</a><span class="sym">.</span>ErrCode<span class="sym"> : </span><a href="../../rtl/system/dword.html">DWord</a><br>&nbsp;&nbsp;<span class="kw">read </span>FErrCode<br>&nbsp;&nbsp;<span class="kw">write </span>FErrCode<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ErrCode</var> contains a service specific error code that is reported with  <b>TDaemon.ReportStatus</b> to the windows service manager. If it is zero, then the contents of <a href="../daemonapp/twinbindings.win32errcode.html">Win32ErrCode</a> are reported. If it is nonzero, then the windows-errorcode is set to  <var>ERROR_SERVICE_SPECIFIC_ERROR</var>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../daemonapp/twinbindings.win32errcode.html">TWinBindings.Win32ErrCode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">General windows error code</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

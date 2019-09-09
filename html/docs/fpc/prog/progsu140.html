@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Mangled names for code blocks</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 3922--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu141.html" >next</a>] [<a 
+href="progsu139.html" >prev</a>] [<a 
+href="progsu139.html#tailprogsu139.html" >prev-tail</a>] [<a 
+href="#tailprogsu140.html">tail</a>] [<a 
+href="progse21.html#progsu140.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.2.2   </span> <a 
+href="prog.html#QQ2-171-178" id="x171-1740006.2.2">Mangled names for code blocks</a></h4>
+<!--l. 3924--><p class="noindent" >The rules for mangled names for routines are as follows:
+     <ul class="itemize1">
+     <li class="itemize">All routine names are converted to upper case.
+     </li>
+     <li class="itemize">Routines in a unit have their unit name prepended to them : _UNITNAME$$_
+     </li>
+     <li class="itemize">All Routines in the main program have a _ prepended to them.
+     </li>
+     <li class="itemize">All parameters in a routine are mangled using the type of the parameter (in uppercase)
+     prepended by the $ character. This is done in left to right order for each parameter of
+     the routine.
+     </li>
+     <li class="itemize">Objects and classes use special mangling : The class type or object type is given in
+     the mangled name; The mangled name is as follows: _$$_TYPEDECL_$$ optionally
+     preceded by mangled name of the unit and finishing with the method name.</li></ul>
+<!--l. 3938--><p class="noindent" >The following constructs
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-171">
+unit&#x00A0;testman;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;myobject&#x00A0;=&#x00A0;object
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;constructor&#x00A0;init;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;mymethod;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />constructor&#x00A0;myobject.init;
+&#x00A0;<br />begin
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;myobject.mymethod;
+&#x00A0;<br />begin
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;myfunc:&#x00A0;pointer;
+&#x00A0;<br />begin
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;myprocedure(var&#x00A0;x:&#x00A0;integer;&#x00A0;y:&#x00A0;longint;&#x00A0;z&#x00A0;:&#x00A0;pchar);
+&#x00A0;<br />begin
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 3968--><p class="nopar" >will result in the following assembler file for the Intel 80x86 target:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-172">
+.file&#x00A0;"testman.pas"
+&#x00A0;<br />
+&#x00A0;<br />.text
+&#x00A0;<br />.balign&#x00A0;16
+&#x00A0;<br />.globl _TESTMAN$$_$$_MYOBJECT_$$_INIT
+&#x00A0;<br />_TESTMAN$$_$$_MYOBJECT_$$_INIT:
+&#x00A0;<br />pushl %ebp
+&#x00A0;<br />movl %esp,%ebp
+&#x00A0;<br />subl $4,%esp
+&#x00A0;<br />movl $0,%edi
+&#x00A0;<br />call FPC_HELP_CONSTRUCTOR
+&#x00A0;<br />jz .L5
+&#x00A0;<br />jmp .L7
+&#x00A0;<br />.L5:
+&#x00A0;<br />movl 12(%ebp),%esi
+&#x00A0;<br />movl $0,%edi
+&#x00A0;<br />call FPC_HELP_FAIL
+&#x00A0;<br />.L7:
+&#x00A0;<br />movl %esi,%eax
+&#x00A0;<br />testl %esi,%esi
+&#x00A0;<br />leave
+&#x00A0;<br />ret $8
+&#x00A0;<br />.balign&#x00A0;16
+&#x00A0;<br />.globl _TESTMAN$$_$$_MYOBJECT_$$_MYMETHOD
+&#x00A0;<br />_TESTMAN$$_$$_MYOBJECT_$$_MYMETHOD:
+&#x00A0;<br />pushl %ebp
+&#x00A0;<br />movl %esp,%ebp
+&#x00A0;<br />leave
+&#x00A0;<br />ret $4
+&#x00A0;<br />.balign&#x00A0;16
+&#x00A0;<br />_TESTMAN$$_MYFUNC:
+&#x00A0;<br />pushl %ebp
+&#x00A0;<br />movl %esp,%ebp
+&#x00A0;<br />subl $4,%esp
+&#x00A0;<br />movl -4(%ebp),%eax
+&#x00A0;<br />leave
+&#x00A0;<br />ret
+&#x00A0;<br />.balign&#x00A0;16
+&#x00A0;<br />_TESTMAN$$_MYPROCEDURE$INTEGER$LONGINT$PCHAR:
+&#x00A0;<br />pushl %ebp
+&#x00A0;<br />movl %esp,%ebp
+&#x00A0;<br />leave
+&#x00A0;<br />ret $12
+&#x00A0;<br />
+</div>
+<!--l. 4015--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 4017--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu141.html" >next</a>] [<a 
+href="progsu139.html" >prev</a>] [<a 
+href="progsu139.html#tailprogsu139.html" >prev-tail</a>] [<a 
+href="progsu140.html" >front</a>] [<a 
+href="progse21.html#progsu140.html" >up</a>] </p></div>
+<!--l. 4017--><p class="noindent" ><a 
+ id="tailprogsu140.html"></a>  
+</body></html> 

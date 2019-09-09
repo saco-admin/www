@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TryStrToFloat</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TryStrToFloat</h1>
+<p>Try to convert a string to a float.</p>
+<h2>Declaration</h2>
+<p>Source position: sysstrh.inc line 177</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> TryStrToFloat<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>Value<span class="sym">: </span>Single</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><br><br><span class="kw">function</span> TryStrToFloat<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>Value<span class="sym">: </span>Single<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>FormatSettings<span class="sym">: </span><a href="../sysutils/tformatsettings.html">TFormatSettings</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><br><br><span class="kw">function</span> TryStrToFloat<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>Value<span class="sym">: </span>Double</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><br><br><span class="kw">function</span> TryStrToFloat<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>Value<span class="sym">: </span>Double<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>FormatSettings<span class="sym">: </span><a href="../sysutils/tformatsettings.html">TFormatSettings</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><br><br><span class="kw">function</span> TryStrToFloat<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>Value<span class="sym">: </span>Extended</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><br><br><span class="kw">function</span> TryStrToFloat<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>Value<span class="sym">: </span>Extended<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>FormatSettings<span class="sym">: </span><a href="../sysutils/tformatsettings.html">TFormatSettings</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TryStrToFloat</var> tries to convert the string <var>S</var> to a floating point value, and stores the result in <var>Value</var>. It returns <var>True</var> if the operation was succesful, and <var>False</var> if it failed. This operation takes into account the system settings for floating point representations. </p>
+<h2>Errors</h2>
+<p>On error, <var>False</var> is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/strtofloat.html">StrToFloat</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a string to a floating-point value.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

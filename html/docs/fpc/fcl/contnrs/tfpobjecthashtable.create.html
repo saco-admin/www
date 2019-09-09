@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFPObjectHashTable.Create</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../contnrs/index.html">Overview</a>][<a href="../contnrs/index-2.html">Constants</a>][<a href="../contnrs/index-3.html">Types</a>][<a href="../contnrs/index-4.html">Classes</a>][<a href="../contnrs/index-5.html">Procedures and functions</a>][<a href="../contnrs/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'contnrs' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TFPObjectHashTable.Create</h1>
+<p>Create a new instance of <var>TFPObjectHashTable</var></p>
+<h2>Declaration</h2>
+<p>Source position: contnrs.pp line 495</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">constructor</span> <a href="../contnrs/tfpobjecthashtable.html">TFPObjectHashTable</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AOwnsObjects<span class="sym">: </span>Boolean <span class="sym">=</span> True</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AOwnsObjects</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Does the hash table own the objects stored in it?</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Create</var> creates a new instance of <var>TFPObjectHashTable</var> on the heap. It sets the <a href="../contnrs/tfpobjecthashtable.ownsobjects.html">OwnsObjects</a>  property to <var>AOwnsObjects</var>, and then calls the inherited <var>Create</var>. If <var>AOwnsObjects</var> is set to <var>True</var>,  then the hash table owns the objects: whenever an object is removed from  the list, it is automatically freed. </p>
+<h2>Errors</h2>
+<p>If not enough memory is available on the heap, an exception may be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../contnrs/tfpobjecthashtable.ownsobjects.html">TFPObjectHashTable.OwnsObjects</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Does the hash table own the objects ?</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../contnrs/tfpobjecthashtable.createwith.html">TFPObjectHashTable.CreateWith</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a new hash table with given size and hash function</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../contnrs/tfpobjecthashtable.items.html">TFPObjectHashTable.Items</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Key-based access to the objects</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

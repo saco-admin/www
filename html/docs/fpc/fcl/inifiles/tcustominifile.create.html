@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCustomIniFile.Create</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../inifiles/index.html">Overview</a>][<a href="../inifiles/index-3.html">Types</a>][<a href="../inifiles/index-4.html">Classes</a>][<a href="../inifiles/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'IniFiles' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCustomIniFile.Create</h1>
+<p>Instantiate a new instance of <var>TCustomIniFile</var>.</p>
+<h2>Declaration</h2>
+<p>Source position: inifiles.pp line 160</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">constructor</span> <a href="../inifiles/tcustominifile.html">TCustomIniFile</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AFileName<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AOptions<span class="sym">: </span><a href="../inifiles/tinifileoptions.html">TIniFileOptions</a> <span class="sym">=</span> <span class="sym">[</span><span class="sym">]</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><br><br><span class="kw">constructor</span> <a href="../inifiles/tcustominifile.html">TCustomIniFile</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AFileName<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AEscapeLineFeeds<span class="sym">: </span>Boolean</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AFileName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Filename to read</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AOptions</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Options to use when processing the ini file.</p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AFileName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Filename to read</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AEscapeLineFeeds</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should escaping of linefeeds be enabled ?</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Create</var> creates a new instance of <var>TCustomIniFile</var> and loads it with the data from <var>AFileName</var>, if this file exists. If the <var>ifoEscapeLineFeeds</var> option is present in <var>AOptions</var> or <var>AEscapeLineFeeds</var> parameter is <var>True</var>, then lines which have their end-of-line markers escaped with a backslash, will be concatenated. This means that the following 2 lines </p>
+<pre>Description=This is a \
+line with a long text
+</pre>
+<p>is equivalent to </p>
+<pre>Description=This is a line with a long text
+</pre>
+<p>By default, not escaping of linefeeds is performed (for Delphi compatibility) </p>
+<p>Default options for the <a href="../inifiles/tcustominifile.options.html">TCustomIniFile.Options</a> property can be specified in <var>AOptions</var>. </p>
+<h2>Errors</h2>
+<p>If the file cannot be read, an exception may be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../inifiles/tcustominifile.destroy.html">Destroy</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Remove the <var>TCustomIniFile</var> instance from memory</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inifiles/tcustominifile.options.html">TCustomIniFile.Options</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Options currently in effect</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

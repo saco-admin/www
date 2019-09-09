@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$FPUTYPE : Select coprocessor type</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 568--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu24.html" >next</a>] [<a 
+href="progsu22.html" >prev</a>] [<a 
+href="progsu22.html#tailprogsu22.html" >prev-tail</a>] [<a 
+href="#tailprogsu23.html">tail</a>] [<a 
+href="progse2.html#progsu23.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.23   </span> <a 
+href="prog.html#QQ2-30-29" id="x30-290001.2.23"><span 
+class="cmtt-10">$FPUTYPE </span>: Select coprocessor type</a></h4>
+<!--l. 570--><p class="noindent" >This directive selects the type of coprocessor used to do floating point calculations. The directive
+must be followed by the type of floating point unit. The allowed values depend on the target
+CPU:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">all</span> </dt><dd 
+class="description"><span 
+class="cmtt-10">SOFT</span>: FPC emulates the coprocessor (not yet implemented).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">i386</span> </dt><dd 
+class="description"><span 
+class="cmtt-10">X87</span>, <span 
+class="cmtt-10">SSE</span>, <span 
+class="cmtt-10">SSE2</span>: code compiled with <span 
+class="cmtt-10">SSE </span>uses the sse to do calculations involving a
+     float of type <span 
+class="cmtt-10">Single</span>. This code runs only on Pentium III and above, or AthlonXP and
+     above. Code compiled with <span 
+class="cmtt-10">SSE2 </span>uses the <span 
+class="cmss-10">sse </span>unit to do calculations with the single
+     and double data type. This code runs only on PentiumIV and above or Athlon64 and
+     above
+     </dd><dt class="description">
+<span 
+class="cmbx-10">x86-64</span> </dt><dd 
+class="description"><span 
+class="cmtt-10">SSE64</span>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">powerpc</span> </dt><dd 
+class="description"><span 
+class="cmtt-10">STANDARD</span>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">arm</span> </dt><dd 
+class="description"><span 
+class="cmtt-10">LIBGCC</span>, <span 
+class="cmtt-10">FPA</span>, <span 
+class="cmtt-10">FPA10</span>, <span 
+class="cmtt-10">FPA11</span>,<span 
+class="cmtt-10">VFP</span>.</dd></dl>
+<!--l. 587--><p class="noindent" >This directive corresponds to the <span 
+class="cmtt-10">-Cf </span>command line option.
+                                                                            
+
+                                                                            
+<!--l. 589--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu24.html" >next</a>] [<a 
+href="progsu22.html" >prev</a>] [<a 
+href="progsu22.html#tailprogsu22.html" >prev-tail</a>] [<a 
+href="progsu23.html" >front</a>] [<a 
+href="progse2.html#progsu23.html" >up</a>] </p></div>
+<!--l. 589--><p class="noindent" ><a 
+ id="tailprogsu23.html"></a>  
+</body></html> 

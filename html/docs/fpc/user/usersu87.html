@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Missing calls / API incompatibilities</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2324--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu88.html" >next</a>] [<a 
+href="usersu86.html" >prev</a>] [<a 
+href="usersu86.html#tailusersu86.html" >prev-tail</a>] [<a 
+href="#tailusersu87.html">tail</a>] [<a 
+href="userse35.html#usersu87.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">7.3.2   </span> <a 
+href="user.html#QQ2-131-187" id="x131-1380007.3.2">Missing calls / API incompatibilities</a></h4>
+<!--l. 2325--><p class="noindent" >Delphi is heavily bound to Windows. Because of this, it introduced a lot of Windows-isms in the
+API (e.g. file searching and opening, loading libraries).
+<!--l. 2328--><p class="noindent" >Free Pascal was designed to be portable, so things that are very Windows specific are missing,
+although the Free Pascal team tries to minimize this. The following are the main points that
+should be considered:
+     <ul class="itemize1">
+     <li class="itemize">By default, Free Pascal generates console applications. This means that you must explicitly
+     enable the GUI application type for Windows:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-96">
+     {$APPTYPE&#x00A0;GUI}
+</div>
+     <!--l. 2337--><p class="nopar" >
+     </li>
+     <li class="itemize">The <span 
+class="cmss-10">Windows </span>unit provides access to most of the core Win32 API. Some calls may have
+     different parameter lists: instead of declaring a parameter as passed by reference (var), a
+     pointer is used (as in C). For most cases, Free Pascal provides overloaded versions of such
+     calls.
+     </li>
+     <li class="itemize">Widestrings. Widestring management is not automatic in Free Pascal, since various
+     platforms have different ways of dealing with widestring encodings and Multi-Byte
+     Character Sets. FPC supports Widestrings, but may not use the same encoding as on
+     Windows.
+     <!--l. 2348--><p class="noindent" >Note that in order to have correct widestring management, you need to include the <span 
+class="cmss-10">cwstring</span>
+     unit on Unix/<span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>platforms: This unit initializes the widestring manager with the
+     necessary callbacks which use the C library to implement all needed widestring
+     functionality.
+     </li>
+     <li class="itemize">Threads: At this moment, Free Pascal does not offer native thread management on all
+     platforms; on Unix, linking to the C library is needed to provide thread management in an
+     FPC application. This means that a <span 
+class="cmss-10">cthreads </span>unit must be included to enable
+     threads.
+     </li>
+     <li class="itemize">A much-quoted example is the <span 
+class="cmtt-10">SetLastOSError </span>call. This is not supported, and will never be
+     supported.
+     </li>
+     <li class="itemize">Filename Case sensitivity: Pascal is a case-insensitive language, so the uses clause
+     should also be case insensitive. Free Pascal ensures case insensitive filenames by also
+     searching for a lowercase version of the file. Kylix does not do this, so this could
+     create problems if two differently cased versions of the same filename are in the
+     path.
+     </li>
+     <li class="itemize">RTTI is NOT stored in the same way as for Delphi. The format is mostly compatible, but
+     may differ. This should not be a problem if the API of the TypeInfo unit is used and no
+     direct access to the RTTI information is attempted.
+     </li>
+     <li class="itemize">By default, sets are of different size than in Delphi, but set size can be specified using
+     directives or command line switches.
+     </li>
+     <li class="itemize">Likewise, by default enumeration types are of different size than in Delphi. Here again, the
+     size can be specified using directives or command line switches.
+                                                                            
+
+                                                                            
+     </li>
+     <li class="itemize">In general, one should not make assumptions about the internal structure of complex types
+     such as records, objects, classes and their associated structure. For example, the
+     VMT table layout is different, the alignment of fields in a record may be different,
+     etc.
+     </li>
+     <li class="itemize">The same is true for basic types: on other processors the high and low bytes of a word or
+     integer may not be at the same location as on an Intel processor (the endianness is
+     different).
+     </li>
+     <li class="itemize">Names of local variables and method arguments are not allowed to match the name of a
+     property or field of the class: this is bad practise, as there can be confusion as to which of the
+     two is meant.</li></ul>
+                                                                            
+
+                                                                            
+<!--l. 2383--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu88.html" >next</a>] [<a 
+href="usersu86.html" >prev</a>] [<a 
+href="usersu86.html#tailusersu86.html" >prev-tail</a>] [<a 
+href="usersu87.html" >front</a>] [<a 
+href="userse35.html#usersu87.html" >up</a>] </p></div>
+<!--l. 2383--><p class="noindent" ><a 
+ id="tailusersu87.html"></a>  
+</body></html> 

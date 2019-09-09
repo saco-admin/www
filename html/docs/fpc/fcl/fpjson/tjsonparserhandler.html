@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TJSONParserHandler</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../fpjson/index.html">Overview</a>][<a href="../fpjson/index-2.html">Constants</a>][<a href="../fpjson/index-3.html">Types</a>][<a href="../fpjson/index-4.html">Classes</a>][<a href="../fpjson/index-5.html">Procedures and functions</a>][<a href="../fpjson/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'fpjson' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TJSONParserHandler</h1>
+<p>Callback to parse JSON into <var>JSONData</var></p>
+<h2>Declaration</h2>
+<p>Source position: fpjson.pp line 594</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TJSONParserHandler<span class="sym"> = </span><span class="kw">procedure</span><span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AStream<span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AUseUTF8<span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>Data<span class="sym">: </span><a href="../fpjson/tjsondata.html">TJSONData</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AStream</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Stream to parse.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AUseUTF8</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Use UTF-8 in returned ansistrings</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Data</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Resulting JSON data.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TJSONParserHandler</var> is a callback prototype used by the <a href="../fpjson/getjson.html">GetJSON</a> function to do the actual parsing. It has 2 arguments: <var>AStream</var>, which is the stream containing the JSON that must be parsed, and <var>AUseUTF8</var>, which indicates whether the (ansi) strings contain UTF-8. </p>
+<p>The result should be returned in <var>Data</var>. </p>
+<p>The parser is expected to use the JSON class types registered using the <a href="../fpjson/setjsoninstancetype.html">SetJSONInstanceType</a> method, the actual types can be retrieved with <a href="../fpjson/getjsoninstancetype.html">GetJSONInstanceType</a></p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../fpjson/getjson.html">GetJSON</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert JSON string to JSON data structure</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fpjson/setjsoninstancetype.html">SetJSONInstanceType</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">JSON factory: Set the JSONData class types to use</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fpjson/getjsoninstancetype.html">GetJSONInstanceType</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">JSON factory: Get the JSONData class types to use</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

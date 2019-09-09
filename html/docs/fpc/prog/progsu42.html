@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$J or $WRITEABLECONST : Allow assignments to typed consts</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 950--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu43.html" >next</a>] [<a 
+href="progsu41.html" >prev</a>] [<a 
+href="progsu41.html#tailprogsu41.html" >prev-tail</a>] [<a 
+href="#tailprogsu42.html">tail</a>] [<a 
+href="progse2.html#progsu42.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.42   </span> <a 
+href="prog.html#QQ2-49-48" id="x49-480001.2.42"><span 
+class="cmtt-10">$J </span>or <span 
+class="cmtt-10">$WRITEABLECONST </span>: Allow assignments to typed consts</a></h4>
+<!--l. 951--><p class="noindent" >This boolean switch tells the compiler whether or not assignments to typed constants are allowed.
+The default is to allow assignments to typed constants.
+<!--l. 954--><p class="noindent" >The following statement will switch off assignments to typed constants:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-44">
+{$WRITEABLECONST&#x00A0;OFF}
+</div>
+<!--l. 957--><p class="nopar" >After this switch, the following statement will no longer compile:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-45">
+Const
+&#x00A0;<br />&#x00A0;&#x00A0;MyString&#x00A0;:&#x00A0;String&#x00A0;=&#x00A0;&#8217;Some&#x00A0;nice&#x00A0;string&#8217;;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;MyString:=&#8217;Some&#x00A0;Other&#x00A0;string&#8217;;
+&#x00A0;<br />end.
+</div>
+<!--l. 966--><p class="nopar" >But an initialized variable will still compile:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-46">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;MyString&#x00A0;:&#x00A0;String&#x00A0;=&#x00A0;&#8217;Some&#x00A0;nice&#x00A0;string&#8217;;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;MyString:=&#8217;Some&#x00A0;Other&#x00A0;string&#8217;;
+&#x00A0;<br />end.
+</div>
+<!--l. 974--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 978--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu43.html" >next</a>] [<a 
+href="progsu41.html" >prev</a>] [<a 
+href="progsu41.html#tailprogsu41.html" >prev-tail</a>] [<a 
+href="progsu42.html" >front</a>] [<a 
+href="progse2.html#progsu42.html" >up</a>] </p></div>
+<!--l. 978--><p class="noindent" ><a 
+ id="tailprogsu42.html"></a>  
+</body></html> 

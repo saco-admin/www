@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Debug options</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2096--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu74.html" >next</a>] [<a 
+href="usersu72.html" >prev</a>] [<a 
+href="usersu72.html#tailusersu72.html" >prev-tail</a>] [<a 
+href="#tailusersu73.html">tail</a>] [<a 
+href="userse29.html#usersu73.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.11.7   </span> <a 
+href="user.html#QQ2-110-152" id="x110-1170006.11.7">Debug options</a></h4>
+<!--l. 2098--><p class="noindent" >In the debug options dialog (reachable via <span 
+class="cmbx-10">&#8221;Options&#8212;Debugger&#8221;</span>), some options
+for inclusion of debug information in the binary can be set; it is also possible to add
+additional compiler options in this dialog. The debug options dialog is shown in figure (<a 
+href="#x110-117001r31">6.31<!--tex4ht:ref: fig:odebug --></a>).
+<hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x110-117001r31"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 2102--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;6.31: </span><span  
+class="content">The debug options dialog</span></div><!--tex4ht:label?: x110-117001r31 -->
+<!--l. 2102--><p class="noindent" ><img 
+src="user32x.png" alt="PIC" class="graphics" width="400.34999pt" height="253.72163pt" ><!--tex4ht:graphics  
+name="user32x.png" src="pics/ide/odebug.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 2102--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 2104--><p class="noindent" >The following options can be set:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Debugging information</span> </dt><dd 
+class="description">tells the compiler which debug information should be compiled in. One
+     of the following options can be chosen:
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">Strip all debug symbols from executable</span> </dt><dd 
+class="description">Will   strip   all   debug   and   symbol
+         information from the binary. (option <span 
+class="cmtt-10">-Xs </span>on the command line).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Skip debug information generation</span> </dt><dd 
+class="description">Do not generate debug information at all.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Generate debug symbol information</span> </dt><dd 
+class="description">Include  debug  information  in  the  binary
+         (option <span 
+class="cmtt-10">-g </span>on the command line). Please note that no debug information for units
+         in the Run-Time Library will be included, unless a version of the RTL compiled
+         with debug information is available. Only units specific to the current project will
+         have debug information included.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Generate also backtrace line information</span> </dt><dd 
+class="description">Will compile with debug information,
+         and will additionally include the <span 
+class="cmss-10">lineinfo </span>unit in the binary, so that in case of an
+         error the backtrace will contain the file names and line numbers of procedures in
+         the call-stack. (Option <span 
+class="cmtt-10">-gl </span>on the command line.)
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Generate valgrind compatible debug info</span> </dt><dd 
+class="description">Generate debug information that can
+         be read with valgrind (a memory checking tool).</dd></dl>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Profiling switches</span> </dt><dd 
+class="description">Tells the compiler whether or not profile code should be included in the
+     binary.
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">No profile information</span> </dt><dd 
+class="description">Has no effect, as it is the default.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Generate Profile code for gprof</span> </dt><dd 
+class="description">If checked, profiling code is included in the binary
+         (option <span 
+class="cmtt-10">-p </span>on the command line).</dd></dl>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Use another TTY for Debuggee</span> </dt><dd 
+class="description">An attempt will be made to redirect the output of the
+     program being debugged to another window (terminal), whose file name should be entered
+     here.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 2145--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu74.html" >next</a>] [<a 
+href="usersu72.html" >prev</a>] [<a 
+href="usersu72.html#tailusersu72.html" >prev-tail</a>] [<a 
+href="usersu73.html" >front</a>] [<a 
+href="userse29.html#usersu73.html" >up</a>] </p></div>
+<!--l. 2145--><p class="noindent" ><a 
+ id="tailusersu73.html"></a>  
+</body></html> 

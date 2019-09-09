@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$MESSAGE : Generate user-defined message</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 1121--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu51.html" >next</a>] [<a 
+href="progsu49.html" >prev</a>] [<a 
+href="progsu49.html#tailprogsu49.html" >prev-tail</a>] [<a 
+href="#tailprogsu50.html">tail</a>] [<a 
+href="progse2.html#progsu50.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.50   </span> <a 
+href="prog.html#QQ2-57-56" id="x57-560001.2.50"><span 
+class="cmtt-10">$MESSAGE </span>: Generate user-defined message</a></h4>
+<!--l. 1122--><p class="noindent" >The <span 
+class="cmtt-10">$MESSAGE </span>directive allows to insert user-defined Warning, Hint or Note. It is equivalent to one
+of the <span 
+class="cmtt-10">$FATAL</span>, <span 
+class="cmtt-10">$ERROR</span>, <span 
+class="cmtt-10">$WARNING</span>, <span 
+class="cmtt-10">$HINT </span>or <span 
+class="cmtt-10">$NOTE </span>directives. It must be followed by
+one of the words <span 
+class="cmtt-10">ERROR WARNING HINT </span>or <span 
+class="cmtt-10">NOTE</span>, and then the message to display, as
+follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-50">
+{$MESSAGE&#x00A0;WARNING&#x00A0;This&#x00A0;was&#x00A0;coded&#x00A0;on&#x00A0;a&#x00A0;rainy&#x00A0;day&#x00A0;by&#x00A0;Bugs&#x00A0;Bunny}
+</div>
+<!--l. 1129--><p class="nopar" >This will display a warning message when the compiler encounters it. The effect is the same as the
+<span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$WARNING</span><span 
+class="cmsy-10">} </span>directive.
+<!--l. 1133--><p class="noindent" >This means that the following:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-51">
+{$MESSAGE&#x00A0;WARNING&#x00A0;Coded&#x00A0;on&#x00A0;a&#x00A0;rainy&#x00A0;day}
+&#x00A0;<br />{$MESSAGE&#x00A0;NOTE&#x00A0;Coded&#x00A0;on&#x00A0;a&#x00A0;very&#x00A0;very&#x00A0;rainy&#x00A0;day}
+&#x00A0;<br />{$MESSAGE&#x00A0;HINT&#x00A0;Coded&#x00A0;on&#x00A0;a&#x00A0;very&#x00A0;rainy&#x00A0;day}
+&#x00A0;<br />{$MESSAGE&#x00A0;ERROR&#x00A0;This&#x00A0;is&#x00A0;wrong}
+&#x00A0;<br />{$MESSAGE&#x00A0;FATAL&#x00A0;This&#x00A0;is&#x00A0;so&#x00A0;wrong,&#x00A0;the&#x00A0;compiler&#x00A0;will&#x00A0;stop&#x00A0;at&#x00A0;once}
+</div>
+<!--l. 1140--><p class="nopar" >is completely equivalent to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-52">
+{$WARNING&#x00A0;Coded&#x00A0;on&#x00A0;a&#x00A0;rainy&#x00A0;day}
+&#x00A0;<br />{$NOTE&#x00A0;Coded&#x00A0;on&#x00A0;a&#x00A0;very&#x00A0;very&#x00A0;rainy&#x00A0;day}
+&#x00A0;<br />{$HINT&#x00A0;Coded&#x00A0;on&#x00A0;a&#x00A0;very&#x00A0;rainy&#x00A0;day}
+&#x00A0;<br />{$ERROR&#x00A0;This&#x00A0;is&#x00A0;wrong}
+&#x00A0;<br />{$FATAL&#x00A0;This&#x00A0;is&#x00A0;so&#x00A0;wrong,&#x00A0;the&#x00A0;compiler&#x00A0;will&#x00A0;stop&#x00A0;at&#x00A0;once}
+</div>
+<!--l. 1148--><p class="nopar" >
+<!--l. 1150--><p class="noindent" >Note that if the <span 
+class="cmtt-10">-Sew </span>switch is used, the WARNING message will be treated as an error, and the
+compiler will stop.
+                                                                            
+
+                                                                            
+<!--l. 1153--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu51.html" >next</a>] [<a 
+href="progsu49.html" >prev</a>] [<a 
+href="progsu49.html#tailprogsu49.html" >prev-tail</a>] [<a 
+href="progsu50.html" >front</a>] [<a 
+href="progse2.html#progsu50.html" >up</a>] </p></div>
+<!--l. 1153--><p class="noindent" ><a 
+ id="tailprogsu50.html"></a>  
+</body></html> 

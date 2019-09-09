@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>SetMouseXY</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../mouse/index.html">Overview</a>][<a href="../mouse/index-2.html">Constants</a>][<a href="../mouse/index-3.html">Types</a>][<a href="../mouse/index-5.html">Procedures and functions</a>][<a href="../mouse/index-6.html">Variables</a>][<a href="../mouse/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Mouse' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>SetMouseXY</h1>
+<p>Set the mouse cursor position.</p>
+<h2>Declaration</h2>
+<p>Source position: mouseh.inc line 89</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> SetMouseXY<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;x<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;y<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>SetMouseXY</var> places the mouse cursor on <var>X,Y</var>. X and Y are zero based character coordinates: <var>0,0</var> is the top-left corner of the screen, and the position is in character cells (i.e. not in pixels). </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../mouse/getmousex.html">GetMouseX</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Query the current horizontal position of the mouse cursor.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../mouse/getmousey.html">GetMouseY</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Query the current vertical position of the mouse cursor.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example7<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the SetMouseXY function. }</span>
+
+<span class="kw">Uses</span> mouse<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  InitMouse<span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Click right mouse button to quit.'</span><span class="sym">)</span><span class="sym">;</span>
+  SetMouseXY<span class="sym">(</span><span class="num">40</span><span class="sym">,</span><span class="num">12</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">Repeat</span>
+    Writeln<span class="sym">(</span>GetMouseX<span class="sym">,</span><span class="chr">','</span><span class="sym">,</span>GetMouseY<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> <span class="sym">(</span>GetMouseX<span class="sym">&gt;</span><span class="num">70</span><span class="sym">)</span> <span class="kw">then</span>
+      SetMouseXY<span class="sym">(</span><span class="num">10</span><span class="sym">,</span>GetMouseY<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> <span class="sym">(</span>GetMouseY<span class="sym">&gt;</span><span class="num">20</span><span class="sym">)</span> <span class="kw">then</span>
+      SetMouseXY<span class="sym">(</span>GetMouseX<span class="sym">,</span><span class="num">5</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">Until</span> <span class="sym">(</span>GetMouseButtons<span class="sym">=</span>MouseRightButton<span class="sym">)</span><span class="sym">;</span>
+  DoneMouse<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>ComputeSortKey</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unicodedata/index.html">Overview</a>][<a href="../unicodedata/index-1.html">Resource strings</a>][<a href="../unicodedata/index-2.html">Constants</a>][<a href="../unicodedata/index-3.html">Types</a>][<a href="../unicodedata/index-5.html">Procedures and functions</a>][<a href="../unicodedata/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'unicodedata' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>ComputeSortKey</h1>
+<p>Compute the sort key for a string</p>
+<h2>Declaration</h2>
+<p>Source position: unicodedata.pas line 391</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> ComputeSortKey<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AString<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ACollation<span class="sym">: </span><a href="../unicodedata/puca_databook.html">PUCA_DataBook</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unicodedata/tucasortkey.html">TUCASortKey</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> ComputeSortKey<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AStr<span class="sym">: </span><a href="../system/punicodechar.html">PUnicodeChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ALength<span class="sym">: </span><a href="../system/sizeint.html">SizeInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ACollation<span class="sym">: </span><a href="../unicodedata/puca_databook.html">PUCA_DataBook</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unicodedata/tucasortkey.html">TUCASortKey</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AString</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unicode string</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ACollation</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unicode Collation Algorithm data to use.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Sort key for the string.</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AStr</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Null-terminated string with length specified in <var>ALength</var>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ALength</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Length of null-terminated string <var>AStr</var>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ACollation</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unicode Collation Algorithm data to use.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ComputeSortKey</var> computes the sort key for a unicode string <var>AString</var>  (or the alternate form using a null-terminated <var>AStr</var> with length <var>Alength</var>)  using the Unicode Collation Algorithm dat in <var>ACollation</var>. This key can then be used  in <a href="../unicodedata/comparesortkey.html">CompareSortKey</a> to compare unicode strings. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../unicodedata/comparesortkey.html">CompareSortKey</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compare two sort keys.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

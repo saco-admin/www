@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Class destruction</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 4392--><div class="crosslinks"><p class="noindent">[<a 
+href="refse38.html" >next</a>] [<a 
+href="refse36.html" >prev</a>] [<a 
+href="refse36.html#tailrefse36.html" >prev-tail</a>] [<a 
+href="#tailrefse37.html">tail</a>] [<a 
+href="refch6.html#refse37.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">6.4   </span> <a 
+href="ref.html#QQ2-74-102" id="x74-960006.4">Class destruction</a></h3>
+<a 
+ id="dx74-96001"></a>
+<!--l. 4393--><p class="noindent" ><a name="keyword_Destructor"></a> Class instances must be destroyed using the destructor. In difference with the constructor, there is
+no choice in destructors: the destructor <span 
+class="cmti-10">must </span>have the name <span 
+class="cmtt-10">Destroy</span>, it <span 
+class="cmti-10">must </span>override the <span 
+class="cmtt-10">Destroy</span>
+destructor declared in <span 
+class="cmtt-10">TObject</span>, cannot have arguments, and the inherited destructor must always
+be called.
+<!--l. 4400--><p class="noindent" ><span 
+class="cmtt-10">Destroy </span>will call <span 
+class="cmtt-10">FreeInstance</span>, which, in its default implementation, calls <span 
+class="cmtt-10">FreeMem </span>to release the
+memory occupied by the instance.
+<!--l. 4403--><p class="noindent" >To avoid calling a destructor on a <span 
+class="cmtt-10">Nil </span>instance, it is best to call the <span 
+class="cmtt-10">Free </span>method of <span 
+class="cmtt-10">TObject</span>. This
+method will check if <span 
+class="cmtt-10">Self </span>is not <span 
+class="cmtt-10">Nil</span>, and if so, then it calls <span 
+class="cmtt-10">Destroy</span>. If <span 
+class="cmtt-10">Self </span>equals <span 
+class="cmtt-10">Nil</span>, it will
+just exit.
+<!--l. 4408--><p class="noindent" >Destroying an instance does not remove or Nil a reference to an instance:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-170">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;TComponent;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;A:=TComponent.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;A.Name:=&#8217;MyComponent&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;A.Free;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;A&#x00A0;is&#x00A0;still&#x00A0;assigned:&#x00A0;&#8217;,Assigned(A));
+&#x00A0;<br />end.
+</div>
+<!--l. 4419--><p class="nopar" >After the call to <span 
+class="cmtt-10">Free</span>, the variable A will not be <span 
+class="cmtt-10">Nil</span>, the output of this program will
+be:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-171">
+A&#x00A0;is&#x00A0;still&#x00A0;assigned:&#x00A0;TRUE
+</div>
+<!--l. 4424--><p class="nopar" >To make sure that the variable <span 
+class="cmtt-10">A </span>is cleared after the destructor was called, the function
+<span 
+class="cmtt-10">FreeAndNil </span>from the <span 
+class="cmss-10">SysUtils </span>unit can be used. It will call <span 
+class="cmtt-10">Free </span>and will then write <span 
+class="cmtt-10">Nil </span>in the
+object pointer (<span 
+class="cmtt-10">A </span>in the above example):
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-172">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;TComponent;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;A:=TComponent.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;A.Name:=&#8217;MyComponent&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;FreeAndNil(A);
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;A&#x00A0;is&#x00A0;still&#x00A0;assigned:&#x00A0;&#8217;,Assigned(A));
+&#x00A0;<br />end.
+</div>
+<!--l. 4439--><p class="nopar" >After the call to <span 
+class="cmtt-10">FreeAndNil</span>, the variable <span 
+class="cmtt-10">A </span>will contain <span 
+class="cmtt-10">Nil</span>, the output of this program will
+be:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-173">
+A&#x00A0;is&#x00A0;still&#x00A0;assigned:&#x00A0;FALSE
+</div>
+<!--l. 4444--><p class="nopar" >
+<!--l. 4446--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> if an exception happens during an the execution of a constructor, the destructor will be called
+automatically.
+                                                                            
+
+                                                                            
+<!--l. 4453--><div class="crosslinks"><p class="noindent">[<a 
+href="refse38.html" >next</a>] [<a 
+href="refse36.html" >prev</a>] [<a 
+href="refse36.html#tailrefse36.html" >prev-tail</a>] [<a 
+href="refse37.html" >front</a>] [<a 
+href="refch6.html#refse37.html" >up</a>] </p></div>
+<!--l. 4453--><p class="noindent" ><a 
+ id="tailrefse37.html"></a>  
+</body></html> 

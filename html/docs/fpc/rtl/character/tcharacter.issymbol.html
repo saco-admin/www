@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCharacter.IsSymbol</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../character/index.html">Overview</a>][<a href="../character/index-3.html">Types</a>][<a href="../character/index-4.html">Classes</a>][<a href="../character/index-5.html">Procedures and functions</a>][<a href="../character/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'character' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TCharacter.IsSymbol</h1>
+<p>Check if a unicode character is a symbol character</p>
+<h2>Declaration</h2>
+<p>Source position: character.pas line 129</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">class function</span> <a href="../character/tcharacter.html">TCharacter</a><span class="sym">.</span>IsSymbol<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AChar<span class="sym">: </span><a href="../system/unicodechar.html">UnicodeChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">class function</span> <a href="../character/tcharacter.html">TCharacter</a><span class="sym">.</span>IsSymbol<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AString<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AIndex<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AChar</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">UTF16 Character</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p><var>True</var> if the indicated characters is a symbol character</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AString</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String containing UTF-16 encoded characters</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AIndex</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Index of UTF16 encoded character in <var>AString</var> to be checked.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>IsSymbol</var> returns <var>True</var> if a unicode character has category that is one of the symbol categories  (<var>ucMathSymbol</var>, <var>ucCurrencySymbol</var>, <var>ucModifierSymbol</var>, <var>ucOtherSymbol</var>). The character can be specified as a UTF16 character <var>AChar</var> or a UTF16 encoded character starting at  position <var>AIndex</var> in string <var>AString</var>.  </p>
+<h2>Errors</h2>
+<p>If <var>AIndex</var> is not a valid character index in the string <var>AString</var>, an <a href="../sysutils/eargumentoutofrangeexception.html">EArgumentOutOfRangeException</a> exception is raised.  If the character at that position is not complete, an <a href="../sysutils/eargumentexception.html">EArgumentException</a> exception is raised.  </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.iscontrol.html">IsControl</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a unicode character is a unicode control character</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.isdigit.html">IsDigit</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a unicode character is a digit</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.issurrogate.html">IsSurrogate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a unicode character is a surrogate</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.ishighsurrogate.html">IsHighSurrogate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a unicode character is a surrogate in the high range</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.islowsurrogate.html">IsLowSurrogate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a unicode character is a surrogate in the low range</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.issurrogatepair.html">IsSurrogatePair</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if a pair of characters is a set of high/low surrorgate characters</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.isletter.html">IsLetter</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if a unicode character is a letter.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.isletterordigit.html">IsLetterOrDigit</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if a unicode character is a letter or digit</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.islower.html">IsLower</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if a unicode character is a lowercase letter</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.isnumber.html">IsNumber</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if a unicode character is a number</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.ispunctuation.html">IsPunctuation</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if a unicode character is a punctuation character</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.isseparator.html">IsSeparator</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if a unicode character is a separator character</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.isupper.html">IsUpper</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a unicode character is an uppercase letter</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.iswhitespace.html">IsWhiteSpace</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a unicode character is a whitespace character</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

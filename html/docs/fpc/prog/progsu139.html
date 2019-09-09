@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Mangled names for data blocks</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 3867--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu140.html" >next</a>] [<a 
+href="#tailprogsu139.html">tail</a>] [<a 
+href="progse21.html#progsu139.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.2.1   </span> <a 
+href="prog.html#QQ2-170-177" id="x170-1730006.2.1">Mangled names for data blocks</a></h4>
+<!--l. 3869--><p class="noindent" >The rules for mangled names for variables and typed constants are as follows:
+     <ul class="itemize1">
+     <li class="itemize">All variable names are converted to upper case
+     </li>
+     <li class="itemize">Variables in the main program or private to a unit have an underscore (_) prepended
+     to their names.
+     </li>
+     <li class="itemize">Typed constants in the main program have a TC__ prepended to their names
+     </li>
+     <li class="itemize">Public variables in a unit have their unit name prepended to them : U_UNITNAME_
+     </li>
+     <li class="itemize">Public and private typed constants in a unit have their unit name prepended to them
+     :TC__UNITNAME$$</li></ul>
+<!--l. 3880--><p class="noindent" >Examples:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-169">
+unit&#x00A0;testvars;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />const
+&#x00A0;<br />&#x00A0;publictypedconst&#x00A0;:&#x00A0;integer&#x00A0;=&#x00A0;0;
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;publicvar&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />const
+&#x00A0;<br />&#x00A0;privatetypedconst&#x00A0;:&#x00A0;integer&#x00A0;=&#x00A0;1;
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;privatevar&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 3898--><p class="nopar" >Will result in the following assembler code for the <span 
+class="cmcsc-10"><span 
+class="small-caps">g</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span> </span>assembler :
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-170">
+.file&#x00A0;"testvars.pas"
+&#x00A0;<br />
+&#x00A0;<br />.text
+&#x00A0;<br />
+&#x00A0;<br />.data
+&#x00A0;<br />#&#x00A0;[6]&#x00A0;publictypedconst&#x00A0;:&#x00A0;integer&#x00A0;=&#x00A0;0;
+&#x00A0;<br />.globl TC__TESTVARS$$_PUBLICTYPEDCONST
+&#x00A0;<br />TC__TESTVARS$$_PUBLICTYPEDCONST:
+&#x00A0;<br />.short 0
+&#x00A0;<br />#&#x00A0;[12]&#x00A0;privatetypedconst&#x00A0;:&#x00A0;integer&#x00A0;=&#x00A0;1;
+&#x00A0;<br />TC__TESTVARS$$_PRIVATETYPEDCONST:
+&#x00A0;<br />.short 1
+&#x00A0;<br />
+&#x00A0;<br />.bss
+&#x00A0;<br />#&#x00A0;[8]&#x00A0;publicvar&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />.comm U_TESTVARS_PUBLICVAR,2
+&#x00A0;<br />#&#x00A0;[14]&#x00A0;privatevar&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />.lcomm _PRIVATEVAR,2
+</div>
+<!--l. 3919--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 3922--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu140.html" >next</a>] [<a 
+href="progsu139.html" >front</a>] [<a 
+href="progse21.html#progsu139.html" >up</a>] </p></div>
+<!--l. 3922--><p class="noindent" ><a 
+ id="tailprogsu139.html"></a>  
+</body></html> 

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpLink</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpLink</h1>
+<p>Create a hard link to a file</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 32</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpLink<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;existing<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;newone<span class="sym">: </span><a href="../system/pchar.html">PChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> FpLink<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>existing<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>newone<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>fpLink</var> makes <var>NewOne</var> point to the same file als <var>Existing</var>. The two files then have the same inode number. This is known as a 'hard' link. The function returns <var>zero</var> if the call was succesfull, and returns a <var>non-zero</var> value if the call failed. </p>
+<h2>Errors</h2>
+<p>The following error codes are returned: </p>
+<dl>
+<dt>sys_exdev</dt>
+<dd><var>Existing</var> and <var>NewOne</var> are not on the same filesystem.</dd>
+<dt>sys_eperm</dt>
+<dd>The filesystem containing <var>Existing</var> and <var>NewOne</var> doesn't support linking files.</dd>
+<dt>sys_eaccess</dt>
+<dd>Write access for the directory containing <var>NewOne</var> is disallowed, or one of the directories in <var>Existing</var> or <var>NewOne</var> has no search (=execute) permission.</dd>
+<dt>sys_enoent</dt>
+<dd>A directory entry in <var>Existing</var> or <var>NewOne</var> does not exist or is a symbolic link pointing to a non-existent directory.</dd>
+<dt>sys_enotdir</dt>
+<dd>A directory entry in <var>Existing</var> or <var>NewOne</var> is nor a directory.</dd>
+<dt>sys_enomem</dt>
+<dd>Insufficient kernel memory.</dd>
+<dt>sys_erofs</dt>
+<dd>The files are on a read-only filesystem.</dd>
+<dt>sys_eexist</dt>
+<dd><var>NewOne</var> already exists.</dd>
+<dt>sys_emlink</dt>
+<dd><var>Existing</var> has reached maximal link count.</dd>
+<dt>sys_eloop</dt>
+<dd><var>existing</var> or <var>NewOne</var> has a reference to a circular symbolic link, i.e. a symbolic link, whose expansion points to itself.</dd>
+<dt>sys_enospc</dt>
+<dd>The device containing <var>NewOne</var> has no room for another entry.</dd>
+<dt>sys_eperm</dt>
+<dd><var>Existing</var> points to . or .. of a directory.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpsymlink.html">fpSymLink</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a symbolic link</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpunlink.html">fpUnLink</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unlink (i.e. remove) a file.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example21<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Link and UnLink functions. }</span>
+
+<span class="kw">Uses</span> BaseUnix<span class="sym">;</span>
+
+<span class="kw">Var</span> F <span class="sym">:</span> Text<span class="sym">;</span>
+    S <span class="sym">:</span> String<span class="sym">;</span>
+<span class="kw">begin</span>
+  Assign <span class="sym">(</span>F<span class="sym">,</span><span class="str">'test.txt'</span><span class="sym">)</span><span class="sym">;</span>
+  Rewrite <span class="sym">(</span>F<span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span>F<span class="sym">,</span><span class="str">'This is written to test.txt'</span><span class="sym">)</span><span class="sym">;</span>
+  Close<span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ new.txt and test.txt are now the same file }</span>
+  <span class="kw">if</span> fpLink <span class="sym">(</span><span class="str">'test.txt'</span><span class="sym">,</span><span class="str">'new.txt'</span><span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+    writeln <span class="sym">(</span><span class="str">'Error when linking !'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ Removing test.txt still leaves new.txt }</span>
+  <span class="kw">If</span> fpUnlink <span class="sym">(</span><span class="str">'test.txt'</span><span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+    Writeln <span class="sym">(</span><span class="str">'Error when unlinking !'</span><span class="sym">)</span><span class="sym">;</span>
+  Assign <span class="sym">(</span>f<span class="sym">,</span><span class="str">'new.txt'</span><span class="sym">)</span><span class="sym">;</span>
+  Reset <span class="sym">(</span>F<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">While</span> <span class="kw">not</span> EOF<span class="sym">(</span>f<span class="sym">)</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    Readln<span class="sym">(</span>F<span class="sym">,</span>S<span class="sym">)</span><span class="sym">;</span>
+    Writeln <span class="sym">(</span><span class="str">'&gt; '</span><span class="sym">,</span>s<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+ Close <span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+ <span class="cmt">{ Remove new.txt also }</span>
+ <span class="kw">If</span> <span class="kw">not</span> FPUnlink <span class="sym">(</span><span class="str">'new.txt'</span><span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+   Writeln <span class="sym">(</span><span class="str">'Error when unlinking !'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

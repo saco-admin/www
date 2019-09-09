@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCustomIniFile.ReadInt64</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../inifiles/index.html">Overview</a>][<a href="../inifiles/index-3.html">Types</a>][<a href="../inifiles/index-4.html">Classes</a>][<a href="../inifiles/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'IniFiles' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCustomIniFile.ReadInt64</h1>
+<p>Read Int64 value</p>
+<h2>Declaration</h2>
+<p>Source position: inifiles.pp line 168</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../inifiles/tcustominifile.html">TCustomIniFile</a><span class="sym">.</span>ReadInt64<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Section<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Ident<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Default<span class="sym">: </span><a href="../../rtl/system/int64.html">Int64</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/system/int64.html">Int64</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Section</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Section to search the value in.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Ident</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Key for the value in the specified section</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Default</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Default value if no valid value was found</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>The value found at the specified location, or the default value.</p>
+<h2>Description</h2>
+<p><var>ReadInt64</var> reads a signed 64-bit integer value from the ini file. The value is searched in the <var>Section</var> section, with key <var>Ident</var>. </p>
+<p>If the value is not found at the specified <var>Section</var>, <var>Ident</var> pair, or the value is not a <var>Int64</var> value then the <var>Default</var> value is returned instead. </p>
+<p>This function is needed because <b>ReadInteger</b> only reads at most a 32-bit value. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><b>ReadInteger</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>WriteInt64</b></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

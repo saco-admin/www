@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>AssignStream</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unix/index.html">Overview</a>][<a href="../unix/index-2.html">Constants</a>][<a href="../unix/index-3.html">Types</a>][<a href="../unix/index-5.html">Procedures and functions</a>][<a href="../unix/index-6.html">Variables</a>][<a href="../unix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Unix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>AssignStream</h1>
+<p>Assign stream for in and output to a program</p>
+<h2>Declaration</h2>
+<p>Source position: unix.pp line 121</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> AssignStream<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>StreamIn<span class="sym">: </span>text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>Streamout<span class="sym">: </span>text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Prog<span class="sym">: </span>ansiString<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>args<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> ansistring</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> AssignStream<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>StreamIn<span class="sym">: </span>text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>Streamout<span class="sym">: </span>text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>streamerr<span class="sym">: </span>text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Prog<span class="sym">: </span>ansiString<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>args<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> ansistring</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>AssignStream</var> creates a 2 or 3 pipes, i.e. two (or three) file objects, one for  input, one for output,(and one for standard error) the other ends of these  pipes are connected to standard input and output (and standard error) of  <var>Prog</var>. <var>Prog</var> is the path of a program (including path). The options for the program can be specified in <var>Args</var>. </p>
+<p>What is written to <var>StreamOut</var>, will go to the standard input of <var>Prog</var>. Whatever is written by <var>Prog</var> to it's standard output  can be read from <var>StreamIn</var>.  Whatever is written by <var>Prog</var> to it's standard error read from  <var>StreamErr</var>, if present.  </p>
+<p>Reading and writing happens through the usual <var>Readln(StreamIn,...)</var> and <var>Writeln (StreamOut,...)</var> procedures. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>You should <em>not</em> use <var>Reset</var> or <var>Rewrite</var> on a  file opened with <var>POpen</var>. This will close the file before re-opening  it again, thereby closing the connection with the program. </td>
+</tr>
+</table>
+<p>The function returns the process ID of the spawned process, or -1 in case of error. </p>
+<h2>Errors</h2>
+<p>Extended error information is returned by the <a href="../baseunix/fpgeterrno.html">FpGetErrno</a> function.  </p>
+<dl>
+<dt>sys_emfile</dt>
+<dd>Too many file descriptors for this process.</dd>
+<dt>sys_enfile</dt>
+<dd>The system file table is full.</dd>
+</dl>
+<p>Other errors include the ones by the fork and exec programs </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../unix/assignpipe.html">AssignPipe</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a set of pipe file handlers</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unix/popen.html">POpen</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Pipe file to standard input/output of program</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example38<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the AssignStream function. }</span>
+
+<span class="kw">Uses</span> BaseUnix<span class="sym">,</span>Unix<span class="sym">;</span>
+
+<span class="kw">Var</span> Si<span class="sym">,</span>So <span class="sym">:</span> Text<span class="sym">;</span>
+    S <span class="sym">:</span> String<span class="sym">;</span>
+    i <span class="sym">:</span> longint<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">if</span> <span class="kw">not</span> <span class="sym">(</span>paramstr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">=</span><span class="str">'-son'</span><span class="sym">)</span> <span class="kw">then</span>
+    <span class="kw">begin</span>
+    Writeln <span class="sym">(</span><span class="str">'Calling son'</span><span class="sym">)</span><span class="sym">;</span>
+    Assignstream <span class="sym">(</span>Si<span class="sym">,</span>So<span class="sym">,</span><span class="str">'./ex38'</span><span class="sym">,</span><span class="sym">[</span><span class="str">'-son'</span><span class="sym">]</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">if</span> fpgeterrno<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+      <span class="kw">begin</span>
+      writeln <span class="sym">(</span><span class="str">'AssignStream failed !'</span><span class="sym">)</span><span class="sym">;</span>
+      halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">end</span><span class="sym">;</span>
+    Writeln <span class="sym">(</span><span class="str">'Speaking to son'</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">For</span> i<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+      <span class="kw">begin</span>
+      writeln <span class="sym">(</span>so<span class="sym">,</span><span class="str">'Hello son !'</span><span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">if</span> ioresult<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span> writeln <span class="sym">(</span><span class="str">'Can''t speak to son...'</span><span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">end</span><span class="sym">;</span>
+    <span class="kw">For</span> i<span class="sym">:=</span><span class="num">1</span> to <span class="num">3</span> <span class="kw">do</span> writeln <span class="sym">(</span>so<span class="sym">,</span><span class="str">'Hello chap !'</span><span class="sym">)</span><span class="sym">;</span>
+    close <span class="sym">(</span>so<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">while</span> <span class="kw">not</span> eof<span class="sym">(</span>si<span class="sym">)</span> <span class="kw">do</span>
+      <span class="kw">begin</span>
+      readln <span class="sym">(</span>si<span class="sym">,</span>s<span class="sym">)</span><span class="sym">;</span>
+      writeln <span class="sym">(</span><span class="str">'Father: Son said : '</span><span class="sym">,</span>S<span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">end</span><span class="sym">;</span>
+    Writeln <span class="sym">(</span><span class="str">'Stopped conversation'</span><span class="sym">)</span><span class="sym">;</span>
+    Close <span class="sym">(</span>Si<span class="sym">)</span><span class="sym">;</span>
+    Writeln <span class="sym">(</span><span class="str">'Put down phone'</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span>
+  <span class="kw">Else</span>
+    <span class="kw">begin</span>
+    Writeln <span class="sym">(</span><span class="str">'This is the son '</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">While</span> <span class="kw">not</span> eof <span class="sym">(</span>input<span class="sym">)</span> <span class="kw">do</span>
+      <span class="kw">begin</span>
+      readln <span class="sym">(</span>s<span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">if</span> pos <span class="sym">(</span><span class="str">'Hello son !'</span><span class="sym">,</span>S<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+         Writeln <span class="sym">(</span><span class="str">'Hello Dad !'</span><span class="sym">)</span>
+      <span class="kw">else</span>
+         writeln <span class="sym">(</span><span class="str">'Who are you ?'</span><span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">end</span><span class="sym">;</span>
+    close <span class="sym">(</span>output<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

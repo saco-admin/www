@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDoubleHelper</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TDoubleHelper</h1>
+<p>[<a href="../sysutils/tdoublehelper-1.html" onClick="window.open('../sysutils/tdoublehelper-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../sysutils/tdoublehelper-2.html" onClick="window.open('../sysutils/tdoublehelper-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../sysutils/tdoublehelper-3.html" onClick="window.open('../sysutils/tdoublehelper-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../sysutils/tdoublehelper-4.html" onClick="window.open('../sysutils/tdoublehelper-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../sysutils/tdoublehelper-5.html" onClick="window.open('../sysutils/tdoublehelper-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../sysutils/tdoublehelper-6.html" onClick="window.open('../sysutils/tdoublehelper-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Helper for Double floating point type</p>
+<h2>Declaration</h2>
+<p>Source position: syshelph.inc line 242</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TDoubleHelper <span class="sym">=</span> <span class="kw">type helper</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">Const</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../sysutils/tdoublehelper.epsilon.html">Epsilon</a><span class="sym"> = </span><a href="../sysutils/tdoublehelper.epsilon.html">Epsilon</a><span class="sym">;</span><span class="sym"> = </span>4.9406564584124654418e-324</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Precision for this floating point type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../sysutils/tdoublehelper.maxvalue.html">MaxValue</a><span class="sym"> = </span><a href="../sysutils/tdoublehelper.maxvalue.html">MaxValue</a><span class="sym">;</span><span class="sym"> = </span>1.7976931348623157081e+308</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Largest possible value for the <var>Double</var> floating point type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../sysutils/tdoublehelper.minvalue.html">MinValue</a><span class="sym"> = </span><a href="../sysutils/tdoublehelper.minvalue.html">MinValue</a><span class="sym">;</span><span class="sym"> = </span>- 1.7976931348623157081e+308</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Smallest (negative) possible value for the <var>Double</var> floating point type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../sysutils/tdoublehelper.positiveinfinity.html">PositiveInfinity</a><span class="sym"> = </span><a href="../sysutils/tdoublehelper.positiveinfinity.html">PositiveInfinity</a><span class="sym">;</span><span class="sym"> = </span>1.0 / 0.0</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Positive infinity as represented by a Double floating point type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../sysutils/tdoublehelper.negativeinfinity.html">NegativeInfinity</a><span class="sym"> = </span><a href="../sysutils/tdoublehelper.negativeinfinity.html">NegativeInfinity</a><span class="sym">;</span><span class="sym"> = </span>(- 1.0) / (0.0)</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Negative infinity as represented by a Double floating point type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../sysutils/tdoublehelper.nan.html">NaN</a><span class="sym"> = </span><a href="../sysutils/tdoublehelper.nan.html">NaN</a><span class="sym">;</span><span class="sym"> = </span>0.0 / 0.0</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Representation of NaN (Not a Number)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sysutils/tdoublehelper.isinfinity.html">IsInfinity</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a value is positive or negative infinity.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sysutils/tdoublehelper.isnan.html">IsNan</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a value equals <var>NaN</var>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sysutils/tdoublehelper.isnegativeinfinity.html">IsNegativeInfinity</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a value is  negative infinity.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sysutils/tdoublehelper.ispositiveinfinity.html">IsPositiveInfinity</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a value is positive infinity.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sysutils/tdoublehelper.parse.html">Parse</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a string to a floating point value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sysutils/tdoublehelper.size.html">Size</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Size (in bytes) of a Double-sized floating point value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sysutils/tdoublehelper.tostring.html">ToString</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a Double-sized floating point value to a string</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sysutils/tdoublehelper.tryparse.html">TryParse</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Try to convert a string to a Double-sized floating point value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../sysutils/tdoublehelper.buildup.html">BuildUp</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Build a Double-sized floating point from its composing parts</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../sysutils/tdoublehelper.exponent.html">Exponent</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Exponent of the floating-point value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../sysutils/tdoublehelper.fraction.html">Fraction</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Fraction of the floating-point value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../sysutils/tdoublehelper.mantissa.html">Mantissa</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mantissa of the floating-point</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../sysutils/tdoublehelper.specialtype.html">SpecialType</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the type of the Double-sized floating point value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sysutils/tdoublehelper.bytes.html">Bytes</a> []<span class="sym">: </span><a href="../system/byte.html">Byte</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed access to the individual bytes of the floating point value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sysutils/tdoublehelper.words.html">Words</a> []<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed access to the words that make up the floating point value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sysutils/tdoublehelper.sign.html">Sign</a><span class="sym">: </span>Boolean<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Sign of the floating point value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sysutils/tdoublehelper.exp.html">Exp</a><span class="sym">: </span><a href="../system/qword.html">QWord</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The bit pattern of the exponent as stored in memory.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sysutils/tdoublehelper.frac.html">Frac</a><span class="sym">: </span><a href="../system/qword.html">QWord</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Bitpattern that makes up the fractional part.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../sysutils/tdoublehelper.html">TDoubleHelper</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Helper for Double floating point type</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TDoubleHelper</var> is the helper type for the Double-sized floating point type. It contains some conversion methods, as well as access to the low-level structure of the floating-point representation of a Double. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/tdoublehelper.html">TDoubleHelper</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Helper for Double floating point type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/textendedhelper.html">TExtendedHelper</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Helper for Extended floating point type</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFPSMap.Create</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../fgl/index.html">Overview</a>][<a href="../fgl/index-2.html">Constants</a>][<a href="../fgl/index-3.html">Types</a>][<a href="../fgl/index-4.html">Classes</a>][<a href="../fgl/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'fgl' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TFPSMap.Create</h1>
+<p>Create a new map with given key and data size.</p>
+<h2>Declaration</h2>
+<p>Source position: fgl.pp line 256</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">constructor</span> <a href="../fgl/tfpsmap.html">TFPSMap</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AKeySize<span class="sym">: </span><a href="../system/integer.html">Integer</a> <span class="sym">=</span> sizeof<span class="sym">(</span>Pointer<span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ADataSize<span class="sym">: </span><a href="../system/integer.html">Integer</a> <span class="sym">=</span> sizeof<span class="sym">(</span>Pointer<span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AKeySize</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Size for map keys</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADataSize</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Size for map data</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Create</var> instantiates a new <var>TFPSMap</var> instance and initializes <a href="../fgl/tfpsmap.keysize.html">TFPSMap.KeySize</a> and <a href="../fgl/tfpsmap.datasize.html">TFPSMap.DataSize</a> with <var>AKeySize</var> and <var>ADataSize</var>, respectively.  It also initializes the <a href="../fgl/tfpsmap.ondataptrcompare.html">TFPSMap.OnDataPtrCompare</a>  and <a href="../fgl/tfpsmap.onkeyptrcompare.html">TFPSMap.OnKeyPtrCompare</a> properties to functions that compare memory blocks. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><b>TFPSMap.Destroy</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fgl/tfpsmap.keysize.html">TFPSMap.KeySize</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Size (in bytes) for the key</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fgl/tfpsmap.datasize.html">TFPSMap.DataSize</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Size (in bytes) for the data associated with keys</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fgl/tfpsmap.ondataptrcompare.html">TFPSMap.OnDataPtrCompare</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback to compare 2 data items</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fgl/tfpsmap.onkeyptrcompare.html">TFPSMap.OnKeyPtrCompare</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback to compare 2 keys</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Real mode callbacks</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../go32/index.html">Up</a>][<a href="../go32/executinginterrupts.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'go32' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>Real mode callbacks</h2>
+<p>The callback mechanism can be thought of as the converse of calling a real mode procedure (i.e. interrupt), which allows your program to pass information to a real mode program, or obtain services from it in a manner that's transparent to the real mode program. In order to make a real mode callback available, you must first get the real mode callback address of your procedure and the selector and offset of a register data structure. This real mode callback address (this is a segment:offset address) can be passed to a real mode program via a software interrupt, a dos memory block or any other convenient mechanism. When the real mode program calls the callback (via a far call), the DPMI host saves the registers contents in the supplied register data structure, switches into protected mode, and enters the callback routine with the following settings: </p>
+<ul>
+<li>interrupts disabled</li>
+<li><var>%CS:%EIP</var> = 48 bit pointer specified in the original call to  <a href="../go32/get_rm_callback.html">get_rm_callback</a></li>
+<li><var>%DS:%ESI</var> = 48 bit pointer to real mode <var>SS:SP</var></li>
+<li><var>%ES:%EDI</var> = 48 bit pointer of real mode register data structure. </li>
+<li><var>%SS:%ESP</var> = locked protected mode stack</li>
+<li>All other registers undefined</li>
+</ul>
+<p>The callback procedure can then extract its parameters from the real mode register data structure and/or copy parameters from the real mode stack to the protected mode stack. Recall that the segment register fields of the real mode register data structure contain segment or paragraph addresses that are not valid in protected mode. Far pointers passed in the real mode register data structure must be translated to virtual addresses before they can be used with a protected mode program. The callback procedure exits by executing an IRET with the address of the real mode register data structure in <var>%ES:%EDI</var>, passing information back to the real mode caller by modifying the contents of the real mode register data structure and/or manipulating the contents of the real mode stack. The callback procedure is responsible for setting the proper address for resumption of real mode execution into the real mode register data structure; typically, this is accomplished by extracting the return address from the real mode stack and placing it into the <var>%CS:%EIP</var> fields of the real mode register data structure. After the IRET, the DPMI host switches the CPU back into real mode, loads ALL registers with the contents of the real mode register data structure, and finally returns control to the real mode program. All variables and code touched by the callback procedure MUST be locked to prevent page faults. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../go32/get_rm_callback.html">get_rm_callback</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return real mode callback</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/free_rm_callback.html">free_rm_callback</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Release real mode callback.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/lock_code.html">lock_code</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Lock code memory range</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/lock_data.html">lock_data</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Lock data memory range</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

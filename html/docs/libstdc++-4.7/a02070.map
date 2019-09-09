@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00094.html" title="std::accumulate() selector." alt="" coords="416,5,717,33"/>
+<area shape="rect" id="node5" href="$a00095.html" title="Selector that returns the difference between two adjacent __elements." alt="" coords="391,55,743,83"/>
+<area shape="rect" id="node7" href="$a00099.html" title="std::count_if () selector." alt="" coords="428,106,705,134"/>
+<area shape="rect" id="node9" href="$a00100.html" title="std::count() selector." alt="" coords="435,157,699,185"/>
+<area shape="rect" id="node11" href="$a00101.html" title="std::fill() selector." alt="" coords="445,207,688,235"/>
+<area shape="rect" id="node13" href="$a00104.html" title="std::for_each() selector." alt="" coords="425,258,708,286"/>
+<area shape="rect" id="node15" href="$a00105.html" title="std::generate() selector." alt="" coords="424,309,709,337"/>
+<area shape="rect" id="node17" href="$a00108.html" title="Selector that just returns the passed iterator." alt="" coords="429,359,704,387"/>
+<area shape="rect" id="node19" href="$a00109.html" title="std::inner_product() selector." alt="" coords="409,410,724,438"/>
+<area shape="rect" id="node21" href="$a00119.html" title="std::replace() selector." alt="" coords="423,461,711,489"/>
+<area shape="rect" id="node23" href="$a00120.html" title="std::replace() selector." alt="" coords="429,511,704,539"/>
+<area shape="rect" id="node25" href="$a00121.html" title="std::transform() __selector, one input sequence variant." alt="" coords="417,562,716,590"/>
+<area shape="rect" id="node27" href="$a00122.html" title="std::transform() __selector, two input sequences variant." alt="" coords="417,613,716,641"/>
+</map>

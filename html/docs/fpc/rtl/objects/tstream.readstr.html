@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStream.ReadStr</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../objects/index.html">Overview</a>][<a href="../objects/index-2.html">Constants</a>][<a href="../objects/index-3.html">Types</a>][<a href="../objects/index-4.html">Classes</a>][<a href="../objects/index-5.html">Procedures and functions</a>][<a href="../objects/index-6.html">Variables</a>][<a href="../objects/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Objects' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TStream.ReadStr</h1>
+<p>Read a shortstring from the stream.</p>
+<h2>Declaration</h2>
+<p>Source position: objects.pp line 286</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code">  <span class="kw">function</span> <a href="../objects/tstream.html">TStream</a><span class="sym">.</span>ReadStr<span class="sym">: </span><a href="../objects/pstring.html">PString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ReadStr</var> reads a string from the stream, copies it to the heap and returns a pointer to this copy. The string is saved as a pascal string, and hence is NOT null terminated. </p>
+<h2>Errors</h2>
+<p>On error (e.g. not enough memory), <var>Nil</var> is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../objects/tstream.strread.html">TStream.StrRead</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read a null-terminated string from the stream.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> ex13<span class="sym">;</span>
+
+<span class="cmt">{</span>
+<span class="cmt">Program to demonstrate the TStream.ReadStr TStream.WriteStr functions</span>
+<span class="cmt">}</span>
+
+<span class="kw">Uses</span> objects<span class="sym">;</span>
+
+<span class="kw">Var</span> P <span class="sym">:</span> PString<span class="sym">;</span>
+    L <span class="sym">:</span> String<span class="sym">;</span>
+    S <span class="sym">:</span> PStream<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  L<span class="sym">:=</span><span class="str">'Constant string line'</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Writing to stream : "'</span><span class="sym">,</span>L<span class="sym">,</span><span class="chr">'"'</span><span class="sym">)</span><span class="sym">;</span>
+  S<span class="sym">:=</span>New<span class="sym">(</span>PMemoryStream<span class="sym">,</span>Init<span class="sym">(</span><span class="num">100</span><span class="sym">,</span><span class="num">10</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  S<span class="sym">^</span><span class="sym">.</span>WriteStr<span class="sym">(</span><span class="sym">@</span>L<span class="sym">)</span><span class="sym">;</span>
+  S<span class="sym">^</span><span class="sym">.</span>Seek<span class="sym">(</span><span class="num">0</span><span class="sym">)</span><span class="sym">;</span>
+  P<span class="sym">:=</span>S<span class="sym">^</span><span class="sym">.</span>ReadStr<span class="sym">;</span>
+  L<span class="sym">:=</span>P<span class="sym">^</span><span class="sym">;</span>
+  DisposeStr<span class="sym">(</span>P<span class="sym">)</span><span class="sym">;</span>
+  DisPose <span class="sym">(</span>S<span class="sym">,</span>Done<span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Read from stream : "'</span><span class="sym">,</span>L<span class="sym">,</span><span class="chr">'"'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

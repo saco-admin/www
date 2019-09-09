@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Requires</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 8276--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu203.html" >next</a>] [<a 
+href="progsu201.html" >prev</a>] [<a 
+href="progsu201.html#tailprogsu201.html" >prev-tail</a>] [<a 
+href="#tailprogsu202.html">tail</a>] [<a 
+href="progse81.html#progsu202.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">E.4.8   </span> <a 
+href="prog.html#QQ2-305-350" id="x305-321000E.4.8">Requires</a></h4>
+<!--l. 8277--><p class="noindent" >This section is used to indicate dependency on external packages (i.e units) or tools. The following
+keywords can be used:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">fpcmake</span> </dt><dd 
+class="description">Minimal version of fpcmake that this <span 
+class="cmss-10">makefile.fpc </span>needs.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">packages</span> </dt><dd 
+class="description">Other packages that should be compiled before this package can be compiled.
+     Note that this will also add all packages these packages depend on to the dependencies
+     of this package. By default, the Free Pascal Run-Time Library is added to this list.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">libc</span> </dt><dd 
+class="description">A boolean value that indicates whether this package needs the C library.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">nortl</span> </dt><dd 
+class="description">A boolean that prevents the addition of the Free Pascal Run-Time Library to the
+     required packages.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">unitdir</span> </dt><dd 
+class="description">These directories will be added to the units search path of the compiler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">packagedir</span> </dt><dd 
+class="description">List of package directories. The packages in these directories will be made as
+     well before making the current package.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">tools</span> </dt><dd 
+class="description">A list of executables of extra tools that are required. The full path to these tools will be
+     defined in the makefile as a variable with the same name as the tool name, only in uppercase.
+     For example, the following definition:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-271">
+     tools=upx
+</div>
+     <!--l. 8299--><p class="nopar" >will lead to the definition of a variable with the name <span 
+class="cmtt-10">UPX </span>which will contain the full path to
+     the <span 
+class="cmss-10">upx </span>executable.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 8304--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu203.html" >next</a>] [<a 
+href="progsu201.html" >prev</a>] [<a 
+href="progsu201.html#tailprogsu201.html" >prev-tail</a>] [<a 
+href="progsu202.html" >front</a>] [<a 
+href="progse81.html#progsu202.html" >up</a>] </p></div>
+<!--l. 8304--><p class="noindent" ><a 
+ id="tailprogsu202.html"></a>  
+</body></html> 

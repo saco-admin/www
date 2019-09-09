@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCachedDataStream</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../resdatastream/index.html">Overview</a>][<a href="../resdatastream/index-3.html">Types</a>][<a href="../resdatastream/index-4.html">Classes</a>][<a href="../resdatastream/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'resdatastream' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TCachedDataStream</h1>
+<p>[<a href="../resdatastream/tcacheddatastream-1.html" onClick="window.open('../resdatastream/tcacheddatastream-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../resdatastream/tcacheddatastream-2.html" onClick="window.open('../resdatastream/tcacheddatastream-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../resdatastream/tcacheddatastream-3.html" onClick="window.open('../resdatastream/tcacheddatastream-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../resdatastream/tcacheddatastream-4.html" onClick="window.open('../resdatastream/tcacheddatastream-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../resdatastream/tcacheddatastream-5.html" onClick="window.open('../resdatastream/tcacheddatastream-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../resdatastream/tcacheddatastream-6.html" onClick="window.open('../resdatastream/tcacheddatastream-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Base cached stream class</p>
+<h2>Declaration</h2>
+<p>Source position: resdatastream.pp line 26</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TCachedDataStream <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../../rtl/classes/tstream.html">TStream</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">protected</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../resdatastream/tcacheddatastream.fstream.html">fStream</a><span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The original stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../resdatastream/tcacheddatastream.fsize.html">fSize</a><span class="sym">: </span><a href="../../rtl/system/int64.html">Int64</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The size of the cached stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../resdatastream/tcacheddatastream.fposition.html">fPosition</a><span class="sym">: </span><a href="../../rtl/system/int64.html">Int64</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The position from the cached stream perspective</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resdatastream/tcacheddatastream.getposition.html">GetPosition</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resdatastream/tcacheddatastream.setposition.html">SetPosition</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resdatastream/tcacheddatastream.getsize.html">GetSize</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resdatastream/tcacheddatastream.setsize64.html">SetSize64</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../resdatastream/tcacheddatastream.create.html">Create</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a new object</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resdatastream/tcacheddatastream.write.html">Write</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resdatastream/tcacheddatastream.seek.html">Seek</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../resdatastream/tcacheddatastream.html">TCachedDataStream</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base cached stream class</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tstream.html">TStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This abstract class provides basic cached stream functionalities.</p>
+<p>A cached stream is a read-only stream that operates on a portion of another stream. That is, it creates a "window" on the original stream from which to read data. Since it is a read-only stream, trying to write to the stream or to set its size cause an EInvalidOperation exception to be raised.</p>
+<p>This class is used by <a href="../resdatastream/tresourcedatastream.html">TResourceDataStream</a> to access the raw data of a resource. When an attempt to write to the stream is detected, <a href="../resdatastream/tresourcedatastream.html">TResourceDataStream</a> replaces it with a memory stream and copies the contents of the cached stream to the memory one, thus providing a copy-on-write mechanism.</p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>An object of this class should never be directly instantiated: use a descendant class instead.</td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../resdatastream/tresourcedatastream.html">TResourceDataStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Stream class that provides copy-on-write functionality</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resdatastream/tcachedresourcedatastream.html">TCachedResourceDataStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">An implementation of a cached stream</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

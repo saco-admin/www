@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>LoadCollation</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unicodedata/index.html">Overview</a>][<a href="../unicodedata/index-1.html">Resource strings</a>][<a href="../unicodedata/index-2.html">Constants</a>][<a href="../unicodedata/index-3.html">Types</a>][<a href="../unicodedata/index-5.html">Procedures and functions</a>][<a href="../unicodedata/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'unicodedata' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>LoadCollation</h1>
+<p>Load a binary collation data file from file</p>
+<h2>Declaration</h2>
+<p>Source position: unicodedata.pas line 430</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> LoadCollation<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AData<span class="sym">: </span>Pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ADataLength<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unicodedata/puca_databook.html">PUCA_DataBook</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> LoadCollation<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AFileName<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unicodedata/puca_databook.html">PUCA_DataBook</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> LoadCollation<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ADirectory<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ALanguage<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unicodedata/puca_databook.html">PUCA_DataBook</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AData</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Memory area containing encoded collation data</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADataLength</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Length of memory area <var>AData</var>.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Pointer to prepared collation data</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AFileName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Filename to read data from</p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ADirectory</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Directory containing collations.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ALanguage</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Language for which to load collation.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>LoadCollation</var> loads collation data from file <var>AFileName</var>, or from a memory block  <var>AData</var> with length <var>ADataLength</var>. If successful, it returns a pointer which can be  used to register the collation using <a href="../unicodedata/registercollation.html">RegisterCollation</a>. if there is a problem with  the data, <var>Nil</var> is returned. </p>
+<p>The filename can also be specified as a <var>Directory</var> and language name <var>ALanguage</var>. The latter is prepended with <var>collation_</var> and appended with the native endianness of the  current platform, and has extension <var>.bco</var></p>
+<h2>Errors</h2>
+<p>If the file containing data does not exist or has a size which is less than the encoded header size, <var>Nil</var> is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../unicodedata/registercollation.html">RegisterCollation</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Register a new collation</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

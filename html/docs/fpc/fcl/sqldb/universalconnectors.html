@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Using the universal TSQLConnector type</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/usingsqldb.html">Previous</a>][<a href="../sqldb/index.html">Up</a>][<a href="../sqldb/retrievingschemainformation.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h2>Using the universal TSQLConnector type</h2>
+<p>The normal procedure when using SQLDB is to use one of the <a href="../sqldb/tsqlconnection.html">TSQLConnection</a> descendent components. When the database backend changes, another descendent of <var>TSQLConnection</var> must be used. When using a lot of different connection types and components, this may be confusing and a lot of work. </p>
+<p>There is a universal connector component <a href="../sqldb/tsqlconnector.html">TSQLConnector</a> which can connect to any database supported by SQLDB: it works as a proxy. Behind the scenes it uses a normal <var>TSQLConnection</var> descendent to do the real work. All this happens transparenty to the user code, the universal connector acts and works like any normal connection component. </p>
+<p>The type of database can be set in its <a href="../sqldb/tsqlconnector.connectortype.html">ConnectorType</a> property. By setting the <var>ConnectorType</var> property, the connector knows which <var>TSQLConnection</var> descendent must be created. </p>
+<p>Each <var>TSQLConnection</var> descendent registers itself with a unique name in the initialization section of the unit implementing it: this is the name that should be specified in the <var>ConnectorType</var> of the universal connection. The list of available connections can be retrieved with the <a href="../sqldb/getconnectionlist.html">GetConnectionList</a> call. </p>
+<p>From this mechanism it follows that before a particular connection type can be used, its definition must be present in the list of connector types. This means that the unit of the connection type (<var>ibconnection</var>, <var>pqconnection</var> etc.) must be included in the <var>uses</var> clause of the program file: if it is not included, the connection type will not be registered, and it will not be available for use in the universal connector. </p>
+<p>The universal connector only exposes the properties common to all connection types (the ones in <var>TSQLConnection</var>). It does not expose properties for all the properties available in specific <var>TSQLConnection</var> descendents. This means that if connection-specific options must be used, they must be included in the <a href="../sqldb/tsqlconnection.params.html">Params</a> property of the universal connector in the form <var>Name=Value</var>. When the actual connection instance is created, the connection-specific properties will be set from the specified parameters. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlconnection.html">TSQLConnection</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">An abstract class representing a connection to a SQL Database</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlconnector.html">TSQLConnector</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Universal connection component</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

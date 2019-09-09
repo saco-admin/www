@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCustomApplication.Terminate</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../custapp/index.html">Overview</a>][<a href="../custapp/index-3.html">Types</a>][<a href="../custapp/index-4.html">Classes</a>][<a href="../custapp/index-6.html">Variables</a>][<a href="../custapp/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'CustApp' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCustomApplication.Terminate</h1>
+<p>Terminate the application.</p>
+<h2>Declaration</h2>
+<p>Source position: custapp.pp line 67</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../custapp/tcustomapplication.html">TCustomApplication</a><span class="sym">.</span>Terminate<span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><br><br><span class="kw">procedure</span> <a href="../custapp/tcustomapplication.html">TCustomApplication</a><span class="sym">.</span>Terminate<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AExitCode<span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AExitCode</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Exit code for the program</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Terminate</var> sets the <var>Terminated</var> property to <var>True</var>. By itself, this does not terminate the application. Instead, descendent classes should in their <var>DoRun</var> method, check the value of the <a href="../custapp/tcustomapplication.terminated.html">Terminated</a> property and properly shut down the application if it is set to <var>True</var>. </p>
+<p>When <var>AExitCode</var> is specified, it will passed to <a href="../../rtl/system/exitcode.html">System.ExitCode</a>, and when the program is halted, that is the exit code of the program as returned to the OS. If the application is terminated due to an exception, <a href="../custapp/tcustomapplication.exceptionexitcode.html">ExceptionExitCode</a> will be used as the value for this argument. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../custapp/tcustomapplication.terminated.html">TCustomApplication.Terminated</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Was <var>Terminate</var> called or not</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../custapp/tcustomapplication.run.html">TCustomApplication.Run</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Runs the application.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../custapp/tcustomapplication.exceptionexitcode.html">ExceptionExitCode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">ExitCode to use then terminating the program due to an exception</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../../rtl/system/exitcode.html">System.ExitCode</a></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

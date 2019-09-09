@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Meta parameters</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1489--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu66.html" >next</a>] [<a 
+href="usersu64.html" >prev</a>] [<a 
+href="usersu64.html#tailusersu64.html" >prev-tail</a>] [<a 
+href="#tailusersu65.html">tail</a>] [<a 
+href="userse28.html#usersu65.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.10.6   </span> <a 
+href="user.html#QQ2-101-133" id="x101-1080006.10.6">Meta parameters</a></h4>
+<!--l. 1490--><p class="noindent" >When specifying the command line for the called tool, meta parameters can be used. Meta
+parameters are variables and they are replaced by their contents before passing the command line
+to the tool.
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">$CAP</span> </dt><dd 
+class="description">Captures the output of the tool.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$CAP</span><span 
+class="cmbx-10">_MSG()</span> </dt><dd 
+class="description">Captures the output of the tool and puts it in the messages window.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$CAP</span><span 
+class="cmbx-10">_EDIT()</span> </dt><dd 
+class="description">Captures the output of the tool and puts it in a separate editor window.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$COL</span> </dt><dd 
+class="description">Replaced by the column of the cursor in the active editor window. If there is no
+     active window or the active window is a dialog, then it is replaced by 0.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$CONFIG</span> </dt><dd 
+class="description">Replaced by the complete filename of the current configuration file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$DIR()</span> </dt><dd 
+class="description">Replaced by the full directory of the filename argument, including the trailing directory
+     separator. e.g.
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-67">
+     &#x00A0;&#x00A0;$DIR(&#8217;d:\data\myfile.pas&#8217;)
+</div>
+     <!--l. 1511--><p class="nopar" >would return <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">d:\data\</span></span></span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$DRIVE()</span> </dt><dd 
+class="description">Replaced by the drive letter of the filename argument. e.g.
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-68">
+     &#x00A0;&#x00A0;$DRIVE(&#8217;d:\data\myfile.pas&#8217;)
+</div>
+     <!--l. 1517--><p class="nopar" >would return <span 
+class="cmss-10">d:</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$EDNAME</span> </dt><dd 
+class="description">Replaced by the complete file name of the file in the active edit window. If there is
+     no active edit window, this is an empty string.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$EXENAME</span> </dt><dd 
+class="description">Replaced by the executable name that would be created if the make command was
+     used. (i.e. from the &#8217;Primary File&#8217; setting or the active edit window).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$EXT()</span> </dt><dd 
+class="description">Replaced by the extension of the filename argument. The extension includes the dot.
+     e.g.
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-69">
+     &#x00A0;&#x00A0;$EXT(&#8217;d:\data\myfile.pas&#8217;)
+</div>
+     <!--l. 1531--><p class="nopar" >would return <span 
+class="cmss-10">.pas</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$LINE</span> </dt><dd 
+class="description">Replaced by the line number of the cursor in the active edit window. If no edit window is
+     present or active, this is 0.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$NAME()</span> </dt><dd 
+class="description">Replaced by the name part (excluding extension and dot) of the filename argument.
+     e.g.
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-70">
+     &#x00A0;&#x00A0;$NAME(&#8217;d:\data\myfile.pas&#8217;)
+</div>
+     <!--l. 1542--><p class="nopar" >would return <span 
+class="cmss-10">myfile</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$NAMEEXT()</span> </dt><dd 
+class="description">Replaced by the name and extension part of the filename argument.
+     e.g.
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-71">
+     &#x00A0;&#x00A0;$NAMEEXT(&#8217;d:\data\myfile.pas&#8217;)
+</div>
+     <!--l. 1549--><p class="nopar" >would return <span 
+class="cmss-10">myfile.pas</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$NOSWAP</span> </dt><dd 
+class="description">Does nothing in the IDE; it is provided only for compatibility with Turbo
+     Pascal.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$PROMPT()</span> </dt><dd 
+class="description">Prompt displays a dialog box that allows editing of all arguments that come
+     after it. Arguments that appear before the <span 
+class="cmtt-10">$PROMPT </span>keyword are not presented for
+     editing.
+     <!--l. 1558--><p class="noindent" ><span 
+class="cmtt-10">$PROMPT() </span>can also take an optional filename argument. If present, <span 
+class="cmtt-10">$PROMPT() </span>will load a
+     dialog description from the filename argument. E.g.
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-72">
+     $PROMPT(cvsco.tdf)
+</div>
+     <!--l. 1562--><p class="nopar" >would parse the file <span 
+class="cmss-10">cvsco.tdf</span>, construct a dialog with it and display it. After the dialog
+     closed, the information entered by the user is used to construct the tool command
+     line.
+     <!--l. 1567--><p class="noindent" >See section <a 
+href="usersu66.html#x102-1090006.10.7">6.10.7<!--tex4ht:ref: se:commanddialogs --></a>, page <a 
+href="usersu66.html#x102-1090006.10.7">290<!--tex4ht:ref: se:commanddialogs --></a> for more information on how to create a dialog description.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$SAVE</span> </dt><dd 
+class="description">Before executing the command, the active editor window is saved, even if it is not
+     modified.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$SAVE</span><span 
+class="cmbx-10">_ALL</span> </dt><dd 
+class="description">Before executing the command, all unsaved editor files are saved without
+     prompting.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$SAVE</span><span 
+class="cmbx-10">_CUR</span> </dt><dd 
+class="description">Before executing the command the contents of the active editor window are saved
+     without prompting if they are modified.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$SAVE</span><span 
+class="cmbx-10">_PROMPT</span> </dt><dd 
+class="description">Before executing the command, a dialog is displayed asking whether any
+     unsaved files should be saved before executing the command.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">$WRITEMSG()</span> </dt><dd 
+class="description">Writes the parsed tool output information to a file with name as in the
+     argument.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 1583--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu66.html" >next</a>] [<a 
+href="usersu64.html" >prev</a>] [<a 
+href="usersu64.html#tailusersu64.html" >prev-tail</a>] [<a 
+href="usersu65.html" >front</a>] [<a 
+href="userse28.html#usersu65.html" >up</a>] </p></div>
+<!--l. 1583--><p class="noindent" ><a 
+ id="tailusersu65.html"></a>  
+</body></html> 

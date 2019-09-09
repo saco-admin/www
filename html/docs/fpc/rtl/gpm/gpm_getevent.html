@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>gpm_getevent</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../gpm/index.html">Overview</a>][<a href="../gpm/index-2.html">Constants</a>][<a href="../gpm/index-3.html">Types</a>][<a href="../gpm/index-5.html">Procedures and functions</a>][<a href="../gpm/index-6.html">Variables</a>][<a href="../gpm/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'gpm' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>gpm_getevent</h1>
+<p>Get event from event queue.</p>
+<h2>Declaration</h2>
+<p>Source position: gpm.pp line 187</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> gpm_getevent<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>event<span class="sym">: </span><a href="../gpm/tgpm_event.html">Tgpm_event</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Gpm_GetEvent</var> Reads an event from the file descriptor <var>gpm_fd</var>. This file is only for internal use and should never be called by a client application.  </p>
+<p>It returns 1 on succes, and -1 on failue. </p>
+<h2>Errors</h2>
+<p>On error, -1 is returned.  </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../gpm/gpm_getsnapshot.html">Gpm_GetSnapshot</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return servers' current image of mouse state.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> gpmex<span class="sym">;</span>
+
+<span class="cmt">{</span>
+<span class="cmt">  Example program to demonstrate the use of the gpm unit.</span>
+<span class="cmt">}</span>
+
+<span class="kw">uses</span> gpm<span class="sym">;</span>
+
+<span class="kw">var</span>
+  connect <span class="sym">:</span> TGPMConnect<span class="sym">;</span>
+  event <span class="sym">:</span> tgpmevent<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  connect<span class="sym">.</span>EventMask<span class="sym">:=</span>GPM_MOVE <span class="kw">or</span> GPM_DRAG <span class="kw">or</span> GPM_DOWN <span class="kw">or</span> GPM_UP<span class="sym">;</span>
+  connect<span class="sym">.</span>DefaultMask<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  connect<span class="sym">.</span>MinMod<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  connect<span class="sym">.</span>MaxMod<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  <span class="kw">if</span> Gpm_Open<span class="sym">(</span>connect<span class="sym">,</span><span class="num">0</span><span class="sym">)</span><span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    <span class="kw">begin</span>
+    Writeln<span class="sym">(</span><span class="str">'No mouse handler present.'</span><span class="sym">)</span><span class="sym">;</span>
+    Halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Click right button to end.'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">Repeat</span>
+    gpm_getevent<span class="sym">(</span>Event<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">With</span> Event <span class="kw">do</span>
+      <span class="kw">begin</span>
+        Write<span class="sym">(</span><span class="str">'Pos = ('</span><span class="sym">,</span>X<span class="sym">,</span><span class="chr">','</span><span class="sym">,</span>Y<span class="sym">,</span><span class="str">') Buttons : ('</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">if</span> <span class="sym">(</span>buttons <span class="kw">and</span> Gpm_b_left<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+          write<span class="sym">(</span><span class="str">'left '</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">if</span> <span class="sym">(</span>buttons <span class="kw">and</span> Gpm_b_right<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+          write<span class="sym">(</span><span class="str">'right '</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">if</span> <span class="sym">(</span>buttons <span class="kw">and</span> Gpm_b_middle<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+          Write<span class="sym">(</span><span class="str">'middle '</span><span class="sym">)</span><span class="sym">;</span>
+        Write<span class="sym">(</span><span class="str">') Event : '</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">Case</span> EventType <span class="kw">and</span> <span class="num">$F</span> <span class="kw">of</span>
+          GPM_MOVE<span class="sym">:</span> write<span class="sym">(</span><span class="str">'Move'</span><span class="sym">)</span><span class="sym">;</span>
+          GPM_DRAG<span class="sym">:</span> write<span class="sym">(</span><span class="str">'Drag'</span><span class="sym">)</span><span class="sym">;</span>
+          GPM_DOWN<span class="sym">:</span> write<span class="sym">(</span><span class="str">'Down'</span><span class="sym">)</span><span class="sym">;</span>
+          GPM_UP<span class="sym">:</span> write<span class="sym">(</span><span class="str">'Up'</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">end</span><span class="sym">;</span>
+        Writeln<span class="sym">;</span>
+      <span class="kw">end</span><span class="sym">;</span>
+  <span class="kw">Until</span> <span class="sym">(</span>Event<span class="sym">.</span>Buttons <span class="kw">and</span> gpm_b_right<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span><span class="sym">;</span>
+  gpm_close<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

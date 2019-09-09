@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$SCOPEDENUMS Control use of scoped enumeration types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 1508--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu71.html" >next</a>] [<a 
+href="progsu69.html" >prev</a>] [<a 
+href="progsu69.html#tailprogsu69.html" >prev-tail</a>] [<a 
+href="#tailprogsu70.html">tail</a>] [<a 
+href="progse2.html#progsu70.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.70   </span> <a 
+href="prog.html#QQ2-77-76" id="x77-760001.2.70"><span 
+class="cmtt-10">$SCOPEDENUMS </span>Control use of scoped enumeration types</a></h4>
+<!--l. 1509--><p class="noindent" >The boolean <span 
+class="cmtt-10">$SCOPEDENUMS </span>directive controls how enumeration type values are inserted in the
+symbol tables. In its default state (OFF) the enumeration values are inserted directly in the
+symbol table of the current scope. If the directive is set to <span 
+class="cmtt-10">ON </span>then the values are inserted inside a
+scope with the name of the enumeration type.
+<!--l. 1515--><p class="noindent" >Practically this means that the following is the default behaviour:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-68">
+{$SCOPEDENUMS&#x00A0;OFF}
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TMyEnum&#x00A0;=&#x00A0;(one,two,three);
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;TMyEnum;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;A:=one;
+&#x00A0;<br />end.
+</div>
+<!--l. 1527--><p class="nopar" >The value <span 
+class="cmtt-10">one </span>can be referenced directly. The following will give an error:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-69">
+begin
+&#x00A0;<br />&#x00A0;&#x00A0;A:=TMyEnum.one;
+&#x00A0;<br />end.
+</div>
+<!--l. 1534--><p class="nopar" >However, if the <span 
+class="cmtt-10">SCOPEDENUMS </span>directive is set to <span 
+class="cmtt-10">ON</span>, then the assignment must be made as
+follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-70">
+{$SCOPEDENUMS&#x00A0;ON}
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TMyEnum&#x00A0;=&#x00A0;(one,two,three);
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;TMyEnum;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;A:=TMyEnum.one;
+&#x00A0;<br />end.
+</div>
+<!--l. 1548--><p class="nopar" >i.e. the value must be prefixed with the type name.
+                                                                            
+
+                                                                            
+<!--l. 1551--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu71.html" >next</a>] [<a 
+href="progsu69.html" >prev</a>] [<a 
+href="progsu69.html#tailprogsu69.html" >prev-tail</a>] [<a 
+href="progsu70.html" >front</a>] [<a 
+href="progse2.html#progsu70.html" >up</a>] </p></div>
+<!--l. 1551--><p class="noindent" ><a 
+ id="tailprogsu70.html"></a>  
+</body></html> 

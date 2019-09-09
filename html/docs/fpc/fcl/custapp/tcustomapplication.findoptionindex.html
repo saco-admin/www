@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCustomApplication.FindOptionIndex</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../custapp/index.html">Overview</a>][<a href="../custapp/index-3.html">Types</a>][<a href="../custapp/index-4.html">Classes</a>][<a href="../custapp/index-6.html">Variables</a>][<a href="../custapp/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'CustApp' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCustomApplication.FindOptionIndex</h1>
+<p>Return the index of an option.</p>
+<h2>Declaration</h2>
+<p>Source position: custapp.pp line 70</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../custapp/tcustomapplication.html">TCustomApplication</a><span class="sym">.</span>FindOptionIndex<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>Longopt<span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;StartAt<span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a> <span class="sym">=</span> <span class="sym">-</span> <span class="num">1</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">S</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Short option to search for.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Longopt</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Long option to search for.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">StartAt</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Index to start searching for option.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Position on commandline of option.</p>
+<h2>Description</h2>
+<p><var>FindOptionIndex</var> will return the index of the option <var>S</var> or the long option <var>LongOpt</var>. Neither of them should include the switch character. If no such option was specified, -1 is returned. If either the long or short option was specified, then the position on the command-line is returned. </p>
+<p>Depending on the value of the  <a href="../custapp/tcustomapplication.casesensitiveoptions.html">CaseSensitiveOptions</a> property, the search is performed case sensitive or case insensitive. </p>
+<p>Options are identified as command-line parameters which start with  <a href="../custapp/tcustomapplication.optionchar.html">OptionChar</a> (by default the dash ('-') character). </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../custapp/tcustomapplication.hasoption.html">HasOption</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether an option was specified.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../custapp/tcustomapplication.getoptionvalue.html">GetOptionValue</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the value of a command-line option.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../custapp/tcustomapplication.checkoptions.html">CheckOptions</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether all given options on the command-line are valid.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../custapp/tcustomapplication.casesensitiveoptions.html">CaseSensitiveOptions</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Are options interpreted case sensitive or not</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../custapp/tcustomapplication.optionchar.html">OptionChar</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Command-line switch character</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

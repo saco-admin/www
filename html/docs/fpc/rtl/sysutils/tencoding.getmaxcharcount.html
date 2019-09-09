@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TEncoding.GetMaxCharCount</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TEncoding.GetMaxCharCount</h1>
+<p>Return the maximum number of characters that can be represented in a number of bytes</p>
+<h2>Declaration</h2>
+<p>Source position: sysencodingh.inc line 82</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../sysutils/tencoding.html">TEncoding</a><span class="sym">.</span>GetMaxCharCount<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ByteCount<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>GetMaxCharCount</var> returns the theoretical maximum number of characters that can be represented in a buffer of length <var>ByteCount</var> in the given encoding. Note that the actual number of  characters that can be represented may well be much less and depends on the encoding and the actual characters. </p>
+<p>This is an abstract method, implemented by descendents of <var>TEncoding</var>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/tencoding.getmaxbytecount.html">TEncoding.GetMaxByteCount</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the maximum number of bytes needed to represent a string</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

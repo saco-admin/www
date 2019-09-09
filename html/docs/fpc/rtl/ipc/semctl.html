@@ -1,0 +1,322 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>semctl</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../ipc/index.html">Overview</a>][<a href="../ipc/index-2.html">Constants</a>][<a href="../ipc/index-3.html">Types</a>][<a href="../ipc/index-5.html">Procedures and functions</a>][<a href="../ipc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'ipc' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>semctl</h1>
+<p>Perform various control operations on a semaphore set</p>
+<h2>Declaration</h2>
+<p>Source position: ipc.pp line 862</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> semctl<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;semid<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;semnum<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;cmd<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>arg<span class="sym">: </span><a href="../ipc/tsemun.html">TSEMun</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>semctl</var> performs various operations on the semaphore <var>semnum</var> w ith semaphore set id <var>ID</var>.  </p>
+<p>The <var>arg</var> parameter supplies the data needed for each call. This is a variant record that should be filled differently, according to the command: </p>
+<pre><span class="kw">Type</span>
+  TSEMun <span class="sym">=</span> <span class="kw">record</span>
+   <span class="kw">case</span> longint <span class="kw">of</span>
+      <span class="num">0</span> <span class="sym">:</span> <span class="sym">(</span> val <span class="sym">:</span> longint <span class="sym">)</span><span class="sym">;</span>
+      <span class="num">1</span> <span class="sym">:</span> <span class="sym">(</span> buf <span class="sym">:</span> PSEMid_ds <span class="sym">)</span><span class="sym">;</span>
+      <span class="num">2</span> <span class="sym">:</span> <span class="sym">(</span> arr <span class="sym">:</span> PWord <span class="sym">)</span><span class="sym">;</span>
+      <span class="num">3</span> <span class="sym">:</span> <span class="sym">(</span> padbuf <span class="sym">:</span> PSeminfo <span class="sym">)</span><span class="sym">;</span>
+      <span class="num">4</span> <span class="sym">:</span> <span class="sym">(</span> padpad <span class="sym">:</span> pointer <span class="sym">)</span><span class="sym">;</span>
+   <span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>Which operation is performed, depends on the <var>cmd</var>  parameter, which can have one of the following values: </p>
+<dl>
+<dt>IPC_STAT</dt>
+<dd>In this case, the arg record should have it's <var>buf</var> field set to the address of a <var>TSEMid_ds</var> record.  The <var>semctl</var> call fills this <var>TSEMid_ds</var> structure with information  about the semaphore set.  </dd>
+<dt>IPC_SET</dt>
+<dd>In this case, the <var>arg</var> record should have it's <var>buf</var> field set to the address of a <var>TSEMid_ds</var> record. The <var>semctl</var> call sets the permissions of the queue as specified in  the <var>ipc_perm</var> record. </dd>
+<dt>IPC_RMID</dt>
+<dd>If this is specified, the semaphore set is removed from  from the system. </dd>
+<dt>GETALL</dt>
+<dd>In this case, the <var>arr</var> field of <var>arg</var> should point to a memory area where the values of the semaphores will be stored. The size of this memory area is \var{SizeOf(Word)* Number of semaphores in the set}. This call will then fill the memory array with all the values of the semaphores. </dd>
+<dt>GETNCNT</dt>
+<dd>This will fill the <var>val</var> field of the <var>arg</var> union with the number of processes waiting for resources. </dd>
+<dt>GETPID</dt>
+<dd><var>semctl</var> returns the process ID of the process that performed the last <a href="../ipc/semop.html">semop</a> call. </dd>
+<dt>GETVAL</dt>
+<dd><var>semctl</var> returns the value of the semaphore with number <var>semnum</var>. </dd>
+<dt>GETZCNT</dt>
+<dd><var>semctl</var> returns the number of processes waiting for  semaphores that reach value zero. </dd>
+<dt>SETALL</dt>
+<dd>In this case, the <var>arr</var> field of <var>arg</var> should point to a memory area where the values of the semaphores will be retrieved from. The size of this memory area is \var{SizeOf(Word)* Number of semaphores in the set}. This call will then set the values of the semaphores from the memory array. </dd>
+<dt>SETVAL</dt>
+<dd>This will set the value of semaphore <var>semnum</var> to the value in the <var>val</var> field of the <var>arg</var> parameter. </dd>
+</dl>
+<p>The function returns -1 on error. </p>
+<h2>Errors</h2>
+<p>The function returns -1 on error, and <var>IPCerror</var> is set accordingly. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../ipc/semget.html">semget</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the ID of a semaphore set, possibly creating the set</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ipc/semop.html">semop</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Perform semaphore operation.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> semtool<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the use of semaphores }</span>
+
+<span class="kw">Uses</span> ipc<span class="sym">,</span>baseunix<span class="sym">;</span>
+
+<span class="kw">Const</span> MaxSemValue <span class="sym">=</span> <span class="num">5</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> DoError <span class="sym">(</span><span class="kw">Const</span> Msg <span class="sym">:</span> String<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">var</span>
+  error<span class="sym">:</span> cint<span class="sym">;</span>
+<span class="kw">begin</span>
+  error<span class="sym">:=</span>fpgeterrno<span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Error : '</span><span class="sym">,</span>msg<span class="sym">,</span><span class="str">' Code : '</span><span class="sym">,</span>error<span class="sym">)</span><span class="sym">;</span>
+  Halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Function</span> getsemval <span class="sym">(</span>ID<span class="sym">,</span>Member <span class="sym">:</span> longint<span class="sym">)</span> <span class="sym">:</span> longint<span class="sym">;</span>
+
+<span class="kw">Var</span> S <span class="sym">:</span> TSEMun<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  GetSemVal<span class="sym">:=</span>SemCtl<span class="sym">(</span>id<span class="sym">,</span>member<span class="sym">,</span>SEM_GETVAL<span class="sym">,</span>S<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> DispVal <span class="sym">(</span>ID<span class="sym">,</span>member <span class="sym">:</span> longint<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  writeln <span class="sym">(</span><span class="str">'Value for member '</span><span class="sym">,</span>member<span class="sym">,</span><span class="str">' is '</span><span class="sym">,</span>GetSemVal<span class="sym">(</span>ID<span class="sym">,</span>Member<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Function</span> GetMemberCount <span class="sym">(</span>ID <span class="sym">:</span> Longint<span class="sym">)</span> <span class="sym">:</span> longint<span class="sym">;</span>
+
+<span class="kw">Var</span> opts <span class="sym">:</span> TSEMun<span class="sym">;</span>
+    semds <span class="sym">:</span> TSEMid_ds<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  opts<span class="sym">.</span>buf<span class="sym">:=</span><span class="sym">@</span>semds<span class="sym">;</span>
+  <span class="kw">If</span> semctl<span class="sym">(</span>Id<span class="sym">,</span><span class="num">0</span><span class="sym">,</span>IPC_STAT<span class="sym">,</span>opts<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    GetMemberCount<span class="sym">:=</span>semds<span class="sym">.</span>sem_nsems
+  <span class="kw">else</span>
+    GetMemberCount<span class="sym">:=</span><span class="sym">-</span><span class="num">1</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Function</span> OpenSem <span class="sym">(</span>Key <span class="sym">:</span> TKey<span class="sym">)</span> <span class="sym">:</span> Longint<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  OpenSem<span class="sym">:=</span>semget<span class="sym">(</span>Key<span class="sym">,</span><span class="num">0</span><span class="sym">,</span><span class="num">438</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> OpenSem<span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    DoError <span class="sym">(</span><span class="str">'OpenSem'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Function</span> CreateSem <span class="sym">(</span>Key <span class="sym">:</span> TKey<span class="sym">;</span> Members <span class="sym">:</span> Longint<span class="sym">)</span> <span class="sym">:</span> Longint<span class="sym">;</span>
+
+<span class="kw">Var</span> Count <span class="sym">:</span> Longint<span class="sym">;</span>
+    Semopts <span class="sym">:</span> TSemun<span class="sym">;</span>
+
+<span class="kw">begin</span>
+<span class="cmt">// the semmsl constant seems kernel specific</span>
+<span class="cmt">{  If members&gt;semmsl then</span>
+<span class="cmt">    DoError ('Sorry, maximum number of semaphores in set exceeded');</span>
+<span class="cmt">}</span>
+  Writeln <span class="sym">(</span><span class="str">'Trying to create a new semaphore set with '</span><span class="sym">,</span>members<span class="sym">,</span><span class="str">' members.'</span><span class="sym">)</span><span class="sym">;</span>
+  CreateSem<span class="sym">:=</span>semget<span class="sym">(</span>key<span class="sym">,</span>members<span class="sym">,</span>IPC_CREAT <span class="kw">or</span> IPC_Excl <span class="kw">or</span> <span class="num">438</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> CreateSem<span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    DoError <span class="sym">(</span><span class="str">'Semaphore set already exists.'</span><span class="sym">)</span><span class="sym">;</span>
+  Semopts<span class="sym">.</span>val<span class="sym">:=</span>MaxSemValue<span class="sym">;</span> <span class="cmt">{ Initial value of semaphores }</span>
+  <span class="kw">For</span> Count<span class="sym">:=</span><span class="num">0</span> to Members<span class="sym">-</span><span class="num">1</span> <span class="kw">do</span>
+    semctl<span class="sym">(</span>CreateSem<span class="sym">,</span>count<span class="sym">,</span>SEM_SETVAL<span class="sym">,</span>semopts<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> lockSem <span class="sym">(</span>ID<span class="sym">,</span>Member<span class="sym">:</span> Longint<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span> lock <span class="sym">:</span> TSEMbuf<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">With</span> lock <span class="kw">do</span>
+    <span class="kw">begin</span>
+    sem_num<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+    sem_op<span class="sym">:=</span><span class="sym">-</span><span class="num">1</span><span class="sym">;</span>
+    sem_flg<span class="sym">:=</span>IPC_NOWAIT<span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+   <span class="kw">if</span> <span class="sym">(</span>member<span class="sym">&lt;</span><span class="num">0</span><span class="sym">)</span> <span class="kw">or</span> <span class="sym">(</span>member<span class="sym">&gt;</span>GetMemberCount<span class="sym">(</span>ID<span class="sym">)</span><span class="sym">-</span><span class="num">1</span><span class="sym">)</span> <span class="kw">then</span>
+     DoError <span class="sym">(</span><span class="str">'semaphore member out of range'</span><span class="sym">)</span><span class="sym">;</span>
+   <span class="kw">if</span> getsemval<span class="sym">(</span>ID<span class="sym">,</span>member<span class="sym">)</span><span class="sym">=</span><span class="num">0</span> <span class="kw">then</span>
+     DoError <span class="sym">(</span><span class="str">'Semaphore resources exhausted (no lock)'</span><span class="sym">)</span><span class="sym">;</span>
+   lock<span class="sym">.</span>sem_num<span class="sym">:=</span>member<span class="sym">;</span>
+   Writeln <span class="sym">(</span><span class="str">'Attempting to lock member '</span><span class="sym">,</span>member<span class="sym">,</span> <span class="str">' of semaphore '</span><span class="sym">,</span>ID<span class="sym">)</span><span class="sym">;</span>
+   <span class="kw">if</span> semop<span class="sym">(</span>Id<span class="sym">,</span><span class="sym">@</span>lock<span class="sym">,</span><span class="num">1</span><span class="sym">)</span><span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+     DoError <span class="sym">(</span><span class="str">'Lock failed'</span><span class="sym">)</span>
+   <span class="kw">else</span>
+     Writeln <span class="sym">(</span><span class="str">'Semaphore resources decremented by one'</span><span class="sym">)</span><span class="sym">;</span>
+   dispval<span class="sym">(</span>ID<span class="sym">,</span>Member<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> UnlockSem <span class="sym">(</span>ID<span class="sym">,</span>Member<span class="sym">:</span> Longint<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span> Unlock <span class="sym">:</span> TSEMbuf<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">With</span> Unlock <span class="kw">do</span>
+    <span class="kw">begin</span>
+    sem_num<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+    sem_op<span class="sym">:=</span><span class="num">1</span><span class="sym">;</span>
+    sem_flg<span class="sym">:=</span>IPC_NOWAIT<span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+   <span class="kw">if</span> <span class="sym">(</span>member<span class="sym">&lt;</span><span class="num">0</span><span class="sym">)</span> <span class="kw">or</span> <span class="sym">(</span>member<span class="sym">&gt;</span>GetMemberCount<span class="sym">(</span>ID<span class="sym">)</span><span class="sym">-</span><span class="num">1</span><span class="sym">)</span> <span class="kw">then</span>
+     DoError <span class="sym">(</span><span class="str">'semaphore member out of range'</span><span class="sym">)</span><span class="sym">;</span>
+   <span class="kw">if</span> getsemval<span class="sym">(</span>ID<span class="sym">,</span>member<span class="sym">)</span><span class="sym">=</span>MaxSemValue <span class="kw">then</span>
+     DoError <span class="sym">(</span><span class="str">'Semaphore not locked'</span><span class="sym">)</span><span class="sym">;</span>
+   Unlock<span class="sym">.</span>sem_num<span class="sym">:=</span>member<span class="sym">;</span>
+   Writeln <span class="sym">(</span><span class="str">'Attempting to unlock member '</span><span class="sym">,</span>member<span class="sym">,</span> <span class="str">' of semaphore '</span><span class="sym">,</span>ID<span class="sym">)</span><span class="sym">;</span>
+   <span class="kw">if</span> semop<span class="sym">(</span>Id<span class="sym">,</span><span class="sym">@</span>unlock<span class="sym">,</span><span class="num">1</span><span class="sym">)</span><span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+     DoError <span class="sym">(</span><span class="str">'Unlock failed'</span><span class="sym">)</span>
+   <span class="kw">else</span>
+     Writeln <span class="sym">(</span><span class="str">'Semaphore resources incremented by one'</span><span class="sym">)</span><span class="sym">;</span>
+   dispval<span class="sym">(</span>ID<span class="sym">,</span>Member<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> RemoveSem <span class="sym">(</span>ID <span class="sym">:</span> longint<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">var</span> S <span class="sym">:</span> TSemun<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">If</span> semctl<span class="sym">(</span>Id<span class="sym">,</span><span class="num">0</span><span class="sym">,</span>IPC_RMID<span class="sym">,</span>s<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    Writeln <span class="sym">(</span><span class="str">'Semaphore removed'</span><span class="sym">)</span>
+  <span class="kw">else</span>
+    DoError <span class="sym">(</span><span class="str">'Couldn''t remove semaphore'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+
+<span class="kw">Procedure</span> ChangeMode <span class="sym">(</span>ID<span class="sym">,</span>Mode <span class="sym">:</span> longint<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span> rc <span class="sym">:</span> longint<span class="sym">;</span>
+    opts <span class="sym">:</span> TSEMun<span class="sym">;</span>
+    semds <span class="sym">:</span> TSEMid_ds<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  opts<span class="sym">.</span>buf<span class="sym">:=</span><span class="sym">@</span>semds<span class="sym">;</span>
+  <span class="kw">If</span> <span class="kw">not</span> semctl <span class="sym">(</span>Id<span class="sym">,</span><span class="num">0</span><span class="sym">,</span>IPC_STAT<span class="sym">,</span>opts<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    DoError <span class="sym">(</span><span class="str">'Couldn''t stat semaphore'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Old permissions were : '</span><span class="sym">,</span>semds<span class="sym">.</span>sem_perm<span class="sym">.</span>mode<span class="sym">)</span><span class="sym">;</span>
+  semds<span class="sym">.</span>sem_perm<span class="sym">.</span>mode<span class="sym">:=</span>mode<span class="sym">;</span>
+  <span class="kw">If</span> semctl<span class="sym">(</span>id<span class="sym">,</span><span class="num">0</span><span class="sym">,</span>IPC_SET<span class="sym">,</span>opts<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    Writeln <span class="sym">(</span><span class="str">'Set permissions to '</span><span class="sym">,</span>mode<span class="sym">)</span>
+  <span class="kw">else</span>
+    DoError <span class="sym">(</span><span class="str">'Couldn''t set permissions'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> PrintSem <span class="sym">(</span>ID <span class="sym">:</span> longint<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span> I<span class="sym">,</span>cnt <span class="sym">:</span> longint<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  cnt<span class="sym">:=</span>getmembercount<span class="sym">(</span>ID<span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Semaphore '</span><span class="sym">,</span>ID<span class="sym">,</span><span class="str">' has '</span><span class="sym">,</span>cnt<span class="sym">,</span><span class="str">' Members'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">0</span> to cnt<span class="sym">-</span><span class="num">1</span> <span class="kw">Do</span>
+    DispVal<span class="sym">(</span>id<span class="sym">,</span>i<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> USage<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Writeln <span class="sym">(</span><span class="str">'Usage : semtool c(reate) &lt;count&gt;'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'                l(ock) &lt;member&gt;'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'                u(nlock) &lt;member&gt;'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'                d(elete)'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'                m(ode) &lt;mode&gt;'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'                p(rint)'</span><span class="sym">)</span><span class="sym">;</span>
+  halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Function</span> StrToInt <span class="sym">(</span>S <span class="sym">:</span> String<span class="sym">)</span><span class="sym">:</span> longint<span class="sym">;</span>
+
+<span class="kw">Var</span> M <span class="sym">:</span> longint<span class="sym">;</span>
+    C <span class="sym">:</span> Integer<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  val <span class="sym">(</span>S<span class="sym">,</span>M<span class="sym">,</span>C<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> C<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">Then</span> DoError <span class="sym">(</span><span class="str">'StrToInt : '</span><span class="sym">+</span>S<span class="sym">)</span><span class="sym">;</span>
+  StrToInt<span class="sym">:=</span>M<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Var</span> Key <span class="sym">:</span> TKey<span class="sym">;</span>
+    ID <span class="sym">:</span> Longint<span class="sym">;</span>
+
+
+<span class="kw">const</span> ipckey<span class="sym">=</span><span class="chr">'.'</span><span class="chr">#0</span><span class="sym">;</span>  
+
+<span class="kw">begin</span>
+  <span class="kw">If</span> ParamCount<span class="sym">&lt;</span><span class="num">1</span> <span class="kw">then</span> USage<span class="sym">;</span>
+  key<span class="sym">:=</span>ftok<span class="sym">(</span><span class="sym">@</span>ipckey<span class="sym">[</span><span class="num">1</span><span class="sym">]</span><span class="sym">,</span>ORD<span class="sym">(</span><span class="chr">'s'</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">Case</span> UpCase<span class="sym">(</span>Paramstr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">[</span><span class="num">1</span><span class="sym">]</span><span class="sym">)</span> <span class="kw">of</span>
+   <span class="chr">'C'</span> <span class="sym">:</span> <span class="kw">begin</span>
+         <span class="kw">if</span> paramcount<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">2</span> <span class="kw">then</span> usage<span class="sym">;</span>
+         CreateSem <span class="sym">(</span>key<span class="sym">,</span>strtoint<span class="sym">(</span>paramstr<span class="sym">(</span><span class="num">2</span><span class="sym">)</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+         <span class="kw">end</span><span class="sym">;</span>
+   <span class="chr">'L'</span> <span class="sym">:</span> <span class="kw">begin</span>
+         <span class="kw">if</span> paramcount<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">2</span> <span class="kw">then</span> usage<span class="sym">;</span>
+         ID<span class="sym">:=</span>OpenSem <span class="sym">(</span>key<span class="sym">)</span><span class="sym">;</span>
+         LockSem <span class="sym">(</span>ID<span class="sym">,</span>strtoint<span class="sym">(</span>paramstr<span class="sym">(</span><span class="num">2</span><span class="sym">)</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+         <span class="kw">end</span><span class="sym">;</span>
+   <span class="chr">'U'</span> <span class="sym">:</span> <span class="kw">begin</span>
+         <span class="kw">if</span> paramcount<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">2</span> <span class="kw">then</span> usage<span class="sym">;</span>
+         ID<span class="sym">:=</span>OpenSem <span class="sym">(</span>key<span class="sym">)</span><span class="sym">;</span>
+         UnLockSem <span class="sym">(</span>ID<span class="sym">,</span>strtoint<span class="sym">(</span>paramstr<span class="sym">(</span><span class="num">2</span><span class="sym">)</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+         <span class="kw">end</span><span class="sym">;</span>
+   <span class="chr">'M'</span> <span class="sym">:</span> <span class="kw">begin</span>
+         <span class="kw">if</span> paramcount<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">2</span> <span class="kw">then</span> usage<span class="sym">;</span>
+         ID<span class="sym">:=</span>OpenSem <span class="sym">(</span>key<span class="sym">)</span><span class="sym">;</span>
+         ChangeMode <span class="sym">(</span>ID<span class="sym">,</span>strtoint<span class="sym">(</span>paramstr<span class="sym">(</span><span class="num">2</span><span class="sym">)</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+         <span class="kw">end</span><span class="sym">;</span>
+   <span class="chr">'D'</span> <span class="sym">:</span> <span class="kw">Begin</span>
+         ID<span class="sym">:=</span>OpenSem<span class="sym">(</span>Key<span class="sym">)</span><span class="sym">;</span>
+         RemoveSem<span class="sym">(</span>Id<span class="sym">)</span><span class="sym">;</span>
+         <span class="kw">end</span><span class="sym">;</span>
+   <span class="chr">'P'</span> <span class="sym">:</span> <span class="kw">begin</span>
+         ID<span class="sym">:=</span>OpenSem<span class="sym">(</span>Key<span class="sym">)</span><span class="sym">;</span>
+         PrintSem<span class="sym">(</span>Id<span class="sym">)</span><span class="sym">;</span>
+         <span class="kw">end</span><span class="sym">;</span>
+  <span class="kw">else</span>
+    Usage
+  <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

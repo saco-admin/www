@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>portl</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../ports/index.html">Overview</a>][<a href="../ports/index-4.html">Classes</a>][<a href="../ports/index-6.html">Variables</a>][<a href="../ports/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'ports' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>portl</h1>
+<p>Provide port access per longint</p>
+<h2>Declaration</h2>
+<p>Source position: ports.pp line 58</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">var</span> portl<span class="sym">: </span><a href="../ports/tportl.html">tportl</a> <span class="sym">=</span> <span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Default instance of type <a href="../ports/tportl.html">TPortL</a>. Do not free. This variable is initialized in the unit initialization code, and freed at finalization. </p>
+<p>Since there is a default property for a variable of this type, a sentence as </p>
+<pre>portl<span class="sym">[</span><span class="num">221</span><span class="sym">]</span><span class="sym">:=</span><span class="num">12</span><span class="sym">;</span>
+</pre>
+<p>Will result in the longint 12 being written to port 221, if port is defined as a variable of type <var>tport</var></p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

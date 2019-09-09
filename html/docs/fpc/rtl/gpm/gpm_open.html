@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>gpm_open</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../gpm/index.html">Overview</a>][<a href="../gpm/index-2.html">Constants</a>][<a href="../gpm/index-3.html">Types</a>][<a href="../gpm/index-5.html">Procedures and functions</a>][<a href="../gpm/index-6.html">Variables</a>][<a href="../gpm/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'gpm' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>gpm_open</h1>
+<p>Open connection to GPM server.</p>
+<h2>Declaration</h2>
+<p>Source position: gpm.pp line 185</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> gpm_open<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>conn<span class="sym">: </span><a href="../gpm/tgpm_connect.html">Tgpm_connect</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;flag<span class="sym">: </span><a href="../system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Gpm_Open</var> opens a new connection to the mouse server. The connection is described by the fields of the <var>conn</var> record of type <a href="../gpm/tgpmconnect.html">TGPMConnect</a>. </p>
+<p>if <var>Flag</var> is 0, then the application only receives events that come from its own terminal device. If it is negative it will receive all events. If the value is positive then it is considered a console number to which to connect. </p>
+<p>The return value is -1 on error, or the file descriptor used to communicate with the client. Under an X-Term the return value is -2. </p>
+<p>for an example, see <a href="../gpm/gpm_getevent.html">Gpm_GetEvent</a>. </p>
+<h2>Errors</h2>
+<p>On Error, the return value is -1. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../gpm/gpm_open.html">Gpm_Open</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Open connection to GPM server.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

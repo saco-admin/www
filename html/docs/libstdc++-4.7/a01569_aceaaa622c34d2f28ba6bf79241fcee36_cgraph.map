@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00180.html#a18b32829b31b902699690b750e190e59" title="Find out desired number of threads." alt="" coords="261,81,581,109"/>
+<area shape="rect" id="node5" href="$a01569.html#ac416a1c7e347b429bbf7a8fb17e847b2" title="Unbalanced quicksort main call." alt="" coords="308,131,535,159"/>
+<area shape="rect" id="node7" href="$a01569.html#a06c506308856b684737d24944a93a42e" title="Unbalanced quicksort conquer step." alt="" coords="631,131,916,159"/>
+<area shape="rect" id="node9" href="$a01569.html#a55defa3d8e8ca7b4e52330b9afc0b1ce" title="Unbalanced quicksort divide step." alt="" coords="967,106,1236,134"/>
+<area shape="rect" id="node27" href="$a00163.html#abc4965eacae0b49945ebc887cb11adc1" title="Get the global settings." alt="" coords="1592,157,1797,185"/>
+<area shape="rect" id="node11" href="$a01569.html#a694c714713cacc857e126157b5472448" title="Equivalent to std::min." alt="" coords="1333,55,1472,83"/>
+<area shape="rect" id="node13" href="$a01569.html#aa56788b479955dd136d6af173d2cae0b" title="Parallel implementation of std::partition." alt="" coords="1285,106,1520,134"/>
+<area shape="rect" id="node15" href="$a01569.html#accd4441e0f846fee44966195a91e9e68" title="Compare *__ptr and __comparand. If equal, let *__ptr=__replacement and return true, return false otherwise." alt="" coords="1568,55,1821,83"/>
+<area shape="rect" id="node21" href="$a01569.html#a56a5a84c8a6049cd3cc83968c6eae088" title="Add a value to a variable, atomically." alt="" coords="1584,106,1805,134"/>
+<area shape="rect" id="node17" href="$a01569.html#ab6820de0a0aa43aaf0d1fd22548c7f91" title="Compare *__ptr and __comparand. If equal, let *__ptr=__replacement and return true, return false otherwise." alt="" coords="1869,5,2144,33"/>
+<area shape="rect" id="node19" href="$a01569.html#a412037b996221c3b30b6771ffda31ef7" title="Compare *__ptr and __comparand. If equal, let *__ptr=__replacement and return true, return false otherwise." alt="" coords="1869,55,2144,83"/>
+<area shape="rect" id="node23" href="$a01569.html#a0ecb7402bccd099b51c28bcc64d57b68" title="Add a value to a variable, atomically." alt="" coords="1885,106,2128,134"/>
+<area shape="rect" id="node25" href="$a01569.html#aa87fd421e9f75ac83103ea48fabfa77f" title="Add a value to a variable, atomically." alt="" coords="1885,157,2128,185"/>
+</map>

@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TModeInfo</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../graph/index.html">Overview</a>][<a href="../graph/index-2.html">Constants</a>][<a href="../graph/index-3.html">Types</a>][<a href="../graph/index-5.html">Procedures and functions</a>][<a href="../graph/index-6.html">Variables</a>][<a href="../graph/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Graph' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TModeInfo</h1>
+<p>Record describing a graphical mode.</p>
+<h2>Declaration</h2>
+<p>Source position: graphh.inc line 609</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TModeInfo<span class="sym"> = </span><span class="kw">record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;DriverNumber<span class="sym">: </span><a href="../system/smallint.html">SmallInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of the driver to be used in <a href="../graph/initgraph.html">InitGraph</a>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ModeNumber<span class="sym">: </span><a href="../system/smallint.html">SmallInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of the mode to be used in <a href="../graph/initgraph.html">InitGraph</a>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;internModeNumber<span class="sym">: </span><a href="../system/smallint.html">SmallInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Internal mode number. Do not use.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;MaxColor<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Max. number of colors in this mode.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;PaletteSize<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Max number of palette entries in this mode.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;XAspect<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">X aspect (Aspect ratio correction factor) of mode</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;YAspect<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Y aspect (Aspect ratio correction factor) of mode</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;MaxX<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Max number of pixels in horizontal direction (columns).</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;MaxY<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Max number of pixels in vertical direction (rows).</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;DirectColor<span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Direct color mode ? (If False, uses palette)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Hardwarepages<span class="sym">: </span><a href="../system/byte.html">Byte</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Total number of image pages - 1</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ModeName<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode description.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;DirectPutPixel<span class="sym">: </span><a href="../graph/defpixelproc.html">defpixelproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode Putpixel routine.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;GetPixel<span class="sym">: </span><a href="../graph/getpixelproc.html">getpixelproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode Getpixel routine.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;PutPixel<span class="sym">: </span><a href="../graph/putpixelproc.html">putpixelproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode Putpixel routine.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;SetRGBPalette<span class="sym">: </span><a href="../graph/setrgbpaletteproc.html">setrgbpaletteproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode SetRGBPalette routine</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;GetRGBPalette<span class="sym">: </span><a href="../graph/getrgbpaletteproc.html">getrgbpaletteproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode GetRGBPalette routine</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;SetAllPalette<span class="sym">: </span><a href="../graph/setallpaletteproc.html">SetAllPaletteProc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode SetAllPalette routine</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;SetVisualPage<span class="sym">: </span><a href="../graph/setvisualpageproc.html">setvisualpageproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode SetVisualPage routine</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;SetActivePage<span class="sym">: </span><a href="../graph/setactivepageproc.html">setactivepageproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode SetActivePage routine</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ClearViewPort<span class="sym">: </span><a href="../graph/clrviewproc.html">clrviewproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode Clearviewport routine.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;PutImage<span class="sym">: </span><a href="../graph/putimageproc.html">putimageproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode PutImage routine.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;GetImage<span class="sym">: </span><a href="../graph/getimageproc.html">getimageproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode GetImage routine.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ImageSize<span class="sym">: </span><a href="../graph/imagesizeproc.html">imagesizeproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode ImageSize routine.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;GetScanLine<span class="sym">: </span><a href="../graph/getscanlineproc.html">getscanlineproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode GetScanLine routine</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Line<span class="sym">: </span><a href="../graph/lineproc.html">lineproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode Line drawing routine</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;InternalEllipse<span class="sym">: </span><a href="../graph/ellipseproc.html">ellipseproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode ellipse drawing routine.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;PatternLine<span class="sym">: </span><a href="../graph/patternlineproc.html">patternlineproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode PatternLine routine.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;HLine<span class="sym">: </span><a href="../graph/hlineproc.html">hlineproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode Horizontal full line drawing routine.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;VLine<span class="sym">: </span><a href="../graph/vlineproc.html">vlineproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode vertical full line drawing routine.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Circle<span class="sym">: </span><a href="../graph/circleproc.html">CircleProc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode circle drawing routine.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;InitMode<span class="sym">: </span><a href="../graph/initmodeproc.html">initmodeproc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode initialization routine.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;OutTextXY<span class="sym">: </span><a href="../graph/outtextxyproc.html">OutTextXYProc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mode OutTextXY routine.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;SetBKColor<span class="sym">: </span><a href="../graph/setbkcolorproc.html">SetBkColorProc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set background color (SetBkColor) callback</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;GetBKColor<span class="sym">: </span><a href="../graph/getbkcolorproc.html">GetBkColorProc</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get background color (GetBkColor) callback</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;next<span class="sym">: </span><a href="../graph/pmodeinfo.html">PModeInfo</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Pointer to next mode in linked list.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

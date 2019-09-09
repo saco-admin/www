@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDataSet.AppendRecord</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDataSet.AppendRecord</h1>
+<p>Append a new record to the dataset and fill with data</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1619</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../db/tdataset.html">TDataSet</a><span class="sym">.</span>AppendRecord<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Values<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <span class="kw">Const</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Values</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Values for all fields, in correct order</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>AppendRecord</var> first calls <var>Append</var> to add a new record to the dataset. It then copies the values in <var>Values</var>  to the various fields (using <a href="../db/tdataset.setfields.html">TDataset.SetFields</a>) and attempts to post the record using <a href="../db/tdataset.post.html">TDataset.Post</a>.  If all went well, the result is that the values in <var>Values</var> have been added as a new record to the dataset. </p>
+<h2>Errors</h2>
+<p>Various errors may occur (not supplying a value for all required fields, invalid values) and may cause an exception.  This may leave the dataset in editing mode. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdataset.append.html">TDataset.Append</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Append a new record to the data</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.setfields.html">TDataset.SetFields</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set a number of field values at once</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.post.html">TDataset.Post</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Post pending edits to the database.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Procedural types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2642--><div class="crosslinks"><p class="noindent">[<a 
+href="refse18.html" >next</a>] [<a 
+href="refse16.html" >prev</a>] [<a 
+href="refse16.html#tailrefse16.html" >prev-tail</a>] [<a 
+href="#tailrefse17.html">tail</a>] [<a 
+href="refch3.html#refse17.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">3.6   </span> <a 
+href="ref.html#QQ2-44-68" id="x44-620003.6">Procedural types</a></h3>
+<a 
+ id="dx44-62001"></a>
+<a 
+ id="dx44-62002"></a>
+<a 
+ id="dx44-62003"></a>
+<!--l. 2644--><p class="noindent" >Free Pascal has support for procedural types, although it differs a little from the Turbo Pascal or
+Delphi implementation of them. The type declaration remains the same, as can be seen in the
+following syntax diagram:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Procedural types</span><br 
+class="newline" /><BR/><img 
+src="ref47x.png" alt="--procedural type-|-function header-----------------------------------
+                 procedure header  -of- object--| ;  call modifiers
+                                  is  nested
+     " ><BR/>
+     <BR/><img 
+src="ref48x.png" alt="--function header- function -formal parameter list :-result type----------
+     " ><BR/>
+     <BR/><img 
+src="ref49x.png" alt="--procedure header procedure- formal parameter list--------------------
+     " ><BR/>
+     <BR/><img 
+src="ref50x.png" alt="--call modifiers-|register ------------------------------------------
+              |-cdecl--|
+              |-pascal--|
+              |-stdcall--|
+              -safecall-|
+                inline
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 2648--><p class="noindent" >For a description of formal parameter lists, see chapter <a 
+href="refch14.html#x171-19300014">14<!--tex4ht:ref: ch:Procedures --></a>, page <a 
+href="refch14.html#x171-19300014">680<!--tex4ht:ref: ch:Procedures --></a>. The two following examples
+are valid type declarations:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-99">
+Type&#x00A0;TOneArg&#x00A0;=&#x00A0;Procedure&#x00A0;(Var&#x00A0;X&#x00A0;:&#x00A0;integer);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;TNoArg&#x00A0;=&#x00A0;Function&#x00A0;:&#x00A0;Real;
+&#x00A0;<br />var&#x00A0;proc&#x00A0;:&#x00A0;TOneArg;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;func&#x00A0;:&#x00A0;TNoArg;
+</div>
+<!--l. 2655--><p class="nopar" >One can assign the following values to a procedural type variable:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x44-62005x1"><span 
+class="cmtt-10">Nil</span>, for both normal procedure pointers and method pointers.
+     </li>
+     <li 
+  class="enumerate" id="x44-62007x2">A variable reference of a procedural type, i.e. another variable of the same type.
+     </li>
+     <li 
+  class="enumerate" id="x44-62009x3">A global procedure or function address, with matching function or procedure header
+     and calling convention.
+     </li>
+     <li 
+  class="enumerate" id="x44-62011x4">A method address.</li></ol>
+<!--l. 2665--><p class="noindent" >Given these declarations, the following assignments are valid:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-100">
+Procedure&#x00A0;printit&#x00A0;(Var&#x00A0;X&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(x);
+&#x00A0;<br />end;
+&#x00A0;<br />...
+&#x00A0;<br />Proc&#x00A0;:=&#x00A0;@printit;
+&#x00A0;<br />Func&#x00A0;:=&#x00A0;@Pi;
+</div>
+<!--l. 2674--><p class="nopar" >From this example, the difference with Turbo Pascal is clear: In Turbo Pascal it isn&#8217;t necessary to
+use the address operator (<span 
+class="cmtt-10">@</span>) when assigning a procedural type variable, whereas in Free Pascal it is
+required. In case the <span 
+class="cmtt-10">-MDelphi </span>or <span 
+class="cmtt-10">-MTP </span>switches are used, the address operator can be
+dropped.
+<!--l. 2680--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> The modifiers concerning the calling conventions must be the same as the declaration; i.e. the
+following code would give an error:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-101">
+Type&#x00A0;TOneArgCcall&#x00A0;=&#x00A0;Procedure&#x00A0;(Var&#x00A0;X&#x00A0;:&#x00A0;integer);cdecl;
+&#x00A0;<br />var&#x00A0;proc&#x00A0;:&#x00A0;TOneArgCcall;
+&#x00A0;<br />Procedure&#x00A0;printit&#x00A0;(Var&#x00A0;X&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(x);
+&#x00A0;<br />end;
+&#x00A0;<br />begin
+&#x00A0;<br />Proc&#x00A0;:=&#x00A0;@printit;
+&#x00A0;<br />end.
+</div>
+<!--l. 2693--><p class="nopar" >Because the <span 
+class="cmtt-10">TOneArgCcall </span>type is a procedure that uses the cdecl calling convention.
+<!--l. 2698--><p class="noindent" >In case the <span 
+class="cmtt-10">is nested </span>modified is added, then the procedural variable can be used with nested
+procedures. This requires that the sources be compiled in macpas or ISO mode, or that the
+<span 
+class="cmtt-10">nestedprocvars </span>modeswitch be activated:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-102">
+{$modeswitch&#x00A0;nestedprocvars}
+&#x00A0;<br />program&#x00A0;tmaclocalprocparam3;
+&#x00A0;<br />
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;tnestedprocvar&#x00A0;=&#x00A0;procedure&#x00A0;is&#x00A0;nested;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;tempp:&#x00A0;tnestedprocvar;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;p1(&#x00A0;pp:&#x00A0;tnestedprocvar);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;tempp:=pp;
+&#x00A0;<br />&#x00A0;&#x00A0;tempp
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;p2(&#x00A0;pp:&#x00A0;tnestedprocvar);
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;localpp:&#x00A0;tnestedprocvar;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;localpp:=pp;
+&#x00A0;<br />&#x00A0;&#x00A0;p1(&#x00A0;localpp)
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;n;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;writeln(&#x00A0;&#8217;calling&#x00A0;through&#x00A0;n&#8217;)
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;q;
+&#x00A0;<br />
+&#x00A0;<br />var&#x00A0;qi:&#x00A0;longint;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;procedure&#x00A0;r;
+&#x00A0;<br />&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;if&#x00A0;qi&#x00A0;=&#x00A0;1&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;writeln(&#x00A0;&#8217;success&#x00A0;for&#x00A0;r&#8217;)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;else
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;writeln(&#x00A0;&#8217;fail&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;halt(&#x00A0;1)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;qi:=&#x00A0;1;
+&#x00A0;<br />&#x00A0;&#x00A0;p1(&#x00A0;@r);
+&#x00A0;<br />&#x00A0;&#x00A0;p2(&#x00A0;@r);
+&#x00A0;<br />&#x00A0;&#x00A0;p1(&#x00A0;@n);
+&#x00A0;<br />&#x00A0;&#x00A0;p2(&#x00A0;@n);
+                                                                            
+
+                                                                            
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;q;
+&#x00A0;<br />end.
+</div>
+<!--l. 2757--><p class="nopar" >
+<!--l. 2759--><p class="noindent" >In case one wishes to assign methods of a class to a variable of procedural type, the procedural
+type must be declared with the <span 
+class="cmtt-10">of object </span>modifier.
+<!--l. 2763--><p class="noindent" >The two following examples are valid type declarations for method procedural variables (also
+known as event handlers because of their use in GUI design):
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-103">
+Type&#x00A0;TOneArg&#x00A0;=&#x00A0;Procedure&#x00A0;(Var&#x00A0;X&#x00A0;:&#x00A0;integer)&#x00A0;of&#x00A0;object;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;TNoArg&#x00A0;=&#x00A0;Function&#x00A0;:&#x00A0;Real&#x00A0;of&#x00A0;object;
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;oproc&#x00A0;:&#x00A0;TOneArg;
+&#x00A0;<br />&#x00A0;&#x00A0;ofunc&#x00A0;:&#x00A0;TNoArg;
+</div>
+<!--l. 2771--><p class="nopar" >A method of the correct signature can be assigned to these functions. When called,
+<span 
+class="cmtt-10">Self </span>will be pointing to the instance of the object that was used to assign the method
+procedure.
+<!--l. 2776--><p class="noindent" >The following object methods can be assigned to <span 
+class="cmtt-10">oproc </span>and <span 
+class="cmtt-10">ofunc</span>:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-104">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TMyObject&#x00A0;=&#x00A0;Class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;DoX&#x00A0;(Var&#x00A0;X&#x00A0;:&#x00A0;integer);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;DoY:&#x00A0;Real;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;M&#x00A0;:&#x00A0;TMyObject;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;oproc:=@M.DoX;
+&#x00A0;<br />&#x00A0;&#x00A0;ofunc:=@M.DOY;
+&#x00A0;<br />end;
+</div>
+<!--l. 2791--><p class="nopar" >When calling <span 
+class="cmtt-10">oproc </span>and <span 
+class="cmtt-10">ofunc</span>, <span 
+class="cmtt-10">Self </span>will equal <span 
+class="cmtt-10">M</span>.
+<!--l. 2794--><p class="noindent" >This mechanism is sometimes called <span 
+class="cmtt-10">Delegation</span>.
+<!--l. 2796--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> When comparing 2 method procedural variables, only the method is compared, not the instance
+pointer. That means that the following program will print <span 
+class="cmtt-10">True</span>:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-105">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TSomeMethod&#x00A0;=&#x00A0;Procedure&#x00A0;&#x00A0;of&#x00A0;object;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TMyObject&#x00A0;=&#x00A0;Class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;DoSomething;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;TMyObject.DoSomething;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;In&#x00A0;DoSomething&#8217;);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;X,Y&#x00A0;:&#x00A0;TMyObject;
+&#x00A0;<br />&#x00A0;&#x00A0;P1,P2&#x00A0;:&#x00A0;TSomeMethod;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;X:=TMyObject.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;Y:=TMyObject.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;P1:=@X.DoSomething;
+&#x00A0;<br />&#x00A0;&#x00A0;P2:=@Y.DoSomething;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Same&#x00A0;method&#x00A0;:&#x00A0;&#8217;,P1=P2);
+&#x00A0;<br />end.
+</div>
+<!--l. 2824--><p class="nopar" >If both pointers must be compared, a typecast to TMethod must be done, and both pointers
+should be compared.
+                                                                            
+
+                                                                            
+<!--l. 2831--><div class="crosslinks"><p class="noindent">[<a 
+href="refse18.html" >next</a>] [<a 
+href="refse16.html" >prev</a>] [<a 
+href="refse16.html#tailrefse16.html" >prev-tail</a>] [<a 
+href="refse17.html" >front</a>] [<a 
+href="refch3.html#refse17.html" >up</a>] </p></div>
+<!--l. 2831--><p class="noindent" ><a 
+ id="tailrefse17.html"></a>  
+</body></html> 

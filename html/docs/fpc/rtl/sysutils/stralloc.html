@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>StrAlloc</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>StrAlloc</h1>
+<p>Allocate a null-terminated string on the heap.</p>
+<h2>Declaration</h2>
+<p>Source position: syspchh.inc line 41</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> StrAlloc<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Size<span class="sym">: </span><a href="../system/cardinal.html">Cardinal</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>StrAlloc</var> reserves memory on the heap for a string with length <var>Len</var>, terminating <var>#0</var> included, and returns a pointer to it. </p>
+<p>Additionally, <var>StrAlloc</var> allocates 4 extra bytes to store the size of the allocated memory. Therefore this function is NOT compatible with the <a href="../strings/stralloc.html">StrAlloc</a> function of the <var>Strings</var> unit. </p>
+<p>For an example, see <a href="../sysutils/strbufsize.html">StrBufSize</a>. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/strbufsize.html">StrBufSize</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the size of a null-terminated string allocated on the heap.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/strdispose.html">StrDispose</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Dispose of a null-terminated string on the heap.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../strings/stralloc.html">StrAlloc</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Allocate memory for a new null-terminated string on the heap</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

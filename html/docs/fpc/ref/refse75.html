@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The id type</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 7708--><div class="crosslinks"><p class="noindent">[<a 
+href="refse76.html" >next</a>] [<a 
+href="refse74.html" >prev</a>] [<a 
+href="refse74.html#tailrefse74.html" >prev-tail</a>] [<a 
+href="#tailrefse75.html">tail</a>] [<a 
+href="refch11.html#refse75.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">11.9   </span> <a 
+href="ref.html#QQ2-137-165" id="x137-15900011.9">The <span 
+class="cmtt-10">id </span>type</a></h3>
+<!--l. 7709--><p class="noindent" >The <span 
+class="cmtt-10">id </span>type is special in Objective-C/Pascal. It is much like the pointer type in Object Pascal,
+except that it is a real class. It is assignment-compatible with instances of every <span 
+class="cmtt-10">objcclass </span>and
+<span 
+class="cmtt-10">objcprotocol </span>type, in two directions:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x137-159002x1">variables of any <span 
+class="cmtt-10">objcclass</span>/<span 
+class="cmtt-10">objcprotocol </span>type can be assigned to a variable of the
+     type <span 
+class="cmtt-10">id</span>.
+     </li>
+     <li 
+  class="enumerate" id="x137-159004x2">variables   of   type   <span 
+class="cmtt-10">id  </span>can   be   assigned   to   variables   of   any   particular
+     <span 
+class="cmtt-10">objcclass</span>/<span 
+class="cmtt-10">objcprotocol </span>type.</li></ol>
+<!--l. 7719--><p class="noindent" >No explicit typecast is required for either of these assignments.
+<!--l. 7721--><p class="noindent" >Additionally, any Objective-C method declared in an <span 
+class="cmtt-10">objcclass </span>or <span 
+class="cmtt-10">objccategory </span>that is in scope
+can be called when using an <span 
+class="cmtt-10">id</span>-typed variable.
+<!--l. 7725--><p class="noindent" >If, at run time, the actual <span 
+class="cmtt-10">objcclass </span>instance stored in the <span 
+class="cmtt-10">id</span>-typed variable does not respond to
+the sent message, the program will terminate with a run time error: much like the dispatch
+mechanism for variants under MS-Windows.
+<!--l. 7730--><p class="noindent" >When there are multiple methods with the same Pascal identifier, the compiler will use the
+standard overload resolution logic to pick the most appropriate method. In this process, it will
+behave as if all <span 
+class="cmtt-10">objcclass</span>/<span 
+class="cmtt-10">objccategory </span>methods in scope have been declared as global
+procedures/functions with the <span 
+class="cmtt-10">overload </span>specifier. Likewise, the compiler will print an error if it
+cannot determine which overloaded method to call.
+<!--l. 7737--><p class="noindent" >In such cases, a list of all methods that could be used to implement the call will be printed as a
+hint.
+<!--l. 7740--><p class="noindent" >To resolve the error, an explicit type cast must be used to tell the compiler which objcclass type
+contains the needed method.
+                                                                            
+
+                                                                            
+<!--l. 7745--><div class="crosslinks"><p class="noindent">[<a 
+href="refse76.html" >next</a>] [<a 
+href="refse74.html" >prev</a>] [<a 
+href="refse74.html#tailrefse74.html" >prev-tail</a>] [<a 
+href="refse75.html" >front</a>] [<a 
+href="refch11.html#refse75.html" >up</a>] </p></div>
+<!--l. 7745--><p class="noindent" ><a 
+ id="tailrefse75.html"></a>  
+</body></html> 

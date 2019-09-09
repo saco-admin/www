@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TResourceTreeNode</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../resourcetree/index.html">Overview</a>][<a href="../resourcetree/index-4.html">Classes</a>][<a href="../resourcetree/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'resourcetree' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TResourceTreeNode</h1>
+<p>[<a href="../resourcetree/tresourcetreenode-1.html" onClick="window.open('../resourcetree/tresourcetreenode-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../resourcetree/tresourcetreenode-2.html" onClick="window.open('../resourcetree/tresourcetreenode-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../resourcetree/tresourcetreenode-3.html" onClick="window.open('../resourcetree/tresourcetreenode-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../resourcetree/tresourcetreenode-4.html" onClick="window.open('../resourcetree/tresourcetreenode-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../resourcetree/tresourcetreenode-5.html" onClick="window.open('../resourcetree/tresourcetreenode-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../resourcetree/tresourcetreenode-6.html" onClick="window.open('../resourcetree/tresourcetreenode-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Abstract class representing a resource tree node.</p>
+<h2>Declaration</h2>
+<p>Source position: resourcetree.pp line 29</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TResourceTreeNode <span class="sym">=</span> <span class="kw">class</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">protected</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../resourcetree/tresourcetreenode.fparent.html">fParent</a><span class="sym">: </span><a href="../resourcetree/tresourcetreenode.html">TResourceTreeNode</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../resourcetree/tresourcetreenode.fnamedentries.html">fNamedEntries</a><span class="sym">: </span><a href="../../rtl/classes/tfplist.html">TFPList</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../resourcetree/tresourcetreenode.fidentries.html">fIDEntries</a><span class="sym">: </span><a href="../../rtl/classes/tfplist.html">TFPList</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../resourcetree/tresourcetreenode.fsubdirrva.html">fSubDirRVA</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../resourcetree/tresourcetreenode.fdatarva.html">fDataRVA</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../resourcetree/tresourcetreenode.fnamerva.html">fNameRva</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../resourcetree/tresourcetreenode.fdesc.html">fDesc</a><span class="sym">: </span><a href="../resource/tresourcedesc.html">TResourceDesc</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resourcetree/tresourcetreenode.getnamedcount.html">GetNamedCount</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resourcetree/tresourcetreenode.getnamedentry.html">GetNamedEntry</a><span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resourcetree/tresourcetreenode.getidcount.html">GetIDCount</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resourcetree/tresourcetreenode.getidentry.html">GetIDEntry</a><span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resourcetree/tresourcetreenode.getdata.html">GetData</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resourcetree/tresourcetreenode.internalfind.html">InternalFind</a><span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../resourcetree/tresourcetreenode.create.html">Create</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../resourcetree/tresourcetreenode.parent.html">Parent</a><span class="sym">: </span><a href="../resourcetree/tresourcetreenode.html">TResourceTreeNode</a><span class="sym">;</span>  [r]</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../resourcetree/tresourcetreenode.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Destroys the object.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resourcetree/tresourcetreenode.add.html">Add</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Adds a new resource to the tree</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resourcetree/tresourcetreenode.createsubnode.html">CreateSubNode</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a subnode</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resourcetree/tresourcetreenode.createresource.html">CreateResource</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a new resource</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resourcetree/tresourcetreenode.clear.html">Clear</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Destroys all sub nodes</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resourcetree/tresourcetreenode.remove.html">Remove</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Removes a resource from the tree</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resourcetree/tresourcetreenode.find.html">Find</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Searches for a resource</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resourcetree/tresourcetreenode.findfreeid.html">FindFreeID</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find a free ID to be used as a resource name</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resourcetree/tresourcetreenode.isleaf.html">IsLeaf</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reports whether the node is a leaf node.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../resourcetree/tresourcetreenode.desc.html">Desc</a><span class="sym">: </span><a href="../resource/tresourcedesc.html">TResourceDesc</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The description of the node</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../resourcetree/tresourcetreenode.namedcount.html">NamedCount</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The number of named sub nodes of the node</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../resourcetree/tresourcetreenode.namedentries.html">NamedEntries</a> []<span class="sym">: </span><a href="../resourcetree/tresourcetreenode.html">TResourceTreeNode</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed array of named sub nodes of the node</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../resourcetree/tresourcetreenode.idcount.html">IDCount</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The number of ID sub nodes of the node</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../resourcetree/tresourcetreenode.identries.html">IDEntries</a> []<span class="sym">: </span><a href="../resourcetree/tresourcetreenode.html">TResourceTreeNode</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed array of ID sub nodes of the node</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../resourcetree/tresourcetreenode.namerva.html">NameRVA</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">To be used by readers and writers</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../resourcetree/tresourcetreenode.subdirrva.html">SubDirRVA</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">To be used by readers and writers</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../resourcetree/tresourcetreenode.datarva.html">DataRVA</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">To be used by readers and writers</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../resourcetree/tresourcetreenode.data.html">Data</a><span class="sym">: </span><a href="../resource/tabstractresource.html">TAbstractResource</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The resource contained in this node</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../resourcetree/tresourcetreenode.html">TResourceTreeNode</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Abstract class representing a resource tree node.</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TObject</span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This class represents a node in a resource tree.</p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>An object of this class should never be directly instantiated. To create a node, call <a href="../resourcetree/tresourcetreenode.createsubnode.html">CreateSubNode</a> method of an already existing node.</td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

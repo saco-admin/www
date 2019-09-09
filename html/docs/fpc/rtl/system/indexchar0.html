@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>IndexChar0</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>IndexChar0</h1>
+<p>Return index of a character in null-terminated array of char.</p>
+<h2>Declaration</h2>
+<p>Source position: systemh.inc line 755</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> IndexChar0<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>buf<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;len<span class="sym">: </span><a href="../system/sizeint.html">SizeInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;b<span class="sym">: </span><a href="../system/char.html">Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/sizeint.html">SizeInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>IndexChar0</var> returns the index of the character <var>b</var> in the null-terminated array <var>Buf</var>. At most <var>len</var> characters will be searched, or the null character if it is encountered first. If the character is not found, -1 is returned. </p>
+<h2>Errors</h2>
+<p>On error, -1 is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/indexbyte.html">IndexByte</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for a byte in a memory range.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/indexchar.html">IndexChar</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for a character in a memory range.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/indexword.html">IndexWord</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for a WORD value in a memory range.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/indexdword.html">IndexDWord</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for a DWord value in a memory range.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/comparechar0.html">CompareChar0</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compare two buffers character by character till a null-character is reached.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

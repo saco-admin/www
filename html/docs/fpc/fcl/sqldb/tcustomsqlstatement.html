@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCustomSQLStatement</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCustomSQLStatement</h1>
+<p>[<a href="../sqldb/tcustomsqlstatement-1.html" onClick="window.open('../sqldb/tcustomsqlstatement-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../sqldb/tcustomsqlstatement-2.html" onClick="window.open('../sqldb/tcustomsqlstatement-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../sqldb/tcustomsqlstatement-3.html" onClick="window.open('../sqldb/tcustomsqlstatement-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../sqldb/tcustomsqlstatement-4.html" onClick="window.open('../sqldb/tcustomsqlstatement-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../sqldb/tcustomsqlstatement-5.html" onClick="window.open('../sqldb/tcustomsqlstatement-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../sqldb/tcustomsqlstatement-6.html" onClick="window.open('../sqldb/tcustomsqlstatement-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Object to execute SQL statements without result set.</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 350</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TCustomSQLStatement <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../../rtl/classes/tcomponent.html">TComponent</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../sqldb/tcustomsqlstatement.create.html">Create</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a new instance of <var>TCustomSQLStatement</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../sqldb/tcustomsqlstatement.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Destroy a <var>TCustomSQLStatement</var> instance.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../sqldb/tcustomsqlstatement.prepare.html">Prepare</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Prepare the statement for execution</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../sqldb/tcustomsqlstatement.execute.html">Execute</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute the SQL statement.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../sqldb/tcustomsqlstatement.unprepare.html">Unprepare</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unprepare a previously prepared statement</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../sqldb/tcustomsqlstatement.parambyname.html">ParamByName</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find a parameter by name</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../sqldb/tcustomsqlstatement.rowsaffected.html">RowsAffected</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of rows affected by the SQL statement.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sqldb/tcustomsqlstatement.prepared.html">Prepared</a><span class="sym">: </span>Boolean<span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the statement prepared or not</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../sqldb/tcustomsqlstatement.html">TCustomSQLStatement</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Object to execute SQL statements without result set.</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tcomponent.html">TComponent</a>,<a href="../../rtl/system/iunknown.html">IUnknown</a>,<a href="../../rtl/classes/iinterfacecomponentreference.html">IInterfaceComponentReference</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tpersistent.html">TPersistent</a>,<a href="../../rtl/classes/ifpobserved.html">IFPObserved</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TCustomSQLStatement</var> is a light-weight object that can be used to execute SQL statements on a database. It does not support result sets, and has none of the methods that a <a href="../db/tdataset.html">TDataset</a> component has. It can be used to execute SQL statements on a database that update data, execute stored procedures and DDL statements etc. </p>
+<p>The <var>TCustomSQLStatement</var> is equivalent to <a href="../sqldb/tsqlquery.html">TSQLQuery</a> in that it supports transactions (in the <a href="../sqldb/tsqlconnection.transaction.html">Transaction</a> property) and parameters (in the <a href="../sqldb/tsqlconnection.params.html">Params</a> property) and as such is a more versatile tool than executing queries using <a href="../sqldb/tsqlconnection.executedirect.html">TSQLConnection.ExecuteDirect</a>. </p>
+<p>To use a <var>TCustomSQLStatement</var> is simple and similar to the use of <a href="../sqldb/tsqlquery.html">TSQLQuery</a>: set the <a href="../sqldb/tsqlstatement.database.html">Database</a> property to an existing connection component, and set the <a href="../sqldb/tsqlstatement.transaction.html">Transaction</a> property. After setting the <a href="../sqldb/tsqlstatement.sql.html">SQL</a> property and filling <a href="../sqldb/tsqlstatement.params.html">Params</a>, the SQL statement can be executed with the <b>Execute</b> method. </p>
+<p><var>TCustomSQLStatement</var> is a parent class. Many of the properties are only made public (or published) in the <a href="../sqldb/tsqlstatement.html">TSQLStatement</a> class, which should be instantiated instead of the <var>TCustomSQLStatement</var> class. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlstatement.html">TSQLStatement</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Class to execute non-select SQL statements.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.html">TDataset</a></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlquery.html">TSQLQuery</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Class to handle SQL commands (with or without result set)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlstatement.transaction.html">TSQLStatement.Transaction</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The transaction in which the SQL statement should be executed.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlstatement.params.html">TSQLStatement.Params</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of parameters.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>Execute</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlstatement.database.html">TSQLStatement.Database</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Database instance to execute statement on.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlconnection.executedirect.html">TSQLConnection.ExecuteDirect</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute a piece of SQL code directly, using a Transaction if specified</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSerializedMapHeader</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../charset/index.html">Overview</a>][<a href="../charset/index-2.html">Constants</a>][<a href="../charset/index-3.html">Types</a>][<a href="../charset/index-5.html">Procedures and functions</a>][<a href="../charset/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'charset' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TSerializedMapHeader</h1>
+<p>Record describing binary file header</p>
+<h2>Declaration</h2>
+<p>Source position: charset.pp line 56</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TSerializedMapHeader<span class="sym"> = </span><span class="kw">packed record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;cpName<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Code page name</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;cp<span class="sym">: </span><a href="../system/uint16.html">UInt16</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Numerical code page identifier</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;mapLength<span class="sym">: </span><a href="../system/uint32.html">UInt32</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Map length</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;lastChar<span class="sym">: </span><a href="../system/int32.html">Int32</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Last character in map</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;reverseMapLength<span class="sym">: </span><a href="../system/uint32.html">UInt32</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reverse map length</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TSerializedMapHeader</var> is a record describing the binary map data file.  The contents of this record can be found at offset zero of a (.bcm) file containing  a single-byte unicode map. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../charset/loadbinaryunicodemapping.html">loadbinaryunicodemapping</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Load binary single-byte codepage to unicode map from file or memory</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

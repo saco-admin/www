@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>SetWriteMode</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../graph/index.html">Overview</a>][<a href="../graph/index-2.html">Constants</a>][<a href="../graph/index-3.html">Types</a>][<a href="../graph/index-5.html">Procedures and functions</a>][<a href="../graph/index-6.html">Variables</a>][<a href="../graph/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Graph' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>SetWriteMode</h1>
+<p>Specify binary operation to perform when drawing on screen</p>
+<h2>Declaration</h2>
+<p>Source position: graphh.inc line 754</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> SetWriteMode<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;WriteMode<span class="sym">: </span><a href="../system/smallint.html">SmallInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>SetWriteMode</var> controls the drawing of lines on the screen. It controls the binary operation used when drawing lines on the screen. <var>Mode</var> can be one of the following pre-defined constants: </p>
+<dl>
+<dt>CopyPut</dt>
+<dd>Draw as specified using current bitmask and color</dd>
+<dt>XORPut</dt>
+<dd>Draw XOR-ing current bitmask and color</dd>
+</dl>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../graph/setcolor.html">SetColor</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set foreground drawing color</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../graph/setbkcolor.html">SetBkColor</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set background drawing color</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../graph/setlinestyle.html">SetLineStyle</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set line drawing style</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../graph/setfillstyle.html">SetFillStyle</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set drawing fill style</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

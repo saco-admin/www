@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$a00411.html" title="std::_Maybe_get_result_type\&lt; __has_result_type\&lt; remove_cv\&lt; _Tp \&gt;::type \&gt;::value, remove_cv\&lt; _Tp \&gt;::type \&gt;" alt="" coords="7,5,716,33"/>
+<area shape="rect" id="node3" href="$a00417.html" title="std::_Weak_result_type_impl\&lt; remove_cv\&lt; _Tp \&gt;::type \&gt;" alt="" coords="767,5,1137,33"/>
+<area shape="rect" id="node5" href="$a00416.html" title="std::_Weak_result_type\&lt; _Tp \&gt;" alt="" coords="1187,5,1400,33"/>
+</map>

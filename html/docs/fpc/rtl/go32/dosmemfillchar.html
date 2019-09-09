@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>dosmemfillchar</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../go32/index.html">Overview</a>][<a href="../go32/index-2.html">Constants</a>][<a href="../go32/index-3.html">Types</a>][<a href="../go32/index-5.html">Procedures and functions</a>][<a href="../go32/index-6.html">Variables</a>][<a href="../go32/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'go32' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>dosmemfillchar</h1>
+<p>Fill a region of DOS memory with a specific byte-sized value</p>
+<h2>Declaration</h2>
+<p>Source position: go32.pp line 193</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">const</span> dosmemfillchar<span class="sym">: </span><span class="kw">procedure</span><span class="sym">(</span> <span class="sym">=</span> <span class="sym">@</span> dpmi_dosmemfillchar<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;seg<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ofs<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;count<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;c<span class="sym">: </span><a href="../system/char.html">Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Sets a region of dos memory to a specific byte value. </p>
+<p>Parameters: </p>
+<dl>
+<dt>seg</dt>
+<dd>real mode segment.</dd>
+<dt>ofs</dt>
+<dd>real mode offset.</dd>
+<dt>count</dt>
+<dd>number of bytes to set.</dd>
+<dt>c</dt>
+<dd>value to set memory to.</dd>
+</dl>
+<p>Notes: No range check is performed. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../go32/dosmemput.html">dosmemput</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Copy data from the heap to DOS real mode memory</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/dosmemget.html">dosmemget</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Copy data from DOS memory to the heap.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/dosmemmove.html">dosmemmove</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Move data between 2 DOS real mode memory locations</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/dosmemfillword.html">dosmemfillword</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Fill a region of DOS memory with a specific word-sized value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/seg_move.html">seg_move</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Move data between 2 locations</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/seg_fillchar.html">seg_fillchar</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Fill segment with byte value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/seg_fillword.html">seg_fillword</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Fill segment with word value</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="cmt">{ This example copies around some blocks of memory in DOS memory</span>
+<span class="cmt">space.</span>
+<span class="cmt"></span>
+<span class="cmt">In more detail, the program copies a string randomly to the text</span>
+<span class="cmt">mode screen. Aditionally it messes around a bit with the color</span>
+<span class="cmt">attributes of the string.</span>
+<span class="cmt">Before doing this it saves the entire screen contents to the heap</span>
+<span class="cmt">and restores it afterwards.</span>
+<span class="cmt"></span>
+<span class="cmt">Some additional background:</span>
+<span class="cmt"></span>
+<span class="cmt">The text screen of a VGA card has it's address space at $B800:0;</span>
+<span class="cmt">screen memory is organized in a linear fashion, e.g. the second line</span>
+<span class="cmt">comes directly after the first, where each cell occupies 2 bytes of</span>
+<span class="cmt">memory (1 byte character data, 1 byte attributes). It is 32 kb in</span>
+<span class="cmt">size.</span>
+<span class="cmt"></span>
+<span class="cmt">Hence the offset of a single memory cell from its origin is:</span>
+<span class="cmt"></span>
+<span class="cmt">Y*columns*2 + X*2</span>
+<span class="cmt"></span>
+<span class="cmt">where X and Y mark the point and columns is the number of character</span>
+<span class="cmt">cells per line</span>
+<span class="cmt">}</span>
+
+<span class="kw">uses</span>
+        crt<span class="sym">,</span>
+        go32<span class="sym">;</span>
+
+<span class="kw">const</span>
+        <span class="cmt">{ number of columns on screen }</span>
+        columns <span class="sym">=</span> <span class="num">80</span><span class="sym">;</span>
+        <span class="cmt">{ number of rows on screen }</span>
+        rows <span class="sym">=</span> <span class="num">25</span><span class="sym">;</span>
+        screensize <span class="sym">=</span> rows<span class="sym">*</span>columns<span class="sym">*</span><span class="num">2</span><span class="sym">;</span>
+
+        <span class="cmt">{ sample text string }</span>
+        text <span class="sym">=</span> <span class="str">'! Hello world !'</span><span class="sym">;</span>
+
+<span class="kw">var</span>
+        textofs <span class="sym">:</span> Longint<span class="sym">;</span>
+        <span class="cmt">{ this variable holds the entire screen contents }</span>
+        save_screen <span class="sym">:</span> <span class="kw">array</span><span class="sym">[</span><span class="num">0</span><span class="sym">.</span><span class="sym">.</span>screensize<span class="sym">-</span><span class="num">1</span><span class="sym">]</span> <span class="kw">of</span> byte<span class="sym">;</span>
+        <span class="cmt">{ These two hold the previous cursor coordinates }</span>
+    curx<span class="sym">,</span> cury <span class="sym">:</span> Integer<span class="sym">;</span>
+
+<span class="kw">begin</span>
+        randomize<span class="sym">;</span>
+        <span class="cmt">{ save screen contents to save_screen variable }</span>
+        dosmemget<span class="sym">(</span><span class="num">$B800</span><span class="sym">,</span> <span class="num">0</span><span class="sym">,</span> save_screen<span class="sym">,</span> screensize<span class="sym">)</span><span class="sym">;</span>
+        <span class="cmt">{ save current cursor coordinates }</span>
+        curx <span class="sym">:=</span> wherex<span class="sym">;</span> cury <span class="sym">:=</span> wherey<span class="sym">;</span>
+        <span class="cmt">{ This is our demo text }</span>
+        gotoxy<span class="sym">(</span><span class="num">1</span><span class="sym">,</span> <span class="num">1</span><span class="sym">)</span><span class="sym">;</span> Write<span class="sym">(</span>text<span class="sym">)</span><span class="sym">;</span>
+        <span class="cmt">{ calculate the address in offscreen memory (to be sure it will</span>
+<span class="cmt">        not be overwritten by the copy process later, we don't put it</span>
+<span class="cmt">        exactly at the end of the visible screen area) }</span>
+        textofs <span class="sym">:=</span> screensize <span class="sym">+</span> length<span class="sym">(</span>text<span class="sym">)</span><span class="sym">*</span><span class="num">2</span><span class="sym">;</span>
+        <span class="cmt">{ copy it to offscreen memory }</span>
+        dosmemmove<span class="sym">(</span><span class="num">$B800</span><span class="sym">,</span> <span class="num">0</span><span class="sym">,</span> <span class="num">$B800</span><span class="sym">,</span> textofs<span class="sym">,</span> length<span class="sym">(</span>text<span class="sym">)</span><span class="sym">*</span><span class="num">2</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="cmt">{ clear the screen by writing zeros on the whole visible screen}</span>
+        dosmemfillchar<span class="sym">(</span><span class="num">$B800</span><span class="sym">,</span> <span class="num">0</span><span class="sym">,</span> screensize<span class="sym">,</span> <span class="chr">#0</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">while</span> <span class="sym">(</span><span class="kw">not</span> keypressed<span class="sym">)</span> <span class="kw">do</span> <span class="kw">begin</span>
+                <span class="cmt">{ set the attribute field (byte 2 of every cell) of the</span>
+<span class="cmt">                text in offscreen memory to random values }</span>
+                dosmemfillchar<span class="sym">(</span><span class="num">$B800</span><span class="sym">,</span> textofs <span class="sym">+</span> random<span class="sym">(</span>length<span class="sym">(</span>text<span class="sym">)</span><span class="sym">)</span><span class="sym">*</span><span class="num">2</span> <span class="sym">+</span> <span class="num">1</span><span class="sym">,</span>
+                        <span class="num">1</span><span class="sym">,</span> char<span class="sym">(</span>random<span class="sym">(</span><span class="num">255</span><span class="sym">)</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+                <span class="cmt">{ copy the string from offscreen to visibly screen by calculating</span>
+<span class="cmt">                it's destination address randomly }</span>
+                dosmemmove<span class="sym">(</span><span class="num">$B800</span><span class="sym">,</span> textofs<span class="sym">,</span> <span class="num">$B800</span><span class="sym">,</span>
+                        random<span class="sym">(</span>columns<span class="sym">)</span><span class="sym">*</span><span class="num">2</span><span class="sym">+</span>random<span class="sym">(</span>rows<span class="sym">)</span><span class="sym">*</span>columns<span class="sym">*</span><span class="num">2</span><span class="sym">,</span>
+                        length<span class="sym">(</span>text<span class="sym">)</span><span class="sym">*</span><span class="num">2</span><span class="sym">)</span><span class="sym">;</span>
+                <span class="cmt">{ small delay, else it is too fast }</span>
+                delay<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">end</span><span class="sym">;</span>
+        <span class="cmt">{ clear the keyboard buffer }</span>
+        readkey<span class="sym">;</span>
+        <span class="cmt">{ wait for a keypress }</span>
+        readkey<span class="sym">;</span>
+        <span class="cmt">{ restore old screen contents afterwards }</span>
+        dosmemput<span class="sym">(</span><span class="num">$B800</span><span class="sym">,</span> <span class="num">0</span><span class="sym">,</span> save_screen<span class="sym">,</span> screensize<span class="sym">)</span><span class="sym">;</span>
+        gotoxy<span class="sym">(</span>curx<span class="sym">,</span> cury<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFPHashObjectList.Add</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../contnrs/index.html">Overview</a>][<a href="../contnrs/index-2.html">Constants</a>][<a href="../contnrs/index-3.html">Types</a>][<a href="../contnrs/index-4.html">Classes</a>][<a href="../contnrs/index-5.html">Procedures and functions</a>][<a href="../contnrs/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'contnrs' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TFPHashObjectList.Add</h1>
+<p>Add a new key/data pair to the list</p>
+<h2>Declaration</h2>
+<p>Source position: contnrs.pp line 310</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../contnrs/tfphashobjectlist.html">TFPHashObjectList</a><span class="sym">.</span>Add<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AName<span class="sym">: </span>shortstring<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AObject<span class="sym">: </span><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Key name associated with object instance.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AObject</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">object instance</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Position of the new object in the list</p>
+<h2>Description</h2>
+<p><var>Add</var> adds a new object instance (<var>AObject</var>) with key <var>AName</var> to the list. It returns the position of the object in the list. </p>
+<h2>Errors</h2>
+<p>If not enough memory is available to hold the key and data, an exception may be raised. If an object with this name already exists in the list, an exception is raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../contnrs/tfphashobjectlist.extract.html">TFPHashObjectList.Extract</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Extract a object instance from the list</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../contnrs/tfphashobjectlist.remove.html">TFPHashObjectList.Remove</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Remove first occurrence of a object instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../contnrs/tfphashobjectlist.delete.html">TFPHashObjectList.Delete</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Delete an object from the list.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

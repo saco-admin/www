@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>SetThreadManager</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>SetThreadManager</h1>
+<p>Set the thread manager, optionally return the current thread manager.</p>
+<h2>Declaration</h2>
+<p>Source position: threadh.inc line 114</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> SetThreadManager<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>NewTM<span class="sym">: </span><a href="../system/tthreadmanager.html">TThreadManager</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>OldTM<span class="sym">: </span><a href="../system/tthreadmanager.html">TThreadManager</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><br><br><span class="kw">function</span> SetThreadManager<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>NewTM<span class="sym">: </span><a href="../system/tthreadmanager.html">TThreadManager</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>SetThreadManager</var> sets the thread manager to <var>NewTM</var>. If <var>OldTM</var> is given, <var>SetThreadManager</var> uses it to return the previously used thread manager. </p>
+<p>The function returns <var>True</var> if the threadmanager was set succesfully, <var>False</var> if an error occurred. </p>
+<p>For more information about thread programming, see the programmer's guide. </p>
+<h2>Errors</h2>
+<p>If an error occurred cleaning up the previous manager, or an error occurred initializing the new manager, <var>False</var> is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/getthreadmanager.html">GetThreadManager</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the current thread manager</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/tthreadmanager.html">TThreadManager</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Thread manager record.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TWindowedStream.Write</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../streamex/index.html">Overview</a>][<a href="../streamex/index-2.html">Constants</a>][<a href="../streamex/index-4.html">Classes</a>][<a href="../streamex/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'streamex' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TWindowedStream.Write</h1>
+<p>Read data to the stream</p>
+<h2>Declaration</h2>
+<p>Source position: streamex.pp line 178</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../streamex/twindowedstream.html">TWindowedStream</a><span class="sym">.</span>Write<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>aBuffer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aCount<span class="sym">: </span><a href="../../rtl/system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/system/longint.html">LongInt</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">aBuffer</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Buffer from which to write data in the stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">aCount</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Maximum number of bytes to be written</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Number of written bytes</p>
+<h2>Description</h2>
+<p><var>Write</var> attempts to write data to the stream. It will attempt to restore the source stream position if it was changed since the last read, write or seek operation. It then attempts to write <var>ACount</var> bytes from <var>ABuffer</var> to the source stream and returns the number of actually written bytes.  </p>
+<h2>Errors</h2>
+<p><var>TWindowedStream.Write</var> will raise an <var>EWriteError</var> exception if an attempt is made to write more bytes than will fit in the window, even if the source stream has more room available. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../streamex/twindowedstream.read.html">TWindowedStream.Read</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read data from the stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../streamex/twindowedstream.seek.html">TWindowedStream.Seek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reposition the stream</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

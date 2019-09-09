@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$B or $BOOLEVAL : Complete boolean evaluation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 208--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu5.html" >next</a>] [<a 
+href="progsu3.html" >prev</a>] [<a 
+href="progsu3.html#tailprogsu3.html" >prev-tail</a>] [<a 
+href="#tailprogsu4.html">tail</a>] [<a 
+href="progse2.html#progsu4.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.4   </span> <a 
+href="prog.html#QQ2-11-10" id="x11-100001.2.4"><span 
+class="cmtt-10">$B </span>or <span 
+class="cmtt-10">$BOOLEVAL </span>: Complete boolean evaluation</a></h4>
+<!--l. 210--><p class="noindent" >By default, the compiler uses shortcut boolean evaluation, i.e., the evaluation of a boolean
+expression is stopped once the result of the total expression is known with certainty. The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$B </span><span 
+class="cmsy-10">}</span>
+switch can be used to change this behaviour: if its argument is <span 
+class="cmtt-10">+</span>, then the compiler will
+always evaluate all terms in the expression. If it is <span 
+class="cmtt-10">+ </span>(the default) then the compiler will
+only evaluate as many terms as are necessary to determine the result of the complete
+expression.
+<!--l. 218--><p class="noindent" >So, in the following example, the function <span 
+class="cmtt-10">Bofu</span>, which has a boolean result, will never get
+called.
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-6">
+If&#x00A0;False&#x00A0;and&#x00A0;Bofu&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;...
+</div>
+<!--l. 223--><p class="nopar" >A consequence of this is that any additional actions that are done by <span 
+class="cmtt-10">Bofu </span>are not executed. If
+compiled with <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$B +</span><span 
+class="cmsy-10">}</span>, then <span 
+class="cmtt-10">BoFu </span>will be called anyway.
+                                                                            
+
+                                                                            
+<!--l. 228--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu5.html" >next</a>] [<a 
+href="progsu3.html" >prev</a>] [<a 
+href="progsu3.html#tailprogsu3.html" >prev-tail</a>] [<a 
+href="progsu4.html" >front</a>] [<a 
+href="progse2.html#progsu4.html" >up</a>] </p></div>
+<!--l. 228--><p class="noindent" ><a 
+ id="tailprogsu4.html"></a>  
+</body></html> 

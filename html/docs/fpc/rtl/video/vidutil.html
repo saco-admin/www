@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Examples utility unit</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../video/index.html">Up</a>][<a href="../video/viddriver.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'video' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>Examples utility unit</h2>
+<p>The examples in this section make use of the unit <span class="file">vidutil</span>, which  contains the <var>TextOut</var> function. This function writes a text to the screen at a given location. It looks as follows: </p>
+<h2>Example</h2>
+<pre><span class="kw">unit</span> vidutil<span class="sym">;</span>
+
+<span class="kw">Interface</span>
+
+<span class="kw">uses</span>
+  video<span class="sym">;</span>
+
+<span class="kw">Procedure</span> TextOut<span class="sym">(</span>X<span class="sym">,</span>Y <span class="sym">:</span> Word<span class="sym">;</span><span class="kw">Const</span> S <span class="sym">:</span> String<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Implementation</span>
+
+<span class="kw">Procedure</span> TextOut<span class="sym">(</span>X<span class="sym">,</span>Y <span class="sym">:</span> Word<span class="sym">;</span><span class="kw">Const</span> S <span class="sym">:</span> String<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  W<span class="sym">,</span>P<span class="sym">,</span>I<span class="sym">,</span>M <span class="sym">:</span> Word<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  P<span class="sym">:=</span><span class="sym">(</span><span class="sym">(</span>X<span class="sym">-</span><span class="num">1</span><span class="sym">)</span><span class="sym">+</span><span class="sym">(</span>Y<span class="sym">-</span><span class="num">1</span><span class="sym">)</span><span class="sym">*</span>ScreenWidth<span class="sym">)</span><span class="sym">;</span>
+  M<span class="sym">:=</span>Length<span class="sym">(</span>S<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> P<span class="sym">+</span>M<span class="sym">&gt;</span>ScreenWidth<span class="sym">*</span>ScreenHeight <span class="kw">then</span>
+    M<span class="sym">:=</span>ScreenWidth<span class="sym">*</span>ScreenHeight<span class="sym">-</span>P<span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> to M <span class="kw">do</span>
+    VideoBuf<span class="sym">^</span><span class="sym">[</span>P<span class="sym">+</span>I<span class="sym">-</span><span class="num">1</span><span class="sym">]</span><span class="sym">:=</span>Ord<span class="sym">(</span>S<span class="sym">[</span>i<span class="sym">]</span><span class="sym">)</span><span class="sym">+</span><span class="sym">(</span><span class="num">$07</span> shl <span class="num">8</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">end</span><span class="sym">.</span>  
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

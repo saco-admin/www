@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Compiling your program with debugger support</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 3280--><div class="crosslinks"><p class="noindent">[<a 
+href="userse54.html" >next</a>] [<a 
+href="#tailuserse53.html">tail</a>] [<a 
+href="userch10.html#userse53.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.1   </span> <a 
+href="user.html#QQ2-164-222" id="x164-17100010.1">Compiling your program with debugger support</a></h3>
+<!--l. 3281--><p class="noindent" >First of all, you must be sure that the compiler is compiled with debugging support. Unfortunately,
+there is no way to check this at run time, except by trying to compile a program with debugging
+support.
+<!--l. 3285--><p class="noindent" >To compile a program with debugging support, just specify the <span 
+class="cmtt-10">-g </span>option on the command line, as
+follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-110">
+fpc&#x00A0;-g&#x00A0;hello.pp
+</div>
+<!--l. 3289--><p class="nopar" >This will incorporate debugging information in the executable generated from your program
+source. You will notice that the size of the executable increases substantially because of
+this<span class="footnote-mark"><a 
+href="#fn1x11" id="fn1x11-bk"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x164-171001f1"></a>.
+<!--l. 3295--><p class="noindent" >Note that the above will only incorporate debug information <span 
+class="cmti-10">for the code that has been generated</span>
+when compiling <span 
+class="cmss-10">hello.pp</span>. This means that if you used some units (the system unit, for instance)
+which were not compiled with debugging support, no debugging support will be available for the
+code in these units.
+<!--l. 3301--><p class="noindent" >There are 2 solutions for this problem.
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x164-171003x1">Recompile all units manually with the <span 
+class="cmtt-10">-g </span>option.
+     </li>
+     <li 
+  class="enumerate" id="x164-171005x2">Specify  the  &#8217;build&#8217;  option  (<span 
+class="cmtt-10">-B</span>)  when  compiling  with  debugging  support.  This  will
+     recompile all units, and insert debugging information in each of the units.</li></ol>
+<!--l. 3308--><p class="noindent" >The second option may have undesirable side effects. It may be that some units aren&#8217;t found, or
+compile incorrectly due to missing conditionals, etc.
+<!--l. 3312--><p class="noindent" >If all went well, the executable now contains the necessary information with which you can debug it
+using <span 
+class="cmcsc-10"><span 
+class="small-caps">g</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span> </span><span 
+class="cmtt-10">gdb</span>.
+                                                                            
+
+                                                                            
+<div class="footnotes"><!--l. 3293--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn1x11-bk" id="fn1x11"><sup class="textsuperscript">1</sup></a></span><span 
+class="cmr-8">A good reason not to include debug information in an executable you plan to distribute.</span>           </div> <!--l. 3318--><div class="crosslinks"><p class="noindent">[<a 
+href="userse54.html" >next</a>]
+[<a 
+href="userse53.html" >front</a>] [<a 
+href="userch10.html#userse53.html" >up</a>] </p></div>
+<!--l. 3318--><p class="noindent" ><a 
+ id="tailuserse53.html"></a>  
+</body></html> 

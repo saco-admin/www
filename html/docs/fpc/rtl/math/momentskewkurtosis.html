@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>momentskewkurtosis</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../math/index.html">Overview</a>][<a href="../math/index-2.html">Constants</a>][<a href="../math/index-3.html">Types</a>][<a href="../math/index-4.html">Classes</a>][<a href="../math/index-5.html">Procedures and functions</a>][<a href="../math/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'math' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>momentskewkurtosis</h1>
+<p>Return 4 first moments of distribution</p>
+<h2>Declaration</h2>
+<p>Source position: math.pp line 487</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> momentskewkurtosis<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>data<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> Single<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m1<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m2<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m3<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m4<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>skew<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>kurtosis<span class="sym">: </span><a href="../math/float.html">Float</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> momentskewkurtosis<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>data<span class="sym">: </span><a href="../system/psingle.html">PSingle</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>N<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m1<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m2<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m3<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m4<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>skew<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>kurtosis<span class="sym">: </span><a href="../math/float.html">Float</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> momentskewkurtosis<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>data<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> Double<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m1<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m2<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m3<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m4<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>skew<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>kurtosis<span class="sym">: </span><a href="../math/float.html">Float</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> momentskewkurtosis<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>data<span class="sym">: </span><a href="../system/pdouble.html">PDouble</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>N<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m1<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m2<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m3<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m4<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>skew<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>kurtosis<span class="sym">: </span><a href="../math/float.html">Float</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> momentskewkurtosis<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>data<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> Extended<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m1<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m2<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m3<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m4<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>skew<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>kurtosis<span class="sym">: </span><a href="../math/float.html">Float</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> momentskewkurtosis<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>data<span class="sym">: </span><a href="../system/pextended.html">PExtended</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>N<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m1<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m2<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m3<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>m4<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>skew<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>kurtosis<span class="sym">: </span><a href="../math/float.html">Float</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>momentskewkurtosis</var> calculates the 4 first moments of the distribution of valuesin <var>data</var> and returns them in <var>m1</var>,<var>m2</var>,<var>m3</var> and <var>m4</var>, as well as the <var>skew</var> and <var>kurtosis</var>. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../math/mean.html">mean</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return mean value of array</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../math/meanandstddev.html">meanandstddev</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return mean and standard deviation of array</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> Example32<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the momentskewkurtosis function. }</span>
+
+<span class="kw">uses</span> math<span class="sym">;</span>
+
+<span class="kw">var</span> distarray<span class="sym">:</span><span class="kw">array</span><span class="sym">[</span><span class="num">1</span><span class="sym">.</span><span class="sym">.</span><span class="num">1000</span><span class="sym">]</span> <span class="kw">of</span> float<span class="sym">;</span>
+    I<span class="sym">:</span>longint<span class="sym">;</span>
+    m1<span class="sym">,</span>m2<span class="sym">,</span>m3<span class="sym">,</span>m4<span class="sym">,</span>skew<span class="sym">,</span>kurtosis<span class="sym">:</span>float<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  randomize<span class="sym">;</span>
+  <span class="kw">for</span> I<span class="sym">:=</span>low<span class="sym">(</span>distarray<span class="sym">)</span> to high<span class="sym">(</span>distarray<span class="sym">)</span> <span class="kw">do</span>
+    distarray<span class="sym">[</span>i<span class="sym">]</span><span class="sym">:=</span>random<span class="sym">;</span>
+  momentskewkurtosis<span class="sym">(</span>DistArray<span class="sym">,</span>m1<span class="sym">,</span>m2<span class="sym">,</span>m3<span class="sym">,</span>m4<span class="sym">,</span>skew<span class="sym">,</span>kurtosis<span class="sym">)</span><span class="sym">;</span>
+
+  Writeln <span class="sym">(</span><span class="str">'1st moment : '</span><span class="sym">,</span>m1<span class="sym">:</span><span class="num">8</span><span class="sym">:</span><span class="num">6</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'2nd moment : '</span><span class="sym">,</span>m2<span class="sym">:</span><span class="num">8</span><span class="sym">:</span><span class="num">6</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'3rd moment : '</span><span class="sym">,</span>m3<span class="sym">:</span><span class="num">8</span><span class="sym">:</span><span class="num">6</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'4th moment : '</span><span class="sym">,</span>m4<span class="sym">:</span><span class="num">8</span><span class="sym">:</span><span class="num">6</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Skew       : '</span><span class="sym">,</span>skew<span class="sym">:</span><span class="num">8</span><span class="sym">:</span><span class="num">6</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'kurtosis   : '</span><span class="sym">,</span>kurtosis<span class="sym">:</span><span class="num">8</span><span class="sym">:</span><span class="num">6</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

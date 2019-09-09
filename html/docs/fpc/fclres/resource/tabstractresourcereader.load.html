@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TAbstractResourceReader.Load</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../resource/index.html">Overview</a>][<a href="../resource/index-1.html">Resource strings</a>][<a href="../resource/index-2.html">Constants</a>][<a href="../resource/index-3.html">Types</a>][<a href="../resource/index-4.html">Classes</a>][<a href="../resource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'resource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TAbstractResourceReader.Load</h1>
+<p>Loads resources from a stream</p>
+<h2>Declaration</h2>
+<p>Source position: resource.pp line 295</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">protected</span> <span class="kw">procedure</span> <a href="../resource/tabstractresourcereader.html">TAbstractResourceReader</a><span class="sym">.</span>Load<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aResources<span class="sym">: </span><a href="../resource/tresources.html">TResources</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aStream<span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">aResources</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The <a href="../resource/tresources.html">TResources</a> object to be loaded from the stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">aStream</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The stream which resources must be loaded from </p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>A <a href="../resource/tresources.html">TResources</a> object invokes this method when it needs to be loaded from a stream, passing itself as the <var>aResources</var> parameter and the stream as the <var>aStream</var> parameter.</p>
+<p><var>aStream</var> position is already correctly set: the reader must start to read from there.</p>
+<p>Descendant classes must ensure that the the stream is in a format they recognize, otherwise an <a href="../resource/eresourcereaderwrongformatexception.html">EResourceReaderWrongFormatException</a> exception must be raised.</p>
+<p>Each resource is then created, read from the stream and added to the <a href="../resource/tresources.html">TResources</a> object.</p>
+<p>When reading a resource, a reader must:</p>
+<ul>
+<li>Create the resource via <a href="../resfactory/tresourcefactory.createresource.html">TResourceFactory.CreateResource</a> class method with the correct type and name.</li>
+<li><p>Set at least the following resource properties:</p><ul>
+<li><a href="../resource/tabstractresource.datasize.html">DataSize</a>, via <a href="../resource/tabstractresourcereader.setdatasize.html">SetDataSize</a> method.</li>
+<li><a href="../resource/tabstractresource.dataoffset.html">DataOffset</a>, via <a href="../resource/tabstractresourcereader.setdataoffset.html">SetDataSize</a> method. This is the offset of the resource data from the beginning of the stream.</li>
+<li><a href="../resource/tabstractresource.rawdata.html">RawData</a>. The reader must create a <a href="../resdatastream/tresourcedatastream.html">TResourceDataStream</a> object and assign it to the resource via <a href="../resource/tabstractresourcereader.setrawdata.html">SetRawData</a> method.</li></ul></li>
+</ul>
+<h2>Errors</h2>
+<p>If the stream is in a format not recognized by the reader, a <a href="../resource/eresourcereaderwrongformatexception.html">EResourceReaderWrongFormatException</a> exception must be raised.</p>
+<p>If the stream ends prematurely, a <a href="../resource/eresourcereaderunexpectedendofstreamexception.html">EResourceReaderUnexpectedEndOfStreamException</a> exception must be raised.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../resource/tresources.html">TResources</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">A collection of resources</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tresources.loadfromstream.html">TResources.LoadFromStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Loads the contents of the object from a stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tresources.loadfromfile.html">TResources.LoadFromFile</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Loads the contents of the object from a file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresource.html">TAbstractResource</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base abstract resource class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresource.datasize.html">TAbstractResource.DataSize</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The size of resource raw data</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresource.dataoffset.html">TAbstractResource.DataOffset</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The offset of resource data from the beginning of the stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresource.rawdata.html">TAbstractResource.RawData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The raw resource data stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresourcereader.setdatasize.html">TAbstractResourceReader.SetDataSize</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Protected method to let a reader set a resource <a href="../resource/tabstractresource.datasize.html">DataSize</a> property</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresourcereader.setdataoffset.html">TAbstractResourceReader.SetDataOffset</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Protected method to let a reader set a resource <a href="../resource/tabstractresource.dataoffset.html">DataOffset</a> property</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresourcereader.setrawdata.html">TAbstractResourceReader.SetRawData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Protected method to let a reader set a resource <a href="../resource/tabstractresource.rawdata.html">RawData</a> property</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresourcereader.checkmagic.html">TAbstractResourceReader.CheckMagic</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Checks whether a stream is in a format the reader recognizes</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resdatastream/tresourcedatastream.html">TResourceDataStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Stream class that provides copy-on-write functionality</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

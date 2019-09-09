@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node7" href="$a00417.html" title="std::_Weak_result_type_impl\&lt; remove_cv\&lt; _Functor \&gt;::type \&gt;" alt="" coords="1881,5,2284,33"/>
+<area shape="rect" id="node13" href="$a00417.html" title="std::_Weak_result_type_impl\&lt; remove_cv\&lt; _Tp \&gt;::type \&gt;" alt="" coords="2311,55,2681,83"/>
+<area shape="rect" id="node2" href="$a00411.html" title="std::_Maybe_get_result_type\&lt; __has_result_type\&lt; _Functor \&gt;::value, _Functor \&gt;" alt="" coords="772,33,1289,61"/>
+<area shape="rect" id="node4" href="$a00411.html" title="If we have found a result_type, extract it." alt="" coords="5,33,397,61"/>
+<area shape="rect" id="node9" href="$a00416.html" title="std::_Weak_result_type\&lt; _Functor \&gt;" alt="" coords="2707,5,2952,33"/>
+<area shape="rect" id="node11" href="$a00416.html" title="std::_Weak_result_type\&lt; _Tp \&gt;" alt="" coords="3053,33,3267,61"/>
+</map>

@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>A word about mode selection</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../graph/targetissuesdos.html">Previous</a>][<a href="../graph/index.html">Up</a>][<a href="../graph/requirements.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Graph' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>A word about mode selection</h2>
+<p>The graph unit was implemented for compatibility with the old Turbo Pascal graph unit. For this reason, the mode constants as they were defined in the Turbo Pascal graph unit are retained. </p>
+<p>However, since </p>
+<ol>
+<li>Video cards have evolved very much</li>
+<li>Free Pascal runs on multiple platforms</li>
+</ol>
+<p>it was decided to implement new mode and graphic driver constants, which are more independent of the specific platform the program runs on. </p>
+<p>In this section we give a short explanation of the new mode system. the following drivers were defined: </p>
+<pre>D1bit <span class="sym">=</span> <span class="num">11</span><span class="sym">;</span>
+D2bit <span class="sym">=</span> <span class="num">12</span><span class="sym">;</span>
+D4bit <span class="sym">=</span> <span class="num">13</span><span class="sym">;</span>
+D6bit <span class="sym">=</span> <span class="num">14</span><span class="sym">;</span>  <span class="cmt">{ 64 colors Half-brite mode - Amiga }</span>
+D8bit <span class="sym">=</span> <span class="num">15</span><span class="sym">;</span>
+D12bit <span class="sym">=</span> <span class="num">16</span><span class="sym">;</span> <span class="cmt">{ 4096 color modes HAM mode - Amiga }</span>
+D15bit <span class="sym">=</span> <span class="num">17</span><span class="sym">;</span>
+D16bit <span class="sym">=</span> <span class="num">18</span><span class="sym">;</span>
+D24bit <span class="sym">=</span> <span class="num">19</span><span class="sym">;</span> <span class="cmt">{ not yet supported }</span>
+D32bit <span class="sym">=</span> <span class="num">20</span><span class="sym">;</span> <span class="cmt">{ not yet supported }</span>
+D64bit <span class="sym">=</span> <span class="num">21</span><span class="sym">;</span> <span class="cmt">{ not yet supported }</span>
+
+lowNewDriver <span class="sym">=</span> <span class="num">11</span><span class="sym">;</span>
+highNewDriver <span class="sym">=</span> <span class="num">21</span><span class="sym">;</span>
+</pre>
+<p>Each of these drivers specifies a desired color-depth. </p>
+<p>The following modes have been defined: </p>
+<pre>detectMode <span class="sym">=</span> <span class="num">30000</span><span class="sym">;</span>
+m320x200 <span class="sym">=</span> <span class="num">30001</span><span class="sym">;</span>
+m320x256 <span class="sym">=</span> <span class="num">30002</span><span class="sym">;</span> <span class="cmt">{ amiga resolution (PAL) }</span>
+m320x400 <span class="sym">=</span> <span class="num">30003</span><span class="sym">;</span> <span class="cmt">{ amiga/atari resolution }</span>
+m512x384 <span class="sym">=</span> <span class="num">30004</span><span class="sym">;</span> <span class="cmt">{ mac resolution }</span>
+m640x200 <span class="sym">=</span> <span class="num">30005</span><span class="sym">;</span> <span class="cmt">{ vga resolution }</span>
+m640x256 <span class="sym">=</span> <span class="num">30006</span><span class="sym">;</span> <span class="cmt">{ amiga resolution (PAL) }</span>
+m640x350 <span class="sym">=</span> <span class="num">30007</span><span class="sym">;</span> <span class="cmt">{ vga resolution }</span>
+m640x400 <span class="sym">=</span> <span class="num">30008</span><span class="sym">;</span>
+m640x480 <span class="sym">=</span> <span class="num">30009</span><span class="sym">;</span>
+m800x600 <span class="sym">=</span> <span class="num">30010</span><span class="sym">;</span>
+m832x624 <span class="sym">=</span> <span class="num">30011</span><span class="sym">;</span> <span class="cmt">{ mac resolution }</span>
+m1024x768 <span class="sym">=</span> <span class="num">30012</span><span class="sym">;</span>
+m1280x1024 <span class="sym">=</span> <span class="num">30013</span><span class="sym">;</span>
+m1600x1200 <span class="sym">=</span> <span class="num">30014</span><span class="sym">;</span>
+m2048x1536 <span class="sym">=</span> <span class="num">30015</span><span class="sym">;</span>
+
+lowNewMode <span class="sym">=</span> <span class="num">30001</span><span class="sym">;</span>
+highNewMode <span class="sym">=</span> <span class="num">30015</span><span class="sym">;</span>
+</pre>
+<p>These modes start at 30000 because Borland specified that the mode number should be ascending with increasing X resolution, and the new constants shouldn't interfere with the old ones. </p>
+<p>The above constants can be used to set a certain color depth and resultion, as demonstrated in the below example. </p>
+<p>If other modes than the ones above are supported by the graphics card, you will not be able to select them with this mechanism. </p>
+<p>For this reason, there is also a 'dynamic' mode number, which is assigned at run-time. This number increases with increasing X resolution. It can be queried with the <var>getmoderange</var> call. This call will return the range of modes which are valid for a certain graphics driver. The numbers are guaranteed to be consecutive, and can be used to search for a certain resolution, as in the second example below. </p>
+<p>Thus, the <var>getmoderange</var> function can be used to detect all available modes and drivers, as in the third example below: </p>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> inigraph1<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate static graphics mode selection }</span>
+
+<span class="kw">uses</span> graph<span class="sym">;</span>
+
+
+<span class="kw">const</span>
+  TheLine <span class="sym">=</span> <span class="str">'We are now in 640 x 480 x 256 colors!'</span><span class="sym">+</span>
+            <span class="str">' (press &lt;Return&gt; to continue)'</span><span class="sym">;</span>
+
+<span class="kw">var</span>
+  gd<span class="sym">,</span> gm<span class="sym">,</span> lo<span class="sym">,</span> hi<span class="sym">,</span> error<span class="sym">,</span>tw<span class="sym">,</span>th<span class="sym">:</span> integer<span class="sym">;</span>
+  found<span class="sym">:</span> boolean<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="cmt">{ We want an 8 bit mode }</span>
+  gd <span class="sym">:=</span> D8bit<span class="sym">;</span>
+  gm <span class="sym">:=</span> m640x480<span class="sym">;</span>
+  initgraph<span class="sym">(</span>gd<span class="sym">,</span>gm<span class="sym">,</span><span class="str">''</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ Make sure you always check graphresult! }</span>
+  error <span class="sym">:=</span> graphResult<span class="sym">;</span>
+  <span class="kw">if</span> <span class="sym">(</span>error <span class="sym">&lt;</span><span class="sym">&gt;</span> grOk<span class="sym">)</span> <span class="kw">Then</span>
+    <span class="kw">begin</span>
+    writeln<span class="sym">(</span><span class="str">'640x480x256 is not supported!'</span><span class="sym">)</span><span class="sym">;</span>
+    halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  <span class="cmt">{ We are now in 640x480x256 }</span>
+  setColor<span class="sym">(</span>cyan<span class="sym">)</span><span class="sym">;</span>
+  rectangle<span class="sym">(</span><span class="num">0</span><span class="sym">,</span><span class="num">0</span><span class="sym">,</span>getmaxx<span class="sym">,</span>getmaxy<span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ Write a nice message in the center of the screen }</span>
+  setTextStyle<span class="sym">(</span>defaultFont<span class="sym">,</span>horizDir<span class="sym">,</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+  tw<span class="sym">:=</span>TextWidth<span class="sym">(</span>TheLine<span class="sym">)</span><span class="sym">;</span>
+  th<span class="sym">:=</span>TextHeight<span class="sym">(</span>TheLine<span class="sym">)</span><span class="sym">;</span>
+  outTextXY<span class="sym">(</span><span class="sym">(</span>getMaxX <span class="sym">-</span> TW<span class="sym">)</span> <span class="kw">div</span> <span class="num">2</span><span class="sym">,</span>
+            <span class="sym">(</span>getMaxY <span class="sym">-</span> TH<span class="sym">)</span> <span class="kw">div</span> <span class="num">2</span><span class="sym">,</span>TheLine<span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ Wait for return }</span>
+  readln<span class="sym">;</span>
+  <span class="cmt">{ Back to text mode }</span>
+  closegraph<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> inigraph2<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate dynamic graphics mode selection }</span>
+
+<span class="kw">uses</span> graph<span class="sym">;</span>
+
+<span class="kw">const</span>
+  TheLine <span class="sym">=</span> <span class="str">'We are now in 640 x 480 x 256 colors!'</span><span class="sym">+</span>
+            <span class="str">' (press &lt;Return&gt; to continue)'</span><span class="sym">;</span>
+
+<span class="kw">var</span>
+  th<span class="sym">,</span>tw<span class="sym">,</span>gd<span class="sym">,</span> gm<span class="sym">,</span> lo<span class="sym">,</span> hi<span class="sym">,</span> error<span class="sym">:</span> integer<span class="sym">;</span>
+  found<span class="sym">:</span> boolean<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="cmt">{ We want an 8 bit mode }</span>
+  gd <span class="sym">:=</span> D8bit<span class="sym">;</span>
+  <span class="cmt">{ Get all available resolutions for this bitdepth }</span>
+  getmoderange<span class="sym">(</span>gd<span class="sym">,</span>lo<span class="sym">,</span>hi<span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ If the highest available mode number is -1,</span>
+<span class="cmt">    no resolutions are supported for this bitdepth  }</span>
+  <span class="kw">if</span> hi <span class="sym">=</span> <span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    <span class="kw">begin</span>
+    writeln<span class="sym">(</span><span class="str">'no 8 bit modes supported!'</span><span class="sym">)</span><span class="sym">;</span>
+    halt
+    <span class="kw">end</span><span class="sym">;</span>
+  found <span class="sym">:=</span> false<span class="sym">;</span>
+  <span class="cmt">{ Search all resolutions for 640x480 }</span>
+  <span class="kw">for</span> gm <span class="sym">:=</span> lo to hi <span class="kw">do</span>
+    <span class="kw">begin</span>
+    initgraph<span class="sym">(</span>gd<span class="sym">,</span>gm<span class="sym">,</span><span class="str">''</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="cmt">{ Make sure you always check graphresult! }</span>
+    error <span class="sym">:=</span> graphResult<span class="sym">;</span>
+    <span class="kw">if</span> <span class="sym">(</span>error <span class="sym">=</span> grOk<span class="sym">)</span> <span class="kw">and</span>
+       <span class="sym">(</span>getmaxx <span class="sym">=</span> <span class="num">639</span><span class="sym">)</span> <span class="kw">and</span> <span class="sym">(</span>getmaxy <span class="sym">=</span> <span class="num">479</span><span class="sym">)</span> <span class="kw">then</span>
+      <span class="kw">begin</span>
+      found <span class="sym">:=</span> true<span class="sym">;</span>
+      <span class="kw">break</span><span class="sym">;</span>
+      <span class="kw">end</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  <span class="kw">if</span> <span class="kw">not</span> found <span class="kw">then</span>
+      CloseGraph<span class="sym">(</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">begin</span>
+    writeln<span class="sym">(</span><span class="str">'640x480x256 is not supported!'</span><span class="sym">)</span><span class="sym">;</span>
+    halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  <span class="cmt">{ We are now in 640x480x256 }</span>
+  setColor<span class="sym">(</span>cyan<span class="sym">)</span><span class="sym">;</span>
+  rectangle<span class="sym">(</span><span class="num">0</span><span class="sym">,</span><span class="num">0</span><span class="sym">,</span>getmaxx<span class="sym">,</span>getmaxy<span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ Write a nice message in the center of the screen }</span>
+  setTextStyle<span class="sym">(</span>defaultFont<span class="sym">,</span>horizDir<span class="sym">,</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+  TW<span class="sym">:=</span>TextWidth<span class="sym">(</span>TheLine<span class="sym">)</span><span class="sym">;</span>
+  TH<span class="sym">:=</span>TextHeight<span class="sym">(</span>TheLine<span class="sym">)</span><span class="sym">;</span>
+  outTextXY<span class="sym">(</span><span class="sym">(</span>getMaxX <span class="sym">-</span> TW<span class="sym">)</span> <span class="kw">div</span> <span class="num">2</span><span class="sym">,</span>
+            <span class="sym">(</span>getMaxY <span class="sym">-</span> TH<span class="sym">)</span> <span class="kw">div</span> <span class="num">2</span><span class="sym">,</span>TheLine<span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ Wait for return }</span>
+  readln<span class="sym">;</span>
+  <span class="cmt">{ Back to text mode }</span>
+  closegraph<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> GetModeRange_Example<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates how to find all available graph modes }</span>
+
+<span class="kw">uses</span> graph<span class="sym">;</span>
+
+
+<span class="kw">const</span>
+  <span class="cmt">{ Currently, only 4, 8, 15 and 16 bit modes are supported</span>
+<span class="cmt">    but this may  change in the future }</span>
+  gdnames<span class="sym">:</span> <span class="kw">array</span><span class="sym">[</span>D4bit<span class="sym">.</span><span class="sym">.</span>D16bit<span class="sym">]</span> <span class="kw">of</span> string<span class="sym">[</span><span class="num">6</span><span class="sym">]</span> <span class="sym">=</span>
+    <span class="sym">(</span><span class="str">'4 bit'</span><span class="sym">,</span><span class="str">'6 bit'</span><span class="sym">,</span><span class="str">'8 bit'</span><span class="sym">,</span><span class="str">'12 bit'</span><span class="sym">,</span><span class="str">'15 bit'</span><span class="sym">,</span><span class="str">'16 bit'</span><span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">procedure</span> WriteRes<span class="sym">(</span><span class="kw">const</span> depth <span class="sym">:</span> integer<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">var</span>
+  tw<span class="sym">,</span> th <span class="sym">:</span> integer<span class="sym">;</span>
+  v<span class="sym">,</span> text <span class="sym">:</span> String<span class="sym">;</span>
+<span class="kw">begin</span>
+  text <span class="sym">:=</span> <span class="str">'Current resolution is '</span><span class="sym">;</span> str<span class="sym">(</span>getmaxx<span class="sym">+</span><span class="num">1</span><span class="sym">,</span> v<span class="sym">)</span><span class="sym">;</span>
+  text <span class="sym">:=</span> text <span class="sym">+</span> v <span class="sym">+</span> <span class="chr">'x'</span><span class="sym">;</span> str<span class="sym">(</span>getmaxy<span class="sym">+</span><span class="num">1</span><span class="sym">,</span> v<span class="sym">)</span><span class="sym">;</span>
+  text <span class="sym">:=</span> text <span class="sym">+</span> v <span class="sym">+</span> <span class="chr">'x'</span> <span class="sym">+</span> gdnames<span class="sym">[</span>depth<span class="sym">]</span><span class="sym">;</span>
+  setTextStyle<span class="sym">(</span>defaultFont<span class="sym">,</span>horizDir<span class="sym">,</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+  TW<span class="sym">:=</span>TextWidth<span class="sym">(</span>text<span class="sym">)</span><span class="sym">;</span>
+  TH<span class="sym">:=</span>TextHeight<span class="sym">(</span>text<span class="sym">)</span><span class="sym">;</span>
+  outTextXY<span class="sym">(</span><span class="sym">(</span>getMaxX <span class="sym">-</span> TW<span class="sym">)</span> <span class="kw">div</span> <span class="num">2</span><span class="sym">,</span>
+            <span class="sym">(</span>getMaxY <span class="sym">-</span> TH<span class="sym">)</span> <span class="kw">div</span> <span class="num">2</span><span class="sym">,</span>text<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">var</span>
+  t<span class="sym">:</span> text<span class="sym">;</span>
+  line <span class="sym">:</span> string<span class="sym">;</span>
+  gd<span class="sym">,</span> c<span class="sym">,</span> low<span class="sym">,</span> high<span class="sym">,</span> res<span class="sym">:</span> integer<span class="sym">;</span>
+<span class="kw">begin</span>
+  assign<span class="sym">(</span>t<span class="sym">,</span><span class="str">'modes.txt'</span><span class="sym">)</span><span class="sym">;</span>
+  rewrite<span class="sym">(</span>t<span class="sym">)</span><span class="sym">;</span>
+  close<span class="sym">(</span>t<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">for</span> gd <span class="sym">:=</span> D4bit to D16bit <span class="kw">do</span>
+    <span class="kw">begin</span>
+    <span class="cmt">{ Get the available mode numbers for this driver }</span>
+    getModeRange<span class="sym">(</span>gd<span class="sym">,</span>low<span class="sym">,</span>high<span class="sym">)</span><span class="sym">;</span>
+    append<span class="sym">(</span>t<span class="sym">)</span><span class="sym">;</span>
+    write<span class="sym">(</span>t<span class="sym">,</span>gdnames<span class="sym">[</span>gd<span class="sym">]</span><span class="sym">)</span><span class="sym">;</span>
+    Writeln<span class="sym">(</span>t<span class="sym">,</span><span class="str">': low modenr = '</span><span class="sym">,</span>low<span class="sym">,</span><span class="str">', high modenr = '</span><span class="sym">,</span>high<span class="sym">)</span><span class="sym">;</span>
+    close<span class="sym">(</span>t<span class="sym">)</span><span class="sym">;</span>
+    <span class="cmt">{ If high is -1,</span>
+<span class="cmt">       no resolutions are supported for this bitdepth }</span>
+    <span class="kw">if</span> high <span class="sym">=</span> <span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+      <span class="kw">begin</span>
+      append<span class="sym">(</span>t<span class="sym">)</span><span class="sym">;</span>
+      writeln<span class="sym">(</span>t<span class="sym">,</span><span class="str">'  No modes supported!'</span><span class="sym">)</span><span class="sym">;</span>
+      writeln<span class="sym">(</span>t<span class="sym">)</span><span class="sym">;</span>
+      close<span class="sym">(</span>t<span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">end</span>
+    <span class="kw">else</span>
+      <span class="cmt">{ Enter all supported resolutions for this bitdepth</span>
+<span class="cmt">        and write their characteristics to the file }</span>
+      <span class="kw">for</span> c <span class="sym">:=</span> low to high <span class="kw">do</span>
+        <span class="kw">begin</span>
+        append<span class="sym">(</span>t<span class="sym">)</span><span class="sym">;</span>
+        writeln<span class="sym">(</span>t<span class="sym">,</span><span class="str">'  testing mode nr '</span><span class="sym">,</span>c<span class="sym">)</span><span class="sym">;</span>
+        close<span class="sym">(</span>t<span class="sym">)</span><span class="sym">;</span>
+        initgraph<span class="sym">(</span>gd<span class="sym">,</span>c<span class="sym">,</span><span class="str">''</span><span class="sym">)</span><span class="sym">;</span>
+        res <span class="sym">:=</span> graphresult<span class="sym">;</span>
+        append<span class="sym">(</span>t<span class="sym">)</span><span class="sym">;</span>
+        <span class="cmt">{ An error occurred when entering the mode? }</span>
+        <span class="kw">if</span> res <span class="sym">&lt;</span><span class="sym">&gt;</span> grok <span class="kw">then</span>
+          writeln<span class="sym">(</span>t<span class="sym">,</span>grapherrormsg<span class="sym">(</span>res<span class="sym">)</span><span class="sym">)</span>
+        <span class="kw">else</span>
+          <span class="kw">begin</span>
+          write<span class="sym">(</span>t<span class="sym">,</span><span class="str">'maxx: '</span><span class="sym">,</span>getmaxx<span class="sym">,</span><span class="str">', maxy: '</span><span class="sym">,</span>getmaxy<span class="sym">)</span><span class="sym">;</span>
+          Writeln<span class="sym">(</span>t<span class="sym">,</span><span class="str">', maxcolor: '</span><span class="sym">,</span>getmaxcolor<span class="sym">)</span><span class="sym">;</span>
+          closegraph<span class="sym">;</span>
+          <span class="kw">end</span><span class="sym">;</span>
+        writeln<span class="sym">(</span>t<span class="sym">)</span><span class="sym">;</span>
+          WriteRes<span class="sym">(</span>gd<span class="sym">)</span><span class="sym">;</span>
+        close<span class="sym">(</span>t<span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">end</span><span class="sym">;</span>
+    append<span class="sym">(</span>t<span class="sym">)</span><span class="sym">;</span>
+    writeln<span class="sym">(</span>t<span class="sym">)</span><span class="sym">;</span>
+    close<span class="sym">(</span>t<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'All supported modes are listed in modes.txt files'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

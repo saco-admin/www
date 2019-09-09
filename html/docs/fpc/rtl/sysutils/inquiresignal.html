@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>InquireSignal</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>InquireSignal</h1>
+<p>Check whether a signal handler is set (unix only)</p>
+<h2>Declaration</h2>
+<p>Source position: sysutils.pp line 78</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> InquireSignal<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;RtlSigNum<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tsignalstate.html">TSignalState</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>RtlSigNum</var> will check whether the signal <var>RtlSigNum</var> is being handled, and by whom. It returns a <var>TSignalState</var> result to report the state of the signal, which can be one of the following values: </p>
+<dl>
+<dt>ssNotHooked</dt>
+<dd>No signal handler is set for the signal.</dd>
+<dt>ssHooked</dt>
+<dd>A signal handler is set by the RTL code for the signal.</dd>
+<dt>ssOverridden</dt>
+<dd>A signal handler was set for the signal by third-party code.</dd>
+</dl>
+<p>This routine works by resetting the signal handlers, so it is risky to call. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Using breakpoints</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1175--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu57.html" >next</a>] [<a 
+href="#tailusersu56.html">tail</a>] [<a 
+href="userse27.html#usersu56.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.9.1   </span> <a 
+href="user.html#QQ2-91-110" id="x91-980006.9.1">Using breakpoints</a></h4>
+<!--l. 1176--><p class="noindent" >Breakpoints will cause a running program to stop when the execution reaches the line where the
+breakpoint was set. At that moment, control is returned to the IDE, and it is possible to continue
+execution.
+<!--l. 1180--><p class="noindent" >To set a breakpoint on the current source line, use the <span 
+class="cmbx-10">&#8221;Debug&#8212;Breakpoint&#8221; </span>menu entry, or
+press <span 
+class="cmcsc-10">C<span 
+class="small-caps">t</span><span 
+class="small-caps">r</span><span 
+class="small-caps">l</span>-F8</span>.
+<!--l. 1183--><p class="noindent" >A list of current breakpoints can be obtained through the <span 
+class="cmbx-10">&#8221;Debug&#8212;Breakpoint list&#8221; </span>menu.
+The breakpoint list window is shown in figure (<a 
+href="#x91-98001r11">6.11<!--tex4ht:ref: fig:brklist --></a>).
+<!--l. 1187--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x91-98001r11"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 1187--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;6.11: </span><span  
+class="content">The breakpoint list window</span></div><!--tex4ht:label?: x91-98001r11 -->
+<!--l. 1187--><p class="noindent" ><img 
+src="user12x.png" alt="PIC" class="graphics" width="400.34999pt" height="133.24577pt" ><!--tex4ht:graphics  
+name="user12x.png" src="pics/ide/brklist.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 1187--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 1189--><p class="noindent" >In the breakpoint list window, the following things can be done:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">New</span> </dt><dd 
+class="description">Shows the breakpoint property dialog where the properties for a new breakpoint can
+     be entered.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Edit</span> </dt><dd 
+class="description">Shows  the  breakpoint  property  dialog  where  the  properties  of  the  highlighted
+     breakpoint can be changed.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Delete</span> </dt><dd 
+class="description">Deletes the highlighted breakpoint.</dd></dl>
+<!--l. 1197--><p class="noindent" >The dialog can be closed with the &#8217;Close&#8217; button. The breakpoint properties dialog is shown in
+figure (<a 
+href="#x91-98002r12">6.12<!--tex4ht:ref: fig:brkprop --></a>)
+<!--l. 1200--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x91-98002r12"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 1200--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;6.12: </span><span  
+class="content">The breakpoint properties dialog</span></div><!--tex4ht:label?: x91-98002r12 -->
+<!--l. 1200--><p class="noindent" ><img 
+src="user13x.png" alt="PIC" class="graphics" width="400.34999pt" height="209.79213pt" ><!--tex4ht:graphics  
+name="user13x.png" src="pics/ide/brkprop.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 1200--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 1202--><p class="noindent" >The following properties can be set:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Type</span> </dt><dd 
+class="description">Set the type of the breakpoint. The following types of breakpoints exist:
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">function</span> </dt><dd 
+class="description">Function breakpoint. The program will stop when the function with the
+         given name is reached.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">file-line</span> </dt><dd 
+class="description">Source line breakpoint. The program will stop when the source file with given
+         name and line is reached.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">watch</span> </dt><dd 
+class="description">Expression breakpoint. An expression may be entered, and the program will
+         stop as soon as the expression changes.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">awatch</span> </dt><dd 
+class="description">(access watch) Expression breakpoint. An expression that references a memory
+         location  may  be  entered,  and  the  program  will  stop  as  soon  as  the  memory
+         indicated by the expression is accessed.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Address</span> </dt><dd 
+class="description">stop as soon as an address is reached.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">rwatch</span> </dt><dd 
+class="description">(read watch) Expression breakpoint. An expression that references a memory
+         location  may  be  entered,  and  the  program  will  stop  as  soon  as  the  memory
+         indicated by the expression is read.</dd></dl>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Name</span> </dt><dd 
+class="description">Name of the function or file where to stop.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Conditions</span> </dt><dd 
+class="description">Here an expression can be entered which must evaluate to <span 
+class="cmtt-10">True </span>for the program to
+     stop at the breakpoint. The expressions that can be entered must be valid GDB
+     expressions.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Line</span> </dt><dd 
+class="description">Line number in the file where to stop. Only for breakpoints of type file-line.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Ignore count</span> </dt><dd 
+class="description">The number of times the breakpoint will be ignored before the program
+     stops.</dd></dl>
+<!--l. 1230--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span>
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x91-98004x1">Because the IDE uses GDB to do its debugging, it is necessary to enter all expressions
+     in <span 
+class="cmti-10">uppercase</span>.
+     </li>
+     <li 
+  class="enumerate" id="x91-98006x2">Expressions that reference memory locations should be no longer than 16 bytes on
+     <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>or go32v2 on an Intel processor, since the Intel processor&#8217;s debug registers are
+     used to monitor these locations.
+     </li>
+     <li 
+  class="enumerate" id="x91-98008x3">Memory location watches will not function on Win32 unless a special patch is applied.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 1245--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu57.html" >next</a>] [<a 
+href="usersu56.html" >front</a>] [<a 
+href="userse27.html#usersu56.html" >up</a>] </p></div>
+<!--l. 1245--><p class="noindent" ><a 
+ id="tailusersu56.html"></a>  
+</body></html> 

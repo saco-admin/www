@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TProcess.Parameters</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../process/index.html">Overview</a>][<a href="../process/index-3.html">Types</a>][<a href="../process/index-4.html">Classes</a>][<a href="../process/index-5.html">Procedures and functions</a>][<a href="../process/index-6.html">Variables</a>][<a href="../process/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'process' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TProcess.Parameters</h1>
+<p>Command-line argumens. Supersedes <var>CommandLine</var>.</p>
+<h2>Declaration</h2>
+<p>Source position: process.pp line 145</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../process/tprocess.html">TProcess</a><span class="sym">.</span>Parameters<span class="sym"> : </span><a href="../../rtl/classes/tstrings.html">TStrings</a><br>&nbsp;&nbsp;<span class="kw">read </span>FParameters<br>&nbsp;&nbsp;<span class="kw">write </span>SetParameters<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Parameters</var> contains the command-line arguments that should be passed to the program specified in <a href="../process/tprocess.executable.html">Executable</a>. </p>
+<p>Commandline arguments should be specified one per item in <var>Parameters</var>: each item in <var>Parameters</var> will be passed as a separate command-line item. It is therefor not necessery to quote whitespace in the items. As a consequence, it is not allowed to specify multiple command-line parameters in 1 item in the stringlist. If a command needs 2 options <var>-t</var> and <var>-s</var>, the following is not correct: </p>
+<pre><span class="kw">With</span> Parameters <span class="kw">do</span>
+  <span class="kw">begin</span>
+  add<span class="sym">(</span><span class="str">'-t -s'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>Instead, the code should read: </p>
+<pre><span class="kw">With</span> Parameters <span class="kw">do</span>
+  <span class="kw">begin</span>
+  add<span class="sym">(</span><span class="str">'-t'</span><span class="sym">)</span><span class="sym">;</span>
+  Add<span class="sym">(</span><span class="str">'-s'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+</pre>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>Note that <var>Parameters</var> is ignored if either of <var>CommandLine</var> or <var>ApplicationName</var> is specified. It can only be used with <var>Executable</var>. </td>
+</tr>
+</table>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>The idea of using <var>Parameters</var> is that they are passed unmodified to the operating system. On Windows, a single command-line string must be constructed, and each parameter is surrounded by double quote characters if it contains a space. The programmer must not quote parameters with spaces. </td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../process/tprocess.executable.html">Executable</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Executable name. Supersedes <var>CommandLine</var> and <var>ApplicationName</var>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.commandline.html">CommandLine</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Command-line to execute (deprecated)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.applicationname.html">ApplicationName</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Name of the application to start (deprecated)</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

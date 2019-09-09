@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$WARN : Control emission of warnings</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 1714--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu81.html" >next</a>] [<a 
+href="progsu79.html" >prev</a>] [<a 
+href="progsu79.html#tailprogsu79.html" >prev-tail</a>] [<a 
+href="#tailprogsu80.html">tail</a>] [<a 
+href="progse2.html#progsu80.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.80   </span> <a 
+href="prog.html#QQ2-87-86" id="x87-860001.2.80"><span 
+class="cmtt-10">$WARN </span>: Control emission of warnings</a></h4>
+<!--l. 1715--><p class="noindent" >This directive allows to selectively turn on or off the emission of warnings. It takes the following
+form
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-80">
+{$WARN&#x00A0;IDENTIFIER&#x00A0;ON}
+&#x00A0;<br />{$WARN&#x00A0;IDENTIFIER&#x00A0;OFF}
+&#x00A0;<br />{$WARN&#x00A0;IDENTIFIER&#x00A0;+}
+&#x00A0;<br />{$WARN&#x00A0;IDENTIFIER&#x00A0;-}
+&#x00A0;<br />{$WARN&#x00A0;IDENTIFIER&#x00A0;ERROR}
+</div>
+<!--l. 1723--><p class="nopar" ><span 
+class="cmtt-10">ON </span>or <span 
+class="cmtt-10">+ </span>turns on emission of the warning. The <span 
+class="cmtt-10">OFF </span>or <span 
+class="cmtt-10">- </span>values suppress the warning. <span 
+class="cmtt-10">ERROR</span>
+promotes the warning to an error, and the compiler will treat it as such.
+<!--l. 1728--><p class="noindent" >The <span 
+class="cmtt-10">IDENTIFIER </span>is the name of a warning message. The following names are recognized:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">CONSTRUCTING</span><span 
+class="cmbx-10">_ABSTRACT</span> </dt><dd 
+class="description">Constructing  an  instance  of  a  class  with  abstract
+     methods.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">IMPLICIT</span><span 
+class="cmbx-10">_VARIANTS</span> </dt><dd 
+class="description">Implicit use of the <span 
+class="cmtt-10">variants </span>unit.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">NO</span><span 
+class="cmbx-10">_RETVAL</span> </dt><dd 
+class="description">Function result is not set.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">SYMBOL</span><span 
+class="cmbx-10">_DEPRECATED</span> </dt><dd 
+class="description">Deprecated symbol.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">SYMBOL</span><span 
+class="cmbx-10">_EXPERIMENTAL</span> </dt><dd 
+class="description">Experimental symbol
+     </dd><dt class="description">
+<span 
+class="cmbx-10">SYMBOL</span><span 
+class="cmbx-10">_LIBRARY</span> </dt><dd 
+class="description">Not used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">SYMBOL</span><span 
+class="cmbx-10">_PLATFORM</span> </dt><dd 
+class="description">Platform-dependent symbol.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">SYMBOL</span><span 
+class="cmbx-10">_UNIMPLEMENTED</span> </dt><dd 
+class="description">Unimplemented symbol.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">UNIT</span><span 
+class="cmbx-10">_DEPRECATED</span> </dt><dd 
+class="description">Deprecated unit.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">UNIT</span><span 
+class="cmbx-10">_EXPERIMENTAL</span> </dt><dd 
+class="description">Experimental unit.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">UNIT</span><span 
+class="cmbx-10">_LIBRARY</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">UNIT</span><span 
+class="cmbx-10">_PLATFORM</span> </dt><dd 
+class="description">Platform dependent unit.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">UNIT</span><span 
+class="cmbx-10">_UNIMPLEMENTED</span> </dt><dd 
+class="description">Unimplemented unit.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ZERO</span><span 
+class="cmbx-10">_NIL</span><span 
+class="cmbx-10">_COMPAT</span> </dt><dd 
+class="description">Converting 0 to NIL
+     </dd><dt class="description">
+<span 
+class="cmbx-10">IMPLICIT</span><span 
+class="cmbx-10">_STRING</span><span 
+class="cmbx-10">_CAST</span> </dt><dd 
+class="description">Implicit string type conversion
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">IMPLICIT</span><span 
+class="cmbx-10">_STRING</span><span 
+class="cmbx-10">_CAST</span><span 
+class="cmbx-10">_LOSS</span> </dt><dd 
+class="description">Implicit string typecast with potential data loss
+     from &#8221;$1&#8221; to &#8221;$2&#8221;
+     </dd><dt class="description">
+<span 
+class="cmbx-10">EXPLICIT</span><span 
+class="cmbx-10">_STRING</span><span 
+class="cmbx-10">_CAST</span> </dt><dd 
+class="description">Explicit string type conversion
+     </dd><dt class="description">
+<span 
+class="cmbx-10">EXPLICIT</span><span 
+class="cmbx-10">_STRING</span><span 
+class="cmbx-10">_CAST</span><span 
+class="cmbx-10">_LOSS</span> </dt><dd 
+class="description">Explicit string typecast with potential data loss
+     from &#8221;$1&#8221; to &#8221;$2&#8221;
+     </dd><dt class="description">
+<span 
+class="cmbx-10">CVT</span><span 
+class="cmbx-10">_NARROWING</span><span 
+class="cmbx-10">_STRING</span><span 
+class="cmbx-10">_LOST</span> </dt><dd 
+class="description">Unicode constant cast with potential data loss</dd></dl>
+<!--l. 1751--><p class="noindent" >Besides the above text identifiers, the identifier can also be a message number. The numbers of the
+messages are displayed when the <span 
+class="cmtt-10">-vq </span>command-line option is used.
+                                                                            
+
+                                                                            
+<!--l. 1755--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu81.html" >next</a>] [<a 
+href="progsu79.html" >prev</a>] [<a 
+href="progsu79.html#tailprogsu79.html" >prev-tail</a>] [<a 
+href="progsu80.html" >front</a>] [<a 
+href="progse2.html#progsu80.html" >up</a>] </p></div>
+<!--l. 1755--><p class="noindent" ><a 
+ id="tailprogsu80.html"></a>  
+</body></html> 

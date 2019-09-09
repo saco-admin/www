@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSQLQuery.ServerFilter</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TSQLQuery.ServerFilter</h1>
+<p>Append server-side filter to SQL statement</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 671</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../sqldb/tsqlquery.html">TSQLQuery</a><span class="sym">.</span>ServerFilter<span class="sym"> : </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ServerFilter</var> can be set to a valid <var>WHERE</var> clause (without the <var>WHERE</var> keyword). It will be appended to the <var>select</var>  statement in <a href="../sqldb/tsqlquery.sql.html">SQL</a>, when <a href="../sqldb/tsqlquery.serverfiltered.html">ServerFiltered</a> is set to <var>True</var>. if <a href="../sqldb/tsqlquery.serverfiltered.html">ServerFiltered</a> is set to <var>False</var>, <var>ServerFilter</var> is ignored. </p>
+<p>If the dataset is active and <a href="../sqldb/tsqlquery.serverfiltered.html">ServerFiltered</a> is set to true, then changing this property will re-fetch the data from the server. </p>
+<p>This property cannot be used when <a href="../sqldb/tsqlquery.parsesql.html">ParseSQL</a> is <var>False</var>, because the statement must be parsed in order to know where the <var>WHERE</var> clause must be inserted: the <var>TSQLQuery</var> class will intelligently insert the clause in an SQL select statement. </p>
+<h2>Errors</h2>
+<p>Setting this property when <a href="../sqldb/tsqlquery.parsesql.html">ParseSQL</a> is <var>False</var> will result in an exception. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlquery.serverfiltered.html">ServerFiltered</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should server-side filter be applied</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

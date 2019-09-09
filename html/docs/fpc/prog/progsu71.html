@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$SETC : Define and assign a value to a symbol</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 1551--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu72.html" >next</a>] [<a 
+href="progsu70.html" >prev</a>] [<a 
+href="progsu70.html#tailprogsu70.html" >prev-tail</a>] [<a 
+href="#tailprogsu71.html">tail</a>] [<a 
+href="progse2.html#progsu71.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.71   </span> <a 
+href="prog.html#QQ2-78-77" id="x78-770001.2.71"><span 
+class="cmtt-10">$SETC </span>: Define and assign a value to a symbol</a></h4>
+<!--l. 1553--><p class="noindent" >In MACPAS mode, this directive can be used to define compiler symbols. It is an alternative to the
+<span 
+class="cmtt-10">$DEFINE </span>directive for macros. It is supported for compatibility with existing Mac OS
+Pascal compilers. It will define a symbol with a certain value (called a compiler variable
+expression).
+<!--l. 1558--><p class="noindent" >The expression syntax is similar to expressions used in macros, but the expression must be
+evaluated at compile-time by the compiler. This means that only some basic arithmetic and logical
+operators can be used, and some extra possibilities such as the <span 
+class="cmtt-10">TRUE</span>,<span 
+class="cmtt-10">FALSE </span>and <span 
+class="cmtt-10">UNDEFINED</span>
+operators:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-71">
+{$SETC&#x00A0;TARGET_CPU_PPC&#x00A0;&#x00A0;:=&#x00A0;NOT&#x00A0;UNDEFINED&#x00A0;CPUPOWERPC}
+&#x00A0;<br />{$SETC&#x00A0;TARGET_CPU_68K&#x00A0;&#x00A0;:=&#x00A0;NOT&#x00A0;UNDEFINED&#x00A0;CPUM68K}
+&#x00A0;<br />{$SETC&#x00A0;TARGET_CPU_X86&#x00A0;&#x00A0;:=&#x00A0;NOT&#x00A0;UNDEFINED&#x00A0;CPUI386}
+&#x00A0;<br />{$SETC&#x00A0;TARGET_CPU_MIPS&#x00A0;:=&#x00A0;FALSE}
+&#x00A0;<br />{$SETC&#x00A0;TARGET_OS_UNIX&#x00A0;&#x00A0;:=&#x00A0;(NOT&#x00A0;UNDEFINED&#x00A0;UNIX)&#x00A0;AND&#x00A0;(UNDEFINED&#x00A0;DARWIN)}
+</div>
+<!--l. 1570--><p class="nopar" >The <span 
+class="cmtt-10">:= </span>assignment symbol may be replaced with the <span 
+class="cmtt-10">= </span>symbol.
+<!--l. 1573--><p class="noindent" >Note that this command works only in MACPAS mode, but independent of the <span 
+class="cmtt-10">-Sm </span>command line
+option or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MACRO </span><span 
+class="cmsy-10">} </span>directive.
+                                                                            
+
+                                                                            
+<!--l. 1577--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu72.html" >next</a>] [<a 
+href="progsu70.html" >prev</a>] [<a 
+href="progsu70.html#tailprogsu70.html" >prev-tail</a>] [<a 
+href="progsu71.html" >front</a>] [<a 
+href="progse2.html#progsu71.html" >up</a>] </p></div>
+<!--l. 1577--><p class="noindent" ><a 
+ id="tailprogsu71.html"></a>  
+</body></html> 

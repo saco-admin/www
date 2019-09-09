@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>AnsiStrComp</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>AnsiStrComp</h1>
+<p>Compare two null-terminated strings. Case sensitive.</p>
+<h2>Declaration</h2>
+<p>Source position: sysstrh.inc line 89</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> AnsiStrComp<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;S1<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;S2<span class="sym">: </span><a href="../system/pchar.html">PChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>AnsiStrComp</var> compares 2 <var>PChar</var> strings, and returns the following result: </p>
+<dl>
+<dt>&lt;0</dt>
+<dd>if <var>S1&lt;S2</var>.</dd>
+<dt>0</dt>
+<dd>if <var>S1=S2</var>.</dd>
+<dt>&gt;0</dt>
+<dd>if <var>S1&gt;S2</var>.</dd>
+</dl>
+<p>The comparision of the two strings is case-sensitive. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>A widestring manager must be installed in order for this function to work correctly with various character sets. </td>
+</tr>
+</table>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/ansicomparetext.html">AnsiCompareText</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compare 2 ansistrings, case insensitive, ignoring accents characters.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/ansicomparestr.html">AnsiCompareStr</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compare 2 ansistrings, case sensitive, ignoring accents characters.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example54<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the AnsiStrComp function }</span>
+
+<span class="kw">Uses</span> sysutils<span class="sym">;</span>
+
+<span class="kw">Procedure</span> TestIt <span class="sym">(</span>S1<span class="sym">,</span>S2 <span class="sym">:</span> Pchar<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span> R <span class="sym">:</span> Longint<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  R<span class="sym">:=</span>AnsiStrComp<span class="sym">(</span>S1<span class="sym">,</span>S2<span class="sym">)</span><span class="sym">;</span>
+  Write <span class="sym">(</span><span class="chr">'"'</span><span class="sym">,</span>S1<span class="sym">,</span><span class="str">'" is '</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> R<span class="sym">&lt;</span><span class="num">0</span> <span class="kw">then</span>
+    write <span class="sym">(</span><span class="str">'less than '</span><span class="sym">)</span>
+  <span class="kw">else</span> <span class="kw">If</span> R<span class="sym">=</span><span class="num">0</span> <span class="kw">then</span>
+    Write <span class="sym">(</span><span class="str">'equal to '</span><span class="sym">)</span>
+  <span class="kw">else</span>
+    Write <span class="sym">(</span><span class="str">'larger than '</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="chr">'"'</span><span class="sym">,</span>S2<span class="sym">,</span><span class="chr">'"'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  Testit<span class="sym">(</span><span class="str">'One string'</span><span class="sym">,</span><span class="str">'One smaller string'</span><span class="sym">)</span><span class="sym">;</span>
+  Testit<span class="sym">(</span><span class="str">'One string'</span><span class="sym">,</span><span class="str">'one string'</span><span class="sym">)</span><span class="sym">;</span>
+  Testit<span class="sym">(</span><span class="str">'One string'</span><span class="sym">,</span><span class="str">'One string'</span><span class="sym">)</span><span class="sym">;</span>
+  Testit<span class="sym">(</span><span class="str">'One string'</span><span class="sym">,</span><span class="str">'One tall string'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

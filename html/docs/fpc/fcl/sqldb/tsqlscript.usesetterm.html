@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSQLScript.UseSetTerm</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TSQLScript.UseSetTerm</h1>
+<p>Should the SET TERM directive be recognized</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 707</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../sqldb/tsqlscript.html">TSQLScript</a><span class="sym">.</span>UseSetTerm<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>UseSetTerm</var> can be set to <var>True</var> to let <var>TSQLScript</var> automatically handle the <var>SET TERM</var> directive and set the <a href="../sqldb/tsqlscript.terminator.html">TSQLSCript.Terminator</a> character based on the value specified in the <var>SET TERM</var> directive. This means that the following directive: </p>
+<pre><span class="kw">SET</span> TERM <span class="sym">^</span> <span class="sym">;</span>
+</pre>
+<p>will set the terminator to the caret character. Conversely, the </p>
+<pre><span class="kw">SET</span> TERM <span class="sym">;</span> <span class="sym">^</span>
+</pre>
+<p>will then switch the terminator character back to the commonly used semicolon (;). </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlscript.terminator.html">TSQLSCript.Terminator</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Terminator character.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlscript.script.html">TSQLSCript.Script</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The script to execute</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlscript.directives.html">TSQLSCript.Directives</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of directives</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TUnicodeStringManager</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TUnicodeStringManager</h1>
+<p>Unicode string manager</p>
+<h2>Declaration</h2>
+<p>Source position: ustringh.inc line 69</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TUnicodeStringManager<span class="sym"> = </span><span class="kw">record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Wide2AnsiMoveProc<span class="sym">: </span><span class="kw">procedure</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when a unicode/wide string must be converted to an ansistring</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;source<span class="sym">: </span><a href="../system/pwidechar.html">PWideChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>dest<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;cp<span class="sym">: </span><a href="../system/tsystemcodepage.html">TSystemCodePage</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;len<span class="sym">: </span><a href="../system/sizeint.html">SizeInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Ansi2WideMoveProc<span class="sym">: </span><span class="kw">procedure</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when an ansistring must be converted to a unicodestring/widestring.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;source<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;cp<span class="sym">: </span><a href="../system/tsystemcodepage.html">TSystemCodePage</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>dest<span class="sym">: </span><a href="../system/widestring.html">widestring</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;len<span class="sym">: </span><a href="../system/sizeint.html">SizeInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;UpperWideStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when a unicode/wide string must be uppercased.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span><a href="../system/widestring.html">WideString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/widestring.html">WideString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;LowerWideStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when a unicode/wide string must be lowercased.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span><a href="../system/widestring.html">WideString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/widestring.html">WideString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;CompareWideStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when 2 unicode/wide strings must be compared</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>s1<span class="sym">: </span><a href="../system/widestring.html">WideString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>s2<span class="sym">: </span><a href="../system/widestring.html">WideString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Options<span class="sym">: </span><a href="../system/tcompareoptions.html">TCompareOptions</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/ptrint.html">PtrInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;CharLengthPCharProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when the character length of a unicode/wide string must be calculated</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Str<span class="sym">: </span><a href="../system/pchar.html">PChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/ptrint.html">PtrInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;CodePointLengthProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the length of a code point</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Str<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;MaxLookAead<span class="sym">: </span><a href="../system/ptrint.html">PtrInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/ptrint.html">PtrInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;UpperAnsiStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when an ansistring must be uppercased.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>s<span class="sym">: </span>ansistring</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>ansistring<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;LowerAnsiStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when an ansistring must be lowercased.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>s<span class="sym">: </span>ansistring</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>ansistring<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;CompareStrAnsiStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when 2 ansistrings must be compared.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S1<span class="sym">: </span>ansistring<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S2<span class="sym">: </span>ansistring</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/ptrint.html">PtrInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;CompareTextAnsiStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when 2 ansistrings must be compared case insensitively.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S1<span class="sym">: </span>ansistring<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S2<span class="sym">: </span>ansistring</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/ptrint.html">PtrInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;StrCompAnsiStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when 2 ansistrings must be compared case insensitively</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;S1<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;S2<span class="sym">: </span><a href="../system/pchar.html">PChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/ptrint.html">PtrInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;StrICompAnsiStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when 2 null-terminated ansistring arrays must be compared case insensitively</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;S1<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;S2<span class="sym">: </span><a href="../system/pchar.html">PChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/ptrint.html">PtrInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;StrLCompAnsiStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when 2 ansistring arrays must be compared up to a given length</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;S1<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;S2<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;MaxLen<span class="sym">: </span><a href="../system/ptruint.html">PtrUInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/ptrint.html">PtrInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;StrLICompAnsiStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when 2 ansistring arrays must be compared case insensitively up to agiven length</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;S1<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;S2<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;MaxLen<span class="sym">: </span><a href="../system/ptruint.html">PtrUInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/ptrint.html">PtrInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;StrLowerAnsiStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when a null-terminated ansistring array must be lowercased.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Str<span class="sym">: </span><a href="../system/pchar.html">PChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;StrUpperAnsiStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when a null-terminated ansistring array must be uppercased.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Str<span class="sym">: </span><a href="../system/pchar.html">PChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ThreadInitProc<span class="sym">: </span><span class="kw">procedure</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called whenever a new thread is started.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ThreadFiniProc<span class="sym">: </span><span class="kw">procedure</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called whenever a thread ends.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Unicode2AnsiMoveProc<span class="sym">: </span><span class="kw">procedure</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used whenever a unicode string must be converted to an ansistring.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;source<span class="sym">: </span><a href="../system/punicodechar.html">PUnicodeChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>dest<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;cp<span class="sym">: </span><a href="../system/tsystemcodepage.html">TSystemCodePage</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;len<span class="sym">: </span><a href="../system/sizeint.html">SizeInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Ansi2UnicodeMoveProc<span class="sym">: </span><span class="kw">procedure</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used whenever a ansistring must be converted to a unicode string.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;source<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;cp<span class="sym">: </span><a href="../system/tsystemcodepage.html">TSystemCodePage</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>dest<span class="sym">: </span><a href="../system/unicodestring.html">unicodestring</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;len<span class="sym">: </span><a href="../system/sizeint.html">SizeInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;UpperUnicodeStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used to convert a unicode string to uppercase.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;LowerUnicodeStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used to convert a unicode string to lowercase.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;CompareUnicodeStringProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used to compare 2 unicode strings.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>s1<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>s2<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Options<span class="sym">: </span><a href="../system/tcompareoptions.html">TCompareOptions</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/ptrint.html">PtrInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;GetStandardCodePageProc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback to query for standard used codepages</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>stdcp<span class="sym">: </span><a href="../system/tstandardcodepageenum.html">TStandardCodePageEnum</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tsystemcodepage.html">TSystemCodePage</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TUnicodeStringManager</var> is currently the same as the <a href="../system/tunicodestringmanager.html">TUnicodeStringManager</a> manager record. It performs the same functions: converting unicode strings to ansistrings and vice-versa, performing uppercase to lowercase transformations and comparing strings. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/twidestringmanager.html">TWideStringManager</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Record containing the various callbacks of the widestring manager.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

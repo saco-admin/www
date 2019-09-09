@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TBasicAction</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TBasicAction</h1>
+<p>[<a href="../classes/tbasicaction-1.html" onClick="window.open('../classes/tbasicaction-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../classes/tbasicaction-2.html" onClick="window.open('../classes/tbasicaction-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../classes/tbasicaction-3.html" onClick="window.open('../classes/tbasicaction-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../classes/tbasicaction-4.html" onClick="window.open('../classes/tbasicaction-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../classes/tbasicaction-5.html" onClick="window.open('../classes/tbasicaction-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../classes/tbasicaction-6.html" onClick="window.open('../classes/tbasicaction-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Abstract base class for all Actions.</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 1901</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TBasicAction <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../classes/tcomponent.html">TComponent</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../classes/tbasicaction.create.html">Create</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a new instance of a <a href="../classes/tbasicaction.html">TBasicAction</a> class. </p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../classes/tbasicaction.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Destroys the action.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../classes/tbasicaction.handlestarget.html">HandlesTarget</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Determines whether <var>Target</var> can be handled by this action </p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tbasicaction.updatetarget.html">UpdateTarget</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Notify client controls when the action updates itself.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tbasicaction.executetarget.html">ExecuteTarget</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Executes the action on the <var>Target</var> object</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../classes/tbasicaction.execute.html">Execute</a><span class="sym">;</span><span class="kw"> dynamic</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Triggers the <a href="../classes/tbasicaction.onexecute.html">OnExecute</a> event</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tbasicaction.registerchanges.html">RegisterChanges</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Registers a new client with the action.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tbasicaction.unregisterchanges.html">UnRegisterChanges</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unregisters a client from the list of clients</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../classes/tbasicaction.update.html">Update</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Triggers the <a href="../classes/tbasicaction.onupdate.html">OnUpdate</a> event</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/tbasicaction.actioncomponent.html">ActionComponent</a><span class="sym">: </span><a href="../classes/tcomponent.html">TComponent</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the component that initiated the action.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/tbasicaction.onexecute.html">OnExecute</a><span class="sym">: </span><a href="../classes/tnotifyevent.html">TNotifyEvent</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event triggered when the action executes.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/tbasicaction.onupdate.html">OnUpdate</a><span class="sym">: </span><a href="../classes/tnotifyevent.html">TNotifyEvent</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event trigged when the application is idle.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../classes/tbasicaction.html">TBasicAction</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Abstract base class for all Actions.</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../classes/tcomponent.html">TComponent</a>,<a href="../system/iunknown.html">IUnknown</a>,<a href="../classes/iinterfacecomponentreference.html">IInterfaceComponentReference</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for all components that need owner-owned functionality.</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../classes/tpersistent.html">TPersistent</a>,<a href="../classes/ifpobserved.html">IFPObserved</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for streaming system and persistent properties.</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../system/tobject.html">TObject</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class of all classes.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TBasicAction</var> implements a basic action class from which all actions are derived. It introduces all basic methods of an action, and implements functionality to maintain a list of clients, i.e. components that are connected with this action. </p>
+<p>Do not create instances of <var>TBasicAction</var>. Instead, create a descendant class and create an instance of this class instead. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/tbasicactionlink.html">TBasicActionLink</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Link between actions and action clients (e.g. controls)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tcomponent.html">TComponent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for all components that need owner-owned functionality.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

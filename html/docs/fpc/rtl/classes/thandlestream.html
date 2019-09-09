@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>THandleStream</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>THandleStream</h1>
+<p>[<a href="../classes/thandlestream-1.html" onClick="window.open('../classes/thandlestream-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../classes/thandlestream-2.html" onClick="window.open('../classes/thandlestream-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../classes/thandlestream-3.html" onClick="window.open('../classes/thandlestream-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../classes/thandlestream-4.html" onClick="window.open('../classes/thandlestream-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../classes/thandlestream-5.html" onClick="window.open('../classes/thandlestream-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../classes/thandlestream-6.html" onClick="window.open('../classes/thandlestream-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Base class for streams that are identified by an OS handle.</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 931</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> THandleStream <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../classes/tstream.html">TStream</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../classes/thandlestream.create.html">Create</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a handlestream from an OS Handle.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../classes/thandlestream.read.html">Read</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Overrides standard read method.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../classes/thandlestream.write.html">Write</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Overrides standard write method.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../classes/thandlestream.seek.html">Seek</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Overrides the Seek method.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/thandlestream.handle.html">Handle</a><span class="sym">: </span><a href="../classes/thandle.html">THandle</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The OS handle of the stream.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../classes/thandlestream.html">THandleStream</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for streams that are identified by an OS handle.</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../classes/tstream.html">TStream</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for streams.</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../system/tobject.html">TObject</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class of all classes.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>THandleStream</var> is an abstract descendant of the <a href="../classes/tstream.html">TStream</a> class that provides methods for a stream to handle all reading and writing  to and from a handle, provided by the underlying OS. To this end, it overrides the <a href="../classes/thandlestream.read.html">Read</a> and  <a href="../classes/thandlestream.write.html">Write</a> methods of TStream.  </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td><ul>
+<li><var>ThandleStream</var> does not obtain a handle from the OS by itself, it just handles reading and writing to such a handle by wrapping the system calls for reading and writing;  Descendant classes should obtain a handle from the OS by themselves and pass it on in the inherited  constructor.</li>
+<li>Contrary to Delphi, no seek is implemented for <var>THandleStream</var>, since pipes and sockets do not support this. The seek is implemented in descendant methods that support it. </li></ul></td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/tstream.html">TStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for streams.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tfilestream.html">TFileStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Stream that stores its data in a named file on disk.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

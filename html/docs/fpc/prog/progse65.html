@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Basics</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 7447--><div class="crosslinks"><p class="noindent">[<a 
+href="progse66.html" >next</a>] [<a 
+href="#tailprogse65.html">tail</a>] [<a 
+href="progap1.html#progse65.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">A.1   </span> <a 
+href="prog.html#QQ2-277-316" id="x277-293000A.1">Basics</a></h3>
+<!--l. 7448--><p class="noindent" >As described in chapter <a 
+href="progch4.html#x150-1510004">4<!--tex4ht:ref: ch:GenCode --></a>, page <a 
+href="progch4.html#x150-1510004">357<!--tex4ht:ref: ch:GenCode --></a>, unit description files (hereafter called PPU files for short), are
+used to determine if the unit code must be recompiled or not. In other words, the PPU files act as
+mini-makefiles, which is used to check dependencies of the different code modules, as well as verify
+if the modules are up to date or not. Furthermore, it contains all public symbols defined for a
+module.
+<!--l. 7456--><p class="noindent" >The general format of the <span 
+class="cmtt-10">ppu </span>file format is shown in figure (<a 
+href="#x277-293001r1">A.1<!--tex4ht:ref: fig:ppu --></a>).
+<!--l. 7459--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x277-293001r1"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 7459--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;A.1: </span><span  
+class="content">The PPU file format</span></div><!--tex4ht:label?: x277-293001r1 -->
+                                                                            
+
+                                                                            
+<!--l. 7459--><p class="noindent" ><img 
+src="prog2x.png" alt="PIC" class="graphics" width="400.34999pt" height="1061.82582pt" ><!--tex4ht:graphics  
+name="prog2x.png" src="pics//ppu.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 7459--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 7461--><p class="noindent" >To read or write the ppufile, the ppu unit <span 
+class="cmss-10">ppu.pas </span>can be used, which has an object called tppufile
+which holds all routines that deal with ppufile handling. While describing the layout of a ppufile,
+the methods which can be used for it are presented as well.
+<!--l. 7466--><p class="noindent" >A unit file consists of basically five or six parts:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x277-293003x1">A unit header.
+     </li>
+     <li 
+  class="enumerate" id="x277-293005x2">A general information part (wrongly named interface section in the code)
+     </li>
+     <li 
+  class="enumerate" id="x277-293007x3">A definition part. Contains all type and procedure definitions.
+     </li>
+     <li 
+  class="enumerate" id="x277-293009x4">A symbol part. Contains all symbol names and references to their definitions.
+     </li>
+     <li 
+  class="enumerate" id="x277-293011x5">A browser part. Contains all references from this unit to other units and inside this
+     unit. Only available when the <span 
+class="cmtt-10">uf</span><span 
+class="cmtt-10">_has</span><span 
+class="cmtt-10">_browser </span>flag is set in the unit flags
+     </li>
+     <li 
+  class="enumerate" id="x277-293013x6">A file implementation part (currently unused).</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 7479--><div class="crosslinks"><p class="noindent">[<a 
+href="progse66.html" >next</a>] [<a 
+href="progse65.html" >front</a>] [<a 
+href="progap1.html#progse65.html" >up</a>] </p></div>
+<!--l. 7479--><p class="noindent" ><a 
+ id="tailprogse65.html"></a>  
+</body></html> 

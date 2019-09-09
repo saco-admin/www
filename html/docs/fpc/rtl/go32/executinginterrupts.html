@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Executing software interrupts</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../go32/realmodecallbacks.html">Previous</a>][<a href="../go32/index.html">Up</a>][<a href="../go32/softwareinterrupts.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'go32' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>Executing software interrupts</h2>
+<p>Simply execute a realintr() call with the desired interrupt number and the supplied register data structure. But some of these interrupts require you to supply them a pointer to a buffer where they can store data to or obtain data from in memory. These interrupts are real mode functions and so they only can access the first Mb of linear address space, not FPC's data segment. For this reason FPC supplies a pre-initialized dos memory location within the GO32 unit. This buffer is internally used for dos functions too and so it's contents may change when calling other procedures. It's size can be obtained with <a href="../go32/tb_size.html">tb_size</a> and it's linear address via  <a href="../go32/transfer_buffer.html">transfer_buffer</a>. Another way is to allocate a completely new dos memory area via the <a href="../go32/global_dos_alloc.html">global_dos_alloc</a> function for your use and  supply its real mode address. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../go32/tb_size.html">tb_size</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return DOS transfer memory buffer size</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/transfer_buffer.html">transfer_buffer</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return offset of DOS transfer buffer</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/global_dos_alloc.html">global_dos_alloc</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Allocate DOS real mode memory</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/global_dos_free.html">global_dos_free</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Free DOS memory block</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/realintr.html">realintr</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Simulate interrupt</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="cmt">{ Executes a real mode software interrupt</span>
+<span class="cmt"></span>
+<span class="cmt">Exactly the interrupt call to get the DOS version.</span>
+<span class="cmt"></span>
+<span class="cmt">get DOS version Int 21h / function 30h</span>
+<span class="cmt">Input:</span>
+<span class="cmt">        AH = $30</span>
+<span class="cmt">        AL = $1</span>
+<span class="cmt">Return:</span>
+<span class="cmt">        AL = major version number</span>
+<span class="cmt">        AH = minor version number</span>
+<span class="cmt">}</span>
+
+<span class="kw">uses</span>
+        go32<span class="sym">;</span>
+
+<span class="kw">var</span>
+        r <span class="sym">:</span> trealregs<span class="sym">;</span>
+
+<span class="kw">begin</span>
+        r<span class="sym">.</span>ah <span class="sym">:=</span> <span class="num">$30</span><span class="sym">;</span>
+        r<span class="sym">.</span>al <span class="sym">:=</span> <span class="num">$01</span><span class="sym">;</span>
+        realintr<span class="sym">(</span><span class="num">$21</span><span class="sym">,</span> r<span class="sym">)</span><span class="sym">;</span>
+        Writeln<span class="sym">(</span><span class="str">'DOS v'</span><span class="sym">,</span> r<span class="sym">.</span>al<span class="sym">,</span><span class="chr">'.'</span><span class="sym">,</span>r<span class="sym">.</span>ah<span class="sym">,</span> <span class="str">' detected'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<h2>Example</h2>
+<pre><span class="cmt">{ This example shows the difference between protected and real mode</span>
+<span class="cmt">interrupts; it redirects the protected mode handler to an own handler</span>
+<span class="cmt">which returns an impossible function result and calls it afterwards.</span>
+<span class="cmt">Then the real mode handler is called directly, to show the difference</span>
+<span class="cmt">between the two.</span>
+<span class="cmt"></span>
+<span class="cmt">Used Interrupt:</span>
+<span class="cmt">get DOS version Int 21h / function 30h</span>
+<span class="cmt">     Input: AH = $30</span>
+<span class="cmt">            AL = $1</span>
+<span class="cmt">     Return: AL = major version number</span>
+<span class="cmt">             AH = minor version number</span>
+<span class="cmt">}</span>
+
+<span class="kw">uses</span>
+        crt<span class="sym">,</span>
+        go32<span class="sym">;</span>
+
+<span class="kw">var</span>
+        r <span class="sym">:</span> trealregs<span class="sym">;</span>
+        <span class="cmt">{ temporary variable used for the protected mode int call }</span>
+        axreg <span class="sym">:</span> Word<span class="sym">;</span>
+
+        oldint21h <span class="sym">:</span> tseginfo<span class="sym">;</span>
+        newint21h <span class="sym">:</span> tseginfo<span class="sym">;</span>
+
+<span class="cmt">{ this is our int 21h protected mode interupt handler. It catches</span>
+<span class="cmt">the function call to get the DOS version, all other int 21h calls</span>
+<span class="cmt">are redirected to the old handler; it is written in assembly</span>
+<span class="cmt">because the old handler can't be called with pascal }</span>
+<span class="kw">procedure</span> int21h_handler<span class="sym">;</span> <span class="kw">assembler</span><span class="sym">;</span>
+<span class="kw">asm</span><span class="asm"></span>
+<span class="asm">        cmpw $0x3001, %ax</span>
+<span class="asm">        jne .LCallOld</span>
+<span class="asm">        movw $0x3112, %ax</span>
+<span class="asm">        iret</span>
+<span class="asm"></span>
+<span class="asm">.LCallOld:</span>
+<span class="asm">        ljmp %cs:oldint21h</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="cmt">{ a small helper procedure, which waits for a keypress }</span>
+<span class="kw">procedure</span> resume<span class="sym">;</span>
+<span class="kw">begin</span>
+        Writeln<span class="sym">;</span>
+        Write<span class="sym">(</span><span class="str">'-- press any key to resume --'</span><span class="sym">)</span><span class="sym">;</span> readkey<span class="sym">;</span>
+        gotoxy<span class="sym">(</span><span class="num">1</span><span class="sym">,</span> wherey<span class="sym">)</span><span class="sym">;</span> clreol<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+        <span class="cmt">{ see the text messages for further detail }</span>
+        clrscr<span class="sym">;</span>
+        Writeln<span class="sym">(</span><span class="str">'Executing real mode interrupt'</span><span class="sym">)</span><span class="sym">;</span>
+        resume<span class="sym">;</span>
+        r<span class="sym">.</span>ah <span class="sym">:=</span> <span class="num">$30</span><span class="sym">;</span> r<span class="sym">.</span>al <span class="sym">:=</span> <span class="num">$01</span><span class="sym">;</span>  realintr<span class="sym">(</span><span class="num">$21</span><span class="sym">,</span> r<span class="sym">)</span><span class="sym">;</span>
+        Writeln<span class="sym">(</span><span class="str">'DOS v'</span><span class="sym">,</span> r<span class="sym">.</span>al<span class="sym">,</span><span class="chr">'.'</span><span class="sym">,</span>r<span class="sym">.</span>ah<span class="sym">,</span> <span class="str">' detected'</span><span class="sym">)</span><span class="sym">;</span>
+        resume<span class="sym">;</span>
+        Writeln<span class="sym">(</span><span class="str">'Executing protected mode interrupt without our own'</span><span class="sym">,</span>
+                <span class="str">' handler'</span><span class="sym">)</span><span class="sym">;</span>
+        Writeln<span class="sym">;</span>
+        <span class="kw">asm</span><span class="asm"></span>
+<span class="asm">                movb $0x30, %ah</span>
+<span class="asm">                movb $0x01, %al</span>
+<span class="asm">                int $0x21</span>
+<span class="asm">                movw %ax, axreg</span>
+<span class="asm">        </span><span class="kw">end</span><span class="sym">;</span>
+        Writeln<span class="sym">(</span><span class="str">'DOS v'</span><span class="sym">,</span> r<span class="sym">.</span>al<span class="sym">,</span><span class="chr">'.'</span><span class="sym">,</span>r<span class="sym">.</span>ah<span class="sym">,</span> <span class="str">' detected'</span><span class="sym">)</span><span class="sym">;</span>
+        resume<span class="sym">;</span>
+        Writeln<span class="sym">(</span><span class="str">'As you can see the DPMI hosts default protected mode'</span><span class="sym">,</span>
+                <span class="str">'handler'</span><span class="sym">)</span><span class="sym">;</span>
+        Writeln<span class="sym">(</span><span class="str">'simply redirects it to the real mode handler'</span><span class="sym">)</span><span class="sym">;</span>
+        resume<span class="sym">;</span>
+        Writeln<span class="sym">(</span><span class="str">'Now exchanging the protected mode interrupt with our '</span><span class="sym">,</span>
+                <span class="str">'own handler'</span><span class="sym">)</span><span class="sym">;</span>
+        resume<span class="sym">;</span>
+
+        newint21h<span class="sym">.</span>offset <span class="sym">:=</span> <span class="sym">@</span>int21h_handler<span class="sym">;</span>
+        newint21h<span class="sym">.</span>segment <span class="sym">:=</span> get_cs<span class="sym">;</span>
+        get_pm_interrupt<span class="sym">(</span><span class="num">$21</span><span class="sym">,</span> oldint21h<span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">set</span>_pm_interrupt<span class="sym">(</span><span class="num">$21</span><span class="sym">,</span> newint21h<span class="sym">)</span><span class="sym">;</span>
+
+        Writeln<span class="sym">(</span><span class="str">'Executing real mode interrupt again'</span><span class="sym">)</span><span class="sym">;</span>
+        resume<span class="sym">;</span>
+        r<span class="sym">.</span>ah <span class="sym">:=</span> <span class="num">$30</span><span class="sym">;</span> r<span class="sym">.</span>al <span class="sym">:=</span> <span class="num">$01</span><span class="sym">;</span> realintr<span class="sym">(</span><span class="num">$21</span><span class="sym">,</span> r<span class="sym">)</span><span class="sym">;</span>
+        Writeln<span class="sym">(</span><span class="str">'DOS v'</span><span class="sym">,</span> r<span class="sym">.</span>al<span class="sym">,</span><span class="chr">'.'</span><span class="sym">,</span>r<span class="sym">.</span>ah<span class="sym">,</span> <span class="str">' detected'</span><span class="sym">)</span><span class="sym">;</span>
+        Writeln<span class="sym">;</span>
+        Writeln<span class="sym">(</span><span class="str">'See, it didn''t change in any way.'</span><span class="sym">)</span><span class="sym">;</span>
+        resume<span class="sym">;</span>
+        Writeln<span class="sym">(</span><span class="str">'Now calling protected mode interrupt'</span><span class="sym">)</span><span class="sym">;</span>
+        resume<span class="sym">;</span>
+        <span class="kw">asm</span><span class="asm"></span>
+<span class="asm">                movb $0x30, %ah</span>
+<span class="asm">                movb $0x01, %al</span>
+<span class="asm">                int $0x21</span>
+<span class="asm">                movw %ax, axreg</span>
+<span class="asm">        </span><span class="kw">end</span><span class="sym">;</span>
+        Writeln<span class="sym">(</span><span class="str">'DOS v'</span><span class="sym">,</span> lo<span class="sym">(</span>axreg<span class="sym">)</span><span class="sym">,</span><span class="chr">'.'</span><span class="sym">,</span>hi<span class="sym">(</span>axreg<span class="sym">)</span><span class="sym">,</span> <span class="str">' detected'</span><span class="sym">)</span><span class="sym">;</span>
+        Writeln<span class="sym">;</span>
+        Writeln<span class="sym">(</span><span class="str">'Now you can see that there''s a distinction between '</span><span class="sym">,</span>
+                <span class="str">'the two ways of calling interrupts...'</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">set</span>_pm_interrupt<span class="sym">(</span><span class="num">$21</span><span class="sym">,</span> oldint21h<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

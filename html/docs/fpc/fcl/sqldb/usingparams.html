@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Using parameters</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/updatesqls.html">Previous</a>][<a href="../sqldb/index.html">Up</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h2>Using parameters</h2>
+<p>SQLDB implements parametrized queries, simulating them if the native SQL client does not support parametrized queries. A parametrized query means that the SQL statement contains placeholders for actual values. The following is a typical example: </p>
+<pre>SELECT <span class="sym">*</span> FROM MyTable WHERE <span class="sym">(</span>id<span class="sym">=</span><span class="sym">:</span>id<span class="sym">)</span>
+</pre>
+<p>The <var>:id</var> is a parameter with the name <var>id</var>. It does not contain a value yet. The value of the parameter will be specified separately. In SQLDB this happens through the <var>TParams</var> collection, where each element of the collection is a named parameter, specified in the SQL statement. The value can be specified as follows: </p>
+<pre>Params<span class="sym">.</span>ParamByname<span class="sym">(</span><span class="str">'id'</span><span class="sym">)</span><span class="sym">.</span>AsInteger<span class="sym">:=</span><span class="num">123</span><span class="sym">;</span>
+</pre>
+<p>This will tell SQLDB that the parameter <var>id</var> is of type integer, and has value 123. </p>
+<p>SQLDB uses parameters for 3 purposes: </p>
+<ol>
+<li>When executing a query multiple times, simply with different values, this helps increase the speed if the server supports parametrized queries: the query must be prepared only once.</li>
+<li>Master-Detail relationships between datasets can be established based on a parametrized detail query: the value of the parameters in the detail query is automatically obtained from fields with the same names in the master dataset. As the user scrolls through the master dataset, the detail dataset is refreshed with the new values of the params. </li>
+<li>Updating of data in the database happens through parametrized update/delete/insert statements: the <a href="../sqldb/tsqlquery.updatesql.html">TSQLQuery.UpdateSQL</a>, <a href="../sqldb/tsqlquery.deletesql.html">TSQLQuery.DeleteSQL</a>, <a href="../sqldb/tsqlquery.insertsql.html">TSQLQuery.InsertSQL</a> properties of <a href="../sqldb/tsqlquery.html">TSQLQuery</a> must contain parametrized queries. </li>
+</ol>
+<p>An additional advantage of using parameters is that they help to avoid SQL injection: by specifying a parameter type and value, SQLDB will automatically check whether the value is of the correct type, and will apply proper quoting when the native engine does not support parameters directly. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlquery.params.html">TSQLQuery.Params</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Parameters detected in the SQL statement.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/updatesqls.html">UpdateSQLs</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Automatic generation of update SQL statements</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

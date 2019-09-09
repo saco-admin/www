@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>SetCursorPos</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../video/index.html">Overview</a>][<a href="../video/index-2.html">Constants</a>][<a href="../video/index-3.html">Types</a>][<a href="../video/index-5.html">Procedures and functions</a>][<a href="../video/index-6.html">Variables</a>][<a href="../video/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'video' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>SetCursorPos</h1>
+<p>Set write cursor position.</p>
+<h2>Declaration</h2>
+<p>Source position: videoh.inc line 137</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> SetCursorPos<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;NewCursorX<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;NewCursorY<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>SetCursorPos</var> positions the cursor on the given position: Column  <var>NewCursorX</var> and row <var>NewCursorY</var>. The origin of the screen is the upper left corner, and has coordinates <var>(0,0)</var>. </p>
+<p>The current position is stored in the <var>CursorX</var> and <var>CursorY</var> variables. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../video/setcursortype.html">SetCursorType</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set cursor type</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> example2<span class="sym">;</span>
+
+<span class="kw">uses</span> video<span class="sym">,</span>keyboard<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  P<span class="sym">,</span>PP<span class="sym">,</span>D <span class="sym">:</span> Integer<span class="sym">;</span>
+  K<span class="sym">:</span> TKeyEvent<span class="sym">;</span>
+
+  <span class="kw">Procedure</span> PutSquare <span class="sym">(</span>P <span class="sym">:</span> INteger<span class="sym">;</span> C <span class="sym">:</span> Char<span class="sym">)</span><span class="sym">;</span>
+
+  <span class="kw">begin</span>
+    VideoBuf<span class="sym">^</span><span class="sym">[</span>P<span class="sym">]</span><span class="sym">:=</span>Ord<span class="sym">(</span>C<span class="sym">)</span><span class="sym">+</span><span class="sym">(</span><span class="num">$07</span> shl <span class="num">8</span><span class="sym">)</span><span class="sym">;</span>
+    VideoBuf<span class="sym">^</span><span class="sym">[</span>P<span class="sym">+</span>ScreenWidth<span class="sym">]</span><span class="sym">:=</span>Ord<span class="sym">(</span>c<span class="sym">)</span><span class="sym">+</span><span class="sym">(</span><span class="num">$07</span> shl <span class="num">8</span><span class="sym">)</span><span class="sym">;</span>
+    VideoBuf<span class="sym">^</span><span class="sym">[</span>P<span class="sym">+</span><span class="num">1</span><span class="sym">]</span><span class="sym">:=</span>Ord<span class="sym">(</span>c<span class="sym">)</span><span class="sym">+</span><span class="sym">(</span><span class="num">$07</span> shl <span class="num">8</span><span class="sym">)</span><span class="sym">;</span>
+    VideoBuf<span class="sym">^</span><span class="sym">[</span>P<span class="sym">+</span>ScreenWidth<span class="sym">+</span><span class="num">1</span><span class="sym">]</span><span class="sym">:=</span>Ord<span class="sym">(</span>c<span class="sym">)</span><span class="sym">+</span><span class="sym">(</span><span class="num">$07</span> shl <span class="num">8</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  InitVideo<span class="sym">;</span>
+  InitKeyBoard<span class="sym">;</span>
+  P<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  PP<span class="sym">:=</span><span class="sym">-</span><span class="num">1</span><span class="sym">;</span>
+  <span class="kw">Repeat</span>
+    <span class="kw">If</span> PP<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+      PutSquare<span class="sym">(</span>PP<span class="sym">,</span><span class="chr">' '</span><span class="sym">)</span><span class="sym">;</span>
+    PutSquare<span class="sym">(</span>P<span class="sym">,</span><span class="chr">'#'</span><span class="sym">)</span><span class="sym">;</span>
+    SetCursorPos<span class="sym">(</span>P Mod ScreenWidth<span class="sym">,</span>P <span class="kw">div</span> ScreenWidth<span class="sym">)</span><span class="sym">;</span>
+    UpdateScreen<span class="sym">(</span>False<span class="sym">)</span><span class="sym">;</span>
+    PP<span class="sym">:=</span>P<span class="sym">;</span>
+    <span class="kw">Repeat</span>
+      D<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+      K<span class="sym">:=</span>TranslateKeyEvent<span class="sym">(</span>GetKeyEvent<span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">Case</span> GetKeyEventCode<span class="sym">(</span>K<span class="sym">)</span> <span class="kw">of</span>
+        kbdLeft <span class="sym">:</span> <span class="kw">If</span> <span class="sym">(</span>P Mod ScreenWidth<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+                   D<span class="sym">:=</span><span class="sym">-</span><span class="num">1</span><span class="sym">;</span>
+        kbdUp <span class="sym">:</span> <span class="kw">If</span> P<span class="sym">&gt;</span><span class="sym">=</span>ScreenWidth <span class="kw">then</span>
+                 D<span class="sym">:=</span><span class="sym">-</span>ScreenWidth<span class="sym">;</span>
+        kbdRight <span class="sym">:</span> <span class="kw">If</span> <span class="sym">(</span><span class="sym">(</span>P<span class="sym">+</span><span class="num">2</span><span class="sym">)</span> Mod ScreenWidth<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+                   D<span class="sym">:=</span><span class="num">1</span><span class="sym">;</span>
+        kbdDown <span class="sym">:</span> <span class="kw">if</span> <span class="sym">(</span>P<span class="sym">&lt;</span><span class="sym">(</span>VideoBufSize <span class="kw">div</span> <span class="num">2</span><span class="sym">)</span><span class="sym">-</span><span class="sym">(</span>ScreenWidth<span class="sym">*</span><span class="num">2</span><span class="sym">)</span><span class="sym">)</span> <span class="kw">then</span>
+                   D<span class="sym">:=</span>ScreenWidth<span class="sym">;</span>
+      <span class="kw">end</span><span class="sym">;</span>
+    <span class="kw">Until</span> <span class="sym">(</span>D<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span><span class="sym">)</span> <span class="kw">or</span> <span class="sym">(</span>GetKeyEventChar<span class="sym">(</span>K<span class="sym">)</span><span class="sym">=</span><span class="chr">'q'</span><span class="sym">)</span><span class="sym">;</span>
+    P<span class="sym">:=</span>P<span class="sym">+</span>D<span class="sym">;</span>
+  <span class="kw">until</span> GetKeyEventChar<span class="sym">(</span>K<span class="sym">)</span><span class="sym">=</span><span class="chr">'q'</span><span class="sym">;</span>
+  DoneKeyBoard<span class="sym">;</span>
+  DoneVideo<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

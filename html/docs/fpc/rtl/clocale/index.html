@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Reference for unit 'clocale'</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[Overview][<a href="../clocale/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'clocale' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Reference for unit 'clocale'</h1>
+<p>Initialize internationalization settings from the C library</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">uses</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../system/index.html">System</a><span class="sym">;</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The system unit</p></td>
+</tr>
+</table>
+<h2>Overview</h2>
+<p>The <var>clocale</var> offers no API by itself: it just initializes the internationalization settings of the <a href="../sysutils/index.html">sysutils</a> unit with the values provided by the C library found on most Unix or Linux systems that are POSIX compliant. </p>
+<p>The <span class="file">clocale</span> should simply be included in the uses clause of the program, preferably as one of the first units, and the initialization section of the unit will do all the work. </p>
+<p>Note that including this unit, links your program to the C library of the system. </p>
+<p>It makes no sense to use this unit on a non-posix system: Windows, OS/2 or DOS - therefore it should always be between an ifdef statement: </p>
+<pre><span class="kw">program</span> myprogram<span class="sym">;</span>
+
+<span class="kw">uses</span> 
+  <span class="dir">{$ifdef unix}</span>clocale<span class="dir">{$endif}</span><span class="sym">,</span>
+   classes<span class="sym">,</span> sysutils<span class="sym">;</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

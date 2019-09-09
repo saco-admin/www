@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00073.html" title="Allocator class with logging and exception generation control. Intended to be used as an allocator_ty..." alt="" coords="244,34,561,62"/>
+<area shape="rect" id="node5" href="$a00073.html" title="__gnu_cxx::throw_allocator_base\&lt; _Tp, random_condition \&gt;" alt="" coords="785,5,1177,33"/>
+<area shape="rect" id="node9" href="$a00073.html" title="__gnu_cxx::throw_allocator_base\&lt; _Tp, limit_condition \&gt;" alt="" coords="796,75,1167,103"/>
+<area shape="rect" id="node7" href="$a00075.html" title="Allocator throwing via random condition." alt="" coords="1229,5,1520,33"/>
+<area shape="rect" id="node11" href="$a00074.html" title="Allocator throwing via limit condition." alt="" coords="1241,75,1508,103"/>
+</map>

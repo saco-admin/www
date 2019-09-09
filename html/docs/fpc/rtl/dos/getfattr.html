@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>GetFAttr</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dos/index.html">Overview</a>][<a href="../dos/index-2.html">Constants</a>][<a href="../dos/index-3.html">Types</a>][<a href="../dos/index-5.html">Procedures and functions</a>][<a href="../dos/index-6.html">Variables</a>][<a href="../dos/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Dos' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>GetFAttr</h1>
+<p>Get file attributes</p>
+<h2>Declaration</h2>
+<p>Source position: dosh.inc line 105</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> GetFAttr<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>f<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>attr<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>GetFAttr</var> returns the file attributes of the file-variable <var>f</var>.  <var>F</var> can be a untyped or typed file, or of type <var>Text</var>. <var>f</var> must have been assigned, but not opened. The attributes can be examined with the following constants : </p>
+<ul>
+<li><var>ReadOnly</var></li>
+<li><var>Hidden</var></li>
+<li><var>SysFile</var></li>
+<li><var>VolumeId</var></li>
+<li><var>Directory</var></li>
+<li><var>Archive</var></li>
+</ul>
+<p>Under Linux, supported attributes are: </p>
+<ul>
+<li><var>Directory</var></li>
+<li><var>ReadOnly</var> if the current process doesn't have access to the file.</li>
+<li><var>Hidden</var> for files whose name starts with a dot <var>('.')</var>.</li>
+</ul>
+<h2>Errors</h2>
+<p>Errors are reported in <var>DosError</var></p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dos/setfattr.html">SetFAttr</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set file attributes</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example8<span class="sym">;</span>
+<span class="kw">uses</span> Dos<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the GetFAttr function. }</span>
+
+<span class="kw">var</span>
+  Attr <span class="sym">:</span> Word<span class="sym">;</span>
+  f    <span class="sym">:</span> File<span class="sym">;</span>
+<span class="kw">begin</span>
+  Assign<span class="sym">(</span>f<span class="sym">,</span>ParamStr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  GetFAttr<span class="sym">(</span>f<span class="sym">,</span>Attr<span class="sym">)</span><span class="sym">;</span>
+  WriteLn<span class="sym">(</span><span class="str">'File '</span><span class="sym">,</span>ParamStr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">,</span><span class="str">' has attribute '</span><span class="sym">,</span>Attr<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> <span class="sym">(</span>Attr <span class="kw">and</span> archive<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span> WriteLn<span class="sym">(</span><span class="str">'- Archive'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> <span class="sym">(</span>Attr <span class="kw">and</span> directory<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span> WriteLn<span class="sym">(</span><span class="str">'- Directory'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> <span class="sym">(</span>Attr <span class="kw">and</span> readonly<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span> WriteLn<span class="sym">(</span><span class="str">'- Read-Only'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> <span class="sym">(</span>Attr <span class="kw">and</span> sysfile<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span> WriteLn<span class="sym">(</span><span class="str">'- System'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> <span class="sym">(</span>Attr <span class="kw">and</span> hidden<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span> WriteLn<span class="sym">(</span><span class="str">'- Hidden'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

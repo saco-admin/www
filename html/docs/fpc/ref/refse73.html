@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Name scope and Identifiers</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 7655--><div class="crosslinks"><p class="noindent">[<a 
+href="refse74.html" >next</a>] [<a 
+href="refse72.html" >prev</a>] [<a 
+href="refse72.html#tailrefse72.html" >prev-tail</a>] [<a 
+href="#tailrefse73.html">tail</a>] [<a 
+href="refch11.html#refse73.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">11.7   </span> <a 
+href="ref.html#QQ2-135-163" id="x135-15700011.7">Name scope and Identifiers</a></h3>
+<!--l. 7656--><p class="noindent" >In Object Pascal, each identifier must be unique in it&#8217;s namespace: the unit. In Objective-C, this
+need not be the case and each type identifier must be unique among its kind: classes, protocols,
+categories, fields or methods. This is shown in the definitions of the basic protocol and class of
+Objective-C: Both protocol and class are called <span 
+class="cmtt-10">NSObject</span>.
+<!--l. 7662--><p class="noindent" >When importing Objective-C classes and protocols, the Objective-Pascal names of these types
+must conform to the Object Pascal rules, and therefor must have distinct names. Likewise, names
+that are valid identifiers in Objective-C may be reserved words in Object Pascal. They also must
+be renamed when imported.
+<!--l. 7668--><p class="noindent" >To make this possible, the <span 
+class="cmtt-10">External </span>and &#8217;message&#8217; modifiers allow to specify a name: this is the
+name of the type or method as it exists in Objective-C:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-318">
+NSObjectProtocol&#x00A0;=&#x00A0;objcprotocol&#x00A0;external&#x00A0;name&#x00A0;&#8217;NSObject&#8217;
+&#x00A0;<br />&#x00A0;&#x00A0;function&#x00A0;_class:&#x00A0;pobjc_class;&#x00A0;message&#x00A0;name&#x00A0;&#8217;class&#8217;;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />NSObject&#x00A0;=&#x00A0;objcclass&#x00A0;external&#x00A0;(NSObjectProtocol)
+&#x00A0;<br />&#x00A0;&#x00A0;function&#x00A0;_class:&#x00A0;pobjc_class;
+&#x00A0;<br />&#x00A0;&#x00A0;class&#x00A0;function&#x00A0;classClass:&#x00A0;pobjc_class;&#x00A0;message&#x00A0;&#8217;class&#8217;;
+&#x00A0;<br />end;
+</div>
+<!--l. 7680--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 7684--><div class="crosslinks"><p class="noindent">[<a 
+href="refse74.html" >next</a>] [<a 
+href="refse72.html" >prev</a>] [<a 
+href="refse72.html#tailrefse72.html" >prev-tail</a>] [<a 
+href="refse73.html" >front</a>] [<a 
+href="refch11.html#refse73.html" >up</a>] </p></div>
+<!--l. 7684--><p class="noindent" ><a 
+ id="tailrefse73.html"></a>  
+</body></html> 

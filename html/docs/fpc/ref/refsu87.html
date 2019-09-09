@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>varargs</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 10805--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu86.html" >prev</a>] [<a 
+href="refsu86.html#tailrefsu86.html" >prev-tail</a>] [<a 
+href="#tailrefsu87.html">tail</a>] [<a 
+href="refse97.html#refsu87.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">14.10.18   </span> <a 
+href="ref.html#QQ2-205-242" id="x205-22700014.10.18">varargs</a></h4>
+<a 
+ id="dx205-227001"></a>
+<a 
+ id="dx205-227002"></a>
+<!--l. 10806--><p class="noindent" ><a name="keyword_varargs"></a> This modifier can only be used together with the <span 
+class="cmtt-10">cdecl </span>modifier, for external C procedures. It
+indicates that the procedure accepts a variable number of arguments after the last declared
+variable. These arguments are passed on without any type checking. It is equivalent to using the
+<span 
+class="cmtt-10">array of const </span>construction for <span 
+class="cmtt-10">cdecl </span>procedures, without having to declare the <span 
+class="cmtt-10">array of</span>
+<span 
+class="cmtt-10">const</span>. The square brackets around the variable arguments do not need to be used when this form
+of declaration is used.
+<!--l. 10815--><p class="noindent" >The following declarations are 2 ways of referring to the same function in the C library:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-440">
+Function&#x00A0;PrintF1(fmt&#x00A0;:&#x00A0;pchar);&#x00A0;cdecl;&#x00A0;varargs;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;external&#x00A0;&#8217;c&#8217;&#x00A0;name&#x00A0;&#8217;printf&#8217;;
+&#x00A0;<br />Function&#x00A0;PrintF2(fmt&#x00A0;:&#x00A0;pchar;&#x00A0;Args&#x00A0;:&#x00A0;Array&#x00A0;of&#x00A0;const);&#x00A0;cdecl;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;external&#x00A0;&#8217;c&#8217;&#x00A0;name&#x00A0;&#8217;printf&#8217;;
+</div>
+<!--l. 10822--><p class="nopar" >But they must be called differently:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-441">
+PrintF1(&#8217;%d&#x00A0;%d\n&#8217;,1,1);
+&#x00A0;<br />PrintF2(&#8217;%d&#x00A0;%d\n&#8217;,[1,1]);
+</div>
+<!--l. 10827--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 10831--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu86.html" >prev</a>] [<a 
+href="refsu86.html#tailrefsu86.html" >prev-tail</a>] [<a 
+href="refsu87.html" >front</a>] [<a 
+href="refse97.html#refsu87.html" >up</a>] </p></div>
+<!--l. 10831--><p class="noindent" ><a 
+ id="tailrefsu87.html"></a>  
+</body></html> 

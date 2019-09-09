@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCustomDaemonApplication</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../daemonapp/index.html">Overview</a>][<a href="../daemonapp/index-1.html">Resource strings</a>][<a href="../daemonapp/index-3.html">Types</a>][<a href="../daemonapp/index-4.html">Classes</a>][<a href="../daemonapp/index-5.html">Procedures and functions</a>][<a href="../daemonapp/index-6.html">Variables</a>][<a href="../daemonapp/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'daemonapp' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCustomDaemonApplication</h1>
+<p>[<a href="../daemonapp/tcustomdaemonapplication-1.html" onClick="window.open('../daemonapp/tcustomdaemonapplication-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../daemonapp/tcustomdaemonapplication-2.html" onClick="window.open('../daemonapp/tcustomdaemonapplication-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../daemonapp/tcustomdaemonapplication-3.html" onClick="window.open('../daemonapp/tcustomdaemonapplication-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../daemonapp/tcustomdaemonapplication-4.html" onClick="window.open('../daemonapp/tcustomdaemonapplication-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../daemonapp/tcustomdaemonapplication-5.html" onClick="window.open('../daemonapp/tcustomdaemonapplication-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../daemonapp/tcustomdaemonapplication-6.html" onClick="window.open('../daemonapp/tcustomdaemonapplication-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Custom daemon application class</p>
+<h2>Declaration</h2>
+<p>Source position: daemonapp.pp line 329</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TCustomDaemonApplication <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../custapp/tcustomapplication.html">TCustomApplication</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../custapp/tcustomapplication.create.html">Create</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../daemonapp/tcustomdaemonapplication.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clean up the <var>TCustomDaemonApplication</var> instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../daemonapp/tcustomdaemonapplication.showexception.html">ShowException</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Show an exception</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../daemonapp/tcustomdaemonapplication.createdaemon.html">CreateDaemon</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create daemon instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../daemonapp/tcustomdaemonapplication.stopdaemons.html">StopDaemons</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Stop all daemons</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../daemonapp/tcustomdaemonapplication.installdaemons.html">InstallDaemons</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Install all daemons.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../daemonapp/tcustomdaemonapplication.rundaemons.html">RunDaemons</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Run all daemons.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../daemonapp/tcustomdaemonapplication.uninstalldaemons.html">UnInstallDaemons</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Uninstall all daemons</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../daemonapp/tcustomdaemonapplication.showhelp.html">ShowHelp</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Display a help message</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../daemonapp/tcustomdaemonapplication.createform.html">CreateForm</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a component</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../daemonapp/tcustomdaemonapplication.onrun.html">OnRun</a><span class="sym">: </span><a href="../../rtl/classes/tnotifyevent.html">TNotifyEvent</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event executed when the daemon is run.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../daemonapp/tcustomdaemonapplication.eventlog.html">EventLog</a><span class="sym">: </span><a href="../eventlog/teventlog.html">TEventLog</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event logger instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../daemonapp/tcustomdaemonapplication.guimainloop.html">GUIMainLoop</a><span class="sym">: </span><a href="../daemonapp/tguiloopevent.html">TGuiLoopEvent</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">GUI main loop callback</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../daemonapp/tcustomdaemonapplication.guihandle.html">GuiHandle</a><span class="sym">: </span><a href="../../rtl/sysutils/thandle.html">THandle</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Handle of GUI loop main application window handle</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../daemonapp/tcustomdaemonapplication.runmode.html">RunMode</a><span class="sym">: </span><a href="../daemonapp/tdaemonrunmode.html">TDaemonRunMode</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Application mode</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../daemonapp/tcustomdaemonapplication.autoregistermessagefile.html">AutoRegisterMessageFile</a><span class="sym">: </span>Boolean<span class="sym">;</span>  [rw]</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../daemonapp/tcustomdaemonapplication.html">TCustomDaemonApplication</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Custom daemon application class</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../custapp/tcustomapplication.html">TCustomApplication</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Ancestor class for <var>TApplication</var> classes.</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tcomponent.html">TComponent</a>,<a href="../../rtl/system/iunknown.html">IUnknown</a>,<a href="../../rtl/classes/iinterfacecomponentreference.html">IInterfaceComponentReference</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tpersistent.html">TPersistent</a>,<a href="../../rtl/classes/ifpobserved.html">IFPObserved</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TCustomDaemonApplication</var> is a <a href="../custapp/tcustomapplication.html">TCustomApplication</a> descendent which is the main application instance for a daemon. It handles the command-line and decides what to do when the application is started, depending on the command-line options given to the application, by calling the various methods.  </p>
+<p>It creates the necessary <a href="../daemonapp/tdaemon.html">TDaemon</a> instances by checking the <a href="../daemonapp/tcustomdaemonmapperclass.html">TCustomDaemonMapperClass</a> instance that contains the daemon maps. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../custapp/tcustomapplication.html">TCustomApplication</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Ancestor class for <var>TApplication</var> classes.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../daemonapp/tcustomdaemonmapperclass.html">TCustomDaemonMapperClass</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Class of <var>TCustomDaemonMapper</var></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Installing under Linux</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 319--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu4.html" >prev</a>] [<a 
+href="usersu4.html#tailusersu4.html" >prev-tail</a>] [<a 
+href="#tailusersu5.html">tail</a>] [<a 
+href="userse5.html#usersu5.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">2.2.3   </span> <a 
+href="user.html#QQ2-14-22" id="x14-200002.2.3">Installing under Linux</a></h4>
+<!--l. 320--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="userse5.html#QQ2-14-23" id="x14-210002.2.3">Mandatory installation steps.</a></h5>
+<!--l. 321--><p class="noindent" >The <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>distribution of Free Pascal comes in three forms:
+     <ul class="itemize1">
+     <li class="itemize">a <span 
+class="cmss-10">tar.gz </span>version, also available as separate files.
+     </li>
+     <li class="itemize">a <span 
+class="cmss-10">.rpm </span>(Red Hat Package Manager) version, and
+     </li>
+     <li class="itemize">a <span 
+class="cmss-10">.deb </span>(Debian) version.</li></ul>
+<!--l. 328--><p class="noindent" >If you use the <span 
+class="cmss-10">.rpm </span>format, installation is limited to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-5">
+rpm&#x00A0;-i&#x00A0;fpc-X.Y.Z-N.ARCH.rpm
+</div>
+<!--l. 331--><p class="nopar" >Where <span 
+class="cmtt-10">X.Y.Z </span>is the version number of the <span 
+class="cmss-10">.rpm </span>file, and <span 
+class="cmtt-10">ARCH </span>is one of the supported architectures
+(i386, x86_64 etc.).
+<!--l. 335--><p class="noindent" >If you use Debian, installation is limited to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-6">
+dpkg&#x00A0;-i&#x00A0;fpc-XXX.deb
+</div>
+<!--l. 338--><p class="nopar" >Here again, <span 
+class="cmtt-10">XXX </span>is the version number of the <span 
+class="cmss-10">.deb </span>file.
+<!--l. 341--><p class="noindent" >You need root access to install these packages. The <span 
+class="cmss-10">.tar </span>file allows you to do an installation below
+your home directory if you don&#8217;t have root permissions.
+<!--l. 345--><p class="noindent" >When downloading the <span 
+class="cmtt-10">.tar </span>file, or the separate files, installation is more interactive.
+<!--l. 348--><p class="noindent" >In case you downloaded the <span 
+class="cmss-10">.tar </span>file, you should first untar the file, in some directory where you
+have write permission, using the following command:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-7">
+tar&#x00A0;-xvf&#x00A0;fpc.tar
+</div>
+<!--l. 353--><p class="nopar" >We supposed here that you downloaded the file <span 
+class="cmss-10">fpc.tar </span>somewhere from the Internet. (The real
+filename will have some version number in it, which we omit here for clarity.)
+<!--l. 358--><p class="noindent" >When the file is untarred, you will be left with more archive files, and an install program: an
+installation shell script.
+<!--l. 361--><p class="noindent" >If you downloaded the files as separate files, you should at least download the <span 
+class="cmss-10">install.sh </span>script, and
+the libraries (in <span 
+class="cmss-10">libs.tar.gz</span>).
+<!--l. 364--><p class="noindent" >To install Free Pascal, all that you need to do now is give the following command:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-8">
+./install.sh
+</div>
+<!--l. 367--><p class="nopar" >And then you must answer some questions. They&#8217;re very simple, they&#8217;re mainly concerned with 2
+things :
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x14-21002x1">Places where you can install different things.
+     </li>
+     <li 
+  class="enumerate" id="x14-21004x2">Deciding  if  you  want  to  install  certain  components  (such  as  sources  and  demo
+     programs).</li></ol>
+<!--l. 375--><p class="noindent" >The script will automatically detect which components are present and can be installed. It will
+only offer to install what has been found. Because of this feature, you must keep the original names
+when downloading, since the script expects this.
+<!--l. 380--><p class="noindent" >If you run the installation script as the <span 
+class="cmtt-10">root </span>user, you can just accept all installation defaults. If
+you don&#8217;t run as <span 
+class="cmtt-10">root</span>, you must take care to supply the installation program with directory names
+where you have write permission, as it will attempt to create the directories you specify. In
+principle, you can install it wherever you want, though.
+<!--l. 386--><p class="noindent" >At the end of installation, the installation program will generate a configuration file (<span 
+class="cmss-10">fpc.cfg</span>) for
+the Free Pascal compiler which reflects the settings that you chose. It will install this file in the
+<span 
+class="cmss-10">/etc </span>directory or in your home directory (with name <span 
+class="cmss-10">.fpc.cfg</span>) if you do not have write
+permission in the <span 
+class="cmss-10">/etc </span>directory. It will make a copy in the directory where you installed the
+libraries.
+<!--l. 394--><p class="noindent" >The compiler will first look for a file <span 
+class="cmss-10">.fpc.cfg </span>in your home directory before looking in the <span 
+class="cmss-10">/etc</span>
+directory.
+                                                                            
+
+                                                                            
+<!--l. 400--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu4.html" >prev</a>] [<a 
+href="usersu4.html#tailusersu4.html" >prev-tail</a>] [<a 
+href="usersu5.html" >front</a>] [<a 
+href="userse5.html#usersu5.html" >up</a>] </p></div>
+<!--l. 400--><p class="noindent" ><a 
+ id="tailusersu5.html"></a>  
+</body></html> 

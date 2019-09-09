@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpPipe</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpPipe</h1>
+<p>Create a set of pipe file handlers</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 37</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpPipe<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>fildes<span class="sym">: </span><a href="../baseunix/tfildes.html">TFilDes</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FpPipe</var> creates a pipe, i.e. two file objects, one for input, one for output. The filehandles are returned in the array <var>fildes</var>. The input handle is in the 0-th element of the array, the output handle is  in the 1-st element. </p>
+<p>The function returns zero if everything went succesfully, a nonzero return value indicates an error. </p>
+<h2>Errors</h2>
+<p>In case the function fails, the following return values are possible: </p>
+<dl>
+<dt>sys_emfile</dt>
+<dd>Too many file descriptors for this process.</dd>
+<dt>sys_enfile</dt>
+<dd>The system file table is full.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../unix/popen.html">#rtl.unix.POpen</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Pipe file to standard input/output of program</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpmkfifo.html">fpMkFifo</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create FIFO (named pipe) in file system</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example36<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the AssignPipe function. }</span>
+
+<span class="kw">Uses</span> BaseUnix<span class="sym">,</span>Unix<span class="sym">;</span>
+
+<span class="kw">Var</span> pipi<span class="sym">,</span>pipo <span class="sym">:</span> Text<span class="sym">;</span>
+    s <span class="sym">:</span> String<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Writeln <span class="sym">(</span><span class="str">'Assigning Pipes.'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> assignpipe<span class="sym">(</span>pipi<span class="sym">,</span>pipo<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+    Writeln<span class="sym">(</span><span class="str">'Error assigning pipes !'</span><span class="sym">,</span>fpgeterrno<span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Writing to pipe, and flushing.'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span>pipo<span class="sym">,</span><span class="str">'This is a textstring'</span><span class="sym">)</span><span class="sym">;</span>close<span class="sym">(</span>pipo<span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Reading from pipe.'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">While</span> <span class="kw">not</span> eof<span class="sym">(</span>pipi<span class="sym">)</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    Readln <span class="sym">(</span>pipi<span class="sym">,</span>s<span class="sym">)</span><span class="sym">;</span>
+    Writeln <span class="sym">(</span><span class="str">'Read from pipe : '</span><span class="sym">,</span>s<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  close <span class="sym">(</span>pipi<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'Closed pipes.'</span><span class="sym">)</span><span class="sym">;</span>
+  writeln
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

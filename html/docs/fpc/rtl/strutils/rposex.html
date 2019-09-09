@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>RPosex</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../strutils/index.html">Overview</a>][<a href="../strutils/index-1.html">Resource strings</a>][<a href="../strutils/index-2.html">Constants</a>][<a href="../strutils/index-3.html">Types</a>][<a href="../strutils/index-5.html">Procedures and functions</a>][<a href="../strutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'strutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>RPosex</h1>
+<p>Find last occurrence substring or character in a string, starting at a certain position</p>
+<h2>Declaration</h2>
+<p>Source position: strutils.pp line 158</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> RPosEX<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;C<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span>AnsiString<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;offs<span class="sym">: </span><a href="../system/cardinal.html">Cardinal</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/sizeint.html">SizeInt</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> RPosex<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Substr<span class="sym">: </span>AnsiString<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Source<span class="sym">: </span>AnsiString<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;offs<span class="sym">: </span><a href="../system/cardinal.html">Cardinal</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/sizeint.html">SizeInt</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>RPos</var> looks in <var>S</var> for the character <var>C</var> or the string <var>SubStr</var>. It starts looking at position <var>Offs</var> (counted from the start of the string), and searches towards the beginning of the string.  If a match is found, it returns the position of the match.  </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../strutils/rpos.html">RPos</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find last occurrence of substring or character in a string</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TPoint</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../types/index.html">Overview</a>][<a href="../types/index-2.html">Constants</a>][<a href="../types/index-3.html">Types</a>][<a href="../types/index-4.html">Classes</a>][<a href="../types/index-5.html">Procedures and functions</a>][<a href="../types/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Types' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TPoint</h1>
+<p>Point in a plane</p>
+<h2>Declaration</h2>
+<p>Source position: typshrdh.inc line 62</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TPoint<span class="sym"> = </span><span class="kw">packed record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;x<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Horizontal position</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;y<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Vertical position</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span>Zero<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span>Add<span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span>Distance<span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span>IsZero<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span>Subtract<span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span>SetLocation<span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span>SetLocation<span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span>Offset<span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span>Offset<span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span>PointInCircle<span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span>equal(TPoint,TPoint):Boolean<span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span>notequal(TPoint,TPoint):Boolean<span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span>add(TPoint,TPoint):TPoint<span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span>subtract(TPoint,TPoint):TPoint<span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span>assign(TSmallPoint):TPoint<span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span>explicit(TPoint):TSmallPoint<span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> </span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TPoint</var> is a generic definition of a point in a 2-dimensional discrete plane, where <var>X</var> indicates the horizontal position, and <var>Y</var> the vertical position (positions usually measured in pixels),  and <var>0,0</var> is the origin of the plane. </p>
+<p>Usually, the origin is the upper-left corner of the screen, with Y increasing as one moves further down the screen - this is opposite to the mathematical view where Y increases as one moves upwards. </p>
+<p>The coordinates are integers, (32-bit, signed) so the coordinate system  runs from <var>-MaxInt</var> to <var>MaxInt</var>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../types/trect.html">TRect</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Rectangle in a plane</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../types/tsize.html">TSize</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Area size</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

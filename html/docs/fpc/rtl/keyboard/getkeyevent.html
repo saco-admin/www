@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>GetKeyEvent</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../keyboard/index.html">Overview</a>][<a href="../keyboard/index-2.html">Constants</a>][<a href="../keyboard/index-3.html">Types</a>][<a href="../keyboard/index-5.html">Procedures and functions</a>][<a href="../keyboard/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'keyboard' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>GetKeyEvent</h1>
+<p>Get the next raw key event, wait if needed.</p>
+<h2>Declaration</h2>
+<p>Source position: keybrdh.inc line 148</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> GetKeyEvent<span class="sym">: </span><a href="../keyboard/tkeyevent.html">TKeyEvent</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>GetKeyEvent</var> returns the last keyevent if it is available,  or waits for one if none is available. A non-blocking version is available in <a href="../keyboard/pollkeyevent.html">PollKeyEvent</a>. </p>
+<p>The returned key is encoded as a <var>TKeyEvent</var> type variable, and is normally the physical key scan code, (the scan code is driver  dependent) which can be translated with one of the translation  functions <a href="../keyboard/translatekeyevent.html">TranslateKeyEvent</a> or <a href="../keyboard/translatekeyeventunicode.html">TranslateKeyEventUniCode</a>.  See the types section for a description of how the key is described. </p>
+<h2>Errors</h2>
+<p>If no key became available (e.g. when the driver does not support it), 0 is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../keyboard/putkeyevent.html">PutKeyEvent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Put a key event in the event queue.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../keyboard/pollkeyevent.html">PollKeyEvent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get next key event, but does not wait.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../keyboard/translatekeyevent.html">TranslateKeyEvent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Translate raw event to ascii key event</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../keyboard/translatekeyeventunicode.html">TranslateKeyEventUniCode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Translate raw event to UNICode key event</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> example1<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the GetKeyEvent function }</span>
+
+<span class="kw">uses</span> keyboard<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  K <span class="sym">:</span> TKeyEvent<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  InitKeyBoard<span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Press keys, press "q" to end.'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">Repeat</span>
+    K<span class="sym">:=</span>GetKeyEvent<span class="sym">;</span>
+    K<span class="sym">:=</span>TranslateKeyEvent<span class="sym">(</span>K<span class="sym">)</span><span class="sym">;</span>
+    Write<span class="sym">(</span><span class="str">'Got key event with '</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">Case</span> GetKeyEventFlags<span class="sym">(</span>K<span class="sym">)</span> <span class="kw">of</span>
+      kbASCII    <span class="sym">:</span> Writeln<span class="sym">(</span><span class="str">'ASCII key'</span><span class="sym">)</span><span class="sym">;</span>
+      kbUniCode  <span class="sym">:</span> Writeln<span class="sym">(</span><span class="str">'Unicode key'</span><span class="sym">)</span><span class="sym">;</span>
+      kbFnKey    <span class="sym">:</span> Writeln<span class="sym">(</span><span class="str">'Function key'</span><span class="sym">)</span><span class="sym">;</span>
+      kbPhys     <span class="sym">:</span> Writeln<span class="sym">(</span><span class="str">'Physical key'</span><span class="sym">)</span><span class="sym">;</span>
+      kbReleased <span class="sym">:</span> Writeln<span class="sym">(</span><span class="str">'Released key event'</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+    Writeln<span class="sym">(</span><span class="str">'Got key : '</span><span class="sym">,</span>KeyEventToString<span class="sym">(</span>K<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">Until</span> <span class="sym">(</span>GetKeyEventChar<span class="sym">(</span>K<span class="sym">)</span><span class="sym">=</span><span class="chr">'q'</span><span class="sym">)</span><span class="sym">;</span>
+  DoneKeyBoard<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

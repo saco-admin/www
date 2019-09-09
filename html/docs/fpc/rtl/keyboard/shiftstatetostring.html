@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>ShiftStateToString</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../keyboard/index.html">Overview</a>][<a href="../keyboard/index-2.html">Constants</a>][<a href="../keyboard/index-3.html">Types</a>][<a href="../keyboard/index-5.html">Procedures and functions</a>][<a href="../keyboard/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'keyboard' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>ShiftStateToString</h1>
+<p>Return description of key event shift state</p>
+<h2>Declaration</h2>
+<p>Source position: keybrdh.inc line 195</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> ShiftStateToString<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;KeyEvent<span class="sym">: </span><a href="../keyboard/tkeyevent.html">TKeyEvent</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;UseLeftRight<span class="sym">: </span>Boolean</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ShiftStateToString</var> returns a string description of the shift state of the key event <var>KeyEvent</var>. This can be an empty string.  </p>
+<p>The shift state is described using the strings in the <var>SShift</var> constant. </p>
+<p>For an example, see <a href="../keyboard/pollshiftstateevent.html">PollShiftStateEvent</a>. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../keyboard/functionkeyname.html">FunctionKeyName</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return string representation of a function key code.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../keyboard/keyeventtostring.html">KeyEventToString</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return a string describing the key event.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

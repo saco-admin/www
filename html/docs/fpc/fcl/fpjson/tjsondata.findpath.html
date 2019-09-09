@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TJSONData.FindPath</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../fpjson/index.html">Overview</a>][<a href="../fpjson/index-2.html">Constants</a>][<a href="../fpjson/index-3.html">Types</a>][<a href="../fpjson/index-4.html">Classes</a>][<a href="../fpjson/index-5.html">Procedures and functions</a>][<a href="../fpjson/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'fpjson' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TJSONData.FindPath</h1>
+<p>Find data by name</p>
+<h2>Declaration</h2>
+<p>Source position: fpjson.pp line 120</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../fpjson/tjsondata.html">TJSONData</a><span class="sym">.</span>FindPath<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>APath<span class="sym">: </span><a href="../fpjson/tjsonstringtype.html">TJSONStringType</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../fpjson/tjsondata.html">TJSONData</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">APath</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Path to search for</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>The found data element, or nil</p>
+<h2>Description</h2>
+<p><var>FindPath</var> finds a value based on its path. If none is found, <var>Nil</var> is returned. The path elements are separated by dots and square brackets, as in object member notation or array notation. The path is case sensitive. </p>
+<ul>
+<li>For simple values, the path must be empty.</li>
+<li>For <a href="../fpjson/tjsonobject.html">objects</a>, a member can be specified using its name, and the object value itself can be retrieved with the empty path. </li>
+<li>For <a href="../fpjson/tjsonobject.html">Arrays</a>, the elements can be  found based on an array index. The array value itself can be retrieved with the empty path.</li>
+</ul>
+<p>The following code will return the value itself, i.e. <var>E</var> will contain the same element as D: </p>
+<pre><span class="kw">Var</span>
+  D<span class="sym">,</span>E <span class="sym">:</span> TJSONData<span class="sym">;</span>
+  
+<span class="kw">begin</span>
+  D<span class="sym">:=</span>TJSONIntegerNumber<span class="sym">.</span>Create<span class="sym">(</span><span class="num">123</span><span class="sym">)</span><span class="sym">;</span>
+  E<span class="sym">:=</span>D<span class="sym">.</span>FindPath<span class="sym">(</span><span class="str">''</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>  
+</pre>
+<p>The following code will not return anything: </p>
+<pre><span class="kw">Var</span>   
+  D<span class="sym">,</span>E <span class="sym">:</span> TJSONData<span class="sym">;</span>
+    
+<span class="kw">begin</span>
+  D<span class="sym">:=</span>TJSONIntegerNumber<span class="sym">.</span>Create<span class="sym">(</span><span class="num">123</span><span class="sym">)</span><span class="sym">;</span>
+  E<span class="sym">:=</span>D<span class="sym">.</span>FindPath<span class="sym">(</span><span class="chr">'a'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>  
+</pre>
+<p>The following code will return the third element from the array: </p>
+<pre><span class="kw">Var</span>   
+  D<span class="sym">,</span>E <span class="sym">:</span> TJSONData<span class="sym">;</span>
+      
+<span class="kw">begin</span>
+  D<span class="sym">:=</span>TJSONArray<span class="sym">.</span>Create<span class="sym">(</span><span class="sym">[</span><span class="num">1</span><span class="sym">,</span><span class="num">2</span><span class="sym">,</span><span class="num">3</span><span class="sym">,</span><span class="num">4</span><span class="sym">,</span><span class="num">5</span><span class="sym">]</span><span class="sym">)</span><span class="sym">;</span>
+  E<span class="sym">:=</span>D<span class="sym">.</span>FindPath<span class="sym">(</span><span class="str">'[2]'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>E<span class="sym">.</span>AsJSON<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>  
+</pre>
+<p>The output of this program is 3.</p>
+<p>The following code returns the element <var>Age</var> from the object:</p>
+<pre><span class="kw">Var</span>   
+  D<span class="sym">,</span>E <span class="sym">:</span> TJSONData<span class="sym">;</span>
+  
+<span class="kw">begin</span>
+  D<span class="sym">:=</span>TJSONObject<span class="sym">.</span>Create<span class="sym">(</span><span class="sym">[</span><span class="str">'Age'</span><span class="sym">,</span><span class="num">23</span><span class="sym">,</span> 
+                         <span class="str">'Lastame'</span><span class="sym">,</span><span class="str">'Rodriguez'</span><span class="sym">,</span>
+                         <span class="str">'FirstName'</span><span class="sym">,</span><span class="str">'Roberto'</span><span class="sym">]</span><span class="sym">)</span><span class="sym">;</span>
+  E<span class="sym">:=</span>D<span class="sym">.</span>FindPath<span class="sym">(</span><span class="str">'Age'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>E<span class="sym">.</span>AsJSON<span class="sym">)</span><span class="sym">;</span>   
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<p>The code will print 23.</p>
+<p>Obviously, this can be combined:</p>
+<pre><span class="kw">Var</span>   
+  D<span class="sym">,</span>E <span class="sym">:</span> TJSONData<span class="sym">;</span>
+        
+<span class="kw">begin</span> 
+  D<span class="sym">:=</span>TJSONObject<span class="sym">.</span>Create<span class="sym">(</span><span class="sym">[</span><span class="str">'Age'</span><span class="sym">,</span><span class="num">23</span><span class="sym">,</span>
+                         <span class="str">'Names'</span><span class="sym">,</span> TJSONObject<span class="sym">.</span>Create<span class="sym">(</span><span class="sym">[</span>
+                             <span class="str">'LastName'</span><span class="sym">,</span><span class="str">'Rodriguez'</span><span class="sym">,</span>
+                             <span class="str">'FirstName'</span><span class="sym">,</span><span class="str">'Roberto'</span><span class="sym">]</span><span class="sym">)</span><span class="sym">]</span><span class="sym">)</span><span class="sym">;</span>
+  E<span class="sym">:=</span>D<span class="sym">.</span>FindPath<span class="sym">(</span><span class="str">'Names.LastName'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>E<span class="sym">.</span>AsJSON<span class="sym">)</span><span class="sym">;</span>   
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<p>And mixed:</p>
+<pre><span class="kw">var</span>   
+  D<span class="sym">,</span>E <span class="sym">:</span> TJSONData<span class="sym">;</span>
+        
+<span class="kw">begin</span> 
+  D<span class="sym">:=</span>TJSONObject<span class="sym">.</span>Create<span class="sym">(</span><span class="sym">[</span><span class="str">'Children'</span><span class="sym">,</span>
+       TJSONArray<span class="sym">.</span>Create<span class="sym">(</span><span class="sym">[</span>
+         TJSONObject<span class="sym">.</span>Create<span class="sym">(</span><span class="sym">[</span><span class="str">'Age'</span><span class="sym">,</span><span class="num">23</span><span class="sym">,</span>
+                             <span class="str">'Names'</span><span class="sym">,</span> TJSONObject<span class="sym">.</span>Create<span class="sym">(</span><span class="sym">[</span>
+                               <span class="str">'LastName'</span><span class="sym">,</span><span class="str">'Rodriguez'</span><span class="sym">,</span>
+                               <span class="str">'FirstName'</span><span class="sym">,</span><span class="str">'Roberto'</span><span class="sym">]</span><span class="sym">)</span>
+         <span class="sym">]</span><span class="sym">)</span><span class="sym">,</span>
+         TJSONObject<span class="sym">.</span>Create<span class="sym">(</span><span class="sym">[</span><span class="str">'Age'</span><span class="sym">,</span><span class="num">20</span><span class="sym">,</span>
+                             <span class="str">'Names'</span><span class="sym">,</span> TJSONObject<span class="sym">.</span>Create<span class="sym">(</span><span class="sym">[</span>
+                                   <span class="str">'LastName'</span><span class="sym">,</span><span class="str">'Rodriguez'</span><span class="sym">,</span>
+                                   <span class="str">'FirstName'</span><span class="sym">,</span><span class="str">'Maria'</span><span class="sym">]</span><span class="sym">)</span>
+        <span class="sym">]</span><span class="sym">)</span>
+      <span class="sym">]</span><span class="sym">)</span> 
+     <span class="sym">]</span><span class="sym">)</span><span class="sym">;</span>
+  E<span class="sym">:=</span>D<span class="sym">.</span>FindPath<span class="sym">(</span><span class="str">'Children[1].Names.FirstName'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>E<span class="sym">.</span>AsJSON<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>  
+</pre>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../fpjson/tjsonarray.html">TJSONArray</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Class of <var>TJSONArray</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fpjson/tjsonobject.html">TJSONObject</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Class of <var>TJSONObject</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>GetPath</b></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

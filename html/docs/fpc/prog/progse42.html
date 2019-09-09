@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Caveat</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 6124--><div class="crosslinks"><p class="noindent">[<a 
+href="progse41.html" >prev</a>] [<a 
+href="progse41.html#tailprogse41.html" >prev-tail</a>] [<a 
+href="#tailprogse42.html">tail</a>] [<a 
+href="progch9.html#progse42.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">9.5   </span> <a 
+href="prog.html#QQ2-230-266" id="x230-2440009.5">Caveat</a></h3>
+<!--l. 6125--><p class="noindent" >In principle it is possible to translate all resource strings at any time in a running program.
+However, this change is not communicated to other strings; its change is noticed only when a
+constant string is being used.
+<!--l. 6129--><p class="noindent" >Consider the following example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-230">
+Const
+&#x00A0;<br />&#x00A0;&#x00A0;help&#x00A0;=&#x00A0;&#8217;With&#x00A0;a&#x00A0;little&#x00A0;help&#x00A0;of&#x00A0;a&#x00A0;programmer.&#8217;;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;AnsiString;
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;{&#x00A0;lots&#x00A0;of&#x00A0;code&#x00A0;}
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;A:=Help;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;{&#x00A0;Again&#x00A0;some&#x00A0;code}
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TranslateStrings;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;{&#x00A0;More&#x00A0;code&#x00A0;}
+</div>
+<!--l. 6149--><p class="nopar" >After the call to <span 
+class="cmtt-10">TranslateStrings</span>, the value of <span 
+class="cmtt-10">A </span>will remain unchanged. This means that the
+assignment <span 
+class="cmtt-10">A:=Help </span>must be executed again in order for the change to become visible. This is
+important, especially for GUI programs which have e.g. a menu. In order for the change in resource
+strings to become visible, the new values must be reloaded by program code into the menus
+&#x2026;
+                                                                            
+
+                                                                            
+<!--l. 6160--><div class="crosslinks"><p class="noindent">[<a 
+href="progse41.html" >prev</a>] [<a 
+href="progse41.html#tailprogse41.html" >prev-tail</a>] [<a 
+href="progse42.html" >front</a>] [<a 
+href="progch9.html#progse42.html" >up</a>] </p></div>
+<!--l. 6160--><p class="noindent" ><a 
+ id="tailprogse42.html"></a>  
+</body></html> 

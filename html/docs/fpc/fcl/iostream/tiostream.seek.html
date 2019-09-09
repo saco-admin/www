@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TIOStream.Seek</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../iostream/index.html">Overview</a>][<a href="../iostream/index-3.html">Types</a>][<a href="../iostream/index-4.html">Classes</a>][<a href="../iostream/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'iostream' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TIOStream.Seek</h1>
+<p>Set the stream position</p>
+<h2>Declaration</h2>
+<p>Source position: iostream.pp line 40</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../iostream/tiostream.html">TIOStream</a><span class="sym">.</span>Seek<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Offset<span class="sym">: </span><a href="../../rtl/system/int64.html">Int64</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Origin<span class="sym">: </span><a href="../../rtl/classes/tseekorigin.html">TSeekOrigin</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/system/int64.html">Int64</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Offset</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Byte offset to position the stream on</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Origin</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Where to start the byte offset</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>New position of the stream.</p>
+<h2>Description</h2>
+<p><var>Seek</var> overrides the standard <var>Seek</var> implementation. Normally, standard input, output and stderr are not seekable.  The <var>TIOStream</var> stream tries to provide seek capabilities for the following limited number of cases: </p>
+<dl>
+<dt>Origin=soFromBeginning</dt>
+<dd>If <var>Offset</var> is larger than the current position,  then the remaining bytes are skipped by reading them from the  stream and discarding them, if the stream is of type <var>iosInput</var>. </dd>
+<dt>Origin=soFromCurrent</dt>
+<dd>If <var>Offset</var> is zero, the current position is returned. If  it is positive, then <var>Offset</var> bytes are skipped by reading them from the stream and discarding them, if the stream is of type <var>iosInput</var>. </dd>
+</dl>
+<p>All other cases will result in a <var>EIOStreamError</var> exception. </p>
+<h2>Errors</h2>
+<p>An <a href="../iostream/eiostreamerror.html">EIOStreamError</a> exception is raised if the stream does not allow the requested seek operation. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../iostream/eiostreamerror.html">EIOStreamError</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Error thrown in case of an invalid operation on a  <a href="../iostream/tiostream.html">TIOStream</a>.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

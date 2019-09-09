@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>msgsnd</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../ipc/index.html">Overview</a>][<a href="../ipc/index-2.html">Constants</a>][<a href="../ipc/index-3.html">Types</a>][<a href="../ipc/index-5.html">Procedures and functions</a>][<a href="../ipc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'ipc' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>msgsnd</h1>
+<p>Send a message to the messague queue</p>
+<h2>Declaration</h2>
+<p>Source position: ipc.pp line 645</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> msgsnd<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;msqid<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;msgp<span class="sym">: </span><a href="../ipc/pmsgbuf.html">PMSGbuf</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;msgsz<span class="sym">: </span><a href="../unixtype/size_t.html">size_t</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;msgflg<span class="sym">: </span><a href="../unixtype/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>msgsend</var> sends a message to a message queue with ID <var>msqid</var>. <var>msgp</var> is a pointer to a message buffer, that should be based on the <var>TMsgBuf</var> type. <var>msgsiz</var> is the size of the message (NOT of the message buffer record !) </p>
+<p>The <var>msgflg</var> can have a combination of the following values (ORed together): </p>
+<dl>
+<dt>0</dt>
+<dd>No special meaning. The message will be written to the queue. If the queue is full, then the process is blocked.</dd>
+<dt>IPC_NOWAIT</dt>
+<dd>If the queue is full, then no message is written, and the call returns immediately. </dd>
+</dl>
+<p>The function returns <var>True</var> if the message was sent successfully,  <var>False</var> otherwise. </p>
+<p>For an example, see <a href="../ipc/msgctl.html">msgctl</a>. </p>
+<h2>Errors</h2>
+<p>In case of error, the call returns <var>False</var>, and <var>IPCerror</var> is set. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../ipc/msgget.html">msgget</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return message queue ID, possibly creating the queue</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ipc/msgrcv.html">msgrcv</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Retrieve a message from the queue</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ipc/msgctl.html">msgctl</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Perform various operations on a message queue</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

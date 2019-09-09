@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TConnectionDef</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TConnectionDef</h1>
+<p>[<a href="../sqldb/tconnectiondef-1.html" onClick="window.open('../sqldb/tconnectiondef-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../sqldb/tconnectiondef-2.html" onClick="window.open('../sqldb/tconnectiondef-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../sqldb/tconnectiondef-3.html" onClick="window.open('../sqldb/tconnectiondef-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../sqldb/tconnectiondef-4.html" onClick="window.open('../sqldb/tconnectiondef-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../sqldb/tconnectiondef-5.html" onClick="window.open('../sqldb/tconnectiondef-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../sqldb/tconnectiondef-6.html" onClick="window.open('../sqldb/tconnectiondef-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Connection type definition class</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 764</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TConnectionDef <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../../rtl/classes/tpersistent.html">TPersistent</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sqldb/tconnectiondef.typename.html">TypeName</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Name of the connection type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sqldb/tconnectiondef.connectionclass.html">ConnectionClass</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Class to instantiate when this connection is requested</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sqldb/tconnectiondef.description.html">Description</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">A descriptive text for this connection type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sqldb/tconnectiondef.defaultlibraryname.html">DefaultLibraryName</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Default library name</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sqldb/tconnectiondef.loadfunction.html">LoadFunction</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return a function to call when the client library must be loaded</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sqldb/tconnectiondef.unloadfunction.html">UnLoadFunction</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return a function to call when the client library must be unloaded</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sqldb/tconnectiondef.loadedlibraryname.html">LoadedLibraryName</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Currently loaded library.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../sqldb/tconnectiondef.applyparams.html">ApplyParams</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Apply parameters to an instance of <var>TSQLConnection</var></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../sqldb/tconnectiondef.html">TConnectionDef</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Connection type definition class</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tpersistent.html">TPersistent</a>,<a href="../../rtl/classes/ifpobserved.html">IFPObserved</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TConnectionDef</var> is an abstract class. When registering a new connection type for use in the universal connector, a descendent of this class must be made and registered using <a href="../sqldb/registerconnection.html">RegisterConnection</a>. A descendent class should override at least the <a href="../sqldb/tconnectiondef.typename.html">TConnectionDef.TypeName</a> and <a href="../sqldb/tconnectiondef.connectionclass.html">TConnectionDef.ConnectionClass</a> methods to return the specific name and connection class to use. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tconnectiondef.typename.html">TConnectionDef.TypeName</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Name of the connection type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tconnectiondef.connectionclass.html">TConnectionDef.ConnectionClass</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Class to instantiate when this connection is requested</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/registerconnection.html">RegisterConnection</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Register a new connection type for use in the universal connector</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

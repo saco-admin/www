@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>fpSetPriority</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>fpSetPriority</h1>
+<p>Set process priority</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 106</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> fpSetPriority<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Which<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Who<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;What<span class="sym">: </span><a href="../baseunix/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>fpSetPriority</var> sets the priority with which a process is running. Which process(es) is determined by the <var>Which</var> and <var>Who</var> variables. <var>Which</var> can be one of the pre-defined constants: </p>
+<dl>
+<dt>Prio_Process</dt>
+<dd><var>Who</var> is interpreted as process ID</dd>
+<dt>Prio_PGrp</dt>
+<dd><var>Who</var> is interpreted as process group ID</dd>
+<dt>Prio_User</dt>
+<dd><var>Who</var> is interpreted as user ID</dd>
+</dl>
+<p><var>Prio</var> is a value in the range -20 to 20. </p>
+<p>For an example, see <a href="../baseunix/fpnice.html">FpNice</a>. </p>
+<p>The function returns zero on success, -1 on failure </p>
+<h2>Errors</h2>
+<p>Extended error information is returned  by the <a href="../baseunix/fpgeterrno.html">FpGetErrno</a> function. </p>
+<dl>
+<dt>sys_esrch</dt>
+<dd>No process found using <var>which</var> and <var>who</var>.</dd>
+<dt>sys_einval</dt>
+<dd><var>Which</var> was not one of <var>Prio_Process</var>, <var>Prio_Grp</var> or <var>Prio_User</var>.</dd>
+<dt>sys_eperm</dt>
+<dd>A process was found, but neither its effective or real user ID match the effective user ID of the caller.</dd>
+<dt>sys_eacces</dt>
+<dd>A non-superuser tried to a priority increase.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpgetpriority.html">FpGetPriority</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return process priority</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpnice.html">FpNice</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set process priority</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

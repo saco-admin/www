@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCustomSQLQuery.ExecSQL</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCustomSQLQuery.ExecSQL</h1>
+<p>Execute a SQL statement that does not return a result set</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 550</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../sqldb/tcustomsqlquery.html">TCustomSQLQuery</a><span class="sym">.</span>ExecSQL<span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ExecSQL</var> will execute the statement in <a href="../sqldb/tsqlquery.sql.html">TSQLQuery.SQL</a>, preparing the statement if necessary. It cannot be used to get results from the database (such as returned by a <var>SELECT</var> statement): for this, the <a href="../db/tdataset.open.html">Open</a> method must be used. </p>
+<p>The SQL property should be a single SQL command. To execute multiple SQL statements, use the <a href="../sqldb/tsqlscript.html">TSQLScript</a> component instead. </p>
+<p>If the statement is a <var>DML</var> statement, the number of deleted/updated/inserted rows can be determined using <a href="../sqldb/tcustomsqlquery.rowsaffected.html">TCustomSQLQuery.RowsAffected</a>. </p>
+<p>The <var>Database</var> and <var>Transaction</var> properties must be assigned before calling <var>ExecSQL</var>. Executing an empty SQL statement is also an error. </p>
+<h2>Errors</h2>
+<p>If the server reports an error, an exception will be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tcustomsqlquery.rowsaffected.html">TCustomSQLQuery.RowsAffected</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the number of rows (records) affected by the last DML/DDL statement</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.open.html">TDataset.Open</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Activate the dataset: Fetch data into memory.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Fpmmap</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Fpmmap</h1>
+<p>Create memory map of a file</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 107</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> Fpmmap<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;start<span class="sym">: </span>pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;len<span class="sym">: </span><a href="../baseunix/size_t.html">size_t</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;prot<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;flags<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;fd<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;offst<span class="sym">: </span><a href="../baseunix/off_t.html">off_t</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FpMMap</var> maps or unmaps files or devices into memory. The different arguments determine what and how the file is mapped: </p>
+<dl>
+<dt>adr</dt>
+<dd>Address where to mmap the device. This address is a hint, and may not be followed.</dd>
+<dt>len</dt>
+<dd>Size (in bytes) of area to be mapped.</dd>
+<dt>prot</dt>
+<dd><p>Protection of mapped memory. This is a OR-ed combination of the following constants:</p><dl>
+<dt>PROT_EXEC</dt>
+<dd>The memory can be executed.</dd>
+<dt>PROT_READ</dt>
+<dd>The memory can be read.</dd>
+<dt>PROT_WRITE</dt>
+<dd>The memory can be written.</dd>
+<dt>PROT_NONE</dt>
+<dd>The memory can not be accessed.</dd></dl></dd>
+<dt>flags</dt>
+<dd><p>Contains some options for the mmap call. It is an OR-ed combination of the following constants:</p><dl>
+<dt>MAP_FIXED</dt>
+<dd>Do not map at another address than the given address. If the address cannot be used, <var>MMap</var> will fail.</dd>
+<dt>MAP_SHARED</dt>
+<dd>Share this map with other processes that map this object.</dd>
+<dt>MAP_PRIVATE</dt>
+<dd>Create a private map with copy-on-write semantics.</dd>
+<dt>MAP_ANONYMOUS</dt>
+<dd><var>fd</var> does not have to be a file descriptor.</dd></dl><p>One of the options <var>MAP_SHARED</var> and <var>MAP_PRIVATE</var> must be present, but not both at the same time. </p></dd>
+<dt>fd</dt>
+<dd>File descriptor from which to map.</dd>
+<dt>off</dt>
+<dd>Offset to be used in file descriptor <var>fd</var>.</dd>
+</dl>
+<p>The function returns a pointer to the mapped memory, or a -1 in case of en error. </p>
+<h2>Errors</h2>
+<p>On error, -1 is returned and extended error information is returned by the <a href="../baseunix/fpgeterrno.html">FpGetErrno</a> function.  </p>
+<dl>
+<dt>Sys_EBADF</dt>
+<dd><var>fd</var> is not a valid file descriptor and  <var>MAP_ANONYMOUS</var> was not specified.</dd>
+<dt>Sys_EACCES</dt>
+<dd><var>MAP_PRIVATE</var> was specified, but <var>fd</var> is not open for reading. Or <var>MAP_SHARED</var> was asked and <var>PROT_WRITE</var> is  set, fd is not open for writing</dd>
+<dt>Sys_EINVAL</dt>
+<dd>One of the record fields <var>Start</var>, <var>length</var> or <var>offset</var> is invalid.</dd>
+<dt>Sys_ETXTBUSY</dt>
+<dd><var>MAP_DENYWRITE</var> was set but the object specified by fd is open for writing.</dd>
+<dt>Sys_EAGAIN</dt>
+<dd><var>fd</var> is locked, or too much memory is locked.</dd>
+<dt>Sys_ENOMEM</dt>
+<dd>Not enough memory for this operation.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpmunmap.html">FpMUnMap</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unmap previously mapped memory block</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example66<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the MMap function. }</span>
+
+<span class="kw">Uses</span> BaseUnix<span class="sym">,</span>Unix<span class="sym">;</span>
+
+<span class="kw">Var</span> S    <span class="sym">:</span> String<span class="sym">;</span>
+    fd   <span class="sym">:</span> cint<span class="sym">;</span>
+    Len  <span class="sym">:</span> longint<span class="sym">;</span>
+<span class="cmt">//    args : tmmapargs;</span>
+    P    <span class="sym">:</span> PChar<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  s<span class="sym">:=</span><span class="str">'This is the string'</span><span class="sym">;</span>
+  Len<span class="sym">:=</span>Length<span class="sym">(</span>S<span class="sym">)</span><span class="sym">;</span>
+  fd<span class="sym">:=</span>fpOpen<span class="sym">(</span><span class="str">'testfile.txt'</span><span class="sym">,</span>O_wrOnly <span class="kw">or</span> o_creat<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> fd<span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    Halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> fpWrite<span class="sym">(</span>fd<span class="sym">,</span>S<span class="sym">[</span><span class="num">1</span><span class="sym">]</span><span class="sym">,</span>Len<span class="sym">)</span><span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    Halt<span class="sym">(</span><span class="num">2</span><span class="sym">)</span><span class="sym">;</span>
+  fpClose<span class="sym">(</span>fd<span class="sym">)</span><span class="sym">;</span>
+  fd<span class="sym">:=</span>fpOpen<span class="sym">(</span><span class="str">'testfile.txt'</span><span class="sym">,</span>O_rdOnly<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> fd<span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    Halt<span class="sym">(</span><span class="num">3</span><span class="sym">)</span><span class="sym">;</span>
+  P<span class="sym">:=</span>Pchar<span class="sym">(</span>fpmmap<span class="sym">(</span><span class="kw">nil</span><span class="sym">,</span>len<span class="sym">+</span><span class="num">1</span> <span class="sym">,</span>PROT_READ <span class="kw">or</span> PROT_WRITE<span class="sym">,</span>MAP_PRIVATE<span class="sym">,</span>fd<span class="sym">,</span><span class="num">0</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+
+  <span class="kw">If</span> longint<span class="sym">(</span>P<span class="sym">)</span><span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    Halt<span class="sym">(</span><span class="num">4</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Read in memory  :'</span><span class="sym">,</span>P<span class="sym">)</span><span class="sym">;</span>
+  fpclose<span class="sym">(</span>fd<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> fpMUnMap<span class="sym">(</span>P<span class="sym">,</span>Len<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">Then</span>
+    Halt<span class="sym">(</span>fpgeterrno<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

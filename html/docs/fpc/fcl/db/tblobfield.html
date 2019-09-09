@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TBlobField</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TBlobField</h1>
+<p>[<a href="../db/tblobfield-1.html" onClick="window.open('../db/tblobfield-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../db/tblobfield-2.html" onClick="window.open('../db/tblobfield-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../db/tblobfield-3.html" onClick="window.open('../db/tblobfield-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../db/tblobfield-4.html" onClick="window.open('../db/tblobfield-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../db/tblobfield-5.html" onClick="window.open('../db/tblobfield-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../db/tblobfield-6.html" onClick="window.open('../db/tblobfield-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Base class for BLOB field data</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 871</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TBlobField <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../db/tfield.html">TField</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../db/tblobfield.create.html">Create</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a new instance of a <var>TBlobField</var> class.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../db/tblobfield.clear.html">Clear</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clear the BLOB field's contents</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../db/tblobfield.isblob.html">IsBlob</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the field a blob field</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../db/tblobfield.loadfromfile.html">LoadFromFile</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Load the contents of the field frop a file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../db/tblobfield.loadfromstream.html">LoadFromStream</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Load the field's contents from stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../db/tblobfield.savetofile.html">SaveToFile</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Save field contents to a file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../db/tblobfield.savetostream.html">SaveToStream</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Save the field's contents to stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../db/tblobfield.setfieldtype.html">SetFieldType</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set field type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../db/tblobfield.blobsize.html">BlobSize</a><span class="sym">: </span><a href="../../rtl/system/longint.html">LongInt</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Size of the current blob</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../db/tblobfield.modified.html">Modified</a><span class="sym">: </span>Boolean<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Has the field's contents been modified.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../db/tblobfield.value.html">Value</a><span class="sym">: </span>string<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the field's contents as a string</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../db/tblobfield.transliterate.html">Transliterate</a><span class="sym">: </span>Boolean<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should the contents of the field be transliterated</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">published</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../db/tblobfield.blobtype.html">BlobType</a><span class="sym">: </span><a href="../db/tblobtype.html">TBlobType</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Type of blob</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../db/tblobfield.size.html">Size</a><span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Size of the blob field</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../db/tblobfield.html">TBlobField</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for BLOB field data</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../db/tfield.html">TField</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Provide access to the contents of a single field in a record</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tcomponent.html">TComponent</a>,<a href="../../rtl/system/iunknown.html">IUnknown</a>,<a href="../../rtl/classes/iinterfacecomponentreference.html">IInterfaceComponentReference</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tpersistent.html">TPersistent</a>,<a href="../../rtl/classes/ifpobserved.html">IFPObserved</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TBLobField</var> is the class used when a dataset must manage BLOB data. (<a href="../db/tfield.datatype.html">TField.DataType</a> equals <var>ftBLOB</var>).  It initializes some of the properties of the <a href="../db/tfield.html">TField</a> class, and overrides some of its methods to be able to work with BLOB fields. It also serves as parent class for some specialized blob-like field types such as <a href="../db/tmemofield.html">TMemoField</a>, <a href="../db/twidememofield.html">TWideMemoField</a> or  <a href="../db/tgraphicfield.html">TGraphicField</a></p>
+<p>It should never be necessary to create an instance of <var>TBlobField</var> manually, a field of this class will be instantiated automatically for each BLOB field when a dataset is opened. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdataset.html">TDataset</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for records-based data-access</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfield.html">TField</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Provide access to the contents of a single field in a record</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tmemofield.html">TMemoField</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for MEMO (text BLOB) field data</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/twidememofield.html">TWideMemoField</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Field class for wide MEMO (widestring text BLOB) field data</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tgraphicfield.html">TGraphicField</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Field class for graphical BLOB field data</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

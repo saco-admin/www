@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>DateTimeToTimeStamp</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>DateTimeToTimeStamp</h1>
+<p>Converts a <var>TDateTime</var> value to a TimeStamp structure.</p>
+<h2>Declaration</h2>
+<p>Source position: datih.inc line 111</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> DateTimeToTimeStamp<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;DateTime<span class="sym">: </span><a href="../system/tdatetime.html">TDateTime</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/ttimestamp.html">TTimeStamp</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>DateTimeToSystemTime</var> converts a date/time pair in <var>DateTime</var>, with <var>TDateTime</var> format to a <var>TTimeStamp</var> format. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/datetimetofiledate.html">DateTimeToFileDate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a <var>TDateTime</var> value to a file age (integer)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/systemtimetodatetime.html">SystemTimeToDateTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a system time to a <var>TDateTime</var> value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/datetimetosystemtime.html">DateTimeToSystemTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Converts a <var>TDateTime</var> value to a systemtime structure.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example6<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the DateTimeToTimeStamp function }</span>
+
+<span class="kw">Uses</span> sysutils<span class="sym">;</span>
+
+<span class="kw">Var</span> TS <span class="sym">:</span> TTimeStamp<span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  TS<span class="sym">:=</span>DateTimeToTimeStamp <span class="sym">(</span>Now<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">With</span> TS <span class="kw">do</span>
+    <span class="kw">begin</span>
+    Writeln <span class="sym">(</span><span class="str">'Now is '</span><span class="sym">,</span>time<span class="sym">,</span><span class="str">' millisecond past midnight'</span><span class="sym">)</span><span class="sym">;</span>
+    Writeln <span class="sym">(</span><span class="str">'Today is '</span> <span class="sym">,</span>Date<span class="sym">,</span><span class="str">' days past 1/1/0001'</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

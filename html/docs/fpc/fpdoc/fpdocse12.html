@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Introduction</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="fpdoc.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="fpdoc.css"> 
+</head><body 
+>
+<!--l. 1099--><div class="crosslinks"><p class="noindent">[<a 
+href="fpdocse13.html" >next</a>] [<a 
+href="#tailfpdocse12.html">tail</a>] [<a 
+href="fpdocch5.html#fpdocse12.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">5.1   </span> <a 
+href="fpdoc.html#QQ2-75-74" id="x75-740005.1">Introduction</a></h3>
+<!--l. 1100--><p class="noindent" >The description file is a XML document, which means that it is a kind of HTML or SGML like
+format, however it is more structured than HTML, making it easier to parse - and makes it easier
+to connect or merge it with a Pascal source file. Since the allowed syntax uses a lot of
+HTML tags, this makes it easy to write code for those that are familiar with writing
+HTML.
+<!--l. 1106--><p class="noindent" >More information about the XML format, SGML and HTML can be found on the website of the
+W3 (World Wide Web) consortium: <a 
+href="http://www.w3.org" >http://www.w3.org/</a>
+<!--l. 1110--><p class="noindent" >The remaining of this chapter assumes a basic knowledge of tags, their attributes and markup
+language, so these terms will not be explained here.
+<!--l. 1113--><p class="noindent" >The minimal documentation file would look something like this:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-42">
+&#x003C;?xml&#x00A0;version="1.0"&#x00A0;encoding="ISO-8859-1"?&#x003E;
+&#x00A0;<br />&#x003C;fpdoc-description&#x003E;
+&#x00A0;<br />&#x003C;package&#x00A0;name="fpc"&#x003E;
+&#x00A0;<br />&#x003C;module&#x00A0;name="Classes"&#x003E;
+&#x00A0;<br />&#x003C;/module&#x003E;
+&#x00A0;<br />&#x003C;/package&#x003E;
+&#x00A0;<br />&#x003C;/fpdoc-description&#x003E;
+</div>
+<!--l. 1122--><p class="nopar" >The header <span 
+class="cmbx-10">xml </span>tag is mandatory, and indicates that the file contains a documentation XML
+document.
+<!--l. 1126--><p class="noindent" >Inside the document, one or more top-level <span 
+class="cmbx-10">fpdoc-descriptions </span>tags may appear. Each of these
+tags can contain one or more <span 
+class="cmbx-10">package </span>tags, which must have a <span 
+class="cmti-10">name </span>attribute. The name
+attribute will be used by fpdoc to select the documentation nodes.
+<!--l. 1131--><p class="noindent" >Inside a <span 
+class="cmbx-10">package </span>tag, one or more <span 
+class="cmbx-10">module </span>tags may appear. There should be one <span 
+class="cmbx-10">module </span>tag
+per unit that should be documented. The value of the <span 
+class="cmti-10">name </span>attribute of the <span 
+class="cmtt-10">module </span>should be the
+name of the unit for which the <span 
+class="cmbx-10">module </span>tag contains the documentation. The value of the <span 
+class="cmtt-10">name</span>
+attribute is case insensitive, i.e.
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-43">
+&#x003C;module&#x00A0;name="CRT"&#x003E;
+</div>
+<!--l. 1138--><p class="nopar" >can be used for the documentation of the <span 
+class="cmss-10">crt </span>unit.
+<!--l. 1141--><p class="noindent" >As it is above, the documentation description does not do much. To write real documentation, the
+<span 
+class="cmbx-10">module </span>tag must be filled with the documentation for each identifier that appears in the unit
+interface header.
+<!--l. 1145--><p class="noindent" >For each identifier in the unit interface header, the <span 
+class="cmbx-10">module </span>should contain a tag that documents
+the identifier: this is the <span 
+class="cmbx-10">element </span>tag. The name attribute of the element tag links the
+documentation to the identifier: the <span 
+class="cmti-10">name </span>attribute should have as value the fully qualified name of
+the identifier in the unit.
+<!--l. 1151--><p class="noindent" >For example, to document the type
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-44">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;MyEnum&#x00A0;=&#x00A0;(meOne,meTwo,meThree);
+</div>
+<!--l. 1155--><p class="nopar" >an <span 
+class="cmbx-10">element </span>tag called <span 
+class="cmtt-10">myenum </span>should exist:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-45">
+&#x003C;element&#x00A0;name="myenum"&#x003E;
+&#x00A0;<br />&#x003C;/element&#x003E;
+</div>
+<!--l. 1160--><p class="nopar" >But also for each of the three enumerated values an <span 
+class="cmbx-10">element </span>tag should exist:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-46">
+&#x003C;element&#x00A0;name="myenum.meOne"&#x003E;
+&#x00A0;<br />&#x003C;/element&#x003E;
+&#x00A0;<br />&#x003C;element&#x00A0;name="myenum.meTwo"&#x003E;
+&#x00A0;<br />&#x003C;/element&#x003E;
+&#x00A0;<br />&#x003C;element&#x00A0;name="myenum.meThree"&#x003E;
+&#x00A0;<br />&#x003C;/element&#x003E;
+</div>
+<!--l. 1170--><p class="nopar" >As it can be seen, the names of the identifiers follow a hierarchical structure. More about this in
+the next section.
+<!--l. 1174--><p class="noindent" >Now the tags for the types are present, all that should be done is to fill it with the actual
+description. For this, several tags can be placed inside a <span 
+class="cmbx-10">element </span>tag. The most important tag is
+the <span 
+class="cmbx-10">descr </span>tag. The contents of the <span 
+class="cmbx-10">descr </span>tag will be used to describe a type, function, constant or
+variable:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-47">
+&#x003C;element&#x00A0;name="myenum"&#x003E;
+&#x00A0;<br />&#x003C;descr&#x003E;
+&#x00A0;<br />The&#x00A0;MyEnum&#x00A0;type&#x00A0;is&#x00A0;a&#x00A0;simple&#x00A0;enumeration&#x00A0;type&#x00A0;which&#x00A0;is&#x00A0;not
+&#x00A0;<br />really&#x00A0;useful,&#x00A0;except&#x00A0;for&#x00A0;demonstration&#x00A0;purposes.
+&#x00A0;<br />&#x003C;/descr&#x003E;
+&#x00A0;<br />&#x003C;/element&#x003E;
+</div>
+<!--l. 1187--><p class="nopar" >
+<!--l. 1189--><p class="noindent" >A second important tag is the <span 
+class="cmbx-10">short </span>tag. It should contain a short description of the identifier,
+preferably a description that fits on one line. The <span 
+class="cmbx-10">short </span>tag will be used in various overviews, at
+the top of a page in the HTML documentation (a synopsis) or will be used instead of the <span 
+class="cmbx-10">descr </span>tag
+if that one is not available. It can also be used in different other cases: For instance
+the different values of an enumeration type will be laid out in a table, using the <span 
+class="cmbx-10">short</span>
+description:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-48">
+&#x003C;element&#x00A0;name="myenum.meOne"&#x003E;
+&#x00A0;<br />&#x003C;short&#x003E;The&#x00A0;first&#x00A0;enumeration&#x00A0;value&#x003C;/short&#x003E;
+&#x00A0;<br />&#x003C;/element&#x003E;
+&#x00A0;<br />&#x003C;element&#x00A0;name="myenum.meTwo"&#x003E;
+&#x00A0;<br />&#x003C;short&#x003E;The&#x00A0;second&#x00A0;enumeration&#x00A0;value&#x003C;/short&#x003E;
+&#x00A0;<br />&#x003C;/element&#x003E;
+&#x00A0;<br />&#x003C;element&#x00A0;name="myenum.meThree"&#x003E;
+&#x00A0;<br />&#x003C;short&#x003E;The&#x00A0;third&#x00A0;enumeration&#x00A0;value&#x003C;/short&#x003E;
+&#x00A0;<br />&#x003C;/element&#x003E;
+</div>
+<!--l. 1207--><p class="nopar" >This will be converted to a table looking more or less like this:
+ <table id="TBL-4" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-4-1g"><col 
+id="TBL-4-1"><col 
+id="TBL-4-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-4-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-1-1"  
+class="td11"> meOne   </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-1-2"  
+class="td11"> <!--l. 1214--><p class="noindent" >The first enumeration value                                                             </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-2-1"  
+class="td11"> meTwo    </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-2-2"  
+class="td11"> <!--l. 1214--><p class="noindent" >The second enumeration value                                                         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-3-1"  
+class="td11"> meThree  </td><td  style="white-space:wrap; text-align:left;" id="TBL-4-3-2"  
+class="td11"> <!--l. 1214--><p class="noindent" >The third enumeration value                                                           </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-4-4-1"  
+class="td11">          </td>
+</tr></table>
+<!--l. 1216--><p class="noindent" >For functions and procedures, a list of possible error conditions can be documented inside a <span 
+class="cmbx-10">errors</span>
+tag. This tag is equivalent to the <span 
+class="cmbx-10">descr </span>tag, but is placed under a different heading in the
+generated documentation.
+<!--l. 1221--><p class="noindent" >Finally, to cross-reference between related functions, types or classes, a <span 
+class="cmbx-10">seealso </span>tag is also
+introduced. This will be used to lay out a series of links to related information. This tag
+can only have sub-tags which are <span 
+class="cmtt-10">link </span>tags. For more about the <span 
+class="cmbx-10">link </span>tag, see <span 
+class="cmbx-10">link</span>
+(<a 
+href="fpdocsu74.html#x95-940005.3.16">186<!--tex4ht:ref: tag:link --></a>).
+<!--l. 1226--><p class="noindent" >If a certain identifier has appeared only in a certain version of a library, then this information can
+be specified in a <span 
+class="cmbx-10">version </span>tag, see <span 
+class="cmbx-10">version </span>(<a 
+href="fpdocsu95.html#x116-1150005.3.37">233<!--tex4ht:ref: tag:version --></a>) for more information.
+<!--l. 1230--><p class="noindent" >The following example illustrates the use:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-49">
+&#x003C;element&#x00A0;name="myenum"&#x003E;
+&#x00A0;<br />&#x003C;descr&#x003E;
+&#x00A0;<br />The&#x00A0;MyEnum&#x00A0;type&#x00A0;is&#x00A0;a&#x00A0;simple&#x00A0;enumeration&#x00A0;type&#x00A0;which&#x00A0;is&#x00A0;not
+&#x00A0;<br />really&#x00A0;useful,&#x00A0;except&#x00A0;for&#x00A0;demonstration&#x00A0;purposes.
+&#x00A0;<br />&#x003C;/descr&#x003E;
+&#x00A0;<br />&#x003C;version&#x003E;The&#x00A0;myenum&#x00A0;type&#x00A0;appeared&#x00A0;in&#x00A0;version&#x00A0;2.1&#x003C;/version&#x003E;
+&#x00A0;<br />&#x003C;/element&#x003E;
+</div>
+<!--l. 1239--><p class="nopar" >
+<!--l. 1241--><p class="noindent" >When documenting methods or properties, it is possible to let the <span 
+class="cmtt-10">fpdoc </span>engine refer to the parent
+method when it generates an overview of methods or properties. There are 2 ways of achieving
+this:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x75-74002x1">Do not include an <span 
+class="cmbx-10">element </span>tag
+     </li>
+     <li 
+  class="enumerate" id="x75-74004x2">Specify the <span 
+class="cmti-10">link </span>attribute, with the name of the parent method which contains the
+     documentation, as in the following example:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-50">
+     &#x003C;element&#x00A0;name="TParent.SomeMethod"&#x003E;
+     &#x00A0;<br />&#x003C;/element
+     &#x00A0;<br />
+     &#x00A0;<br />&#x003C;element&#x00A0;name="TChild.SomeMethod"&#x00A0;link="TParent.SomeMethod"/&#x003E;
+</div>
+     <!--l. 1253--><p class="nopar" >this can be used to speed up the search for the parent implementation, or to skip several
+     parent classes.</li></ol>
+<!--l. 1258--><p class="noindent" >To add a section or page of documentation that is not directly related to a single identifier in a
+unit, a <span 
+class="cmbx-10">topic </span>tag can be used. This tag can appear inside a <span 
+class="cmtt-10">package </span>or <span 
+class="cmtt-10">module </span>tag, and
+can contain a <span 
+class="cmbx-10">short </span>or <span 
+class="cmbx-10">descr </span>tag. The contents of the <span 
+class="cmbx-10">short </span>tag will be used for the
+title of the section or page. In on-line formats, a short list of related topics will appear
+in the package or module page, with links to the pages that contain the text of the
+topics. In a linear format, the topic sections will be inserted before the description of all
+identifiers.
+<!--l. 1267--><p class="noindent" >If the topic appears in a <span 
+class="cmbx-10">package </span>tag, then it can be nested: 2 levels of topics may be used. This is
+not so for topics inside a module: they can not be nested (the level of nesting in a linear
+documentation format is limited).
+<!--l. 1271--><p class="noindent" >The following is an example of a valid topic tag:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-51">
+&#x003C;module&#x00A0;name="CRT"&#x003E;
+&#x00A0;<br />&#x003C;topic&#x00A0;name="UsingKeyboard"&#x003E;
+&#x00A0;<br />&#x003C;short&#x003E;Using&#x00A0;the&#x00A0;keyboard&#x00A0;functions&#x003C;/short&#x003E;
+&#x00A0;<br />&#x003C;descr&#x003E;
+&#x00A0;<br />To&#x00A0;use&#x00A0;the&#x00A0;keyboard&#x00A0;functions&#x00A0;of&#x00A0;the&#x00A0;CRT&#x00A0;unit,&#x00A0;one...
+&#x00A0;<br />&#x003C;/descr&#x003E;
+&#x00A0;<br />&#x003C;/topic&#x003E;
+</div>
+<!--l. 1280--><p class="nopar" >
+<!--l. 1282--><p class="noindent" >Topic nodes can be useful to add &#8217;how to&#8217; sections to a unit, or to provide general IDE
+help.
+                                                                            
+
+                                                                            
+<!--l. 1287--><div class="crosslinks"><p class="noindent">[<a 
+href="fpdocse13.html" >next</a>] [<a 
+href="fpdocse12.html" >front</a>] [<a 
+href="fpdocch5.html#fpdocse12.html" >up</a>] </p></div>
+<!--l. 1287--><p class="noindent" ><a 
+ id="tailfpdocse12.html"></a>  
+</body></html> 

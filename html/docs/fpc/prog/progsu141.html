@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Modifying the mangled names</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 4017--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu140.html" >prev</a>] [<a 
+href="progsu140.html#tailprogsu140.html" >prev-tail</a>] [<a 
+href="#tailprogsu141.html">tail</a>] [<a 
+href="progse21.html#progsu141.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.2.3   </span> <a 
+href="prog.html#QQ2-172-179" id="x172-1750006.2.3">Modifying the mangled names</a></h4>
+<!--l. 4019--><p class="noindent" >To make the symbols externally accessible, it is possible to give nicknames to mangled names, or to
+change the mangled name directly. Two modifiers can be used:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">public:</span>  </dt><dd 
+class="description">For a function that has a <span 
+class="cmtt-10">public </span>modifier, the mangled name will be the name
+     <span 
+class="cmti-10">exactly </span>as it is declared.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">alias:</span>  </dt><dd 
+class="description">The <span 
+class="cmtt-10">alias </span>modifier can be used to assign a second assembler label to your function.
+     This label has the same name as the alias name you declared. This doesn&#8217;t modify the
+     calling conventions of the function. In other words, the <span 
+class="cmtt-10">alias </span>modifier allows you to
+     specify another name (a nickname) for your function or procedure.
+     <!--l. 4033--><p class="noindent" >The prototype for an aliased function or procedure is as follows:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-173">
+     Procedure&#x00A0;AliasedProc;&#x00A0;alias&#x00A0;:&#x00A0;&#8217;AliasName&#8217;;
+</div>
+     <!--l. 4036--><p class="nopar" >The procedure <span 
+class="cmtt-10">AliasedProc </span>will also be known as <span 
+class="cmtt-10">AliasName</span>. Take care, the name you
+     specify is case sensitive (as C is).
+     </dd></dl>
+<!--l. 4042--><p class="noindent" >Furthermore, the <span 
+class="cmtt-10">exports </span>section of a library is also used to declare the names that will be
+exported by the shared library. The names in the exports section are case-sensitive (while the
+actual declaration of the routine is not). For more information on the creating shared libraries,
+chapter <a 
+href="progch12.html#x263-27900012">12<!--tex4ht:ref: ch:libraries --></a>, page <a 
+href="progch12.html#x263-27900012">633<!--tex4ht:ref: ch:libraries --></a>.
+                                                                            
+
+                                                                            
+<!--l. 4050--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu140.html" >prev</a>] [<a 
+href="progsu140.html#tailprogsu140.html" >prev-tail</a>] [<a 
+href="progsu141.html" >front</a>] [<a 
+href="progse21.html#progsu141.html" >up</a>] </p></div>
+<!--l. 4050--><p class="noindent" ><a 
+ id="tailprogsu141.html"></a>  
+</body></html> 

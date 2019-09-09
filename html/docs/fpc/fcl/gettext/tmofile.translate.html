@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TMOFile.Translate</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../gettext/index.html">Overview</a>][<a href="../gettext/index-2.html">Constants</a>][<a href="../gettext/index-3.html">Types</a>][<a href="../gettext/index-4.html">Classes</a>][<a href="../gettext/index-5.html">Procedures and functions</a>][<a href="../gettext/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'gettext' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TMOFile.Translate</h1>
+<p>Translate a string</p>
+<h2>Declaration</h2>
+<p>Source position: gettext.pp line 64</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../gettext/tmofile.html">TMOFile</a><span class="sym">.</span>Translate<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AOrig<span class="sym">: </span><a href="../../rtl/system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ALen<span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AHash<span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> <a href="../gettext/tmofile.html">TMOFile</a><span class="sym">.</span>Translate<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AOrig<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AHash<span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> <a href="../gettext/tmofile.html">TMOFile</a><span class="sym">.</span>Translate<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AOrig<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AOrig</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String to translate.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ALen</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Length of the original string.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AHash</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Hash value of the original string.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Translated string.</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AOrig</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String to translate.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AHash</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Hash value of the original string.</p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AOrig</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String to translate.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Translate</var> translates the string <var>AOrig</var>.  The string should be in the .mo file as-is. The string can be given as a plain string, as a <var>PChar</var> (with length <var>ALen</var>). If the hash value (<var>AHash</var>) of the string is not given, it is calculated. </p>
+<p>If the string is in the <var>.mo</var> file, the translated string is returned. If the string is not in the file, an empty string is returned. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

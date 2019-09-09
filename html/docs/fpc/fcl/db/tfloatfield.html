@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFloatField</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TFloatField</h1>
+<p>[<a href="../db/tfloatfield-1.html" onClick="window.open('../db/tfloatfield-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../db/tfloatfield-2.html" onClick="window.open('../db/tfloatfield-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../db/tfloatfield-3.html" onClick="window.open('../db/tfloatfield-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../db/tfloatfield-4.html" onClick="window.open('../db/tfloatfield-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../db/tfloatfield-5.html" onClick="window.open('../db/tfloatfield-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../db/tfloatfield-6.html" onClick="window.open('../db/tfloatfield-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Class for floating point values</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 633</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TFloatField <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../db/tnumericfield.html">TNumericField</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../db/tfloatfield.create.html">Create</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a new instance of the <var>TFloatField</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../db/tfloatfield.checkrange.html">CheckRange</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a value is in the allowed range of values for the field</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../db/tfloatfield.value.html">Value</a><span class="sym">: </span>Double<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value of the field as a double type</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">published</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../db/tfloatfield.currency.html">Currency</a><span class="sym">: </span>Boolean<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the field a currency field.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../db/tfloatfield.maxvalue.html">MaxValue</a><span class="sym">: </span>Double<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Maximum value for the field</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../db/tfloatfield.minvalue.html">MinValue</a><span class="sym">: </span>Double<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Minimum value for the field</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../db/tfloatfield.precision.html">Precision</a><span class="sym">: </span><a href="../../rtl/system/longint.html">LongInt</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Precision (number of digits) of the field in text representations</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../db/tfloatfield.html">TFloatField</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Class for floating point values</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../db/tnumericfield.html">TNumericField</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for all numerical data field classe</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../db/tfield.html">TField</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Provide access to the contents of a single field in a record</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tcomponent.html">TComponent</a>,<a href="../../rtl/system/iunknown.html">IUnknown</a>,<a href="../../rtl/classes/iinterfacecomponentreference.html">IInterfaceComponentReference</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tpersistent.html">TPersistent</a>,<a href="../../rtl/classes/ifpobserved.html">IFPObserved</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TFloatField</var> is the class created when a dataset must manage floating point values of double precision. It exposes a few new properties such as <a href="../db/tfloatfield.currency.html">Currency</a>,  <a href="../db/tfloatfield.maxvalue.html">MaxValue</a>, <a href="../db/tfloatfield.minvalue.html">MinValue</a> and overrides some <a href="../db/tfield.html">TField</a> methods to work with floating point data. </p>
+<p>It should never be necessary to create an instance of <var>TFloatField</var> manually, a field of this class will be instantiated automatically for each floating-point field when a dataset is opened. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tfloatfield.currency.html">Currency</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the field a currency field.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfloatfield.maxvalue.html">MaxValue</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Maximum value for the field</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfloatfield.minvalue.html">MinValue</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Minimum value for the field</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

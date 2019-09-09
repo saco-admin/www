@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TProcessPriority</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../process/index.html">Overview</a>][<a href="../process/index-3.html">Types</a>][<a href="../process/index-4.html">Classes</a>][<a href="../process/index-5.html">Procedures and functions</a>][<a href="../process/index-6.html">Variables</a>][<a href="../process/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'process' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TProcessPriority</h1>
+<p>type determining the priority of the newly started process.</p>
+<h2>Declaration</h2>
+<p>Source position: process.pp line 37</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TProcessPriority<span class="sym"> = </span><span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ppHigh<span class="sym">,</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The process runs at higher than normal priority.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ppIdle<span class="sym">,</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The process only runs when the system is idle (i.e. has nothing else to do)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ppNormal<span class="sym">,</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The process runs at normal priority.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ppRealTime</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The process runs at real-time priority.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">);</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This enumerated type determines the priority of the newly started process. It translates to default platform specific constants. If finer control is  needed, then platform-dependent mechanism need to be used to set the priority. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

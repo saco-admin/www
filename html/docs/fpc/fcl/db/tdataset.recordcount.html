@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDataSet.RecordCount</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDataSet.RecordCount</h1>
+<p>Number of records in the dataset</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1680</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../db/tdataset.html">TDataSet</a><span class="sym">.</span>RecordCount<span class="sym"> : </span><a href="../../rtl/system/longint.html">LongInt</a><br>&nbsp;&nbsp;<span class="kw">read </span>GetRecordCount<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>RecordCount</var> is the number of records in the dataset. This number is not necessarily equal to the number of records returned by a query.  For optimization purposes, a <var>TDataset</var> descendent may choose not to fetch all records from the database when the dataset is opened.  If this is the case, then the <var>RecordCount</var> will only reflect the number of records that have actually been fetched at the current time,  and therefor the value will change as more records are fetched from the database. </p>
+<p>Only when <var>Last</var> has been called (and the dataset has been forced to fetch all records returned by the database), will the value of  <var>RecordCount</var> be equal to the number of records returned by the query. </p>
+<p>In general, datasets based on in-memory data or flat files, will return the correct number of records in <var>RecordCount</var>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdataset.recno.html">TDataset.RecNo</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Current record number</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

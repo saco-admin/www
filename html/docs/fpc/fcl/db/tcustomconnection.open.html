@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCustomConnection.Open</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCustomConnection.Open</h1>
+<p>Makes the connection to the server</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1973</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../db/tcustomconnection.html">TCustomConnection</a><span class="sym">.</span>Open<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Open</var> establishes the connection with the server if it was not yet connected. Calling this method first triggers the <a href="../db/tcustomconnection.beforeconnect.html">BeforeConnect</a> event. If an exception is raised during the execution of that event handler, the connect process is aborted.   If <a href="../db/tcustomconnection.loginprompt.html">LoginPrompt</a> is <var>True</var>, the <a href="../db/tcustomconnection.onlogin.html">OnLogin</a>   event handler is called. Only after this event, the connection is actually established. After the connection was established, the <a href="../db/tcustomconnection.afterconnect.html">AfterConnect</a> event is triggered. </p>
+<p>Calling the <var>Open</var> method is equivalent to setting the <a href="../db/tcustomconnection.connected.html">Connected</a> property to <var>True</var>. </p>
+<h2>Errors</h2>
+<p>If an exception is raised during the <var>BeforeConnect</var> or <var>OnLogin</var> handlers, the connection is not actually established. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tcustomconnection.beforeconnect.html">TCustomConnection.BeforeConnect</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event triggered before a connection is made.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tcustomconnection.loginprompt.html">TCustomConnection.LoginPrompt</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should the <var>OnLogin</var> be triggered</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tcustomconnection.onlogin.html">TCustomConnection.OnLogin</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event triggered when a login prompt is shown.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tcustomconnection.afterconnect.html">TCustomConnection.AfterConnect</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event triggered after a connection is made.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tcustomconnection.connected.html">TCustomConnection.Connected</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the connection established or not</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

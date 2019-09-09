@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSQLStatement.ParamCheck</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TSQLStatement.ParamCheck</h1>
+<p>Should SQL be checked for parameters</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 411</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../sqldb/tsqlstatement.html">TSQLStatement</a><span class="sym">.</span>ParamCheck<span class="sym"> : </span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ParamCheck</var> must be set to <var>False</var> to disable the parameter check. The default value <var>True</var> indicates that the SQL statement should be checked for parameter names (in the form <var>:ParamName</var>), and corresponding <a href="../db/tparam.html">TParam</a> instances should be added to the <b>Params</b> property. </p>
+<p>When executing some DDL statements, e.g. a "create procedure" SQL statement can contain parameters. These parameters should not be converted to <var>TParam</var> instances. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tparam.html">TParam</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Parameter description class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>Params</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlquery.paramcheck.html">TSQLQuery.ParamCheck</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should the SQL statement be checked for parameters</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

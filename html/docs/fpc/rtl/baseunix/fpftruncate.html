@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpFtruncate</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpFtruncate</h1>
+<p>Truncate file on certain size.</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 94</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpFtruncate<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;fd<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;flength<span class="sym">: </span><a href="../baseunix/toff.html">TOff</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FpFTruncate</var> sets the length of a file in <var>fd</var> on <var>flength</var> bytes, where <var>flength</var> must be less than or equal to the current length of the file in <var>fd</var>. </p>
+<p>The function returns zero if the call was successful, a nonzero return value indicates that an error occurred. </p>
+<h2>Errors</h2>
+<p>Extended error information can be retrieved using <a href="../baseunix/fpgeterrno.html">fpGetErrno</a>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpopen.html">FpOpen</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Open file and return file descriptor</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpclose.html">FpClose</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Close file descriptor</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpread.html">FpRead</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read data from file descriptor</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpwrite.html">FpWrite</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write data to file descriptor</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fplseek.html">FpLSeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set file pointer position.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

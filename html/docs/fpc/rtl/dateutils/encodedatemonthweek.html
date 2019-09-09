@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>EncodeDateMonthWeek</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dateutils/index.html">Overview</a>][<a href="../dateutils/index-2.html">Constants</a>][<a href="../dateutils/index-5.html">Procedures and functions</a>][<a href="../dateutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dateutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>EncodeDateMonthWeek</h1>
+<p>Encodes a year, month, week of month and day of week to a DateTime value</p>
+<h2>Declaration</h2>
+<p>Source position: dateutil.inc line 330</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> EncodeDateMonthWeek<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AYear<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AMonth<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AWeekOfMonth<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ADayOfWeek<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tdatetime.html">TDateTime</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AYear</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Year part</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AMonth</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Month part</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AWeekOfMonth</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Week of the month part</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADayOfWeek</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Day of the week part</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>DateTime value representing the date specified by <var>AYear</var>, <var>AMonth</var>, <var>AWeekOfMonth</var> and <var>ADayOfWeek</var>.</p>
+<h2>Description</h2>
+<p><var>EncodeDateTime</var> encodes the values <var>AYear</var><var>AMonth</var>, <var>WeekOfMonth</var>,<var>ADayOfWeek</var>, to a date value and returns this value. </p>
+<p>For an example, see <a href="../dateutils/decodedatemonthweek.html">DecodeDateMonthWeek</a>. </p>
+<h2>Errors</h2>
+<p>If any of the arguments is not valid, then an <var>EConvertError</var> exception is raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dateutils/decodedatemonthweek.html">DecodeDateMonthWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Decode a DateTime value in a month, week of month and day of week</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/encodedatetime.html">EncodeDateTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encodes a DateTime value from all its parts</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/encodedateweek.html">EncodeDateWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encode a <var>TDateTime</var> value from a year, week and day of week triplet</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/encodedateday.html">EncodeDateDay</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encodes a year and day of year to a DateTime value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/tryencodedatetime.html">TryEncodeDateTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encode a Year, Month, Day, Hour, minute, seconds, milliseconds tuplet to a <var>TDateTime</var> value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/tryencodedateweek.html">TryEncodeDateWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encode a year, week and day of week triplet to a <var>TDateTime</var> value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/tryencodedatemonthweek.html">TryEncodeDateMonthWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encode a year, month, week of month and day of week to a <var>TDateTime</var> value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/tryencodedateday.html">TryEncodeDateDay</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encode a year and day of year to a <var>TDateTime</var> value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/nthdayofweek.html">NthDayOfWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate which occurrence of weekday in the month a given day represents</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

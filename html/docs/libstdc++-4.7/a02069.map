@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00096.html" title="Test predicate on two adjacent elements." alt="" coords="356,5,625,33"/>
+<area shape="rect" id="node5" href="$a00102.html" title="Test predicate on several elements." alt="" coords="317,55,664,83"/>
+<area shape="rect" id="node7" href="$a00103.html" title="Test predicate on a single element, used for std::find() and std::find_if ()." alt="" coords="380,106,601,134"/>
+<area shape="rect" id="node9" href="$a00112.html" title="Test inverted predicate on a single element." alt="" coords="368,157,613,185"/>
+</map>

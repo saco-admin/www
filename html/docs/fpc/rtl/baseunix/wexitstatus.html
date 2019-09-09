@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>wexitStatus</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>wexitStatus</h1>
+<p>Extract the exit status from the <a href="../baseunix/fpwaitpid.html">fpWaitPID</a> result.</p>
+<h2>Declaration</h2>
+<p>Source position: bunxovlh.inc line 94</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> wexitStatus<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Status<span class="sym">: </span><a href="../baseunix/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>WEXITSTATUS</var> can be used to extract the exit status from <var>Status</var>, the result of the <a href="../baseunix/fpwaitpid.html">FpWaitPID</a> call. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpwaitpid.html">FpWaitPID</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Wait for a process to terminate</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/wtermsig.html">WTERMSIG</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the signal that caused a process to exit.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/wstopsig.html">WSTOPSIG</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the exit code from the process.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/wifexited.html">WIFEXITED</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether the process exited normally</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/wifsignaled.html">WIFSIGNALED</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether the process was exited by a signal.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

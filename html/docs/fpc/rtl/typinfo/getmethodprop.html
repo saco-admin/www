@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>GetMethodProp</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../typinfo/index.html">Overview</a>][<a href="../typinfo/index-2.html">Constants</a>][<a href="../typinfo/index-3.html">Types</a>][<a href="../typinfo/index-4.html">Classes</a>][<a href="../typinfo/index-5.html">Procedures and functions</a>][<a href="../typinfo/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'typinfo' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>GetMethodProp</h1>
+<p>Return value of a method property</p>
+<h2>Declaration</h2>
+<p>Source position: typinfo.pp line 392</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> GetMethodProp<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Instance<span class="sym">: </span><a href="../system/tobject.html">TObject</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;PropInfo<span class="sym">: </span><a href="../typinfo/ppropinfo.html">PPropInfo</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tmethod.html">TMethod</a><span class="sym">;</span><br><br><span class="kw">function</span> GetMethodProp<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Instance<span class="sym">: </span><a href="../system/tobject.html">TObject</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>PropName<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tmethod.html">TMethod</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>GetMethodProp</var> returns the method the property described by <var>PropInfo</var> or with name <var>Propname</var> for object <var>Instance</var>. The return type <var>TMethod</var> is defined in the <span class="file">SysUtils</span> unit as: </p>
+<pre>TMethod <span class="sym">=</span> <span class="kw">packed</span> <span class="kw">record</span>
+  Code<span class="sym">,</span> Data<span class="sym">:</span> Pointer<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>                                                                         
+</pre>
+<p><var>Data</var> points to the instance of the class with the method <var>Code</var>. </p>
+<h2>Errors</h2>
+<p>No checking is done whether <var>Instance</var> is non-nil, or whether <var>PropInfo</var> describes a valid method property of <var>Instance</var>. Specifying an invalid property name in <var>PropName</var> will result in an <var>EPropertyError</var> exception. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../typinfo/setmethodprop.html">SetMethodProp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set the value of a method property</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../typinfo/getordprop.html">GetOrdProp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get the value of an ordinal property</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../typinfo/getstrprop.html">GetStrProp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the value of a string property.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../typinfo/getfloatprop.html">GetFloatProp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return value of floating point property</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../typinfo/getint64prop.html">GetInt64Prop</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">return value of an Int64 property</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../typinfo/getsetprop.html">GetSetProp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the value of a set property.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../typinfo/getobjectprop.html">GetObjectProp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return value of an object-type property.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../typinfo/getenumprop.html">GetEnumProp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the value of an enumeration type property.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> example6<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the GetMethodProp function }</span>
+
+<span class="dir">{$mode objfpc}</span>
+
+<span class="kw">uses</span> rttiobj<span class="sym">,</span>typinfo<span class="sym">,</span>sysutils<span class="sym">;</span>
+
+<span class="kw">Type</span>
+  TNotifyObject <span class="sym">=</span> <span class="kw">Class</span><span class="sym">(</span>TObject<span class="sym">)</span>
+    <span class="kw">Procedure</span> Notification1<span class="sym">(</span>Sender <span class="sym">:</span> TObject<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">Procedure</span> Notification2<span class="sym">(</span>Sender <span class="sym">:</span> TObject<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> TNotifyObject<span class="sym">.</span>Notification1<span class="sym">(</span>Sender <span class="sym">:</span> TObject<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Write<span class="sym">(</span><span class="str">'Received notification 1 of object with class: '</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>Sender<span class="sym">.</span>ClassName<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> TNotifyObject<span class="sym">.</span>Notification2<span class="sym">(</span>Sender <span class="sym">:</span> TObject<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Write<span class="sym">(</span><span class="str">'Received notification 2 of object with class: '</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>Sender<span class="sym">.</span>ClassName<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  O <span class="sym">:</span> TMyTestObject<span class="sym">;</span>
+  PI <span class="sym">:</span> PPropInfo<span class="sym">;</span>
+  NO <span class="sym">:</span> TNotifyObject<span class="sym">;</span>
+  M <span class="sym">:</span> TMethod<span class="sym">;</span>
+
+<span class="kw">Procedure</span> PrintMethod <span class="sym">(</span><span class="kw">Const</span> M <span class="sym">:</span> TMethod<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">If</span> <span class="sym">(</span>M<span class="sym">.</span>Data<span class="sym">=</span>Pointer<span class="sym">(</span>NO<span class="sym">)</span><span class="sym">)</span> <span class="kw">Then</span>
+    <span class="kw">If</span> <span class="sym">(</span>M<span class="sym">.</span>Code<span class="sym">=</span>Pointer<span class="sym">(</span><span class="sym">@</span>TNotifyObject<span class="sym">.</span>Notification1<span class="sym">)</span><span class="sym">)</span> <span class="kw">then</span>
+      Writeln<span class="sym">(</span><span class="str">'Notification1'</span><span class="sym">)</span>
+    <span class="kw">else</span> <span class="kw">If</span> <span class="sym">(</span>M<span class="sym">.</span>Code<span class="sym">=</span>Pointer<span class="sym">(</span><span class="sym">@</span>TNotifyObject<span class="sym">.</span>Notification2<span class="sym">)</span><span class="sym">)</span> <span class="kw">then</span>
+      Writeln<span class="sym">(</span><span class="str">'Notification2'</span><span class="sym">)</span>
+    <span class="kw">else</span>
+      <span class="kw">begin</span>
+      Write<span class="sym">(</span><span class="str">'Unknown method adress (data:'</span><span class="sym">)</span><span class="sym">;</span>
+      Write<span class="sym">(</span>hexStr<span class="sym">(</span>Longint<span class="sym">(</span>M<span class="sym">.</span>data<span class="sym">)</span><span class="sym">,</span><span class="num">8</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+      Writeln<span class="sym">(</span><span class="str">',code:'</span><span class="sym">,</span>hexstr<span class="sym">(</span>Longint<span class="sym">(</span>M<span class="sym">.</span>Code<span class="sym">)</span><span class="sym">,</span><span class="num">8</span><span class="sym">)</span><span class="sym">,</span><span class="chr">')'</span><span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+
+<span class="kw">begin</span>
+  O<span class="sym">:=</span>TMyTestObject<span class="sym">.</span>Create<span class="sym">;</span>
+  NO<span class="sym">:=</span>TNotifyObject<span class="sym">.</span>Create<span class="sym">;</span>
+  O<span class="sym">.</span>NotifyEvent<span class="sym">:=</span><span class="sym">@</span>NO<span class="sym">.</span>Notification1<span class="sym">;</span>
+  PI<span class="sym">:=</span>GetPropInfo<span class="sym">(</span>O<span class="sym">,</span><span class="str">'NotifyEvent'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Method property : '</span><span class="sym">)</span><span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'Notifying                    : '</span><span class="sym">)</span><span class="sym">;</span>
+  O<span class="sym">.</span>Notify<span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'Get (name)                   : '</span><span class="sym">)</span><span class="sym">;</span>
+  M<span class="sym">:=</span>GetMethodProp<span class="sym">(</span>O<span class="sym">,</span><span class="str">'NotifyEvent'</span><span class="sym">)</span><span class="sym">;</span>
+  PrintMethod<span class="sym">(</span>M<span class="sym">)</span><span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'Notifying                    : '</span><span class="sym">)</span><span class="sym">;</span>
+  O<span class="sym">.</span>Notify<span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'Get (propinfo)               : '</span><span class="sym">)</span><span class="sym">;</span>
+  M<span class="sym">:=</span>GetMethodProp<span class="sym">(</span>O<span class="sym">,</span>PI<span class="sym">)</span><span class="sym">;</span>
+  PrintMethod<span class="sym">(</span>M<span class="sym">)</span><span class="sym">;</span>
+  M<span class="sym">:=</span>TMethod<span class="sym">(</span><span class="sym">@</span>NO<span class="sym">.</span>Notification2<span class="sym">)</span><span class="sym">;</span>
+  SetMethodProp<span class="sym">(</span>O<span class="sym">,</span><span class="str">'NotifyEvent'</span><span class="sym">,</span>M<span class="sym">)</span><span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'Set (name,Notification2)     : '</span><span class="sym">)</span><span class="sym">;</span>
+  M<span class="sym">:=</span>GetMethodProp<span class="sym">(</span>O<span class="sym">,</span>PI<span class="sym">)</span><span class="sym">;</span>
+  PrintMethod<span class="sym">(</span>M<span class="sym">)</span><span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'Notifying                    : '</span><span class="sym">)</span><span class="sym">;</span>
+  O<span class="sym">.</span>Notify<span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'Set (propinfo,Notification1) : '</span><span class="sym">)</span><span class="sym">;</span>
+  M<span class="sym">:=</span>TMethod<span class="sym">(</span><span class="sym">@</span>NO<span class="sym">.</span>Notification1<span class="sym">)</span><span class="sym">;</span>
+  SetMethodProp<span class="sym">(</span>O<span class="sym">,</span>PI<span class="sym">,</span>M<span class="sym">)</span><span class="sym">;</span>
+  M<span class="sym">:=</span>GetMethodProp<span class="sym">(</span>O<span class="sym">,</span>PI<span class="sym">)</span><span class="sym">;</span>
+  PrintMethod<span class="sym">(</span>M<span class="sym">)</span><span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'Notifying                    : '</span><span class="sym">)</span><span class="sym">;</span>
+  O<span class="sym">.</span>Notify<span class="sym">;</span>
+  O<span class="sym">.</span>Free<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

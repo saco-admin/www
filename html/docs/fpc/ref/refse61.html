@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Restrictions on class helpers</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6867--><div class="crosslinks"><p class="noindent">[<a 
+href="refse62.html" >next</a>] [<a 
+href="refse60.html" >prev</a>] [<a 
+href="refse60.html#tailrefse60.html" >prev-tail</a>] [<a 
+href="#tailrefse61.html">tail</a>] [<a 
+href="refch10.html#refse61.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.2   </span> <a 
+href="ref.html#QQ2-122-150" id="x122-14400010.2">Restrictions on class helpers</a></h3>
+<!--l. 6868--><p class="noindent" >It is not possible to extend a class with any method or property. There are some restrictions on the
+possibilities:
+     <ul class="itemize1">
+     <li class="itemize">Destructors or class destructors are not allowed.
+     </li>
+     <li class="itemize">Class constructors are not allowed.
+     </li>
+     <li class="itemize">Class helpers cannot descend from record helpers, and cannot extend record types.
+     </li>
+     <li class="itemize">Field definitions are not allowed. Neither are class fields.
+     </li>
+     <li class="itemize">Properties that refer to a field are not allowed. This is in fact a consequence of the
+     previous item.
+     </li>
+     <li class="itemize">Abstract methods are not allowed.
+     </li>
+     <li class="itemize">Virtual methods of the class cannot be overridden. They can be hidden by giving them
+     the same name or they can be overloaded using the <span 
+class="cmtt-10">overload </span>directive.
+     </li>
+     <li class="itemize">Unlike for regular procedures or methods, the <span 
+class="cmtt-10">overload </span>specifier must be explicitly
+     used when overloading methods from a class in a class helper. If overload is not used,
+     the extended type&#8217;s method is hidden by the helper method (as for regular classes).</li></ul>
+<!--l. 6887--><p class="noindent" >The following modifies the previous example by overloading the <span 
+class="cmtt-10">ToString </span>method:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-290">
+TObjectHelper&#x00A0;=&#x00A0;class&#x00A0;helper&#x00A0;for&#x00A0;TObject
+&#x00A0;<br />&#x00A0;&#x00A0;function&#x00A0;ToString(const&#x00A0;aFormat:&#x00A0;String):&#x00A0;String;&#x00A0;overload;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;TObjectHelper.ToString(const&#x00A0;aFormat:&#x00A0;String):&#x00A0;String;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result&#x00A0;:=&#x00A0;Format(aFormat,&#x00A0;[ToString]);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;o:&#x00A0;TObject;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(o.ToString(&#8217;The&#x00A0;object&#8217;&#8217;s&#x00A0;name&#x00A0;is&#x00A0;%s&#8217;));
+&#x00A0;<br />end.
+</div>
+<!--l. 6904--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 6906--><div class="crosslinks"><p class="noindent">[<a 
+href="refse62.html" >next</a>] [<a 
+href="refse60.html" >prev</a>] [<a 
+href="refse60.html#tailrefse60.html" >prev-tail</a>] [<a 
+href="refse61.html" >front</a>] [<a 
+href="refch10.html#refse61.html" >up</a>] </p></div>
+<!--l. 6906--><p class="noindent" ><a 
+ id="tailrefse61.html"></a>  
+</body></html> 

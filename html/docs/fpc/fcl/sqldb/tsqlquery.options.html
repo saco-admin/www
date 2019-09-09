@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSQLQuery.Options</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TSQLQuery.Options</h1>
+<p>Options controlling the behaviour of the dataset</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 663</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../sqldb/tsqlquery.html">TSQLQuery</a><span class="sym">.</span>Options<span class="sym"> : </span><a href="../sqldb/tsqlqueryoptions.html">TSQLQueryOptions</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Options</var> controls the behaviour of the dataset. The following options can be specified: </p>
+<dl>
+<dt>sqoKeepOpenOnCommit</dt>
+<dd>The default SQLDB behaviour is to close all datasets connected to a transaction when a transaction is committed or rolled back, which means that transactions must remain active as long as the dataset is open. This can create problems with locking of records etc. With this option set, the dataset will be kept open. Note that setting this option will cause SQLDB to fetch all records in the result set in memory.</dd>
+<dt>sqoAutoApplyUpdates</dt>
+<dd>Setting this option will make <var>TSQLQuery</var> call <var>ApplyUpdates</var> after every <var>Post</var> or <var>Delete</var> operation. </dd>
+<dt>sqoAutoCommit</dt>
+<dd>Setting this option will make <var>TSQLQuery</var> call commit after every <var>ApplyUpdates</var></dd>
+<dt>sqoCancelUpdatesOnRefresh</dt>
+<dd>Setting this option will cause <var>TSQLQuery</var> to abandon all pending changes when <var>Refresh</var> is called. The default behaviour is to raise an exception when <var>Refresh</var> is called and there are pending changes</dd>
+<dt>sqoPreferRefresh</dt>
+<dd>If the database engine supports <var>RETURNING</var>, then the returning mechanism is used to fetch field values after an update of the database. Setting this option will disable the use of <var>RETURNING</var> and will fetch updated or new values instead with the <a href="../sqldb/tsqlquery.refreshsql.html">TSQLQuery.RefreshSQL</a> property or a constructed refresh SQL statement. </dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tcustomsqlquery.applyupdates.html">TCustomSQLQuery.ApplyUpdates</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Apply updates and check result</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tcustomsqlquery.post.html">TCustomSQLQuery.Post</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Post pending changes and optionally apply updates</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tcustomsqlquery.delete.html">TCustomSQLQuery.Delete</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Delete and optionally apply updates </p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

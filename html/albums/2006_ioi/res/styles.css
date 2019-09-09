@@ -1,0 +1,121 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #AAAACC;
+	background-color: #000000;
+	margin-top: 0px;
+}
+
+html {
+	scrollbar-face-color:#555588;
+	scrollbar-highlight-color:#000000;
+	scrollbar-3dlight-color:#000000;
+	scrollbar-darkshadow-color:#000000;
+	scrollbar-shadow-color:#000000;
+	scrollbar-arrow-color:#AAAACC;
+	scrollbar-track-color:#000000;
+}
+
+a:link {
+	text-decoration: none;
+ 	color: #ff8800;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #ff8800;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.current {
+	font-weight: bold;
+	color: #AAAACC;
+	background-color: #555588;
+}
+
+.cthumb {
+	background-color: #aaaacc;
+	border: 0px;
+}
+
+.thumb {
+	background-color: #555588;
+	border: 0px;
+}
+
+.image { margin: 0px; border-width: 1px; border: 1px solid;}
+a:link .image { border-color: #aaaaaa; color: #aaaaaa;}
+a:visited .image { border-color: #666666; color: #666666;}
+a:hover .image { border-color: #ffffff; color: #ffffff;}
+
+.slideImage { border-width: 0px; border: 0px solid; border-color: #ffffff;}
+a:link .slideImage { border-color: #ffffff;}
+a:visited .slideImage { border-color: #ffffff;}
+
+.title {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.title a:link {
+	text-decoration: none;
+	color: #000000;
+}
+
+.title a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+
+.title a:hover {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.infotable {
+	border: 1px solid #555588;
+	border-collapse: collapse;
+}
+
+.infotable td {
+	border: 1px solid #555588;
+}
+
+.infotable table td {
+	border: 0px;
+}
+
+.dirname {
+	font-size: 12px;
+	font-weight: bold;
+	color: #AAAACC;
+}
+
+.comment {
+	color: #AAAACC;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.smalltxt {
+	color: #8888AA;
+	font-size: 11px;
+}
+
+.xsmalltxt {
+	color: #8888AA;
+	font-size: 9px;
+}
+
+.newlabel {
+	font-size: 8px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #ff8800;
+}

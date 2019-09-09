@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Set types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2421--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu17.html" >next</a>] [<a 
+href="refsu15.html" >prev</a>] [<a 
+href="refsu15.html#tailrefsu15.html" >prev-tail</a>] [<a 
+href="#tailrefsu16.html">tail</a>] [<a 
+href="refse14.html#refsu16.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.3.3   </span> <a 
+href="ref.html#QQ2-40-64" id="x40-580003.3.3">Set types</a></h4>
+<a 
+ id="dx40-58001"></a>
+<a 
+ id="dx40-58002"></a>
+<!--l. 2422--><p class="noindent" ><a name="keyword_set"></a> Free Pascal supports the set types as in Turbo Pascal. The prototype of a set declaration
+is:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Set Types</span><br 
+class="newline" /><BR/><img 
+src="ref44x.png" alt="--       -   -   -          ------------------------------------
+  set type set  of  ordinal type
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 2426--><p class="noindent" >Each of the elements of <span 
+class="cmtt-10">SetType </span>must be of type <span 
+class="cmtt-10">TargetType</span>. <span 
+class="cmtt-10">TargetType </span>can be any ordinal type
+with a range between <span 
+class="cmtt-10">0 </span>and <span 
+class="cmtt-10">255</span>. A set can contain at most <span 
+class="cmtt-10">255 </span>elements. The following are valid
+set declaration:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-85">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;Junk&#x00A0;=&#x00A0;Set&#x00A0;of&#x00A0;Char;
+&#x00A0;<br />&#x00A0;&#x00A0;Days&#x00A0;=&#x00A0;(Mon,&#x00A0;Tue,&#x00A0;Wed,&#x00A0;Thu,&#x00A0;Fri,&#x00A0;Sat,&#x00A0;Sun);
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;WorkDays&#x00A0;:&#x00A0;Set&#x00A0;of&#x00A0;days;
+</div>
+<!--l. 2437--><p class="nopar" >Given these declarations, the following assignment is legal:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-86">
+WorkDays&#x00A0;:=&#x00A0;[Mon,&#x00A0;Tue,&#x00A0;Wed,&#x00A0;Thu,&#x00A0;Fri];
+</div>
+<!--l. 2441--><p class="nopar" >
+<!--l. 2443--><p class="noindent" >The compiler stores small sets (less than 32 elements) in a Longint, if the type range allows it. This
+allows for faster processing and decreases program size. Otherwise, sets are stored in 32
+bytes.
+<!--l. 2447--><p class="noindent" >Several operations can be done on sets: taking unions or differences, adding or removing elements,
+comparisons. These are documented in section <a 
+href="refsu49.html#x152-17400012.8.5">12.8.5<!--tex4ht:ref: se:setoperators --></a>, page <a 
+href="refsu49.html#x152-17400012.8.5">584<!--tex4ht:ref: se:setoperators --></a>
+                                                                            
+
+                                                                            
+<!--l. 2453--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu17.html" >next</a>] [<a 
+href="refsu15.html" >prev</a>] [<a 
+href="refsu15.html#tailrefsu15.html" >prev-tail</a>] [<a 
+href="refsu16.html" >front</a>] [<a 
+href="refse14.html#refsu16.html" >up</a>] </p></div>
+<!--l. 2453--><p class="noindent" ><a 
+ id="tailrefsu16.html"></a>  
+</body></html> 

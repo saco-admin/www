@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Continue</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Continue</h1>
+<p>Continue with next loop cycle.</p>
+<h2>Declaration</h2>
+<p>Source position: system.fpd line 37</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> Continue<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Continue</var> jumps to the end of the current repetitive statement. The code between the <var>Continue</var> call and the end of the repetitive statement is skipped. The condition of the repetitive statement is then checked again. </p>
+<p>This can be used with <var>For</var>, <var>repeat</var> and <var>While</var> statements. </p>
+<p>Note that while this is a procedure, <var>Continue</var> is a compiler intrinsic (i.e. is treated specially) and hence cannot be redefined. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/break.html">Break</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Exit current loop construct.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/exit.html">Exit</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Exit current subroutine.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example86<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Continue function. }</span>
+
+<span class="kw">Var</span> I <span class="sym">:</span> longint<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  I<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  <span class="kw">While</span> I<span class="sym">&lt;</span><span class="num">10</span> <span class="kw">Do</span>
+    <span class="kw">begin</span>
+    Inc<span class="sym">(</span>I<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> I<span class="sym">&lt;</span><span class="num">5</span> <span class="kw">Then</span>
+      Continue<span class="sym">;</span>
+    Writeln <span class="sym">(</span>i<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  I<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  <span class="kw">Repeat</span>
+    Inc<span class="sym">(</span>I<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> I<span class="sym">&lt;</span><span class="num">5</span> <span class="kw">Then</span>
+      Continue<span class="sym">;</span>
+    Writeln <span class="sym">(</span>i<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">Until</span> I<span class="sym">&gt;</span><span class="sym">=</span><span class="num">10</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    <span class="kw">If</span> I<span class="sym">&lt;</span><span class="num">5</span> <span class="kw">Then</span>
+      Continue<span class="sym">;</span>
+    Writeln <span class="sym">(</span>i<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

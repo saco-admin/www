@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Building a command line dialog box</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1583--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu65.html" >prev</a>] [<a 
+href="usersu65.html#tailusersu65.html" >prev-tail</a>] [<a 
+href="#tailusersu66.html">tail</a>] [<a 
+href="userse28.html#usersu66.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.10.7   </span> <a 
+href="user.html#QQ2-102-134" id="x102-1090006.10.7">Building a command line dialog box</a></h4>
+<!--l. 1585--><p class="noindent" >When defining a tool, it is possible to show a dialog to the user, asking for additional arguments,
+using the <span 
+class="cmtt-10">$PROMPT(filename) </span>command-macro. The Free Pascal distribution contains some
+ready-made dialogs, such as a &#8217;grep&#8217; dialog, a &#8217;cvs checkout&#8217; dialog and a &#8217;cvs check in&#8217;
+dialog. The files for these dialogs are in the binary directory and have an extension
+<span 
+class="cmss-10">.tdf</span>.
+<!--l. 1591--><p class="noindent" >In this section, the file format for the dialog description file is explained. The format of this file
+resembles a windows <span 
+class="cmss-10">.INI </span>file, where each section in the file describes an element (or control) in the
+dialog. An <span 
+class="cmtt-10">OK </span>and a <span 
+class="cmtt-10">Cancel </span>button will be added to the bottom of the dialog, so these should not
+be specified in the dialog definition.
+<!--l. 1597--><p class="noindent" >A special section is the <span 
+class="cmtt-10">Main </span>section. It describes how the result of the dialog will be passed to the
+command line, and the total size of the dialog.
+<!--l. 1600--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Keywords that contain a string value should have the string value enclosed in double quotes as
+in
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-73">
+Title="Dialog&#x00A0;title"
+</div>
+<!--l. 1605--><p class="nopar" >
+<!--l. 1608--><p class="noindent" >The <span 
+class="cmtt-10">Main </span>section should contain the following keywords:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Title</span> </dt><dd 
+class="description">The title of the dialog. This will appear in the frame title of the dialog. The string
+     should be enclosed in quotes.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Size</span> </dt><dd 
+class="description">The size of the dialog, this is formatted as <span 
+class="cmtt-10">(Cols,Rows)</span>, so
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-74">
+     Size=(59,9)
+</div>
+     <!--l. 1615--><p class="nopar" >means the dialog is 59 characters wide, and 9 lines high. This size does not include the border
+     of the dialog.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">CommandLine</span> </dt><dd 
+class="description">specifies how the command line will be passed to the program, based on the
+     entries made in the dialog. The text typed here will be passed on after replacing some control
+     placeholders with their values.
+     <!--l. 1622--><p class="noindent" >A control placeholder is the name of some control in the dialog, enclosed in percent (<span 
+class="cmtt-10">%</span>)
+     characters. The name of the control will be replaced with the text associated with the
+     control. Consider the following example:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-75">
+     CommandLine="-n&#x00A0;%l%&#x00A0;%v%&#x00A0;%i%&#x00A0;%w%&#x00A0;%searchstr%&#x00A0;%filemask%"
+</div>
+     <!--l. 1627--><p class="nopar" >Here the values associated with the controls named <span 
+class="cmtt-10">l, v, i, w </span>and <span 
+class="cmtt-10">searchstr </span>and
+     <span 
+class="cmtt-10">filemask </span>will be inserted in the command line string.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Default</span> </dt><dd 
+class="description">The name of the control that is the default control, i.e. the control that is to have the
+     focus when the dialog is opened.</dd></dl>
+<!--l. 1635--><p class="noindent" >The following is an example of a valid main section:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-76">
+[Main]
+&#x00A0;<br />Title="GNU&#x00A0;Grep"
+&#x00A0;<br />Size=(56,9)
+&#x00A0;<br />CommandLine="-n&#x00A0;%l%&#x00A0;%v%&#x00A0;%i%&#x00A0;%w%&#x00A0;%searchstr%&#x00A0;%filemask%"
+&#x00A0;<br />Default="searchstr"
+</div>
+<!--l. 1642--><p class="nopar" >
+<!--l. 1644--><p class="noindent" >After the <span 
+class="cmtt-10">Main </span>section, a section must be specified for each control that should appear on
+the dialog. Each section has the name of the control it describes, as in the following
+example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-77">
+[CaseSensitive]
+&#x00A0;<br />Type=CheckBox
+&#x00A0;<br />Name="~C~ase&#x00A0;sensitive"
+&#x00A0;<br />Origin=(2,6)
+&#x00A0;<br />Size=(25,1)
+&#x00A0;<br />Default=On
+&#x00A0;<br />On="-i"
+</div>
+<!--l. 1655--><p class="nopar" >Each control section must have at least the following keywords associated with it:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Type</span> </dt><dd 
+class="description">The type of control. Possible values are:
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">Label</span> </dt><dd 
+class="description">A plain text label which will be shown on the dialog. A control can be linked
+         to this label, so it will be focused when the user presses the highlighted letter in
+         the label caption (if any).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">InputLine</span> </dt><dd 
+class="description">An edit field where a text can be entered.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">CheckBox</span> </dt><dd 
+class="description">A checkbox which can be in an on or off state.</dd></dl>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Origin</span> </dt><dd 
+class="description">Specifies where the control should be located in the dialog. The origin is specified as
+     <span 
+class="cmtt-10">(left,top) </span>and the top-left corner of the dialog has coordinate <span 
+class="cmtt-10">(1,1) </span>(not counting the
+     frame).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Size</span> </dt><dd 
+class="description">Specifies the size of the control, which should be specified as <span 
+class="cmtt-10">(Cols,Rows)</span>.</dd></dl>
+<!--l. 1674--><p class="noindent" >Each control has some specific keywords associated with it; they will be described below.
+<!--l. 1677--><p class="noindent" >A label (<span 
+class="cmtt-10">Type=Label</span>) has the following extra keywords associated with it:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Text</span> </dt><dd 
+class="description">the text displayed in the label. If one of the letters should be highlighted so it
+     can be used as a shortcut, then it should be enclosed in tilde characters (&#x02DC;). E.g.
+     in
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-78">
+     Text="~T~ext&#x00A0;to&#x00A0;find"
+</div>
+     <!--l. 1685--><p class="nopar" >the <span 
+class="cmtt-10">T </span>will be highlighted.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Link</span> </dt><dd 
+class="description">The name of a control in the dialog may be specified. If specified, pressing the label&#8217;s
+     highlighted letter in combination with the <span 
+class="cmcsc-10">A<span 
+class="small-caps">l</span><span 
+class="small-caps">t</span> </span>key will put the focus on the control specified
+     here.</dd></dl>
+<!--l. 1691--><p class="noindent" >A label does not contribute to the text of the command line; it is for informational and
+navigational purposes only. The following is an example of a label description section:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-79">
+[label2]
+&#x00A0;<br />Type=Label
+&#x00A0;<br />Origin=(2,3)
+&#x00A0;<br />Size=(22,1)
+&#x00A0;<br />Text="File&#x00A0;~m~ask"
+&#x00A0;<br />Link="filemask"
+</div>
+<!--l. 1701--><p class="nopar" >
+<!--l. 1703--><p class="noindent" >An edit control (<span 
+class="cmtt-10">Type=InputLine</span>) allows entry of arbitrary text. The text of the edit control will
+be pasted in the command line if it is referenced there. The following keyword can be specified in a
+inputline control section:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Value</span> </dt><dd 
+class="description">A standard value (text) for the edit control can be specified. This value will be filled
+     in when the dialog appears.</dd></dl>
+<!--l. 1711--><p class="noindent" >The following is an example of an input line section:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-80">
+[filemask]
+&#x00A0;<br />Type=InputLine
+&#x00A0;<br />Origin=(2,4)
+&#x00A0;<br />Size=(22,1)
+&#x00A0;<br />Value="*.pas&#x00A0;*.pp&#x00A0;*.inc"
+</div>
+<!--l. 1718--><p class="nopar" >
+<!--l. 1720--><p class="noindent" >A checkbox control (<span 
+class="cmtt-10">Type=CheckBox</span>) presents a checkbox which can be in one of two
+states, <span 
+class="cmtt-10">on </span>or <span 
+class="cmtt-10">off</span>. With each of these states, a value can be associated which will be
+passed on to the command line. The following keywords can appear in a checkbox type
+section:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Name</span> </dt><dd 
+class="description">The text that appears after the checkbox. If there is a highlighted letter in it, this
+     letter can be used to set or unset the checkbox using the <span 
+class="cmcsc-10">A<span 
+class="small-caps">l</span><span 
+class="small-caps">t</span></span>-letter combination.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Default</span> </dt><dd 
+class="description">Specifies whether the checkbox is checked or not when the dialog appears (value
+     <span 
+class="cmtt-10">on </span>or <span 
+class="cmtt-10">off</span>).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">On</span> </dt><dd 
+class="description">The text associated with this checkbox if it is in the checked state.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Off</span> </dt><dd 
+class="description">The text associated with this checkbox if it is in the unchecked state.</dd></dl>
+<!--l. 1736--><p class="noindent" >The following is an example of a valid checkbox description:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-81">
+[i]
+&#x00A0;<br />Type=CheckBox
+&#x00A0;<br />Name="~C~ase&#x00A0;sensitive"
+&#x00A0;<br />Origin=(2,6)
+&#x00A0;<br />Size=(25,1)
+&#x00A0;<br />Default=On
+&#x00A0;<br />On="-i"
+</div>
+<!--l. 1745--><p class="nopar" >If the checkbox is checked, then the value <span 
+class="cmtt-10">-i </span>will be added on the command line of the tool. If it is
+unchecked, no value will be added.
+                                                                            
+
+                                                                            
+<!--l. 1751--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu65.html" >prev</a>] [<a 
+href="usersu65.html#tailusersu65.html" >prev-tail</a>] [<a 
+href="usersu66.html" >front</a>] [<a 
+href="userse28.html#usersu66.html" >up</a>] </p></div>
+<!--l. 1751--><p class="noindent" ><a 
+ id="tailusersu66.html"></a>  
+</body></html> 

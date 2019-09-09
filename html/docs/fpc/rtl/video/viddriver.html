@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Writing a custom video driver</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../video/vidutil.html">Previous</a>][<a href="../video/index.html">Up</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'video' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>Writing a custom video driver</h2>
+<p>Writing a custom video driver is not difficult, and generally means implementing a couple of functions, which whould be registered with the <a href="../video/setvideodriver.html">SetVideoDriver</a> function. The various functions that can be implemented are located in the <a href="../video/tvideodriver.html">TVideoDriver</a> record: </p>
+<pre>TVideoDriver <span class="sym">=</span> <span class="kw">Record</span>
+  InitDriver        <span class="sym">:</span> <span class="kw">Procedure</span><span class="sym">;</span>
+  DoneDriver        <span class="sym">:</span> <span class="kw">Procedure</span><span class="sym">;</span>
+  UpdateScreen      <span class="sym">:</span> <span class="kw">Procedure</span><span class="sym">(</span>Force <span class="sym">:</span> Boolean<span class="sym">)</span><span class="sym">;</span>
+  ClearScreen       <span class="sym">:</span> <span class="kw">Procedure</span><span class="sym">;</span>
+  SetVideoMode      <span class="sym">:</span> <span class="kw">Function</span> <span class="sym">(</span><span class="kw">Const</span> Mode <span class="sym">:</span> TVideoMode<span class="sym">)</span> <span class="sym">:</span> Boolean<span class="sym">;</span>
+  GetVideoModeCount <span class="sym">:</span> <span class="kw">Function</span> <span class="sym">:</span> Word<span class="sym">;</span>
+  GetVideoModeData  <span class="sym">:</span> <span class="kw">Function</span><span class="sym">(</span>Index <span class="sym">:</span> Word<span class="sym">;</span> <span class="kw">Var</span> Data <span class="sym">:</span> TVideoMode<span class="sym">)</span> <span class="sym">:</span> Boolean<span class="sym">;</span>
+  SetCursorPos      <span class="sym">:</span> <span class="kw">procedure</span> <span class="sym">(</span>NewCursorX<span class="sym">,</span> NewCursorY<span class="sym">:</span> Word<span class="sym">)</span><span class="sym">;</span>
+  GetCursorType     <span class="sym">:</span> <span class="kw">function</span> <span class="sym">:</span> Word<span class="sym">;</span>
+  SetCursorType     <span class="sym">:</span> <span class="kw">procedure</span> <span class="sym">(</span>NewType<span class="sym">:</span> Word<span class="sym">)</span><span class="sym">;</span>
+  GetCapabilities   <span class="sym">:</span> <span class="kw">Function</span> <span class="sym">:</span> Word<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>Not all of these functions must be implemented. In fact, the only absolutely necessary function to write a functioning driver is the <var>UpdateScreen</var>  function. The general calls in the <span class="file">Video</span> unit will check which functionality is implemented by the driver. </p>
+<p>The functionality of these calls is the same as the functionality of the calls in the video unit, so the expected behaviour can be found in the previous section. Some of the calls, however, need some additional remarks. </p>
+<dl>
+<dt>InitDriver</dt>
+<dd>Called by <var>InitVideo</var>, this function should initialize  any data structures needed for the functionality of the driver, maybe do some  screen initializations. The function is guaranteed to be called only once; It  can only be called again after a call to <var>DoneVideo</var>. The variables <var>ScreenWidth</var> and <var>ScreenHeight</var> should be initialized correctly after a call to this function, as the <var>InitVideo</var> call will initialize the <var>VideoBuf</var> and <var>OldVideoBuf</var> arrays based on their values. </dd>
+<dt>DoneDriver</dt>
+<dd>This should clean up any structures that have been initialized in the <var>InitDriver</var> function. It should possibly also restore the screen as it was before the driver was initialized. The VideoBuf and <var>OldVideoBuf</var> arrays will be disposed of by the general <var>DoneVideo</var> call. </dd>
+<dt>UpdateScreen</dt>
+<dd>This is the only required function of the driver. It should update the screen based on the <var>VideoBuf</var> array's contents. It can optimize this process by comparing the values with values in the <var>OldVideoBuf</var> array. After updating the screen, the <var>UpdateScreen</var> procedure should update the <var>OldVideoBuf</var> by itself. If the <var>Force</var> parameter is <var>True</var>, the whole screen should be updated, not just the changed values. </dd>
+<dt>ClearScreen</dt>
+<dd>If there is a faster way to clear the screen than to write spaces in all character cells, then it can be implemented here. If the driver does not implement this function, then the general routines will write spaces in all video cells, and will call <var>UpdateScreen(True)</var>. </dd>
+<dt>SetVideoMode</dt>
+<dd>Should set the desired video mode, if available. It should return <var>True</var> if the mode was set, <var>False</var> if not. </dd>
+<dt>GetVideoModeCount</dt>
+<dd>Should return the number of supported video modes. If no modes are supported, this function should not be implemented; the general routines will return 1. (for the current mode) </dd>
+<dt>GetVideoModeData</dt>
+<dd>Should return the data for the <var>Index</var>-th mode; <var>Index</var> is zero based. The function should return true if the data was returned correctly, false if <var>Index</var> contains an invalid index. If this is not implemented, then the general routine will return the current  video mode when <var>Index</var> equals 0. </dd>
+<dt>GetCapabilities</dt>
+<dd>If this function is not implemented, zero (i.e. no capabilities) will be returned by the general function. </dd>
+</dl>
+<p>The following unit shows how to override a video driver, with a driver that writes debug information to a file. The unit can be used in any of the demonstration programs, by simply including it in the <var>uses</var> clause. Setting <var>DetailedVideoLogging</var> to <var>True</var> will create a more detailed log (but will also slow down functioning) </p>
+<h2>Example</h2>
+<pre><span class="kw">unit</span> viddbg<span class="sym">;</span>
+
+<span class="kw">Interface</span>
+
+<span class="kw">uses</span> video<span class="sym">;</span>
+
+
+<span class="kw">Procedure</span> StartVideoLogging<span class="sym">;</span>
+<span class="kw">Procedure</span> StopVideoLogging<span class="sym">;</span>
+<span class="kw">Function</span>  IsVideoLogging <span class="sym">:</span> Boolean<span class="sym">;</span>
+<span class="kw">Procedure</span>  SetVideoLogFileName<span class="sym">(</span>FileName <span class="sym">:</span> String<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Const</span>
+  DetailedVideoLogging <span class="sym">:</span> Boolean <span class="sym">=</span> False<span class="sym">;</span>
+
+<span class="kw">Implementation</span>
+
+<span class="kw">uses</span> sysutils<span class="sym">,</span>keyboard<span class="sym">;</span>
+
+<span class="kw">var</span>
+  NewVideoDriver<span class="sym">,</span>
+  OldVideoDriver <span class="sym">:</span> TVideoDriver<span class="sym">;</span>
+  Active<span class="sym">,</span>Logging <span class="sym">:</span> Boolean<span class="sym">;</span>
+  LogFileName <span class="sym">:</span> String<span class="sym">;</span>
+  VideoLog <span class="sym">:</span> Text<span class="sym">;</span>
+
+<span class="kw">Function</span> TimeStamp <span class="sym">:</span> String<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  TimeStamp<span class="sym">:=</span>FormatDateTime<span class="sym">(</span><span class="str">'hh:nn:ss'</span><span class="sym">,</span>Time<span class="sym">(</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> StartVideoLogging<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Logging<span class="sym">:=</span>True<span class="sym">;</span>
+  Writeln<span class="sym">(</span>VideoLog<span class="sym">,</span><span class="str">'Start logging video operations at: '</span><span class="sym">,</span>TimeStamp<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> StopVideoLogging<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Writeln<span class="sym">(</span>VideoLog<span class="sym">,</span><span class="str">'Stop logging video operations at: '</span><span class="sym">,</span>TimeStamp<span class="sym">)</span><span class="sym">;</span>
+  Logging<span class="sym">:=</span>False<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Function</span> IsVideoLogging <span class="sym">:</span> Boolean<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  IsVideoLogging<span class="sym">:=</span>Logging<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  ColUpd<span class="sym">,</span>RowUpd <span class="sym">:</span> <span class="kw">Array</span><span class="sym">[</span><span class="num">0</span><span class="sym">.</span><span class="sym">.</span><span class="num">1024</span><span class="sym">]</span> <span class="kw">of</span> Integer<span class="sym">;</span>
+
+<span class="kw">Procedure</span> DumpScreenStatistics<span class="sym">(</span>Force <span class="sym">:</span> Boolean<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  I<span class="sym">,</span>Count <span class="sym">:</span> Integer<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">If</span> Force <span class="kw">then</span>
+    Write<span class="sym">(</span>VideoLog<span class="sym">,</span><span class="str">'forced '</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>VideoLog<span class="sym">,</span><span class="str">'video update at '</span><span class="sym">,</span>TimeStamp<span class="sym">,</span><span class="str">' : '</span><span class="sym">)</span><span class="sym">;</span>
+  FillChar<span class="sym">(</span>Colupd<span class="sym">,</span>SizeOf<span class="sym">(</span>ColUpd<span class="sym">)</span><span class="sym">,</span><span class="chr">#0</span><span class="sym">)</span><span class="sym">;</span>
+  FillChar<span class="sym">(</span>Rowupd<span class="sym">,</span>SizeOf<span class="sym">(</span>RowUpd<span class="sym">)</span><span class="sym">,</span><span class="chr">#0</span><span class="sym">)</span><span class="sym">;</span>
+  Count<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">0</span> to VideoBufSize <span class="kw">div</span> SizeOf<span class="sym">(</span>TVideoCell<span class="sym">)</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    <span class="kw">If</span> VideoBuf<span class="sym">^</span><span class="sym">[</span>i<span class="sym">]</span><span class="sym">&lt;</span><span class="sym">&gt;</span>OldVideoBuf<span class="sym">^</span><span class="sym">[</span>i<span class="sym">]</span> <span class="kw">then</span>
+      <span class="kw">begin</span>
+      Inc<span class="sym">(</span>Count<span class="sym">)</span><span class="sym">;</span>
+      Inc<span class="sym">(</span>ColUpd<span class="sym">[</span>I mod ScreenWidth<span class="sym">]</span><span class="sym">)</span><span class="sym">;</span>
+      Inc<span class="sym">(</span>RowUpd<span class="sym">[</span>I <span class="kw">div</span> ScreenHeight<span class="sym">]</span><span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">end</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  Write<span class="sym">(</span>VideoLog<span class="sym">,</span>Count<span class="sym">,</span><span class="str">' videocells differed divided over '</span><span class="sym">)</span><span class="sym">;</span>
+  Count<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">0</span> to ScreenWidth<span class="sym">-</span><span class="num">1</span> <span class="kw">do</span>
+    <span class="kw">If</span> ColUpd<span class="sym">[</span>I<span class="sym">]</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+      Inc<span class="sym">(</span>Count<span class="sym">)</span><span class="sym">;</span>
+  Write<span class="sym">(</span>VideoLog<span class="sym">,</span>Count<span class="sym">,</span><span class="str">' columns and '</span><span class="sym">)</span><span class="sym">;</span>
+  Count<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">0</span> to ScreenHeight<span class="sym">-</span><span class="num">1</span> <span class="kw">do</span>
+    <span class="kw">If</span> RowUpd<span class="sym">[</span>I<span class="sym">]</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+      Inc<span class="sym">(</span>Count<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>VideoLog<span class="sym">,</span>Count<span class="sym">,</span><span class="str">' rows.'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> DetailedVideoLogging <span class="kw">Then</span>
+   <span class="kw">begin</span>
+   <span class="kw">For</span> I<span class="sym">:=</span><span class="num">0</span> to ScreenWidth<span class="sym">-</span><span class="num">1</span> <span class="kw">do</span>
+     <span class="kw">If</span> <span class="sym">(</span>ColUpd<span class="sym">[</span>I<span class="sym">]</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span><span class="sym">)</span> <span class="kw">then</span>
+       Writeln<span class="sym">(</span>VideoLog<span class="sym">,</span><span class="str">'Col '</span><span class="sym">,</span>i<span class="sym">,</span><span class="str">' : '</span><span class="sym">,</span>ColUpd<span class="sym">[</span>I<span class="sym">]</span><span class="sym">:</span><span class="num">3</span><span class="sym">,</span><span class="str">' rows changed'</span><span class="sym">)</span><span class="sym">;</span>
+   <span class="kw">For</span> I<span class="sym">:=</span><span class="num">0</span> to ScreenHeight<span class="sym">-</span><span class="num">1</span> <span class="kw">do</span>
+     <span class="kw">If</span> <span class="sym">(</span>RowUpd<span class="sym">[</span>I<span class="sym">]</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span><span class="sym">)</span> <span class="kw">then</span>
+       Writeln<span class="sym">(</span>VideoLog<span class="sym">,</span><span class="str">'Row '</span><span class="sym">,</span>i<span class="sym">,</span><span class="str">' : '</span><span class="sym">,</span>RowUpd<span class="sym">[</span>I<span class="sym">]</span><span class="sym">:</span><span class="num">3</span><span class="sym">,</span><span class="str">' colums changed'</span><span class="sym">)</span><span class="sym">;</span>
+   <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> LogUpdateScreen<span class="sym">(</span>Force <span class="sym">:</span> Boolean<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">If</span> Logging <span class="kw">then</span>
+    DumpScreenStatistics<span class="sym">(</span>Force<span class="sym">)</span><span class="sym">;</span>
+  OldVideoDriver<span class="sym">.</span>UpdateScreen<span class="sym">(</span>Force<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> LogInitVideo<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  OldVideoDriver<span class="sym">.</span>InitDriver<span class="sym">(</span><span class="sym">)</span><span class="sym">;</span>
+  Assign<span class="sym">(</span>VideoLog<span class="sym">,</span>logFileName<span class="sym">)</span><span class="sym">;</span>
+  Rewrite<span class="sym">(</span>VideoLog<span class="sym">)</span><span class="sym">;</span>
+  Active<span class="sym">:=</span>True<span class="sym">;</span>
+  StartVideoLogging<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> LogDoneVideo<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  StopVideoLogging<span class="sym">;</span>
+  Close<span class="sym">(</span>VideoLog<span class="sym">)</span><span class="sym">;</span>
+  Active<span class="sym">:=</span>False<span class="sym">;</span>
+  OldVideoDriver<span class="sym">.</span>DoneDriver<span class="sym">(</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> SetVideoLogFileName<span class="sym">(</span>FileName <span class="sym">:</span> String<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">If</span> <span class="kw">Not</span> Active <span class="kw">then</span>
+    LogFileName<span class="sym">:=</span>FileName<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Initialization</span>
+  GetVideoDriver<span class="sym">(</span>OldVideoDriver<span class="sym">)</span><span class="sym">;</span>
+  NewVideoDriver<span class="sym">:=</span>OldVideoDriver<span class="sym">;</span>
+  NewVideoDriver<span class="sym">.</span>UpdateScreen<span class="sym">:=</span><span class="sym">@</span>LogUpdateScreen<span class="sym">;</span>
+  NewVideoDriver<span class="sym">.</span>InitDriver<span class="sym">:=</span><span class="sym">@</span>LogInitVideo<span class="sym">;</span>
+  NewVideoDriver<span class="sym">.</span>DoneDriver<span class="sym">:=</span><span class="sym">@</span>LogDoneVideo<span class="sym">;</span>
+  LogFileName<span class="sym">:=</span><span class="str">'Video.log'</span><span class="sym">;</span>
+  Logging<span class="sym">:=</span>False<span class="sym">;</span>
+  SetVideoDriver<span class="sym">(</span>NewVideoDriver<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

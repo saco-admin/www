@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>10 Debugging your programs</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 3259--><div class="crosslinks"><p class="noindent">[<a 
+href="userap1.html" >next</a>] [<a 
+href="userch9.html" >prev</a>] [<a 
+href="userch9.html#tailuserch9.html" >prev-tail</a>] [<a 
+href="#tailuserch10.html">tail</a>] [<a 
+href="user.html#userch10.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;10</span><br /><a 
+href="user.html#QQ2-163-221" id="x163-17000010">Debugging your programs</a></h2>
+<!--l. 3261--><p class="noindent" >Free Pascal supports debug information for the <span 
+class="cmcsc-10"><span 
+class="small-caps">g</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span> </span>debugger <span 
+class="cmtt-10">gdb</span>, or its derivatives <span 
+class="cmss-10">Insight </span>on
+win32 or <span 
+class="cmss-10">ddd </span>on <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span></span>. It can write 2 kinds of debug information:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">stabs</span> </dt><dd 
+class="description">The old debug information format.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">dwarf</span> </dt><dd 
+class="description">The new debug information format.</dd></dl>
+<!--l. 3268--><p class="noindent" >Both are understood by GDB.
+<!--l. 3270--><p class="noindent" >This chapter briefly describes how to use this feature. It doesn&#8217;t attempt to describe completely the
+<span 
+class="cmcsc-10"><span 
+class="small-caps">g</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span> </span>debugger, however. For more information on the workings of the <span 
+class="cmcsc-10"><span 
+class="small-caps">g</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span> </span>debugger, see the <span 
+class="cmtt-10">GDB</span>
+User Manual.
+<!--l. 3275--><p class="noindent" >Free Pascal also supports <span 
+class="cmtt-10">gprof</span>, the <span 
+class="cmcsc-10"><span 
+class="small-caps">g</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span> </span>profiler. See section <a 
+href="userse56.html#x167-17400010.4">10.4<!--tex4ht:ref: se:gprof --></a> for more information on
+profiling.
+<div class="sectionTOCS">
+&#x00A0;<span class="sectionToc" >10.1 <a 
+href="userse53.html#x164-17100010.1">Compiling your program with debugger support</a></span>
+<br />&#x00A0;<span class="sectionToc" >10.2 <a 
+href="userse54.html#x165-17200010.2">Using <span 
+class="cmtt-10">gdb </span>to debug your program</a></span>
+<br />&#x00A0;<span class="sectionToc" >10.3 <a 
+href="userse55.html#x166-17300010.3">Caveats when debugging with <span 
+class="cmtt-10">gdb</span></a></span>
+<br />&#x00A0;<span class="sectionToc" >10.4 <a 
+href="userse56.html#x167-17400010.4">Support for <span 
+class="cmtt-10">gprof</span>, the <span 
+class="cmcsc-10"><span 
+class="small-caps">g</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span> </span>profiler</a></span>
+<br />&#x00A0;<span class="sectionToc" >10.5 <a 
+href="userse57.html#x168-17500010.5">Detecting heap memory leaks</a></span>
+<br />&#x00A0;<span class="sectionToc" >10.6 <a 
+href="userse58.html#x169-17600010.6">Line numbers in run-time error backtraces</a></span>
+<br />&#x00A0;<span class="sectionToc" >10.7 <a 
+href="userse59.html#x170-17700010.7">Combining <span 
+class="cmss-10">heaptrc </span>and <span 
+class="cmss-10">lineinfo</span></a></span>
+</div>
+
+
+
+
+
+
+                                                                            
+
+                                                                            
+<!--l. 3590--><div class="crosslinks"><p class="noindent">[<a 
+href="userap1.html" >next</a>] [<a 
+href="userch9.html" >prev</a>] [<a 
+href="userch9.html#tailuserch9.html" >prev-tail</a>] [<a 
+href="userch10.html" >front</a>] [<a 
+href="user.html#userch10.html" >up</a>] </p></div>
+<!--l. 3590--><p class="noindent" ><a 
+ id="tailuserch10.html"></a>  
+</body></html> 

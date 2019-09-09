@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Things which are extra</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2064--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu84.html" >next</a>] [<a 
+href="usersu82.html" >prev</a>] [<a 
+href="usersu82.html#tailusersu82.html" >prev-tail</a>] [<a 
+href="#tailusersu83.html">tail</a>] [<a 
+href="userse34.html#usersu83.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">7.2.2   </span> <a 
+href="user.html#QQ2-126-182" id="x126-1330007.2.2">Things which are extra</a></h4>
+<!--l. 2065--><p class="noindent" >Here we give a list of things which are possible in Free Pascal, but which didn&#8217;t exist in Turbo
+Pascal or Delphi.
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x126-133002x1">Free Pascal functions can also return complex types, such as records and arrays.
+     </li>
+     <li 
+  class="enumerate" id="x126-133004x2">In Free Pascal, you can use the function return value in the function itself, as a variable. For
+     example:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-85">
+     function&#x00A0;a&#x00A0;:&#x00A0;longint;
+     &#x00A0;<br />
+     &#x00A0;<br />begin
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;a:=12;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;while&#x00A0;a&#x003E;4&#x00A0;do
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;begin
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{...}
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+     &#x00A0;<br />end;
+</div>
+     <!--l. 2081--><p class="nopar" >The example above would work with TP, but the compiler would assume that the <span 
+class="cmtt-10">a&#x003E;4 </span>is a
+     recursive call. If a recursive call is actually what is desired, you must append <span 
+class="cmtt-10">() </span>after the
+     function name:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-86">
+     function&#x00A0;a&#x00A0;:&#x00A0;longint;
+     &#x00A0;<br />
+     &#x00A0;<br />begin
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;a:=12;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;{&#x00A0;this&#x00A0;is&#x00A0;the&#x00A0;recursive&#x00A0;call&#x00A0;}
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;if&#x00A0;a()&#x003E;4&#x00A0;then
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;begin
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{...}
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+     &#x00A0;<br />end;
+</div>
+     <!--l. 2096--><p class="nopar" >
+     </li>
+     <li 
+  class="enumerate" id="x126-133006x3">In Free Pascal, there is partial support of Delphi constructs. (See the <a 
+href="../prog/prog.html" >Programmer&#8217;s Guide</a> for
+     more information on this).
+     </li>
+     <li 
+  class="enumerate" id="x126-133008x4">The Free Pascal <span 
+class="cmtt-10">exit </span>call accepts a return value for functions.
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-87">
+     function&#x00A0;a&#x00A0;:&#x00A0;longint;
+     &#x00A0;<br />
+     &#x00A0;<br />begin
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;a:=12;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;if&#x00A0;a&#x003E;4&#x00A0;then
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;begin
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;exit(a*67);&#x00A0;{function&#x00A0;result&#x00A0;upon&#x00A0;exit&#x00A0;is&#x00A0;a*67&#x00A0;}
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+     &#x00A0;<br />end;
+</div>
+     <!--l. 2110--><p class="nopar" >
+     </li>
+     <li 
+  class="enumerate" id="x126-133010x5">Free Pascal supports function overloading. That is, you can define many functions with the
+     same name, but with different arguments. For example:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-88">
+     procedure&#x00A0;DoSomething&#x00A0;(a&#x00A0;:&#x00A0;longint);
+     &#x00A0;<br />begin
+     &#x00A0;<br />{...}
+     &#x00A0;<br />end;
+     &#x00A0;<br />
+     &#x00A0;<br />procedure&#x00A0;DoSomething&#x00A0;(a&#x00A0;:&#x00A0;real);
+     &#x00A0;<br />begin
+     &#x00A0;<br />{...}
+     &#x00A0;<br />end;
+</div>
+     <!--l. 2123--><p class="nopar" >You can then call procedure <span 
+class="cmtt-10">DoSomething </span>with an argument of type <span 
+class="cmtt-10">Longint </span>or
+     <span 
+class="cmtt-10">Real</span>.<br 
+class="newline" />This feature has the consequence that a previously declared function must always be defined
+     with the header completely the same:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-89">
+     procedure&#x00A0;x&#x00A0;(v&#x00A0;:&#x00A0;longint);&#x00A0;forward;
+     &#x00A0;<br />
+     &#x00A0;<br />{...}
+     &#x00A0;<br />
+     &#x00A0;<br />procedure&#x00A0;x;{&#x00A0;This&#x00A0;will&#x00A0;overload&#x00A0;the&#x00A0;previously&#x00A0;declared&#x00A0;x}
+     &#x00A0;<br />begin
+     &#x00A0;<br />{...}
+     &#x00A0;<br />end;
+</div>
+     <!--l. 2137--><p class="nopar" >This construction will generate a compiler error, because the compiler didn&#8217;t find a definition
+     of <span 
+class="cmtt-10">procedure x (v : longint);</span>. Instead you should define your procedure x
+     as:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-90">
+     procedure&#x00A0;x&#x00A0;(v&#x00A0;:&#x00A0;longint);
+     &#x00A0;<br />{&#x00A0;This&#x00A0;correctly&#x00A0;defines&#x00A0;the&#x00A0;previously&#x00A0;declared&#x00A0;x}
+     &#x00A0;<br />begin
+     &#x00A0;<br />{...}
+     &#x00A0;<br />end;
+</div>
+     <!--l. 2147--><p class="nopar" >The command line option <span 
+class="cmtt-10">-So </span>(see page <a 
+href="usersu16.html#x39-460005.1.5">122<!--tex4ht:ref: option:So --></a>) disables overloading. When you use it, the
+     above will compile, as in Turbo Pascal.
+     </li>
+     <li 
+  class="enumerate" id="x126-133012x6">Operator overloading. Free Pascal allows operator overloading, e.g. you can define the &#8217;+&#8217;
+     operator for matrices.
+     </li>
+     <li 
+  class="enumerate" id="x126-133014x7">On FAT16 and FAT32 systems, long file names are supported.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 2157--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu84.html" >next</a>] [<a 
+href="usersu82.html" >prev</a>] [<a 
+href="usersu82.html#tailusersu82.html" >prev-tail</a>] [<a 
+href="usersu83.html" >front</a>] [<a 
+href="userse34.html#usersu83.html" >up</a>] </p></div>
+<!--l. 2157--><p class="noindent" ><a 
+ id="tailusersu83.html"></a>  
+</body></html> 

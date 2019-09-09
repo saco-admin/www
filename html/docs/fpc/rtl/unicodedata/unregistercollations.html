@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>UnregisterCollations</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unicodedata/index.html">Overview</a>][<a href="../unicodedata/index-1.html">Resource strings</a>][<a href="../unicodedata/index-2.html">Constants</a>][<a href="../unicodedata/index-3.html">Types</a>][<a href="../unicodedata/index-5.html">Procedures and functions</a>][<a href="../unicodedata/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'unicodedata' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>UnregisterCollations</h1>
+<p>Unregister all collations.</p>
+<h2>Declaration</h2>
+<p>Source position: unicodedata.pas line 421</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> UnregisterCollations<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AFreeDynamicCollations<span class="sym">: </span>Boolean</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AFreeDynamicCollations</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should dynamic collations be freed from memory ?</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>UnregisterCollations</var> unregisters all known collations.  If <var>AFreeDynamicCollations</var> is <var>True</var>, then dynamic collations will be removed from memory  using <a href="../unicodedata/freecollation.html">FreeCollation</a>. This must normally be set to <var>true</var>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../unicodedata/registercollation.html">RegisterCollation</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Register a new collation</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unicodedata/unregistercollation.html">UnRegisterCollation</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Remove a collation from the list of known collections.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unicodedata/loadcollation.html">LoadCollation</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Load a binary collation data file from file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unicodedata/freecollation.html">FreeCollation</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Free collation data.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

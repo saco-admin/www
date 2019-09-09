@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSortedCollection.Compare</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../objects/index.html">Overview</a>][<a href="../objects/index-2.html">Constants</a>][<a href="../objects/index-3.html">Types</a>][<a href="../objects/index-4.html">Classes</a>][<a href="../objects/index-5.html">Procedures and functions</a>][<a href="../objects/index-6.html">Variables</a>][<a href="../objects/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Objects' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TSortedCollection.Compare</h1>
+<p>Compare two items in the collection.</p>
+<h2>Declaration</h2>
+<p>Source position: objects.pp line 441</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code">  <span class="kw">function</span> <a href="../objects/tsortedcollection.html">TSortedCollection</a><span class="sym">.</span>Compare<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Key1<span class="sym">: </span>Pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Key2<span class="sym">: </span>Pointer</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../objects/sw_integer.html">Sw_Integer</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Compare</var> is an abstract method that should be overridden by descendent objects in order to compare two items in the collection. This method is used in the <a href="../objects/tsortedcollection.search.html">Search</a> method and in the <a href="../objects/tsortedcollection.insert.html">Insert</a> method to determine the ordering of the objects. </p>
+<p>The function should compare the two keys of items and return the following function results: </p>
+<dl>
+<dt>Result &lt; 0</dt>
+<dd>If <var>Key1</var> is logically before <var>Key2</var> (<var>Key1&lt;Key2</var>)</dd>
+<dt>Result = 0</dt>
+<dd>If <var>Key1</var> and <var>Key2</var> are equal. (<var>Key1=Key2</var>)</dd>
+<dt>Result &gt; 0</dt>
+<dd>If <var>Key1</var> is logically after <var>Key2</var> (<var>Key1&gt;Key2</var>)</dd>
+</dl>
+<h2>Errors</h2>
+<p>An 'abstract run-time error' will be generated if you call <var>TSortedCollection.Compare</var> directly. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../objects/tsortedcollection.indexof.html">TSortedCollection.IndexOf</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return index of an item in the collection.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../objects/tsortedcollection.search.html">TSortedCollection.Search</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for item with given key.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Unit</span> MySortC<span class="sym">;</span>
+
+<span class="kw">Interface</span>
+
+<span class="kw">Uses</span> Objects<span class="sym">;</span>
+
+<span class="kw">Type</span>
+  PMySortedCollection <span class="sym">=</span> <span class="sym">^</span>TMySortedCollection<span class="sym">;</span>
+  TMySortedCollection <span class="sym">=</span> <span class="kw">Object</span><span class="sym">(</span>TSortedCollection<span class="sym">)</span>
+       <span class="kw">Function</span> Compare <span class="sym">(</span>Key1<span class="sym">,</span>Key2 <span class="sym">:</span> Pointer<span class="sym">)</span><span class="sym">:</span> Sw_integer<span class="sym">;</span> <span class="kw">virtual</span><span class="sym">;</span>
+       <span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Implementation</span>
+
+<span class="kw">Uses</span> MyObject<span class="sym">;</span>
+
+<span class="kw">Function</span> TMySortedCollection<span class="sym">.</span>Compare <span class="sym">(</span>Key1<span class="sym">,</span>Key2 <span class="sym">:</span> Pointer<span class="sym">)</span> <span class="sym">:</span>sw_integer<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Compare<span class="sym">:=</span>PMyobject<span class="sym">(</span>Key1<span class="sym">)</span><span class="sym">^</span><span class="sym">.</span>GetField <span class="sym">-</span> PMyObject<span class="sym">(</span>Key2<span class="sym">)</span><span class="sym">^</span><span class="sym">.</span>GetField<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

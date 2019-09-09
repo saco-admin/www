@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>DefaultFileSystemCodePage</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>DefaultFileSystemCodePage</h1>
+<p>Codepage to use for filenames</p>
+<h2>Declaration</h2>
+<p>Source position: systemh.inc line 689</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">var</span> DefaultFileSystemCodePage<span class="sym">: </span><a href="../system/tsystemcodepage.html">TSystemCodePage</a> <span class="sym">=</span> <span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>DefaultFileSystemCodePage</var> determines the code page to which file/path names are translated before they are passed to OS API calls, if the RTL uses a single byte OS API for this purpose on the  current platform.  </p>
+<p>This code page is also used for intermediate operations on file paths inside the RTL before making OS API calls.</p>
+<p>This variable does not exist in Delphi, and has  been introduced in FPC to make it possible to change  the value of <var>DefaultSystemCodePage</var> without breaking RTL interfaces with the OS file system API calls. </p>
+<p>The initiali value of this variable depends on the platform: </p>
+<ul>
+<li>Windows: UTF-8, because the RTL uses UTF-16 OS API calls (so no data is lost in intermediate operations).</li>
+<li>OS X and iOS: UTF-8 (as defined by Apple)</li>
+<li>Unix (excluding OS X and iOS): equals <a href="../system/defaultsystemcodepage.html">DefaultSystemCodePage</a>. This is because the encoding of file names is undefined on Unix platforms: it is an untyped array of bytes that can be interpreted in any way; Specifically, it is  not guaranteed to be valid UTF-8.</li>
+<li>Other platforms: same as <a href="../system/defaultsystemcodepage.html">DefaultSystemCodePage</a>.</li>
+</ul>
+<p>The value of this variable may be changed using the <a href="../system/setmultibytefilesystemcodepage.html">SetMultiByteFileSystemCodePage</a> procedure. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>The Unix/OS X/iOS settings only apply in case the cwstring widestring manager is installed, otherwise <var>DefaultFileSystemCodePage</var> will have the same value as DefaultSystemCodePage after program startup.  </td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/defaultsystemcodepage.html">DefaultSystemCodePage</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Current system codepage.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/defaultrtlfilesystemcodepage.html">DefaultRTLFileSystemCodePage</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Code page in which to return system-returned filenames</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/setmultibytefilesystemcodepage.html">SetMultiByteFileSystemCodePage</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set codepage used when passing strings to OS single-byte filesystem APIs</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

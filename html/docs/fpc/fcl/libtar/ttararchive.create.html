@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TTarArchive.Create</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../libtar/index.html">Overview</a>][<a href="../libtar/index-2.html">Constants</a>][<a href="../libtar/index-3.html">Types</a>][<a href="../libtar/index-4.html">Classes</a>][<a href="../libtar/index-5.html">Procedures and functions</a>][<a href="../libtar/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'libtar' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TTarArchive.Create</h1>
+<p>Create a new instance of the archive</p>
+<h2>Declaration</h2>
+<p>Source position: libtar.pp line 164</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">constructor</span> <a href="../libtar/ttararchive.html">TTarArchive</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Stream<span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">constructor</span> <a href="../libtar/ttararchive.html">TTarArchive</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Filename<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;FileMode<span class="sym">: </span><a href="../../rtl/system/word.html">Word</a> <span class="sym">=</span> fmOpenRead <span class="kw">or</span> fmShareDenyWrite</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Stream</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Stream to read archive from</p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Filename</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Filename to open and read archive from</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">FileMode</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Filemode to open file with.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Create</var> can be used to create a new instance of <var>TTarArchive</var> using either a <var>Stream</var><a href="../../rtl/classes/tstream.html">TStream</a> descendent or using a name of a file to open: <var>FileName</var>. In case of the filename, an open mode can be specified. </p>
+<h2>Errors</h2>
+<p>In case a filename is specified and the file cannot be opened, an exception will occur. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../libtar/ttararchive.findnext.html">FindNext</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find next archive entry</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

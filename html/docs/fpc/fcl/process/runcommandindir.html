@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>RunCommandIndir</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../process/index.html">Overview</a>][<a href="../process/index-3.html">Types</a>][<a href="../process/index-4.html">Classes</a>][<a href="../process/index-5.html">Procedures and functions</a>][<a href="../process/index-6.html">Variables</a>][<a href="../process/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'process' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>RunCommandIndir</h1>
+<p>Run a command in a specific directory.</p>
+<h2>Declaration</h2>
+<p>Source position: process.pp line 176</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> RunCommandIndir<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>curdir<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>exename<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>commands<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>outputstring<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>exitstatus<span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Options<span class="sym">: </span><a href="../process/tprocessoptions.html">TProcessOptions</a> <span class="sym">=</span> <span class="sym">[</span><span class="sym">]</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span><br><br><span class="kw">function</span> RunCommandIndir<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>curdir<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>exename<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>commands<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>outputstring<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Options<span class="sym">: </span><a href="../process/tprocessoptions.html">TProcessOptions</a> <span class="sym">=</span> <span class="sym">[</span><span class="sym">]</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><br><br><span class="kw">function</span> RunCommandInDir<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>curdir<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>cmdline<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>outputstring<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">curdir</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Current working directory for the command.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">exename</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Executable to start.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">commands</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Command-line arguments for the executable.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">outputstring</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String to return the commands output.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">exitstatus</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">On exit, contains the exit status of the process</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Options</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Options to use when running the command</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>True if the command was started succesfully (or zero in case of an integer return value).</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">curdir</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Current working directory for the command.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">exename</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Executable to start.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">commands</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Command-line arguments for the executable.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">outputstring</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String to return the commands output.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Options</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Options to use when running the command</p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">curdir</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Current working directory for the command.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">cmdline</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Filename of binary to start plus command-line arguments separated by whitespace</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">outputstring</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String to return the commands output.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>RunCommandInDir</var> will execute binary <var>exename</var> with command-line options <var>commands</var>, setting <var>curdir</var> as the current working directory for the command. The <a href="../process/tprocessoptions.html">Options</a>   are taken into consideration (<var>poRunSuspended</var>,<var>poWaitOnExit</var> are removed from the set). The output of the command is captured, and returned in the string <var>OutputString</var>. The function waits for the command to finish, and returns <var>True</var> if the command was started succesfully, <var>False</var> otherwise. In the case where the return value is an integer, it is zero for success, and -1 on error. </p>
+<p>If a <var>ExitStatus</var> parameter is specified the exit status of the command is returned in this parameter. </p>
+<p>The version using <var>cmdline</var> attempts to split the command line in a binary and separate command-line arguments. This version of the function is deprecated. </p>
+<h2>Errors</h2>
+<p>On error, <var>False</var> is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../process/tprocess.html">TProcess</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Class to start and control other processes.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/runcommand.html">RunCommand</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute a command in the current working directory</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocessoptions.html">TProcessOptions</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set of <a href="../process/tprocessoption.html">TProcessOption</a>.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

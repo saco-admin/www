@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>semtimedop</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../ipc/index.html">Overview</a>][<a href="../ipc/index-2.html">Constants</a>][<a href="../ipc/index-3.html">Types</a>][<a href="../ipc/index-5.html">Procedures and functions</a>][<a href="../ipc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'ipc' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>semtimedop (platform)</h1>
+<p>Perform semaphore operation using timeout.</p>
+<h2>Declaration</h2>
+<p>Source position: ipc.pp line 864</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> semtimedop<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;semid<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;sops<span class="sym">: </span><a href="../ipc/psembuf.html">PSEMbuf</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;nsops<span class="sym">: </span><a href="../unixtype/cuint.html">cuint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;timeOut<span class="sym">: </span><a href="../unixtype/ptimespec.html">ptimespec</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>semop</var> performs a set of operations on a message queue, just as <a href="../ipc/semop.html">semop</a>. <var>sops</var> points to an array of type <var>TSEMbuf</var>. The array should contain <var>nsops</var> elements. The <var>timeOut</var> argument points to a time specification: if the operations cannot be performed withing the specified, time, the function will return with an error. </p>
+<p>For more information on the actual operations, see <a href="../ipc/semop.html">semop</a>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../ipc/semop.html">semop</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Perform semaphore operation.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

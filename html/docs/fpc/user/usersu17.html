@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Conditional processing of the config file</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1644--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu18.html" >next</a>] [<a 
+href="#tailusersu17.html">tail</a>] [<a 
+href="userse17.html#usersu17.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">5.2.1   </span> <a 
+href="user.html#QQ2-41-50" id="x41-480005.2.1">Conditional processing of the config file</a></h4>
+<!--l. 1645--><p class="noindent" >In addition to placeholder substitution, the configuration file allows a type of preprocessing. It
+understands the following directives, which you should place starting on the first column of a
+                                                                            
+
+                                                                            
+line:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">#CFGDIR</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">#IFDEF</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">#IFNDEF</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">#ELSE</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">#ENDIF</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">#DEFINE</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">#UNDEF</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">#WRITE</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">#INCLUDE</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">#SECTION</span> </dt><dd 
+class="description"></dd></dl>
+<!--l. 1659--><p class="noindent" >They work the same way as their <span 
+class="cmsy-10">{</span>$...<span 
+class="cmsy-10">} </span>counterparts in Pascal source code. All the default defines
+used to compile source code are also defined while processing the configuration file. For example, if
+the target compiler is an intel 80x86 compatible linux platform, both <span 
+class="cmtt-10">cpu86 </span>and <span 
+class="cmtt-10">linux </span>will be
+defined while interpreting the configuration file. For the possible default defines when compiling,
+consult Appendix G of the <a 
+href="../prog/prog.html" >Programmer&#8217;s Guide</a>.
+<!--l. 1666--><p class="noindent" >What follows is a description of the different directives.
+                                                                            
+
+                                                                            
+<!--l. 1668--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu18.html" >next</a>] [<a 
+href="usersu17.html" >front</a>] [<a 
+href="userse17.html#usersu17.html" >up</a>] </p></div>
+<!--l. 1668--><p class="noindent" ><a 
+ id="tailusersu17.html"></a>  
+</body></html> 

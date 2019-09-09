@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Reducing the size of your program</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 905--><div class="crosslinks"><p class="noindent">[<a 
+href="userse12.html" >prev</a>] [<a 
+href="userse12.html#tailuserse12.html" >prev-tail</a>] [<a 
+href="#tailuserse13.html">tail</a>] [<a 
+href="userch3.html#userse13.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">3.5   </span> <a 
+href="user.html#QQ2-29-38" id="x29-360003.5">Reducing the size of your program</a></h3>
+<!--l. 907--><p class="noindent" >When you created your program, it is possible to reduce the size of the resulting executable. This is
+possible, because the compiler leaves a lot of information in the program which, strictly speaking,
+isn&#8217;t required for the execution of the program.
+<!--l. 912--><p class="noindent" >The surplus of information can be removed with a small program called <span 
+class="cmss-10">strip</span>.The usage is simple.
+Just type
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-40">
+strip&#x00A0;prog
+</div>
+<!--l. 916--><p class="nopar" >On the command line, and the <span 
+class="cmss-10">strip </span>program will remove all unnecessary information from your
+program. This can lead to size reductions of up to 30 %.
+<!--l. 924--><p class="noindent" >You can use the <span 
+class="cmtt-10">-Xs </span>switch to let the compiler do this stripping automatically at program compile
+time. (The switch has no effect when compiling units.)
+<!--l. 928--><p class="noindent" >Another technique to reduce the size of a program is to use smartlinking. Normally, units
+(including the system unit) are linked in as a whole. It is however possible to compile units such
+that they can be smartlinked. This means that only the functions and procedures that are actually
+used are linked in your program, leaving out any unnecessary code. The compiler will turn on
+smartlinking with the <span 
+class="cmtt-10">-XX </span>(see page <a 
+href="usersu15.html#x38-450005.1.4">117<!--tex4ht:ref: option:XX --></a>) switch. This technique is described in full in the
+programmers guide.
+                                                                            
+
+                                                                            
+<!--l. 939--><div class="crosslinks"><p class="noindent">[<a 
+href="userse12.html" >prev</a>] [<a 
+href="userse12.html#tailuserse12.html" >prev-tail</a>] [<a 
+href="userse13.html" >front</a>] [<a 
+href="userch3.html#userse13.html" >up</a>] </p></div>
+<!--l. 939--><p class="noindent" ><a 
+ id="tailuserse13.html"></a>  
+</body></html> 

@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFPHashList</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../contnrs/index.html">Overview</a>][<a href="../contnrs/index-2.html">Constants</a>][<a href="../contnrs/index-3.html">Types</a>][<a href="../contnrs/index-4.html">Classes</a>][<a href="../contnrs/index-5.html">Procedures and functions</a>][<a href="../contnrs/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'contnrs' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TFPHashList</h1>
+<p>[<a href="../contnrs/tfphashlist-1.html" onClick="window.open('../contnrs/tfphashlist-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../contnrs/tfphashlist-2.html" onClick="window.open('../contnrs/tfphashlist-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../contnrs/tfphashlist-3.html" onClick="window.open('../contnrs/tfphashlist-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../contnrs/tfphashlist-4.html" onClick="window.open('../contnrs/tfphashlist-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../contnrs/tfphashlist-5.html" onClick="window.open('../contnrs/tfphashlist-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../contnrs/tfphashlist-6.html" onClick="window.open('../contnrs/tfphashlist-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Hash list class for pointer data</p>
+<h2>Declaration</h2>
+<p>Source position: contnrs.pp line 212</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TFPHashList <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../../rtl/system/tobject.html">TObject</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../contnrs/tfphashlist.create.html">Create</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a new instance of the hashlist</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../contnrs/tfphashlist.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Removes an instance of the hashlist from the heap</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../contnrs/tfphashlist.add.html">Add</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Add a new key/data pair to the list</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../contnrs/tfphashlist.clear.html">Clear</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clear the list</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../contnrs/tfphashlist.nameofindex.html">NameOfIndex</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the key name of an item by index</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../contnrs/tfphashlist.hashofindex.html">HashOfIndex</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the hash valye of an item by index</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../contnrs/tfphashlist.getnextcollision.html">GetNextCollision</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get next collision number</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../contnrs/tfphashlist.delete.html">Delete</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Delete an item from the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class procedure </span><a href="../contnrs/tfphashlist.error.html">Error</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Raise an error</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../contnrs/tfphashlist.expand.html">Expand</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Expand the list</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../contnrs/tfphashlist.extract.html">Extract</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Extract a pointer from the list</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../contnrs/tfphashlist.indexof.html">IndexOf</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the index of the data pointer</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../contnrs/tfphashlist.find.html">Find</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find data associated with key</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../contnrs/tfphashlist.findindexof.html">FindIndexOf</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return index of named item.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../contnrs/tfphashlist.findwithhash.html">FindWithHash</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find first element with given name and hash value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../contnrs/tfphashlist.rename.html">Rename</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Rename a key</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../contnrs/tfphashlist.remove.html">Remove</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Remove first instance of a pointer</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../contnrs/tfphashlist.pack.html">Pack</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Remove nil pointers from the list</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../contnrs/tfphashlist.showstatistics.html">ShowStatistics</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return some statistics for the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../contnrs/tfphashlist.foreachcall.html">ForEachCall</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Call a procedure for each element in the list</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../contnrs/tfphashlist.capacity.html">Capacity</a><span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Capacity of the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../contnrs/tfphashlist.count.html">Count</a><span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Current number of elements in the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../contnrs/tfphashlist.items.html">Items</a> []<span class="sym">: </span>Pointer<span class="sym">;</span><span class="kw"> default</span><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed array with pointers</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../contnrs/tfphashlist.list.html">List</a><span class="sym">: </span><a href="../contnrs/phashitemlist.html">PHashItemList</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Low-level hash list</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../contnrs/tfphashlist.strs.html">Strs</a><span class="sym">: </span><a href="../../rtl/system/pchar.html">PChar</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Low-level memory area with strings.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../contnrs/tfphashlist.html">TFPHashList</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Hash list class for pointer data</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TFPHashList</var> implements a fast hash class. The class is built for speed, therefore the key values can be shortstrings only, and the data can only be non-nil pointers.  </p>
+<p>if a base class for an own hash class is wanted, the <a href="../contnrs/tfpcustomhashtable.html">TFPCustomHashTable</a> class can be used. If a hash class for objects is needed instead of pointers, the <a href="../contnrs/tfphashobjectlist.html">TFPHashObjectList</a> class can be used. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../contnrs/tfpcustomhashtable.html">TFPCustomHashTable</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Hash class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../contnrs/tfphashobjectlist.html">TFPHashObjectList</a></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../contnrs/tfpdatahashtable.html">TFPDataHashTable</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Hash table for data pointers</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../contnrs/tfpstringhashtable.html">TFPStringHashTable</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Hash table for string data.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

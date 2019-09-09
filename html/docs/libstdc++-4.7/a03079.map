@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00444.html" title="std::pair\&lt; _RAIter, _RAIter \&gt;" alt="" coords="579,14,773,42"/>
+<area shape="rect" id="node5" href="$a00444.html" title="std::pair\&lt; _Iterator1, _Iterator2 \&gt;" alt="" coords="560,65,792,93"/>
+<area shape="rect" id="node9" href="$a00444.html" title="std::pair\&lt; _Bi_iter, _Bi_iter \&gt;" alt="" coords="881,122,1079,150"/>
+<area shape="rect" id="node13" href="$a00444.html" title="std::pair\&lt; entry_pointer, typename _Alloc::size_type \&gt;" alt="" coords="497,166,855,194"/>
+<area shape="rect" id="node15" href="$a00444.html" title="std::pair\&lt; _BiIter, _BiIter \&gt;" alt="" coords="583,217,769,245"/>
+<area shape="rect" id="node7" href="$a00130.html" title="A pair of iterators. The usual iterator operations are applied to both child iterators." alt="" coords="1104,65,1573,93"/>
+<area shape="rect" id="node11" href="$a00895.html" title="std::sub_match\&lt; _Bi_iter \&gt;" alt="" coords="1700,147,1889,175"/>
+<area shape="rect" id="node17" href="$a00895.html" title="std::sub_match\&lt; _BiIter \&gt;" alt="" coords="1247,185,1431,213"/>
+</map>

@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$CODEALIGN : Set the code alignment</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 313--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu10.html" >next</a>] [<a 
+href="progsu8.html" >prev</a>] [<a 
+href="progsu8.html#tailprogsu8.html" >prev-tail</a>] [<a 
+href="#tailprogsu9.html">tail</a>] [<a 
+href="progse2.html#progsu9.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.9   </span> <a 
+href="prog.html#QQ2-16-15" id="x16-150001.2.9"><span 
+class="cmtt-10">$CODEALIGN </span>: Set the code alignment</a></h4>
+<!--l. 314--><p class="noindent" >This switch sets the code alignment. It takes an argument which is the alignment in
+bytes.
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-11">
+{$CODEALIGN&#x00A0;8}
+</div>
+<!--l. 317--><p class="nopar" >There are some more arguments which can be specified, to tune the behaviour even more. The
+general form is
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-12">
+{$CODEALIGN&#x00A0;PARAM=VALUE}
+</div>
+<!--l. 322--><p class="nopar" >Where <span 
+class="cmtt-10">PARAM </span>is the parameter to tune, and <span 
+class="cmtt-10">VAR </span>value is a numerical value specifying an alignment.
+<span 
+class="cmtt-10">PARAM </span>can be one of the following strings:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">PROC</span> </dt><dd 
+class="description">Set the alignment for procedure entry points.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">JUMP</span> </dt><dd 
+class="description">Set the alignment for jump destination locations.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">LOOP</span> </dt><dd 
+class="description">Set alignment for loops (for, while, repeat).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">CONSTMIN</span> </dt><dd 
+class="description">Minimum alignment for constants (both typed and untyped).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">CONSTMAX</span> </dt><dd 
+class="description">Maximum alignment for constants (both typed and untyped).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">VARMIN</span> </dt><dd 
+class="description">Minimum alignment for static and global variables.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">VARMAX</span> </dt><dd 
+class="description">Maximum alignment for static and global variables.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">LOCALMIN</span> </dt><dd 
+class="description">Minimum alignment for local variables.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">LOCALMAX</span> </dt><dd 
+class="description">Maximum alignment for local variables.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">RECORDMIN</span> </dt><dd 
+class="description">Minimum alignment for record fields.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">RECORDMAX</span> </dt><dd 
+class="description">Maximum alignment for record fields.</dd></dl>
+<!--l. 339--><p class="noindent" >By default the size of a data structure determines the alignment:
+     <ul class="itemize1">
+     <li class="itemize">A <span 
+class="cmtt-10">SmallInt </span>will be aligned at 2 bytes.
+     </li>
+     <li class="itemize">A <span 
+class="cmtt-10">LongInt </span>will be aligned at 4 bytes.
+     </li>
+     <li class="itemize">A <span 
+class="cmtt-10">Int64 </span>will be aligned at 8 bytes.</li></ul>
+<!--l. 345--><p class="noindent" >With the above switches the minimum required alignment and a maximum used alignment can be
+specified. The maximum allowed alignment is only meaningful if it is smaller than the natural size.
+i.e. setting the maximum alignment (e.g. VARMAX) to 4, the alignment is forced to be at most 4
+bytes: The <span 
+class="cmtt-10">Int64 </span>will then also be aligned at 4 bytes. The <span 
+class="cmtt-10">SmallInt </span>will still be aligned at 2
+bytes.
+<!--l. 352--><p class="noindent" >These values can also be specified on the command line as
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-13">
+-OaPARAM=VALUE
+</div>
+<!--l. 355--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 357--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu10.html" >next</a>] [<a 
+href="progsu8.html" >prev</a>] [<a 
+href="progsu8.html#tailprogsu8.html" >prev-tail</a>] [<a 
+href="progsu9.html" >front</a>] [<a 
+href="progse2.html#progsu9.html" >up</a>] </p></div>
+<!--l. 357--><p class="noindent" ><a 
+ id="tailprogsu9.html"></a>  
+</body></html> 

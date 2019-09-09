@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TGroupResource</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../groupresource/index.html">Overview</a>][<a href="../groupresource/index-4.html">Classes</a>][<a href="../groupresource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'groupresource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TGroupResource</h1>
+<p>[<a href="../groupresource/tgroupresource-1.html" onClick="window.open('../groupresource/tgroupresource-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../groupresource/tgroupresource-2.html" onClick="window.open('../groupresource/tgroupresource-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../groupresource/tgroupresource-3.html" onClick="window.open('../groupresource/tgroupresource-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../groupresource/tgroupresource-4.html" onClick="window.open('../groupresource/tgroupresource-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../groupresource/tgroupresource-5.html" onClick="window.open('../groupresource/tgroupresource-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../groupresource/tgroupresource-6.html" onClick="window.open('../groupresource/tgroupresource-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Abstract common class for group icon and group cursor classes</p>
+<h2>Declaration</h2>
+<p>Source position: groupresource.pp line 29</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TGroupResource <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../resource/tabstractresource.html">TAbstractResource</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">protected</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../groupresource/tgroupresource.ftype.html">fType</a><span class="sym">: </span><a href="../resource/tresourcedesc.html">TResourceDesc</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../groupresource/tgroupresource.fname.html">fName</a><span class="sym">: </span><a href="../resource/tresourcedesc.html">TResourceDesc</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../groupresource/tgroupresource.fitemdata.html">fItemData</a><span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../groupresource/tgroupresource.fitemlist.html">fItemList</a><span class="sym">: </span><a href="../../rtl/classes/tfplist.html">TFPList</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../groupresource/tgroupresource.dummytype.html">dummyType</a><span class="sym">: </span><a href="../resource/tresourcedesc.html">TResourceDesc</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../groupresource/tgroupresource.dummyname.html">dummyName</a><span class="sym">: </span><a href="../resource/tresourcedesc.html">TResourceDesc</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../groupresource/tgroupresource.findsubresources.html">FindSubResources</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../groupresource/tgroupresource.readresourceitemheader.html">ReadResourceItemHeader</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../groupresource/tgroupresource.checkbuilditemstream.html">CheckBuildItemStream</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../groupresource/tgroupresource.getitemdata.html">GetItemData</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../groupresource/tgroupresource.writeheader.html">WriteHeader</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../groupresource/tgroupresource.writeresheader.html">WriteResHeader</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../groupresource/tgroupresource.createsubitems.html">CreateSubItems</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../groupresource/tgroupresource.createsubitem.html">CreateSubItem</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../groupresource/tgroupresource.updateitemowner.html">UpdateItemOwner</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../groupresource/tgroupresource.clearitemlist.html">ClearItemList</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../groupresource/tgroupresource.deletesubitems.html">DeleteSubItems</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../groupresource/tgroupresource.getsubstreamcount.html">GetSubStreamCount</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../groupresource/tgroupresource.getsubstream.html">GetSubStream</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resource/tabstractresource.setownerlist.html">SetOwnerList</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resource/tabstractresource.notifyresourcesloaded.html">NotifyResourcesLoaded</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../groupresource/tgroupresource.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt"></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresource.comparecontents.html">CompareContents</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../groupresource/tgroupresource.setcustomitemdatastream.html">SetCustomItemDataStream</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Sets a custom stream as the underlying stream for ItemData</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resource/tabstractresource.updaterawdata.html">UpdateRawData</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../groupresource/tgroupresource.itemdata.html">ItemData</a><span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Resource data as an ICO/CUR stream</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../groupresource/tgroupresource.html">TGroupResource</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Abstract common class for group icon and group cursor classes</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../resource/tabstractresource.html">TAbstractResource</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base abstract resource class</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TObject</span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This class provides common functionalities that are extended by <a href="../groupiconresource/tgroupiconresource.html">TGroupIconResource</a> and <a href="../groupcursorresource/tgroupcursorresource.html">TGroupCursorResource</a>.</p>
+<p>Resources of type <a href="../resource/rt_group_icon.html">RT_GROUP_ICON</a> and <a href="../resource/rt_group_cursor.html">RT_GROUP_CURSOR</a> represent a .ico or .cur file, respectively. However, data isn't contained in a single resource, but it's scattered over several different resources. That is, a .ico file contains an icon, which is made of several different images (for different sizes and color depth); when it is represented as a resource, however, the <a href="../resource/rt_group_icon.html">RT_GROUP_ICON</a> resource only contains information about the single images, which are contained each in a different resource of type <a href="../resource/rt_icon.html">RT_ICON</a>. The single resources are pretty unuseful alone, since they only consist of raw image data: they must be accessed in the contest of the <a href="../resource/rt_group_icon.html">RT_GROUP_ICON</a> resource, which provides information about them.</p>
+<p><a href="../groupiconresource/tgroupiconresource.html">TGroupIconResource</a> and <a href="../groupcursorresource/tgroupcursorresource.html">TGroupCursorResource</a> provide a way to handle resources of these types as if they were .ico or .cur files. This class implements common functionalities, since icons and cursors are very similar.</p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>An object of this class should never be directly instantiated: use a descendant class instead.</td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../groupiconresource/tgroupiconresource.html">TGroupIconResource</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Group icon resource type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../groupcursorresource/tgroupcursorresource.html">TGroupCursorResource</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Group cursor resource type</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

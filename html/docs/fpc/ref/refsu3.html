@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Modifiers</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 391--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu2.html" >prev</a>] [<a 
+href="refsu2.html#tailrefsu2.html" >prev-tail</a>] [<a 
+href="#tailrefsu3.html">tail</a>] [<a 
+href="refse3.html#refsu3.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.3.3   </span> <a 
+href="ref.html#QQ2-14-13" id="x14-130001.3.3">Modifiers</a></h4>
+<a 
+ id="dx14-13001"></a>
+<a 
+ id="dx14-13002"></a>
+<!--l. 393--><p class="noindent" >The following is a list of all modifiers. They are not exactly reserved words in the sense that they
+can be used as identifiers, but in specific places, they have a special meaning for the compiler, i.e.,
+the compiler considers them as part of the Pascal language.
+<table class="multicols" id="multicols-3"><tr><td class="multicol-1">
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-13">
+absolute
+&#x00A0;<br />abstract
+&#x00A0;<br />alias
+&#x00A0;<br />assembler
+&#x00A0;<br />bitpacked
+&#x00A0;<br />break
+&#x00A0;<br />cdecl
+&#x00A0;<br />continue
+&#x00A0;<br />cppdecl
+&#x00A0;<br />cvar
+&#x00A0;<br />default
+&#x00A0;<br />deprecated
+&#x00A0;<br />dynamic
+&#x00A0;<br />enumerator
+&#x00A0;<br />experimental
+&#x00A0;<br />export
+&#x00A0;<br />external
+&#x00A0;<br />far
+&#x00A0;<br />far16
+&#x00A0;<br />forward
+&#x00A0;<br />generic
+&#x00A0;<br />helper
+&#x00A0;<br />implements
+&#x00A0;<br />index
+&#x00A0;<br />interrupt
+&#x00A0;<br />iocheck
+&#x00A0;<br />local
+&#x00A0;<br />message
+&#x00A0;<br />name
+&#x00A0;<br />near
+&#x00A0;<br />nodefault
+&#x00A0;<br />noreturn
+&#x00A0;<br />nostackframe
+&#x00A0;<br />oldfpccall
+&#x00A0;<br />otherwise
+&#x00A0;<br />overload
+&#x00A0;<br />override
+&#x00A0;<br />pascal
+&#x00A0;<br />platform
+&#x00A0;<br />private
+&#x00A0;<br />protected
+&#x00A0;<br />public
+&#x00A0;<br />published
+&#x00A0;<br />read
+&#x00A0;<br />register
+&#x00A0;<br />reintroduce
+&#x00A0;<br />result
+&#x00A0;<br />safecall
+&#x00A0;<br />saveregisters
+                                                                            
+
+                                                                            
+&#x00A0;<br />softfloat
+&#x00A0;<br />specialize
+&#x00A0;<br />static
+&#x00A0;<br />stdcall
+&#x00A0;<br />stored
+&#x00A0;<br />strict
+&#x00A0;<br />unaligned
+&#x00A0;<br />unimplemented
+&#x00A0;<br />varargs
+&#x00A0;<br />virtual
+&#x00A0;<br />write
+</div>
+<!--l. 459--><p class="nopar" >
+</td></tr></table>
+<!--l. 461--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Predefined types such as <span 
+class="cmtt-10">Byte</span>, <span 
+class="cmtt-10">Boolean </span>and constants such as <span 
+class="cmtt-10">maxint </span>are <span 
+class="cmti-10">not </span>reserved words.
+They are identifiers, declared in the system unit. This means that these types can be redefined in
+other units. The programmer is however not encouraged to do this, as it will cause a lot of
+confusion.
+<!--l. 469--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> As of version 2.5.1 it is possible to use reserved words as identifiers by escaping them with a &amp;
+sign. This means that the following is possible
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-14">
+var
+&#x00A0;<br />&#x00A0;&#x00A0;&amp;var&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;&amp;var:=1;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&amp;var);
+&#x00A0;<br />end.
+</div>
+<!--l. 480--><p class="nopar" >however, it is not recommended to use this feature in new code, as it makes code less readable. It is
+mainly intended to fix old code when the list of reserved words changes and encompasses a word
+that was not yet reserved (See also section <a 
+href="refse4.html#x15-140001.4">1.4<!--tex4ht:ref: se:identifiers --></a>, page <a 
+href="refse4.html#x15-140001.4">46<!--tex4ht:ref: se:identifiers --></a>).
+                                                                            
+
+                                                                            
+<!--l. 488--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu2.html" >prev</a>] [<a 
+href="refsu2.html#tailrefsu2.html" >prev-tail</a>] [<a 
+href="refsu3.html" >front</a>] [<a 
+href="refse3.html#refsu3.html" >up</a>] </p></div>
+<!--l. 488--><p class="noindent" ><a 
+ id="tailrefsu3.html"></a>  
+</body></html> 

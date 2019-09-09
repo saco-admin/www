@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>GetLongName</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dos/index.html">Overview</a>][<a href="../dos/index-2.html">Constants</a>][<a href="../dos/index-3.html">Types</a>][<a href="../dos/index-5.html">Procedures and functions</a>][<a href="../dos/index-6.html">Variables</a>][<a href="../dos/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Dos' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>GetLongName</h1>
+<p>Get the long filename of a DOS 8.3 filename.</p>
+<h2>Declaration</h2>
+<p>Source position: dosh.inc line 111</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> GetLongName<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>p<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This function is only implemented in the GO32V2 and Win32 versions of Free Pascal. </p>
+<p><var>GetLongName</var> changes the filename <var>p</var> to a long filename if the API call to do this is successful. The resulting string is the long file name corresponding to the short filename <var>p</var>. </p>
+<p>The function returns <var>True</var> if the API call was successful,  <var>False</var> otherwise. </p>
+<p>This function should only be necessary when using the DOS extender under Windows 95 and higher. </p>
+<h2>Errors</h2>
+<p>If the API call was not succesfull, <var>False</var> is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dos/getshortname.html">GetShortName</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get the short (8.3) filename of a long filename.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

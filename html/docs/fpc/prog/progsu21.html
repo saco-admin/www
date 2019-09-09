@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$F : Far or near functions</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 506--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu22.html" >next</a>] [<a 
+href="progsu20.html" >prev</a>] [<a 
+href="progsu20.html#tailprogsu20.html" >prev-tail</a>] [<a 
+href="#tailprogsu21.html">tail</a>] [<a 
+href="progse2.html#progsu21.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.21   </span> <a 
+href="prog.html#QQ2-28-27" id="x28-270001.2.21"><span 
+class="cmtt-10">$F </span>: Far or near functions</a></h4>
+<!--l. 507--><p class="noindent" >This directive is recognized for compatibility with Turbo Pascal. Under the 32-bit and 64-bit
+programming models, the concept of near and far calls have no meaning, hence the directive is
+ignored. A warning is printed to the screen, as a reminder.
+<!--l. 512--><p class="noindent" >As an example, the following piece of code:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-27">
+{$F+}
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;TestProc;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;Writeln&#x00A0;(&#8217;Hello&#x00A0;From&#x00A0;TestProc&#8217;);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;testProc
+&#x00A0;<br />end.
+</div>
+<!--l. 525--><p class="nopar" >Generates the following compiler output:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-28">
+malpertuus:&#x00A0;&#x003E;pp&#x00A0;-vw&#x00A0;testf
+&#x00A0;<br />Compiler:&#x00A0;ppc386
+&#x00A0;<br />Units&#x00A0;are&#x00A0;searched&#x00A0;in:&#x00A0;/home/michael;/usr/bin/;/usr/lib/ppc/0.9.1/linuxunits
+&#x00A0;<br />Target&#x00A0;OS:&#x00A0;Linux
+&#x00A0;<br />Compiling&#x00A0;testf.pp
+&#x00A0;<br />testf.pp(1)&#x00A0;Warning:&#x00A0;illegal&#x00A0;compiler&#x00A0;switch
+&#x00A0;<br />7739&#x00A0;kB&#x00A0;free
+&#x00A0;<br />Calling&#x00A0;assembler...
+&#x00A0;<br />Assembled...
+&#x00A0;<br />Calling&#x00A0;linker...
+&#x00A0;<br />12&#x00A0;lines&#x00A0;compiled,
+&#x00A0;<br />&#x00A0;1.00000000000000E+0000
+</div>
+<!--l. 540--><p class="nopar" >One can see that the verbosity level was set to display warnings.
+<!--l. 543--><p class="noindent" >When declaring a function as <span 
+class="cmtt-10">Far </span>(this has the same effect as setting it between <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$F+</span><span 
+class="cmsy-10">} </span><span 
+class="cmtt-10">&#x2026;</span><span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$F-</span><span 
+class="cmsy-10">}</span>
+directives), the compiler also generates a warning:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-29">
+testf.pp(3)&#x00A0;Warning:&#x00A0;FAR&#x00A0;ignored
+</div>
+<!--l. 548--><p class="nopar" >
+<!--l. 550--><p class="noindent" >The same story is true for procedures declared as <span 
+class="cmtt-10">Near</span>. The warning displayed in that case
+is:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-30">
+testf.pp(3)&#x00A0;Warning:&#x00A0;NEAR&#x00A0;ignored
+</div>
+<!--l. 554--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 556--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu22.html" >next</a>] [<a 
+href="progsu20.html" >prev</a>] [<a 
+href="progsu20.html#tailprogsu20.html" >prev-tail</a>] [<a 
+href="progsu21.html" >front</a>] [<a 
+href="progse2.html#progsu21.html" >up</a>] </p></div>
+<!--l. 556--><p class="noindent" ><a 
+ id="tailprogsu21.html"></a>  
+</body></html> 

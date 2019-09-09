@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Using a pascal library from a C program</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 7165--><div class="crosslinks"><p class="noindent">[<a 
+href="progse58.html" >next</a>] [<a 
+href="progse56.html" >prev</a>] [<a 
+href="progse56.html#tailprogse56.html" >prev-tail</a>] [<a 
+href="#tailprogse57.html">tail</a>] [<a 
+href="progch12.html#progse57.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">12.4   </span> <a 
+href="prog.html#QQ2-267-306" id="x267-28300012.4">Using a pascal library from a C program</a></h3>
+<!--l. 7167--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span>The examples in this section assume a <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>system; similar commands as the ones below exist for
+other operating systems, though.
+<!--l. 7171--><p class="noindent" >You can also call a Free Pascal generated library from a C program:
+<!--l. 7172--><p class="noindent" ><span 
+class="cmssbx-10">Listing: </span><span 
+class="cmss-10">progex/ctest.pp</span><div class="listinginput">
+<!--l. 7172--><p class="noindent" ><div class="obeylines-v">   <span 
+class="cmtt-10">#include</span><span 
+class="cmtt-10">&#x00A0;&#x003C;string.h&#x003E;</span>
+<br />   <span 
+class="cmtt-10">#include</span><span 
+class="cmtt-10">&#x00A0;&#x003C;stdio.h&#x003E;</span>
+<br />
+<br />   <span 
+class="cmtt-10">extern</span><span 
+class="cmtt-10">&#x00A0;char*</span><span 
+class="cmtt-10">&#x00A0;SubStr(const</span><span 
+class="cmtt-10">&#x00A0;char*,</span><span 
+class="cmtt-10">&#x00A0;int,</span><span 
+class="cmtt-10">&#x00A0;int);</span>
+<br />
+<br />   <span 
+class="cmtt-10">int</span><span 
+class="cmtt-10">&#x00A0;main()</span>
+<br />   <span 
+class="cmtt-10">{</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;char</span><span 
+class="cmtt-10">&#x00A0;*s;</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;int</span><span 
+class="cmtt-10">&#x00A0;FromPos,</span><span 
+class="cmtt-10">&#x00A0;ToPos;</span>
+<br />
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;s</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;strdup("Test");</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;FromPos</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;2;</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;ToPos</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;3;</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;printf("Result</span><span 
+class="cmtt-10">&#x00A0;from</span><span 
+class="cmtt-10">&#x00A0;SubStr:</span><span 
+class="cmtt-10">&#x00A0;&#8217;%s&#8217;\n",</span><span 
+class="cmtt-10">&#x00A0;SubStr(s,</span><span 
+class="cmtt-10">&#x00A0;FromPos,</span><span 
+class="cmtt-10">&#x00A0;ToPos));</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;return</span><span 
+class="cmtt-10">&#x00A0;0;</span>
+<br />   <span 
+class="cmtt-10">}</span>
+</div></div> To compile this example, the following command can be used:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-249">
+gcc&#x00A0;-o&#x00A0;ctest&#x00A0;ctest.c&#x00A0;-lsubs
+</div>
+<!--l. 7176--><p class="nopar" >provided the code is in <span 
+class="cmss-10">ctest.c</span>.
+<!--l. 7179--><p class="noindent" >The library can also be loaded dynamically from C, as shown in the following example:
+<!--l. 7181--><p class="noindent" ><span 
+class="cmssbx-10">Listing: </span><span 
+class="cmss-10">progex/ctest2.pp</span><div class="listinginput">
+<!--l. 7181--><p class="noindent" ><div class="obeylines-v">   <span 
+class="cmtt-10">#include</span><span 
+class="cmtt-10">&#x00A0;&#x003C;dlfcn.h&#x003E;</span>
+<br />   <span 
+class="cmtt-10">#include</span><span 
+class="cmtt-10">&#x00A0;&#x003C;string.h&#x003E;</span>
+<br />   <span 
+class="cmtt-10">#include</span><span 
+class="cmtt-10">&#x00A0;&#x003C;stdio.h&#x003E;</span>
+<br />
+<br />   <span 
+class="cmtt-10">int</span><span 
+class="cmtt-10">&#x00A0;main()</span>
+<br />   <span 
+class="cmtt-10">{</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;void</span><span 
+class="cmtt-10">&#x00A0;*lib;</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;char</span><span 
+class="cmtt-10">&#x00A0;*s;</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;int</span><span 
+class="cmtt-10">&#x00A0;FromPos,</span><span 
+class="cmtt-10">&#x00A0;ToPos;</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;char*</span><span 
+class="cmtt-10">&#x00A0;(*SubStr)(const</span><span 
+class="cmtt-10">&#x00A0;char*,</span><span 
+class="cmtt-10">&#x00A0;int,</span><span 
+class="cmtt-10">&#x00A0;int);</span>
+<br />
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;lib</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;dlopen("./libsubs.so",</span><span 
+class="cmtt-10">&#x00A0;RTLD_LAZY);</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;SubStr</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;dlsym(lib,</span><span 
+class="cmtt-10">&#x00A0;"SUBSTR");</span>
+<br />
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;s</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;strdup("Test");</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;FromPos</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;2;</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;ToPos</span><span 
+class="cmtt-10">&#x00A0;=</span><span 
+class="cmtt-10">&#x00A0;3;</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;printf("Result</span><span 
+class="cmtt-10">&#x00A0;from</span><span 
+class="cmtt-10">&#x00A0;SubStr:</span><span 
+class="cmtt-10">&#x00A0;&#8217;%s&#8217;\n",</span><span 
+class="cmtt-10">&#x00A0;(*SubStr)(s,</span><span 
+class="cmtt-10">&#x00A0;FromPos,</span><span 
+class="cmtt-10">&#x00A0;ToPos));</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;dlclose(lib);</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;return</span><span 
+class="cmtt-10">&#x00A0;0;</span>
+<br />   <span 
+class="cmtt-10">}</span>
+</div></div> This can be compiled using the following command:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-250">
+gcc&#x00A0;-o&#x00A0;ctest2&#x00A0;ctest2.c&#x00A0;-ldl
+</div>
+<!--l. 7185--><p class="nopar" >
+<!--l. 7187--><p class="noindent" >The <span 
+class="cmtt-10">-ldl </span>tells gcc that the program needs the <span 
+class="cmss-10">libdl.so </span>library to load dynamical libraries.
+                                                                            
+
+                                                                            
+<!--l. 7192--><div class="crosslinks"><p class="noindent">[<a 
+href="progse58.html" >next</a>] [<a 
+href="progse56.html" >prev</a>] [<a 
+href="progse56.html#tailprogse56.html" >prev-tail</a>] [<a 
+href="progse57.html" >front</a>] [<a 
+href="progch12.html#progse57.html" >up</a>] </p></div>
+<!--l. 7192--><p class="noindent" ><a 
+ id="tailprogse57.html"></a>  
+</body></html> 

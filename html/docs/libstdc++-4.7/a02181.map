@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00167.html" title="Forces parallel sorting using balanced quicksort at compile time." alt="" coords="277,5,544,33"/>
+<area shape="rect" id="node5" href="$a00168.html" title="Recommends parallel execution using dynamic load&#45;balancing at compile time." alt="" coords="309,55,512,83"/>
+<area shape="rect" id="node7" href="$a00170.html" title="Recommends parallel execution using the default parallel algorithm." alt="" coords="291,106,531,134"/>
+<area shape="rect" id="node9" href="$a00172.html" title="Forces parallel merging with exact splitting, at compile time." alt="" coords="321,157,500,185"/>
+<area shape="rect" id="node11" href="$a00175.html" title="Forces parallel sorting using multiway mergesort with exact splitting at compile time." alt="" coords="256,207,565,235"/>
+<area shape="rect" id="node13" href="$a00176.html" title="Forces parallel sorting using multiway mergesort with splitting by sampling at compile time..." alt="" coords="245,258,576,286"/>
+<area shape="rect" id="node15" href="$a00177.html" title="Forces parallel sorting using multiway mergesort at compile time." alt="" coords="276,309,545,337"/>
+<area shape="rect" id="node17" href="$a00178.html" title="Recommends parallel execution using OpenMP static load&#45;balancing at compile time." alt="" coords="288,359,533,387"/>
+<area shape="rect" id="node19" href="$a00179.html" title="Recommends parallel execution using OpenMP dynamic load&#45;balancing at compile time." alt="" coords="308,410,513,438"/>
+<area shape="rect" id="node21" href="$a00181.html" title="Forces parallel sorting using unbalanced quicksort at compile time." alt="" coords="309,461,512,489"/>
+<area shape="rect" id="node23" href="$a00182.html" title="Forces parallel merging with exact splitting, at compile time." alt="" coords="311,511,511,539"/>
+<area shape="rect" id="node25" href="$a00184.html" title="Recommends parallel execution using static load&#45;balancing at compile time." alt="" coords="301,562,520,590"/>
+</map>

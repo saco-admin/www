@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TVersionResource</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../versionresource/index.html">Overview</a>][<a href="../versionresource/index-3.html">Types</a>][<a href="../versionresource/index-4.html">Classes</a>][<a href="../versionresource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'versionresource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TVersionResource</h1>
+<p>[<a href="../versionresource/tversionresource-1.html" onClick="window.open('../versionresource/tversionresource-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../versionresource/tversionresource-2.html" onClick="window.open('../versionresource/tversionresource-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../versionresource/tversionresource-3.html" onClick="window.open('../versionresource/tversionresource-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../versionresource/tversionresource-4.html" onClick="window.open('../versionresource/tversionresource-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../versionresource/tversionresource-5.html" onClick="window.open('../versionresource/tversionresource-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../versionresource/tversionresource-6.html" onClick="window.open('../versionresource/tversionresource-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Version information resource type</p>
+<h2>Declaration</h2>
+<p>Source position: versionresource.pp line 37</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TVersionResource <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../resource/tabstractresource.html">TAbstractResource</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">protected</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresource.gettype.html">GetType</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresource.getname.html">GetName</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresource.changedesctypeallowed.html">ChangeDescTypeAllowed</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresource.changedescvalueallowed.html">ChangeDescValueAllowed</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resource/tabstractresource.notifyresourcesloaded.html">NotifyResourcesLoaded</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../versionresource/tversionresource.create.html">Create</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a new version information resource</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../resource/tabstractresource.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resource/tabstractresource.updaterawdata.html">UpdateRawData</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../versionresource/tversionresource.fixedinfo.html">FixedInfo</a><span class="sym">: </span><a href="../versiontypes/tversionfixedinfo.html">TVersionFixedInfo</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Language independent part of version information</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../versionresource/tversionresource.stringfileinfo.html">StringFileInfo</a><span class="sym">: </span><a href="../versiontypes/tversionstringfileinfo.html">TVersionStringFileInfo</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Language dependent part of version information</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../versionresource/tversionresource.varfileinfo.html">VarFileInfo</a><span class="sym">: </span><a href="../versiontypes/tversionvarfileinfo.html">TVersionVarFileInfo</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of supported languages</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../versionresource/tversionresource.html">TVersionResource</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Version information resource type</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../resource/tabstractresource.html">TAbstractResource</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base abstract resource class</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TObject</span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This class represents a resource of type <a href="../resource/rt_version.html">RT_VERSION</a>.</p>
+<p>A resource of this type provides version information for a Microsoft Windows executable or dll, which is shown when checking properties of a file in Windows Explorer.</p>
+<p>Information is stored in <a href="../versionresource/tversionresource.fixedinfo.html">FixedInfo</a>, <a href="../versionresource/tversionresource.stringfileinfo.html">StringFileInfo</a> and <a href="../versionresource/tversionresource.varfileinfo.html">VarFileInfo</a>.</p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>This class doesn't allow its type to be changed to anything else than <a href="../resource/rt_version.html">RT_VERSION</a>, and its name to be different from 1. Attempts to do so result in a <a href="../resource/eresourcedescchangenotallowedexception.html">EResourceDescChangeNotAllowedException</a>.</td>
+</tr>
+</table>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>If you need to access <a href="../resource/tabstractresource.rawdata.html">RawData</a> after you modified something, be sure to call <a href="../resource/tabstractresource.updaterawdata.html">UpdateRawData</a> first. This isn't needed however when resource is written to a stream, since <a href="../resource/tresources.html">TResources</a> takes care of it.</td>
+</tr>
+</table>
+<p><b>Sample code</b></p>
+<p>This code creates a version information resource</p>
+<pre><span class="kw">const</span>
+  myVersion <span class="sym">:</span> TFileProductVersion <span class="sym">=</span> <span class="sym">(</span><span class="num">1</span><span class="sym">,</span><span class="num">2</span><span class="sym">,</span><span class="num">0</span><span class="sym">,</span><span class="num">0</span><span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">var</span>
+  resources <span class="sym">:</span> TResources<span class="sym">;</span>
+  aRes <span class="sym">:</span> TVersionResource<span class="sym">;</span>
+  st <span class="sym">:</span> TVersionStringTable<span class="sym">;</span>
+  ti <span class="sym">:</span> TVerTranslationInfo<span class="sym">;</span>
+<span class="kw">begin</span>
+  aRes<span class="sym">:=</span>TVersionResource<span class="sym">.</span>Create<span class="sym">(</span><span class="kw">nil</span><span class="sym">,</span><span class="kw">nil</span><span class="sym">)</span><span class="sym">;</span> <span class="cmt">//it's always RT_VERSION and 1 respectively</span>
+  resources<span class="sym">:=</span>TResources<span class="sym">.</span>Create<span class="sym">;</span>
+  resources<span class="sym">.</span>Add<span class="sym">(</span>aRes<span class="sym">)</span><span class="sym">;</span>
+
+  aRes<span class="sym">.</span>FixedInfo<span class="sym">.</span>FileVersion<span class="sym">:=</span>myversion<span class="sym">;</span>
+  aRes<span class="sym">.</span>FixedInfo<span class="sym">.</span>ProductVersion<span class="sym">:=</span>myversion<span class="sym">;</span>
+  aRes<span class="sym">.</span>FixedInfo<span class="sym">.</span>FileFlagsMask<span class="sym">:=</span>VS_FFI_FILEFLAGSMASK<span class="sym">;</span>
+  aRes<span class="sym">.</span>FixedInfo<span class="sym">.</span>FileFlags<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  aRes<span class="sym">.</span>FixedInfo<span class="sym">.</span>FileOS<span class="sym">:=</span>VOS_NT_WINDOWS32<span class="sym">;</span>
+  aRes<span class="sym">.</span>FixedInfo<span class="sym">.</span>FileType<span class="sym">:=</span>VFT_APP<span class="sym">;</span>
+  aRes<span class="sym">.</span>FixedInfo<span class="sym">.</span>FileSubType<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  aRes<span class="sym">.</span>FixedInfo<span class="sym">.</span>FileDate<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+
+  st<span class="sym">:=</span>TVersionStringTable<span class="sym">.</span>Create<span class="sym">(</span><span class="str">'041004B0'</span><span class="sym">)</span><span class="sym">;</span> <span class="cmt">//Italian, unicode codepage</span>
+  st<span class="sym">.</span>Add<span class="sym">(</span><span class="str">'CompanyName'</span><span class="sym">,</span><span class="str">'Foo Corporation'</span><span class="sym">)</span><span class="sym">;</span>
+  st<span class="sym">.</span>Add<span class="sym">(</span><span class="str">'FileDescription'</span><span class="sym">,</span><span class="str">'Foo suite core program'</span><span class="sym">)</span><span class="sym">;</span>
+  st<span class="sym">.</span>Add<span class="sym">(</span><span class="str">'FileVersion'</span><span class="sym">,</span><span class="str">'1.2'</span><span class="sym">)</span><span class="sym">;</span>
+  st<span class="sym">.</span>Add<span class="sym">(</span><span class="str">'ProductVersion'</span><span class="sym">,</span><span class="str">'1.2'</span><span class="sym">)</span><span class="sym">;</span>
+  aRes<span class="sym">.</span>StringFileInfo<span class="sym">.</span>Add<span class="sym">(</span>st<span class="sym">)</span><span class="sym">;</span>
+
+  ti<span class="sym">.</span>language<span class="sym">:=</span><span class="num">$0410</span><span class="sym">;</span> <span class="cmt">//Italian</span>
+  ti<span class="sym">.</span>codepage<span class="sym">:=</span><span class="num">$04B0</span><span class="sym">;</span> <span class="cmt">//Unicode codepage</span>
+  aRes<span class="sym">.</span>VarFileInfo<span class="sym">.</span>Add<span class="sym">(</span>ti<span class="sym">)</span><span class="sym">;</span>
+
+  resources<span class="sym">.</span>WriteToFile<span class="sym">(</span><span class="str">'myresource.res'</span><span class="sym">)</span><span class="sym">;</span>
+  resources<span class="sym">.</span>Free<span class="sym">;</span> <span class="cmt">//destroys aRes as well.</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../versionresource/tversionresource.fixedinfo.html">TVersionResource.FixedInfo</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Language independent part of version information</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../versionresource/tversionresource.stringfileinfo.html">TVersionResource.StringFileInfo</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Language dependent part of version information</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../versionresource/tversionresource.varfileinfo.html">TVersionResource.VarFileInfo</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of supported languages</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

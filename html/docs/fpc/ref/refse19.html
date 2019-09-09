@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Type aliases</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2985--><div class="crosslinks"><p class="noindent">[<a 
+href="refse20.html" >next</a>] [<a 
+href="refse18.html" >prev</a>] [<a 
+href="refse18.html#tailrefse18.html" >prev-tail</a>] [<a 
+href="#tailrefse19.html">tail</a>] [<a 
+href="refch3.html#refse19.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">3.8   </span> <a 
+href="ref.html#QQ2-49-73" id="x49-670003.8">Type aliases</a></h3>
+<!--l. 2986--><p class="noindent" >Type aliases are a way to give another name to a type, but can also be used to create real new
+types. Which of the 2 depends on the way the type alias is defined:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Type aliases</span><br 
+class="newline" /><BR/><img 
+src="ref51x.png" alt="--type alias ---------identifier--------------------------------------
+            type
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 2990--><p class="noindent" >The first case is just a means to give another name to a type:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-111">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;MyInteger&#x00A0;=&#x00A0;Integer;
+</div>
+<!--l. 2994--><p class="nopar" >This creates a new name to refer to the <span 
+class="cmtt-10">Integer </span>type, but does not create an actual new type.
+That is, 2 variables:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-112">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;MyInteger;
+&#x00A0;<br />&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;Integer;
+</div>
+<!--l. 3001--><p class="nopar" >Will actually have the same type from the point of view of the compiler (namely: <span 
+class="cmtt-10">Integer</span>).
+<!--l. 3005--><p class="noindent" >The above presents a way to make types platform independent, by only using the alias types, and
+then defining these types for each platform individually. Any programmer who then uses these
+custom types doesn&#8217;t have to worry about the underlying type size: it is opaque to him. It also
+allows to use shortcut names for fully qualified type names. e.g. define <span 
+class="cmtt-10">system.longint </span>as
+<span 
+class="cmtt-10">Olongint </span>and then redefine <span 
+class="cmtt-10">longint</span>.
+<!--l. 3012--><p class="noindent" >The alias is frequently seen to re-expose a type:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-113">
+Unit&#x00A0;A;
+&#x00A0;<br />
+&#x00A0;<br />Interface
+&#x00A0;<br />
+&#x00A0;<br />Uses&#x00A0;B;
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;MyType&#x00A0;=&#x00A0;B.MyType;
+</div>
+<!--l. 3022--><p class="nopar" >This construction is often seen after some refactoring, when moving some declarations from unit <span 
+class="cmtt-10">A</span>
+to unit <span 
+class="cmtt-10">B</span>, to preserve backwards compatibility of the interface of unit <span 
+class="cmtt-10">A</span>.
+<!--l. 3027--><p class="noindent" >The second case is slightly more subtle:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-114">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;MyInteger&#x00A0;=&#x00A0;Type&#x00A0;Integer;
+</div>
+<!--l. 3031--><p class="nopar" >This not only creates a new name to refer to the <span 
+class="cmtt-10">Integer </span>type, but actually creates a new type.
+That is, 2 variables:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-115">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;MyInteger;
+&#x00A0;<br />&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;&#x00A0;Integer;
+</div>
+<!--l. 3038--><p class="nopar" >Will not have the same type from the point of view of the compiler. However, these 2 types will be
+assignment compatible.<a 
+ id="dx49-67001"></a> That means that an assignment
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-116">
+&#x00A0;&#x00A0;A:=B;
+</div>
+<!--l. 3044--><p class="nopar" >will work.
+<!--l. 3047--><p class="noindent" >The difference can be seen when examining type information:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-117">
+If&#x00A0;TypeInfo(MyInteger)&#x003C;&#x003E;TypeInfo(Integer)&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;MyInteger&#x00A0;and&#x00A0;Integer&#x00A0;are&#x00A0;different&#x00A0;types&#8217;);
+</div>
+<!--l. 3051--><p class="nopar" >The compiler function <span 
+class="cmtt-10">TypeInfo </span>returns a pointer to the type information in the binary. Since the
+2 types <span 
+class="cmtt-10">MyInteger </span>and <span 
+class="cmtt-10">Integer </span>are different, they will generate different type information blocks,
+and the pointers will differ.
+<!--l. 3057--><p class="noindent" >There are 3 consequences of having different types:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x49-67003x1">That they have different typeinfo, hence different RTTI (Run-Time Type Information).
+     </li>
+     <li 
+  class="enumerate" id="x49-67005x2">They can be used in function overloads, that is
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-118">
+     Procedure&#x00A0;MyProc(A&#x00A0;:&#x00A0;MyInteger);&#x00A0;overload;
+     &#x00A0;<br />Procedure&#x00A0;MyProc(A&#x00A0;:&#x00A0;Integer);&#x00A0;overload;
+</div>
+     <!--l. 3064--><p class="nopar" >will work. This will not work with a simple type alias.
+     </li>
+     <li 
+  class="enumerate" id="x49-67007x3">They can be used in operator overloads, that is
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-119">
+     Operator&#x00A0;+(A,B&#x00A0;:&#x00A0;MyInteger)&#x00A0;:&#x00A0;MyInteger;
+</div>
+     <!--l. 3069--><p class="nopar" >will work too.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 3075--><div class="crosslinks"><p class="noindent">[<a 
+href="refse20.html" >next</a>] [<a 
+href="refse18.html" >prev</a>] [<a 
+href="refse18.html#tailrefse18.html" >prev-tail</a>] [<a 
+href="refse19.html" >front</a>] [<a 
+href="refch3.html#refse19.html" >up</a>] </p></div>
+<!--l. 3075--><p class="noindent" ><a 
+ id="tailrefse19.html"></a>  
+</body></html> 

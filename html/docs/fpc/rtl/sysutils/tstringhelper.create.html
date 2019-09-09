@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStringHelper.Create</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TStringHelper.Create</h1>
+<p>Create a new string</p>
+<h2>Declaration</h2>
+<p>Source position: syshelph.inc line 57</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">class function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AChar<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ACount<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">class function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AValue<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <a href="../system/char.html">Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">class function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AValue<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;StartIndex<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ALen<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Create</var> returns a new string with an initial value based on the passed arguments: </p>
+<ul>
+<li>A character (<var>ACHar</var>) and a count (<var>ACount</var>, in which case a string  is returned of the specified length, filled with <var>AChar</var>. </li>
+<li>An array of characters <var>AValue</var>. The returned string will have the same  length as the array, and the characters will be copied from the elements in the array.  Optionally, a starting index <var>StartIndex</var> (zero based) and length <var>ALen</var>  can be specified, in which case the string will contain at most <var>ALen</var> characters,  which will have been copied starting at index <var>StartIndex</var>. </li>
+</ul>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/stringofchar.html">StringOfChar</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return a string consisting of 1 character repeated N times.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStringHelper.Split</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TStringHelper.Split</h1>
+<p>Split a string in a number of parts</p>
+<h2>Declaration</h2>
+<p>Source position: syshelph.inc line 134</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <a href="../system/char.html">Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ACount<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Options<span class="sym">: </span><a href="../sysutils/tstringsplitoptions.html">TStringSplitOptions</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ACount<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Options<span class="sym">: </span><a href="../sysutils/tstringsplitoptions.html">TStringSplitOptions</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ACount<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Options<span class="sym">: </span><a href="../sysutils/tstringsplitoptions.html">TStringSplitOptions</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ACount<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Options<span class="sym">: </span><a href="../sysutils/tstringsplitoptions.html">TStringSplitOptions</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuote<span class="sym">: </span><a href="../system/char.html">Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteStart<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteEnd<span class="sym">: </span><a href="../system/char.html">Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteStart<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteEnd<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Options<span class="sym">: </span><a href="../sysutils/tstringsplitoptions.html">TStringSplitOptions</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteStart<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteEnd<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ACount<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteStart<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteEnd<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ACount<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Options<span class="sym">: </span><a href="../sysutils/tstringsplitoptions.html">TStringSplitOptions</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuote<span class="sym">: </span><a href="../system/char.html">Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteStart<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteEnd<span class="sym">: </span><a href="../system/char.html">Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteStart<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteEnd<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Options<span class="sym">: </span><a href="../sysutils/tstringsplitoptions.html">TStringSplitOptions</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteStart<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteEnd<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ACount<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>Split<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Separators<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteStart<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AQuoteEnd<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ACount<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Options<span class="sym">: </span><a href="../sysutils/tstringsplitoptions.html">TStringSplitOptions</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/tstringarray.html">TStringArray</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Split</var> will split the string (<var>Self</var>) using <var>Separators</var> as separator characters.  </p>
+<p>If <var>ACount</var> is supplied, then at most <var>ACount</var> strings will be included in the result. The default behaviour is to supply all strings. </p>
+<p>if <var>Options</var> contains <var>ExcludeEmpty</var> then no empty strings will be included in the result. Empty strings may be included if multiple  succesive separator characters are found in the source string. </p>
+<p>If <var>AQuoteStart</var> and <var>AQuoteEnd</var> are supplied,  then no splitting will be performed between <var>AQuoteStart</var> and <var>AQuoteEnd</var> characters. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/tstringhelper.join.html">TStringHelper.Join</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Join a series of strings, separated using a given separator</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tstringhelper.indexofany.html">TStringHelper.IndexOfAny</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find the position (index) of any string or character in a list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tstringhelper.indexofanyunquoted.html">TStringHelper.IndexOfAnyUnquoted</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find the position (index) of any string or character in a list.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

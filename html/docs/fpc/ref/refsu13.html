@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>String sizes</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 1794--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu12.html" >prev</a>] [<a 
+href="refsu12.html#tailrefsu12.html" >prev-tail</a>] [<a 
+href="#tailrefsu13.html">tail</a>] [<a 
+href="refse13.html#refsu13.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.2.8   </span> <a 
+href="ref.html#QQ2-36-51" id="x36-460003.2.8">String sizes</a></h4>
+<!--l. 1795--><p class="noindent" >The memory occupied by a string depends on the string type. Some string types allocate the string
+data in memory on the heap, others have the string data on the stack. Table table (<a 
+href="#x36-46009r6">3.6<!--tex4ht:ref: tab:StringSizes --></a>)
+summarizes the memory usage of the various string types for the various string types. In the table,
+the following symbolic constants are used:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x36-46002x1"><span 
+class="cmtt-10">L </span>is the actual length of the string.
+     </li>
+     <li 
+  class="enumerate" id="x36-46004x2"><span 
+class="cmtt-10">HS </span>depends on the version of Free Pascal, but is 16 bytes as of Free Pascal 2.7.1.
+     </li>
+     <li 
+  class="enumerate" id="x36-46006x3"><span 
+class="cmtt-10">UHS </span>size is 8 bytes for all versions of Free Pascal.
+     </li>
+     <li 
+  class="enumerate" id="x36-46008x4">On Windows, <span 
+class="cmtt-10">WHS </span>size is 4 bytes for all versions of Free Pascal. On all other platforms,
+     <span 
+class="cmtt-10">WHS </span>equals <span 
+class="cmtt-10">UHS </span>because the <span 
+class="cmtt-10">WideString </span>type equals the <span 
+class="cmtt-10">UnicodeString </span>type.</li></ol>
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 1810--><p class="noindent" ><a 
+ id="x36-46009r6"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;3.6: </span><span  
+class="content">String memory sizes</span></div><!--tex4ht:label?: x36-46009r6 -->
+<div class="center" 
+>
+<!--l. 1810--><p class="noindent" >
+<div class="tabular"> <table id="TBL-7" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-7-1g"><col 
+id="TBL-7-1"><col 
+id="TBL-7-2"><col 
+id="TBL-7-3"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-7-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-7-1-1"  
+class="td11">String type   </td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-1-2"  
+class="td11">Stack size              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-1-3"  
+class="td11">heap size             </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-7-2-1"  
+class="td11">Shortstring    </td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-2-2"  
+class="td11">Declared length + 1</td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-2-3"  
+class="td11">0                       </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-7-3-1"  
+class="td11">Ansistring     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-3-2"  
+class="td11">Pointer size           </td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-3-3"  
+class="td11">L + 1 + HS        </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-7-4-1"  
+class="td11">Widestring    </td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-4-2"  
+class="td11">Pointer size           </td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-4-3"  
+class="td11">2*(L + 1) + WHS</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-7-5-1"  
+class="td11">UnicodeString</td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-5-2"  
+class="td11">Pointer size           </td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-5-3"  
+class="td11">2*(L + 1) + UHS </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-7-6-1"  
+class="td11">Pchar           </td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-6-2"  
+class="td11">Pointer size           </td><td  style="white-space:nowrap; text-align:left;" id="TBL-7-6-3"  
+class="td11">L+1                   </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-7-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-7-7-1"  
+class="td11">            </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+                                                                            
+
+                                                                            
+<!--l. 1821--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu12.html" >prev</a>] [<a 
+href="refsu12.html#tailrefsu12.html" >prev-tail</a>] [<a 
+href="refsu13.html" >front</a>] [<a 
+href="refse13.html#refsu13.html" >up</a>] </p></div>
+<!--l. 1821--><p class="noindent" ><a 
+ id="tailrefsu13.html"></a>  
+</body></html> 

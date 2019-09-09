@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Basic Usage</title>
+<link rel="stylesheet" href="fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="introduction.html">Previous</a>][<a href="index.html">Up</a>][<a href="how to implement a new resource class.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle"> (<a href="index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h2>Basic Usage</h2>
+<p><b>Resource files and TResources class</b></p>
+<p>One of the most important classes is <b>TResources</b> class, contained in <b>resource</b> unit, which represents a format-independent view of a resource file. In fact, while single resources are important, they are of little use alone, since they can't be read or written to file directly: they need to be contained in a <b>TResources</b> object.</p>
+<p><b>TResources</b> provides methods to read itself from a file or stream, using specific objects that are able to read resource data from such a stream: these are the so called <i>resource readers</i>, that descend from <b>TAbstractResourceReader</b>.</p>
+<p>There are also <i>resource writers</i> that do the opposite, and that descend from <b>TAbstractResourceWriter</b>.</p>
+<p>Usually readers and writers register themselves with <b>TResources</b> in the <var>initialization</var> section of the unit they are implemented in, so you only need to add a certain unit to your program <var>uses</var> clause to let <b>TResources</b> "know" about a particular file format.</p>
+<p>Let's see a very simple example: a program that converts a .res file to an object file in COFF format (the object file format used by Microsoft Windows).</p>
+<pre><span class="kw">program</span> res1<span class="sym">;</span>
+
+<span class="dir">{$mode objfpc}</span>
+
+<span class="kw">uses</span>
+  Classes<span class="sym">,</span> SysUtils<span class="sym">,</span> resource<span class="sym">,</span> resreader<span class="sym">,</span> coffwriter<span class="sym">;</span>
+
+<span class="kw">var</span>
+  resources <span class="sym">:</span> TResources<span class="sym">;</span>
+<span class="kw">begin</span>
+  resources<span class="sym">:=</span>TResources<span class="sym">.</span>Create<span class="sym">;</span>
+  resources<span class="sym">.</span>LoadFromFile<span class="sym">(</span><span class="str">'myresource.res'</span><span class="sym">)</span><span class="sym">;</span>
+  resources<span class="sym">.</span>WriteToFile<span class="sym">(</span><span class="str">'myobject.o'</span><span class="sym">)</span><span class="sym">;</span>
+  resources<span class="sym">.</span>Free<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<p>As you can see, the code is trivial. Note that <var>resreader</var> and <var>coffwriter</var> units were added to the <var>uses</var> clause of the program: this way, the resource reader for .res files and the resource writer for COFF files have been registered, letting the <var>resources</var> object know how to handle these file types.</p>
+<p>There are cases where one doesn't want to let the <b>TResources</b> object to choose readers and writers by itself. In fact, while generally it is a good idea to let <b>TResources</b> probe all readers it knows to find one able to read the input file, this isn't true when it comes to write files: writers are selected based on the file extension, so if you are trying to write a file with .o extension you can't be sure about which writer will be selected: it could be the COFF or the ELF writer (it depends on which writer gets registered first). Moreover, writers generally make an object file for the host architecture, so if you are running the program on a i386 machine it will produce a COFF or ELF file for i386.</p>
+<p>The solution is to provide <b>TResources</b> with a specific writer. In the following example the reader is automatically chosen among various readers, and we use a specific writer to produce an ELF file for SPARC.</p>
+<pre><span class="kw">program</span> res2<span class="sym">;</span>
+
+<span class="dir">{$mode objfpc}</span>
+
+<span class="kw">uses</span>
+  Classes<span class="sym">,</span> SysUtils<span class="sym">,</span> resource<span class="sym">,</span>
+  resreader<span class="sym">,</span> coffreader<span class="sym">,</span> elfreader<span class="sym">,</span> winpeimagereader<span class="sym">,</span> <span class="cmt">//readers</span>
+  elfwriter<span class="sym">,</span> elfconsts<span class="sym">;</span>
+
+<span class="kw">var</span>
+  resources <span class="sym">:</span> TResources<span class="sym">;</span>
+  writer <span class="sym">:</span> TElfResourceWriter<span class="sym">;</span>
+<span class="kw">begin</span>
+  resources<span class="sym">:=</span>TResources<span class="sym">.</span>Create<span class="sym">;</span>
+  resources<span class="sym">.</span>LoadFromFile<span class="sym">(</span>paramstr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  writer<span class="sym">:=</span>TElfResourceWriter<span class="sym">.</span>Create<span class="sym">;</span>
+  writer<span class="sym">.</span>MachineType<span class="sym">:=</span>emtsparc<span class="sym">;</span>
+  resources<span class="sym">.</span>WriteToFile<span class="sym">(</span>ChangeFileExt<span class="sym">(</span>paramstr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">,</span><span class="str">'.o'</span><span class="sym">)</span><span class="sym">,</span>writer<span class="sym">)</span><span class="sym">;</span>
+  resources<span class="sym">.</span>Free<span class="sym">;</span>
+  writer<span class="sym">.</span>Free<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<p>Note that the file to convert is taken from the command line. Its format is automatically detected among res (<b>resreader</b>), coff (<b>coffreader</b>), elf (<b>elfreader</b>), PE (<b>winpeimagereader</b>, e.g. a Windows exe or dll), and is written as an ELF file for SPARC. Note that we had to use <b>elfconsts</b> unit since we used <b>emtsparc</b> constant to specify the machine type of the object file to generate.</p>
+<p>With a small change to the above program we can let the user know which reader was selected to read the input file: we can use <b>TResources.FindReader</b> class method to obtain the appropriate reader for a given stream.</p>
+<pre><span class="kw">program</span> res3<span class="sym">;</span>
+
+<span class="dir">{$mode objfpc}</span>
+
+<span class="kw">uses</span>
+  Classes<span class="sym">,</span> SysUtils<span class="sym">,</span> resource<span class="sym">,</span>
+  resreader<span class="sym">,</span> coffreader<span class="sym">,</span> elfreader<span class="sym">,</span> winpeimagereader<span class="sym">,</span> <span class="cmt">//readers</span>
+  elfwriter<span class="sym">,</span> elfconsts<span class="sym">;</span>
+
+<span class="kw">var</span>
+  resources <span class="sym">:</span> TResources<span class="sym">;</span>
+  writer <span class="sym">:</span> TElfResourceWriter<span class="sym">;</span>
+  reader <span class="sym">:</span> TAbstractResourceReader<span class="sym">;</span>
+  inFile <span class="sym">:</span> TFileStream<span class="sym">;</span>
+<span class="kw">begin</span>
+  resources<span class="sym">:=</span>TResources<span class="sym">.</span>Create<span class="sym">;</span>
+  inFile<span class="sym">:=</span>TFileStream<span class="sym">.</span>Create<span class="sym">(</span>paramstr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">,</span> fmOpenRead <span class="kw">or</span> fmShareDenyNone<span class="sym">)</span><span class="sym">;</span>
+  reader<span class="sym">:=</span>TResources<span class="sym">.</span>FindReader<span class="sym">(</span>inFile<span class="sym">)</span><span class="sym">;</span>
+  writeln<span class="sym">(</span><span class="str">'Selected reader: '</span><span class="sym">,</span>reader<span class="sym">.</span>Description<span class="sym">)</span><span class="sym">;</span>
+  resources<span class="sym">.</span>LoadFromStream<span class="sym">(</span>inFile<span class="sym">,</span>reader<span class="sym">)</span><span class="sym">;</span>
+  writer<span class="sym">:=</span>TElfResourceWriter<span class="sym">.</span>Create<span class="sym">;</span>
+  writer<span class="sym">.</span>MachineType<span class="sym">:=</span>emtsparc<span class="sym">;</span>
+  resources<span class="sym">.</span>WriteToFile<span class="sym">(</span>ChangeFileExt<span class="sym">(</span>paramstr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">,</span><span class="str">'.o'</span><span class="sym">)</span><span class="sym">,</span>writer<span class="sym">)</span><span class="sym">;</span>
+  resources<span class="sym">.</span>Free<span class="sym">;</span>
+  reader<span class="sym">.</span>Free<span class="sym">;</span>
+  writer<span class="sym">.</span>Free<span class="sym">;</span>
+  inFile<span class="sym">.</span>Free<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<p>Output example:</p>
+<pre>user@localhost:~$ ./res3 myresource.res
+Selected reader: .res resource reader
+user@localhost:~$
+</pre>
+<p><b>Single resources</b></p>
+<p>You can do more with resources than simply converting between file formats.</p>
+<p><b>TResources.Items</b> property provides a simple way to access all resources contained in the <b>TResources</b> object.</p>
+<p>In the following example we read a resource file and then dump each resource data in a file whose name is built from type and name of the dumped resource.</p>
+<pre><span class="kw">program</span> res4<span class="sym">;</span>
+
+<span class="dir">{$mode objfpc}</span>
+
+<span class="kw">uses</span>
+  Classes<span class="sym">,</span> SysUtils<span class="sym">,</span> resource<span class="sym">,</span> resreader<span class="sym">;</span>
+
+<span class="kw">var</span>
+  resources <span class="sym">:</span> TResources<span class="sym">;</span>
+  dumpFile <span class="sym">:</span> TFileStream<span class="sym">;</span>
+  i <span class="sym">:</span> integer<span class="sym">;</span>
+  fname <span class="sym">:</span> string<span class="sym">;</span>
+<span class="kw">begin</span>
+  resources<span class="sym">:=</span>TResources<span class="sym">.</span>Create<span class="sym">;</span>
+  resources<span class="sym">.</span>LoadFromFile<span class="sym">(</span><span class="str">'myresource.res'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">for</span> i<span class="sym">:=</span><span class="num">0</span> to resources<span class="sym">.</span>Count<span class="sym">-</span><span class="num">1</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    fname<span class="sym">:=</span>resources<span class="sym">[</span>i<span class="sym">]</span><span class="sym">.</span>_Type<span class="sym">.</span>Name<span class="sym">+</span><span class="chr">'_'</span><span class="sym">+</span>resources<span class="sym">[</span>i<span class="sym">]</span><span class="sym">.</span>Name<span class="sym">.</span>Name<span class="sym">;</span>
+    dumpFile<span class="sym">:=</span>TFileStream<span class="sym">.</span>Create<span class="sym">(</span>fname<span class="sym">,</span>fmCreate <span class="kw">or</span> fmShareDenyWrite<span class="sym">)</span><span class="sym">;</span>
+    dumpFile<span class="sym">.</span>CopyFrom<span class="sym">(</span>resources<span class="sym">[</span>i<span class="sym">]</span><span class="sym">.</span>RawData<span class="sym">,</span>resources<span class="sym">[</span>i<span class="sym">]</span><span class="sym">.</span>RawData<span class="sym">.</span>Size<span class="sym">)</span><span class="sym">;</span>
+    dumpFile<span class="sym">.</span>Free<span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+  resources<span class="sym">.</span>Free<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<p>This code simply copies the content of each resource's <b>RawData</b> stream to a file stream, whose name is <i>resourcetype_resourcename</i>.</p>
+<p>Resource raw data isn't always what one expected, however. While some resource types simply contain a copy of a file in their raw data, other types do some processing, so that dumping raw data doesn't result in a file in the format one expected.</p>
+<p>E.g. a resource of type <b>RT_MANIFEST</b> is of the former type: its raw data is like an XML manifest file. On the other hand, in a resource of type <b>RT_BITMAP</b> the <b>RawData</b> stream isn't like a BMP file.</p>
+<p>For this reason, several classes (descendants of <b>TAbstractResource</b>) are provided to handle the peculiarities of this or that resource type. Much like it's done with readers and writers, resource classes can be registered: adding the unit that contains a resource class to the <var>uses</var> clause of your program registers that class. This way, when resources are read from a file, they are created with the class that is registered for their type (the class responsible to do this is <b>TResourceFactory</b>, but probably you won't need to use it unless you're implementing a new resource reader or resource class).</p>
+<p>In the following example, we read a resource file and then dump data of each resource of type <b>RT_BITMAP</b> as a BMP file.</p>
+<pre><span class="kw">program</span> res5<span class="sym">;</span>
+
+<span class="dir">{$mode objfpc}</span>
+
+<span class="kw">uses</span>
+  Classes<span class="sym">,</span> SysUtils<span class="sym">,</span> resource<span class="sym">,</span> resreader<span class="sym">,</span> bitmapresource<span class="sym">;</span>
+
+<span class="kw">var</span>
+  resources <span class="sym">:</span> TResources<span class="sym">;</span>
+  dumpFile <span class="sym">:</span> TFileStream<span class="sym">;</span>
+  i <span class="sym">:</span> integer<span class="sym">;</span>
+  fname <span class="sym">:</span> string<span class="sym">;</span>
+<span class="kw">begin</span>
+  resources<span class="sym">:=</span>TResources<span class="sym">.</span>Create<span class="sym">;</span>
+  resources<span class="sym">.</span>LoadFromFile<span class="sym">(</span><span class="str">'myresource.res'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">for</span> i<span class="sym">:=</span><span class="num">0</span> to resources<span class="sym">.</span>Count<span class="sym">-</span><span class="num">1</span> <span class="kw">do</span>
+    <span class="kw">if</span> resources<span class="sym">[</span>i<span class="sym">]</span> is TBitmapResource <span class="kw">then</span>
+      <span class="kw">with</span> resources<span class="sym">[</span>i<span class="sym">]</span> as TBitmapResource <span class="kw">do</span>
+      <span class="kw">begin</span>
+        fname<span class="sym">:=</span>Name<span class="sym">.</span>Name<span class="sym">+</span><span class="str">'.bmp'</span><span class="sym">;</span>
+        dumpFile<span class="sym">:=</span>TFileStream<span class="sym">.</span>Create<span class="sym">(</span>fname<span class="sym">,</span>fmCreate <span class="kw">or</span> fmShareDenyWrite<span class="sym">)</span><span class="sym">;</span>
+        dumpFile<span class="sym">.</span>CopyFrom<span class="sym">(</span>BitmapData<span class="sym">,</span>BitmapData<span class="sym">.</span>Size<span class="sym">)</span><span class="sym">;</span>
+        dumpFile<span class="sym">.</span>Free<span class="sym">;</span>
+      <span class="kw">end</span><span class="sym">;</span>
+  resources<span class="sym">.</span>Free<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<p>Note that we included <b>bitmapresource</b> in the <var>uses</var> clause of our program. This way, resources of type <b>RT_BITMAP</b> are created from <b>TBitmapResource</b> class. This class provides a stream, <b>BitmapData</b> that allows resource raw data to be accessed as if it was a bmp file.</p>
+<p>We can of course do the opposite. In the following code we are creating a manifest resource from <var>manifest.xml</var> file.</p>
+<pre><span class="kw">program</span> res6<span class="sym">;</span>
+
+<span class="dir">{$mode objfpc}</span>
+
+<span class="kw">uses</span>
+  Classes<span class="sym">,</span> SysUtils<span class="sym">,</span> resource<span class="sym">,</span> reswriter<span class="sym">;</span>
+
+<span class="kw">var</span>
+  resources <span class="sym">:</span> TResources<span class="sym">;</span>
+  inFile <span class="sym">:</span> TFileStream<span class="sym">;</span>
+  res <span class="sym">:</span> TGenericResource<span class="sym">;</span>
+  rname<span class="sym">,</span>rtype <span class="sym">:</span> TResourceDesc<span class="sym">;</span>
+<span class="kw">begin</span>
+  inFile<span class="sym">:=</span>TFileStream<span class="sym">.</span>Create<span class="sym">(</span><span class="str">'manifest.xml'</span><span class="sym">,</span>fmOpenRead <span class="kw">or</span> fmShareDenyNone<span class="sym">)</span><span class="sym">;</span>
+  rtype<span class="sym">:=</span>TResourceDesc<span class="sym">.</span>Create<span class="sym">(</span>RT_MANIFEST<span class="sym">)</span><span class="sym">;</span>
+  rname<span class="sym">:=</span>TResourceDesc<span class="sym">.</span>Create<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+  res<span class="sym">:=</span>TGenericResource<span class="sym">.</span>Create<span class="sym">(</span>rtype<span class="sym">,</span>rname<span class="sym">)</span><span class="sym">;</span>
+  rtype<span class="sym">.</span>Free<span class="sym">;</span> <span class="cmt">//no longer needed</span>
+  rname<span class="sym">.</span>Free<span class="sym">;</span>
+  res<span class="sym">.</span>SetCustomRawDataStream<span class="sym">(</span>inFile<span class="sym">)</span><span class="sym">;</span>
+  resources<span class="sym">:=</span>TResources<span class="sym">.</span>Create<span class="sym">;</span>
+  resources<span class="sym">.</span>Add<span class="sym">(</span>res<span class="sym">)</span><span class="sym">;</span>
+  resources<span class="sym">.</span>WriteToFile<span class="sym">(</span><span class="str">'myresource.res'</span><span class="sym">)</span><span class="sym">;</span>
+  resources<span class="sym">.</span>Free<span class="sym">;</span>  <span class="cmt">//frees res as well</span>
+  inFile<span class="sym">.</span>Free<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<p>Note that resources of type <b>RT_MANIFEST</b> contain a straight copy of a xml file, so <b>TGenericResource</b> class fits our needs. <b>TGenericResource</b> is a basic implementation of <b>TAbstractResource</b>. It is the default class used by <b>TResourceFactory</b> when it must create a resource whose type wasn't registered with any resource class.</p>
+<p>Please note that instead of copying <var>inFile</var> contents to <b>RawData</b> we used <b>SetCustomRawDataStream</b> method: it sets a stream as the underlying stream for <b>RawData</b>, so that when final resource file is written, data is read directly from the original file.</p>
+<p>Let's see a similar example, in which we use a specific class instead of <b>TGenericResource</b>. In the following code we are creating a resource containing the main program icon, which is read from <var>mainicon.ico</var> file.</p>
+<pre><span class="kw">program</span> res7<span class="sym">;</span>
+
+<span class="dir">{$mode objfpc}</span>
+
+<span class="kw">uses</span>
+  Classes<span class="sym">,</span> SysUtils<span class="sym">,</span> resource<span class="sym">,</span> reswriter<span class="sym">,</span> groupiconresource<span class="sym">;</span>
+
+<span class="kw">var</span>
+  resources <span class="sym">:</span> TResources<span class="sym">;</span>
+  inFile <span class="sym">:</span> TFileStream<span class="sym">;</span>
+  iconres <span class="sym">:</span> TGroupIconResource<span class="sym">;</span>
+  name <span class="sym">:</span> TResourceDesc<span class="sym">;</span>
+<span class="kw">begin</span>
+  inFile<span class="sym">:=</span>TFileStream<span class="sym">.</span>Create<span class="sym">(</span><span class="str">'mainicon.ico'</span><span class="sym">,</span>fmOpenRead <span class="kw">or</span> fmShareDenyNone<span class="sym">)</span><span class="sym">;</span>
+  name<span class="sym">:=</span>TResourceDesc<span class="sym">.</span>Create<span class="sym">(</span><span class="str">'MAINICON'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">//type is always RT_GROUP_ICON for this resource class</span>
+  iconres<span class="sym">:=</span>TGroupIconResource<span class="sym">.</span>Create<span class="sym">(</span><span class="kw">nil</span><span class="sym">,</span>name<span class="sym">)</span><span class="sym">;</span>
+  iconres<span class="sym">.</span>SetCustomItemDataStream<span class="sym">(</span>inFile<span class="sym">)</span><span class="sym">;</span>
+  resources<span class="sym">:=</span>TResources<span class="sym">.</span>Create<span class="sym">;</span>
+  resources<span class="sym">.</span>Add<span class="sym">(</span>iconres<span class="sym">)</span><span class="sym">;</span>
+  resources<span class="sym">.</span>WriteToFile<span class="sym">(</span><span class="str">'myicon.res'</span><span class="sym">)</span><span class="sym">;</span>
+  resources<span class="sym">.</span>Free<span class="sym">;</span>  <span class="cmt">//frees iconres as well</span>
+  inFile<span class="sym">.</span>Free<span class="sym">;</span>
+  name<span class="sym">.</span>Free<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<p>In this program we created a new <b>TGroupIconResource</b> with 'MAINICON' as name, and we loaded its contents from file 'mainicon.ico'. Please note that <b>RT_GROUP_ICON</b> resource raw data doesn't contain a .ico file, so we have to write to <b>ItemData</b> which is a ico-like stream. As we did for <var>res6</var> program, we tell the resource to use our stream as the underlying stream for resource data: the only difference is that we are using <b>TGroupResource.SetCustomItemDataStream</b> instead of <b>TAbstractResource.SetCustomRawDataStream</b> method, for obvious reasons.</p>
+<p><b>Other resource types</b></p>
+<p>There are other resource types that allow to easily deal with resource data. E.g. <b>TVersionResource</b> makes it easy to create and read version information for Windows executables and dlls, <b>TStringTableResource</b> deals with string tables, and so on.</p>
+<p><b>Data caching</b></p>
+<p>Whenever possible, fcl-res tries to avoid to duplicate data. Generally a reader doesn't copy resource data from the original stream to <b>RawData</b> stream: instead, it only informs the resource about where its raw data is in the original stream. <b>RawData</b> uses a caching system so that it appears as a stream while it only redirects operations to its underlying stream, with a copy-on-write mechanism. Of course this behaviour can be controlled by the user. For further information, see <b>TAbstractResource</b> and <b>TAbstractResource.RawData</b>.</p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

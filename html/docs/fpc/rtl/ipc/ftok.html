@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>ftok</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../ipc/index.html">Overview</a>][<a href="../ipc/index-2.html">Constants</a>][<a href="../ipc/index-3.html">Types</a>][<a href="../ipc/index-5.html">Procedures and functions</a>][<a href="../ipc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'ipc' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>ftok</h1>
+<p>Create token from filename</p>
+<h2>Declaration</h2>
+<p>Source position: ipc.pp line 196</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> ftok<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Path<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ID<span class="sym">: </span><a href="../unixtype/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../ipc/tkey.html">TKey</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ftok</var> returns a key that can be used in a <a href="../ipc/semget.html">semget</a><a href="../ipc/shmget.html">shmget</a> or <a href="../ipc/msgget.html">msgget</a> call to access a new or existing IPC resource. </p>
+<p><var>Path</var> is the name of a file in the file system, <var>ID</var> is a character of your choice. The ftok call does the same as it's C couterpart, so a pascal program and a C program will access the same resource if they use the same <var>Path</var> and <var>ID</var></p>
+<p>For an example, see <a href="../ipc/msgctl.html">msgctl</a>, <a href="../ipc/semctl.html">semctl</a> or <a href="../ipc/shmctl.html">shmctl</a>. </p>
+<h2>Errors</h2>
+<p><var>ftok</var> returns -1 if the file in <var>Path</var> doesn't exist. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../ipc/semget.html">semget</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the ID of a semaphore set, possibly creating the set</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ipc/shmget.html">shmget</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the ID of a shared memory block, possibly creating it</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ipc/msgget.html">msgget</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return message queue ID, possibly creating the queue</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

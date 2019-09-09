@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>How to use</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 6920--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu193.html" >next</a>] [<a 
+href="#tailprogsu192.html">tail</a>] [<a 
+href="progse53.html#progsu192.html" >up</a>] </p></div>
+                                                                            
+
+                                                                            
+<h4 class="subsectionHead"><span class="titlemark">11.7.1   </span> <a 
+href="prog.html#QQ2-260-296" id="x260-27400011.7.1">How to use</a></h4>
+<!--l. 6921--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="progse53.html#QQ2-260-297" id="x260-27500011.7.1">Step 1: Generate WPO feedback file</a></h5>
+<!--l. 6922--><p class="noindent" >The first step in WPO is to compile the program (or library) and all of its units as
+it would be done normally, but specifying in addition the 2 following options on the
+command-line:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-247">
+&#x00A0;-FW/path/to/feedbackfile.wpo&#x00A0;-OW&#x003C;selected_wpo_options&#x003E;
+</div>
+<!--l. 6927--><p class="nopar" >The first option tells the compiler where the WPO feedback file should be written, the second
+option tells the compiler to switch on WPO optimalizations.
+<!--l. 6932--><p class="noindent" >The compiler will then, right after the program or library has been linked, collect all necessary
+information to perform the requested WPO options during a subsequent compilation, and will
+store this information in the indicated file.
+<!--l. 6937--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="progse53.html#QQ2-260-298" id="x260-27600011.7.1">Step 2: Use the generated WPO feedback file</a></h5>
+<!--l. 6938--><p class="noindent" >To actually apply the WPO options, the program (or library) and all or some of the units that it
+uses, must be recompiled using the option
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-248">
+-Fw/path/to/feedbackfile.wpo&#x00A0;-Ow&#x003C;selected_wpo_options&#x003E;
+</div>
+<!--l. 6942--><p class="nopar" >(Note the small caps in the <span 
+class="cmtt-10">w</span>). This will tell the compiler to use the feedback file generated in the
+previous step. The compiler will then read the information collected about the program during
+the previous compiler run, and use it during the current compilation of units and/or
+program/library.
+<!--l. 6948--><p class="noindent" >Units not recompiled during the second pass will obviously not be optimised, but they will still
+work correctly when used together with the optimised units and program/library.
+<!--l. 6952--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Note that the options must always be specified on the command-line: there is no source
+directive to turn on WPO, as it makes only sense to use WPO when compiling a complete
+program.
+                                                                            
+
+                                                                            
+<!--l. 6958--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu193.html" >next</a>] [<a 
+href="progsu192.html" >front</a>] [<a 
+href="progse53.html#progsu192.html" >up</a>] </p></div>
+<!--l. 6958--><p class="noindent" ><a 
+ id="tailprogsu192.html"></a>  
+</body></html> 

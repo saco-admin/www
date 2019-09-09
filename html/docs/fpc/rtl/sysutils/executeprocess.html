@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>ExecuteProcess</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>ExecuteProcess</h1>
+<p>Execute another process (program).</p>
+<h2>Declaration</h2>
+<p>Source position: osutilsh.inc line 32</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> ExecuteProcess<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Path<span class="sym">: </span>AnsiString<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ComLine<span class="sym">: </span>AnsiString<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Flags<span class="sym">: </span><a href="../sysutils/texecuteflags.html">TExecuteFlags</a> <span class="sym">=</span> <span class="sym">[</span><span class="sym">]</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span><br><br><span class="kw">function</span> ExecuteProcess<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Path<span class="sym">: </span>AnsiString<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ComLine<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> AnsiString<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Flags<span class="sym">: </span><a href="../sysutils/texecuteflags.html">TExecuteFlags</a> <span class="sym">=</span> <span class="sym">[</span><span class="sym">]</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ExecuteProcess</var> will execute the program in <var>Path</var>, passing it the arguments in <var>ComLine</var>. <var>ExecuteProcess</var> will then wait for the program to finish, and will return the exit code of the executed program. In case <var>ComLine</var> is a single string, it will be split out in an array of strings, taking into account common whitespace and quote rules. </p>
+<p>The program specified in <var>Path</var> is not searched in the searchpath  specified in the <var>PATH</var> environment variable, so the full path to the  executable must be specified in <var>Path</var>, although some operating systems  may perform this search anyway (notably, windows) </p>
+<p><var>Flags</var> can be used to control the passing of file handles: if <var>ExecInheritsHandles</var> is included, the file handles of the current process will be passed on to the newly executed process. </p>
+<h2>Errors</h2>
+<p>In case the program could not be executed or an other error occurs,  an <a href="../sysutils/eoserror.html">EOSError</a> exception  will be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/texecuteflags.html">TExecuteFlags</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Flags for <var>ExecuteProcess</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/eoserror.html">EOSError</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Operating system error.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

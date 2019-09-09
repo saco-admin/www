@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFieldDefs.Add</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TFieldDefs.Add</h1>
+<p>Add a new field definition to the collection.</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 211</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../db/tfielddefs.html">TFieldDefs</a><span class="sym">.</span>Add<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AName<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ADataType<span class="sym">: </span><a href="../db/tfieldtype.html">TFieldType</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ASize<span class="sym">: </span><a href="../../rtl/system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ARequired<span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AFieldNo<span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../db/tfielddef.html">TFieldDef</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">procedure</span> <a href="../db/tfielddefs.html">TFieldDefs</a><span class="sym">.</span>Add<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AName<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ADataType<span class="sym">: </span><a href="../db/tfieldtype.html">TFieldType</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ASize<span class="sym">: </span><a href="../../rtl/system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ARequired<span class="sym">: </span>Boolean</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">procedure</span> <a href="../db/tfielddefs.html">TFieldDefs</a><span class="sym">.</span>Add<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AName<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ADataType<span class="sym">: </span><a href="../db/tfieldtype.html">TFieldType</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ASize<span class="sym">: </span><a href="../../rtl/system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">procedure</span> <a href="../db/tfielddefs.html">TFieldDefs</a><span class="sym">.</span>Add<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AName<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ADataType<span class="sym">: </span><a href="../db/tfieldtype.html">TFieldType</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value for the <var>Name</var> property of the new item.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADataType</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value for the <var>DataType</var> property of the new item.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ASize</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value for the <var>Size</var> property of the new item.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ARequired</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value for the <var>Required</var> property of the new item.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AFieldNo</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of the field </p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Add new fieldDef result</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value for the <var>Name</var> property of the new item.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADataType</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value for the <var>DataType</var> property of the new item.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ASize</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value for the <var>Size</var> property of the new item.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ARequired</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value for the <var>Required</var> property of the new item.</p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value for the <var>Name</var> property of the new item.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADataType</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value for the <var>DataType</var> property of the new item.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ASize</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value for the <var>Size</var> property of the new item.</p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value for the <var>Name</var> property of the new item.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADataType</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value for the <var>DataType</var> property of the new item.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Add</var> adds a new item to the collection and fills in the <var>Name</var>, <var>DataType</var>, <var>Size</var> and <var>Required</var> properties of the newly added item with the provided parameters. </p>
+<h2>Errors</h2>
+<p>If an item with name <var>AName</var> already exists in the collection, then an exception will be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tfielddefs.addfielddef.html">TFieldDefs.AddFieldDef</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Add new <var>TFieldDef</var></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Target specific issues: DOS</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../graph/targetissueswindows.html">Previous</a>][<a href="../graph/index.html">Up</a>][<a href="../graph/modes.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Graph' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>Target specific issues: DOS</h2>
+<p>VESA modes (i.e., anything but 320x200x256 and 640x480x16) do not work under most installations of Windows NT, Windows 2000 and Windows XP. They also do not work for some people under Windows 98 and Windows ME, depending on their graphics drivers. However, the graph unit cannot detect this, because no errors are returned from the system. In such cases, the screen simply turns black, or will show garbage. </p>
+<p>Nothing can be done about this, the reason is missing or buggy support in the graphics drivers of the operating system. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

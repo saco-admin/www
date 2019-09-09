@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Logical operators</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 8224--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu47.html" >next</a>] [<a 
+href="refsu45.html" >prev</a>] [<a 
+href="refsu45.html#tailrefsu45.html" >prev-tail</a>] [<a 
+href="#tailrefsu46.html">tail</a>] [<a 
+href="refse84.html#refsu46.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">12.8.2   </span> <a 
+href="ref.html#QQ2-149-180" id="x149-17100012.8.2">Logical operators</a></h4>
+<a 
+ id="dx149-171001"></a>
+<!--l. 8225--><p class="noindent" ><a name="keyword_not"></a> <a name="keyword_and"></a> <a name="keyword_or"></a> <a name="keyword_xor"></a> <a name="keyword_shl"></a> <a name="keyword_shr"></a> Logical operators act on the individual bits of ordinal expressions. Logical operators require
+operands that are of an integer type, and produce an integer type result. The possible logical
+operators are listed in table (<a 
+href="#x149-171002r4">12.4<!--tex4ht:ref: tab:logicoperations --></a>). <div class="table">
+                                                                            
+
+                                                                            
+<!--l. 8231--><p class="noindent" ><a 
+ id="x149-171002r4"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;12.4: </span><span  
+class="content">Logical operators</span></div><!--tex4ht:label?: x149-171002r4 -->
+<div class="center" 
+>
+<!--l. 8231--><p class="noindent" >
+<div class="tabular"> <table id="TBL-11" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-11-1g"><col 
+id="TBL-11-1"><col 
+id="TBL-11-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-11-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-11-1-1"  
+class="td11">Operator</td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-1-2"  
+class="td11">Operation                                      </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-11-2-1"  
+class="td11"><span 
+class="cmtt-10">not     </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-2-2"  
+class="td11">Bitwise negation (unary)                  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-11-3-1"  
+class="td11"><span 
+class="cmtt-10">and     </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-3-2"  
+class="td11">Bitwise and                                    </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-11-4-1"  
+class="td11"><span 
+class="cmtt-10">or </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-4-2"  
+class="td11">Bitwise or</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-11-5-1"  
+class="td11"><span 
+class="cmtt-10">xor     </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-5-2"  
+class="td11">Bitwise xor                                    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-11-6-1"  
+class="td11"><span 
+class="cmtt-10">shl     </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-6-2"  
+class="td11">Bitwise shift to the left                     </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-11-7-1"  
+class="td11"><span 
+class="cmtt-10">shr     </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-7-2"  
+class="td11">Bitwise shift to the right                   </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-11-8-1"  
+class="td11"><span 
+class="cmtt-10">&#x003C;&#x003C;      </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-8-2"  
+class="td11">Bitwise shift to the left (same as shl)  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-11-9-1"  
+class="td11"><span 
+class="cmtt-10">&#x003E;&#x003E;      </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-11-9-2"  
+class="td11">Bitwise shift to the right (same as shr)</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-10-"><td  style="white-space:nowrap; text-align:left;" id="TBL-11-10-1"  
+class="td11">        </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+<!--l. 8242--><p class="noindent" >The following are valid logical expressions:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-340">
+A&#x00A0;shr&#x00A0;1&#x00A0;&#x00A0;{&#x00A0;same&#x00A0;as&#x00A0;A&#x00A0;div&#x00A0;2,&#x00A0;but&#x00A0;faster}
+&#x00A0;<br />Not&#x00A0;1&#x00A0;&#x00A0;&#x00A0;&#x00A0;{&#x00A0;equals&#x00A0;-2&#x00A0;}
+&#x00A0;<br />Not&#x00A0;0&#x00A0;&#x00A0;&#x00A0;&#x00A0;{&#x00A0;equals&#x00A0;-1&#x00A0;}
+&#x00A0;<br />Not&#x00A0;-1&#x00A0;&#x00A0;&#x00A0;{&#x00A0;equals&#x00A0;0&#x00A0;&#x00A0;}
+&#x00A0;<br />B&#x00A0;shl&#x00A0;2&#x00A0;&#x00A0;{&#x00A0;same&#x00A0;as&#x00A0;B&#x00A0;*&#x00A0;4&#x00A0;for&#x00A0;integers&#x00A0;}
+&#x00A0;<br />1&#x00A0;or&#x00A0;2&#x00A0;&#x00A0;&#x00A0;{&#x00A0;equals&#x00A0;3&#x00A0;}
+&#x00A0;<br />3&#x00A0;xor&#x00A0;1&#x00A0;&#x00A0;{&#x00A0;equals&#x00A0;2&#x00A0;}
+</div>
+<!--l. 8251--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 8253--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu47.html" >next</a>] [<a 
+href="refsu45.html" >prev</a>] [<a 
+href="refsu45.html#tailrefsu45.html" >prev-tail</a>] [<a 
+href="refsu46.html" >front</a>] [<a 
+href="refse84.html#refsu46.html" >up</a>] </p></div>
+<!--l. 8253--><p class="noindent" ><a 
+ id="tailrefsu46.html"></a>  
+</body></html> 

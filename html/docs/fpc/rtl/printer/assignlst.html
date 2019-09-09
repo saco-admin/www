@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>AssignLst</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../printer/index.html">Overview</a>][<a href="../printer/index-5.html">Procedures and functions</a>][<a href="../printer/index-6.html">Variables</a>][<a href="../printer/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'printer' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>AssignLst</h1>
+<p>Assign text file to printing device</p>
+<h2>Declaration</h2>
+<p>Source position: printer.pp line 40</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> AssignLst<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>F<span class="sym">: </span>text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ToFile<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>AssignLst</var> assigns to <var>F</var> a printing device - <em>UNIX only</em>. <var>ToFile</var> is a string with the following form: </p>
+<ul>
+<li><var>'|filename options'</var>: This sets up a pipe with the program filename, with the given options, such as in the popen() call. </li>
+<li><var>'filename'</var>: Prints to file filename. Filename can contain the string 'PID' (No Quotes), which will be replaced by the PID of your program. When closing lst, the file will be sent to lpr and deleted. (lpr should be in PATH) </li>
+<li><var>{'filename|'}</var>: Same as previous, only the file is <em>not</em> sent to lpr, nor is it deleted.  (useful for opening /dev/printer or for later printing) </li>
+</ul>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../printer/lst.html">lst</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Default printing file.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> testprn<span class="sym">;</span>
+
+<span class="kw">uses</span> printer<span class="sym">;</span>
+
+<span class="kw">var</span> i <span class="sym">:</span> integer<span class="sym">;</span>
+    f <span class="sym">:</span> text<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  writeln <span class="sym">(</span><span class="str">'Test of printer unit'</span><span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'Writing to lst...'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">for</span> i<span class="sym">:=</span><span class="num">1</span> to <span class="num">80</span> <span class="kw">do</span> writeln <span class="sym">(</span>lst<span class="sym">,</span><span class="str">'This is line '</span><span class="sym">,</span>i<span class="sym">,</span><span class="chr">'.'</span><span class="chr">#13</span><span class="sym">)</span><span class="sym">;</span>
+  close <span class="sym">(</span>lst<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'Done.'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="dir">{$ifdef Unix}</span>
+  writeln <span class="sym">(</span><span class="str">'Writing to pipe...'</span><span class="sym">)</span><span class="sym">;</span>
+  assignlst <span class="sym">(</span>f<span class="sym">,</span><span class="str">'|/usr/bin/lpr -m'</span><span class="sym">)</span><span class="sym">;</span>
+  rewrite <span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">for</span> i<span class="sym">:=</span><span class="num">1</span> to <span class="num">80</span> <span class="kw">do</span> writeln <span class="sym">(</span>f<span class="sym">,</span><span class="str">'This is line '</span><span class="sym">,</span>i<span class="sym">,</span><span class="chr">'.'</span><span class="chr">#13</span><span class="sym">)</span><span class="sym">;</span>
+  close <span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'Done.'</span><span class="sym">)</span>
+  <span class="dir">{$endif}</span>
+<span class="kw">end</span><span class="sym">.</span>
+
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

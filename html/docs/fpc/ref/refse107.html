@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Namespaces: Dotted Units</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 11548--><div class="crosslinks"><p class="noindent">[<a 
+href="refse108.html" >next</a>] [<a 
+href="refse106.html" >prev</a>] [<a 
+href="refse106.html#tailrefse106.html" >prev-tail</a>] [<a 
+href="#tailrefse107.html">tail</a>] [<a 
+href="refch16.html#refse107.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">16.3   </span> <a 
+href="ref.html#QQ2-217-255" id="x217-23900016.3">Namespaces: Dotted Units</a></h3>
+<!--l. 11549--><p class="noindent" >As can be seen in the syntax diagram for a unit, a unit name can contain dots. This means that
+the units can be organized in namespaces.
+<!--l. 11552--><p class="noindent" >So, the following is a correct unit declaration:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-481">
+unit&#x00A0;a.b;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;C&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;C&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=1;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 11569--><p class="nopar" >The unit can be used as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-482">
+program&#x00A0;d;
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;a.b;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(c);
+&#x00A0;<br />end.
+</div>
+<!--l. 11579--><p class="nopar" >When resolving symbols, unit scopes always take precedence over symbols inside units.
+<!--l. 11582--><p class="noindent" >Given the following units:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-483">
+unit&#x00A0;myunit;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;test:&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;a:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />initialization
+&#x00A0;<br />&#x00A0;&#x00A0;test.a:=2;
+&#x00A0;<br />end.
+</div>
+<!--l. 11598--><p class="nopar" >and
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-484">
+unit&#x00A0;myunit.test;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;a:&#x00A0;longint;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />initialization
+&#x00A0;<br />&#x00A0;&#x00A0;a:=1;
+&#x00A0;<br />end.
+</div>
+<!--l. 11613--><p class="nopar" >The following program will resolve <span 
+class="cmtt-10">myunit.test.a </span>to the variable <span 
+class="cmtt-10">a </span>in unit <span 
+class="cmtt-10">myunit.test</span>:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-485">
+uses
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;myunit,&#x00A0;myunit.test;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;myunit.test.a&#x00A0;:&#x00A0;&#8217;,myunit.test.a);
+&#x00A0;<br />end.
+</div>
+<!--l. 11622--><p class="nopar" >So it will print:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-486">
+myunit.test.a&#x00A0;:&#x00A0;1
+</div>
+<!--l. 11626--><p class="nopar" >Reversing the order of the units will not change this:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-487">
+uses
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;myunit.test,&#x00A0;myunit;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;myunit.test.a&#x00A0;:&#x00A0;&#8217;,myunit.test.a);
+&#x00A0;<br />end.
+</div>
+<!--l. 11635--><p class="nopar" >will also print
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-488">
+myunit.test.a&#x00A0;:&#x00A0;1
+</div>
+<!--l. 11639--><p class="nopar" >Similarly, the following program will resolve <span 
+class="cmtt-10">myunit.test.a </span>to the variable <span 
+class="cmtt-10">a </span>in unit
+<span 
+class="cmtt-10">myunit.test</span>:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-489">
+uses
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;myunit.test,&#x00A0;myunit;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;a&#x00A0;:&#x00A0;&#8217;,a);
+&#x00A0;<br />end.
+</div>
+<!--l. 11648--><p class="nopar" >it will print:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-490">
+a&#x00A0;:&#x00A0;1
+</div>
+<!--l. 11652--><p class="nopar" >Similarly, the following program will resolve <span 
+class="cmtt-10">test.a </span>to the variable <span 
+class="cmtt-10">test.a </span>in unit <span 
+class="cmtt-10">myunit</span>:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-491">
+uses
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;myunit.test,&#x00A0;myunit;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;test.a&#x00A0;:&#x00A0;&#8217;,test.a);
+&#x00A0;<br />end.
+</div>
+<!--l. 11661--><p class="nopar" >will print
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-492">
+test.a&#x00A0;:&#x00A0;2
+</div>
+<!--l. 11665--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 11667--><div class="crosslinks"><p class="noindent">[<a 
+href="refse108.html" >next</a>] [<a 
+href="refse106.html" >prev</a>] [<a 
+href="refse106.html#tailrefse106.html" >prev-tail</a>] [<a 
+href="refse107.html" >front</a>] [<a 
+href="refch16.html#refse107.html" >up</a>] </p></div>
+<!--l. 11667--><p class="noindent" ><a 
+ id="tailrefse107.html"></a>  
+</body></html> 

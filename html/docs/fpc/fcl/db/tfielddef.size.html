@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFieldDef.Size</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TFieldDef.Size</h1>
+<p>Size of the buffer needed to store the data of the field</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 195</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../db/tfielddef.html">TFieldDef</a><span class="sym">.</span>Size<span class="sym"> : </span><a href="../../rtl/system/integer.html">Integer</a><br>&nbsp;&nbsp;<span class="kw">read </span>FSize<br>&nbsp;&nbsp;<span class="kw">write </span>SetSize<br>&nbsp;&nbsp;<span class="kw">default </span><span class="num">0</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Size</var> indicates the size of the buffer needed to hold data for the field.  For types with a fixed size (such as integer, word or data/time) the size can be zero: the buffer mechaism reserves automatically enough heap memory.  For types which can have various sizes (blobs, string types), the Size property tells the buffer mechanism how many bytes are needed  to hold the data for the field. For BCD fields, the size property indicates the number of decimals after the decimal separator. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tfielddef.precision.html">TFieldDef.Precision</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Precision used in BCD (Binary Coded Decimal) fields</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfielddef.datatype.html">TFieldDef.DataType</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Data type for the field</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

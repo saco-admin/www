@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Reference for unit 'CustApp'</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[Overview][<a href="../custapp/index-3.html">Types</a>][<a href="../custapp/index-4.html">Classes</a>][<a href="../custapp/index-6.html">Variables</a>][<a href="../custapp/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'CustApp' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>Reference for unit 'CustApp'</h1>
+<p>Custom application class</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">uses</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../../rtl/system/index.html">System</a><span class="sym">,</span>  </span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../../rtl/sysutils/index.html">sysutils</a><span class="sym">,</span>  </span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../../rtl/classes/index.html">Classes</a><span class="sym">,</span>  </span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;singleinstance<span class="sym">;</span>  </span></tt></p></td>
+</tr>
+</table>
+<h2>Overview</h2>
+<p>The <span class="file">CustApp</span> unit implements the <a href="../custapp/tcustomapplication.html">TCustomApplication</a> class, which serves as the common ancestor to many kinds of <var>TApplication</var> classes: a GUI application in the LCL, a CGI application in FPCGI, a daemon application in daemonapp. It introduces some properties to describe the environment in which the application is running (environment variables, program command-line parameters) and introduces some methods to initialize and run a program, as well as functionality to handle exceptions. </p>
+<p>Typical use of a descendent class is to introduce a global variable <var>Application</var> and use the following code: </p>
+<pre>Application<span class="sym">.</span>Initialize<span class="sym">;</span>
+  Application<span class="sym">.</span>Run<span class="sym">;</span>
+</pre>
+<p>Since normally only a single instance of this class is created, and it is a <var>TComponent</var> descendent, it can be used as an owner for many  components, doing so will ensure these components will be freed when the application terminates. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

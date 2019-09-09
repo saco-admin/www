@@ -1,0 +1,27 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00045.html" title="Thown by exception safety machinery." alt="" coords="187,5,355,33"/>
+<area shape="rect" id="node5" href="$a00064.html" title="Exception thrown by __cxa_guard_acquire.6.7[stmt.dcl]/4: If control re&#45;enters the declaration (recurs..." alt="" coords="165,55,376,83"/>
+<area shape="rect" id="node7" href="$a00558.html" title="Exception possibly thrown by new.bad_alloc (or classes derived from it) is used to report allocation ..." alt="" coords="216,106,325,134"/>
+<area shape="rect" id="node9" href="$a00559.html" title="Thrown during incorrect typecasting.If you attempt an invalid dynamic_cast expression, an instance of this class (or something derived from this class) is thrown." alt="" coords="217,157,324,185"/>
+<area shape="rect" id="node11" href="$a00560.html" title="std::bad_exception" alt="" coords="200,207,341,235"/>
+<area shape="rect" id="node13" href="$a00561.html" title="Exception class thrown when class template function&#39;s operator() is called with an empty target..." alt="" coords="192,258,349,286"/>
+<area shape="rect" id="node15" href="$a00562.html" title="Thrown when a NULL pointer in a typeid expression is used." alt="" coords="212,309,329,337"/>
+<area shape="rect" id="node17" href="$a00563.html" title="Exception possibly thrown by shared_ptr." alt="" coords="203,359,339,387"/>
+<area shape="rect" id="node19" href="$a00713.html" title="These are thrown to indicate problems with io.27.4.2.1.1 Class ios_base::failure." alt="" coords="195,410,347,438"/>
+<area shape="rect" id="node21" href="$a00785.html" title="One of two subclasses of exception." alt="" coords="213,461,328,489"/>
+<area shape="rect" id="node41" href="$a00888.html" title="One of two subclasses of exception." alt="" coords="204,689,337,717"/>
+<area shape="rect" id="node23" href="$a00196.html" title="Base class for exceptions." alt="" coords="424,309,624,337"/>
+<area shape="rect" id="node31" href="$a00632.html" title="std::domain_error" alt="" coords="457,359,591,387"/>
+<area shape="rect" id="node33" href="$a00651.html" title="Exception type thrown by futures." alt="" coords="461,410,587,438"/>
+<area shape="rect" id="node35" href="$a00711.html" title="std::invalid_argument" alt="" coords="447,461,601,489"/>
+<area shape="rect" id="node37" href="$a00777.html" title="std::length_error" alt="" coords="461,511,587,539"/>
+<area shape="rect" id="node39" href="$a00846.html" title="std::out_of_range" alt="" coords="459,562,589,590"/>
+<area shape="rect" id="node25" href="$a00343.html" title="An entry cannot be inserted into a container object for logical reasons (not, e.g., if memory is unabvailable, in which case the allocator_type&#39;s exception will be thrown)." alt="" coords="672,258,848,286"/>
+<area shape="rect" id="node27" href="$a00344.html" title="A join cannot be performed logical reasons (i.e., the ranges of the two container objects being joine..." alt="" coords="679,309,841,337"/>
+<area shape="rect" id="node29" href="$a00362.html" title="A container cannot be resized." alt="" coords="672,359,848,387"/>
+<area shape="rect" id="node43" href="$a00848.html" title="std::overflow_error" alt="" coords="455,613,593,641"/>
+<area shape="rect" id="node45" href="$a00867.html" title="std::range_error" alt="" coords="463,663,585,691"/>
+<area shape="rect" id="node47" href="$a00877.html" title="A regular expression exception class.The regular expression library throws objects of this class on e..." alt="" coords="463,714,585,742"/>
+<area shape="rect" id="node49" href="$a00896.html" title="Thrown to indicate error code of underlying system." alt="" coords="459,765,589,793"/>
+<area shape="rect" id="node51" href="$a00922.html" title="std::underflow_error" alt="" coords="451,815,597,843"/>
+</map>

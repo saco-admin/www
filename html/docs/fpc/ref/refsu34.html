@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Indexed properties</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5004--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu35.html" >next</a>] [<a 
+href="refsu33.html" >prev</a>] [<a 
+href="refsu33.html#tailrefsu33.html" >prev-tail</a>] [<a 
+href="#tailrefsu34.html">tail</a>] [<a 
+href="refse39.html#refsu34.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.6.2   </span> <a 
+href="ref.html#QQ2-86-114" id="x86-1080006.6.2">Indexed properties</a></h4>
+<a 
+ id="dx86-108001"></a>
+<!--l. 5005--><p class="noindent" ><a name="keyword_index"></a> If the property definition contains an index, <a 
+ id="dx86-108002"></a>then the read and write specifiers must be a function
+and a procedure. Moreover, these functions require an additional parameter : An integer
+parameter. This allows to read or write several properties with the same function. For this, the
+properties must have the same type. The following is an example of a property with an
+index:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-199">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TPoint&#x00A0;=&#x00A0;Class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;Private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FX,FY&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;GetCoord&#x00A0;(Index&#x00A0;:&#x00A0;Integer):&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;SetCoord&#x00A0;(Index&#x00A0;:&#x00A0;Integer;&#x00A0;Value&#x00A0;:&#x00A0;longint);
+&#x00A0;<br />&#x00A0;&#x00A0;Public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;X&#x00A0;:&#x00A0;Longint&#x00A0;index&#x00A0;1&#x00A0;read&#x00A0;GetCoord&#x00A0;Write&#x00A0;SetCoord;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Y&#x00A0;:&#x00A0;Longint&#x00A0;index&#x00A0;2&#x00A0;read&#x00A0;GetCoord&#x00A0;Write&#x00A0;SetCoord;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Coords[Index&#x00A0;:&#x00A0;Integer]:Longint&#x00A0;Read&#x00A0;GetCoord;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;TPoint.SetCoord&#x00A0;(Index&#x00A0;:&#x00A0;Integer;&#x00A0;Value&#x00A0;:&#x00A0;Longint);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Case&#x00A0;Index&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;1&#x00A0;:&#x00A0;FX&#x00A0;:=&#x00A0;Value;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;2&#x00A0;:&#x00A0;FY&#x00A0;:=&#x00A0;Value;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;TPoint.GetCoord&#x00A0;(INdex&#x00A0;:&#x00A0;Integer)&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Case&#x00A0;Index&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;1&#x00A0;:&#x00A0;Result&#x00A0;:=&#x00A0;FX;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;2&#x00A0;:&#x00A0;Result&#x00A0;:=&#x00A0;FY;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;P&#x00A0;:&#x00A0;TPoint;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;P&#x00A0;:=&#x00A0;TPoint.create;
+&#x00A0;<br />&#x00A0;&#x00A0;P.X&#x00A0;:=&#x00A0;2;
+&#x00A0;<br />&#x00A0;&#x00A0;P.Y&#x00A0;:=&#x00A0;3;
+&#x00A0;<br />&#x00A0;&#x00A0;With&#x00A0;P&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;X=&#8217;,X,&#8217;&#x00A0;Y=&#8217;,Y);
+&#x00A0;<br />end.
+</div>
+<!--l. 5052--><p class="nopar" >When the compiler encounters an assignment to <span 
+class="cmtt-10">X</span>, then <span 
+class="cmtt-10">SetCoord </span>is called with as first parameter
+the index (1 in the above case) and with as a second parameter the value to be set. Conversely,
+when reading the value of <span 
+class="cmtt-10">X</span>, the compiler calls <span 
+class="cmtt-10">GetCoord </span>and passes it index 1. Indexes can only be
+integer values.
+                                                                            
+
+                                                                            
+<!--l. 5060--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu35.html" >next</a>] [<a 
+href="refsu33.html" >prev</a>] [<a 
+href="refsu33.html#tailrefsu33.html" >prev-tail</a>] [<a 
+href="refsu34.html" >front</a>] [<a 
+href="refse39.html#refsu34.html" >up</a>] </p></div>
+<!--l. 5060--><p class="noindent" ><a 
+ id="tailrefsu34.html"></a>  
+</body></html> 

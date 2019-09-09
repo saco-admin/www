@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Allocating and de-allocating Instances</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 7516--><div class="crosslinks"><p class="noindent">[<a 
+href="refse71.html" >next</a>] [<a 
+href="refse69.html" >prev</a>] [<a 
+href="refse69.html#tailrefse69.html" >prev-tail</a>] [<a 
+href="#tailrefse70.html">tail</a>] [<a 
+href="refch11.html#refse70.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">11.4   </span> <a 
+href="ref.html#QQ2-132-160" id="x132-15400011.4">Allocating and de-allocating Instances</a></h3>
+<!--l. 7517--><p class="noindent" >The syntax diagram of Objective-C classes shows that the notion of constructor and destructor is
+not supported in Objective-C. New instances are created in a 2-step process:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x132-154002x1">Call the &#8217;alloc&#8217; method (send an &#8217;alloc&#8217; message): This is a class method of <span 
+class="cmtt-10">NSObject</span>,
+     and returns a pointer to memory for the new instance. The use of <span 
+class="cmtt-10">alloc </span>is a convention
+     in Objective-C.
+     </li>
+     <li 
+  class="enumerate" id="x132-154004x2">Send an &#8217;initXXX&#8217; message. By convention, all classes have one or more &#8217;InitXXX&#8217;
+     methods that initializes all fields in the instance. This method will return the final
+     instance pointer, which may be <span 
+class="cmtt-10">Nil</span>.</li></ol>
+<!--l. 7528--><p class="noindent" >The following code demonstrates this:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-315">
+var
+&#x00A0;<br />&#x00A0;&#x00A0;obj:&#x00A0;NSObject;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;First&#x00A0;allocate&#x00A0;the&#x00A0;memory.
+&#x00A0;<br />&#x00A0;&#x00A0;obj:=NSObject.alloc;
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Next,&#x00A0;initialise.
+&#x00A0;<br />&#x00A0;&#x00A0;obj:=obj.init;
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Always&#x00A0;check&#x00A0;the&#x00A0;result&#x00A0;!!
+&#x00A0;<br />&#x00A0;&#x00A0;if&#x00A0;(Obj=Nil)&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;//&#x00A0;Some&#x00A0;error;
+</div>
+<!--l. 7540--><p class="nopar" >By convention, the <span 
+class="cmtt-10">initXXX </span>method will return <span 
+class="cmtt-10">Nil </span>if initialization of some fields failed, so it is
+imperative that the result of the function is tested.
+<!--l. 7545--><p class="noindent" >Similarly, no privileged destructor exists; By convention, the <span 
+class="cmtt-10">dealloc </span>method fullfills the cleanup
+of the instances. This method can be overridden to perform any cleanup necessary. Like <span 
+class="cmtt-10">Destroy</span>, it
+should never be called directly, instead, the <span 
+class="cmtt-10">release </span>method should be called instead: All instances
+in Objective-C are reference counted, and <span 
+class="cmtt-10">release </span>will only call <span 
+class="cmtt-10">dealloc </span>if the reference count
+reaches zero.
+                                                                            
+
+                                                                            
+<!--l. 7554--><div class="crosslinks"><p class="noindent">[<a 
+href="refse71.html" >next</a>] [<a 
+href="refse69.html" >prev</a>] [<a 
+href="refse69.html#tailrefse69.html" >prev-tail</a>] [<a 
+href="refse70.html" >front</a>] [<a 
+href="refch11.html#refse70.html" >up</a>] </p></div>
+<!--l. 7554--><p class="noindent" ><a 
+ id="tailrefse70.html"></a>  
+</body></html> 

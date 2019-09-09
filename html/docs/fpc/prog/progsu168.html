@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>File types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 5294--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu169.html" >next</a>] [<a 
+href="progsu167.html" >prev</a>] [<a 
+href="progsu167.html#tailprogsu167.html" >prev-tail</a>] [<a 
+href="#tailprogsu168.html">tail</a>] [<a 
+href="progse32.html#progsu168.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">8.2.14   </span> <a 
+href="prog.html#QQ2-212-246" id="x212-2260008.2.14">File types</a></h4>
+<!--l. 5296--><p class="noindent" >File types are represented as records. Typed files and untyped files are represented as a fixed
+record:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-213">
+Const
+&#x00A0;<br />&#x00A0;&#x00A0;PrivDataLength=3*SizeOf(SizeInt)&#x00A0;+&#x00A0;5*SizeOf(pointer);
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;filerec&#x00A0;=&#x00A0;packed&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;handle&#x00A0;&#x00A0;&#x00A0;:&#x00A0;THandle;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;mode&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;recsize&#x00A0;&#x00A0;:&#x00A0;Sizeint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;_private&#x00A0;:&#x00A0;array[1..PrivDataLength]&#x00A0;of&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;userdata&#x00A0;:&#x00A0;array[1..32]&#x00A0;of&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;name&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;array[0..filerecnamelength]&#x00A0;of&#x00A0;char;
+&#x00A0;<br />&#x00A0;&#x00A0;End;
+</div>
+<!--l. 5312--><p class="nopar" >
+<!--l. 5314--><p class="noindent" >Text files are described using the following record:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-214">
+&#x00A0;&#x00A0;TextBuf&#x00A0;=&#x00A0;array[0..255]&#x00A0;of&#x00A0;char;
+&#x00A0;<br />&#x00A0;&#x00A0;textrec&#x00A0;=&#x00A0;packed&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;handle&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;THandle;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;mode&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;bufsize&#x00A0;&#x00A0;&#x00A0;:&#x00A0;SizeInt;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;_private&#x00A0;&#x00A0;:&#x00A0;SizeInt;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;bufpos&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;SizeInt;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;bufend&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;SizeInt;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;bufptr&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;^textbuf;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;openfunc&#x00A0;&#x00A0;:&#x00A0;pointer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;inoutfunc&#x00A0;:&#x00A0;pointer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;flushfunc&#x00A0;:&#x00A0;pointer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;closefunc&#x00A0;:&#x00A0;pointer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;userdata&#x00A0;&#x00A0;:&#x00A0;array[1..32]&#x00A0;of&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;name&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;array[0..255]&#x00A0;of&#x00A0;char;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;LineEnd&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TLineEndStr;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;buffer&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;textbuf;
+&#x00A0;<br />&#x00A0;&#x00A0;End;
+</div>
+<!--l. 5335--><p class="nopar" >
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">handle</span> </dt><dd 
+class="description">The handle field returns the file handle (if the file is opened), as returned by the
+     operating system.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">mode</span> </dt><dd 
+class="description">The mode field can take one of several values. When it is <span 
+class="cmtt-10">fmclosed</span>, then the file is
+     closed, and the <span 
+class="cmtt-10">handle </span>field is invalid. When the value is equal to <span 
+class="cmtt-10">fminput</span>, it indicates
+     that the file is opened for read only access. <span 
+class="cmtt-10">fmoutput </span>indicates write only access, and
+     the <span 
+class="cmtt-10">fminout </span>indicates read-write access to the file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">name</span> </dt><dd 
+class="description">The <span 
+class="cmtt-10">name </span>field is a null terminated character string representing the name of the file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">userdata</span> </dt><dd 
+class="description">The <span 
+class="cmtt-10">userdata </span>field is never used by Free Pascal file handling routines, and can
+     be used for special purposes by software developers.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 5354--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu169.html" >next</a>] [<a 
+href="progsu167.html" >prev</a>] [<a 
+href="progsu167.html#tailprogsu167.html" >prev-tail</a>] [<a 
+href="progsu168.html" >front</a>] [<a 
+href="progse32.html#progsu168.html" >up</a>] </p></div>
+<!--l. 5354--><p class="noindent" ><a 
+ id="tailprogsu168.html"></a>  
+</body></html> 

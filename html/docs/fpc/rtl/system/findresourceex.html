@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FindResourceEx</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FindResourceEx</h1>
+<p>Find a resource based on type, name, language</p>
+<h2>Declaration</h2>
+<p>Source position: resh.inc line 61</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FindResourceEx<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ModuleHandle<span class="sym">: </span><a href="../system/tfpresourcehmodule.html">TFPResourceHMODULE</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ResourceType<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ResourceName<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Language<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tfpresourcehandle.html">TFPResourceHandle</a><span class="sym">;</span><br><br><span class="kw">function</span> FindResourceEx<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ModuleHandle<span class="sym">: </span><a href="../system/tfpresourcehmodule.html">TFPResourceHMODULE</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ResourceType<span class="sym">: </span>AnsiString<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ResourceName<span class="sym">: </span>AnsiString<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Language<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tfpresourcehandle.html">TFPResourceHandle</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FindResourceEx</var> looks in module <var>ModuleHandle</var> for a resource of type <var>ResourceType</var> and name <var>ResourceName</var> with languague ID <var>Language</var>. Both <var>Resourcename</var> and <var>ResourceName</var> can be specified as a null-terminated array of characters, or as an AnsiString. </p>
+<p>If the requested language/sublanguage  is not found, then the search is conducted</p>
+<ol>
+<li>with only primary language.</li>
+<li>with the neutral language (<var>LANG_NEUTRAL</var>)</li>
+<li>with the english language</li>
+</ol>
+<p>If none of these has returned a match, then the first available language is returned. </p>
+<p>If a match is found, a handle to the resource is returned. If none is found, an empty handle (nil or 0) is returned. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Intel syntax</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 3197--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu130.html" >next</a>] [<a 
+href="#tailprogsu129.html">tail</a>] [<a 
+href="progse10.html#progsu129.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.2.1   </span> <a 
+href="prog.html#QQ2-146-149" id="x146-1470003.2.1">Intel syntax</a></h4>
+<!--l. 3200--><p class="noindent" >Free Pascal supports Intel syntax for the Intel family of Ix86 processors in its <span 
+class="cmtt-10">asm </span>blocks.
+<!--l. 3203--><p class="noindent" >The Intel syntax in your <span 
+class="cmtt-10">asm </span>block is converted to AT&amp;T syntax by the compiler, after which it is
+inserted in the compiled source. The supported assembler constructs are a subset of the normal
+assembly syntax. In what follows we specify what constructs are not supported in Free Pascal, but
+which exist in Turbo Pascal:
+     <ul class="itemize1">
+     <li class="itemize">The <span 
+class="cmtt-10">TBYTE </span>qualifier is not supported.
+     </li>
+     <li class="itemize">The <span 
+class="cmtt-10">&amp; </span>identifier override is not supported.
+     </li>
+     <li class="itemize">The <span 
+class="cmtt-10">HIGH </span>operator is not supported.
+     </li>
+     <li class="itemize">The <span 
+class="cmtt-10">LOW </span>operator is not supported.
+     </li>
+     <li class="itemize">The  <span 
+class="cmtt-10">OFFSET </span>and  <span 
+class="cmtt-10">SEG </span>operators  are  not  supported.  Use  <span 
+class="cmtt-10">LEA </span>and  the  various  <span 
+class="cmtt-10">Lxx</span>
+     instructions instead.
+     </li>
+     <li class="itemize">Expressions with constant strings are not allowed.
+     </li>
+     <li class="itemize">Access to record fields via parenthesis is not allowed
+     </li>
+     <li class="itemize">Typecasts with normal pascal types are not allowed, only recognized assembler typecasts are
+     allowed. Example:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-150">
+     mov&#x00A0;al,&#x00A0;byte&#x00A0;ptr&#x00A0;MyWord&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;--&#x00A0;allowed,
+     &#x00A0;<br />mov&#x00A0;al,&#x00A0;byte(MyWord)&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;--&#x00A0;allowed,
+     &#x00A0;<br />mov&#x00A0;al,&#x00A0;shortint(MyWord)&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;--&#x00A0;not&#x00A0;allowed.
+</div>
+     <!--l. 3224--><p class="nopar" >
+     </li>
+     <li class="itemize">Pascal type typecasts on constants are not allowed. Example:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-151">
+     const&#x00A0;s=&#x00A0;10;&#x00A0;const&#x00A0;t&#x00A0;=&#x00A0;32767;
+</div>
+     <!--l. 3229--><p class="nopar" >in Turbo Pascal:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-152">
+     mov&#x00A0;al,&#x00A0;byte(s)&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;--&#x00A0;useless&#x00A0;typecast.
+     &#x00A0;<br />mov&#x00A0;al,&#x00A0;byte(t)&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;--&#x00A0;syntax&#x00A0;error!
+</div>
+     <!--l. 3234--><p class="nopar" >In Free Pascal the compiler emits a syntax error in both cases will give out a syntax
+     error.
+     </li>
+     <li class="itemize">Expressions with constants only are not allowed (in all cases they do not work in protected
+     mode, e.g. under <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>i386). Examples:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-153">
+     mov&#x00A0;al,byte&#x00A0;ptr&#x00A0;[&#8217;c&#8217;]&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;--&#x00A0;not&#x00A0;allowed.
+     &#x00A0;<br />mov&#x00A0;&#x00A0;al,byte&#x00A0;ptr&#x00A0;[100h]&#x00A0;&#x00A0;&#x00A0;&#x00A0;--&#x00A0;not&#x00A0;allowed.
+</div>
+     <!--l. 3241--><p class="nopar" >(This is due to the limitation of the GNU Assembler).
+     </li>
+     <li class="itemize">Brackets within brackets are not allowed
+     </li>
+     <li class="itemize">Expressions with segment overrides fully in brackets are currently not supported, but they
+     can easily be implemented in the compiler if requested. Example:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-154">
+     mov&#x00A0;al,[ds:bx]&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;--&#x00A0;not&#x00A0;allowed
+</div>
+     <!--l. 3249--><p class="nopar" >use instead:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-155">
+     mov&#x00A0;al,ds:[bx]
+</div>
+     <!--l. 3253--><p class="nopar" >
+     </li>
+     <li class="itemize">Possible allowed indexing are as follows:
+         <ul class="itemize2">
+         <li class="itemize"><span 
+class="cmtt-10">Sreg:[REG+REG*SCALING+/-disp]</span>
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">SReg:[REG+/-disp]</span>
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">SReg:[REG]</span>
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">SReg:[REG+REG+/-disp]</span>
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">SReg:[REG+REG*SCALING]</span></li></ul>
+     <!--l. 3262--><p class="noindent" >Where <span 
+class="cmtt-10">Sreg </span>is optional and specifies the segment override. <span 
+class="cmti-10">Notes:</span>
+         <ol  class="enumerate1" >
+         <li 
+  class="enumerate" id="x146-147002x1">The order of terms is important contrary to Turbo Pascal.
+         </li>
+         <li 
+  class="enumerate" id="x146-147004x2">The Scaling value must be a value, and not an identifier to a symbol. Examples:
+                                                                            
+
+                                                                            
+         <div class="verbatim" id="verbatim-156">
+         const&#x00A0;myscale&#x00A0;=&#x00A0;1;
+         &#x00A0;<br />...
+         &#x00A0;<br />mov&#x00A0;al,byte&#x00A0;ptr&#x00A0;[esi+ebx*myscale]&#x00A0;--&#x00A0;not&#x00A0;allowed.
+</div>
+         <!--l. 3272--><p class="nopar" >use:
+                                                                            
+
+                                                                            
+         <div class="verbatim" id="verbatim-157">
+         mov&#x00A0;al,&#x00A0;byte&#x00A0;ptr&#x00A0;[esi+ebx*1]
+</div>
+         <!--l. 3276--><p class="nopar" ></li></ol>
+     </li>
+     <li class="itemize">Possible variable identifier syntax is as follows: (Id = Variable or typed constant
+     identifier.)
+         <ol  class="enumerate1" >
+         <li 
+  class="enumerate" id="x146-147006x1"><span 
+class="cmtt-10">ID</span>
+         </li>
+         <li 
+  class="enumerate" id="x146-147008x2"><span 
+class="cmtt-10">[ID]</span>
+         </li>
+         <li 
+  class="enumerate" id="x146-147010x3"><span 
+class="cmtt-10">[ID+expr]</span>
+         </li>
+         <li 
+  class="enumerate" id="x146-147012x4"><span 
+class="cmtt-10">ID[expr]</span></li></ol>
+     <!--l. 3286--><p class="noindent" >Possible fields are as follows:
+         <ol  class="enumerate1" >
+         <li 
+  class="enumerate" id="x146-147014x1"><span 
+class="cmtt-10">ID.subfield.subfield </span><span 
+class="cmtt-10">&#x2026;</span>
+         </li>
+         <li 
+  class="enumerate" id="x146-147016x2"><span 
+class="cmtt-10">[ref].ID.subfield.subfield </span><span 
+class="cmtt-10">&#x2026;</span>
+         </li>
+         <li 
+  class="enumerate" id="x146-147018x3"><span 
+class="cmtt-10">[ref].typename.subfield </span><span 
+class="cmtt-10">&#x2026;</span></li></ol>
+     </li>
+     <li class="itemize">Local labels: Contrary to Turbo Pascal, local labels, must at least contain one character after
+     the local symbol indicator. Example:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-158">
+     @:&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;--&#x00A0;not&#x00A0;allowed
+</div>
+     <!--l. 3297--><p class="nopar" >use instead:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-159">
+     @1:&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;--&#x00A0;allowed
+</div>
+     <!--l. 3301--><p class="nopar" >
+     </li>
+     <li class="itemize">Contrary to Turbo Pascal, local references cannot be used as references, only as
+     displacements. Example:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-160">
+     lds&#x00A0;si,@mylabel&#x00A0;&#x00A0;&#x00A0;--&#x00A0;not&#x00A0;allowed
+</div>
+     <!--l. 3306--><p class="nopar" >
+     </li>
+     <li class="itemize">Contrary to Turbo Pascal, <span 
+class="cmtt-10">SEGCS</span>, <span 
+class="cmtt-10">SEGDS</span>, <span 
+class="cmtt-10">SEGES </span>and <span 
+class="cmtt-10">SEGSS </span>segment overrides are presently
+     not supported. (This is a planned addition though).
+     </li>
+     <li class="itemize">Contrary to Turbo Pascal where memory sizes specifiers can be practically anywhere, the
+     Free Pascal Intel inline assembler requires memory size specifiers to be outside the brackets.
+     Example:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-161">
+     mov&#x00A0;al,[byte&#x00A0;ptr&#x00A0;myvar]&#x00A0;&#x00A0;&#x00A0;&#x00A0;--&#x00A0;not&#x00A0;allowed.
+</div>
+     <!--l. 3315--><p class="nopar" >use:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-162">
+     mov&#x00A0;al,byte&#x00A0;ptr&#x00A0;[myvar]&#x00A0;&#x00A0;&#x00A0;&#x00A0;--&#x00A0;allowed.
+</div>
+     <!--l. 3319--><p class="nopar" >
+     </li>
+     <li class="itemize">Base and Index registers must be 32-bit registers. (limitation of the GNU Assembler).
+     </li>
+     <li class="itemize"><span 
+class="cmtt-10">XLAT </span>is equivalent to <span 
+class="cmtt-10">XLATB</span>.
+     </li>
+     <li class="itemize">Only Single and Double FPU opcodes are supported.
+     </li>
+     <li class="itemize">Floating point opcodes are currently not supported (except those which involve only floating
+     point registers).</li></ul>
+<!--l. 3328--><p class="noindent" >The Intel inline assembler supports the following macros:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">@Result</span> </dt><dd 
+class="description">represents the function result return value.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Self</span> </dt><dd 
+class="description">represents the object method pointer in methods.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 3336--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu130.html" >next</a>] [<a 
+href="progsu129.html" >front</a>] [<a 
+href="progse10.html#progsu129.html" >up</a>] </p></div>
+<!--l. 3336--><p class="noindent" ><a 
+ id="tailprogsu129.html"></a>  
+</body></html> 

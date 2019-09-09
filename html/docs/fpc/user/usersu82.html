@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Things that will not work</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1991--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu83.html" >next</a>] [<a 
+href="#tailusersu82.html">tail</a>] [<a 
+href="userse34.html#usersu82.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">7.2.1   </span> <a 
+href="user.html#QQ2-125-181" id="x125-1320007.2.1">Things that will not work</a></h4>
+<!--l. 1993--><p class="noindent" >Here we give a list of things which are defined/allowed in Turbo Pascal, but which are not
+supported by Free Pascal. Where possible, we indicate the reason.
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x125-132002x1">Duplicate case labels are permitted in Turbo Pascal, but not in Free Pascal. This is
+     actually a bug in Turbo Pascal, and so support for it will not be implemented in Free
+     Pascal.
+     </li>
+     <li 
+  class="enumerate" id="x125-132004x2">In Turbo Pascal, parameter lists of previously defined functions and procedures did not
+     have to match exactly. In Free Pascal, they must. The reason for this is the function
+     overloading mechanism of Free Pascal. However, the <span 
+class="cmtt-10">-M </span>(see page <a 
+href="usersu16.html#x39-460005.1.5">118<!--tex4ht:ref: option:M --></a>) option overcomes
+     this restriction.
+                                                                            
+
+                                                                            
+     </li>
+     <li 
+  class="enumerate" id="x125-132006x3">The Turbo Pascal variables <span 
+class="cmtt-10">MEM, MEMW, MEML </span>and <span 
+class="cmtt-10">PORT </span>for memory and port access
+     are not available in the system unit. This is due to the operating system. Under <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span></span>,
+     both the system and the extender unit (<span 
+class="cmss-10">GO32</span>) implement the mem constuct. Under
+     <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span></span>, the <span 
+class="cmss-10">ports </span>unit implements such a construct for the <span 
+class="cmtt-10">Ports </span>variable.
+     </li>
+     <li 
+  class="enumerate" id="x125-132008x4">Turbo Pascal allows you to create procedure and variable names using words that are
+     not permitted in that role in Free Pascal. This is because there are certain words that
+     are reserved in Free Pascal (and Delphi) that are not reserved in Turbo Pascal, such as:
+     <span 
+class="cmtt-10">PROTECTED, PUBLIC, PUBLISHED, TRY, FINALLY, EXCEPT, RAISE</span>. Using the <span 
+class="cmtt-10">-Mtp</span>
+     switch will solve this problem if you want to compile Turbo Pascal code that uses these
+     words (chapter <a 
+href="userap2.html#x172-179000B">B<!--tex4ht:ref: ch:reserved --></a>, page <a 
+href="userap2.html#x172-179000B">512<!--tex4ht:ref: ch:reserved --></a> for a list of all reserved words).
+     </li>
+     <li 
+  class="enumerate" id="x125-132010x5">The Turbo Pascal reserved words <span 
+class="cmtt-10">FAR, NEAR </span>are ignored. This is because their purpose
+     was limited to a 16-bit environment and Free Pascal is a 32-bit/64-bit compiler.
+     </li>
+     <li 
+  class="enumerate" id="x125-132012x6">The Turbo Pascal <span 
+class="cmtt-10">INTERRUPT </span>directive will work only on the Free Pascal <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>target.
+     Other operating systems do not allow handling of interrupts by user programs.
+     </li>
+     <li 
+  class="enumerate" id="x125-132014x7">By default the Free Pascal compiler uses <span 
+class="cmtt-10">AT&amp;T </span>assembler syntax. This is mainly because
+     Free  Pascal  uses  <span 
+class="cmcsc-10"><span 
+class="small-caps">g</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span> </span><span 
+class="cmtt-10">as</span>.  However,  other  assembler  forms  are  available.  For  more
+     information, see the <a 
+href="../prog/prog.html" >Programmer&#8217;s Guide</a>.
+     </li>
+     <li 
+  class="enumerate" id="x125-132016x8">Turbo Pascal&#8217;s Turbo Vision is available in Free Pascal under the name of FreeVision,
+     which should be almost 100% compatible with Turbo Vision.
+     </li>
+     <li 
+  class="enumerate" id="x125-132018x9">Turbo Pascal&#8217;s &#8217;overlay&#8217; unit is not available. It also isn&#8217;t necessary, since Free Pascal
+     is a 32/64-bit compiler, so program size shouldn&#8217;t be an issue.
+     </li>
+     <li 
+  class="enumerate" id="x125-132020x10">The command line parameters of the compiler are different.
+     </li>
+     <li 
+  class="enumerate" id="x125-132022x11">Compiler switches and directives are mostly the same, but some extra exist.
+     </li>
+     <li 
+  class="enumerate" id="x125-132024x12">Units are not binary compatible. That means that you cannot use a <span 
+class="cmss-10">.tpu </span>unit file,
+     produced by Turbo Pascal, in a Free Pascal project.
+     </li>
+     <li 
+  class="enumerate" id="x125-132026x13">The  Free  Pascal  <span 
+class="cmtt-10">TextRec </span>structure  (for  internal  description  of  files)  is  not  binary
+     compatible with TP or Delphi.
+     </li>
+     <li 
+  class="enumerate" id="x125-132028x14">Sets are by default 4 bytes in Free Pascal; this means that some typecasts which were
+     possible in Turbo Pascal are no longer possible in Free Pascal. However, there is a
+     switch to set the set size, see <a 
+href="../prog/prog.html" >Programmer&#8217;s Guide</a> for more information.
+     </li>
+     <li 
+  class="enumerate" id="x125-132030x15">A file is opened for output only (using <span 
+class="cmtt-10">fmOutput</span>) when it is opened with <span 
+class="cmtt-10">Rewrite</span>. In
+     order to be able to read from it, it should be reset with <span 
+class="cmtt-10">Reset</span>.
+                                                                            
+
+                                                                            
+     </li>
+     <li 
+  class="enumerate" id="x125-132032x16">Turbo Pascal destructors allowed parameters. This is not permitted in Free Pascal: by
+     default, in Free Pascal, Destructors cannot have parameters. This restriction can be
+     removed by using the <span 
+class="cmtt-10">-So </span>switch.
+     </li>
+     <li 
+  class="enumerate" id="x125-132034x17">Turbo Pascal permits more than one destructor for an object. In Free Pascal, there can
+     be only one destructor. This restriction can also be removed by using the <span 
+class="cmtt-10">-So </span>switch.
+     </li>
+     <li 
+  class="enumerate" id="x125-132036x18">The order in which expressions are evaluated is not necessarily the same. In the following
+     expression:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-84">
+     a&#x00A0;:=&#x00A0;g(2)&#x00A0;+&#x00A0;f(3);
+</div>
+     <!--l. 2056--><p class="nopar" >it is not guaranteed that <span 
+class="cmtt-10">g(2) </span>will be evaluated before <span 
+class="cmtt-10">f(3)</span>.
+     </li>
+     <li 
+  class="enumerate" id="x125-132038x19">In Free Pascal, you need to use the address @ operator when assigning procedural
+     variables.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 2064--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu83.html" >next</a>] [<a 
+href="usersu82.html" >front</a>] [<a 
+href="userse34.html#usersu82.html" >up</a>] </p></div>
+<!--l. 2064--><p class="noindent" ><a 
+ id="tailusersu82.html"></a>  
+</body></html> 

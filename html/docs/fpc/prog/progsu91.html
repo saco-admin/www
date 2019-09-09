@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$E : Emulation of coprocessor</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 1899--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu92.html" >next</a>] [<a 
+href="progsu90.html" >prev</a>] [<a 
+href="progsu90.html#tailprogsu90.html" >prev-tail</a>] [<a 
+href="#tailprogsu91.html">tail</a>] [<a 
+href="progse3.html#progsu91.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.3.8   </span> <a 
+href="prog.html#QQ2-99-98" id="x99-980001.3.8"><span 
+class="cmtt-10">$E </span>: Emulation of coprocessor</a></h4>
+<!--l. 1901--><p class="noindent" >This directive controls the emulation of the coprocessor. There is no command line counterpart for
+this directive.
+<!--l. 1904--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="progse3.html#QQ2-99-99" id="x99-990001.3.8">Intel 80x86 version</a></h5>
+<!--l. 1906--><p class="noindent" >When this switch is enabled, all floating point instructions which are not supported by standard
+coprocessor emulators will issue a warning.
+<!--l. 1910--><p class="noindent" >The compiler itself doesn&#8217;t do the emulation of the coprocessor.
+<!--l. 1912--><p class="noindent" >To use coprocessor emulation under <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>(go32v2) you must use the emu387 unit, which contains
+correct initialization code for the emulator.
+<!--l. 1916--><p class="noindent" >Under <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>and most <span 
+class="cmcsc-10"><span 
+class="small-caps">u</span><span 
+class="small-caps">n</span><span 
+class="small-caps">i</span><span 
+class="small-caps">x</span></span>&#8217;es, the kernel takes care of the coprocessor support, so this switch is
+not necessary on those platforms.
+<!--l. 1919--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="progse3.html#QQ2-99-100" id="x99-1000001.3.8">Motorola 680x0 version</a></h5>
+<!--l. 1921--><p class="noindent" >When the switch is on, no floating point opcodes are emitted by the code generator. Instead,
+internal run-time library routines are called to do the necessary calculations. In this case all real
+types are mapped to the single IEEE floating point type.
+<!--l. 1926--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span>By default, emulation is on for non-unix targets. For unix targets, floating point emulation (if
+required) is handled by the operating system, and by default it is off.
+                                                                            
+
+                                                                            
+<!--l. 1930--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu92.html" >next</a>] [<a 
+href="progsu90.html" >prev</a>] [<a 
+href="progsu90.html#tailprogsu90.html" >prev-tail</a>] [<a 
+href="progsu91.html" >front</a>] [<a 
+href="progse3.html#progsu91.html" >up</a>] </p></div>
+<!--l. 1930--><p class="noindent" ><a 
+ id="tailprogsu91.html"></a>  
+</body></html> 

@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Compiling the compiler</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 8951--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu219.html" >prev</a>] [<a 
+href="progsu219.html#tailprogsu219.html" >prev-tail</a>] [<a 
+href="#tailprogsu220.html">tail</a>] [<a 
+href="progse89.html#progsu220.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">F.4.2   </span> <a 
+href="prog.html#QQ2-332-377" id="x332-348000F.4.2">Compiling the compiler</a></h4>
+<!--l. 8953--><p class="noindent" >Compiling the compiler can be done with one statement. It&#8217;s always best to remove all units from
+the compiler directory first, so something like
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-281">
+rm&#x00A0;*.ppu&#x00A0;*.o
+</div>
+<!--l. 8957--><p class="nopar" >on <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span></span>, and on <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span></span>
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-282">
+del&#x00A0;*.ppu
+&#x00A0;<br />del&#x00A0;*.o
+</div>
+<!--l. 8962--><p class="nopar" >After this, the compiler can be compiled with the following command line:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-283">
+ppc386&#x00A0;-Tlinux&#x00A0;&#x00A0;-Fusystems&#x00A0;-Fii386/&#x00A0;-Fui386&#x00A0;\
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;-Fu../rtl/units/i386-linux&#x00A0;-di386&#x00A0;-dGDB&#x00A0;pp.pas
+</div>
+<!--l. 8967--><p class="nopar" >All the options must be given on a single line, the backslash is needed if you want to specify the
+options on multiple lines.
+<!--l. 8971--><p class="noindent" >So, the minimum options are:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x332-348002x1">The target OS. Can be skipped when compiling for the same target as the compiler
+     which is being used.
+     </li>
+     <li 
+  class="enumerate" id="x332-348004x2">A path to an RTL. Can be skipped if a correct fpc.cfg configuration is on the system.
+     If the compiler should be compiled with the RTL that was compiled first, this should
+     be <span 
+class="cmss-10">../rtl/OS </span>(replace the OS with the appropriate operating system subdirectory of the
+     RTL).
+     </li>
+     <li 
+  class="enumerate" id="x332-348006x3">A define with the processor for which the compiler is compiled for. Required.
+     </li>
+     <li 
+  class="enumerate" id="x332-348008x4"><span 
+class="cmtt-10">-dGDB</span>. Required.
+     </li>
+     <li 
+  class="enumerate" id="x332-348010x5"><span 
+class="cmtt-10">-Sg </span>is needed, some parts of the compiler use <span 
+class="cmtt-10">goto </span>statements (to be specific: the
+     scanner).
+     </li>
+     <li 
+  class="enumerate" id="x332-348012x6">A directory with some units and include files for the processor you&#8217;re compiling for.
+     </li>
+     <li 
+  class="enumerate" id="x332-348014x7">A directory with the system definitions.</li></ol>
+<!--l. 8986--><p class="noindent" >So the absolute minimal command line is
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-284">
+ppc386&#x00A0;-Fusystems&#x00A0;-Fii386&#x00A0;-Fui386&#x00A0;-di386&#x00A0;-dGDB&#x00A0;-Sg&#x00A0;pp.pas
+</div>
+<!--l. 8989--><p class="nopar" >
+<!--l. 8991--><p class="noindent" >Some other command line options can be used, but the above are the minimum. A list of
+recognised options can be found in table (<a 
+href="#x332-348015r1">F.1<!--tex4ht:ref: tab:FPCdefines --></a>).
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 8994--><p class="noindent" ><a 
+ id="x332-348015r1"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;F.1: </span><span  
+class="content">Possible defines when compiling FPC</span></div><!--tex4ht:label?: x332-348015r1 -->
+<div class="center" 
+>
+<!--l. 8994--><p class="noindent" >
+<div class="tabular"> <table id="TBL-28" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-28-1g"><col 
+id="TBL-28-1"><col 
+id="TBL-28-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-28-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-1-1"  
+class="td11">Define               </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-1-2"  
+class="td11">does what                                                                    </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-2-1"  
+class="td11">GDB                 </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-2-2"  
+class="td11">Support of the GNU Debugger (required switch).                </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-3-1"  
+class="td11">I386                  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-3-2"  
+class="td11">Generate a compiler for the Intel i386+ processor family.      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-4-1"  
+class="td11">M68K                </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-4-2"  
+class="td11">Generate a compiler for the M680x0 processor family.           </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-5-1"  
+class="td11">X86_64              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-5-2"  
+class="td11">Generate a compiler for the AMD64 processor family.           </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-6-1"  
+class="td11">POWERPC        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-6-2"  
+class="td11">Generate a compiler for the PowerPC processor family.         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-7-1"  
+class="td11">POWERPC64     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-7-2"  
+class="td11">Generate a compiler for the 64-bit PowerPC processor family.</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-8-1"  
+class="td11">ARM                 </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-8-2"  
+class="td11">Generate a compiler for the Intel ARM processor family.       </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-9-1"  
+class="td11">SPARC              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-9-2"  
+class="td11">Generate a compiler for the SPARC processor family.           </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-10-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-10-1"  
+class="td11">EXTDEBUG      </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-10-2"  
+class="td11">Some extra debug code is executed.                                  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-11-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-11-1"  
+class="td11">MEMDEBUG     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-11-2"  
+class="td11">Some memory usage information is displayed.                     </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-12-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-12-1"  
+class="td11">SUPPORT_MMX</td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-12-2"  
+class="td11">only i386: enables the compiler switch <span 
+class="cmtt-10">MMX </span>which                 </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-13-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-13-1"  
+class="td11">               </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-13-2"  
+class="td11">allows the compiler to generate MMX instructions.              </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-14-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-14-1"  
+class="td11">EXTERN_MSG  </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-14-2"  
+class="td11">Don&#8217;t compile the msgfiles in the compiler, always use          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-15-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-15-1"  
+class="td11">               </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-15-2"  
+class="td11">external messagefiles.                                                     </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-16-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-16-1"  
+class="td11">NOOPT             </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-16-2"  
+class="td11">Do not include the optimizer in the compiler.                     </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-17-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-17-1"  
+class="td11">CMEM              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-28-17-2"  
+class="td11">Use the C memory manager.                                           </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-28-18-"><td  style="white-space:nowrap; text-align:left;" id="TBL-28-18-1"  
+class="td11">               </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+<!--l. 9014--><p class="noindent" >This list may be subject to change, the source file <span 
+class="cmss-10">pp.pas </span>always contains an up-to-date
+list.
+                                                                            
+
+                                                                            
+<!--l. 9021--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu219.html" >prev</a>] [<a 
+href="progsu219.html#tailprogsu219.html" >prev-tail</a>] [<a 
+href="progsu220.html" >front</a>] [<a 
+href="progse89.html#progsu220.html" >up</a>] </p></div>
+<!--l. 9021--><p class="noindent" ><a 
+ id="tailprogsu220.html"></a>  
+</body></html> 

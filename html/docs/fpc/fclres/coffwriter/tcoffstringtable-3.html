@@ -1,0 +1,793 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title></title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td colspan="3"><p><tt><span class="code"><b><a href="../coffwriter/tcoffstringtable.html" onClick="opener.location.href = '../coffwriter/tcoffstringtable.html'; return false;">TCoffStringTable</a></b></span></tt></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../coffwriter/tcoffstringtable.create.html" onClick="opener.location.href = '../coffwriter/tcoffstringtable.create.html'; return false;">Create</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../coffwriter/tcoffstringtable.add.html" onClick="opener.location.href = '../coffwriter/tcoffstringtable.add.html'; return false;">Add</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../coffwriter/tcoffstringtable.delete.html" onClick="opener.location.href = '../coffwriter/tcoffstringtable.delete.html'; return false;">Delete</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+</tr>
+<tr>
+<td colspan="3"><p><tt><span class="code"><b><a href="../../rtl/classes/tstringlist.html" onClick="opener.location.href = '../../rtl/classes/tstringlist.html'; return false;">TStringList</a></b></span></tt></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>ExchangeItemsInt</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetSorted</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>Grow</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>InternalClear</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>QuickSort</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetSorted</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetCaseSensitive</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetSortStyle</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>ExchangeItems</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>Changed</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>Changing</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>Get</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetCapacity</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetCount</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetObject</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>Put</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>PutObject</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetCapacity</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetUpdateState</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>InsertItem</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>DoCompareText</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>CompareStrings</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstringlist.destroy.html" onClick="opener.location.href = '../../rtl/classes/tstringlist.destroy.html'; return false;">Destroy</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstringlist.add.html" onClick="opener.location.href = '../../rtl/classes/tstringlist.add.html'; return false;">Add</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstringlist.clear.html" onClick="opener.location.href = '../../rtl/classes/tstringlist.clear.html'; return false;">Clear</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstringlist.delete.html" onClick="opener.location.href = '../../rtl/classes/tstringlist.delete.html'; return false;">Delete</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstringlist.exchange.html" onClick="opener.location.href = '../../rtl/classes/tstringlist.exchange.html'; return false;">Exchange</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstringlist.find.html" onClick="opener.location.href = '../../rtl/classes/tstringlist.find.html'; return false;">Find</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstringlist.indexof.html" onClick="opener.location.href = '../../rtl/classes/tstringlist.indexof.html'; return false;">IndexOf</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstringlist.insert.html" onClick="opener.location.href = '../../rtl/classes/tstringlist.insert.html'; return false;">Insert</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstringlist.sort.html" onClick="opener.location.href = '../../rtl/classes/tstringlist.sort.html'; return false;">Sort</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstringlist.customsort.html" onClick="opener.location.href = '../../rtl/classes/tstringlist.customsort.html'; return false;">CustomSort</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+</tr>
+<tr>
+<td colspan="3"><p><tt><span class="code"><b><a href="../../rtl/classes/tstrings.html" onClick="opener.location.href = '../../rtl/classes/tstrings.html'; return false;">TStrings</a></b></span></tt></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetCommaText</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetName</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetValue</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetLBS</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetLBS</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>ReadData</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetCommaText</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetStringsAdapter</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetValue</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetDelimiter</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetQuoteChar</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetNameValueSeparator</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>WriteData</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>DoSetTextStr</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetDelimiter</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetNameValueSeparator</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetQuoteChar</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetLineBreak</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetLineBreak</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetSkipLastLineBreak</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetSkipLastLineBreak</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>DefineProperties</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>Error</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>Get</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetCapacity</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetCount</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetObject</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetTextStr</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>Put</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>PutObject</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetCapacity</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetTextStr</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetUpdateState</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>DoCompareText</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetDelimitedText</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetDelimitedText</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetValueFromIndex</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>SetValueFromIndex</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>CheckSpecialChars</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetNextLine</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetNextLinebreak</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.destroy.html" onClick="opener.location.href = '../../rtl/classes/tstrings.destroy.html'; return false;">Destroy</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.add.html" onClick="opener.location.href = '../../rtl/classes/tstrings.add.html'; return false;">Add</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.addobject.html" onClick="opener.location.href = '../../rtl/classes/tstrings.addobject.html'; return false;">AddObject</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.append.html" onClick="opener.location.href = '../../rtl/classes/tstrings.append.html'; return false;">Append</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.addstrings.html" onClick="opener.location.href = '../../rtl/classes/tstrings.addstrings.html'; return false;">AddStrings</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.addtext.html" onClick="opener.location.href = '../../rtl/classes/tstrings.addtext.html'; return false;">AddText</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.assign.html" onClick="opener.location.href = '../../rtl/classes/tstrings.assign.html'; return false;">Assign</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.beginupdate.html" onClick="opener.location.href = '../../rtl/classes/tstrings.beginupdate.html'; return false;">BeginUpdate</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.clear.html" onClick="opener.location.href = '../../rtl/classes/tstrings.clear.html'; return false;">Clear</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.delete.html" onClick="opener.location.href = '../../rtl/classes/tstrings.delete.html'; return false;">Delete</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.endupdate.html" onClick="opener.location.href = '../../rtl/classes/tstrings.endupdate.html'; return false;">EndUpdate</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.equals.html" onClick="opener.location.href = '../../rtl/classes/tstrings.equals.html'; return false;">Equals</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.exchange.html" onClick="opener.location.href = '../../rtl/classes/tstrings.exchange.html'; return false;">Exchange</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.getenumerator.html" onClick="opener.location.href = '../../rtl/classes/tstrings.getenumerator.html'; return false;">GetEnumerator</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.gettext.html" onClick="opener.location.href = '../../rtl/classes/tstrings.gettext.html'; return false;">GetText</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.indexof.html" onClick="opener.location.href = '../../rtl/classes/tstrings.indexof.html'; return false;">IndexOf</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.indexofname.html" onClick="opener.location.href = '../../rtl/classes/tstrings.indexofname.html'; return false;">IndexOfName</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.indexofobject.html" onClick="opener.location.href = '../../rtl/classes/tstrings.indexofobject.html'; return false;">IndexOfObject</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.insert.html" onClick="opener.location.href = '../../rtl/classes/tstrings.insert.html'; return false;">Insert</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.insertobject.html" onClick="opener.location.href = '../../rtl/classes/tstrings.insertobject.html'; return false;">InsertObject</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.loadfromfile.html" onClick="opener.location.href = '../../rtl/classes/tstrings.loadfromfile.html'; return false;">LoadFromFile</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.loadfromstream.html" onClick="opener.location.href = '../../rtl/classes/tstrings.loadfromstream.html'; return false;">LoadFromStream</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.move.html" onClick="opener.location.href = '../../rtl/classes/tstrings.move.html'; return false;">Move</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.savetofile.html" onClick="opener.location.href = '../../rtl/classes/tstrings.savetofile.html'; return false;">SaveToFile</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.savetostream.html" onClick="opener.location.href = '../../rtl/classes/tstrings.savetostream.html'; return false;">SaveToStream</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.settext.html" onClick="opener.location.href = '../../rtl/classes/tstrings.settext.html'; return false;">SetText</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.getnamevalue.html" onClick="opener.location.href = '../../rtl/classes/tstrings.getnamevalue.html'; return false;">GetNameValue</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tstrings.extractname.html" onClick="opener.location.href = '../../rtl/classes/tstrings.extractname.html'; return false;">ExtractName</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+</tr>
+<tr>
+<td colspan="3"><p><tt><span class="code"><b><a href="../../rtl/classes/tpersistent.html" onClick="opener.location.href = '../../rtl/classes/tpersistent.html'; return false;">TPersistent</a></b></span></tt></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>AssignError</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>AssignTo</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>DefineProperties</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p>GetOwner</p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tpersistent.destroy.html" onClick="opener.location.href = '../../rtl/classes/tpersistent.destroy.html'; return false;">Destroy</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tpersistent.assign.html" onClick="opener.location.href = '../../rtl/classes/tpersistent.assign.html'; return false;">Assign</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tpersistent.fpoattachobserver.html" onClick="opener.location.href = '../../rtl/classes/tpersistent.fpoattachobserver.html'; return false;">FPOAttachObserver</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tpersistent.fpodetachobserver.html" onClick="opener.location.href = '../../rtl/classes/tpersistent.fpodetachobserver.html'; return false;">FPODetachObserver</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tpersistent.fponotifyobservers.html" onClick="opener.location.href = '../../rtl/classes/tpersistent.fponotifyobservers.html'; return false;">FPONotifyObservers</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/classes/tpersistent.getnamepath.html" onClick="opener.location.href = '../../rtl/classes/tpersistent.getnamepath.html'; return false;">GetNamePath</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+</tr>
+<tr>
+<td colspan="3"><p><tt><span class="code"><b><a href="../../rtl/system/tobject.html" onClick="opener.location.href = '../../rtl/system/tobject.html'; return false;">TObject</a></b></span></tt></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.create.html" onClick="opener.location.href = '../../rtl/system/tobject.create.html'; return false;">Create</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.destroy.html" onClick="opener.location.href = '../../rtl/system/tobject.destroy.html'; return false;">Destroy</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.newinstance.html" onClick="opener.location.href = '../../rtl/system/tobject.newinstance.html'; return false;">newinstance</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.freeinstance.html" onClick="opener.location.href = '../../rtl/system/tobject.freeinstance.html'; return false;">FreeInstance</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.safecallexception.html" onClick="opener.location.href = '../../rtl/system/tobject.safecallexception.html'; return false;">SafeCallException</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.defaulthandler.html" onClick="opener.location.href = '../../rtl/system/tobject.defaulthandler.html'; return false;">DefaultHandler</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.free.html" onClick="opener.location.href = '../../rtl/system/tobject.free.html'; return false;">Free</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.initinstance.html" onClick="opener.location.href = '../../rtl/system/tobject.initinstance.html'; return false;">InitInstance</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.cleanupinstance.html" onClick="opener.location.href = '../../rtl/system/tobject.cleanupinstance.html'; return false;">CleanupInstance</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.classtype.html" onClick="opener.location.href = '../../rtl/system/tobject.classtype.html'; return false;">ClassType</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.classinfo.html" onClick="opener.location.href = '../../rtl/system/tobject.classinfo.html'; return false;">ClassInfo</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.classname.html" onClick="opener.location.href = '../../rtl/system/tobject.classname.html'; return false;">ClassName</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.classnameis.html" onClick="opener.location.href = '../../rtl/system/tobject.classnameis.html'; return false;">ClassNameIs</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.classparent.html" onClick="opener.location.href = '../../rtl/system/tobject.classparent.html'; return false;">ClassParent</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.instancesize.html" onClick="opener.location.href = '../../rtl/system/tobject.instancesize.html'; return false;">InstanceSize</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.inheritsfrom.html" onClick="opener.location.href = '../../rtl/system/tobject.inheritsfrom.html'; return false;">InheritsFrom</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.stringmessagetable.html" onClick="opener.location.href = '../../rtl/system/tobject.stringmessagetable.html'; return false;">StringMessageTable</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.methodaddress.html" onClick="opener.location.href = '../../rtl/system/tobject.methodaddress.html'; return false;">MethodAddress</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.methodname.html" onClick="opener.location.href = '../../rtl/system/tobject.methodname.html'; return false;">MethodName</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.fieldaddress.html" onClick="opener.location.href = '../../rtl/system/tobject.fieldaddress.html'; return false;">FieldAddress</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.afterconstruction.html" onClick="opener.location.href = '../../rtl/system/tobject.afterconstruction.html'; return false;">AfterConstruction</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.beforedestruction.html" onClick="opener.location.href = '../../rtl/system/tobject.beforedestruction.html'; return false;">BeforeDestruction</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.defaulthandlerstr.html" onClick="opener.location.href = '../../rtl/system/tobject.defaulthandlerstr.html'; return false;">DefaultHandlerStr</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.dispatch.html" onClick="opener.location.href = '../../rtl/system/tobject.dispatch.html'; return false;">Dispatch</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.dispatchstr.html" onClick="opener.location.href = '../../rtl/system/tobject.dispatchstr.html'; return false;">DispatchStr</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.getinterface.html" onClick="opener.location.href = '../../rtl/system/tobject.getinterface.html'; return false;">GetInterface</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.getinterfacebystr.html" onClick="opener.location.href = '../../rtl/system/tobject.getinterfacebystr.html'; return false;">GetInterfaceByStr</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.getinterfaceweak.html" onClick="opener.location.href = '../../rtl/system/tobject.getinterfaceweak.html'; return false;">GetInterfaceWeak</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.getinterfaceentry.html" onClick="opener.location.href = '../../rtl/system/tobject.getinterfaceentry.html'; return false;">GetInterfaceEntry</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.getinterfaceentrybystr.html" onClick="opener.location.href = '../../rtl/system/tobject.getinterfaceentrybystr.html'; return false;">GetInterfaceEntryByStr</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.getinterfacetable.html" onClick="opener.location.href = '../../rtl/system/tobject.getinterfacetable.html'; return false;">GetInterfaceTable</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.unitname.html" onClick="opener.location.href = '../../rtl/system/tobject.unitname.html'; return false;">UnitName</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.equals.html" onClick="opener.location.href = '../../rtl/system/tobject.equals.html'; return false;">Equals</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.gethashcode.html" onClick="opener.location.href = '../../rtl/system/tobject.gethashcode.html'; return false;">GetHashCode</a></p></td>
+</tr>
+<tr>
+<td><p>&nbsp;</p></td>
+<td></td>
+<td><p><a href="../../rtl/system/tobject.tostring.html" onClick="opener.location.href = '../../rtl/system/tobject.tostring.html'; return false;">ToString</a></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

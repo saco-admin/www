@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStream.CopyFrom</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../objects/index.html">Overview</a>][<a href="../objects/index-2.html">Constants</a>][<a href="../objects/index-3.html">Types</a>][<a href="../objects/index-4.html">Classes</a>][<a href="../objects/index-5.html">Procedures and functions</a>][<a href="../objects/index-6.html">Variables</a>][<a href="../objects/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Objects' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TStream.CopyFrom</h1>
+<p>Copy data from another stream.</p>
+<h2>Declaration</h2>
+<p>Source position: objects.pp line 299</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code">  <span class="kw">procedure</span> <a href="../objects/tstream.html">TStream</a><span class="sym">.</span>CopyFrom<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>S<span class="sym">: </span><a href="../objects/tstream.html">TStream</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Count<span class="sym">: </span><a href="../system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>CopyFrom</var> reads Count bytes from stream <var>S</var> and stores them in the current stream. It uses the <a href="../objects/tstream.read.html">Read</a> method to read the data, and the <a href="../objects/tstream.write.html">Write</a> method to write in the current stream. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../objects/tstream.read.html">Read</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read data from stream to buffer.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../objects/tstream.write.html">Write</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write a number of bytes to the stream.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> ex19<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the TStream.CopyFrom function }</span>
+
+<span class="kw">Uses</span> objects<span class="sym">;</span>
+
+<span class="kw">Var</span> P <span class="sym">:</span> PString<span class="sym">;</span>
+    L <span class="sym">:</span> String<span class="sym">;</span>
+    S1<span class="sym">,</span>S2 <span class="sym">:</span> PStream<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  L<span class="sym">:=</span><span class="str">'Constant string line'</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Writing to stream 1 : "'</span><span class="sym">,</span>L<span class="sym">,</span><span class="chr">'"'</span><span class="sym">)</span><span class="sym">;</span>
+  S1<span class="sym">:=</span>New<span class="sym">(</span>PMemoryStream<span class="sym">,</span>Init<span class="sym">(</span><span class="num">100</span><span class="sym">,</span><span class="num">10</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  S2<span class="sym">:=</span>New<span class="sym">(</span>PMemoryStream<span class="sym">,</span>Init<span class="sym">(</span><span class="num">100</span><span class="sym">,</span><span class="num">10</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  S1<span class="sym">^</span><span class="sym">.</span>WriteStr<span class="sym">(</span><span class="sym">@</span>L<span class="sym">)</span><span class="sym">;</span>
+  S1<span class="sym">^</span><span class="sym">.</span>Seek<span class="sym">(</span><span class="num">0</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Copying contents of stream 1 to stream 2'</span><span class="sym">)</span><span class="sym">;</span>
+  S2<span class="sym">^</span><span class="sym">.</span>Copyfrom<span class="sym">(</span>S1<span class="sym">^</span><span class="sym">,</span>S1<span class="sym">^</span><span class="sym">.</span>GetSize<span class="sym">)</span><span class="sym">;</span>
+  S2<span class="sym">^</span><span class="sym">.</span>Seek<span class="sym">(</span><span class="num">0</span><span class="sym">)</span><span class="sym">;</span>
+  P<span class="sym">:=</span>S2<span class="sym">^</span><span class="sym">.</span>ReadStr<span class="sym">;</span>
+  L<span class="sym">:=</span>P<span class="sym">^</span><span class="sym">;</span>
+  DisposeStr<span class="sym">(</span>P<span class="sym">)</span><span class="sym">;</span>
+  Dispose <span class="sym">(</span>S1<span class="sym">,</span>Done<span class="sym">)</span><span class="sym">;</span>
+  Dispose <span class="sym">(</span>S2<span class="sym">,</span>Done<span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Read from stream 2 : "'</span><span class="sym">,</span>L<span class="sym">,</span><span class="chr">'"'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

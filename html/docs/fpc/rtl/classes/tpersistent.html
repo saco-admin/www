@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TPersistent</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TPersistent</h1>
+<p>[<a href="../classes/tpersistent-1.html" onClick="window.open('../classes/tpersistent-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../classes/tpersistent-2.html" onClick="window.open('../classes/tpersistent-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../classes/tpersistent-3.html" onClick="window.open('../classes/tpersistent-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../classes/tpersistent-4.html" onClick="window.open('../classes/tpersistent-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../classes/tpersistent-5.html" onClick="window.open('../classes/tpersistent-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../classes/tpersistent-6.html" onClick="window.open('../classes/tpersistent-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Base class for streaming system and persistent properties.</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 428</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TPersistent <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../system/tobject.html">TObject</a><span class="sym">, </span><a href="../classes/ifpobserved.html">IFPObserved</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../classes/tpersistent.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Destroys the <var>TPersistent</var> instance.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tpersistent.assign.html">Assign</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Assign the contents of one class to another.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tpersistent.fpoattachobserver.html">FPOAttachObserver</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Add an observer to the list of observers.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tpersistent.fpodetachobserver.html">FPODetachObserver</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Remove an observer from the list of observers</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/tpersistent.fponotifyobservers.html">FPONotifyObservers</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Notify observers of changes.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../classes/tpersistent.getnamepath.html">GetNamePath</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns a string that can be used to identify the class instance.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../classes/tpersistent.html">TPersistent</a>,<a href="../classes/ifpobserved.html">IFPObserved</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for streaming system and persistent properties.</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../system/tobject.html">TObject</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class of all classes.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TPersistent</var> is the basic class for the streaming system. Since it is compiled in the <var>{$M+}</var> state, the compiler generates  RTTI (Run-Time Type Information) for it and all classes that descend from it. This information can be used to stream all properties of classes. </p>
+<p>It also introduces functionality to assign the contents of 2 classes to  each other. </p>
+<p><var>TPersistent</var> implements the <a href="../classes/ifpobserved.html">IFPObserved</a> interface for the benefit of descendant classes, but does not call <a href="../classes/ifpobserved.fponotifyobservers.html">IFPObserved.FPONotifyObservers</a>. Descendants such as <a href="../classes/tstrings.html">TStrings</a> and <a href="../classes/tcollection.html">TCollection</a> and <a href="../classes/tcollectionitem.html">TCollectionItem</a> do use it. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/tcomponent.html">TComponent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for all components that need owner-owned functionality.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/ifpobserved.html">IFPObserved</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Interface implemented by an object that can be observed.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstrings.html">TStrings</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Class to manage arrays or collections of strings</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tcollection.html">TCollection</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class to manage collections of named objects.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tcollectionitem.html">TCollectionItem</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Basic object that is managed by a <a href="../classes/tcollection.html">TCollection</a> class.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFPSListCompareFunc</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../fgl/index.html">Overview</a>][<a href="../fgl/index-2.html">Constants</a>][<a href="../fgl/index-3.html">Types</a>][<a href="../fgl/index-4.html">Classes</a>][<a href="../fgl/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'fgl' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TFPSListCompareFunc</h1>
+<p>Compare list items callback signature</p>
+<h2>Declaration</h2>
+<p>Source position: fgl.pp line 42</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TFPSListCompareFunc<span class="sym"> = </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Key1<span class="sym">: </span>Pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Key2<span class="sym">: </span>Pointer</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a> <span class="kw">of object</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Key1</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">First key value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Key2</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Second key value</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Is <var>key1</var> less than <var>key2</var></p>
+<h2>Description</h2>
+<p><var>TFPSListCompareFunc</var> is used in the <a href="../fgl/tfpslist.sort.html">TFPSList.Sort</a> method to compare 2 elements. The list passes 2 pointers to the actual items to the compare function. The result of this function determines how the pointers will be sorted: </p>
+<ul>
+<li>If the result of this function is negative, the first key (<var>key1</var>) is assumed to be 'less' than the second key (<var>key2</var>) and will be moved before the second in the list.</li>
+<li>If the function result is positive, the first key (<var>key1</var>) pointer is assumed to be 'greater than' the second key (<var>key2</var>)and will be moved after the second in the list.</li>
+<li>if the function result is zero, the keys are assumed to be 'equal' and no moving will take place.</li>
+</ul>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../fgl/tfpslist.sort.html">TFPSList.Sort</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Sort the list</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>getascii</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../charset/index.html">Overview</a>][<a href="../charset/index-2.html">Constants</a>][<a href="../charset/index-3.html">Types</a>][<a href="../charset/index-5.html">Procedures and functions</a>][<a href="../charset/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'charset' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>getascii</h1>
+<p>Convert unicode character or string to single-byte character or string.</p>
+<h2>Declaration</h2>
+<p>Source position: charset.pp line 87</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> getascii<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;c<span class="sym">: </span><a href="../charset/tunicodechar.html">tunicodechar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;p<span class="sym">: </span><a href="../charset/punicodemap.html">punicodemap</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> getascii<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;c<span class="sym">: </span><a href="../charset/tunicodechar.html">tunicodechar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;p<span class="sym">: </span><a href="../charset/punicodemap.html">punicodemap</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ABuffer<span class="sym">: </span><a href="../system/pansichar.html">PAnsiChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ABufferLen<span class="sym">: </span><a href="../system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">c</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Character to translate.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">p</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mapping to use</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Translated character as string, or number of characters copied to buffer.</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">c</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Character to translate.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">p</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mapping to use</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ABuffer</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Buffer to copy characters to.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ABufferLen</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Length of buffer <var>ABuffer</var></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>getascii</var> converts a unicode character <var>c</var> to one or more single-byte characters according to the map in <var>p</var>. The result can be a string containing up to 2 characters, or the number of characters copied to the buffer <var>ABuffer</var>  with length <var>ABufferLen</var>. </p>
+<h2>Errors</h2>
+<p>If the character cannot be translated, ASCII character 63 is returned (or copied to the buffer). In the case of the buffer variant of the function, -1 is then returned. If the buffer is not large enough, -1 is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../charset/getunicode.html">getunicode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Map single-byte character to unicode character.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Detecting heap memory leaks</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 3484--><div class="crosslinks"><p class="noindent">[<a 
+href="userse58.html" >next</a>] [<a 
+href="userse56.html" >prev</a>] [<a 
+href="userse56.html#tailuserse56.html" >prev-tail</a>] [<a 
+href="#tailuserse57.html">tail</a>] [<a 
+href="userch10.html#userse57.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.5   </span> <a 
+href="user.html#QQ2-168-226" id="x168-17500010.5">Detecting heap memory leaks</a></h3>
+<!--l. 3486--><p class="noindent" >Free Pascal has a built in mechanism to detect memory leaks. There is a plug-in unit for the
+memory manager that analyses the memory allocation/deallocation and prints a memory usage
+report after the program exits.
+<!--l. 3490--><p class="noindent" >The unit that does this is called <span 
+class="cmss-10">heaptrc</span>. Do not include this unit in your uses clause directly.
+Instead, supply the <span 
+class="cmtt-10">-gh </span>switch to the compiler, and it will include the unit automatically for you,
+in the correct place.
+<!--l. 3495--><p class="noindent" >After the program exits, you will get a report looking like this:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-121">
+Marked&#x00A0;memory&#x00A0;at&#x00A0;0040FA50&#x00A0;invalid
+&#x00A0;<br />Wrong&#x00A0;size&#x00A0;:&#x00A0;128&#x00A0;allocated&#x00A0;64&#x00A0;freed
+&#x00A0;<br />&#x00A0;&#x00A0;0x00408708
+&#x00A0;<br />&#x00A0;&#x00A0;0x0040CB49
+&#x00A0;<br />&#x00A0;&#x00A0;0x0040C481
+&#x00A0;<br />Call&#x00A0;trace&#x00A0;for&#x00A0;block&#x00A0;0x0040FA50&#x00A0;size&#x00A0;128
+&#x00A0;<br />&#x00A0;&#x00A0;0x0040CB3D
+&#x00A0;<br />&#x00A0;&#x00A0;0x0040C481
+</div>
+<!--l. 3505--><p class="nopar" >The output of the heaptrc unit is customizable by setting some variables. Output can also be
+customized using environment variables.
+<!--l. 3509--><p class="noindent" >You can find more information about the usage of the <span 
+class="cmss-10">heaptrc </span>unit in the <a 
+href="../rtl/index.html" >Unit Reference</a>.
+                                                                            
+
+                                                                            
+<!--l. 3514--><div class="crosslinks"><p class="noindent">[<a 
+href="userse58.html" >next</a>] [<a 
+href="userse56.html" >prev</a>] [<a 
+href="userse56.html#tailuserse56.html" >prev-tail</a>] [<a 
+href="userse57.html" >front</a>] [<a 
+href="userch10.html#userse57.html" >up</a>] </p></div>
+<!--l. 3514--><p class="noindent" ><a 
+ id="tailuserse57.html"></a>  
+</body></html> 

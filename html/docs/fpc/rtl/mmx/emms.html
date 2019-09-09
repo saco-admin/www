@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>emms</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../mmx/index.html">Overview</a>][<a href="../mmx/index-2.html">Constants</a>][<a href="../mmx/index-3.html">Types</a>][<a href="../mmx/index-5.html">Procedures and functions</a>][<a href="../mmx/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'mmx' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>emms</h1>
+<p>Reset floating point registers</p>
+<h2>Declaration</h2>
+<p>Source position: mmx.pp line 52</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> emms<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Emms</var> sets all floating point registers to empty. This procedure must be called after you have used any <var>MMX</var> instructions, if you want to use floating point arithmetic. If you just want to move floating point data around, it isn't necessary to call this function, the compiler doesn't use the FPU registers when moving data. Only when doing calculations, you should use this function. The following code demonstrates this: </p>
+<pre><span class="kw">Program</span> MMXDemo<span class="sym">;</span>
+<span class="kw">uses</span> mmx<span class="sym">;</span>
+<span class="kw">var</span>
+   d1 <span class="sym">:</span> double<span class="sym">;</span>
+   a <span class="sym">:</span> <span class="kw">array</span><span class="sym">[</span><span class="num">0</span><span class="sym">.</span><span class="sym">.</span><span class="num">10000</span><span class="sym">]</span> <span class="kw">of</span> double<span class="sym">;</span>
+   i <span class="sym">:</span> longint<span class="sym">;</span>
+<span class="kw">begin</span>
+   d1<span class="sym">:=</span><span class="num">1</span><span class="sym">.</span><span class="num">0</span><span class="sym">;</span>
+<span class="dir">{$mmx+}</span>
+   <span class="cmt">{ floating point data is used, but we do _no_ arithmetic }</span>
+   <span class="kw">for</span> i<span class="sym">:=</span><span class="num">0</span> to <span class="num">10000</span> <span class="kw">do</span>
+     a<span class="sym">[</span>i<span class="sym">]</span><span class="sym">:=</span>d2<span class="sym">;</span>  <span class="cmt">{ this is done with 64 bit moves }</span>
+<span class="dir">{$mmx-}</span>
+   emms<span class="sym">;</span>   <span class="cmt">{ clear fpu }</span>
+   <span class="cmt">{ now we can do floating point arithmetic again }</span>
+<span class="kw">end</span><span class="sym">.</span> 
+</pre>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../mmx/femms.html">femms</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reset floating point registers - AMD version</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStatfs</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unixtype/index.html">Overview</a>][<a href="../unixtype/index-2.html">Constants</a>][<a href="../unixtype/index-3.html">Types</a>][<a href="../unixtype/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'unixtype' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TStatfs</h1>
+<p>Record describing a file system in the <a href="../unix/fpstatfs.html">unix.fpstatfs</a> call.</p>
+<h2>Declaration</h2>
+<p>Source position: ptypes.inc line 172</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TStatfs<span class="sym"> = </span><span class="kw">record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;fstype<span class="sym">: </span><a href="../unixtype/clong.html">clong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">File system type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;bsize<span class="sym">: </span><a href="../unixtype/clong.html">clong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Block size</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;blocks<span class="sym">: </span><a href="../unixtype/culong.html">culong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Total number of blocks</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;bfree<span class="sym">: </span><a href="../unixtype/culong.html">culong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of free blocks</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;bavail<span class="sym">: </span><a href="../unixtype/culong.html">culong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of available blocks</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;files<span class="sym">: </span><a href="../unixtype/culong.html">culong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of files</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ffree<span class="sym">: </span><a href="../unixtype/culong.html">culong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">?</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;fsid<span class="sym">: </span><span class="kw">array</span> <span class="sym">[</span><span class="num">0</span><span class="sym">.</span><span class="sym">.</span><span class="num">1</span><span class="sym">]</span> <span class="kw">of</span> <a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">?</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;namelen<span class="sym">: </span><a href="../unixtype/clong.html">clong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Max name length for files.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;frsize<span class="sym">: </span><a href="../unixtype/clong.html">clong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Optimal block transfer size</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;spare<span class="sym">: </span><span class="kw">array</span> <span class="sym">[</span><span class="num">0</span><span class="sym">.</span><span class="sym">.</span><span class="num">4</span><span class="sym">]</span> <span class="kw">of</span> <a href="../unixtype/clong.html">clong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Pad bytes. Do not use.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

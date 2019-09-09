@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TPropsStorage.StoreObjectsProps</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../rttiutils/index.html">Overview</a>][<a href="../rttiutils/index-2.html">Constants</a>][<a href="../rttiutils/index-3.html">Types</a>][<a href="../rttiutils/index-4.html">Classes</a>][<a href="../rttiutils/index-5.html">Procedures and functions</a>][<a href="../rttiutils/index-6.html">Variables</a>][<a href="../rttiutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'rttiutils' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TPropsStorage.StoreObjectsProps</h1>
+<p>Store a list of component properties</p>
+<h2>Declaration</h2>
+<p>Source position: rttiutils.pp line 118</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../rttiutils/tpropsstorage.html">TPropsStorage</a><span class="sym">.</span>StoreObjectsProps<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AComponent<span class="sym">: </span><a href="../../rtl/classes/tcomponent.html">TComponent</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;StoredList<span class="sym">: </span><a href="../../rtl/classes/tstrings.html">TStrings</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AComponent</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Owner component of the components</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">StoredList</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of components and their properties to load</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>StoreObjectsProps</var> stores a list of component properties, relative to <var>AComponent</var>: the names of the component properties to store are specified as follows: </p>
+<pre>ComponentName1.PropertyName
+ComponentName2.Subcomponent1.PropertyName
+</pre>
+<p>The component instances will be located relative to <var>AComponent</var>, and must therefore be names of components owned by <var>AComponent</var>, followed by a valid property of these components. If the componentname is missing, the property name will be assumed to be a property of <var>AComponent</var> itself. </p>
+<p>The <var>Objects</var> property of the stringlist should be filled with the instances of the components the property references refer to: they can be filled with the <a href="../rttiutils/updatestoredlist.html">UpdateStoredList</a> call. </p>
+<p>For example, to store the checked state of a checkbox named 'CBCheckMe' and the caption of a button named 'BPressMe', both owned by a form, the following strings should be passed: </p>
+<pre>CBCheckMe.Checked
+BPressMe.Caption
+</pre>
+<p>and the <var>ACompontent</var> should be the form component that owns the button and checkbox. </p>
+<p>Note that this call removes the value of the <a href="../rttiutils/tpropsstorage.aobject.html">AObject</a> property. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../rttiutils/updatestoredlist.html">UpdateStoredList</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Update a stringlist with object references</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../rttiutils/tpropsstorage.loadobjectsprops.html">LoadObjectsProps</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Load a list of component properties</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../rttiutils/tpropsstorage.loadproperties.html">LoadProperties</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Load a list of properties</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../rttiutils/tpropsstorage.loadanyproperty.html">LoadAnyProperty</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Load a property value</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

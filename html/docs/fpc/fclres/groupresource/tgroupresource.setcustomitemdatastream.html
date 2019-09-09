@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TGroupResource.SetCustomItemDataStream</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../groupresource/index.html">Overview</a>][<a href="../groupresource/index-4.html">Classes</a>][<a href="../groupresource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'groupresource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TGroupResource.SetCustomItemDataStream</h1>
+<p>Sets a custom stream as the underlying stream for ItemData</p>
+<h2>Declaration</h2>
+<p>Source position: groupresource.pp line 55</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../groupresource/tgroupresource.html">TGroupResource</a><span class="sym">.</span>SetCustomItemDataStream<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aStream<span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">aStream</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The custom stream to use as the underlying ItemData stream</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This method allows the user to use a custom stream as the underlying stream for <a href="../groupresource/tgroupresource.itemdata.html">ItemData</a>. This is useful when you want a <a href="../groupiconresource/tgroupiconresource.html">TGroupIconResource</a> or <a href="../groupcursorresource/tgroupcursorresource.html">TGroupCursorResource</a> to be created from a ico or cur file for which you have a stream.</p>
+<p><b>Sample code</b></p>
+<p>This code creates a resource containing an icon</p>
+<pre><span class="kw">var</span>
+  aName <span class="sym">:</span> TResourceDesc<span class="sym">;</span>
+  aRes <span class="sym">:</span> TGroupIconResource<span class="sym">;</span>
+  aFile <span class="sym">:</span> TFileStream<span class="sym">;</span>
+  Resources <span class="sym">:</span> TResources<span class="sym">;</span>
+<span class="kw">begin</span>
+  Resources<span class="sym">:=</span>TResources<span class="sym">.</span>Create<span class="sym">;</span>
+  aName<span class="sym">:=</span>TResourceDesc<span class="sym">.</span>Create<span class="sym">(</span><span class="str">'MAINICON'</span><span class="sym">)</span><span class="sym">;</span>
+  aRes<span class="sym">:=</span>TGroupIconResource<span class="sym">.</span>Create<span class="sym">(</span><span class="kw">nil</span><span class="sym">,</span>aName<span class="sym">)</span><span class="sym">;</span> <span class="cmt">//type is always RT_GROUP_ICON</span>
+  aName<span class="sym">.</span>Free<span class="sym">;</span> <span class="cmt">//not needed anymore</span>
+  aFile<span class="sym">:=</span>TFileStream<span class="sym">.</span>Create<span class="sym">(</span><span class="str">'mainicon.ico'</span><span class="sym">,</span>fmOpenRead <span class="kw">or</span> fmShareDenyNone<span class="sym">)</span><span class="sym">;</span>
+  aRes<span class="sym">.</span>SetCustomItemDataStream<span class="sym">(</span>aFile<span class="sym">)</span><span class="sym">;</span>
+  Resources<span class="sym">.</span>Add<span class="sym">(</span>aRes<span class="sym">)</span><span class="sym">;</span>
+  Resources<span class="sym">.</span>WriteToFile<span class="sym">(</span><span class="str">'myresource.res'</span><span class="sym">)</span><span class="sym">;</span>
+
+  Resources<span class="sym">.</span>Free<span class="sym">;</span> <span class="cmt">//it destroys aRes as well.</span>
+  aFile<span class="sym">.</span>Free<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../groupresource/tgroupresource.itemdata.html">TGroupResource.ItemData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Resource data as an ICO/CUR stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../groupiconresource/tgroupiconresource.html">TGroupIconResource</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Group icon resource type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../groupcursorresource/tgroupcursorresource.html">TGroupCursorResource</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Group cursor resource type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresource.updaterawdata.html">TAbstractResource.UpdateRawData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Updates RawData stream.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

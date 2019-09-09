@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpUnlink</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpUnlink</h1>
+<p>Unlink (i.e. remove) a file.</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 77</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpUnlink<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;path<span class="sym">: </span><a href="../system/pchar.html">PChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> FpUnlink<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>path<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FpUnlink</var> decreases the link count on file <var>Path</var>. <var>Path</var> can be of type <var>AnsiString</var> or <var>PChar</var>. If the link count is zero, the file is removed from the disk. </p>
+<p>The function returns zero if the call was succesfull, a nonzero value indicates failure. </p>
+<p>Note: There exist a portable alterative to erase files: system.erase. Please use fpUnlink only if you are writing Unix specific code. System.erase will work on all operating systems. </p>
+<p>For an example, see <a href="../baseunix/fplink.html">FpLink</a>. </p>
+<h2>Errors</h2>
+<p>Extended error information can be retrieved using <a href="../baseunix/fpgeterrno.html">fpGetErrno</a>. </p>
+<dl>
+<dt>sys_eaccess</dt>
+<dd>You have no write access right in the directory containing <var>Path</var>,  or you have no search permission in one of the directory components of  <var>Path</var>.</dd>
+<dt>sys_eperm</dt>
+<dd>The directory containing pathname has the sticky-bit set and the process's  effective uid is neither the uid of the file to be deleted nor that of the  directory containing it.</dd>
+<dt>sys_enoent</dt>
+<dd>A component of the path doesn't exist.</dd>
+<dt>sys_enotdir</dt>
+<dd>A directory component of the path is not a directory.</dd>
+<dt>sys_eisdir</dt>
+<dd><var>Path</var> refers to a directory.</dd>
+<dt>sys_enomem</dt>
+<dd>Insufficient kernel memory.</dd>
+<dt>sys_erofs</dt>
+<dd><var>Path</var> is on a read-only filesystem.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fplink.html">FpLink</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a hard link to a file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpsymlink.html">FpSymLink</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a symbolic link</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

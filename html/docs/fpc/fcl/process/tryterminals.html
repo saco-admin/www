@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TryTerminals</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../process/index.html">Overview</a>][<a href="../process/index-3.html">Types</a>][<a href="../process/index-4.html">Classes</a>][<a href="../process/index-5.html">Procedures and functions</a>][<a href="../process/index-6.html">Variables</a>][<a href="../process/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'process' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TryTerminals</h1>
+<p>A list of terminal programs to use (unix only)</p>
+<h2>Declaration</h2>
+<p>Source position: process.pp line 171</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">var</span> TryTerminals<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> string <span class="sym">=</span> <span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TryTerminals</var> is used under unix to test for available terminal programs in the <a href="../process/detectxterm.html">DetectXTerm</a> function.  If <a href="../process/xtermprogram.html">XTermProgram</a> is empty, each item in this list will be searched  in the path, and used as a terminal program if it was found. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../process/xtermprogram.html">XTermProgram</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Default XTerm program to use</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/detectxterm.html">DetectXTerm</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Detect the terminal program.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

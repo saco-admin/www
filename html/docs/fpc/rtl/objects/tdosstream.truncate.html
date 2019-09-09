@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDosStream.Truncate</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../objects/index.html">Overview</a>][<a href="../objects/index-2.html">Constants</a>][<a href="../objects/index-3.html">Types</a>][<a href="../objects/index-4.html">Classes</a>][<a href="../objects/index-5.html">Procedures and functions</a>][<a href="../objects/index-6.html">Variables</a>][<a href="../objects/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Objects' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TDosStream.Truncate</h1>
+<p>Truncate the file on the current position.</p>
+<h2>Declaration</h2>
+<p>Source position: objects.pp line 320</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code">  <span class="kw">procedure</span> <a href="../objects/tdosstream.html">TDosStream</a><span class="sym">.</span>Truncate<span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>If the status of the stream is <var>stOK</var>, then <var>Truncate</var> tries to truncate the stream size to the current file position. </p>
+<h2>Errors</h2>
+<p>If an error occurs, the stream's status is set to <var>stError</var> and <var>ErrorInfo</var> is set to the OS error code. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../objects/tstream.truncate.html">TStream.Truncate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Truncate the stream size on current position.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../objects/tstream.getsize.html">TStream.GetSize</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the size of the stream.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> ex16<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the TStream.Truncate method }</span>
+
+<span class="kw">Uses</span> Objects<span class="sym">;</span>
+
+<span class="kw">Var</span> L <span class="sym">:</span> String<span class="sym">;</span>
+    P <span class="sym">:</span> PString<span class="sym">;</span>
+    S <span class="sym">:</span> PDosStream<span class="sym">;</span> <span class="cmt">{ Only one with Truncate implemented. }</span>
+
+<span class="kw">begin</span>
+  L<span class="sym">:=</span><span class="str">'Some constant string'</span><span class="sym">;</span>
+  <span class="cmt">{ Buffer size of 100 }</span>
+  S<span class="sym">:=</span>New<span class="sym">(</span>PDosStream<span class="sym">,</span>Init<span class="sym">(</span><span class="str">'test.dat'</span><span class="sym">,</span>stcreate<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Writing "'</span><span class="sym">,</span>L<span class="sym">,</span><span class="str">'" to stream with handle '</span><span class="sym">,</span>S<span class="sym">^</span><span class="sym">.</span>Handle<span class="sym">)</span><span class="sym">;</span>
+  S<span class="sym">^</span><span class="sym">.</span>WriteStr<span class="sym">(</span><span class="sym">@</span>L<span class="sym">)</span><span class="sym">;</span>
+  S<span class="sym">^</span><span class="sym">.</span>WriteStr<span class="sym">(</span><span class="sym">@</span>L<span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ Close calls flush first }</span>
+  S<span class="sym">^</span><span class="sym">.</span>Close<span class="sym">;</span>
+  S<span class="sym">^</span><span class="sym">.</span>Open <span class="sym">(</span>stOpen<span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Size of stream is : '</span><span class="sym">,</span>S<span class="sym">^</span><span class="sym">.</span>GetSize<span class="sym">)</span><span class="sym">;</span>
+  P<span class="sym">:=</span>S<span class="sym">^</span><span class="sym">.</span>ReadStr<span class="sym">;</span>
+  L<span class="sym">:=</span>P<span class="sym">^</span><span class="sym">;</span>
+  DisposeStr<span class="sym">(</span>P<span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Read "'</span><span class="sym">,</span>L<span class="sym">,</span><span class="str">'" from stream with handle '</span><span class="sym">,</span>S<span class="sym">^</span><span class="sym">.</span>Handle<span class="sym">)</span><span class="sym">;</span>
+  S<span class="sym">^</span><span class="sym">.</span>Truncate<span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Truncated stream. Size is : '</span><span class="sym">,</span>S<span class="sym">^</span><span class="sym">.</span>GetSize<span class="sym">)</span><span class="sym">;</span>
+  S<span class="sym">^</span><span class="sym">.</span>Close<span class="sym">;</span>
+  Dispose <span class="sym">(</span>S<span class="sym">,</span>Done<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

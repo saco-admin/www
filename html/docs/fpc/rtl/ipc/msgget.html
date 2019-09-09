@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>msgget</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../ipc/index.html">Overview</a>][<a href="../ipc/index-2.html">Constants</a>][<a href="../ipc/index-3.html">Types</a>][<a href="../ipc/index-5.html">Procedures and functions</a>][<a href="../ipc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'ipc' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>msgget</h1>
+<p>Return message queue ID, possibly creating the queue</p>
+<h2>Declaration</h2>
+<p>Source position: ipc.pp line 644</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> msgget<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;key<span class="sym">: </span><a href="../ipc/tkey.html">TKey</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;msgflg<span class="sym">: </span><a href="../unixtype/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>msgget</var> returns the ID of the message queue described by <var>key</var>. Depending on the flags in <var>msgflg</var>, a new queue is created. </p>
+<p><var>msgflg</var> can have one or more of the following values (combined by ORs): </p>
+<dl>
+<dt>IPC_CREAT</dt>
+<dd>The queue is created if it doesn't already exist.</dd>
+<dt>IPC_EXCL</dt>
+<dd>If used in combination with <var>IPC_CREAT</var>, causes the call to fail if the queue already exists. It cannot be used by itself. </dd>
+</dl>
+<p>Optionally, the flags can be <var>OR</var>ed with a permission mode, which is the same mode that can be used in the file system. </p>
+<p>For an example, see <a href="../ipc/msgctl.html">msgctl</a>. </p>
+<h2>Errors</h2>
+<p>On error, -1 is returned, and <var>IPCError</var> is set. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../ipc/ftok.html">ftok</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create token from filename</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ipc/msgsnd.html">msgsnd</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Send a message to the messague queue</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ipc/msgrcv.html">msgrcv</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Retrieve a message from the queue</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ipc/msgctl.html">msgctl</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Perform various operations on a message queue</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

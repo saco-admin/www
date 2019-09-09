@@ -1,0 +1,21 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00180.html#a18b32829b31b902699690b750e190e59" title="Find out desired number of threads." alt="" coords="261,5,581,33"/>
+<area shape="rect" id="node5" href="$a01569.html#a4093dd098b32542e3d3f43ebd4c6f940" title="Top&#45;level quicksort routine." alt="" coords="304,55,539,83"/>
+<area shape="rect" id="node7" href="$a01569.html#ae8e1f6dc07de01f28bf591339cf8aa9c" title="Calculates the rounded&#45;down logarithm of __n for base 2." alt="" coords="647,5,823,33"/>
+<area shape="rect" id="node9" href="$a01576.html#a0409e288f07b697cb6885d1002df0bd6" title="A convenience wrapper for creating a pair from two objects." alt="" coords="1397,30,1512,58"/>
+<area shape="rect" id="node11" href="$a01569.html#a8d9c5686c4621822c7c3cdd015f7e693" title="Quicksort conquer step." alt="" coords="629,131,840,159"/>
+<area shape="rect" id="node13" href="$a01569.html#a7565d258aacb02328cef6eb2781ab711" title="Quicksort step doing load&#45;balanced local sort." alt="" coords="889,131,1191,159"/>
+<area shape="rect" id="node24" href="$a01569.html#afc19882fd22d39e54475d41fd981ac49" title="Balanced quicksort divide step." alt="" coords="943,283,1137,311"/>
+<area shape="rect" id="node15" href="$a00163.html#abc4965eacae0b49945ebc887cb11adc1" title="Get the global settings." alt="" coords="1741,170,1947,198"/>
+<area shape="rect" id="node17" href="$a00160.html#a2ac4fcc26b5a8e8d3db9993ca3b6f777" title="Pushes one element into the queue at the front end. Must not be called concurrently with pop_front()..." alt="" coords="1240,131,1669,159"/>
+<area shape="rect" id="node20" href="$a00160.html#a4b760899cefaccb86586c447b12c4cc3" title="Pops one element from the queue at the front end. Must not be called concurrently with pop_front()..." alt="" coords="1244,182,1665,210"/>
+<area shape="rect" id="node22" href="$a01569.html#aaa76236af73146ae89f726921bc3f2cb" title="Yield the control to another thread, without waiting for the end to the time slice." alt="" coords="1376,233,1533,261"/>
+<area shape="rect" id="node26" href="$a01569.html#a74914ea59d68887b517e12c90189dbcd" title="Compute the median of three referenced elements, according to __comp." alt="" coords="1308,283,1601,311"/>
+<area shape="rect" id="node28" href="$a01569.html#aa56788b479955dd136d6af173d2cae0b" title="Parallel implementation of std::partition." alt="" coords="1337,334,1572,362"/>
+<area shape="rect" id="node30" href="$a01569.html#accd4441e0f846fee44966195a91e9e68" title="Compare *__ptr and __comparand. If equal, let *__ptr=__replacement and return true, return false otherwise." alt="" coords="1717,309,1971,337"/>
+<area shape="rect" id="node36" href="$a01569.html#a56a5a84c8a6049cd3cc83968c6eae088" title="Add a value to a variable, atomically." alt="" coords="1733,359,1955,387"/>
+<area shape="rect" id="node32" href="$a01569.html#ab6820de0a0aa43aaf0d1fd22548c7f91" title="Compare *__ptr and __comparand. If equal, let *__ptr=__replacement and return true, return false otherwise." alt="" coords="2019,258,2293,286"/>
+<area shape="rect" id="node34" href="$a01569.html#a412037b996221c3b30b6771ffda31ef7" title="Compare *__ptr and __comparand. If equal, let *__ptr=__replacement and return true, return false otherwise." alt="" coords="2019,309,2293,337"/>
+<area shape="rect" id="node38" href="$a01569.html#a0ecb7402bccd099b51c28bcc64d57b68" title="Add a value to a variable, atomically." alt="" coords="2035,359,2277,387"/>
+<area shape="rect" id="node40" href="$a01569.html#aa87fd421e9f75ac83103ea48fabfa77f" title="Add a value to a variable, atomically." alt="" coords="2035,410,2277,438"/>
+</map>

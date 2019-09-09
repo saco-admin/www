@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>How to implement a new resource class</title>
+<link rel="stylesheet" href="fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="basic usage.html">Previous</a>][<a href="index.html">Up</a>][<a href="how to implement a new resource reader.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle"> (<a href="index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h2>How to implement a new resource class</h2>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>This chapter assumes you have some experience in using this library.</td>
+</tr>
+</table>
+<p><b>Some considerations</b></p>
+<p>Usually, a specific resource class is needed when resource data is encoded in a specific binary format that makes working with <b>RawData</b> uncomfortable.</p>
+<p>However, there aren't many reasons to design a new binary format requiring a specific resource class: the classes provided with this package exist for compatibility with Microsoft Windows, but in the general case one should avoid such approach.</p>
+<p>In Microsoft Windows, some resource types have a specific format, and the operating system supports them at runtime making it easy to access that kind of data: e.g. icons and bitmaps are stored in resources in a format that is slightly different from the one found in regular files, but the operating system allows the user to easily load them using <var>LoadImage</var> function, without having to deal with their internal format. Other resource types are used to obtain information about the executable: <b>RT_VERSION</b> resource type and <b>RT_GROUP_ICON</b> contain version information and program icon that can be displayed in Windows Explorer, respectively.</p>
+<p>Using this kind of resources in a cross-platform perspective doesn't make much sense however, since there is no support by other operating systems for these types of resources (and for resources in general), and this means that it's up to you to provide support at runtime for these binary formats. So if you need to store images as resources it's better to use <b>TGenericResource</b> and store an image in PNG format (for instance), which can be read by existing libraries at runtime, instead of creating a <b>RT_BITMAP</b> resource with <b>TBitmapResource</b>, since libraries that read BMP files can't handle that resource contents.</p>
+<p>New resource classes thus make sense when you want to add support for existing Windows-specific resources, e.g. because you are writing a resource compiler or editor, but in the general case they should be avoided.</p>
+<p>Now that you've been warned, let's start with the topic of this chapter.</p>
+<p><b>How to implement a new resource class</b></p>
+<p>A resource class is a descendant of <b>TAbstractResource</b>, and it's usually implemented in a unit named <var>typeresource</var>, where <i>type</i> is resource type.</p>
+<p>If you are implementing a new resource class, you are doing it to provide additional methods or properties to utilize resource data. You resource class must thus be able to read its <b>RawData</b> stream format and write data back to it when it is requested to do so.</p>
+<p>Generally, your class shouldn't create private objects, records or memory buffers to provide these specific means of accessing data until it's requested to do so (lazy loading), and it should free these things when it is requested to write back data to the <b>RawData</b> stream.</p>
+<p>We'll see these points in more detail, using <b>TAcceleratorsResource</b> as an example.</p>
+<p><b>TAcceleratorsResource</b> holds a collection of accelerators. An accelerator is a record defined as follows:</p>
+<pre><span class="kw">type</span>
+  TAccelerator <span class="sym">=</span> <span class="kw">packed</span> <span class="kw">record</span>
+    Flags <span class="sym">:</span> word<span class="sym">;</span>
+    Ansi <span class="sym">:</span> word<span class="sym">;</span>
+    Id <span class="sym">:</span> word<span class="sym">;</span>
+    padding <span class="sym">:</span> word<span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>The resource simply contains accelerators, one immediately following the other. Last accelerator must have $80 in its flags.</p>
+<p>To provide easy access to the elements it contains, our accelerator resource class exposes these methods and properties in its public section:</p>
+<pre><span class="kw">procedure</span> Add<span class="sym">(</span>aItem <span class="sym">:</span> TAccelerator<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">procedure</span> Clear<span class="sym">;</span>
+<span class="kw">procedure</span> Delete<span class="sym">(</span>aIndex <span class="sym">:</span> integer<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">property</span> Count <span class="sym">:</span> integer read GetCount<span class="sym">;</span>
+<span class="kw">property</span> Items<span class="sym">[</span>index <span class="sym">:</span> integer<span class="sym">]</span> <span class="sym">:</span> TAccelerator read GetItem write SetItem<span class="sym">;</span> <span class="kw">default</span><span class="sym">;</span>
+</pre>
+<p>We must also implement abstract methods (and an abstract constructor) of <b>TAbstractResource</b>:</p>
+<pre><span class="kw">protected</span>
+  <span class="kw">function</span> GetType <span class="sym">:</span> TResourceDesc<span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+  <span class="kw">function</span> GetName <span class="sym">:</span> TResourceDesc<span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+  <span class="kw">function</span> ChangeDescTypeAllowed<span class="sym">(</span>aDesc <span class="sym">:</span> TResourceDesc<span class="sym">)</span> <span class="sym">:</span> boolean<span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+  <span class="kw">function</span> ChangeDescValueAllowed<span class="sym">(</span>aDesc <span class="sym">:</span> TResourceDesc<span class="sym">)</span> <span class="sym">:</span> boolean<span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+  <span class="kw">procedure</span> NotifyResourcesLoaded<span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+<span class="kw">public</span>
+  <span class="kw">constructor</span> Create<span class="sym">(</span>aType<span class="sym">,</span>aName <span class="sym">:</span> TResourceDesc<span class="sym">)</span><span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+  <span class="kw">procedure</span> UpdateRawData<span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+</pre>
+<p>The protected methods are very easy to implement, so let's start from them. For <b>GetType</b> and <b>GetName</b>, we need to add two private fields, <var>fType</var> and <var>fName</var>, of type <b>TResourceDesc</b>. We create them in the constructor and destroy them in the destructor. Type will always be <b>RT_ACCELERATOR</b>. We make the parameterless constructor of <b>TAbstractResource</b> public, using <var>1</var> as the resource name, while in the other constructor we use the name passed as parameter, ignoring the type (since it must always be <b>RT_ACCELERATOR</b>).</p>
+<p>So, <b>GetType</b>, <b>GetName</b>, the constructors and the destructor are implemented as follows:</p>
+<pre><span class="kw">function</span> TAcceleratorsResource<span class="sym">.</span>GetType<span class="sym">:</span> TResourceDesc<span class="sym">;</span>
+<span class="kw">begin</span>
+  Result<span class="sym">:=</span>fType<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">function</span> TAcceleratorsResource<span class="sym">.</span>GetName<span class="sym">:</span> TResourceDesc<span class="sym">;</span>
+<span class="kw">begin</span>
+  Result<span class="sym">:=</span>fName<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">constructor</span> TAcceleratorsResource<span class="sym">.</span>Create<span class="sym">;</span>
+<span class="kw">begin</span>
+  <span class="kw">inherited</span> Create<span class="sym">;</span>
+  fType<span class="sym">:=</span>TResourceDesc<span class="sym">.</span>Create<span class="sym">(</span>RT_ACCELERATOR<span class="sym">)</span><span class="sym">;</span>
+  fName<span class="sym">:=</span>TResourceDesc<span class="sym">.</span>Create<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+  SetDescOwner<span class="sym">(</span>fType<span class="sym">)</span><span class="sym">;</span>
+  SetDescOwner<span class="sym">(</span>fName<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">constructor</span> TAcceleratorsResource<span class="sym">.</span>Create<span class="sym">(</span>aType<span class="sym">,</span> aName<span class="sym">:</span> TResourceDesc<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">begin</span>
+  Create<span class="sym">;</span>
+  fName<span class="sym">.</span>Assign<span class="sym">(</span>aName<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">destructor</span> TAcceleratorsResource<span class="sym">.</span>Destroy<span class="sym">;</span>
+<span class="kw">begin</span>
+  fType<span class="sym">.</span>Free<span class="sym">;</span>
+  fName<span class="sym">.</span>Free<span class="sym">;</span>
+  <span class="kw">inherited</span> Destroy<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>Note that we used <b>SetDescOwner</b> to let type and name know the resource that owns them.</p>
+<p>Now <b>ChangeDescTypeAllowed</b> and <b>ChangeDescValueAllowed</b> come. As we said, resource type must be <b>RT_ACCELERATOR</b>, always. Thus, we only allow name to change value or type:</p>
+<pre><span class="kw">function</span> TAcceleratorsResource<span class="sym">.</span>ChangeDescTypeAllowed<span class="sym">(</span>aDesc<span class="sym">:</span> TResourceDesc<span class="sym">)</span><span class="sym">:</span> boolean<span class="sym">;</span>
+<span class="kw">begin</span>
+  Result<span class="sym">:=</span>aDesc<span class="sym">=</span>fName<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">function</span> TAcceleratorsResource<span class="sym">.</span>ChangeDescValueAllowed<span class="sym">(</span>aDesc<span class="sym">:</span> TResourceDesc<span class="sym">)</span><span class="sym">:</span> boolean<span class="sym">;</span>
+<span class="kw">begin</span>
+  Result<span class="sym">:=</span>aDesc<span class="sym">=</span>fName<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p><b>NotifyResourcesLoaded</b> is called by <b>TResources</b> when it finishes loading all resources. Since we are not interested in this fact, we simply leave this method empty. This method is useful for resources that "own" other resources, like <b>TGroupIconResource</b> and <b>TGroupCursorResource</b> (note: you should <b>not</b> implement resource types that depend on other resources: it complicates things a lot and gives you a lot of headaches).</p>
+<p>Now, let's see the more interesting - and more difficult - part: providing an easy way to deal with accelerators.</p>
+<p>As we said earlier, we must implement some methods and properties to do so. Surely we'll need a list to hold pointers to accelerator records, but we must think a little bit about how this list is created, populated, written to <b>RawData</b> and so on.</p>
+<p>When the object is created, we don't have to create (yet) single accelerator records, as said before; but if the user tries to access them we must do it. If the object is created and its <b>RawData</b> contains data (e.g. because a reader has created the resource when loading a resource file) and the user tries to access an accelerator, we must create accelerators from <b>RawData</b> contents. So, until a user tries to access accelerators our class doesn't do anything, while when the user does so it "lazy-loads" data, or creates empty structures if <b>RawData</b> is empty.</p>
+<p>When data is loaded, <b>RawData</b> contents aren't considered anymore. When, however, our resource is requested to update <b>RawData</b> (that is, when <b>UpdateRawData</b> method is invoked), our "lazy-loaded" data must be freed. In fact, a user could ask our resource to update raw data, then he/she could modify it directly and then could use our resource's specialized methods and properties to do further processing: for this reason, when <b>RawData</b> is written, other buffered things must be freed, so that they'll created again from <b>RawData</b> if needed.</p>
+<p>Note that other resource classes could behave differently: e.g. <b>TBitmapResource</b> uses a copy-on-write mechanism on top of <b>RawData</b> to insert a BMP file header at the beginning of the stream, but it doesn't copy <b>RawData</b> contents whenever possible.</p>
+<p>Coming back to our <b>TAcceleratorsResource</b> example, let's see how to implement this behaviour.</p>
+<p>Let's add a <var>fList</var> field in the <var>private</var> section of our class:</p>
+<pre>fList <span class="sym">:</span> TFPList<span class="sym">;</span>
+</pre>
+<p>In the constructor, we set this field to <var>nil</var>: we use it to check if data has been loaded from <b>RawData</b> or not. Consequently in the destructor we'll free the list only if it's not <var>nil</var>:</p>
+<pre><span class="kw">destructor</span> TAcceleratorsResource<span class="sym">.</span>Destroy<span class="sym">;</span>
+<span class="kw">begin</span>
+  fType<span class="sym">.</span>Free<span class="sym">;</span>
+  fName<span class="sym">.</span>Free<span class="sym">;</span>
+  <span class="kw">if</span> fList<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="kw">nil</span> <span class="kw">then</span>
+  <span class="kw">begin</span>
+    Clear<span class="sym">;</span>
+    fList<span class="sym">.</span>Free<span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+  <span class="kw">inherited</span> Destroy<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>(we did not implement <var>Clear</var> method yet: we'll see it later).</p>
+<p>We said that our resource must load data only when needed; to do this we add a private method, <var>CheckDataLoaded</var> that ensures that data is loaded. This method is called by whatever method needs to operate on the list: if data has already been loaded it will quickly return, otherwise it will load data.</p>
+<pre><span class="kw">procedure</span> TAcceleratorsResource<span class="sym">.</span>CheckDataLoaded<span class="sym">;</span>
+<span class="kw">var</span> acc <span class="sym">:</span> TAccelerator<span class="sym">;</span>
+    tot<span class="sym">,</span> i <span class="sym">:</span> integer<span class="sym">;</span>
+    p <span class="sym">:</span> PAccelerator<span class="sym">;</span>
+<span class="kw">begin</span>
+  <span class="kw">if</span> fList<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="kw">nil</span> <span class="kw">then</span> <span class="kw">exit</span><span class="sym">;</span>
+  fList<span class="sym">:=</span>TFPList<span class="sym">.</span>Create<span class="sym">;</span>
+  <span class="kw">if</span> RawData<span class="sym">.</span>Size<span class="sym">=</span><span class="num">0</span> <span class="kw">then</span> <span class="kw">exit</span><span class="sym">;</span>
+  RawData<span class="sym">.</span>Position<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  tot<span class="sym">:=</span>RawData<span class="sym">.</span>Size <span class="kw">div</span> <span class="num">8</span><span class="sym">;</span>
+  <span class="kw">for</span> i<span class="sym">:=</span><span class="num">1</span> to tot <span class="kw">do</span>
+  <span class="kw">begin</span>
+    RawData<span class="sym">.</span>ReadBuffer<span class="sym">(</span>acc<span class="sym">,</span>sizeof<span class="sym">(</span>acc<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    GetMem<span class="sym">(</span>p<span class="sym">,</span>sizeof<span class="sym">(</span>TAccelerator<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    p<span class="sym">^</span><span class="sym">:=</span>acc<span class="sym">;</span>
+    fList<span class="sym">.</span>Add<span class="sym">(</span>p<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span><font color="red">	</font>
+</pre>
+<p>If <var>fList</var> is not <var>nil</var> data is already loaded, so exit. Otherwise, create the list. If <b>RawData</b> is empty we don't need to load anything, so exit. Otherwise allocate room for accelerators, read them from the stream, and add them to the list.</p>
+<p>Note that if we are running on a big endian system we should swap the bytes we read, e.g. calling <var>SwapEndian</var> function, but for simplicity this is omitted.</p>
+<p>The counterpart of <var>CheckDataLoaded</var> is <b>UpdateRawData</b>. When it is called, data from the list must be written back to <b>RawData</b>, and the list and its contents must be freed:</p>
+<pre><span class="kw">procedure</span> TAcceleratorsResource<span class="sym">.</span>UpdateRawData<span class="sym">;</span>
+<span class="kw">var</span> acc <span class="sym">:</span> TAccelerator<span class="sym">;</span>
+    i <span class="sym">:</span> integer<span class="sym">;</span>
+<span class="kw">begin</span>
+  <span class="kw">if</span> fList<span class="sym">=</span><span class="kw">nil</span> <span class="kw">then</span> <span class="kw">exit</span><span class="sym">;</span>
+  RawData<span class="sym">.</span>Size<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  RawData<span class="sym">.</span>Position<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+
+  <span class="kw">for</span> i<span class="sym">:=</span><span class="num">0</span> to fList<span class="sym">.</span>Count<span class="sym">-</span><span class="num">1</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    acc<span class="sym">:=</span>PAccelerator<span class="sym">(</span>fList<span class="sym">[</span>i<span class="sym">]</span><span class="sym">)</span><span class="sym">^</span><span class="sym">;</span>
+    <span class="cmt">// $80 means 'this is the last entry', so be sure only the last one has this bit set.</span>
+    <span class="kw">if</span> i<span class="sym">=</span>Count<span class="sym">-</span><span class="num">1</span> <span class="kw">then</span> acc<span class="sym">.</span>Flags<span class="sym">:=</span>acc<span class="sym">.</span>Flags <span class="kw">or</span> <span class="num">$80</span>
+    <span class="kw">else</span> acc<span class="sym">.</span>Flags<span class="sym">:=</span>acc<span class="sym">.</span>Flags <span class="kw">and</span> <span class="num">$7F</span><span class="sym">;</span>
+    RawData<span class="sym">.</span>WriteBuffer<span class="sym">(</span>acc<span class="sym">,</span>sizeof<span class="sym">(</span>acc<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+  Clear<span class="sym">;</span>
+  FreeAndNil<span class="sym">(</span>fList<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span><font color="red">	</font>
+</pre>
+<p>If <var>fList</var> is <var>nil</var> data hasn't been loaded, so <b>RawData</b> is up to date, so exit. Otherwise, write each accelerator (ensuring that only last one has <var>$80</var> flag set), clear the list, free it and set it to nil. Again, if we are on a big endian system we should swap each accelerator contents before writing it, but for simplicity this is omitted.</p>
+<p>Other methods we named earlier (<var>Add</var>, <var>Delete</var>, <var>Clear</var>) are trivial to implement: remember only to call <var>CheckDataLoaded</var> before doing anything. The same is true for accessor methods of relevant properties (<var>Count</var>, <var>Items</var>).</p>
+<p>If you are curious, you can check the full implementation of <b>TAcceleratorsResource</b> looking at source code.</p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

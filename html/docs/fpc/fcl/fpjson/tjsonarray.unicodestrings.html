@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TJSONArray.UnicodeStrings</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../fpjson/index.html">Overview</a>][<a href="../fpjson/index-2.html">Constants</a>][<a href="../fpjson/index-3.html">Types</a>][<a href="../fpjson/index-4.html">Classes</a>][<a href="../fpjson/index-5.html">Procedures and functions</a>][<a href="../fpjson/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'fpjson' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TJSONArray.UnicodeStrings</h1>
+<p>Get or set elements as unicode string values</p>
+<h2>Declaration</h2>
+<p>Source position: fpjson.pp line 453</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../fpjson/tjsonarray.html">TJSONArray</a><span class="sym">.</span>UnicodeStrings<span class="sym">[</span>Index<span class="sym">: </span>Integer<span class="sym">]</span><span class="sym"> : </span><a href="../fpjson/tjsonunicodestringtype.html">TJSONUnicodeStringType</a><br>&nbsp;&nbsp;<span class="kw">read </span>GetUnicodeStrings<br>&nbsp;&nbsp;<span class="kw">write </span>SetUnicodeStrings<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>UNicodeStrings</var> gives direct access to the <a href="../fpjson/tjsondata.asunicodestring.html">TJSONData.AsUnicodeString</a> property when reading. Reading it is the equivalent to accessing </p>
+<pre>Items<span class="sym">[</span>Index<span class="sym">]</span><span class="sym">.</span>AsUnicodeString
+</pre>
+<p>When writing, it will check if a unicodestring JSON value is located at the given location, and replace it with the new value. If a non-string value is  there, it is replaced with the written unicode string value. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../fpjson/tjsondata.items.html">TJSONData.Items</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed access to sub-items</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fpjson/tjsondata.isnull.html">TJSONData.IsNull</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the data a null value ?</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fpjson/tjsonarray.types.html">TJSONArray.Types</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">JSON types of elements in the array</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fpjson/tjsonarray.integers.html">TJSONArray.Integers</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get or set elements as integer values</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fpjson/tjsonarray.qwords.html">TJSONArray.QWords</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get or set elements as QWord values</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fpjson/tjsonarray.floats.html">TJSONArray.Floats</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get or set elements as floating-point numerical values</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fpjson/tjsonarray.int64s.html">TJSONArray.Int64s</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get or set elements as Int64 values</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fpjson/tjsonarray.booleans.html">TJSONArray.Booleans</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get or set elements as boolean values</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fpjson/tjsonarray.strings.html">TJSONArray.Strings</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get or set elements as string values</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

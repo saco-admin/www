@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The Thread Manager</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 6421--><div class="crosslinks"><p class="noindent">[<a 
+href="progse45.html" >prev</a>] [<a 
+href="progse45.html#tailprogse45.html" >prev-tail</a>] [<a 
+href="#tailprogse46.html">tail</a>] [<a 
+href="progch10.html#progse46.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.4   </span> <a 
+href="prog.html#QQ2-235-271" id="x235-24900010.4">The Thread Manager</a></h3>
+<!--l. 6422--><p class="noindent" >Just like the heap is implemented using a heap manager, and widestring management is left to
+a widestring manager, the threads have been implemented using a thread manager.
+This means that there is a record which has fields of procedural type for all possible
+functions used in the thread routines. The thread routines use these fields to do the actual
+work.
+<!--l. 6428--><p class="noindent" >The thread routines install a system thread manager specific for each system. On Windows, the
+normal Windows routines are used to implement the functions in the thread manager. On Linux
+and other unices, the system thread manager does nothing: it will generate an error when thread
+routines are used. The rationale is that the routines for thread management are located in the C
+library. Implementing the system thread manager would make the RTL dependent on the
+C library, which is not desirable. To avoid dependency on the C library, the Thread
+Manager is implemented in a separate unit (<span 
+class="cmss-10">cthreads</span>). The initialization code of this
+unit sets the thread manager to a thread manager record which uses the C (pthreads)
+routines.
+<!--l. 6439--><p class="noindent" >The thread manager record can be retrieved and set just as the record for the heap manager. The
+record looks (currently) as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-238">
+TThreadManager&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;InitManager&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;Function&#x00A0;:&#x00A0;Boolean;
+&#x00A0;<br />&#x00A0;&#x00A0;DoneManager&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;Function&#x00A0;:&#x00A0;Boolean;
+&#x00A0;<br />&#x00A0;&#x00A0;BeginThread&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TBeginThreadHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;EndThread&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TEndThreadHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;SuspendThread&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TThreadHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;ResumeThread&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TThreadHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;KillThread&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TThreadHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;ThreadSwitch&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TThreadSwitchHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;WaitForThreadTerminate&#x00A0;:&#x00A0;TWaitForThreadTerminateHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;ThreadSetPriority&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TThreadSetPriorityHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;ThreadGetPriority&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TThreadGetPriorityHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;GetCurrentThreadId&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TGetCurrentThreadIdHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;InitCriticalSection&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TCriticalSectionHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;DoneCriticalSection&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TCriticalSectionHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;EnterCriticalSection&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TCriticalSectionHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;LeaveCriticalSection&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TCriticalSectionHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;InitThreadVar&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TInitThreadVarHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;RelocateThreadVar&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TRelocateThreadVarHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;AllocateThreadVars&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TAllocateThreadVarsHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;ReleaseThreadVars&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TReleaseThreadVarsHandler;
+&#x00A0;<br />end;
+</div>
+<!--l. 6464--><p class="nopar" >The meaning of most of these functions should be obvious from the descriptions in previous
+sections.
+<!--l. 6468--><p class="noindent" >The <span 
+class="cmtt-10">InitManager </span>and <span 
+class="cmtt-10">DoneManager </span>are called when the threadmanager is set (<span 
+class="cmtt-10">InitManager</span>), or
+when it is unset (<span 
+class="cmtt-10">DoneManager</span>). They can be used to initialize the thread manager or to clean up
+when it is done. If either of them returns <span 
+class="cmtt-10">False</span>, the operation fails.
+<!--l. 6474--><p class="noindent" >There are some special entries in the record, linked to thread variable management:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">InitThreadVar</span> </dt><dd 
+class="description">is called when a thread variable must be initialized. It is of type
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-239">
+     TInitThreadVarHandler&#x00A0;=&#x00A0;Procedure(var&#x00A0;offset:&#x00A0;dword;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;size:&#x00A0;dword);
+</div>
+     <!--l. 6482--><p class="nopar" >The <span 
+class="cmtt-10">offset </span>parameter indicates the offset in the thread variable block: All thread variables
+     are located in a single block, one after the other. The size parameter indicates the size of the
+     thread variable. This function will be called once for all thread variables in the
+     program.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">RelocateThreadVar</span> </dt><dd 
+class="description">is called each time when a thread is started, and once for the main thread.
+     It is of type:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-240">
+     TRelocateThreadVarHandler&#x00A0;=&#x00A0;Function(offset&#x00A0;:&#x00A0;dword)&#x00A0;:&#x00A0;pointer;
+</div>
+     <!--l. 6491--><p class="nopar" >It should return the new location for the thread-local variable.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">AllocateThreadVars</span> </dt><dd 
+class="description">is called when room must be allocated for all threadvars for a new thread.
+     It&#8217;s a simple procedure, without parameters. The total size of the threadvars is stored by the
+     compiler in the <span 
+class="cmtt-10">threadvarblocksize </span>global variable. The heap manager may <span 
+class="cmti-10">not </span>be used in
+     this procedure: the heap manager itself uses threadvars, which have not yet been
+     allocated.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ReleaseThreadVars</span> </dt><dd 
+class="description">This procedure (without parameters) is called when a thread terminates,
+     and all memory allocated must be released again.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 6505--><div class="crosslinks"><p class="noindent">[<a 
+href="progse45.html" >prev</a>] [<a 
+href="progse45.html#tailprogse45.html" >prev-tail</a>] [<a 
+href="progse46.html" >front</a>] [<a 
+href="progch10.html#progse46.html" >up</a>] </p></div>
+<!--l. 6505--><p class="noindent" ><a 
+ id="tailprogse46.html"></a>  
+</body></html> 

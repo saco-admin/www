@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>fpIOperm</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../x86/index.html">Overview</a>][<a href="../x86/index-5.html">Procedures and functions</a>][<a href="../x86/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'x86' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>fpIOperm</h1>
+<p>Set permission on IO ports</p>
+<h2>Declaration</h2>
+<p>Source position: x86.pp line 41</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> fpIOperm<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;From<span class="sym">: </span><a href="../system/cardinal.html">Cardinal</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Num<span class="sym">: </span><a href="../system/cardinal.html">Cardinal</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span><a href="../baseunix/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FpIOperm</var> sets permissions on <var>Num</var> ports starting with port <var>From</var> to  <var>Value</var>. The function returns zero if the call was successfull, a nonzero value otherwise. </p>
+<p>Note: </p>
+<ul>
+<li>This works ONLY as root.</li>
+<li>Only the first <var>0x03ff</var> ports can be set.</li>
+<li>When doing a <a href="../baseunix/fpfork.html">FpFork</a>, the permissions are reset.  When doing a <a href="../baseunix/fpexecve.html">FpExecVE</a> they are kept.</li>
+</ul>
+<h2>Errors</h2>
+<p>Extended error information can be retrieved with <a href="../baseunix/fpgeterrno.html">FpGetErrno</a></p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

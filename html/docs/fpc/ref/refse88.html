@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Procedure declaration</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 9561--><div class="crosslinks"><p class="noindent">[<a 
+href="refse89.html" >next</a>] [<a 
+href="#tailrefse88.html">tail</a>] [<a 
+href="refch14.html#refse88.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">14.1   </span> <a 
+href="ref.html#QQ2-172-209" id="x172-19400014.1">Procedure declaration</a></h3>
+<!--l. 9562--><p class="noindent" >A procedure declaration defines an identifier and associates it with a block of code. The procedure
+can then be called with a procedure statement.
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Procedure declaration</span><br 
+class="newline" /><BR/><img 
+src="ref166x.png" alt="--procedure declaration procedure header- ;-subroutine block-;-----------
+     " ><BR/>
+     <BR/><img 
+src="ref167x.png" alt=" --procedure header procedure--|------identifier---------
+                            -qualified method identifier--
+----formal parameter list|----------hintdirectives ----------------------
+                     -modifiers -
+     " ><BR/>
+     <BR/><img 
+src="ref168x.png" alt="--subroutine block-|-----block--------------------------------------
+                |-external directive-|
+                |---asm block----|
+                 ----forward------
+     " ><BR/>
+     ___________________________________________________________________</div>
+                                                                            
+
+                                                                            
+<!--l. 9565--><p class="noindent" >See section <a 
+href="refse91.html#x175-19700014.4">14.4<!--tex4ht:ref: se:Parameters --></a>, page <a 
+href="refse91.html#x175-19700014.4">689<!--tex4ht:ref: se:Parameters --></a> for the list of parameters.<a 
+ id="dx172-194001"></a> <a name="keyword_procedure"></a> A procedure declaration that is followed by a
+block implements the action of the procedure in that block. The following is a valid procedure
+:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-400">
+Procedure&#x00A0;DoSomething&#x00A0;(Para&#x00A0;:&#x00A0;String);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Got&#x00A0;parameter&#x00A0;:&#x00A0;&#8217;,Para);
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Parameter&#x00A0;in&#x00A0;upper&#x00A0;case&#x00A0;:&#x00A0;&#8217;,Upper(Para));
+&#x00A0;<br />end;
+</div>
+<!--l. 9576--><p class="nopar" >Note that it is possible that a procedure calls itself.
+                                                                            
+
+                                                                            
+<!--l. 9581--><div class="crosslinks"><p class="noindent">[<a 
+href="refse89.html" >next</a>] [<a 
+href="refse88.html" >front</a>] [<a 
+href="refch14.html#refse88.html" >up</a>] </p></div>
+<!--l. 9581--><p class="noindent" ><a 
+ id="tailrefse88.html"></a>  
+</body></html> 

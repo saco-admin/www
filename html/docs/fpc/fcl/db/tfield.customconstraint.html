@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TField.CustomConstraint</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TField.CustomConstraint</h1>
+<p>Custom constraint for the field's value</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 429</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../db/tfield.html">TField</a><span class="sym">.</span>CustomConstraint<span class="sym"> : </span>string<br>&nbsp;&nbsp;<span class="kw">read </span>FCustomConstraint<br>&nbsp;&nbsp;<span class="kw">write </span>FCustomConstraint<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>CustomConstraint</var> may contain a constraint that will be enforced when the dataset posts it's data.  It should be a SQL-like expression that results in a <var>True</var> or <var>False</var> value. Examples of  valid constraints are: </p>
+<pre>Salary &lt; 10000
+YearsEducation &lt; Age
+</pre>
+<p>If the constraint is not satisfied when the record is posted, then an exception will be raised with the value of  <a href="../db/tfield.constrainterrormessage.html">ConstraintErrorMessage</a> as a message. </p>
+<p>This feature is not yet implemented in FPC. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tfield.constrainterrormessage.html">TField.ConstraintErrorMessage</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Message to display if the <var>CustomConstraint</var> constraint is violated.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfield.importedconstraint.html">TField.ImportedConstraint</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Constraint for the field value on the level of the underlying database</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

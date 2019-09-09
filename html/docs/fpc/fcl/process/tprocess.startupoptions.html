@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TProcess.StartupOptions</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../process/index.html">Overview</a>][<a href="../process/index-3.html">Types</a>][<a href="../process/index-4.html">Classes</a>][<a href="../process/index-5.html">Procedures and functions</a>][<a href="../process/index-6.html">Variables</a>][<a href="../process/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'process' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TProcess.StartupOptions</h1>
+<p>Additional (Windows) startup options</p>
+<h2>Declaration</h2>
+<p>Source position: process.pp line 152</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../process/tprocess.html">TProcess</a><span class="sym">.</span>StartupOptions<span class="sym"> : </span><a href="../process/tstartupoptions.html">TStartupOptions</a><br>&nbsp;&nbsp;<span class="kw">read </span>FStartupOptions<br>&nbsp;&nbsp;<span class="kw">write </span>FStartupOptions<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>StartUpOptions</var> contains additional startup options, used mostly on Windows system. They determine  which other window layout properties are  taken into account when starting the new process. </p>
+<table border="0">
+<tr>
+<th>Priority</th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td><var>suoUseShowWindow</var></td>
+<td>Use the Show Window options specified in <a href="../process/tprocess.showwindow.html">ShowWindow</a></td>
+</tr>
+<tr>
+<td><var>suoUseSize</var></td>
+<td>Use the specified window sizes</td>
+</tr>
+<tr>
+<td><var>suoUsePosition</var></td>
+<td>Use the specified window sizes.</td>
+</tr>
+<tr>
+<td><var>suoUseCountChars</var></td>
+<td>Use the specified console character width.</td>
+</tr>
+<tr>
+<td><var>suoUseFillAttribute</var></td>
+<td>Use the console fill attribute specified in <a href="../process/tprocess.fillattribute.html">FillAttribute</a>.</td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../process/tprocess.showwindow.html">TProcess.ShowWindow</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Determines how the process main window is shown (Windows only)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.windowheight.html">TProcess.WindowHeight</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Height of the process main window</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.windowwidth.html">TProcess.WindowWidth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Height of the process main window (Windows only)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.windowleft.html">TProcess.WindowLeft</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">X-coordinate of the initial window (Windows only)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.windowtop.html">TProcess.WindowTop</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Y-coordinate of the initial window (Windows only)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.windowcolumns.html">TProcess.WindowColumns</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of columns in console window (windows only)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.windowrows.html">TProcess.WindowRows</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of rows in console window (Windows only)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.fillattribute.html">TProcess.FillAttribute</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Color attributes of the characters in the console window (Windows only)</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

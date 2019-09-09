@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Objective-Pascal class declarations</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 7331--><div class="crosslinks"><p class="noindent">[<a 
+href="refse69.html" >next</a>] [<a 
+href="refse67.html" >prev</a>] [<a 
+href="refse67.html#tailrefse67.html" >prev-tail</a>] [<a 
+href="#tailrefse68.html">tail</a>] [<a 
+href="refch11.html#refse68.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">11.2   </span> <a 
+href="ref.html#QQ2-130-158" id="x130-15200011.2">Objective-Pascal class declarations</a></h3>
+<!--l. 7332--><p class="noindent" ><a name="keyword_objcclass"></a> Objective-C or -Pascal classes are declared much as Object Pascal classes are declared, but they
+use the <span 
+class="cmtt-10">objcclass </span>keyword:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Objective C Class types</span><br 
+class="newline" /><BR/><img 
+src="ref116x.png" alt=" --objcclass -----------------------------------
+              external  -     -            --|
+-----------------------name---string constant------------------------
+   heritage----------------------- end--|
+          -----component list----|
+           - class visibility specifier-|
+     " ><BR/>
+     <BR/><img 
+src="ref117x.png" alt="-      -  -------------------------------------------------- ---
+ heritage  (  -objective-Cclass type identifier| -implemented protocols-| )
+     " ><BR/>
+     <BR/><img 
+src="ref118x.png" alt="--implemented protocols--protocol identifier---------------------------
+                            ,
+     " ><BR/>
+     <BR/><img 
+src="ref119x.png" alt=" --component list-|----------------|-----------------
+                -visibility specifier--  -|field definition ---
+                                   --------------
+-----------------------------------------------------------------
+    | -class-variable declaration part| |
+    | -----method definition-----| |
+    -------property definition-------|
+     " ><BR/>
+     <BR/><img 
+src="ref120x.png" alt="--class variable declaration part class variable declaration part-------------
+     " ><BR/>
+     <BR/><img 
+src="ref121x.png" alt="--           -          -  -    -  -----------------------------
+  field definition  identifier list  :  type  ;  -static;--|
+     " ><BR/>
+     <BR/><img 
+src="ref122x.png" alt=" --              -------------            ----- --
+   method definition | -    -| - function header-|| ;
+                  ---class----procedure header--|
+-----------------------------------------------------------------
+   -------------------------; -|
+    --------override --------|
+    -message -string constant -|
+     " ><BR/>
+     <BR/><img 
+src="ref123x.png" alt="--                 ----------------------------------------------
+  class visibility specifier --------- private -|
+                     |-strict-|        |
+                     ----protected-----|
+                     |-----public------|
+                     ------------------
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 7336--><p class="noindent" >As can be seen, the syntax is roughly equivalent to Object Pascal syntax, with some
+extensions.
+<!--l. 7339--><p class="noindent" >In order to use Objective-C classes, an external modifier exists: this indicates to the compiler that
+the class is implemented in an external object file or library, and that the definition is
+meant for import purposes. The following is an example of an external Objective-C class
+definition:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-309">
+NSView&#x00A0;=&#x00A0;objcclass&#x00A0;external(NSResponder)
+&#x00A0;<br />private
+&#x00A0;<br />&#x00A0;&#x00A0;_subview&#x00A0;&#x00A0;:&#x00A0;id;
+&#x00A0;<br />public
+&#x00A0;<br />&#x00A0;&#x00A0;function&#x00A0;initWithFrame(rect&#x00A0;:&#x00A0;NSRect):&#x00A0;id;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;message&#x00A0;&#8217;initWithFrame:&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;procedure&#x00A0;addSubview(aview:&#x00A0;NSView);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;message&#x00A0;&#8217;addSubview:&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;procedure&#x00A0;setAutoresizingMask(mask:&#x00A0;NSUInteger);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;message&#x00A0;&#8217;setAutoresizingMask:&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;procedure&#x00A0;setAutoresizesSubviews(flag:&#x00A0;LongBool);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;message&#x00A0;&#8217;setAutoresizesSubviews:&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;procedure&#x00A0;drawRect(dirtyRect:&#x00A0;NSRect);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;message&#x00A0;&#8217;drawRect:&#8217;;
+&#x00A0;<br />end;
+</div>
+<!--l. 7359--><p class="nopar" >As can be seen, the class definition is not so different from an Object Pascal class definition; Only
+the message directive is more prominently present: each Objective-C or Objective-Pascal method
+must have a message name associated with it. In the above example, no external name was
+specified for the class definition, meaning that the Pascal identifier is used as the name for the
+Objective-C class. However, since Objective-C is not so strict in its naming conventions, sometimes
+an alias must be created for an Objective-C class name that doesn&#8217;t obey the Pascal identifier
+rules.
+<!--l. 7369--><p class="noindent" >The following example defines an Objective-C class which is implemented in Pascal:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-310">
+MyView&#x00A0;=&#x00A0;objcclass(NSView)
+&#x00A0;<br />public
+&#x00A0;<br />&#x00A0;&#x00A0;data&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;procedure&#x00A0;customMessage(dirtyRect:&#x00A0;NSRect);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;message&#x00A0;&#8217;customMessage&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;procedure&#x00A0;drawRect(dirtyRect:&#x00A0;NSRect);&#x00A0;override;
+&#x00A0;<br />end;
+</div>
+<!--l. 7379--><p class="nopar" >The absence of the <span 
+class="cmtt-10">external </span>keyword tells the compiler that the methods must be implemented
+later in the source file: it will be treated much like a regular object pascal class. Note the presence
+of the <span 
+class="cmtt-10">override </span>directive: in Objective-C, all methods are virtual. In Object Pascal,
+overriding a virtual method must be done through the <span 
+class="cmtt-10">override </span>directive. This has been
+extended to <span 
+class="cmtt-10">Objective-C </span>classes: it allows the compiler to verify the correctness of the
+definition.
+<!--l. 7388--><p class="noindent" >Unless the class is implementing the method of a protocol (more about this in a subsequent
+section), one of <span 
+class="cmtt-10">message </span>or <span 
+class="cmtt-10">override </span>is expected: all methods are virtual, and either a new
+method is started (or re-introduced), or an existing is overridden. Only in the case of
+a method that is part of a protocol, the method can be defined without <span 
+class="cmtt-10">message </span>or
+<span 
+class="cmtt-10">override</span>.
+<!--l. 7396--><p class="noindent" >Note that the Objective-C class declaration may or may not specify a parent class. In Object
+Pascal, omitting a parent class will automatically make the new class a descendant of <span 
+class="cmtt-10">TObject</span>. In
+Objective-C, this is not the case: the new class will be a new root class. However, Objective-C does
+have a class which fullfills the function of generic root class: <span 
+class="cmtt-10">NSObject</span>, which can be considered
+the equivalent of <span 
+class="cmtt-10">TObject </span>in Object Pascal. It has other root classes, but in general,
+Objective-Pascal classes should descend from <span 
+class="cmtt-10">NSObject</span>. If a new root class is constructed
+anyway, it must implement the <span 
+class="cmtt-10">NSObjectProtocol </span>- just as the <span 
+class="cmtt-10">NSObject </span>class itself
+does.
+<!--l. 7407--><p class="noindent" >Finally, objective-Pascal classes can have properties, but these properties are only usable in Pascal
+code: the compiler currently does not export the properties in a way that makes them usable from
+Objective-C.
+                                                                            
+
+                                                                            
+<!--l. 7413--><div class="crosslinks"><p class="noindent">[<a 
+href="refse69.html" >next</a>] [<a 
+href="refse67.html" >prev</a>] [<a 
+href="refse67.html#tailrefse67.html" >prev-tail</a>] [<a 
+href="refse68.html" >front</a>] [<a 
+href="refch11.html#refse68.html" >up</a>] </p></div>
+<!--l. 7413--><p class="noindent" ><a 
+ id="tailrefse68.html"></a>  
+</body></html> 

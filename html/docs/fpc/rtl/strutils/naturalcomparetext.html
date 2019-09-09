@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>NaturalCompareText</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../strutils/index.html">Overview</a>][<a href="../strutils/index-1.html">Resource strings</a>][<a href="../strutils/index-2.html">Constants</a>][<a href="../strutils/index-3.html">Types</a>][<a href="../strutils/index-5.html">Procedures and functions</a>][<a href="../strutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'strutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>NaturalCompareText</h1>
+<p>Compare using natural sort</p>
+<h2>Declaration</h2>
+<p>Source position: strutils.pp line 60</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> NaturalCompareText<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S1<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S2<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span><br><br><span class="kw">function</span> NaturalCompareText<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Str1<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Str2<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ADecSeparator<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AThousandSeparator<span class="sym">: </span><a href="../system/char.html">Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>NaturalCompareText</var> will compare 2 strings and return one of the following values: </p>
+<dl>
+<dt>-1</dt>
+<dd>If <var>S1</var> comes before <var>S2</var></dd>
+<dt>0</dt>
+<dd>If <var>S1</var> equals <var>S2</var></dd>
+<dt>1</dt>
+<dd>If <var>S1</var> comes after <var>S2</var></dd>
+</dl>
+<p>When <var>S1</var> and <var>S2</var> are integer or floating point values, the actual values are compared. Thus '12' will come after '2'. If either of the values is not a valid  integer or floating point values, the strings are compared case insensitively as texts using <a href="../sysutils/comparetext.html">CompareText</a></p>
+<p>A decimal separator and thousands separator can optionally be specified in <var>ADecSeparator</var>, <var>AThousandSeparator</var>. If none are specified, the defaults from the system unit will be used. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/comparetext.html">CompareText</a></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

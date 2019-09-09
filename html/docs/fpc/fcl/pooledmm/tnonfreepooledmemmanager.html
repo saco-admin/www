@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TNonFreePooledMemManager</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../pooledmm/index.html">Overview</a>][<a href="../pooledmm/index-3.html">Types</a>][<a href="../pooledmm/index-4.html">Classes</a>][<a href="../pooledmm/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'pooledmm' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TNonFreePooledMemManager</h1>
+<p>[<a href="../pooledmm/tnonfreepooledmemmanager-1.html" onClick="window.open('../pooledmm/tnonfreepooledmemmanager-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../pooledmm/tnonfreepooledmemmanager-2.html" onClick="window.open('../pooledmm/tnonfreepooledmemmanager-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../pooledmm/tnonfreepooledmemmanager-3.html" onClick="window.open('../pooledmm/tnonfreepooledmemmanager-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../pooledmm/tnonfreepooledmemmanager-4.html" onClick="window.open('../pooledmm/tnonfreepooledmemmanager-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../pooledmm/tnonfreepooledmemmanager-5.html" onClick="window.open('../pooledmm/tnonfreepooledmemmanager-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../pooledmm/tnonfreepooledmemmanager-6.html" onClick="window.open('../pooledmm/tnonfreepooledmemmanager-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Memory manager for fixed memory blocks which does not free any memory</p>
+<h2>Declaration</h2>
+<p>Source position: pooledmm.pp line 73</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TNonFreePooledMemManager <span class="sym">=</span> <span class="kw">class</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../pooledmm/tnonfreepooledmemmanager.clearoncreate.html">ClearOnCreate</a><span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Determines whether newly allocated memory should be cleared</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../pooledmm/tnonfreepooledmemmanager.itemsize.html">ItemSize</a><span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Size of an item in the list</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../pooledmm/tnonfreepooledmemmanager.clear.html">Clear</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clears the memory</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../pooledmm/tnonfreepooledmemmanager.create.html">Create</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a new instance of <var>TNonFreePooledMemManager</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../pooledmm/tnonfreepooledmemmanager.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Removes the <var>TNonFreePooledMemManager</var> instance from memory</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../pooledmm/tnonfreepooledmemmanager.newitem.html">NewItem</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return a pointer to a new memory block</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../pooledmm/tnonfreepooledmemmanager.enumerateitems.html">EnumerateItems</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Enumerate all items in the list</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../pooledmm/tnonfreepooledmemmanager.html">TNonFreePooledMemManager</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Memory manager for fixed memory blocks which does not free any memory</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TObject</span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TNonFreePooledMemManager</var> keeps a list of fixed-size memory blocks in memory. Each block has the same size, making it suitable for storing a lot of records of the same type. It does not free the items stored in it, except when the list is cleared as a whole. </p>
+<p>It allocates memory for the blocks in a exponential way, i.e. each time a new block of memory must be allocated, it's size is the double of the last block. The first block will contain 8 items. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

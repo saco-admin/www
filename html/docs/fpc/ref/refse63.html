@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Considerations for (simple) type helpers</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6965--><div class="crosslinks"><p class="noindent">[<a 
+href="refse64.html" >next</a>] [<a 
+href="refse62.html" >prev</a>] [<a 
+href="refse62.html#tailrefse62.html" >prev-tail</a>] [<a 
+href="#tailrefse63.html">tail</a>] [<a 
+href="refch10.html#refse63.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.4   </span> <a 
+href="ref.html#QQ2-124-152" id="x124-14600010.4">Considerations for (simple) type helpers</a></h3>
+<!--l. 6966--><p class="noindent" >For simple types, the rules are pretty much the same as for records, plus there are some extra
+requirements:
+     <ul class="itemize1">
+     <li class="itemize">Support for type helpers needs to be activated using the modeswitch typehelpers:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-294">
+     {$modeswitch&#x00A0;typehelpers}
+</div>
+     <!--l. 6971--><p class="nopar" >This modeswitch is enabled by default only in mode Delphi and DelphiUnicode.
+     </li>
+     <li class="itemize">In Delphi (and DelphiUnicode) mode, for stricter Delphi compatibility, the record helpers
+     must be used instead of a type helper.
+     </li>
+     <li class="itemize">The modes ObjFPC and MacPas use type helper, but the modeswitch TypeHelpers must be
+     used.
+     </li>
+     <li class="itemize">The following types are not supported:
+         <ul class="itemize2">
+         <li class="itemize">All file types (<span 
+class="cmtt-10">Text</span>, <span 
+class="cmtt-10">file of ...</span>)
+         </li>
+         <li class="itemize">Procedural variables
+         </li>
+         <li class="itemize">Types like records, classes, Objective C classes, C++ classes, objects and interfaces are
+         forbidden as well, the class helper must be used for classes. That means that for
+         instance, the following will fail:
+                                                                            
+
+                                                                            
+         <div class="verbatim" id="verbatim-295">
+         TTestHelper&#x00A0;=&#x00A0;type&#x00A0;helper&#x00A0;for&#x00A0;TObject
+         &#x00A0;<br />end;
+</div>
+         <!--l. 6985--><p class="nopar" ></li></ul>
+     <!--l. 6987--><p class="noindent" >This of course means that all other simple types are supported.
+     </li>
+     <li class="itemize">Type helpers can implement constructors.
+     </li>
+     <li class="itemize">Inheritance of record helpers is only allowed in ObjFPC mode; In Delphi mode, it is not
+     allowed.
+     </li>
+     <li class="itemize">Type helpers can only descend from other type helpers, not from class or record
+     helpers.
+     </li>
+     <li class="itemize">A descendent type helper must extend the same type.</li></ul>
+<!--l. 6993--><p class="noindent" >The following gives an idea of the possibilities:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-296">
+{$mode&#x00A0;objpas}
+&#x00A0;<br />{$modeswitch&#x00A0;typehelpers}
+&#x00A0;<br />
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;TLongIntHelper&#x00A0;=&#x00A0;type&#x00A0;helper&#x00A0;for&#x00A0;LongInt
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;constructor&#x00A0;create(AValue:&#x00A0;LongInt);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;class&#x00A0;procedure&#x00A0;Test;&#x00A0;static;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;DoPrint;
+&#x00A0;<br />&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />constructor&#x00A0;TLongIntHelper.create(AValue:&#x00A0;LongInt);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Self:=Avalue;
+&#x00A0;<br />&#x00A0;&#x00A0;DoPrint;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />class&#x00A0;procedure&#x00A0;TLongIntHelper.Test;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Writeln(&#8217;Test&#8217;);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;TLongIntHelper.DoPrint;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Writeln(&#8217;Value&#x00A0;:&#8217;,Self);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;i:&#x00A0;LongInt;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;I:=123;
+&#x00A0;<br />&#x00A0;&#x00A0;i.Test;
+&#x00A0;<br />&#x00A0;&#x00A0;$12345678.Test;
+&#x00A0;<br />&#x00A0;&#x00A0;LongInt.Test;
+&#x00A0;<br />&#x00A0;&#x00A0;I:=123;
+&#x00A0;<br />&#x00A0;&#x00A0;i.DoPrint;
+&#x00A0;<br />&#x00A0;&#x00A0;$12345678.DoPrint;
+&#x00A0;<br />end.
+</div>
+<!--l. 7035--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 7037--><div class="crosslinks"><p class="noindent">[<a 
+href="refse64.html" >next</a>] [<a 
+href="refse62.html" >prev</a>] [<a 
+href="refse62.html#tailrefse62.html" >prev-tail</a>] [<a 
+href="refse63.html" >front</a>] [<a 
+href="refch10.html#refse63.html" >up</a>] </p></div>
+<!--l. 7037--><p class="noindent" ><a 
+ id="tailrefse63.html"></a>  
+</body></html> 

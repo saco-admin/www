@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Critical sections</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 6341--><div class="crosslinks"><p class="noindent">[<a 
+href="progse46.html" >next</a>] [<a 
+href="progse44.html" >prev</a>] [<a 
+href="progse44.html#tailprogse44.html" >prev-tail</a>] [<a 
+href="#tailprogse45.html">tail</a>] [<a 
+href="progch10.html#progse45.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.3   </span> <a 
+href="prog.html#QQ2-234-270" id="x234-24800010.3">Critical sections</a></h3>
+<!--l. 6342--><p class="noindent" >When programming threads, it is sometimes necessary to avoid concurrent access to certain
+resources, or to avoid having a certain routine executed by two threads. This can be done using a
+Critical Section. The FPC heap manager uses critical sections when multithreading is
+enabled.
+<!--l. 6348--><p class="noindent" >The <span 
+class="cmtt-10">TRTLCriticalSection </span>type is an Opaque type; it depends on the OS on which the code is
+executed. It should be initialized before it is first used, and should be disposed of when it is no
+longer necessary.
+<!--l. 6352--><p class="noindent" >To protect a piece of code, a call to <span 
+class="cmtt-10">EnterCriticalSection </span>should be made: When this call
+returns, it is guaranteed that the current thread is the only thread executing the subsequent
+code. The call may have suspended the current thread for an indefinite time to ensure
+this.
+<!--l. 6357--><p class="noindent" >When the protected code is finished, <span 
+class="cmtt-10">LeaveCriticalSection </span>must be called: this will enable other
+threads to start executing the protected code. To minimize waiting time for the threads, it is
+important to keep the protected block as small as possible.
+<!--l. 6362--><p class="noindent" >The definition of these calls is as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-236">
+procedure&#x00A0;InitCriticalSection(var&#x00A0;cs:&#x00A0;TRTLCriticalSection);
+&#x00A0;<br />procedure&#x00A0;DoneCriticalSection(var&#x00A0;cs:&#x00A0;TRTLCriticalSection);
+&#x00A0;<br />procedure&#x00A0;EnterCriticalSection(var&#x00A0;cs:&#x00A0;TRTLCriticalSection);
+&#x00A0;<br />procedure&#x00A0;LeaveCriticalSection(var&#x00A0;cs:&#x00A0;TRTLCriticalSection);
+</div>
+<!--l. 6368--><p class="nopar" >The meaning of these calls is again almost obvious:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">InitCriticalSection</span> </dt><dd 
+class="description">Initializes  a  critical  section.  This  call  must  be  made  before  either
+     <span 
+class="cmtt-10">EnterCrititicalSection </span>or <span 
+class="cmtt-10">LeaveCriticalSection </span>is used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">DoneCriticalSection</span> </dt><dd 
+class="description">Frees the resources associated with a critical section. After this call
+     neither <span 
+class="cmtt-10">EnterCrititicalSection </span>nor <span 
+class="cmtt-10">LeaveCriticalSection </span>may be used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">EnterCriticalSection</span> </dt><dd 
+class="description">When  this  call  returns,  the  calling  thread  is  the  only  thread
+     running  the  code  between  the  <span 
+class="cmtt-10">EnterCriticalSection </span>call  and  the  following
+     <span 
+class="cmtt-10">LeaveCriticalsection </span>call.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">LeaveCriticalSection</span> </dt><dd 
+class="description">Signals that the protected code can be executed by other threads.</dd></dl>
+<!--l. 6383--><p class="noindent" >Note that the <span 
+class="cmtt-10">LeaveCriticalsection </span>call <span 
+class="cmti-10">must </span>be executed. Failing to do so will prevent all other
+threads from executing the code in the critical section. It is therefore good practice to
+enclose the critical section in a <span 
+class="cmtt-10">Try..finally </span>block. Typically, the code will look as
+follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-237">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;MyCS&#x00A0;:&#x00A0;TRTLCriticalSection;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;CriticalProc;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;EnterCriticalSection(MyCS);
+&#x00A0;<br />&#x00A0;&#x00A0;Try
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;//&#x00A0;Protected&#x00A0;Code
+&#x00A0;<br />&#x00A0;&#x00A0;Finally
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;LeaveCriticalSection(MyCS);
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;ThreadProcedure;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Code&#x00A0;executed&#x00A0;in&#x00A0;threads...
+&#x00A0;<br />&#x00A0;CriticalProc;
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;More&#x00A0;Code&#x00A0;executed&#x00A0;in&#x00A0;threads...
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;InitCriticalSection(MyCS);
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Code&#x00A0;to&#x00A0;start&#x00A0;threads.
+&#x00A0;<br />&#x00A0;&#x00A0;DoneCriticalSection(MyCS);
+&#x00A0;<br />end.
+</div>
+<!--l. 6417--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 6421--><div class="crosslinks"><p class="noindent">[<a 
+href="progse46.html" >next</a>] [<a 
+href="progse44.html" >prev</a>] [<a 
+href="progse44.html#tailprogse44.html" >prev-tail</a>] [<a 
+href="progse45.html" >front</a>] [<a 
+href="progch10.html#progse45.html" >up</a>] </p></div>
+<!--l. 6421--><p class="noindent" ><a 
+ id="tailprogse45.html"></a>  
+</body></html> 

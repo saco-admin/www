@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$a00428.html" title="std::binary_function\&lt; _Tp1, _Tp2, _Result \&gt;" alt="" coords="5,30,296,58"/>
+<area shape="rect" id="node3" href="$a00151.html" title="Similar to std::multiplies, but allows two different types." alt="" coords="344,5,672,33"/>
+<area shape="rect" id="node5" href="$a00154.html" title="Similar to std::plus, but allows two different types." alt="" coords="360,55,656,83"/>
+</map>

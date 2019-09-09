@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFieldGetTextEvent</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TFieldGetTextEvent</h1>
+<p>Event handler to get field content</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 233</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TFieldGetTextEvent<span class="sym"> = </span><span class="kw">procedure</span><span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Sender<span class="sym">: </span><a href="../db/tfield.html">TField</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>aText<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;DisplayText<span class="sym">: </span>Boolean</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span> <span class="kw">of object</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Sender</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Field instance whose text should be returned.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">aText</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The result of the event handler should be returned in this parameter.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">DisplayText</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the result used for display purposes ?</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TFieldGetTextEvent</var> is the prototype for the <a href="../db/tfield.ongettext.html">TField.OnGetText</a> event handler. It should be used when the text of a field requires special formatting. The event handler should return the contents of the field in formatted form in the <var>AText</var> parameter. The <var>DisplayText</var> is <var>True</var> if the text is used for displaying purposes or is <var>False</var> if it will be used for editing purposes. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tfield.ongettext.html">TField.OnGetText</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event to format the field's content</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfieldsettextevent.html">TFieldSetTextEvent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event handler to get field content</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

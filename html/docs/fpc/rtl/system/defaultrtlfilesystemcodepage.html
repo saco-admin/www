@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>DefaultRTLFileSystemCodePage</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>DefaultRTLFileSystemCodePage</h1>
+<p>Code page in which to return system-returned filenames</p>
+<h2>Declaration</h2>
+<p>Source position: systemh.inc line 692</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">var</span> DefaultRTLFileSystemCodePage<span class="sym">: </span><a href="../system/tsystemcodepage.html">TSystemCodePage</a> <span class="sym">=</span> <span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>DefaultRTLFileSystemCodePage</var> determines the code page to which  file/path names are translated before they are returned from <a href="../system/rawbytestring.html">RawByteString</a> file/path RTL routines. </p>
+<p>Examples include the file/path names returned by the <var>RawbyteString</var> versions of <a href="../sysutils/findfirst.html">SysUtils.FindFirst</a> and <a href="../system/getdir.html">GetDir</a>.  </p>
+<p>The main reason for its existence is to enable the RTL to provide backward  compatibility with earlier versions of FPC, as these always returned strings  encoded in whatever the OS' single byte API used (normally <a href="../system/defaultsystemcodepage.html">DefaultSystemCodePage</a>). </p>
+<p>The initial value of this variable depends on the platform:</p>
+<ul>
+<li>Windows: <var>DefaultSystemCodePage</var>, for backward compatibility.</li>
+<li>OS X and iOS: UTF-8, for backward compatibility. It was already always UTF-8 in the past, since that's what the OS file APIs returned, and the data was never converted. </li>
+<li>Other Unixes: <var>DefaultSystemCodePage</var>, for the same reason as  <a href="../system/defaultfilesystemcodepage.html">DefaultFileSystemCodePage</a>. Setting this to a different value  than <var>DefaultFileSystemCodePage</var> is a bad idea on these platforms,  since any code page conversion can corrupt these strings as their initial  encoding is unknown. </li>
+<li>Other platforms: same as <var>DefaultSystemCodePage</var>.</li>
+</ul>
+<p>The value of this variable can be set using the <a href="../system/setmultibytertlfilesystemcodepage.html">SetMultiByteRTLFileSystemCodePage</a> call.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/defaultsystemcodepage.html">DefaultSystemCodePage</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Current system codepage.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/defaultfilesystemcodepage.html">DefaultFileSystemCodePage</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Codepage to use for filenames</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/setmultibytertlfilesystemcodepage.html">SetMultiByteRTLFileSystemCodePage</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set codepage used when interpreting strings from OS single-byte filesystem APIs</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

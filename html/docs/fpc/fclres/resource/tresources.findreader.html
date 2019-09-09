@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TResources.FindReader</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../resource/index.html">Overview</a>][<a href="../resource/index-1.html">Resource strings</a>][<a href="../resource/index-2.html">Constants</a>][<a href="../resource/index-3.html">Types</a>][<a href="../resource/index-4.html">Classes</a>][<a href="../resource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'resource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TResources.FindReader</h1>
+<p>Searches for a suitable resource reader</p>
+<h2>Declaration</h2>
+<p>Source position: resource.pp line 260</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">class function</span> <a href="../resource/tresources.html">TResources</a><span class="sym">.</span>FindReader<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aStream<span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aExtension<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../resource/tabstractresourcereader.html">TAbstractResourceReader</a><span class="sym">;</span><br><br><span class="kw">class function</span> <a href="../resource/tresources.html">TResources</a><span class="sym">.</span>FindReader<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aStream<span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../resource/tabstractresourcereader.html">TAbstractResourceReader</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">aStream</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The stream to be probed</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">aExtension</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The extension the reader is registered for</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>An instance of a <a href="../resource/tabstractresourcereader.html">TAbstractResourceReader</a> descendant.</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">aStream</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The stream to be probed</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This method tries to find a resource reader able to read the stream passed as parameter.</p>
+<p>If an extension is specified, only readers matching that extension are tried. The extension is case-insensitive and includes the leading dot, unless the empty string is passed (which means "no extension", e.g. a unix executable, which doesn't have an extension).</p>
+<p>If a suitable reader is found, an instance of that reader is returned.</p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>To make a resource reader class known, add that resource reader unit to the uses clause of your program.</td>
+</tr>
+</table>
+<h2>Errors</h2>
+<p>If no suitable reader is found, an <a href="../resource/eresourcereadernotfoundexception.html">EResourceReaderNotFoundException</a> exception is raised.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresourcereader.html">TAbstractResourceReader</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base abstract resource reader class</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

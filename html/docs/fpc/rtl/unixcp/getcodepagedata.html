@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>GetCodepageData</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unixcp/index.html">Overview</a>][<a href="../unixcp/index-2.html">Constants</a>][<a href="../unixcp/index-3.html">Types</a>][<a href="../unixcp/index-5.html">Procedures and functions</a>][<a href="../unixcp/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'unixcp' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>GetCodepageData</h1>
+<p>Return index of codepage.</p>
+<h2>Declaration</h2>
+<p>Source position: unixcp.pp line 636</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> GetCodepageData<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;cp<span class="sym">: </span><a href="../system/tsystemcodepage.html">TSystemCodePage</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">cp</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Code page to search for</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Index of first entry in <var>UnixCpMap</var> or -1</p>
+<h2>Description</h2>
+<p><var>GetCodepageData</var> returns the index of the first entry in  <a href="../unixcp/unixcpmap.html">UnixCpMap</a> which matches <var>cp</var>. Since the entries  are ordered by code page number, this means the entries can be scanned  for alternate code names starting at this index. </p>
+<h2>Errors</h2>
+<p>If no matching code page is found, -1 is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../unixcp/unixcpmap.html">UnixCpMap</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Map with codepage names.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unixcp/getsystemcodepage.html">GetSystemCodepage</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the system code page based on the program environment.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unixcp/getcodepagebyname.html">GetCodepageByName</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find code page by name</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

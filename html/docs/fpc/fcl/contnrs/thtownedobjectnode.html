@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>THTOwnedObjectNode</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../contnrs/index.html">Overview</a>][<a href="../contnrs/index-2.html">Constants</a>][<a href="../contnrs/index-3.html">Types</a>][<a href="../contnrs/index-4.html">Classes</a>][<a href="../contnrs/index-5.html">Procedures and functions</a>][<a href="../contnrs/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'contnrs' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>THTOwnedObjectNode</h1>
+<p>[<a href="../contnrs/thtownedobjectnode-1.html" onClick="window.open('../contnrs/thtownedobjectnode-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../contnrs/thtownedobjectnode-2.html" onClick="window.open('../contnrs/thtownedobjectnode-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../contnrs/thtownedobjectnode-3.html" onClick="window.open('../contnrs/thtownedobjectnode-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../contnrs/thtownedobjectnode-4.html" onClick="window.open('../contnrs/thtownedobjectnode-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../contnrs/thtownedobjectnode-5.html" onClick="window.open('../contnrs/thtownedobjectnode-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../contnrs/thtownedobjectnode-6.html" onClick="window.open('../contnrs/thtownedobjectnode-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Node type for owned objects.</p>
+<h2>Declaration</h2>
+<p>Source position: contnrs.pp line 475</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> THTOwnedObjectNode <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../contnrs/thtobjectnode.html">THTObjectNode</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../contnrs/thtownedobjectnode.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Destroys the node and the object.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../contnrs/thtownedobjectnode.html">THTOwnedObjectNode</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Node type for owned objects.</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../contnrs/thtobjectnode.html">THTObjectNode</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Node type for <a href="../contnrs/tfpobjecthashtable.html">TFPObjectHashTable</a></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../contnrs/thtcustomnode.html">THTCustomNode</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Single item in the hash table.</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>THTOwnedObjectNode</var> is used instead of <a href="../contnrs/thtobjectnode.html">THTObjectNode</a> in case <a href="../contnrs/tfpobjecthashtable.html">TFPObjectHashTable</a> owns it's objects. When this object is destroyed, the associated data object is also destroyed. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../contnrs/tfpobjecthashtable.html">TFPObjectHashTable</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Hash table for object instances</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../contnrs/thtobjectnode.html">THTObjectNode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Node type for <a href="../contnrs/tfpobjecthashtable.html">TFPObjectHashTable</a></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../contnrs/tfpobjecthashtable.ownsobjects.html">TFPObjectHashTable.OwnsObjects</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Does the hash table own the objects ?</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

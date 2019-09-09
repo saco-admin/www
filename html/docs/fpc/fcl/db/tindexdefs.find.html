@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TIndexDefs.Find</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TIndexDefs.Find</h1>
+<p>Find an index by name</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1037</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../db/tindexdefs.html">TIndexDefs</a><span class="sym">.</span>Find<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>IndexName<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../db/tindexdef.html">TIndexDef</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">IndexName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Index name to search for.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p><var>TIndexDef</var> instance with name <var>IndexName</var> or <var>Nil</var></p>
+<h2>Description</h2>
+<p><var>Find</var> overloads the <a href="../db/tdefcollection.find.html">TDefCollection.Find</a> method to search and return a <a href="../db/tindexdef.html">TIndexDef</a> instance based on the name. The search is case-insensitive and raises an exception if no matching index definition was found. Note: <var>TIndexDefs.IndexOf</var> can be used instead if an exception is not desired. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tindexdef.html">TIndexDef</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Index definition</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdefcollection.find.html">TDefCollection.Find</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find an item by name</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tindexdefs.findindexforfields.html">TIndexDefs.FindIndexForFields</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find index definition based on field names</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

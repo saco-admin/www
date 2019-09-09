@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Free Pascal compiler modes</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1905--><div class="crosslinks"><p class="noindent">[<a 
+href="userse34.html" >next</a>] [<a 
+href="#tailuserse33.html">tail</a>] [<a 
+href="userch7.html#userse33.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">7.1   </span> <a 
+href="user.html#QQ2-123-179" id="x123-1300007.1">Free Pascal compiler modes</a></h3>
+<!--l. 1906--><p class="noindent" >The Free Pascal team tries to create a compiler that can compile as much as possible code
+produced for Turbo Pascal, Delphi or the Mac pascal compilers: this should make sure that porting
+code that was written for one of these compilers is as easy as possible.
+<!--l. 1911--><p class="noindent" >At the same time, the Free Pascal developers have introduced a lot of extensions in the Object
+Pascal language. To reconcile these different goals, and to make sure that people can produce code
+which can still be compiled by the Turbo Pascal and Delphi compilers, the compiler has
+a concepts of &#8217;compiler modes&#8217;. In a certain compiler mode, the compiler has certain
+functionalities switched on or off. This allows to introduce a compatibility mode in which
+only features supported by the original compiler are supported. Currently, 5 modes are
+supported:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">FPC</span> </dt><dd 
+class="description">This is the original Free Pascal compiler mode: here all language constructs except
+     classes, interfaces and exceptions are supported. Objects are supported in this mode.
+     This is the default mode of the compiler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">OBJFPC</span> </dt><dd 
+class="description">This is the same mode as <span 
+class="cmtt-10">FPC </span>mode, but it also includes classes, interfaces and
+     exceptions.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">TP</span> </dt><dd 
+class="description">Turbo Pascal compatibility mode. In this mode, the compiler tries to mimic the Turbo
+     Pascal compiler as closely as possible. Obviously, only 32-bit or 64-bit code can be
+     compiled.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">DELPHI</span> </dt><dd 
+class="description">Delphi compatibility mode. In this mode, the compiler tries to resemble the Delphi
+     compiler as best as it can: All Delphi 7 features are implemented. Features that were
+     implemented in the .NET versions of Delphi are <span 
+class="cmti-10">not </span>implemented.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">MACPAS</span> </dt><dd 
+class="description">the Mac Pascal compatibility mode. In this mode, the compiler attempts to
+     allow all constructs that are implemented in Mac pascal. In particular, it attempts to
+     compile the universal interfaces.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ISO</span> </dt><dd 
+class="description">Standard  Pascal,  ISO  7185  mode.  In  this  mode,  the  compiler  complies  with  the
+     requirements of level 0 and level 1 of ISO/IEC 7185.</dd></dl>
+<!--l. 1940--><p class="noindent" >The compiler mode can be set on a per-unit basis: each unit can have its own compiler mode, and
+it is possible to use units which have been compiled in different modes intertwined. The mode can
+be set in one of 2 ways:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x123-130002x1">On the command line, with the -M switch.
+     </li>
+     <li 
+  class="enumerate" id="x123-130004x2">In the source file, with the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MODE </span><span 
+class="cmsy-10">} </span>directive.</li></ol>
+<!--l. 1947--><p class="noindent" >Both ways take the name of the mode as an argument. If the unit or program source file does not
+specify a mode, the mode specified on the command-line is used. If the source file specifies a mode,
+then it overrides the mode given on the command-line.
+<!--l. 1952--><p class="noindent" >Thus compiling a unit with the <span 
+class="cmtt-10">-M </span>switch as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-82">
+fpc&#x00A0;-MOBJFPC&#x00A0;myunit
+</div>
+<!--l. 1955--><p class="nopar" >is the same as having the following mode directive in the unit:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-83">
+{$MODE&#x00A0;OBJFPC}
+&#x00A0;<br />Unit&#x00A0;myunit;
+</div>
+<!--l. 1960--><p class="nopar" >The <span 
+class="cmtt-10">MODE </span>directive should always be located before the uses clause of the unit interface or program
+uses clause, because setting the mode may result in the loading of an additional unit as the first
+unit to be loaded.
+<!--l. 1965--><p class="noindent" >Note that the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MODE </span><span 
+class="cmsy-10">} </span>directive is a global directive, i.e. it is valid for the whole unit; Only one
+directive can be specified.
+<!--l. 1968--><p class="noindent" >The mode has no influence on the availability of units: all available units can be used, independent
+of the mode that is used to compile the current unit or program.
+                                                                            
+
+                                                                            
+<!--l. 1972--><div class="crosslinks"><p class="noindent">[<a 
+href="userse34.html" >next</a>] [<a 
+href="userse33.html" >front</a>] [<a 
+href="userch7.html#userse33.html" >up</a>] </p></div>
+<!--l. 1972--><p class="noindent" ><a 
+ id="tailuserse33.html"></a>  
+</body></html> 

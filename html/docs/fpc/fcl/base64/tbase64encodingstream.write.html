@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TBase64EncodingStream.Write</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../base64/index.html">Overview</a>][<a href="../base64/index-3.html">Types</a>][<a href="../base64/index-4.html">Classes</a>][<a href="../base64/index-5.html">Procedures and functions</a>][<a href="../base64/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'base64' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TBase64EncodingStream.Write</h1>
+<p>Write data to the stream.</p>
+<h2>Declaration</h2>
+<p>Source position: base64.pp line 41</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../base64/tbase64encodingstream.html">TBase64EncodingStream</a><span class="sym">.</span>Write<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Buffer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Count<span class="sym">: </span><a href="../../rtl/system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/system/longint.html">LongInt</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Buffer</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Buffer with data to write</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Count</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of bytes from buffer to write</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Number of bytes from buffer actually used</p>
+<h2>Description</h2>
+<p><var>Write</var> encodes <var>Count</var> bytes from <var>Buffer</var> using the Base64 mechanism, and then writes the encoded data to the destination stream. It returns the number of bytes from <var>Buffer</var> that were actually written. Note that this is not the number of bytes written to the destination stream: the base64 mechanism writes more bytes to the destination stream. </p>
+<h2>Errors</h2>
+<p>If there is an error writing to the destination stream, an error may occur. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../base64/tbase64encodingstream.seek.html">TBase64EncodingStream.Seek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Position the stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>TBase64EncodingStream.Read</b></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read data from the stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>TBase64DecodingStream.Write</b></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write data to the stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../../rtl/classes/tstream.write.html">TStream.Write</a></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

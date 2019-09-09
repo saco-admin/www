@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>sync_file_range</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../linux/index.html">Overview</a>][<a href="../linux/index-2.html">Constants</a>][<a href="../linux/index-3.html">Types</a>][<a href="../linux/index-5.html">Procedures and functions</a>][<a href="../linux/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Linux' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>sync_file_range</h1>
+<p>Force committing of data to disk</p>
+<h2>Declaration</h2>
+<p>Source position: linux.pp line 364</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> sync_file_range<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;fd<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;offset<span class="sym">: </span><a href="../unixtype/off64_t.html">off64_t</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;nbytes<span class="sym">: </span><a href="../unixtype/off64_t.html">off64_t</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;flags<span class="sym">: </span><a href="../unixtype/cuint.html">cuint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>sync_file_range</var> forces the Linux kernel to write any data pages of a specified file (file descriptor <var>fd</var>) to disk. The range of the file is specified by the offset <var>offset</var> and the number of bytes <var>nbytes</var>. <var>Options</var> is an OR-ed combination of </p>
+<dl>
+<dt>SYNC_FILE_RANGE_WAIT_BEFORE</dt>
+<dd>Wait for write-out of previously-submitted specified pages before writing more data.</dd>
+<dt>SYNC_FILE_RANGE_WRITE</dt>
+<dd>Initiate  write  of all dirty pages in the specified range.</dd>
+<dt>SYNC_FILE_RANGE_WAIT_AFTER</dt>
+<dd>Wait upon write-out of specified pages in the range after performing any write.</dd>
+</dl>
+<p>If none is specified, the operation does nothing. </p>
+<h2>Errors</h2>
+<p>On return -1 is returned and fperrno is set to the actual error code. See the Linux man page for more on the error codes. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../linux/fdatasync.html">fdatasync</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Synchronize the data in memory with the data on storage device</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

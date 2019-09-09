@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>General assembler errors</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 3634--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu101.html" >next</a>] [<a 
+href="#tailusersu100.html">tail</a>] [<a 
+href="userse72.html#usersu100.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">C.13.1   </span> <a 
+href="user.html#QQ2-187-245" id="x187-194000C.13.1">General assembler errors</a></h4>
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Divide by zero in asm evaluator</span> </dt><dd 
+class="description">This fatal error is reported when a constant assembler
+     expression performs a division by zero.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Evaluator stack overflow, Evaluator stack underflow</span> </dt><dd 
+class="description">These  fatal  error  is  reported
+     when a constant assembler expression is too big to be evaluated by the constant parser.
+     Try reducing the number of terms.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid numeric format in asm evaluator</span> </dt><dd 
+class="description">This   fatal   error   is   reported   when   a
+     non-numeric value is detected by the constant parser. Normally this error should never
+     occur.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid Operator in asm evaluator</span> </dt><dd 
+class="description">This fatal error is reported when a mathematical
+     operator is detected by the constant parser. Normally this error should never occur.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Unknown error in asm evaluator</span> </dt><dd 
+class="description">This fatal error is reported when an internal error is
+     detected by the constant parser. Normally this error should never occur.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid numeric value</span> </dt><dd 
+class="description">This warning is emitted when a conversion from octal, binary or
+     hexadecimal to decimal is outside of the supported range.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Escape sequence ignored</span> </dt><dd 
+class="description">This error is emitted when a non ANSI C escape sequence is
+     detected in a C string.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Asm syntax error - Prefix not found</span> </dt><dd 
+class="description">This occurs when trying to use a non-valid prefix
+     instruction.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Asm syntax error - Trying to add more than one prefix</span> </dt><dd 
+class="description">This occurs when you try
+     to add more than one prefix instruction.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Asm syntax error - Opcode not found</span> </dt><dd 
+class="description">You  have  tried  to  use  an  unsupported  or
+     unknown opcode.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Constant value out of bounds</span> </dt><dd 
+class="description">This   error   is   reported   when   the   constant   parser
+     determines that the value you are using is out of bounds, either with the opcode or
+     with the constant declaration used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Non-label pattern contains @</span> </dt><dd 
+class="description">This only applied to the m68k and Intel styled assembler.
+     This is reported when you try to use a non-label identifier with an &#8217;@&#8217; prefix.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Internal error in Findtype()</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Internal Error in ConcatOpcode()</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Internal Errror converting binary</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Internal Errror converting hexadecimal</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Internal Errror converting octal</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Internal Error in BuildScaling()</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Internal Error in BuildConstant()</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">internal error in BuildReference()</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">internal error in HandleExtend()</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Internal error in ConcatLabeledInstr()</span> </dt><dd 
+class="description"> These errors should never occur. If they do
+     then you have found a new bug in the assembler parsers. Please contact one of the
+     developers.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Opcode not in table, operands not checked</span> </dt><dd 
+class="description">This warning only occurs when compiling
+     the system unit, or related files. No checking is performed on the operands of the
+     opcodes.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">@CODE and @DATA not supported</span> </dt><dd 
+class="description">This Turbo Pascal construct is not supported.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">SEG and OFFSET not supported</span> </dt><dd 
+class="description">This Turbo Pascal construct is not supported.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Modulo not supported</span> </dt><dd 
+class="description">Modulo constant operation is not supported.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Floating point binary representation ignored</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Floating point hexadecimal representation ignored</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Floating point octal representation ignored</span> </dt><dd 
+class="description">These  warnings  occur  when  a  floating
+     point constant is declared in a base other than decimal. No conversion can be done on
+     these formats. You should use a decimal representation instead.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Identifier supposed external</span> </dt><dd 
+class="description">This warning occurs when a symbol is not found in the
+     symbol table. It is therefore considered external.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Functions with void return value can&#8217;t return any value in asm code</span> </dt><dd 
+class="description">Only
+     routines with a return value can have a return value set.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error in binary constant</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error in octal constant</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error in hexadecimal constant</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error in integer constant</span> </dt><dd 
+class="description"> These errors are reported when you tried using a constant
+     expression that is invalid or whose value is out of range.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid labeled opcode</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Asm syntax error - error in reference</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid Opcode</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid combination of opcode and operands</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid size in reference</span> </dt><dd 
+class="description">
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid middle sized operand</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid three operand opcode</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Assembler syntax error</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid operand type</span> </dt><dd 
+class="description">You tried using an invalid combination of opcode and operands.
+     Check the syntax and if you are sure it is correct, please contact one of the developers.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Unknown identifier</span> </dt><dd 
+class="description">The identifier you are trying to access does not exist, or is not within
+     the current scope.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Trying to define an index register more than once</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Trying to define a segment register twice</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Trying to define a base register twice</span> </dt><dd 
+class="description">You  are  trying  to  define  an  index/segment
+     register more than once.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid field specifier</span> </dt><dd 
+class="description">The record or object field you are trying to access does not exist,
+     or is incorrect.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid scaling factor</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid scaling value</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Scaling value only allowed with index</span> </dt><dd 
+class="description">Allowed scaling values are 1,2,4 or 8.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Cannot use SELF outside a method</span> </dt><dd 
+class="description">You are trying to access the SELF identifier for
+     objects outside a method.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid combination of prefix and opcode</span> </dt><dd 
+class="description">This  opcode  cannot  be  prefixed  by  this
+     instruction.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid combination of override and opcode</span> </dt><dd 
+class="description">This opcode cannot be overridden by this
+     combination.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Too many operands on line</span> </dt><dd 
+class="description">At most three operand instructions exist on the m68k, and
+     i386, you are probably trying to use an invalid syntax for this opcode.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Duplicate local symbol</span> </dt><dd 
+class="description">You are trying to redefine a local symbol, such as a local label.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Unknown label identifer</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Undefined local symbol</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">local symbol not found inside asm statement</span> </dt><dd 
+class="description">This label does not seem to have been
+     defined in the current scope.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Assemble node syntax error</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Not a directive or local symbol</span> </dt><dd 
+class="description">The assembler statement is invalid, or you are not using
+     a recognized directive.
+     </dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 3788--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu101.html" >next</a>] [<a 
+href="usersu100.html" >front</a>] [<a 
+href="userse72.html#usersu100.html" >up</a>] </p></div>
+<!--l. 3788--><p class="noindent" ><a 
+ id="tailusersu100.html"></a>  
+</body></html> 

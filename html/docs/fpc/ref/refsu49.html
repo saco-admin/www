@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Set operators</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 8314--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu50.html" >next</a>] [<a 
+href="refsu48.html" >prev</a>] [<a 
+href="refsu48.html#tailrefsu48.html" >prev-tail</a>] [<a 
+href="#tailrefsu49.html">tail</a>] [<a 
+href="refse84.html#refsu49.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">12.8.5   </span> <a 
+href="ref.html#QQ2-152-185" id="x152-17400012.8.5">Set operators</a></h4>
+<a 
+ id="dx152-174001"></a>
+<!--l. 8317--><p class="noindent" >The following operations on sets can be performed with operators: union, difference, symmetric
+difference, inclusion and intersection. Elements can be added or removed from the set with the
+<span 
+class="cmtt-10">Include </span>or <span 
+class="cmtt-10">Exclude </span>operators. The operators needed for this are listed in table (<a 
+href="#x152-174002r6">12.6<!--tex4ht:ref: tab:setoperators --></a>). <a name="keyword_in"></a>
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 8323--><p class="noindent" ><a 
+ id="x152-174002r6"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;12.6: </span><span  
+class="content">Set operators</span></div><!--tex4ht:label?: x152-174002r6 -->
+<div class="center" 
+>
+<!--l. 8323--><p class="noindent" >
+<div class="tabular"> <table id="TBL-13" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-13-1g"><col 
+id="TBL-13-1"><col 
+id="TBL-13-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-13-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-1-1"  
+class="td11">Operator</td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-1-2"  
+class="td11">Action                                     </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-2-1"  
+class="td11"><span 
+class="cmtt-10">+       </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-2-2"  
+class="td11">Union                                      </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-3-1"  
+class="td11"><span 
+class="cmtt-10">- </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-3-2"  
+class="td11">Difference</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-4-1"  
+class="td11"><span 
+class="cmtt-10">*       </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-4-2"  
+class="td11">Intersection                              </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-5-1"  
+class="td11"><span 
+class="cmmi-10">&#x003E;&#x003C; </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-5-2"  
+class="td11">Symmetric difference</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-6-1"  
+class="td11"><span 
+class="cmmi-10">&#x003C;</span>=        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-6-2"  
+class="td11">Contains                                  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-7-1"  
+class="td11"><span 
+class="cmtt-10">include </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-7-2"  
+class="td11">include an element in the set        </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-8-1"  
+class="td11"><span 
+class="cmtt-10">exclude </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-8-2"  
+class="td11">exclude an element from the set    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-9-1"  
+class="td11"><span 
+class="cmtt-10">in      </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-9-2"  
+class="td11">check wether an element is in a set</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-10-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-10-1"  
+class="td11">        </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+<!--l. 8334--><p class="noindent" >The set type of the operands must be the same, or an error will be generated by the
+compiler.
+<!--l. 8337--><p class="noindent" >The following program gives some valid examples of set operations:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-344">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;Day&#x00A0;=&#x00A0;(mon,tue,wed,thu,fri,sat,sun);
+&#x00A0;<br />&#x00A0;&#x00A0;Days&#x00A0;=&#x00A0;set&#x00A0;of&#x00A0;Day;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;PrintDays(W&#x00A0;:&#x00A0;Days);
+&#x00A0;<br />Const
+&#x00A0;<br />&#x00A0;&#x00A0;DayNames&#x00A0;:&#x00A0;array&#x00A0;[Day]&#x00A0;of&#x00A0;String[3]
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;=&#x00A0;(&#8217;mon&#8217;,&#8217;tue&#8217;,&#8217;wed&#8217;,&#8217;thu&#8217;,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#8217;fri&#8217;,&#8217;sat&#8217;,&#8217;sun&#8217;);
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;D&#x00A0;:&#x00A0;Day;
+&#x00A0;<br />&#x00A0;&#x00A0;S&#x00A0;:&#x00A0;String;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;S:=&#8217;&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;For&#x00A0;D:=Mon&#x00A0;to&#x00A0;Sun&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;if&#x00A0;D&#x00A0;in&#x00A0;W&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;If&#x00A0;(S&#x003C;&#x003E;&#8217;&#8217;)&#x00A0;then&#x00A0;S:=S+&#8217;,&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;S:=S+DayNames[D];
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;[&#8217;,S,&#8217;]&#8217;);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;W&#x00A0;:&#x00A0;Days;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;W:=[mon,tue]+[wed,thu,fri];&#x00A0;//&#x00A0;equals&#x00A0;[mon,tue,wed,thu,fri]
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;PrintDays(W);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;W:=[mon,tue,wed]-[wed];&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;//&#x00A0;equals&#x00A0;[mon,tue]
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;PrintDays(W);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;W:=[mon,tue,wed]-[wed,thu];&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;//&#x00A0;also&#x00A0;equals&#x00A0;[mon,tue]
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;PrintDays(W);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;W:=[mon,tue,wed]*[wed,thu,fri];&#x00A0;//&#x00A0;equals&#x00A0;[wed]
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;PrintDays(W);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;W:=[mon,tue,wed]&#x003E;&#x003C;[wed,thu,fri];&#x00A0;//&#x00A0;equals&#x00A0;[mon,tue,thu,fri]
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;PrintDays(W);
+&#x00A0;<br />end.
+</div>
+<!--l. 8377--><p class="nopar" >As can be seen, the union is equivalent to a binary OR, while the intersection is equivalent to a
+binary AND, and the symmetric difference equals a XOR operation.
+<!--l. 8382--><p class="noindent" >The <span 
+class="cmtt-10">Include </span>and <span 
+class="cmtt-10">Exclude </span>operations are equivalent to a union or a difference with a set of 1
+element. Thus,
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-345">
+&#x00A0;&#x00A0;Include(W,wed);
+</div>
+<!--l. 8386--><p class="nopar" >is equivalent to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-346">
+&#x00A0;&#x00A0;W:=W+[wed];
+</div>
+<!--l. 8390--><p class="nopar" >and
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-347">
+&#x00A0;&#x00A0;Exclude(W,wed);
+</div>
+<!--l. 8394--><p class="nopar" >is equivalent to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-348">
+&#x00A0;&#x00A0;W:=W-[wed];
+</div>
+<!--l. 8398--><p class="nopar" >
+<!--l. 8400--><p class="noindent" >The <span 
+class="cmtt-10">In </span>operation results in a <span 
+class="cmtt-10">True </span>if the left operand (an element) is included of the right operand
+(a set), the result will be <span 
+class="cmtt-10">False </span>otherwise.
+                                                                            
+
+                                                                            
+<!--l. 8405--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu50.html" >next</a>] [<a 
+href="refsu48.html" >prev</a>] [<a 
+href="refsu48.html#tailrefsu48.html" >prev-tail</a>] [<a 
+href="refsu49.html" >front</a>] [<a 
+href="refse84.html#refsu49.html" >up</a>] </p></div>
+<!--l. 8405--><p class="noindent" ><a 
+ id="tailrefsu49.html"></a>  
+</body></html> 

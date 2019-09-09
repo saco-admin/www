@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Low</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Low</h1>
+<p>Return lowest index of open array or enumerated</p>
+<h2>Declaration</h2>
+<p>Source position: system.fpd line 49</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> Low<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Arg<span class="sym">: </span>TypeOrVariable</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>TOrdinal<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>The return value of <var>Low</var> depends on it's argument: </p>
+<ol>
+<li>If the argument is an ordinal type, <var>Low</var> returns the lowest value in the range of the given ordinal type. </li>
+<li>If the argument is an array type or an array type variable then <var>Low</var> returns the lowest possible value of it's index. </li>
+<li>If the argument is an open array identifier in a function or procedure, then <var>Low</var> returns the lowest element of the array, which is always zero. </li>
+<li>If the argument is a set type then it returns the lowest value of the underlying ordinal type. </li>
+</ol>
+<p>The return type is always the same type as the type of the argument. </p>
+<p>for an example, see <a href="../system/high.html">High</a>. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/high.html">High</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return highest index of open array or enumerated</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/ord.html">Ord</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return ordinal value of an ordinal type.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/pred.html">Pred</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return previous element for an ordinal type.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/succ.html">Succ</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return next element of ordinal type.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

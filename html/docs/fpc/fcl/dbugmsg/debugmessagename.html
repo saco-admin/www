@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>DebugMessageName</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dbugmsg/index.html">Overview</a>][<a href="../dbugmsg/index-2.html">Constants</a>][<a href="../dbugmsg/index-3.html">Types</a>][<a href="../dbugmsg/index-5.html">Procedures and functions</a>][<a href="../dbugmsg/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dbugmsg' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>DebugMessageName</h1>
+<p>Return the name of the debug message</p>
+<h2>Declaration</h2>
+<p>Source position: dbugmsg.pp line 42</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> DebugMessageName<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;msgType<span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">msgType</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Message type</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>String describing the message type</p>
+<h2>Description</h2>
+<p><var>DebugMessageName</var> returns the name of the message type. It can be used to examine the <var>MsgType</var> field of a <a href="../dbugmsg/tdebugmessage.html">TDebugMessage</a> record, and if <var>msgType</var> contains a known type, it returns a string describing this type. </p>
+<h2>Errors</h2>
+<p>If <var>MsgType</var> contains an unknown type, <var>'Unknown'</var> is returned. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

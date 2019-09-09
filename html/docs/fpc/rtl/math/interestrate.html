@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>InterestRate</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../math/index.html">Overview</a>][<a href="../math/index-2.html">Constants</a>][<a href="../math/index-3.html">Types</a>][<a href="../math/index-4.html">Classes</a>][<a href="../math/index-5.html">Procedures and functions</a>][<a href="../math/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'math' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>InterestRate</h1>
+<p>Calculate the interest rate value of an investment</p>
+<h2>Declaration</h2>
+<p>Source position: math.pp line 566</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> InterestRate<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;NPeriods<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;APayment<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;APresentValue<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AFutureValue<span class="sym">: </span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;APaymentTime<span class="sym">: </span><a href="../math/tpaymenttime.html">tpaymenttime</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>InterestRate</var> calculates the future value of an investment (<var>q</var>) in the cash flow formula (see <a href="../math/cashflowfunctions.html">CashFlowFunctions</a>). The function result is the interest rate value in case of a future value <var>AFutureValue</var> for an investment of a start value <var>APresentValue</var>  (<var>PV</var>), where <var>APayment</var> (<var>PMT</var>) is invested  for <var>NPeriods</var> (<var>n</var>). </p>
+<p>The <var>APaymentTime</var> parameter determines whether the investment (payment) is an ordinary annuity or an annuity due: <var>ptEndOfPeriod</var>  must be used if payments are at the end of each period. If the payments are at the beginning of the periode, <var>ptStartOfPeriod</var> must be used.  </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../math/futurevalue.html">FutureValue</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the future value of an investment.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../math/numberofperiods.html">NumberOfPeriods</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the number of periods for an investment</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../math/payment.html">Payment</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the payment for an investment</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../math/presentvalue.html">PresentValue</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the present value given the future value of an investment.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../math/tpaymenttime.html">TPaymentTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Type used in financial (interest) calculations.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../math/cashflowfunctions.html">CashFlowFunctions</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Cash flow functions</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

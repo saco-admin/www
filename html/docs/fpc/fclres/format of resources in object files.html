@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Format of resources in object files</title>
+<link rel="stylesheet" href="fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="how to implement a new resource writer.html">Previous</a>][<a href="index.html">Up</a>]</b></td>
+<td align="right"><span class="bartitle"> (<a href="index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h2>Format of resources in object files</h2>
+<p><b>Introduction</b></p>
+<p>This appendix describes the format in which resources are stored in object files. This doesn't apply to PECOFF file format, where a format already exists and is well described in documentation from Microsoft.</p>
+<p>On Microsoft Windows, resources are natively supported by the operating system. On other systems, Free Pascal RTL provides access to resources, which are embedded in the executable file in the format that is here described.</p>
+<p>This appendix doesn't describe a particular object file format implementation (e.g. ELF or Mach-O), but the layout of the sections involved in supporting resources: the way these sections are actually laid out on a file are subject to the rules of the hosting object file format.</p>
+<p>For external resource file details, see <b>Description of external resource file format</b></p>
+<p><b>Conventions</b></p>
+<p>In this document, data sizes are specified with pascal-style data types. They are the following:</p>
+<table border="0">
+<tr>
+<th>Name</th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td><var>longword</var></td>
+<td>Unsigned 32 bit integer.</td>
+</tr>
+<tr>
+<td><var>ptruint</var></td>
+<td>Unsigned integer of the size of a pointer</td>
+</tr>
+</table>
+<p>Byte order is the one of the target machine.</p>
+<p>All data structures in the sections must be aligned on machine boundaries (4 bytes for 32 bit machines, 8 bytes for 64 bit machines).</p>
+<p>Note that all pointers must be valid at runtime. This means that relocations must be written to the object file so that the linker can relocate pointers to the addresses they will have at runtime. Note also that pointers to strings are really pointers, and not offsets to the beginning of the string table.</p>
+<p><b>Resource sections</b></p>
+<p>Free Pascal uses two sections to store resource information:</p>
+<ul>
+<li><var>fpc.resources</var>. This is a data section that contains all required structures. It must be writable.</li>
+<li><var>fpc.rehandles</var>. This is a bss section whose size must be equal to <var>(total number of resources)*(size of pointer)</var>. It must be writable.</li>
+</ul>
+<p>The rest of this chapter will describe the contents of <var>fpc.resources</var> section.</p>
+<p><b>Resource section layout</b></p>
+<p>The <var>fpc.resources</var> section consists of these parts:</p>
+<ul>
+<li>The initial header</li>
+<li>The resource tree, in the form of nodes</li>
+<li>The string table, which can be optional</li>
+<li>The resource data</li>
+</ul>
+<p><b>The initial header</b></p>
+<p>The <var>fpc.resources</var> section starts with this header:</p>
+<table border="0">
+<tr>
+<th>Name</th>
+<th>Offset</th>
+<th>Length</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>rootptr</td>
+<td>0</td>
+<td>ptruint</td>
+<td>Pointer to the root node.</td>
+</tr>
+<tr>
+<td>count</td>
+<td>4/8</td>
+<td>longword</td>
+<td>Total number of resources.</td>
+</tr>
+<tr>
+<td>usedhandles</td>
+<td>8/12</td>
+<td>longword</td>
+<td>Used at runtime. Set to zero in object files.</td>
+</tr>
+<tr>
+<td>handles</td>
+<td>12/16</td>
+<td>ptruint</td>
+<td>Pointer to the first byte of <var>fpc.reshandles</var> section.</td>
+</tr>
+</table>
+<p><b>The resource tree</b></p>
+<p>Immediately following the initial header, the resource tree comes. It is made up by nodes that represent resource types, names and language ids.</p>
+<p>Data is organized so that resource information (type, name and language id) is represented by a tree: root node contains resource types, that in turn contain resource names, which contain language ids, which describe resource data.</p>
+<p>Given a node, its sub-nodes are ordered as follows:</p>
+<ul>
+<li>First the "named" nodes (nodes that use a string as identifier) come, then the id ones (nodes that use an integer as identifier).</li>
+<li>Named nodes are alphabetically sorted, in ascending order.</li>
+<li>Id nodes are sorted in ascending order.</li>
+</ul>
+<p>In the file, all sub-nodes of a node are written in the order described above. Then, all sub-nodes of the first sub-node are written, and so on.</p>
+<p><b>Example:</b></p>
+<p>There are three resources:</p>
+<ol>
+<li>a <var>BITMAP</var> resource with name <var>MYBITMAP</var> and language id <var>$0409</var></li>
+<li>a <var>BITMAP</var> resource with name <var>1</var> and language id <var>0</var></li>
+<li>a resource with type <var>MYTYPE</var> and name <var>1</var> and language id <var>0</var></li>
+</ol>
+<p>Nodes are laid out this way (note that <var>BITMAP</var> resources have type <var>2</var>):</p>
+<pre>root | MYTYPE 2 | 1 | 0 | MYBITMAP 1 | $0409 | 0
+</pre>
+<p>That is, types (<var>MYTYPE</var> is a string, so it comes before <var>2</var> which is <var>BITMAP</var>), then names for <var>MYTYPE</var> (<var>1</var>), then language id for resource 3 (<var>0</var>), then names for <var>BITMAP</var> (<var>MYBITMAP</var> and <var>1</var>), then language id for resource 1 (<var>$0409</var>), then language id for resource 2 (<var>0</var>).</p>
+<p><b>Node format</b></p>
+<table border="0">
+<tr>
+<th>Name</th>
+<th>Offset</th>
+<th>Length</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>nameid</td>
+<td>0</td>
+<td>ptruint</td>
+<td>name pointer, integer id or language id</td>
+</tr>
+<tr>
+<td>ncount</td>
+<td>4/8</td>
+<td>longword</td>
+<td>named sub-nodes count</td>
+</tr>
+<tr>
+<td>idcountsize</td>
+<td>8/12</td>
+<td>longword</td>
+<td>id sub-nodes count or resource size</td>
+</tr>
+<tr>
+<td>subptr</td>
+<td>12/16</td>
+<td>ptruint</td>
+<td>pointer to first sub-node</td>
+</tr>
+</table>
+<p>If the node is identified by a string, <var>nameid</var> is a pointer to the null-terminated string holding the name. If it is identified by an id, <var>nameid</var> is that id. Language id nodes are always identified by and ID.</p>
+<p><var>ncount</var> is the number of named sub-nodes of this node (nodes that are identified by a string).</p>
+<p><var>idcountsize</var> is the number of id sub-nodes of this node (nodes that are identified by an integer id). For language id nodes, this field holds the size of the resource data.</p>
+<p><var>subptr</var> is an pointer to the first subnode of this node. Note that it allows to access every subnode of this node, since subnodes of a node always come one after the other. For language id nodes, <var>subptr</var> is the pointer to the resource data.</p>
+<p><b>The string table</b></p>
+<p>The string table is used to store strings used for resource types and names. If all resources use integer ids for name and types, it may not be present in the file.</p>
+<p>The string table simply contains null-terminated strings, one after the other.</p>
+<p>If present, the string table always contains a <var>0</var> (zero) at the beginning. This way, the empty string is located at the first byte of the string table.</p>
+<p><b>The resource data</b></p>
+<p>This part of the file contains raw resource data. As written before, all data structures must be aligned on machine boundaries, so if a resource data size is not a multiple of 4 (for 32 bit machines) or 8 (for 64 bit machines), bytes of padding must be inserted after that resource data.</p>
+<p><b>Exported symbols</b></p>
+<p>Object files containing resources must export a pointer to the first byte of <var>fpc.resources</var> section. The name of this symbol is <var>FPC_RESSYMBOL</var>.</p>
+<p><b>Mach-O specific notes</b></p>
+<p><var>fpc.resources</var> and <var>fpc.reshandles</var> sections are to be contained in a <var>__DATA</var> segment.</p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

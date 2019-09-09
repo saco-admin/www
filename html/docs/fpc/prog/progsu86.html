@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$APPTYPE : Specify type of application.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 1807--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu87.html" >next</a>] [<a 
+href="progsu85.html" >prev</a>] [<a 
+href="progsu85.html#tailprogsu85.html" >prev-tail</a>] [<a 
+href="#tailprogsu86.html">tail</a>] [<a 
+href="progse3.html#progsu86.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.3.3   </span> <a 
+href="prog.html#QQ2-94-93" id="x94-930001.3.3"><span 
+class="cmtt-10">$APPTYPE </span>: Specify type of application.</a></h4>
+<!--l. 1808--><p class="noindent" >This directive is currently only supported on the following targets: Win32, Mac, OS2 and
+AmigaOS. On other targets, the directive is ignored.
+<!--l. 1811--><p class="noindent" >The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$APPTYPE XXX</span><span 
+class="cmsy-10">} </span>accepts one argument which specifies what kind of application is compiled. It
+can have the following values:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">CONSOLE</span> </dt><dd 
+class="description">A console application. A terminal will be created and standard input, output
+     and standard error file descriptors will be initialized. In Windows, a terminal window
+     will be created. This is the default.
+     <!--l. 1820--><p class="noindent" >Note that on Mac OS such applications cannot take command line options, nor return
+     a result code. They will run in a special terminal window, implemented as a SIOW
+     application, see the MPW documentation for details.
+     <!--l. 1825--><p class="noindent" >On <span 
+class="cmcsc-10"><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span>/2</span>, these applications can run both full-screen and in a terminal window.
+     <!--l. 1828--><p class="noindent" ><span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>applications are always console applications. The application itself can decide
+     to close the standard files, though.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">FS</span> </dt><dd 
+class="description">Specifies  a  full-screen  VIO  application  on  <span 
+class="cmcsc-10"><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span>/2</span>.  These  applications  use  a  special
+     BIOS-like API to program the screen. <span 
+class="cmcsc-10"><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span>/2 </span>starts these application allways in full
+     screen.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">GUI</span> </dt><dd 
+class="description">Specifying the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$APPTYPE GUI</span><span 
+class="cmsy-10">} </span>directive will mark the application as a graphical
+     application; no console window will be opened when the application is run. No standard
+     file  descriptors  will  be  initialized,  using  them  (with  e.g.  <span 
+class="cmtt-10">writeln </span>statements)  will
+     produce a run-time error. If run from the command line, the command prompt will be
+     returned immediately after the application was started.
+     <!--l. 1842--><p class="noindent" >On <span 
+class="cmcsc-10"><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span>/2 </span>and Mac OS, the GUI application type creates a GUI application, as on
+     Windows. On <span 
+class="cmcsc-10"><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span>/2</span>, this is a real Presentation Manager application.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">TOOL</span> </dt><dd 
+class="description">This is a special directive for the Mac OS. It tells the compiler to create a tool
+     application: It initializes <span 
+class="cmtt-10">Input</span>, <span 
+class="cmtt-10">Output </span>and <span 
+class="cmtt-10">StdErr </span>files, it can take parameters and
+     return a result code. It is implemented as an MPW tool which can only be run by
+     MPW or ToolServer.</dd></dl>
+<!--l. 1850--><p class="noindent" >Care should be taken when compiling <span 
+class="cmtt-10">GUI </span>applications; the <span 
+class="cmtt-10">Input </span>and <span 
+class="cmtt-10">Output </span>files are not
+available in a GUI application, and attempting to read from or write to them will result in a
+run-time error.
+<!--l. 1854--><p class="noindent" >It is possible to determine the application type of a <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> </span>or <span 
+class="cmcsc-10">A<span 
+class="small-caps">m</span><span 
+class="small-caps">i</span><span 
+class="small-caps">g</span><span 
+class="small-caps">a</span> </span>application
+at runtime. The <span 
+class="cmtt-10">IsConsole </span>constant, declared in the Win32 and Amiga system units
+as
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-84">
+Const
+&#x00A0;<br />&#x00A0;&#x00A0;IsConsole&#x00A0;:&#x00A0;Boolean;
+</div>
+<!--l. 1860--><p class="nopar" >contains <span 
+class="cmtt-10">True </span>if the application is a console application, <span 
+class="cmtt-10">False </span>if the application is a GUI
+application.
+                                                                            
+
+                                                                            
+<!--l. 1864--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu87.html" >next</a>] [<a 
+href="progsu85.html" >prev</a>] [<a 
+href="progsu85.html#tailprogsu85.html" >prev-tail</a>] [<a 
+href="progsu86.html" >front</a>] [<a 
+href="progse3.html#progsu86.html" >up</a>] </p></div>
+<!--l. 1864--><p class="noindent" ><a 
+ id="tailprogsu86.html"></a>  
+</body></html> 

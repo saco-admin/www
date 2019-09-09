@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Reference for unit 'unicodedata'</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[Overview][<a href="../unicodedata/index-1.html">Resource strings</a>][<a href="../unicodedata/index-2.html">Constants</a>][<a href="../unicodedata/index-3.html">Types</a>][<a href="../unicodedata/index-5.html">Procedures and functions</a>][<a href="../unicodedata/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'unicodedata' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Reference for unit 'unicodedata'</h1>
+<p>Unicode data management</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">uses</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../system/index.html">System</a><span class="sym">;</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The system unit</p></td>
+</tr>
+</table>
+<h2>Overview</h2>
+<p>The <a href="../fpwidestring/index.html">fpwidestring</a> unit relies on having relevant unicode collation data linked in the binary. The unicode data is managed using the routines in the <span class="file">unicodedata</span> unit. The FPC project distributes some unicode collation data in <var>.bco</var> files which can be loaded  using the <a href="../unicodedata/loadcollation.html">LoadCollation</a> routines. The <var>LoadCollation</var> is the main routine of this unit. </p>
+<p>All collation data requires at least the Default Unicode Collation  Element Table to be registered (called <var>DUCET</var>).  The DUCET encoding is provided by the <span class="file">unicodeducet</span> unit, part of the rtl-unicode package. </p>
+<p>There are two ways to register collations : </p>
+<ol>
+<li><b>at compile time</b>: by including the desired collation unit, for example for Russian and Japanese languages to be available you will have to include <span class="file">collation_ru</span> and <span class="file">collation_ja</span> from package "rtl-unicode". </li>
+<li><b>at runtime</b> using the abovementioned <var>LoadCollation</var> function. </li>
+</ol>
+<p>The two ways can co-exist: some collations may be compile time included (for example for most used collations) and others can be loaded at runtime  in the same application. </p>
+<p>The binary collation files are endian sensitive: </p>
+<ul>
+<li>there are files for little endian systems named <span class="file">collation__le.bco</span> (such as collation_ru_le.bco and collation_ja_le.bco) </li>
+<li>there are files for big endian systems named <span class="file">collation__be.bco</span>  (such as collation_ru_be.bco and collation_ja_be.bco). </li>
+</ul>
+<p>Note that the compile time units collation units (collation_<b>lang</b>.pas) include already the unicodeducet.pas (DUCET) unit so it is not necessary to include it manually, contrary to the binary files. So an application that only uses the binary collation files should at least include the <span class="file">unicodeducet</span> unit or manually load the binary collation collation_ducet_le.bco or collation_ducet_be.bco, depending on the endianness of the platform. The <a href="../unicodedata/loadcollation.html">LoadCollation</a> call using a directory and the language <var>ducet</var> automatically select the correct file. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

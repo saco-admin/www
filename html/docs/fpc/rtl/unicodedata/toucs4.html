@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>ToUCS4</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unicodedata/index.html">Overview</a>][<a href="../unicodedata/index-1.html">Resource strings</a>][<a href="../unicodedata/index-2.html">Constants</a>][<a href="../unicodedata/index-3.html">Types</a>][<a href="../unicodedata/index-5.html">Procedures and functions</a>][<a href="../unicodedata/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'unicodedata' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>ToUCS4</h1>
+<p>Encode unicode UTF16 surrogate pair to UCS4 character</p>
+<h2>Declaration</h2>
+<p>Source position: unicodedata.pas line 358</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> ToUCS4<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AHighS<span class="sym">: </span><a href="../system/unicodechar.html">UnicodeChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ALowS<span class="sym">: </span><a href="../system/unicodechar.html">UnicodeChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/ucs4char.html">UCS4Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AHighS</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">High character of surrogate pair</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ALowS</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Low character of surrogate pair</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>UCS4 encoded unicode characte</p>
+<h2>Description</h2>
+<p><var>ToUCS4</var> converts set of unicode  (surrogate pair) characters encoded in UTF16: <var>AHighS</var>, <var>ALowS</var> to  a UCS4 encoded unicode character. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../unicodedata/fromucs4.html">FromUCS4</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert UCS4 to UNicodeChar</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unicodedata/unicodeishighsurrogate.html">UnicodeIsHighSurrogate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if a UTF16 character is the high character in a surrogate pair.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unicodedata/unicodeislowsurrogate.html">UnicodeIsLowSurrogate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if a UTF16 character is the low character in a surrogate pair.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unicodedata/unicodeissurrogatepair.html">UnicodeIsSurrogatePair</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if a pair of UTF16 encoded characters is a valid surrogate pair.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

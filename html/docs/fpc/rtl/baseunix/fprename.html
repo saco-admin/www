@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpRename</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpRename</h1>
+<p>Rename file</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 79</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpRename<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;old<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;newpath<span class="sym">: </span><a href="../system/pchar.html">PChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> FpRename<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>old<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>newpath<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FpRename</var> renames the file <var>Old</var> to <var>NewPath</var>. <var>NewPath</var> can be in a different directory than <var>Old</var>, but it cannot be on another partition (device). Any existing file on the new location will be replaced. </p>
+<p>If the operation fails, then the <var>Old</var> file will be preserved.  </p>
+<p>The function returns zero on succes, a nonzero value indicates failure. </p>
+<p>Note: There exist a portable alterative to fpRename: system.rename. Please use fpRename only if you are writing Unix specific code. System.rename will work on all operating systems. </p>
+<h2>Errors</h2>
+<p>Extended error information can be retrieved using <a href="../baseunix/fpgeterrno.html">fpGetErrno</a>. </p>
+<dl>
+<dt>sys_eisdir</dt>
+<dd><var>NewPath</var> exists and is a directory, but <var>Old</var> is not a directory.</dd>
+<dt>sys_exdev</dt>
+<dd><var>NewPath</var> and <var>Old</var> are on different devices.</dd>
+<dt>sys_enotempty or sys_eexist</dt>
+<dd><var>NewPath</var> is an existing, non-empty directory.</dd>
+<dt>sys_ebusy</dt>
+<dd><var>Old</var> or <var>NewPath</var> is a directory and is in use by another process.</dd>
+<dt>sys_einval</dt>
+<dd><var>NewPath</var> is part of <var>Old</var>.</dd>
+<dt>sys_emlink</dt>
+<dd><var>OldPath</var> or <var>NewPath</var> already have tha maximum amount of links pointing to them.</dd>
+<dt>sys_enotdir</dt>
+<dd>part of <var>Old</var> or <var>NewPath</var> is not directory.</dd>
+<dt>sys_efault</dt>
+<dd>For the <var>pchar</var> case: One of the pointers points to an invalid address.</dd>
+<dt>sys_eaccess</dt>
+<dd>access is denied when attempting to move the file.</dd>
+<dt>sys_enametoolong</dt>
+<dd>Either <var>Old</var> or <var>NewPath</var> is too long.</dd>
+<dt>sys_enoent</dt>
+<dd>a directory component in <var>Old</var> or <var>NewPath</var> didn't exist.</dd>
+<dt>sys_enomem</dt>
+<dd>not enough kernel memory.</dd>
+<dt>sys_erofs</dt>
+<dd><var>NewPath</var> or <var>Old</var> is on a read-only file system.</dd>
+<dt>sys_eloop</dt>
+<dd>too many symbolic links were encountered trying to expand <var>Old</var> or <var>NewPath</var></dd>
+<dt>sys_enospc</dt>
+<dd>the filesystem has no room for the new directory entry.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpunlink.html">FpUnLink</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unlink (i.e. remove) a file.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

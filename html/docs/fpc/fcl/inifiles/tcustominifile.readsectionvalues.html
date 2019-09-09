@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCustomIniFile.ReadSectionValues</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../inifiles/index.html">Overview</a>][<a href="../inifiles/index-3.html">Types</a>][<a href="../inifiles/index-4.html">Classes</a>][<a href="../inifiles/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'IniFiles' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCustomIniFile.ReadSectionValues</h1>
+<p>Read names and values of a section</p>
+<h2>Declaration</h2>
+<p>Source position: inifiles.pp line 184</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../inifiles/tcustominifile.html">TCustomIniFile</a><span class="sym">.</span>ReadSectionValues<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Section<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Strings<span class="sym">: </span><a href="../../rtl/classes/tstrings.html">TStrings</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Options<span class="sym">: </span><a href="../inifiles/tsectionvaluesoptions.html">TSectionValuesOptions</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">procedure</span> <a href="../inifiles/tcustominifile.html">TCustomIniFile</a><span class="sym">.</span>ReadSectionValues<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Section<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Strings<span class="sym">: </span><a href="../../rtl/classes/tstrings.html">TStrings</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Section</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Section for which to read key names and values</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Strings</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Stringlist to store key/value pairs in</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Options</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Options to use when </p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Section</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Section for which to read key names and values</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Strings</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Stringlist to store key/value pairs in</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ReadSectionValues</var> returns the keys and their values in the section <var>Section</var> in <var>Strings</var>. They are returned as <var>Key=Value</var> strings, one per key, so the <var>Values</var> property of the stringlist can be used to read the values. To retrieve just the names of the available keys, <a href="../inifiles/tcustominifile.readsection.html">ReadSection</a> can be used. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../inifiles/tcustominifile.sectionexists.html">SectionExists</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if a section exists.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inifiles/tcustominifile.readsections.html">ReadSections</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read the list of sections</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inifiles/tcustominifile.readsection.html">ReadSection</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read the key names in a section</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

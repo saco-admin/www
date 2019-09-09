@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFPCustomHashTable</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../contnrs/index.html">Overview</a>][<a href="../contnrs/index-2.html">Constants</a>][<a href="../contnrs/index-3.html">Types</a>][<a href="../contnrs/index-4.html">Classes</a>][<a href="../contnrs/index-5.html">Procedures and functions</a>][<a href="../contnrs/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'contnrs' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TFPCustomHashTable</h1>
+<p>[<a href="../contnrs/tfpcustomhashtable-1.html" onClick="window.open('../contnrs/tfpcustomhashtable-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../contnrs/tfpcustomhashtable-2.html" onClick="window.open('../contnrs/tfpcustomhashtable-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../contnrs/tfpcustomhashtable-3.html" onClick="window.open('../contnrs/tfpcustomhashtable-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../contnrs/tfpcustomhashtable-4.html" onClick="window.open('../contnrs/tfpcustomhashtable-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../contnrs/tfpcustomhashtable-5.html" onClick="window.open('../contnrs/tfpcustomhashtable-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../contnrs/tfpcustomhashtable-6.html" onClick="window.open('../contnrs/tfpcustomhashtable-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Hash class</p>
+<h2>Declaration</h2>
+<p>Source position: contnrs.pp line 360</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TFPCustomHashTable <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../../rtl/system/tobject.html">TObject</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../contnrs/tfpcustomhashtable.create.html">Create</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Instantiate a new <var>TFPCustomHashTable</var> instance using the default hash mechanism</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../contnrs/tfpcustomhashtable.createwith.html">CreateWith</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Instantiate a new <var>TFPCustomHashTable</var> instance with given algorithm and size</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../contnrs/tfpcustomhashtable.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Free the hash table.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../contnrs/tfpcustomhashtable.changetablesize.html">ChangeTableSize</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Change the table size of the hash table.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../contnrs/tfpcustomhashtable.clear.html">Clear</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clear the hash table.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../contnrs/tfpcustomhashtable.delete.html">Delete</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Delete a key from the hash list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../contnrs/tfpcustomhashtable.find.html">Find</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for an item with a certain key value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../contnrs/tfpcustomhashtable.isempty.html">IsEmpty</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if the hash table is empty.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../contnrs/tfpcustomhashtable.hashfunction.html">HashFunction</a><span class="sym">: </span><a href="../contnrs/thashfunction.html">THashFunction</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Hash function currently in use</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../contnrs/tfpcustomhashtable.count.html">Count</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of items in the hash table.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../contnrs/tfpcustomhashtable.hashtablesize.html">HashTableSize</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Size of the hash table</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../contnrs/tfpcustomhashtable.hashtable.html">HashTable</a><span class="sym">: </span><a href="../contnrs/tfpobjectlist.html">TFPObjectList</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Hash table instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../contnrs/tfpcustomhashtable.voidslots.html">VoidSlots</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of empty slots in the hash table.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../contnrs/tfpcustomhashtable.loadfactor.html">LoadFactor</a><span class="sym">: </span>Double<span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Fraction of count versus size</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../contnrs/tfpcustomhashtable.avgchainlen.html">AVGChainLen</a><span class="sym">: </span>Double<span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Average chain length</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../contnrs/tfpcustomhashtable.maxchainlength.html">MaxChainLength</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Maximum chain length</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../contnrs/tfpcustomhashtable.numberofcollisions.html">NumberOfCollisions</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of extra items</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../contnrs/tfpcustomhashtable.density.html">Density</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of filled slots</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../contnrs/tfpcustomhashtable.html">TFPCustomHashTable</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Hash class</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TFPCustomHashTable</var> is a general-purpose hashing class.  It can store string keys and pointers associated with these strings.  The hash mechanism is configurable and can be optionally be specified  when a new instance of the class is created; A default hash mechanism  is implemented in <a href="../contnrs/rshash.html">RSHash</a>. </p>
+<p>The <b>TFPHasList</b> can also be used when fast  lookup of data based on some key is required. It is slightly faster than the <var>TFPCustomHashTable</var> implementation, but the keys are limited to a length of 256 characters, and it is not suitable for re-use: it is a one-time fill, many times search object. <var>TFPCustomHashTable</var> is slower, but handles re-use better. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../contnrs/thtcustomnode.html">THTCustomNode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Single item in the hash table.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../contnrs/tfpobjectlist.html">TFPObjectList</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt"><var>TFPList</var> descendent which manages objects.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../contnrs/rshash.html">RSHash</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Standard hash value calculating function.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

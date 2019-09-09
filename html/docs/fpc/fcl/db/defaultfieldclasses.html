@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>DefaultFieldClasses</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>DefaultFieldClasses</h1>
+<p>Default field classes to use when creating a new <var>TField</var> instance.</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 2135</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">const</span> DefaultFieldClasses<span class="sym">: </span><span class="kw">array</span> <span class="sym">[</span>TFieldType<span class="sym">]</span> <span class="kw">of</span> <a href="../db/tfieldclass.html">TFieldClass</a> <span class="sym">=</span> <span class="sym">(</span>Tfield<span class="sym">,</span> TStringField<span class="sym">,</span> TSmallIntField<span class="sym">,</span> TLongintField<span class="sym">,</span> TWordField<span class="sym">,</span> TBooleanField<span class="sym">,</span> TFloatField<span class="sym">,</span> TCurrencyField<span class="sym">,</span> TBCDField<span class="sym">,</span> TDateField<span class="sym">,</span> TTimeField<span class="sym">,</span> TDateTimeField<span class="sym">,</span> TBytesField<span class="sym">,</span> TVarBytesField<span class="sym">,</span> TAutoIncField<span class="sym">,</span> TBlobField<span class="sym">,</span> TMemoField<span class="sym">,</span> TGraphicField<span class="sym">,</span> TBlobField<span class="sym">,</span> TBlobField<span class="sym">,</span> TBlobField<span class="sym">,</span> TBlobField<span class="sym">,</span> <span class="kw">Nil</span><span class="sym">,</span> TStringField<span class="sym">,</span> TWideStringField<span class="sym">,</span> TLargeIntField<span class="sym">,</span> <span class="kw">Nil</span><span class="sym">,</span> <span class="kw">Nil</span><span class="sym">,</span> <span class="kw">Nil</span><span class="sym">,</span> <span class="kw">Nil</span><span class="sym">,</span> TBlobField<span class="sym">,</span> TMemoField<span class="sym">,</span> TVariantField<span class="sym">,</span> <span class="kw">Nil</span><span class="sym">,</span> <span class="kw">Nil</span><span class="sym">,</span> TGuidField<span class="sym">,</span> <span class="kw">Nil</span><span class="sym">,</span> TFMTBCDField<span class="sym">,</span> TWideStringField<span class="sym">,</span> TWideMemoField<span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>DefaultFieldClasses</var> contains the <a href="../db/tfield.html">TField</a> descendent class to use when a <var>TDataset</var>  instance needs to create fields based on the <a href="../db/tfielddefs.html">TFieldDefs</a> field definitions when opening the dataset. The entries can be set to create customized <var>TField</var> descendents for certain field datatypes in all datasets. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tfieldtype.html">TFieldType</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Field data type description</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfield.html">TField</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Provide access to the contents of a single field in a record</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfield.datatype.html">TField.DataType</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The data type of the field.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

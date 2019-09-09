@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFPHashObjectList.Extract</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../contnrs/index.html">Overview</a>][<a href="../contnrs/index-2.html">Constants</a>][<a href="../contnrs/index-3.html">Types</a>][<a href="../contnrs/index-4.html">Classes</a>][<a href="../contnrs/index-5.html">Procedures and functions</a>][<a href="../contnrs/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'contnrs' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TFPHashObjectList.Extract</h1>
+<p>Extract a object instance from the list</p>
+<h2>Declaration</h2>
+<p>Source position: contnrs.pp line 316</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../contnrs/tfphashobjectlist.html">TFPHashObjectList</a><span class="sym">.</span>Extract<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Item<span class="sym">: </span><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/system/tobject.html">TObject</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Item</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Object instance to be removed.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>The removed object instance or nil.</p>
+<h2>Description</h2>
+<p><var>Extract</var> removes the data object from the list, if it is in the list. It returns the object instance if it was removed from the list, <var>Nil</var> otherwise. The object is <em>not</em> freed from memory, regardless of the value of <a href="../contnrs/tfphashobjectlist.ownsobjects.html">OwnsObjects</a>. </p>
+<p><var>Extract</var> does a linear search, and is not very efficient. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../contnrs/tfphashobjectlist.delete.html">TFPHashObjectList.Delete</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Delete an object from the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../contnrs/tfphashobjectlist.remove.html">TFPHashObjectList.Remove</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Remove first occurrence of a object instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../contnrs/tfphashobjectlist.clear.html">TFPHashObjectList.Clear</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clear the list</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

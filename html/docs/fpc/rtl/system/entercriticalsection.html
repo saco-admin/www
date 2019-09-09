@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>EnterCriticalsection</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>EnterCriticalsection</h1>
+<p>Enter a critical section</p>
+<h2>Declaration</h2>
+<p>Source position: threadh.inc line 162</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> EnterCriticalsection<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>cs<span class="sym">: </span><a href="../system/trtlcriticalsection.html">TRTLCriticalSection</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>EnterCriticalSection</var> will suspend the current thread if another thread has currently entered the critical section. When the other thread has left the critical section (through <a href="../system/leavecriticalsection.html">LeaveCriticalSection</a>), the current thread resumes execution. The result is that only 1 thread is executing code which is protected by a <var>EnterCriticalsection</var> and  <var>LeaveCriticalSection</var> pair. </p>
+<p>The critical section must have been initialized with <a href="../system/initcriticalsection.html">InitCriticalSection</a> prior to a call to <var>EnterCriticalsection</var>. </p>
+<p>A call to <var>EnterCriticalsection</var> must always be matched by a call to <a href="../system/leavecriticalsection.html">LeaveCriticalSection</a>. To avoid problems, it is best to include the code to be execute in a <var>try...finally</var> block, as follows: </p>
+<pre>EnterCriticalSection<span class="sym">(</span>Section<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">Try</span> 
+    <span class="cmt">// Code to be protected goes here.</span>
+  <span class="kw">Finally</span>
+    LeaveCriticalSection<span class="sym">(</span>Section<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>For performance reasons it is best to limit the code between the entering and leaving of a critical section as short as possible. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/initcriticalsection.html">InitCriticalsection</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Initialize a critical section</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/donecriticalsection.html">DoneCriticalsection</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clean up a critical section.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/leavecriticalsection.html">LeaveCriticalsection</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Leave a critical section</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

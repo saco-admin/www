@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCollection.Load</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../objects/index.html">Overview</a>][<a href="../objects/index-2.html">Constants</a>][<a href="../objects/index-3.html">Types</a>][<a href="../objects/index-4.html">Classes</a>][<a href="../objects/index-5.html">Procedures and functions</a>][<a href="../objects/index-6.html">Variables</a>][<a href="../objects/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Objects' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TCollection.Load</h1>
+<p>Initialize a new collection and load collection from a stream.</p>
+<h2>Declaration</h2>
+<p>Source position: objects.pp line 405</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code">  <span class="kw">constructor</span> <a href="../objects/tcollection.html">TCollection</a><span class="sym">.</span>Load<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>S<span class="sym">: </span><a href="../objects/tstream.html">TStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Load</var> initializes a new instance of a collection. It reads from stream <var>S</var> the item count, the item limit count, and the increase size. After that, it reads the specified number of items from the stream.  </p>
+<h2>Errors</h2>
+<p>Errors returned can be those of <a href="../objects/tcollection.getitem.html">GetItem</a>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../objects/tcollection.init.html">TCollection.Init</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Instantiate a new collection.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../objects/tcollection.getitem.html">TCollection.GetItem</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read one item off the stream.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../objects/tcollection.done.html">TCollection.Done</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clean up collection, release all memory.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> ex22<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the TCollection.Load method }</span>
+
+<span class="kw">Uses</span> Objects<span class="sym">,</span>MyObject<span class="sym">;</span> <span class="cmt">{ For TMyObject definition and registration }</span>
+
+<span class="kw">Var</span> C <span class="sym">:</span> PCollection<span class="sym">;</span>
+    M <span class="sym">:</span> PMyObject<span class="sym">;</span>
+    I <span class="sym">:</span> Longint<span class="sym">;</span>
+    S <span class="sym">:</span> PMemoryStream<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  C<span class="sym">:=</span>New<span class="sym">(</span>PCollection<span class="sym">,</span>Init<span class="sym">(</span><span class="num">100</span><span class="sym">,</span><span class="num">10</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> to <span class="num">100</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    M<span class="sym">:=</span>New<span class="sym">(</span>PMyObject<span class="sym">,</span>Init<span class="sym">)</span><span class="sym">;</span>
+    M<span class="sym">^</span><span class="sym">.</span>SetField<span class="sym">(</span><span class="num">100</span><span class="sym">-</span>I<span class="sym">)</span><span class="sym">;</span>
+    C<span class="sym">^</span><span class="sym">.</span>Insert<span class="sym">(</span>M<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Inserted '</span><span class="sym">,</span>C<span class="sym">^</span><span class="sym">.</span>Count<span class="sym">,</span><span class="str">' objects'</span><span class="sym">)</span><span class="sym">;</span>
+  S<span class="sym">:=</span>New<span class="sym">(</span>PMemorySTream<span class="sym">,</span>Init<span class="sym">(</span><span class="num">1000</span><span class="sym">,</span><span class="num">10</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  C<span class="sym">^</span><span class="sym">.</span>Store<span class="sym">(</span>S<span class="sym">^</span><span class="sym">)</span><span class="sym">;</span>
+  C<span class="sym">^</span><span class="sym">.</span>FreeAll<span class="sym">;</span>
+  <span class="cmt">// Dispose(C,Done);</span>
+  S<span class="sym">^</span><span class="sym">.</span>Seek<span class="sym">(</span><span class="num">0</span><span class="sym">)</span><span class="sym">;</span>
+  C<span class="sym">^</span><span class="sym">.</span>Load<span class="sym">(</span>S<span class="sym">^</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Read '</span><span class="sym">,</span>C<span class="sym">^</span><span class="sym">.</span>Count<span class="sym">,</span><span class="str">' objects from stream.'</span><span class="sym">)</span><span class="sym">;</span>
+  Dispose<span class="sym">(</span>S<span class="sym">,</span>Done<span class="sym">)</span><span class="sym">;</span>
+  Dispose<span class="sym">(</span>C<span class="sym">,</span>Done<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>strnew</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>strnew</h1>
+<p>Allocate room for new null-terminated string.</p>
+<h2>Declaration</h2>
+<p>Source position: syspchh.inc line 35</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> strnew<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;p<span class="sym">: </span><a href="../system/pchar.html">PChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/pchar.html">PChar</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> strnew<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;p<span class="sym">: </span><a href="../system/pwidechar.html">PWideChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/pwidechar.html">PWideChar</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Copies <var>P</var> to the Heap, and returns a pointer to the copy. </p>
+<h2>Errors</h2>
+<p>Returns <var>Nil</var> if no memory was available for the copy. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/strcopy.html">StrCopy</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Copy a null-terminated string</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/strdispose.html">StrDispose</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Dispose of a null-terminated string on the heap.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example16<span class="sym">;</span>
+
+<span class="kw">Uses</span> strings<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the StrNew function. }</span>
+
+<span class="kw">Const</span> P1 <span class="sym">:</span> PChar <span class="sym">=</span> <span class="str">'This is a PChar string'</span><span class="sym">;</span>
+
+<span class="kw">var</span> P2 <span class="sym">:</span> PChar<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  P2<span class="sym">:=</span>StrNew <span class="sym">(</span>P1<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> P1<span class="sym">=</span>P2 <span class="kw">then</span>
+    writeln <span class="sym">(</span><span class="str">'This can''t be happening...'</span><span class="sym">)</span>
+  <span class="kw">else</span>
+    writeln <span class="sym">(</span><span class="str">'P2 : '</span><span class="sym">,</span>P2<span class="sym">)</span><span class="sym">;</span>
+  StrDispose<span class="sym">(</span>P2<span class="sym">)</span><span class="sym">;</span>  
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

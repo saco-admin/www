@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>What is it about?</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 3600--><div class="crosslinks"><p class="noindent">[<a 
+href="progse16.html" >next</a>] [<a 
+href="#tailprogse15.html">tail</a>] [<a 
+href="progch5.html#progse15.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">5.1   </span> <a 
+href="prog.html#QQ2-154-157" id="x154-1550005.1">What is it about?</a></h3>
+<!--l. 3602--><p class="noindent" >Free Pascal supports the new MMX (Multi-Media extensions) instructions of Intel processors. The
+idea of MMX is to process multiple data with one instruction, for example the processor can add
+simultaneously 4 words. To implement this efficiently, the Pascal language needs to be extended. So
+Free Pascal allows to add for example two <span 
+class="cmtt-10">array[0..3] of word</span>, if MMX support is switched on.
+The operation is done by the <span 
+class="cmtt-10">MMX </span>unit and allows people without assembler knowledge to take
+advantage of the MMX extensions.
+<!--l. 3612--><p class="noindent" >Here is an example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-167">
+uses
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;MMX;&#x00A0;&#x00A0;&#x00A0;{&#x00A0;include&#x00A0;some&#x00A0;predefined&#x00A0;data&#x00A0;types&#x00A0;}
+&#x00A0;<br />
+&#x00A0;<br />const
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;{&#x00A0;tmmxword&#x00A0;=&#x00A0;array[0..3]&#x00A0;of&#x00A0;word;,&#x00A0;declared&#x00A0;by&#x00A0;unit&#x00A0;MMX&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;w1&#x00A0;:&#x00A0;tmmxword&#x00A0;=&#x00A0;(111,123,432,4356);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;w2&#x00A0;:&#x00A0;tmmxword&#x00A0;=&#x00A0;(4213,63456,756,4);
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;w3&#x00A0;:&#x00A0;tmmxword;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;l&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;if&#x00A0;is_mmx_cpu&#x00A0;then&#x00A0;&#x00A0;{&#x00A0;is_mmx_cpu&#x00A0;is&#x00A0;exported&#x00A0;from&#x00A0;unit&#x00A0;mmx&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;begin
+&#x00A0;<br />{$mmx+}&#x00A0;&#x00A0;&#x00A0;{&#x00A0;turn&#x00A0;mmx&#x00A0;on&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;w3:=w1+w2;
+&#x00A0;<br />{$mmx-}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;else
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;for&#x00A0;i:=0&#x00A0;to&#x00A0;3&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;w3[i]:=w1[i]+w2[i];
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />end.
+</div>
+<!--l. 3639--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 3641--><div class="crosslinks"><p class="noindent">[<a 
+href="progse16.html" >next</a>] [<a 
+href="progse15.html" >front</a>] [<a 
+href="progch5.html#progse15.html" >up</a>] </p></div>
+<!--l. 3641--><p class="noindent" ><a 
+ id="tailprogse15.html"></a>  
+</body></html> 

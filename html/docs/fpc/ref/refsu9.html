@@ -1,0 +1,586 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Single-byte String types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 1292--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu10.html" >next</a>] [<a 
+href="refsu8.html" >prev</a>] [<a 
+href="refsu8.html#tailrefsu8.html" >prev-tail</a>] [<a 
+href="#tailrefsu9.html">tail</a>] [<a 
+href="refse13.html#refsu9.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.2.4   </span> <a 
+href="ref.html#QQ2-32-39" id="x32-350003.2.4">Single-byte String types</a></h4>
+<a 
+ id="dx32-35001"></a>
+<!--l. 1293--><p class="noindent" ><a name="keyword_String"></a><a 
+ id="dx32-35002"></a> Free Pascal supports the <span 
+class="cmtt-10">String </span>type as it is defined in Turbo Pascal: a sequence of single-byte characters
+with an optional size specification. It also supports ansistrings (with unlimited length) and codepage
+information<span class="footnote-mark"><a 
+href="#fn1x4" id="fn1x4-bk"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x32-35003f1"></a>
+as in Delphi.
+<!--l. 1298--><p class="noindent" >To declare a variable as a string, use the following type specification:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">String Type</span><br 
+class="newline" /><BR/><img 
+src="ref36x.png" alt="--string type -------string --|--------------------------------------
+            |            -[- unsigned integer- ]--     |
+            -type--|--string ----( -unsigned integer-)--
+                   -ansistring--
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 1300--><p class="noindent" >If there is a size specifier (using square brackets), then its maximum value - indicating the
+maximum size of the string - is 255. If there is a codepage specifier, (using round brackets) it
+indicates an ansistring with associated code page information.
+<!--l. 1304--><p class="noindent" >The meaning of a string declaration statement without size and code page indication is interpreted
+differently depending on the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H</span><span 
+class="cmsy-10">} </span>switch:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-44">
+var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;String;
+</div>
+<!--l. 1309--><p class="nopar" >If no size and code page indication indication is present, the above declaration can declare an
+ansistring or a short string.
+<!--l. 1313--><p class="noindent" >Whatever the actual type, single byte strings can be used interchangeably. The compiler always
+takes care of the necessary type conversions. Note, however, that the result of an expression that
+contains ansistrings and short strings will always be an ansistring.
+<!--l. 1317--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="refse13.html#QQ2-32-40" id="x32-360003.2.4">Short strings</a></h5>
+<a 
+ id="dx32-36001"></a>
+<a 
+ id="dx32-36002"></a>
+<!--l. 1318--><p class="noindent" ><a name="keyword_ShortString"></a><a 
+ id="dx32-36003"></a> A string declaration declares a short string in the following cases:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x32-36005x1">If the <span 
+class="cmtt-10">$H </span>switch is off: <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H-</span><span 
+class="cmsy-10">}</span>, the string declaration will always be a short string
+     declaration.
+     </li>
+     <li 
+  class="enumerate" id="x32-36007x2">If the switch is on <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H+</span><span 
+class="cmsy-10">}</span>, and there is a maximum length (the size) specifier, the
+     declaration is a short string declaration.</li></ol>
+<!--l. 1325--><p class="noindent" >Short strings are always assumed to use the system code page. The predefined type <span 
+class="cmtt-10">ShortString </span>is
+defined as a string of size 255:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-45">
+&#x00A0;ShortString&#x00A0;=&#x00A0;String[255];
+</div>
+<!--l. 1329--><p class="nopar" >If the size of the string is not specified, <span 
+class="cmtt-10">255 </span>is taken as a default. The actual length of
+the string can be obtained with the <span 
+class="cmtt-10">Length </span>standard runtime routine. For example
+in
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-46">
+{$H-}
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;NameString&#x00A0;=&#x00A0;String[10];
+&#x00A0;<br />&#x00A0;&#x00A0;StreetString&#x00A0;=&#x00A0;String;
+</div>
+<!--l. 1340--><p class="nopar" ><span 
+class="cmtt-10">NameString </span>can contain a maximum of 10 characters. While <span 
+class="cmtt-10">StreetString </span>can contain up to 255
+characters.
+<!--l. 1344--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Short strings have a maximum length of 255 characters: when specifying a maximum length, the
+maximum length may not exceed 255. If a length larger than 255 is attempted, then the compiler
+will give an error message:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-47">
+Error:&#x00A0;string&#x00A0;length&#x00A0;must&#x00A0;be&#x00A0;a&#x00A0;value&#x00A0;from&#x00A0;1&#x00A0;to&#x00A0;255
+</div>
+<!--l. 1350--><p class="nopar" >
+<!--l. 1352--><p class="noindent" >For short strings, the length is stored in the character at index 0. Old Turbo Pascal code relies on
+this, and it is implemented similarly in Free Pascal.
+<!--l. 1355--><p class="noindent" >Despite this, to write portable code, it is best to set the length of a shortstring with the <span 
+class="cmtt-10">SetLength</span>
+call, and to retrieve it with the <span 
+class="cmtt-10">Length </span>call. These functions will always work, whatever the
+internal representation of the shortstrings or other strings in use: this allows easy switching
+between the various string types.
+<!--l. 1362--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="refse13.html#QQ2-32-41" id="x32-370003.2.4">Ansistrings</a></h5>
+<a 
+ id="dx32-37001"></a>
+<a 
+ id="dx32-37002"></a>
+<a 
+ id="dx32-37003"></a>
+<a 
+ id="dx32-37004"></a>
+<a 
+ id="dx32-37005"></a>
+<a 
+ id="dx32-37006"></a>
+<!--l. 1364--><p class="noindent" ><a name="keyword_AnsiString"></a> Ansistrings are strings that have no length limit, and have a code page associated with
+them<span class="footnote-mark"><a 
+href="#fn2x4" id="fn2x4-bk"><sup class="textsuperscript">2</sup></a></span><a 
+ id="x32-37007f2"></a>.
+They are reference counted and are guaranteed to be null terminated.
+<!--l. 1369--><p class="noindent" >Internally, an ansistring is treated as a pointer: the actual content of the string is stored on the
+heap, as much memory as needed to store the string content is allocated.
+<!--l. 1372--><p class="noindent" >If no codepage is given in the declaration, the system codepage is assumed. What codepage this is,
+is determined by the <span 
+class="cmtt-10">DefaultSystemCodePage </span>constant in the system unit.
+<!--l. 1375--><p class="noindent" >This is all handled transparently, i.e. they can be manipulated as a normal short string. Ansistrings
+can be defined using the predefined <span 
+class="cmtt-10">AnsiString </span>type or using the <span 
+class="cmtt-10">string </span>keyword in mode
+<span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H+</span><span 
+class="cmsy-10">}</span>.
+<!--l. 1379--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> The null-termination does not mean that null characters (char(0) or #0) cannot be used: the
+null-termination is not used internally, but is there for convenience when dealing with external
+routines that expect a null-terminated string (as most C routines do).
+<!--l. 1386--><p class="noindent" >If the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H</span><span 
+class="cmsy-10">} </span>switch is on, then a string definition using the regular <span 
+class="cmtt-10">String </span>keyword that doesn&#8217;t
+contain a length specifier, will be regarded as an ansistring as well. If a length specifier is present, a
+short string will be used, regardless of the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H</span><span 
+class="cmsy-10">} </span>setting.
+<!--l. 1391--><p class="noindent" ><a name="keyword_nil"></a> If the string is empty (<span 
+class="cmtt-10">&#8217;&#8217;</span>), then the internal pointer representation of the string pointer is <span 
+class="cmtt-10">Nil</span>. If
+the string is not empty, then the pointer points to a structure in heap memory.
+<!--l. 1396--><p class="noindent" >The internal representation as a pointer, and the automatic null-termination make it possible to
+typecast<a 
+ id="dx32-37008"></a> an ansistring to a pchar. If the string is empty (so the pointer is <span 
+class="cmtt-10">Nil</span>) then the compiler
+makes sure that the typecasted pchar will point to a null byte.
+<!--l. 1401--><p class="noindent" >Assigning one ansistring to another doesn&#8217;t involve moving the actual string. A statement
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-48">
+&#x00A0;&#x00A0;S2:=S1;
+</div>
+<!--l. 1405--><p class="nopar" >results in the reference count of <span 
+class="cmtt-10">S2 </span>being decreased with 1, The reference count of <span 
+class="cmtt-10">S1 </span>is increased
+by 1, and finally <span 
+class="cmtt-10">S1 </span>(as a pointer) is copied to <span 
+class="cmtt-10">S2</span>. This is a significant speed-up in the
+code.
+<!--l. 1411--><p class="noindent" >If the reference count of a string reaches zero, then the memory occupied by the string is
+deallocated automatically, and the pointer is set to <span 
+class="cmtt-10">Nil</span>, so no memory leaks arise.
+<!--l. 1415--><p class="noindent" >When an ansistring is declared, the Free Pascal compiler initially allocates just memory for a
+pointer, not more. This pointer is guaranteed to be <span 
+class="cmtt-10">Nil</span>, meaning that the string is initially empty.
+This is true for local and global ansistrings or ansistrings that are part of a structure (arrays,
+records or objects).
+<!--l. 1421--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Note that a function result in this regard is considered equivalent to a <span 
+class="cmtt-10">var </span>parameter and hence
+will not be initialized to <span 
+class="cmtt-10">Nil</span>. As a consequence it may point to a legitimate non-<span 
+class="cmtt-10">Nil </span>ansistring
+when the function begins.
+<!--l. 1428--><p class="noindent" >This does introduce an overhead. For instance, declaring
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-49">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;Array[1..100000]&#x00A0;of&#x00A0;string;
+</div>
+<!--l. 1432--><p class="nopar" >Will copy the value <span 
+class="cmtt-10">Nil </span>100,000 times into <span 
+class="cmtt-10">A</span>. When <span 
+class="cmtt-10">A </span>goes out of scope<a 
+ id="dx32-37009"></a>, then the reference
+count of the 100,000 strings will be decreased by 1 for each of these strings. All this
+happens invisible to the programmer, but when considering performance issues, this is
+important.
+<!--l. 1439--><p class="noindent" >Memory for the string content will be allocated only when the string is assigned a value. If the
+string goes out of scope, then its reference count is automatically decreased by 1. If the reference
+count reaches zero, the memory reserved for the string is released.
+<!--l. 1444--><p class="noindent" >If a value is assigned to a character of a string that has a reference count greater than 1, such as in
+the following statements:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-50">
+&#x00A0;&#x00A0;S:=T;&#x00A0;&#x00A0;{&#x00A0;reference&#x00A0;count&#x00A0;for&#x00A0;S&#x00A0;and&#x00A0;T&#x00A0;is&#x00A0;now&#x00A0;2&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;S[I]:=&#8217;@&#8217;;
+</div>
+<!--l. 1450--><p class="nopar" >then a copy of the string is created before the assignment. This is known as <span 
+class="cmti-10">copy-on-write</span>
+semantics. It is possible to force a string to have reference count equal to 1 with the <span 
+class="cmtt-10">UniqueString</span>
+call:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-51">
+&#x00A0;&#x00A0;S:=T;
+&#x00A0;<br />&#x00A0;&#x00A0;R:=T;&#x00A0;//&#x00A0;Reference&#x00A0;count&#x00A0;of&#x00A0;T&#x00A0;is&#x00A0;at&#x00A0;least&#x00A0;3
+&#x00A0;<br />&#x00A0;&#x00A0;UniqueString(T);
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Reference&#x00A0;count&#x00A0;of&#x00A0;T&#x00A0;is&#x00A0;guaranteed&#x00A0;1
+</div>
+<!--l. 1459--><p class="nopar" >It&#8217;s recommended to do this e.g. when typecasting an ansistring to a PChar var and passing it to a
+C routine that modifies the string.
+<!--l. 1463--><p class="noindent" >The <span 
+class="cmtt-10">Length </span>function must be used to get the length of an ansistring: the length is not stored at
+character 0 of the ansistring. The construct
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-52">
+&#x00A0;L:=ord(S[0]);
+</div>
+<!--l. 1468--><p class="nopar" >which was valid for Turbo Pascal shortstrings, is no longer correct for Ansistrings. The compiler
+will warn if such a construct is encountered.
+<!--l. 1473--><p class="noindent" >To set the length of an ansistring, the <span 
+class="cmtt-10">SetLength </span>function must be used. Constant ansistrings have
+a reference count of <span 
+class="cmtt-10">-1 </span>and are treated specially, The same remark as for <span 
+class="cmtt-10">Length </span>must be given:
+The construct
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-53">
+&#x00A0;&#x00A0;L:=12;
+&#x00A0;<br />&#x00A0;&#x00A0;S[0]:=Char(L);
+</div>
+<!--l. 1479--><p class="nopar" >which was valid for Turbo Pascal shortstrings, is no longer correct for Ansistrings. The compiler
+will warn if such a construct is encountered.
+<!--l. 1483--><p class="noindent" >Ansistrings are converted to short strings by the compiler if needed, this means that the use of
+ansistrings and short strings can be mixed without problems.
+<!--l. 1487--><p class="noindent" >Ansistrings can be typecasted<a 
+ id="dx32-37010"></a> to <span 
+class="cmtt-10">PChar </span>or <span 
+class="cmtt-10">Pointer </span>types: <a 
+ id="dx32-37011"></a><a 
+ id="dx32-37012"></a>
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-54">
+Var&#x00A0;P&#x00A0;:&#x00A0;Pointer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;PC&#x00A0;:&#x00A0;PChar;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;S&#x00A0;:&#x00A0;AnsiString;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;S&#x00A0;:=&#8217;This&#x00A0;is&#x00A0;an&#x00A0;ansistring&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;PC:=Pchar(S);
+&#x00A0;<br />&#x00A0;&#x00A0;P&#x00A0;:=Pointer(S);
+</div>
+<!--l. 1498--><p class="nopar" >There is a difference between the two typecasts. When an empty ansistring is typecasted to a
+pointer, the pointer will be <span 
+class="cmtt-10">Nil</span>. If an empty ansistring is typecasted to a <span 
+class="cmtt-10">PChar</span>, then the result
+will be a pointer to a zero byte (an empty string).
+<!--l. 1504--><p class="noindent" >The result of such a typecast must be used with care. In general, it is best to consider the result of
+such a typecast as read-only, i.e. only suitable for passing to a procedure that needs a constant
+pchar argument.
+<!--l. 1508--><p class="noindent" >It is therefore <span 
+class="cmti-10">not </span>advisable to typecast one of the following:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x32-37014x1">Expressions.
+     </li>
+     <li 
+  class="enumerate" id="x32-37016x2">Strings  that  have  reference  count  larger  than  1.  In  this  case  you  should  call
+     <span 
+class="cmtt-10">Uniquestring </span>to ensure the string has reference count 1.</li></ol>
+<!--l. 1516--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="refse13.html#QQ2-32-42" id="x32-380003.2.4">Code page conversions</a></h5>
+<a 
+ id="dx32-38001"></a>
+<a 
+ id="dx32-38002"></a>
+<a 
+ id="dx32-38003"></a>
+<a 
+ id="dx32-38004"></a>
+<!--l. 1518--><p class="noindent" ><a name="keyword_Rawbytestring"></a> Since strings have code page information associated with them, it is important to know which
+code page a string uses:
+     <ul class="itemize1">
+     <li class="itemize">Short strings always use the system code page.
+     </li>
+     <li class="itemize">Plain ansistrings use the system code page.
+     </li>
+     <li class="itemize">Single byte strings with declared code page use that code page.
+     </li>
+     <li class="itemize">The <span 
+class="cmtt-10">RawBytestring </span>type has no code page information associated with it.
+     </li>
+     <li class="itemize">Constant strings have the code page of the source file. If none is specified the system
+     codepage is used (CP_ACP).<br 
+class="newline" />See <a 
+href="../prog/prog.html" >Programmer&#8217;s Guide</a>, <span 
+class="cmsy-10">{</span>$CODEPAGE <span 
+class="cmsy-10">} </span>directive.</li></ul>
+                                                                            
+
+                                                                            
+<!--l. 1529--><p class="noindent" >This code page is called the declared code page.
+<!--l. 1531--><p class="noindent" >The compiler will convert the code page of strings as needed: When assigning a string, the actual
+codepage of the source string will be converted to the declared code page of the target string if the
+declared source and target code pages are different.
+<!--l. 1535--><p class="noindent" >If a string with a declared page <span 
+class="cmtt-10">SOURCE</span><span 
+class="cmtt-10">_CP </span>assigned to a string with declared code page <span 
+class="cmtt-10">DEST</span><span 
+class="cmtt-10">_CP</span>,
+in a file with code page <span 
+class="cmtt-10">CODE</span><span 
+class="cmtt-10">_CP </span>then the following describes the mechanism:
+     <ul class="itemize1">
+     <li class="itemize">if (<span 
+class="cmtt-10">SOURCE</span><span 
+class="cmtt-10">_CP</span>=<span 
+class="cmtt-10">CP</span><span 
+class="cmtt-10">_NONE</span>) or (<span 
+class="cmtt-10">DEST</span><span 
+class="cmtt-10">_CP </span>= <span 
+class="cmtt-10">CP</span><span 
+class="cmtt-10">_NONE</span>), see RawByteString.
+     </li>
+     <li class="itemize">if (<span 
+class="cmtt-10">CODE</span><span 
+class="cmtt-10">_CP </span>¡¿ <span 
+class="cmtt-10">CP</span><span 
+class="cmtt-10">_ACP</span>), then if (<span 
+class="cmtt-10">DEST</span><span 
+class="cmtt-10">_CP </span>= <span 
+class="cmtt-10">CP</span><span 
+class="cmtt-10">_ACP</span>) and (<span 
+class="cmtt-10">SOURCE</span><span 
+class="cmtt-10">_CP </span>= <span 
+class="cmtt-10">CODE</span><span 
+class="cmtt-10">_CP</span>) or
+     vice versa, no conversion will occur, even if at run time <span 
+class="cmtt-10">DefaultSystemCodePage </span>has
+     a different value from <span 
+class="cmtt-10">SOURCE</span><span 
+class="cmtt-10">_CP</span>. <br 
+class="newline" />The reason for this &#8221;(<span 
+class="cmtt-10">CODE</span><span 
+class="cmtt-10">_CP </span>¡¿<span 
+class="cmtt-10">CP</span><span 
+class="cmtt-10">_ACP</span>)&#8221; condition is backward compatibility with
+     previous FPC versions: While they did not support <span 
+class="cmtt-10">AnsiStrings </span>with arbitrary code
+     pages, they did always reinterpret <span 
+class="cmtt-10">AnsiStrings </span>according to the current value of the
+     system code page. <br 
+class="newline" />Otherwise,
+     </li>
+     <li class="itemize">if (<span 
+class="cmtt-10">SOURCE</span><span 
+class="cmtt-10">_CP </span>¡¿ <span 
+class="cmtt-10">DEST</span><span 
+class="cmtt-10">_CP</span>), the string data will be converted from codepage <span 
+class="cmtt-10">SOURCE</span><span 
+class="cmtt-10">_CP</span>
+     to codepage <span 
+class="cmtt-10">DEST</span><span 
+class="cmtt-10">_CP </span>before assignment, whereby <span 
+class="cmtt-10">CP</span><span 
+class="cmtt-10">_ACP </span>will be interpreted as the
+     current value of <span 
+class="cmtt-10">DefaultSystemCodePage</span>. Otherwise,
+     </li>
+     <li class="itemize">if (<span 
+class="cmtt-10">SOURCE</span><span 
+class="cmtt-10">_CP </span>= <span 
+class="cmtt-10">DEST</span><span 
+class="cmtt-10">_CP</span>), no codepage conversion will be performed.</li></ul>
+<!--l. 1557--><p class="noindent" >These rules mean that it is perfectly possible for an <span 
+class="cmtt-10">AnsiString </span>variable to get a code page that
+differs from its declared code page. E.g. in the third case <span 
+class="cmtt-10">SOURCE</span><span 
+class="cmtt-10">_CP </span>could be <span 
+class="cmtt-10">CP</span><span 
+class="cmtt-10">_ACP</span>, while after
+the assignment it may have a dynamic code page equal to <span 
+class="cmtt-10">DefaultSystemCodePage</span>.
+<!--l. 1562--><p class="noindent" >Note: as mentioned above, whether or not a potential code page conversion happens only depends
+on the declared code pages of the involved strings. This means that if you assign one AnsiString(X)
+to another AnsiString(X) and the former&#8217;s dynamic code was different from X, the string data will
+not be converted to code page X by the assignment.
+<!--l. 1568--><p class="noindent" >All this means that in the following code:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-55">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TString1&#x00A0;=&#x00A0;Type&#x00A0;String(1252);
+&#x00A0;<br />&#x00A0;&#x00A0;TString2&#x00A0;=&#x00A0;Type&#x00A0;String(1251);
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;TString1;
+&#x00A0;<br />&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;TString2;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;A:=&#8217;123&#8217;+&#8217;345&#8217;+intToStr(123);
+&#x00A0;<br />&#x00A0;&#x00A0;B:=A;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;B&#x00A0;:&#x00A0;&#8217;,StringRefCount(B));
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;A&#x00A0;:&#x00A0;&#8217;,StringRefCount(A));
+&#x00A0;<br />end.
+</div>
+<!--l. 1584--><p class="nopar" >The compiler will convert the contents in string <span 
+class="cmtt-10">B </span>to the codepage of string <span 
+class="cmtt-10">A</span>. Note that if a code
+page conversion takes place, the reference count mechanism is not used: a new string will be
+allocated.
+<!--l. 1589--><p class="noindent" >This automated conversion of code pages can slow down the code seriously, so care must be taken
+to see to it that the code page conversions are limited to a minimum.
+<!--l. 1594--><p class="noindent" >The code page of a string can be set explicitly using the <span 
+class="cmtt-10">SetCodePage </span>routine of the
+system unit. Calling this routine will convert the value of a string to the requested code
+page.
+<!--l. 1597--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Code page conversions can result in loss of data: if a certain character cannot be represented in
+the target code page, the output for that character is undefined.
+<!--l. 1602--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> When a string whose static code page equals the source file code page, to anything with code page
+CP_ACP (i.e., a plain ansistring, shortstring, or pchar), no conversion will be performed
+either. No code page conversion is done when s can result in loss of data: if a certain
+character cannot be represented in the target code page, the output for that character is
+undefined.
+<!--l. 1611--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Code page support requires quite some helper routines, these are implemented in the
+unicodestring manager. On windows, the system routines are used for this. On Unices, the
+<span 
+class="cmtt-10">cwstring </span>unit can be used to link to the C library and use the C library conversion support.
+Alternatively, the <span 
+class="cmtt-10">fpwidestring </span>unit contains a unicodestring manager implemented natively in
+Object Pascal.
+<!--l. 1619--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="refse13.html#QQ2-32-43" id="x32-390003.2.4">RawByteString</a></h5>
+<a 
+ id="dx32-39001"></a>
+<a 
+ id="dx32-39002"></a>
+<a 
+ id="dx32-39003"></a>
+<a 
+ id="dx32-39004"></a>
+<!--l. 1621--><p class="noindent" ><a name="keyword_Rawbytestring"></a> The pre-defined <span 
+class="cmtt-10">RawByteString </span>type is an ansistring string type without codepage information
+(<span 
+class="cmtt-10">CP</span><span 
+class="cmtt-10">_NONE</span>):
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-56">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;RawByteString&#x00A0;=&#x00A0;type&#x00A0;ansistring(CP_NONE);
+</div>
+<!--l. 1626--><p class="nopar" >It is treated specially in the sense that if the conversion routines encounter <span 
+class="cmtt-10">CP</span><span 
+class="cmtt-10">_NONE </span>in a source or
+target string, no code page conversion is performed, the code page of the source string is
+preserved.
+<!--l. 1630--><p class="noindent" >For this reason, most single-byte string routines in the system and sysutils units use the
+<span 
+class="cmtt-10">RawByteString </span>type.
+<!--l. 1632--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="refse13.html#QQ2-32-44" id="x32-400003.2.4">UTF8String</a></h5>
+<a 
+ id="dx32-40001"></a>
+<a 
+ id="dx32-40002"></a>
+<a 
+ id="dx32-40003"></a>
+<a 
+ id="dx32-40004"></a>
+<!--l. 1634--><p class="noindent" ><a name="keyword_UTF8String"></a> Single-byte code page strings can only store the characters available in that code page. Characters
+that are not present in the code page, cannot be represented by that string. The UTF-8 unicode
+encoding is an encoding that can be used with single-byte strings: The ASCII characters (ordinal
+value ¡128) in this encoding map exactly to the CP_ACP encoding. This fact is used to define a
+single byte string type that can contain all characters:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-57">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;UTF8String&#x00A0;=&#x00A0;type&#x00A0;AnsiString(CP_UTF8);
+</div>
+<!--l. 1643--><p class="nopar" >The <span 
+class="cmtt-10">UTF8string </span>string type can be used to represent all Unicode characters. This power comes as
+a price, though. Since a unicode character may require several bytes to be represented in the
+UTF-8 encoding, there are 2 points to take care of when using UTF8String:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x32-40006x1">The character index &#8211; which retrieves a byte-sized char at a certain position &#8211; must
+     be used with care: the expression <span 
+class="cmtt-10">S[i] </span>will not necessarily be a valid character for a
+     string <span 
+class="cmtt-10">S </span>of type <span 
+class="cmtt-10">UTF8String</span>.
+     </li>
+     <li 
+  class="enumerate" id="x32-40008x2">The byte length of the string is not equal to the number of characters in the string. The
+     standard function <span 
+class="cmtt-10">length </span>cannot be used to get the character length, it will always
+     return the byte length.</li></ol>
+<!--l. 1653--><p class="noindent" >For all other code pages, the number of characters in a single-byte code page string is equal to the
+byte length of the string.
+                                                                            
+
+                                                                            
+<div class="footnotes"><!--l. 1296--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn1x4-bk" id="fn1x4"><sup class="textsuperscript">1</sup></a></span><span 
+class="cmr-8">As of version 3.0 of Free Pascal</span>
+<!--l. 1366--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn2x4-bk" id="fn2x4"><sup class="textsuperscript">2</sup></a></span><span 
+class="cmr-8">codepage was introduced in version 3.0 of Free Pascal</span>                                   </div> <!--l. 1656--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu10.html" >next</a>]
+[<a 
+href="refsu8.html" >prev</a>] [<a 
+href="refsu8.html#tailrefsu8.html" >prev-tail</a>] [<a 
+href="refsu9.html" >front</a>] [<a 
+href="refse13.html#refsu9.html" >up</a>] </p></div>
+<!--l. 1656--><p class="noindent" ><a 
+ id="tailrefsu9.html"></a>  
+</body></html> 

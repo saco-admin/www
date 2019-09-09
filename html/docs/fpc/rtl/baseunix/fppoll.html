@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpPoll</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpPoll</h1>
+<p>Poll a file descriptor for events.</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 97</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpPoll<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;fds<span class="sym">: </span><a href="../baseunix/ppollfd.html">ppollfd</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;nfds<span class="sym">: </span><a href="../baseunix/cuint.html">cuint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;timeout<span class="sym">: </span><a href="../baseunix/clong.html">clong</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>fpPoll</var> waits for events on file descriptors.  <var>fds</var> points to an array of <var>tpollfd</var> records, each of these records describes a file descriptor on which to wait for events. The number of  file descriptors is given by <var>nfds</var>. <var>&gt;timeout</var> specifies the maximum time (in milliseconds) to wait for events. </p>
+<p>On timeout, the result value is 0. If an event occurred on some descriptors, then the return value is the number of descriptors on which an event (or error) occurred. The <var>revents</var> field of the <var>tpollfd</var> records will contain the events for the file descriptor it described. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/tpollfd.html">tpollfd</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Alias for <var>pollfd</var> type</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

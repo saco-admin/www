@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFPList.IndexOfItem</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TFPList.IndexOfItem</h1>
+<p>Search an item in the list</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 252</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../classes/tfplist.html">TFPList</a><span class="sym">.</span>IndexOfItem<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Item<span class="sym">: </span>Pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Direction<span class="sym">: </span><a href="../types/tdirection.html">TDirection</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>IndexOfItem</var> has the same function as the <b>IndexOf</b> function: it searches for <var>Item</var> in the list, and returns the index of the first found matching pointer. If none is found, -1 is returned.  </p>
+<p>In difference with the <var>IndexOf</var> function, it accepts a parameter <var>Direction</var> indicating the search direction: from the beginning of the list till the end of the list, or from the end of the list till the beginning. The <var>IndexOf</var> function starts at the beginning of the list. The search direction is only important if the item can appear multiple times in the list. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/tfplist.tdirection.html">TFPList.TDirection</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search direction for IndexOfItem</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tfplist.indexof.html">TFPList.IndexOf</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the index of a given pointer. </p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TExeFile</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../exeinfo/index.html">Overview</a>][<a href="../exeinfo/index-3.html">Types</a>][<a href="../exeinfo/index-5.html">Procedures and functions</a>][<a href="../exeinfo/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'exeinfo' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TExeFile</h1>
+<p>Structure describing the binary.</p>
+<h2>Declaration</h2>
+<p>Source position: exeinfo.pp line 32</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TExeFile<span class="sym"> = </span><span class="kw">record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;f<span class="sym">: </span>file<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">File handle to the executable image on disk.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;size<span class="sym">: </span><a href="../system/int64.html">Int64</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Size of the executable</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;isopen<span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the file handle <var>f</var> open ?</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;nsects<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of sections in the binary</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;sechdrofs<span class="sym">: </span><a href="../system/ptruint.html">PtrUInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Section header offset</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;secstrofs<span class="sym">: </span><a href="../system/ptruint.html">PtrUInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Section strings offset.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;processaddress<span class="sym">: </span><a href="../system/ptruint.html">PtrUInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Used on BEOS only</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;FunctionRelative<span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Internal variable</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ImgOffset<span class="sym">: </span><a href="../system/ptruint.html">PtrUInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Image offset</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;filename<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Filename of binary file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;buf<span class="sym">: </span><span class="kw">array</span> <span class="sym">[</span><span class="num">0</span><span class="sym">.</span><span class="sym">.</span><span class="num">4095</span><span class="sym">]</span> <span class="kw">of</span> <a href="../system/byte.html">Byte</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Buffer used in internal read operations</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;bufsize<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Size of internal buffer</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;bufcnt<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of bytes in the buffer.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TExeFile</var> is a record used in the various calls of this unit. It contains a file descriptor, and various fields that describe the  executable. </p>
+<p>The structure of <var>TExeFile</var> is opaque, that is, one shouldn't rely on the exactness of this structure, it may change any time in the future. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../exeinfo/openexefile.html">OpenExeFile</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Open an executable file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../exeinfo/closeexefile.html">CloseExeFile</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Close a previously opened file.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

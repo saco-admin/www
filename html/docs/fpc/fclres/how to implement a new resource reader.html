@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>How to implement a new resource reader</title>
+<link rel="stylesheet" href="fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="how to implement a new resource class.html">Previous</a>][<a href="index.html">Up</a>][<a href="how to implement a new resource writer.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle"> (<a href="index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h2>How to implement a new resource reader</h2>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>This chapter assumes you have some experience in using this library.</td>
+</tr>
+</table>
+<p>We'll see how to implement a reader for a new resource file format. A resource reader is a descendant of <b>TAbstractResourceReader</b>, and it's usually implemented in a unit named <var>namereader</var>, where <i>name</i> is file format name.</p>
+<p>Suppose we must write a reader for file format <i>foo</i>; we could start with a unit like this:</p>
+<pre><span class="kw">unit</span> fooreader<span class="sym">;</span>
+
+<span class="dir">{$MODE OBJFPC}</span> <span class="dir">{$H+}</span>
+
+<span class="kw">interface</span>
+
+<span class="kw">uses</span>
+  Classes<span class="sym">,</span> SysUtils<span class="sym">,</span> resource<span class="sym">;</span>
+
+<span class="kw">type</span>
+  TFooResourceReader <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span>TAbstractResourceReader<span class="sym">)</span>
+  <span class="kw">protected</span>
+    <span class="kw">function</span> GetExtensions <span class="sym">:</span> string<span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+    <span class="kw">function</span> GetDescription <span class="sym">:</span> string<span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+    <span class="kw">procedure</span> Load<span class="sym">(</span>aResources <span class="sym">:</span> TResources<span class="sym">;</span> aStream <span class="sym">:</span> TStream<span class="sym">)</span><span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+    <span class="kw">function</span> CheckMagic<span class="sym">(</span>aStream <span class="sym">:</span> TStream<span class="sym">)</span> <span class="sym">:</span> boolean<span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+  <span class="kw">public</span>
+    <span class="kw">constructor</span> Create<span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">implementation</span>
+
+<span class="kw">function</span> TFooResourceReader<span class="sym">.</span>GetExtensions<span class="sym">:</span> string<span class="sym">;</span>
+<span class="kw">begin</span>
+
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">function</span> TFooResourceReader<span class="sym">.</span>GetDescription<span class="sym">:</span> string<span class="sym">;</span>
+<span class="kw">begin</span>
+
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">procedure</span> TFooResourceReader<span class="sym">.</span>Load<span class="sym">(</span>aResources<span class="sym">:</span> TResources<span class="sym">;</span> aStream<span class="sym">:</span> TStream<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">begin</span>
+
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">function</span> TFooResourceReader<span class="sym">.</span>CheckMagic<span class="sym">(</span>aStream<span class="sym">:</span> TStream<span class="sym">)</span><span class="sym">:</span> boolean<span class="sym">;</span>
+<span class="kw">begin</span>
+
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">constructor</span> TFooResourceReader<span class="sym">.</span>Create<span class="sym">;</span>
+<span class="kw">begin</span>
+
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">initialization</span>
+  TResources<span class="sym">.</span>RegisterReader<span class="sym">(</span><span class="str">'.foo'</span><span class="sym">,</span>TFooResourceReader<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<p>Note that in the <var>initialization</var> section, <var>TFooResourceReader</var> is registered for extension <var>.foo</var>.</p>
+<p>We must implement abstract methods of <b>TAbstractResourceReader</b>. Let's start with the simpler ones, <b>GetExtensions</b> and <b>GetDescription</b>.</p>
+<pre><span class="kw">function</span> TFooResourceReader<span class="sym">.</span>GetExtensions<span class="sym">:</span> string<span class="sym">;</span>
+<span class="kw">begin</span>
+  Result<span class="sym">:=</span><span class="str">'.foo'</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">function</span> TFooResourceReader<span class="sym">.</span>GetDescription<span class="sym">:</span> string<span class="sym">;</span>
+<span class="kw">begin</span>
+  Result<span class="sym">:=</span><span class="str">'FOO resource reader'</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>Now let's see <b>CheckMagic</b> method. This method is called with a stream as a parameter, and the reader must return <var>true</var> if it recognizes the stream as a valid one. Usually this means checking some magic number or header.</p>
+<pre><span class="kw">function</span> TFooResourceReader<span class="sym">.</span>CheckMagic<span class="sym">(</span>aStream<span class="sym">:</span> TStream<span class="sym">)</span><span class="sym">:</span> boolean<span class="sym">;</span>
+<span class="kw">var</span> signature <span class="sym">:</span> <span class="kw">array</span><span class="sym">[</span><span class="num">0</span><span class="sym">.</span><span class="sym">.</span><span class="num">3</span><span class="sym">]</span> <span class="kw">of</span> char<span class="sym">;</span>
+<span class="kw">begin</span>
+  Result<span class="sym">:=</span>false<span class="sym">;</span>
+  <span class="kw">try</span>
+    aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>signature<span class="sym">[</span><span class="num">0</span><span class="sym">]</span><span class="sym">,</span><span class="num">4</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">except</span>
+    <span class="kw">on</span> e <span class="sym">:</span> EReadError <span class="kw">do</span> <span class="kw">exit</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+  Result<span class="sym">:=</span>signature<span class="sym">=</span><span class="str">'FOO*'</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span> 
+</pre>
+<p>Suppose our foo files start with a 4-byte signature <var>'FOO*'</var>. This method checks the signature and returns <var>true</var> if it is verified. Note that it catches <var>EReadError</var> exception raised by <var>TStream</var>: this way, if the stream is too short it returns <var>false</var> (as it should, since magic is not valid) instead of letting the exception to propagate.</p>
+<p>Now let's see <b>Load</b>. This method must read the stream and create resources in the <b>TResources</b> object, with information about their name, type, position and size of their raw data, and so on.</p>
+<pre><span class="kw">procedure</span> TFooResourceReader<span class="sym">.</span>Load<span class="sym">(</span>aResources<span class="sym">:</span> TResources<span class="sym">;</span> aStream<span class="sym">:</span> TStream<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">begin</span>
+  <span class="kw">if</span> <span class="kw">not</span> CheckMagic<span class="sym">(</span>aStream<span class="sym">)</span> <span class="kw">then</span>
+    <span class="kw">raise</span> EResourceReaderWrongFormatException<span class="sym">.</span>Create<span class="sym">(</span><span class="str">''</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">try</span>
+    ReadResources<span class="sym">(</span>aResources<span class="sym">,</span>aStream<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">except</span>
+    <span class="kw">on</span> e <span class="sym">:</span> EReadError <span class="kw">do</span>
+      <span class="kw">raise</span> EResourceReaderUnexpectedEndOfStreamException<span class="sym">.</span>Create<span class="sym">(</span><span class="str">''</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>First of all, this method checks file magic number, calling <b>CheckMagic</b> method we already implemented. This is necessary since <b>CheckMagic</b> is not called before <b>Load</b>: <b>CheckMagic</b> is invoked by <b>TResources</b> when probing a stream, while <b>Load</b> is invoked when loading resources (so if the user passed a reader object to a <b>TResources</b> object, <b>CheckMagic</b> is never called). Note also that the stream is always at its starting position when these methods are called.</p>
+<p>If magic number is ok, our method invokes another method to do the actual loading. If during this process the stream can't be read, an <b>EResourceReaderUnexpectedEndOfStreamException</b> exception is raised.</p>
+<p>So, let's implement the private method which will load resources.</p>
+<p>Suppose that our foo format is very simple:</p>
+<ul>
+<li>the header is made by the 4-byte signature we already saw, a <var>longword</var> holding the number of resources in the file, and other 8 bytes of padding.</li>
+<li><p>each resource has a 16-byte header containing:</p><ul>
+<li>a longword for the resource type (only IDs are allowed for types)</li>
+<li>a longword for the resource name (only IDs are allowed for names)</li>
+<li>a longword for the language ID</li>
+<li>a longword for the size of the resource data</li></ul></li>
+<li>after the resource header immediately comes the resource data, possibly padded so that it ends on a 4 byte boundary. </li>
+<li>file format is little-endian </li>
+</ul>
+<p>To start with, our method will be:</p>
+<pre><span class="kw">procedure</span> TFooResourceReader<span class="sym">.</span>ReadResources<span class="sym">(</span>aResources<span class="sym">:</span> TResources<span class="sym">;</span> aStream<span class="sym">:</span> TStream<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">var</span> Count<span class="sym">,</span> i<span class="sym">:</span> longword<span class="sym">;</span>
+    aType<span class="sym">,</span> aName<span class="sym">,</span> aLangID <span class="sym">:</span> longword<span class="sym">;</span>
+    aDataSize <span class="sym">:</span> longword<span class="sym">;</span>
+<span class="kw">begin</span>
+  <span class="cmt">//read remaining file header</span>
+  aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>Count<span class="sym">,</span>sizeof<span class="sym">(</span>Count<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  aStream<span class="sym">.</span>Seek<span class="sym">(</span><span class="num">8</span><span class="sym">,</span>soFromCurrent<span class="sym">)</span><span class="sym">;</span>
+
+  <span class="kw">for</span> i<span class="sym">:=</span><span class="num">1</span> to Count <span class="kw">do</span>
+  <span class="kw">begin</span>
+    <span class="cmt">//read resource header</span>
+    aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>aType<span class="sym">,</span>sizeof<span class="sym">(</span>aType<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>aName<span class="sym">,</span>sizeof<span class="sym">(</span>aName<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>aLangID<span class="sym">,</span>sizeof<span class="sym">(</span>aLangID<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>aDataSize<span class="sym">,</span>sizeof<span class="sym">(</span>aDataSize<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+
+  <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>Since in <b>Load</b> we called <b>CheckMagic</b>, which read the first 4 bytes of the header, we must read the remaining 12: we read the number of resources, and we skip the other 8 bytes of padding.</p>
+<p>Then, for each resource, we read the resource header. Note that if we are running on a big endian system we should swap the bytes we read, e.g. calling <var>SwapEndian</var> function, but for simplicity this is omitted.</p>
+<p>Now, we should create a resource. Of which class? Well, we must use <b>resfactory</b> unit. In fact it contains <b>TResourceFactory</b> class, which is an expert in creating resources of the right class: when the user adds a unit containing a resource class to the <var>uses</var> clause of its program, the resource class registers itself with <b>TResourceFactory</b>. This way it knows how to map resource types to resource classes.</p>
+<p>We need to have type and name of the resource to create as <b>TResourceDesc</b> objects: instead of creating and destroying these objects for each resource, we'll create a couple in the creator of our reader and we'll destroy them in the destructor, so that they will live for the whole life of our reader. Let's name them <var>workType</var> and <var>workName</var>.</p>
+<p>Our code becomes:</p>
+<pre><span class="kw">uses</span>
+  resfactory<span class="sym">;</span>
+
+<span class="kw">procedure</span> TFooResourceReader<span class="sym">.</span>ReadResources<span class="sym">(</span>aResources<span class="sym">:</span> TResources<span class="sym">;</span> aStream<span class="sym">:</span> TStream<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">var</span> Count<span class="sym">,</span> i<span class="sym">:</span> longword<span class="sym">;</span>
+    aType<span class="sym">,</span> aName<span class="sym">,</span> aLangID <span class="sym">:</span> longword<span class="sym">;</span>
+    aDataSize <span class="sym">:</span> longword<span class="sym">;</span>
+    aRes <span class="sym">:</span> TAbstractResource<span class="sym">;</span>
+<span class="kw">begin</span>
+  <span class="cmt">//read remaining file header</span>
+  aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>Count<span class="sym">,</span>sizeof<span class="sym">(</span>Count<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  aStream<span class="sym">.</span>Seek<span class="sym">(</span><span class="num">8</span><span class="sym">,</span>soFromCurrent<span class="sym">)</span><span class="sym">;</span>
+
+  <span class="kw">for</span> i<span class="sym">:=</span><span class="num">1</span> to Count <span class="kw">do</span>
+  <span class="kw">begin</span>
+    <span class="cmt">//read resource header</span>
+    aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>aType<span class="sym">,</span>sizeof<span class="sym">(</span>aType<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>aName<span class="sym">,</span>sizeof<span class="sym">(</span>aName<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>aLangID<span class="sym">,</span>sizeof<span class="sym">(</span>aLangID<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>aDataSize<span class="sym">,</span>sizeof<span class="sym">(</span>aDataSize<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+
+    <span class="cmt">//create the resource</span>
+    workType<span class="sym">.</span>ID<span class="sym">:=</span>aType<span class="sym">;</span>
+    workName<span class="sym">.</span>ID<span class="sym">:=</span>aName<span class="sym">;</span>
+    aRes<span class="sym">:=</span>TResourceFactory<span class="sym">.</span>CreateResource<span class="sym">(</span>workType<span class="sym">,</span>workName<span class="sym">)</span><span class="sym">;</span>
+    SetDataSize<span class="sym">(</span>aRes<span class="sym">,</span>aDataSize<span class="sym">)</span><span class="sym">;</span>
+    SetDataOffset<span class="sym">(</span>aRes<span class="sym">,</span>aStream<span class="sym">.</span>Position<span class="sym">)</span><span class="sym">;</span>
+    aRes<span class="sym">.</span>LangID<span class="sym">:=</span>aLangID<span class="sym">;</span>
+
+  <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>Note that after the resource has been created we set its data size and data offset. Data offset is the current position in the stream, since in our FOO file format resource data immediately follows resource header.</p>
+<p>What else do we need to do? Of course we must create <b>RawData</b> stream for our resource, so that raw data can be accessed with the caching mechanism. We will create a <b>TResourceDataStream</b> object, telling it which resource and stream it is associated to, which its size will be and which class its underlying cached stream must be created from.</p>
+<p>So we add <b>resdatastream</b> to the <var>uses</var> clause, declare another local variable</p>
+<pre>aRawData <span class="sym">:</span> TResourceDataStream<span class="sym">;</span>
+</pre>
+<p>and add these lines in the for loop</p>
+<pre>aRawData<span class="sym">:=</span>TResourceDataStream<span class="sym">.</span>Create<span class="sym">(</span>aStream<span class="sym">,</span>aRes<span class="sym">,</span>aRes<span class="sym">.</span>DataSize<span class="sym">,</span>TCachedResourceDataStream<span class="sym">)</span><span class="sym">;</span>
+SetRawData<span class="sym">(</span>aRes<span class="sym">,</span>aRawData<span class="sym">)</span><span class="sym">;</span>
+</pre>
+<p>That is, aRawData will create its underlying stream as a <b>TCachedResourceDataStream</b> over the portion of <var>aStream</var> that starts at current position and ends after <var>aRes.DataSize bytes</var>.</p>
+<p>We almost finished: now we must add the newly created resource to the <b>TResources</b> object and move stream position to the next resource header. Complete code for <var>ReadResources</var> method is:</p>
+<pre><span class="kw">procedure</span> TFooResourceReader<span class="sym">.</span>ReadResources<span class="sym">(</span>aResources<span class="sym">:</span> TResources<span class="sym">;</span> aStream<span class="sym">:</span> TStream<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">var</span> Count<span class="sym">,</span> i<span class="sym">:</span> longword<span class="sym">;</span>
+    aType<span class="sym">,</span> aName<span class="sym">,</span> aLangID <span class="sym">:</span> longword<span class="sym">;</span>
+    aDataSize <span class="sym">:</span> longword<span class="sym">;</span>
+    aRes <span class="sym">:</span> TAbstractResource<span class="sym">;</span>
+    aRawData <span class="sym">:</span> TResourceDataStream<span class="sym">;</span>
+<span class="kw">begin</span>
+  <span class="cmt">//read remaining file header</span>
+  aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>Count<span class="sym">,</span>sizeof<span class="sym">(</span>Count<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  aStream<span class="sym">.</span>Seek<span class="sym">(</span><span class="num">8</span><span class="sym">,</span>soFromCurrent<span class="sym">)</span><span class="sym">;</span>
+
+  <span class="kw">for</span> i<span class="sym">:=</span><span class="num">1</span> to Count <span class="kw">do</span>
+  <span class="kw">begin</span>
+    <span class="cmt">//read resource header</span>
+    aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>aType<span class="sym">,</span>sizeof<span class="sym">(</span>aType<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>aName<span class="sym">,</span>sizeof<span class="sym">(</span>aName<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>aLangID<span class="sym">,</span>sizeof<span class="sym">(</span>aLangID<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    aStream<span class="sym">.</span>ReadBuffer<span class="sym">(</span>aDataSize<span class="sym">,</span>sizeof<span class="sym">(</span>aDataSize<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+
+    <span class="cmt">//create the resource</span>
+    workType<span class="sym">.</span>ID<span class="sym">:=</span>aType<span class="sym">;</span>
+    workName<span class="sym">.</span>ID<span class="sym">:=</span>aName<span class="sym">;</span>
+    aRes<span class="sym">:=</span>TResourceFactory<span class="sym">.</span>CreateResource<span class="sym">(</span>workType<span class="sym">,</span>workName<span class="sym">)</span><span class="sym">;</span>
+    SetDataSize<span class="sym">(</span>aRes<span class="sym">,</span>aDataSize<span class="sym">)</span><span class="sym">;</span>
+    SetDataOffset<span class="sym">(</span>aRes<span class="sym">,</span>aStream<span class="sym">.</span>Position<span class="sym">)</span><span class="sym">;</span>
+    aRes<span class="sym">.</span>LangID<span class="sym">:=</span>aLangID<span class="sym">;</span>
+
+    <span class="cmt">//set raw data</span>
+    aRawData<span class="sym">:=</span>TResourceDataStream<span class="sym">.</span>Create<span class="sym">(</span>aStream<span class="sym">,</span>aRes<span class="sym">,</span>aRes<span class="sym">.</span>DataSize<span class="sym">,</span>TCachedResourceDataStream<span class="sym">)</span><span class="sym">;</span>
+    SetRawData<span class="sym">(</span>aRes<span class="sym">,</span>aRawData<span class="sym">)</span><span class="sym">;</span>
+
+    <span class="cmt">//add to aResources</span>
+    <span class="kw">try</span>
+      aResources<span class="sym">.</span>Add<span class="sym">(</span>aRes<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">except</span>
+      <span class="kw">on</span> e <span class="sym">:</span> EResourceDuplicateException <span class="kw">do</span>
+      <span class="kw">begin</span>
+        aRes<span class="sym">.</span>Free<span class="sym">;</span>
+        <span class="kw">raise</span><span class="sym">;</span>
+      <span class="kw">end</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+
+    <span class="cmt">//go to next resource header</span>
+    aStream<span class="sym">.</span>Seek<span class="sym">(</span>aDataSize<span class="sym">,</span>soFromCurrent<span class="sym">)</span><span class="sym">;</span>
+    Align4Bytes<span class="sym">(</span>aStream<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p><var>Align4Bytes</var> is a private method (not shown for simplicity) that sets stream position to the next multiple of 4 if needed, since FOO file format specifies that resource data must be padded to end on a 4 byte boundary.</p>
+<p><b>Note:</b> We have used <b>Add</b> method to populate the <b>TResources</b> object. More complex file formats store resources in a tree hierarchy; since <b>TResources</b> internally stores resources in this way too, a reader can choose to acquire a reference to the internal tree used by the <b>TResources</b> object (see <b>TAbstractResourceReader.GetTree</b>), populate it and notify the <b>TResources</b> object about the added resources (see <b>TAbstractResourceReader.AddNoTree</b>). For these file formats resources can be loaded faster, since there is no overhead involved in keeping a separate resource tree in the reader.</p>
+<p>That's all. Now you should be able to create a real resource reader.</p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

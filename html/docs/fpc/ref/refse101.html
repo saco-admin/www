@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Assignment operators</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 10908--><div class="crosslinks"><p class="noindent">[<a 
+href="refse102.html" >next</a>] [<a 
+href="refse100.html" >prev</a>] [<a 
+href="refse100.html#tailrefse100.html" >prev-tail</a>] [<a 
+href="#tailrefse101.html">tail</a>] [<a 
+href="refch15.html#refse101.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">15.3   </span> <a 
+href="ref.html#QQ2-210-248" id="x210-23200015.3">Assignment operators</a></h3>
+<a 
+ id="dx210-232001"></a>
+<!--l. 10909--><p class="noindent" ><a name="keyword_operator"></a> The assignment operator defines the action of a assignent of one type of variable to another. The
+result type must match the type of the variable at the left of the assignment statement, the single
+parameter to the assignment operator must have the same type as the expression at the right of
+the assignment operator.
+<!--l. 10916--><p class="noindent" >This system can be used to declare a new type, and define an assignment for that type. For
+instance, to be able to assign a newly defined type &#8217;Complex&#8217;
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-443">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;C,Z&#x00A0;:&#x00A0;Complex;&#x00A0;//&#x00A0;New&#x00A0;type&#x00A0;complex
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Z:=C;&#x00A0;&#x00A0;//&#x00A0;assignments&#x00A0;between&#x00A0;complex&#x00A0;types.
+&#x00A0;<br />end;
+</div>
+<!--l. 10925--><p class="nopar" >The following assignment operator would have to be defined:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-444">
+Operator&#x00A0;:=&#x00A0;(C&#x00A0;:&#x00A0;Complex)&#x00A0;z&#x00A0;:&#x00A0;complex;
+</div>
+<!--l. 10929--><p class="nopar" >
+<!--l. 10931--><p class="noindent" >To be able to assign a real type to a complex type as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-445">
+var
+&#x00A0;<br />&#x00A0;&#x00A0;R&#x00A0;:&#x00A0;real;
+&#x00A0;<br />&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;complex;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;C:=R;
+&#x00A0;<br />end;
+</div>
+<!--l. 10940--><p class="nopar" >the following assignment operator must be defined:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-446">
+Operator&#x00A0;:=&#x00A0;(r&#x00A0;:&#x00A0;real)&#x00A0;z&#x00A0;:&#x00A0;complex;
+</div>
+<!--l. 10944--><p class="nopar" >As can be seen from this statement, it defines the action of the operator <span 
+class="cmtt-10">:= </span>with at the right a real
+expression, and at the left a complex expression.
+<!--l. 10949--><p class="noindent" >An example implementation of this could be as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-447">
+operator&#x00A0;:=&#x00A0;(r&#x00A0;:&#x00A0;real)&#x00A0;z&#x00A0;:&#x00A0;complex;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;z.re:=r;
+&#x00A0;<br />&#x00A0;&#x00A0;z.im:=0.0;
+&#x00A0;<br />end;
+</div>
+<!--l. 10957--><p class="nopar" >As can be seen in the example, the result identifier (<span 
+class="cmtt-10">z </span>in this case) is used to store the result of the
+assignment. When compiling in <span 
+class="cmtt-10">Delphi </span>mode or <span 
+class="cmtt-10">ObjFPC </span>mode, the use of the special identifier
+<span 
+class="cmtt-10">Result </span>is also allowed, and can be substituted for the <span 
+class="cmtt-10">z</span>, so the above would be equivalent
+to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-448">
+operator&#x00A0;:=&#x00A0;(r&#x00A0;:&#x00A0;real)&#x00A0;z&#x00A0;:&#x00A0;complex;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result.re:=r;
+&#x00A0;<br />&#x00A0;&#x00A0;Result.im:=0.0;
+&#x00A0;<br />end;
+</div>
+<!--l. 10970--><p class="nopar" >
+<!--l. 10972--><p class="noindent" >The assignment operator is also used to convert types from one type to another. The compiler will
+consider all overloaded assignment operators till it finds one that matches the types of the left
+hand and right hand expressions. If no such operator is found, a &#8217;type mismatch&#8217; error is
+given.
+<!--l. 10978--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> The assignment operator is not commutative; the compiler will never reverse the role of the two
+arguments. In other words, given the above definition of the assignment operator, the following is
+<span 
+class="cmti-10">not </span>possible:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-449">
+var
+&#x00A0;<br />&#x00A0;&#x00A0;R&#x00A0;:&#x00A0;real;
+&#x00A0;<br />&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;complex;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;R:=C;
+&#x00A0;<br />end;
+</div>
+<!--l. 10990--><p class="nopar" >If the reverse assignment should be possible then the assignment operator must be defined for that
+as well. (This is not so for reals and complex numbers.)
+<!--l. 10996--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> The assignment operator is also used in implicit type conversions. This can have unwanted effects.
+Consider the following definitions:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-450">
+operator&#x00A0;:=&#x00A0;(r&#x00A0;:&#x00A0;real)&#x00A0;z&#x00A0;:&#x00A0;complex;
+&#x00A0;<br />function&#x00A0;exp(c&#x00A0;:&#x00A0;complex)&#x00A0;:&#x00A0;complex;
+</div>
+<!--l. 11002--><p class="nopar" >Then the following assignment will give a type mismatch:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-451">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;r1,r2&#x00A0;:&#x00A0;real;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;r1:=exp(r2);
+&#x00A0;<br />end;
+</div>
+<!--l. 11011--><p class="nopar" >The mismatch occurs because the compiler will encounter the definition of the <span 
+class="cmtt-10">exp </span>function with
+the complex argument. It implicitly converts <span 
+class="cmtt-10">r2 </span>to a complex, so it can use the above <span 
+class="cmtt-10">exp </span>function.
+The result of this function is a complex, which cannot be assigned to <span 
+class="cmtt-10">r1</span>, so the compiler will give a
+&#8217;type mismatch&#8217; error. The compiler will not look further for another <span 
+class="cmtt-10">exp </span>which has the correct
+arguments.
+<!--l. 11019--><p class="noindent" >It is possible to avoid this particular problem by specifying
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-452">
+&#x00A0;&#x00A0;r1:=system.exp(r2);
+</div>
+<!--l. 11022--><p class="nopar" >
+<!--l. 11025--><p class="noindent" >When doing an explicit typecast, the compiler will attempt an implicit conversion if an assignment
+operator is present. That means that
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-453">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;R1&#x00A0;:&#x00A0;T1;
+&#x00A0;<br />&#x00A0;&#x00A0;R2&#x00A0;:&#x00A0;T2;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;R2:=T2(R1);
+</div>
+<!--l. 11034--><p class="nopar" >Will be handled by an operator
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-454">
+Operator&#x00A0;:=&#x00A0;(aRight:&#x00A0;T1)&#x00A0;Res:&#x00A0;T2;
+</div>
+<!--l. 11038--><p class="nopar" >However, an <span 
+class="cmtt-10">Explicit </span>operator can be defined, and then it will be used instead when the compiler
+encounters a typecast.
+<!--l. 11042--><p class="noindent" >The reverse is not true: In a regular assignment, the compiler will not consider explicit assignment
+operators.
+<!--l. 11045--><p class="noindent" >Given the following definitions:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-455">
+uses
+&#x00A0;<br />&#x00A0;&#x00A0;sysutils;
+&#x00A0;<br />
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;TTest1&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;f:&#x00A0;LongInt;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;TTest2&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;f:&#x00A0;String;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;TTest3&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;f:&#x00A0;Boolean;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 11060--><p class="nopar" >It is possible to create assignment operators:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-456">
+operator&#x00A0;:=&#x00A0;(aRight:&#x00A0;TTest1)&#x00A0;Res:&#x00A0;TTest2;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Implicit&#x00A0;TTest1&#x00A0;=&#x003E;&#x00A0;TTest2&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;Res.f&#x00A0;:=&#x00A0;IntToStr(aRight.f);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />operator&#x00A0;:=&#x00A0;(aRight:&#x00A0;TTest1)&#x00A0;Res:&#x00A0;TTest3;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Implicit&#x00A0;TTest1&#x00A0;=&#x003E;&#x00A0;TTest3&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;Res.f&#x00A0;:=&#x00A0;aRight.f&#x00A0;&#x003C;&#x003E;&#x00A0;0;
+&#x00A0;<br />end;
+</div>
+<!--l. 11074--><p class="nopar" >But one can also define typecasting operators:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-457">
+operator&#x00A0;Explicit(aRight:&#x00A0;TTest2)&#x00A0;Res:&#x00A0;TTest1;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Explicit&#x00A0;TTest2&#x00A0;=&#x003E;&#x00A0;TTest1&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;Res.f&#x00A0;:=&#x00A0;StrToIntDef(aRight.f,&#x00A0;0);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />operator&#x00A0;Explicit(aRight:&#x00A0;TTest1)&#x00A0;Res:&#x00A0;TTest3;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Explicit&#x00A0;TTest1&#x00A0;=&#x003E;&#x00A0;TTest3&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;Res.f&#x00A0;:=&#x00A0;aRight.f&#x00A0;&#x003C;&#x003E;&#x00A0;0;
+&#x00A0;<br />end;
+</div>
+<!--l. 11088--><p class="nopar" >Thus, the following code
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-458">
+var
+&#x00A0;<br />&#x00A0;&#x00A0;t1:&#x00A0;TTest1;
+&#x00A0;<br />&#x00A0;&#x00A0;t2:&#x00A0;TTest2;
+&#x00A0;<br />&#x00A0;&#x00A0;t3:&#x00A0;TTest3;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;t1.f&#x00A0;:=&#x00A0;42;
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Implicit
+&#x00A0;<br />&#x00A0;&#x00A0;t2&#x00A0;:=&#x00A0;t1;
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;theoretically&#x00A0;explicit,&#x00A0;but&#x00A0;implicit&#x00A0;op&#x00A0;will&#x00A0;be&#x00A0;used,
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;because&#x00A0;no&#x00A0;explicit&#x00A0;operator&#x00A0;is&#x00A0;defined
+&#x00A0;<br />&#x00A0;&#x00A0;t2&#x00A0;:=&#x00A0;TTest2(t1);
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;the&#x00A0;following&#x00A0;would&#x00A0;not&#x00A0;compile,
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;no&#x00A0;assignment&#x00A0;operator&#x00A0;defined&#x00A0;(explicit&#x00A0;one&#x00A0;won&#8217;t&#x00A0;be&#x00A0;used&#x00A0;here)
+&#x00A0;<br />&#x00A0;&#x00A0;//t1&#x00A0;:=&#x00A0;t2;
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Explicit
+&#x00A0;<br />&#x00A0;&#x00A0;t1&#x00A0;:=&#x00A0;TTest1(t2);
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;first&#x00A0;explicit&#x00A0;(TTest2&#x00A0;=&#x003E;&#x00A0;TTest1)&#x00A0;then&#x00A0;implicit&#x00A0;(TTest1&#x00A0;=&#x003E;&#x00A0;TTest3)
+&#x00A0;<br />&#x00A0;&#x00A0;t3&#x00A0;:=&#x00A0;TTest1(t2);
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Implicit
+&#x00A0;<br />&#x00A0;&#x00A0;t3&#x00A0;:=&#x00A0;t1;
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;explicit
+&#x00A0;<br />&#x00A0;&#x00A0;t3&#x00A0;:=&#x00A0;TTest3(t1);
+&#x00A0;<br />end.
+</div>
+<!--l. 11114--><p class="nopar" >will produce the following output:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-459">
+Implicit&#x00A0;TTest1&#x00A0;=&#x003E;&#x00A0;TTest2
+&#x00A0;<br />Implicit&#x00A0;TTest1&#x00A0;=&#x003E;&#x00A0;TTest2
+&#x00A0;<br />Explicit&#x00A0;TTest2&#x00A0;=&#x003E;&#x00A0;TTest1
+&#x00A0;<br />Explicit&#x00A0;TTest2&#x00A0;=&#x003E;&#x00A0;TTest1
+&#x00A0;<br />Implicit&#x00A0;TTest1&#x00A0;=&#x003E;&#x00A0;TTest3
+&#x00A0;<br />Implicit&#x00A0;TTest1&#x00A0;=&#x003E;&#x00A0;TTest3
+&#x00A0;<br />Explicit&#x00A0;TTest1&#x00A0;=&#x003E;&#x00A0;TTest3
+</div>
+<!--l. 11124--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 11126--><div class="crosslinks"><p class="noindent">[<a 
+href="refse102.html" >next</a>] [<a 
+href="refse100.html" >prev</a>] [<a 
+href="refse100.html#tailrefse100.html" >prev-tail</a>] [<a 
+href="refse101.html" >front</a>] [<a 
+href="refch15.html#refse101.html" >up</a>] </p></div>
+<!--l. 11126--><p class="noindent" ><a 
+ id="tailrefse101.html"></a>  
+</body></html> 

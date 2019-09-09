@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Using gdb to debug your program</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 3318--><div class="crosslinks"><p class="noindent">[<a 
+href="userse55.html" >next</a>] [<a 
+href="userse53.html" >prev</a>] [<a 
+href="userse53.html#tailuserse53.html" >prev-tail</a>] [<a 
+href="#tailuserse54.html">tail</a>] [<a 
+href="userch10.html#userse54.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.2   </span> <a 
+href="user.html#QQ2-165-223" id="x165-17200010.2">Using <span 
+class="cmtt-10">gdb </span>to debug your program</a></h3>
+<!--l. 3321--><p class="noindent" >To use gdb to debug your program, you can start the debugger, and give it as an option the <span 
+class="cmti-10">full</span>
+name of your program:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-111">
+gdb&#x00A0;hello
+</div>
+<!--l. 3325--><p class="nopar" >Or, under <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span></span>:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-112">
+gdb&#x00A0;hello.exe
+</div>
+<!--l. 3329--><p class="nopar" >
+<!--l. 3331--><p class="noindent" >This starts the debugger, and the debugger immediately loads your program into memory, but it
+does not run the program yet. Instead, you are presented with the following (more or less) message,
+followed by the <span 
+class="cmtt-10">gdb </span>prompt <span 
+class="cmtt-10">&#8217;(gdb)&#8217;</span>:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-113">
+GNU&#x00A0;gdb&#x00A0;6.6.50.20070726-cvs
+&#x00A0;<br />Copyright&#x00A0;(C)&#x00A0;2007&#x00A0;Free&#x00A0;Software&#x00A0;Foundation,&#x00A0;Inc.
+&#x00A0;<br />GDB&#x00A0;is&#x00A0;free&#x00A0;software,&#x00A0;covered&#x00A0;by&#x00A0;the&#x00A0;GNU&#x00A0;General&#x00A0;Public&#x00A0;License,&#x00A0;and&#x00A0;you&#x00A0;are
+&#x00A0;<br />welcome&#x00A0;to&#x00A0;change&#x00A0;it&#x00A0;and/or&#x00A0;distribute&#x00A0;copies&#x00A0;of&#x00A0;it&#x00A0;under&#x00A0;certain&#x00A0;conditions.
+&#x00A0;<br />Type&#x00A0;"show&#x00A0;copying"&#x00A0;to&#x00A0;see&#x00A0;the&#x00A0;conditions.
+&#x00A0;<br />There&#x00A0;is&#x00A0;absolutely&#x00A0;no&#x00A0;warranty&#x00A0;for&#x00A0;GDB.&#x00A0;&#x00A0;Type&#x00A0;"show&#x00A0;warranty"&#x00A0;for&#x00A0;details.
+&#x00A0;<br />This&#x00A0;GDB&#x00A0;was&#x00A0;configured&#x00A0;as&#x00A0;"x86_64-suse-linux".
+&#x00A0;<br />(gdb)
+</div>
+<!--l. 3344--><p class="nopar" >The actual prompt will vary depending on your operating system and installed version of gdb, of
+course.
+<!--l. 3348--><p class="noindent" >To start the program you can use the <span 
+class="cmtt-10">run </span>command. You can optionally specify command line
+parameters, which will then be fed to your program, for example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-114">
+(gdb)&#x00A0;run&#x00A0;-option&#x00A0;-anotheroption&#x00A0;needed_argument
+</div>
+<!--l. 3353--><p class="nopar" >If your program runs without problems, <span 
+class="cmtt-10">gdb </span>will inform you of this, and return the exit code of
+your program. If the exit code was zero, then the message <span 
+class="cmtt-10">&#8217;Program exited normally&#8217; </span>is
+displayed.
+<!--l. 3358--><p class="noindent" >If something went wrong (a segmentation fault or such), <span 
+class="cmtt-10">gdb </span>will stop the execution of your
+program, and inform you of this with an appropriate message. You can then use the other <span 
+class="cmtt-10">gdb</span>
+commands to see what happened. Alternatively, you can instruct <span 
+class="cmtt-10">gdb </span>to stop at a certain point in
+your program, with the <span 
+class="cmtt-10">break </span>command.
+<!--l. 3364--><p class="noindent" >Here is a short list of <span 
+class="cmtt-10">gdb </span>commands, which you are likely to need when debugging your
+program:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">quit</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Exit the debugger.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">kill</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Stop a running program.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">help</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Give help on all <span 
+class="cmtt-10">gdb </span>commands.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">file</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Load a new program into the debugger.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">directory</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Add a new directory to the search path for source files.<br 
+class="newline" />
+     <!--l. 3373--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> My copy of gdb needs &#8217;.&#8217; to be added explicitly to the search path, otherwise it doesn&#8217;t find
+     the sources.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">list</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">List the program sources in chunks of 10 lines. As an option you can specify a line number or
+     function name.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">break</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Set a breakpoint at a specified line or function.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">awatch</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Set a watch-point for an expression. A watch-point stops execution of your program
+     whenever the value of an expression is either read or written.</dd></dl>
+<!--l. 3385--><p class="noindent" >In appendix <a 
+href="userap5.html#x191-198000E">E<!--tex4ht:ref: ch:GdbIniFile --></a> a sample init file for <span 
+class="cmtt-10">gdb </span>is presented. It produces good results when debugging Free
+Pascal programs.
+<!--l. 3388--><p class="noindent" >For more information, refer to the <span 
+class="cmtt-10">gdb </span>User Manual, or use the <span 
+class="cmtt-10">&#8217;help&#8217; </span>function in
+<span 
+class="cmtt-10">gdb</span>.
+<!--l. 3391--><p class="noindent" >The text mode IDE and Lazarus both use GDB as a debugging backend. It may be preferable
+to use that, as they hide much of the details of the debugger in an easy-to-use user
+interface.
+                                                                            
+
+                                                                            
+<!--l. 3395--><div class="crosslinks"><p class="noindent">[<a 
+href="userse55.html" >next</a>] [<a 
+href="userse53.html" >prev</a>] [<a 
+href="userse53.html#tailuserse53.html" >prev-tail</a>] [<a 
+href="userse54.html" >front</a>] [<a 
+href="userch10.html#userse54.html" >up</a>] </p></div>
+<!--l. 3395--><p class="noindent" ><a 
+ id="tailuserse54.html"></a>  
+</body></html> 

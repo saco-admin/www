@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>ppumove program</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2724--><div class="crosslinks"><p class="noindent">[<a 
+href="userse44.html" >next</a>] [<a 
+href="userse42.html" >prev</a>] [<a 
+href="userse42.html#tailuserse42.html" >prev-tail</a>] [<a 
+href="#tailuserse43.html">tail</a>] [<a 
+href="userch8.html#userse43.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">8.7   </span> <a 
+href="user.html#QQ2-146-202" id="x146-1530008.7">ppumove program</a></h3>
+<!--l. 2727--><p class="noindent" ><span 
+class="cmss-10">ppumove </span>is a program to make shared or static libraries from multiple units. It can be compared
+with the <span 
+class="cmss-10">tpumove </span>program that comes with Turbo Pascal.
+<!--l. 2731--><p class="noindent" >It is distributed in binary form along with the compiler.
+<!--l. 2733--><p class="noindent" >Its usage is very simple:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-101">
+ppumove&#x00A0;[options]&#x00A0;unit1.ppu&#x00A0;unit2.ppu&#x00A0;...&#x00A0;unitn.ppu
+</div>
+<!--l. 2736--><p class="nopar" >where <span 
+class="cmtt-10">options </span>is a combination of:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">-b:</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Generate a batch file that will contain the external linking and archiving commands
+     that must be executed. The name of this batch file is <span 
+class="cmss-10">pmove.sh </span>on <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>(and Unix
+     like OSes), and <span 
+class="cmss-10">pmove.bat </span>on <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> </span>and <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span></span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-d xxx:</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Set the directory in which to place the output files to <span 
+class="cmss-10">xxx</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-e xxx:</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Set the extension of the moved unit files to <span 
+class="cmss-10">xxx</span>. By default, this is <span 
+class="cmss-10">.ppl</span>. You don&#8217;t
+     have to specify the dot.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-o xxx:</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Set the name of the output file, i.e. the name of the file containing all the units. This
+     parameter is mandatory when you use multiple files. On <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span></span>, <span 
+class="cmss-10">ppumove </span>will prepend
+     this name with <span 
+class="cmss-10">lib </span>if it isn&#8217;t already there, and will add an extension appropriate to
+     the type of library.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-q:</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Operate silently.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-s:</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Make a static library instead of a dynamic one; By default a dynamic library is made
+     on <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span></span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-w:</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Tell <span 
+class="cmss-10">ppumove </span>that it is working under <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> NT</span>. This will change the names of
+     the linker and archiving program to <span 
+class="cmss-10">ldw </span>and <span 
+class="cmss-10">arw</span>, respectively.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-h or -?:</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Display a short help.</dd></dl>
+<!--l. 2760--><p class="noindent" >The action of the <span 
+class="cmss-10">ppumove </span>program is as follows: It takes each of the unit files, and modifies it so
+that the compiler will know that it should look for the unit code in the library. The new unit files
+will have an extension <span 
+class="cmss-10">.ppu</span>; this can be changed with the <span 
+class="cmtt-10">-e </span>option. It will then put together all
+the object files of the units into one library, static or dynamic, depending on the presence of the <span 
+class="cmtt-10">-s</span>
+option.
+<!--l. 2768--><p class="noindent" >The name of this library must be set with the <span 
+class="cmtt-10">-o </span>option. If needed, the prefix <span 
+class="cmss-10">lib </span>will be prepended
+under <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span></span>. The extension will be set to <span 
+class="cmss-10">.a </span>for static libraries, for shared libraries, the extensions
+are <span 
+class="cmtt-10">.so </span>on linux, and <span 
+class="cmtt-10">.dll </span>under <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> NT </span>and <span 
+class="cmcsc-10"><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span>/2</span>.
+<!--l. 2774--><p class="noindent" >As an example, the following command
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-102">
+./ppumove&#x00A0;-o&#x00A0;both&#x00A0;-e&#x00A0;ppl&#x00A0;ppu.ppu&#x00A0;timer.ppu
+</div>
+<!--l. 2777--><p class="nopar" >will generate the following output under <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span></span>:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-103">
+PPU-Mover&#x00A0;Version&#x00A0;2.1.1
+&#x00A0;<br />Copyright&#x00A0;(c)&#x00A0;1998-2007&#x00A0;by&#x00A0;the&#x00A0;Free&#x00A0;Pascal&#x00A0;Development&#x00A0;Team
+&#x00A0;<br />
+&#x00A0;<br />Processing&#x00A0;ppu.ppu...&#x00A0;Done.
+&#x00A0;<br />Processing&#x00A0;timer.ppu...&#x00A0;Done.
+&#x00A0;<br />Linking&#x00A0;timer.o&#x00A0;ppu.o
+&#x00A0;<br />Done.
+</div>
+<!--l. 2787--><p class="nopar" >And it will produce the following files:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x146-153002x1"><span 
+class="cmss-10">libboth.so </span>: The shared library containing the code from <span 
+class="cmss-10">ppu.o </span>and <span 
+class="cmss-10">timer.o</span>. Under
+     <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> NT</span>, this file would be called <span 
+class="cmss-10">both.dll</span>.
+     </li>
+     <li 
+  class="enumerate" id="x146-153004x2"><span 
+class="cmss-10">timer.ppl </span>: The unit file that tells the Free Pascal compiler to look for the timer code
+     in the library.
+     </li>
+     <li 
+  class="enumerate" id="x146-153006x3"><span 
+class="cmss-10">ppu.ppl </span>: The unit file that tells the Free Pascal compiler to look for the ppu code in
+     the library.</li></ol>
+<!--l. 2798--><p class="noindent" >You could then use or distribute the files <span 
+class="cmss-10">libboth.so</span>, <span 
+class="cmss-10">timer.ppl </span>and <span 
+class="cmss-10">ppu.ppl</span>.
+                                                                            
+
+                                                                            
+<!--l. 2801--><div class="crosslinks"><p class="noindent">[<a 
+href="userse44.html" >next</a>] [<a 
+href="userse42.html" >prev</a>] [<a 
+href="userse42.html#tailuserse42.html" >prev-tail</a>] [<a 
+href="userse43.html" >front</a>] [<a 
+href="userch8.html#userse43.html" >up</a>] </p></div>
+<!--l. 2801--><p class="noindent" ><a 
+ id="tailuserse43.html"></a>  
+</body></html> 

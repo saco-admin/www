@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00422.html" title="std::basic_ios\&lt; char, _Traits \&gt;" alt="" coords="568,299,779,327"/>
+<area shape="rect" id="node16" href="$a00422.html" title="Virtual base class for all stream classes.Most of the member functions called dispatched on stream ob..." alt="" coords="163,281,387,309"/>
+<area shape="rect" id="node5" href="$a00424.html" title="std::basic_istream\&lt; char \&gt;" alt="" coords="1012,330,1204,358"/>
+<area shape="rect" id="node7" href="$a00424.html" title="std::basic_istream\&lt; char, _Traits \&gt;" alt="" coords="989,395,1227,423"/>
+<area shape="rect" id="node11" href="$a00425.html" title="std::basic_ostream\&lt; char \&gt;" alt="" coords="1009,119,1207,147"/>
+<area shape="rect" id="node13" href="$a00425.html" title="std::basic_ostream\&lt; char, _Traits \&gt;" alt="" coords="987,249,1229,277"/>
+<area shape="rect" id="node9" href="$a00423.html" title="std::basic_iostream\&lt; char \&gt;" alt="" coords="1409,263,1609,291"/>
+<area shape="rect" id="node18" href="$a00424.html" title="Template class basic_istream.This is the base class for all input streams. It provides text formattin..." alt="" coords="547,413,800,441"/>
+<area shape="rect" id="node33" href="$a00425.html" title="Template class basic_ostream.This is the base class for all output streams. It provides text formatti..." alt="" coords="544,114,803,142"/>
+<area shape="rect" id="node20" href="$a00565.html" title="Controlling input for files.This class supports reading from named files, using the inherited functio..." alt="" coords="980,526,1236,554"/>
+<area shape="rect" id="node22" href="$a00423.html" title="Template class basic_iostreamThis class multiply inherits from the input and output stream classes si..." alt="" coords="977,183,1239,211"/>
+<area shape="rect" id="node29" href="$a00567.html" title="Controlling input for std::string.This class supports reading from objects of type std::basic_string..." alt="" coords="964,475,1252,503"/>
+<area shape="rect" id="node24" href="$a00564.html" title="Controlling input and output for files.This class supports reading from and writing to named files..." alt="" coords="1383,133,1636,161"/>
+<area shape="rect" id="node26" href="$a00573.html" title="Controlling input and output for std::string.This class supports reading from and writing to objects ..." alt="" coords="1367,183,1652,211"/>
+<area shape="rect" id="node36" href="$a00568.html" title="Controlling output for files.This class supports reading from named files, using the inherited functi..." alt="" coords="977,55,1239,83"/>
+<area shape="rect" id="node38" href="$a00570.html" title="Controlling output for std::string.This class supports writing to objects of type std::basic_string..." alt="" coords="961,5,1255,33"/>
+</map>

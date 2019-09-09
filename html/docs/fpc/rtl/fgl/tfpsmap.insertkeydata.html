@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFPSMap.InsertKeyData</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../fgl/index.html">Overview</a>][<a href="../fgl/index-2.html">Constants</a>][<a href="../fgl/index-3.html">Types</a>][<a href="../fgl/index-4.html">Classes</a>][<a href="../fgl/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'fgl' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TFPSMap.InsertKeyData</h1>
+<p>Insert a key and associated in the list</p>
+<h2>Declaration</h2>
+<p>Source position: fgl.pp line 266</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../fgl/tfpsmap.html">TFPSMap</a><span class="sym">.</span>InsertKeyData<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Index<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AKey<span class="sym">: </span>Pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AData<span class="sym">: </span>Pointer</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Index</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Index at which to insert key and value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AKey</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Pointer to key value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AData</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Pointer to data value</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>InsertKeyData</var> will allocate a new slot in the list for a key value as pointed to by <var>AKey</var>, and copy the key  pointed to by <var>AKey</var> as well as the data pointed to by <var>AData</var> to the newly allocated slot.  </p>
+<h2>Errors</h2>
+<p>If the maximum amount of values is reached or an invalid index is specified, <var>InsertKeyData</var> will raise an <a href="../fgl/elisterror.html">EListError</a> exception. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../fgl/tfpsmap.add.html">TFPSMap.Add</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Add a key, value pair to the map.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fgl/tfpsmap.insert.html">TFPSMap.Insert</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Insert a new slot for key and associated data item in the list</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fgl/tfpsmap.insertkey.html">TFPSMap.InsertKey</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Insert a key  in the list</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

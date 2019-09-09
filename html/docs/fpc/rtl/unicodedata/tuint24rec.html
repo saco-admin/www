@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TUInt24Rec</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unicodedata/index.html">Overview</a>][<a href="../unicodedata/index-1.html">Resource strings</a>][<a href="../unicodedata/index-2.html">Constants</a>][<a href="../unicodedata/index-3.html">Types</a>][<a href="../unicodedata/index-5.html">Procedures and functions</a>][<a href="../unicodedata/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'unicodedata' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TUInt24Rec</h1>
+<p>Unicode integer 24-bit data</p>
+<h2>Declaration</h2>
+<p>Source position: unicodedata.pas line 150</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TUInt24Rec<span class="sym"> = </span><span class="kw">packed record</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;byte2<span class="sym">: </span><a href="../system/byte.html">Byte</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Third byte</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;byte1<span class="sym">: </span><a href="../system/byte.html">Byte</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Second byte</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;byte0<span class="sym">: </span><a href="../system/byte.html">Byte</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">First byte</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-implicit-tuint24rec-ardinal.html">implicit(TUInt24Rec):Cardinal</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Assign <var>TUInt24Rec</var> to cardinal</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-implicit-tuint24rec-ongint.html">implicit(TUInt24Rec):LongInt</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Assign <var>TUInt24Rec</var> to longint</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-implicit-tuint24rec-ord.html">implicit(TUInt24Rec):Word</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Assign <var>TUInt24Rec</var> to word</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-implicit-tuint24rec-yte.html">implicit(TUInt24Rec):Byte</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Assign <var>TUInt24Rec</var> to byte</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-implicit-cardinal-uint24rec.html">implicit(Cardinal):TUInt24Rec</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Assign <var>TUInt24Rec</var>from Cardinal</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-equal-tuint24rec-uint24rec-oolean.html">equal(TUInt24Rec,TUInt24Rec):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Determine equality of 2 <var>TUInt24Rec</var> records</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-equal-tuint24rec-ardinal-oolean.html">equal(TUInt24Rec,Cardinal):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if cardinal and <var>TUInt24Rec</var> are equal</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-equal-cardinal-uint24rec-oolean.html">equal(Cardinal,TUInt24Rec):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value equals a cardinal value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-equal-tuint24rec-ongint-oolean.html">equal(TUInt24Rec,LongInt):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value equals a longint value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-equal-longint-uint24rec-oolean.html">equal(LongInt,TUInt24Rec):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value equals a longint value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-equal-tuint24rec-ord-oolean.html">equal(TUInt24Rec,Word):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value equals a word value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-equal-word-uint24rec-oolean.html">equal(Word,TUInt24Rec):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value equals a word value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-equal-tuint24rec-yte-oolean.html">equal(TUInt24Rec,Byte):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value equals a byte value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-equal-byte-uint24rec-oolean.html">equal(Byte,TUInt24Rec):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value equals a byte value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-notequal-tuint24rec-uint24rec-oolean.html">notequal(TUInt24Rec,TUInt24Rec):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether 2 <var>TUInt24Rec</var> values differ.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-notequal-tuint24rec-ardinal-oolean.html">notequal(TUInt24Rec,Cardinal):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value differs from a cardinal value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-notequal-cardinal-uint24rec-oolean.html">notequal(Cardinal,TUInt24Rec):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value differs from a cardinal value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-greaterthan-tuint24rec-uint24rec-oolean.html">greaterthan(TUInt24Rec,TUInt24Rec):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value is greater than another <var>TUInt24Rec</var> value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-greaterthan-tuint24rec-ardinal-oolean.html">greaterthan(TUInt24Rec,Cardinal):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value is greater than a cardinal value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-greaterthan-cardinal-uint24rec-oolean.html">greaterthan(Cardinal,TUInt24Rec):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a cardinal value is greater than a <var>TUInt24Rec</var> value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-greaterthanorequal-tuint24rec-uint24rec-oolean.html">greaterthanorequal(TUInt24Rec,TUInt24Rec):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value is greater than or equal to a cardinal value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-greaterthanorequal-tuint24rec-ardinal-oolean.html">greaterthanorequal(TUInt24Rec,Cardinal):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value is greater than or equal to a cardinal value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-greaterthanorequal-cardinal-uint24rec-oolean.html">greaterthanorequal(Cardinal,TUInt24Rec):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a cardinal value is greater than or equal to a <var>TUInt24Rec</var> value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-lessthan-tuint24rec-uint24rec-oolean.html">lessthan(TUInt24Rec,TUInt24Rec):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value is less than another <var>TUInt24Rec</var> value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-lessthan-tuint24rec-ardinal-oolean.html">lessthan(TUInt24Rec,Cardinal):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value is less than a cardinal value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-lessthan-cardinal-uint24rec-oolean.html">lessthan(Cardinal,TUInt24Rec):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a cardinal value is less than a <var>TUInt24Rec</var> value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-lessthanorequal-tuint24rec-uint24rec-oolean.html">lessthanorequal(TUInt24Rec,TUInt24Rec):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value is less than or equal to another <var>TUInt24Rec</var> value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-lessthanorequal-tuint24rec-ardinal-oolean.html">lessthanorequal(TUInt24Rec,Cardinal):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a <var>TUInt24Rec</var> value is less than or equal to a cardinal value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class operator </span><a href="../unicodedata/tuint24rec.op-lessthanorequal-cardinal-uint24rec-oolean.html">lessthanorequal(Cardinal,TUInt24Rec):Boolean</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a cardinal value is less than or equal to a <var>TUInt24Rec</var> value</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> </span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Unicode data exists mostly of 24-bit data (3 bytes). This type is meant to deal efficiently with this data.  it has members to split out the data in bytes, and functions to query the various properties stored in the data. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

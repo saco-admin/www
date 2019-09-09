@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>High</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>High</h1>
+<p>Return highest index of open array or enumerated</p>
+<h2>Declaration</h2>
+<p>Source position: system.fpd line 45</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> High<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Arg<span class="sym">: </span>TypeOrVariable</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>TOrdinal<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>The return value of <var>High</var> depends on it's argument: </p>
+<ol>
+<li>If the argument is an ordinal type, <var>High</var> returns the highest  value in the range of the given ordinal type. </li>
+<li>If the argument is an array type or an array type variable then <var>High</var> returns the highest possible value of it's index. For dynamic arrays, it returns the same as <var>Length -1</var>, meaning that it reports -1 for empty arrays. </li>
+<li>If the argument is an open array identifier in a function or procedure, then <var>High</var> returns the highest index of the array, as if the array has a zero-based index. If the array is empty, then -1 is returned. </li>
+<li>If the argument is a set type then it returns the highest value of the underlying ordinal type. </li>
+</ol>
+<p>The return type is always the same type as the type of the argument (This can lead to some nasty surprises !). </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/low.html">Low</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return lowest index of open array or enumerated</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/ord.html">Ord</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return ordinal value of an ordinal type.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/pred.html">Pred</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return previous element for an ordinal type.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/succ.html">Succ</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return next element of ordinal type.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> example80<span class="sym">;</span>
+
+<span class="cmt">{ Example to demonstrate the High and Low functions. }</span>
+
+<span class="kw">Type</span> TEnum <span class="sym">=</span> <span class="sym">(</span> North<span class="sym">,</span> East<span class="sym">,</span> South<span class="sym">,</span> West <span class="sym">)</span><span class="sym">;</span>
+     TRange <span class="sym">=</span> <span class="num">14</span><span class="sym">.</span><span class="sym">.</span><span class="num">55</span><span class="sym">;</span>
+     TArray <span class="sym">=</span> <span class="kw">Array</span> <span class="sym">[</span><span class="num">2</span><span class="sym">.</span><span class="sym">.</span><span class="num">10</span><span class="sym">]</span> <span class="kw">of</span> Longint<span class="sym">;</span>
+
+<span class="kw">Function</span> Average <span class="sym">(</span>Row <span class="sym">:</span> <span class="kw">Array</span> <span class="kw">of</span> Longint<span class="sym">)</span> <span class="sym">:</span> Real<span class="sym">;</span>
+
+<span class="kw">Var</span> I <span class="sym">:</span> longint<span class="sym">;</span>
+    Temp <span class="sym">:</span> Real<span class="sym">;</span>
+
+
+<span class="kw">begin</span>
+  Temp <span class="sym">:=</span> Row<span class="sym">[</span><span class="num">0</span><span class="sym">]</span><span class="sym">;</span>
+  <span class="kw">For</span> I <span class="sym">:=</span> <span class="num">1</span> to High<span class="sym">(</span>Row<span class="sym">)</span> <span class="kw">do</span>
+     Temp <span class="sym">:=</span> Temp <span class="sym">+</span> Row<span class="sym">[</span>i<span class="sym">]</span><span class="sym">;</span>
+  Average <span class="sym">:=</span> Temp <span class="sym">/</span> <span class="sym">(</span>High<span class="sym">(</span>Row<span class="sym">)</span><span class="sym">+</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Var</span> A <span class="sym">:</span> TEnum<span class="sym">;</span>
+    B <span class="sym">:</span> TRange<span class="sym">;</span>
+    C <span class="sym">:</span> TArray<span class="sym">;</span>
+    I <span class="sym">:</span> longint<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Writeln <span class="sym">(</span><span class="str">'TEnum  goes from : '</span><span class="sym">,</span>Ord<span class="sym">(</span>Low<span class="sym">(</span>TEnum<span class="sym">)</span><span class="sym">)</span><span class="sym">,</span><span class="str">' to '</span><span class="sym">,</span> Ord<span class="sym">(</span>high<span class="sym">(</span>TEnum<span class="sym">)</span><span class="sym">)</span><span class="sym">,</span><span class="chr">'.'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'A      goes from : '</span><span class="sym">,</span>Ord<span class="sym">(</span>Low<span class="sym">(</span>A<span class="sym">)</span><span class="sym">)</span><span class="sym">,</span><span class="str">' to '</span><span class="sym">,</span> Ord<span class="sym">(</span>high<span class="sym">(</span>A<span class="sym">)</span><span class="sym">)</span><span class="sym">,</span><span class="chr">'.'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'TRange goes from : '</span><span class="sym">,</span>Ord<span class="sym">(</span>Low<span class="sym">(</span>TRange<span class="sym">)</span><span class="sym">)</span><span class="sym">,</span><span class="str">' to '</span><span class="sym">,</span> Ord<span class="sym">(</span>high<span class="sym">(</span>TRange<span class="sym">)</span><span class="sym">)</span><span class="sym">,</span><span class="chr">'.'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'B      goes from : '</span><span class="sym">,</span>Ord<span class="sym">(</span>Low<span class="sym">(</span>B<span class="sym">)</span><span class="sym">)</span><span class="sym">,</span><span class="str">' to '</span><span class="sym">,</span> Ord<span class="sym">(</span>high<span class="sym">(</span>B<span class="sym">)</span><span class="sym">)</span><span class="sym">,</span><span class="chr">'.'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'TArray index goes from : '</span><span class="sym">,</span>Ord<span class="sym">(</span>Low<span class="sym">(</span>TArray<span class="sym">)</span><span class="sym">)</span><span class="sym">,</span><span class="str">' to '</span><span class="sym">,</span> Ord<span class="sym">(</span>high<span class="sym">(</span>TArray<span class="sym">)</span><span class="sym">)</span><span class="sym">,</span><span class="chr">'.'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'C index      goes from : '</span><span class="sym">,</span>Low<span class="sym">(</span>C<span class="sym">)</span><span class="sym">,</span><span class="str">' to '</span><span class="sym">,</span> high<span class="sym">(</span>C<span class="sym">)</span><span class="sym">,</span><span class="chr">'.'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span>Low<span class="sym">(</span>C<span class="sym">)</span> to High<span class="sym">(</span>C<span class="sym">)</span> <span class="kw">do</span>
+    C<span class="sym">[</span>i<span class="sym">]</span><span class="sym">:=</span>I<span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Average :'</span><span class="sym">,</span>Average<span class="sym">(</span>c<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Write <span class="sym">(</span><span class="str">'Type of return value is always same as type of argument:'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>high<span class="sym">(</span>high<span class="sym">(</span>word<span class="sym">)</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+ 
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

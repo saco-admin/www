@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TIOStream.Create</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../iostream/index.html">Overview</a>][<a href="../iostream/index-3.html">Types</a>][<a href="../iostream/index-4.html">Classes</a>][<a href="../iostream/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'iostream' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TIOStream.Create</h1>
+<p>Construct a new instance of <a href="../iostream/tiostream.html">TIOStream</a></p>
+<h2>Declaration</h2>
+<p>Source position: iostream.pp line 37</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">constructor</span> <a href="../iostream/tiostream.html">TIOStream</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aIOSType<span class="sym">: </span><a href="../iostream/tiostype.html">TIOSType</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">aIOSType</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Type of stream to create</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Create</var> creates a new instance of <a href="../iostream/tiostream.html">TIOStream</a>, which can subsequently be used </p>
+<h2>Errors</h2>
+<p>No checking is performed to see whether the requested file descriptor is actually open for reading/writing. In that case, subsequent calls to <var>Read</var> or <var>Write</var> or <var>seek</var> will fail. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../iostream/tiostream.read.html">TIOStream.Read</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read data from the stream.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../iostream/tiostream.write.html">TIOStream.Write</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write data to the stream</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

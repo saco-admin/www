@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TMemIniFile</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../inifiles/index.html">Overview</a>][<a href="../inifiles/index-3.html">Types</a>][<a href="../inifiles/index-4.html">Classes</a>][<a href="../inifiles/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'IniFiles' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TMemIniFile</h1>
+<p>[<a href="../inifiles/tmeminifile-1.html" onClick="window.open('../inifiles/tmeminifile-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../inifiles/tmeminifile-2.html" onClick="window.open('../inifiles/tmeminifile-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../inifiles/tmeminifile-3.html" onClick="window.open('../inifiles/tmeminifile-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../inifiles/tmeminifile-4.html" onClick="window.open('../inifiles/tmeminifile-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../inifiles/tmeminifile-5.html" onClick="window.open('../inifiles/tmeminifile-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../inifiles/tmeminifile-6.html" onClick="window.open('../inifiles/tmeminifile-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Inifile cached in memory</p>
+<h2>Declaration</h2>
+<p>Source position: inifiles.pp line 231</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TMemIniFile <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../inifiles/tinifile.html">TIniFile</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../inifiles/tmeminifile.create.html">Create</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a new instance of <var>TMemIniFile</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../inifiles/tmeminifile.clear.html">Clear</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clear the data</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../inifiles/tmeminifile.getstrings.html">GetStrings</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get contents of ini file as stringlist</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../inifiles/tmeminifile.rename.html">Rename</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Rename the ini file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../inifiles/tmeminifile.setstrings.html">SetStrings</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set data from a stringlist</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../inifiles/tmeminifile.html">TMemIniFile</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Inifile cached in memory</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../inifiles/tinifile.html">TIniFile</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Ini file implementation</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../inifiles/tcustominifile.html">TCustomIniFile</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Abstract ini file object</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TObject</span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TMemIniFile</var> is a simple descendent of <a href="../inifiles/tinifile.html">TIniFile</a> which introduces some extra methods to be compatible to the Delphi implementation of <var>TMemIniFile</var>. The FPC implementation of <var>TIniFile</var> is  implemented as a <var>TMemIniFile</var>, except that <var>TIniFile</var> does not cache its updates, and <var>TMemIniFile</var> does. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../inifiles/tinifile.html">TIniFile</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Ini file implementation</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inifiles/tcustominifile.html">TCustomIniFile</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Abstract ini file object</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inifiles/tinifile.cacheupdates.html">CacheUpdates</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should changes be kept in memory</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCriticalSection</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../syncobjs/index.html">Overview</a>][<a href="../syncobjs/index-2.html">Constants</a>][<a href="../syncobjs/index-3.html">Types</a>][<a href="../syncobjs/index-4.html">Classes</a>][<a href="../syncobjs/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'syncobjs' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCriticalSection</h1>
+<p>[<a href="../syncobjs/tcriticalsection-1.html" onClick="window.open('../syncobjs/tcriticalsection-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../syncobjs/tcriticalsection-2.html" onClick="window.open('../syncobjs/tcriticalsection-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../syncobjs/tcriticalsection-3.html" onClick="window.open('../syncobjs/tcriticalsection-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../syncobjs/tcriticalsection-4.html" onClick="window.open('../syncobjs/tcriticalsection-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../syncobjs/tcriticalsection-5.html" onClick="window.open('../syncobjs/tcriticalsection-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../syncobjs/tcriticalsection-6.html" onClick="window.open('../syncobjs/tcriticalsection-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Critical section</p>
+<h2>Declaration</h2>
+<p>Source position: syncobjs.pp line 42</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TCriticalSection <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../syncobjs/tsynchroobject.html">TSynchroObject</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../syncobjs/tcriticalsection.acquire.html">Acquire</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Enter the critical section</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../syncobjs/tcriticalsection.release.html">Release</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Leave the critical section</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../syncobjs/tcriticalsection.enter.html">Enter</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Alias for <var>Acquire</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../syncobjs/tcriticalsection.tryenter.html">TryEnter</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Try and obtain the critical section</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../syncobjs/tcriticalsection.leave.html">Leave</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Alias for <var>Release</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../syncobjs/tcriticalsection.create.html">Create</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a new critical section.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../syncobjs/tcriticalsection.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Destroy the criticalsection instance</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../syncobjs/tcriticalsection.html">TCriticalSection</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Critical section</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../syncobjs/tsynchroobject.html">TSynchroObject</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Abstract synchronization object</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TCriticalSection</var> is a class wrapper around the low-level <var>TRTLCriticalSection</var> routines. It simply calls the RTL routines in the system unit for critical section support. </p>
+<p>A critical section is a resource which can be owned by only 1 caller: it can be used to make sure that in a multithreaded application only 1 thread enters pieces of code protected by the critical section. </p>
+<p>Typical usage is to protect a piece of code with the following code (<var>MySection</var> is a <var>TCriticalSection</var> instance): </p>
+<pre><span class="cmt">// Previous code</span>
+  MySection<span class="sym">.</span>Acquire<span class="sym">;</span>
+  <span class="kw">Try</span>
+    <span class="cmt">// Protected code</span>
+  <span class="kw">Finally</span>
+    MySection<span class="sym">.</span>Release<span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+  <span class="cmt">// Other code.</span>
+</pre>
+<p>The protected code can be executed by only 1 thread at a time. This is useful for instance for list operations in multithreaded environments. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../syncobjs/tcriticalsection.acquire.html">Acquire</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Enter the critical section</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../syncobjs/tcriticalsection.release.html">Release</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Leave the critical section</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$T or $TYPEDADDRESS : Typed address operator (@)</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 1603--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu76.html" >next</a>] [<a 
+href="progsu74.html" >prev</a>] [<a 
+href="progsu74.html#tailprogsu74.html" >prev-tail</a>] [<a 
+href="#tailprogsu75.html">tail</a>] [<a 
+href="progse2.html#progsu75.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.75   </span> <a 
+href="prog.html#QQ2-82-81" id="x82-810001.2.75"><span 
+class="cmtt-10">$T </span>or <span 
+class="cmtt-10">$TYPEDADDRESS </span>: Typed address operator (@)</a></h4>
+<!--l. 1605--><p class="noindent" >In the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$T+</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$TYPEDADDRESS ON</span><span 
+class="cmsy-10">} </span>state, the @ operator, when applied to a variable,
+returns a result of type <span 
+class="cmtt-10">^T</span>, if the type of the variable is <span 
+class="cmtt-10">T</span>. In the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$T-</span><span 
+class="cmsy-10">} </span>state, the result
+is always an untyped pointer, which is assignment compatible with all other pointer
+types.
+<!--l. 1611--><p class="noindent" >For example, the following code will not compile:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-73">
+{$T+}
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;I&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;P&#x00A0;:&#x00A0;PChar;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;P:=@I;
+&#x00A0;<br />end.
+</div>
+<!--l. 1622--><p class="nopar" >The compiler will give a type mismatch error:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-74">
+testt.pp(8,6)&#x00A0;Error:&#x00A0;Incompatible&#x00A0;types:&#x00A0;got&#x00A0;"^SmallInt"&#x00A0;expected&#x00A0;"PChar"
+</div>
+<!--l. 1626--><p class="nopar" >
+<!--l. 1628--><p class="noindent" >By default however, the address operator returns an untyped pointer.
+                                                                            
+
+                                                                            
+<!--l. 1630--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu76.html" >next</a>] [<a 
+href="progsu74.html" >prev</a>] [<a 
+href="progsu74.html#tailprogsu74.html" >prev-tail</a>] [<a 
+href="progsu75.html" >front</a>] [<a 
+href="progse2.html#progsu75.html" >up</a>] </p></div>
+<!--l. 1630--><p class="noindent" ><a 
+ id="tailprogsu75.html"></a>  
+</body></html> 

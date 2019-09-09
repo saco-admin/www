@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Constructs</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2585--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu90.html" >prev</a>] [<a 
+href="usersu90.html#tailusersu90.html" >prev-tail</a>] [<a 
+href="#tailusersu91.html">tail</a>] [<a 
+href="userse40.html#usersu91.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">8.4.2   </span> <a 
+href="user.html#QQ2-141-197" id="x141-1480008.4.2">Constructs</a></h4>
+<!--l. 2586--><p class="noindent" >The following C declarations and statements are recognized:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">defines</span> </dt><dd 
+class="description">Defines are changed into Pascal constants if they are simple defines. Macros are
+     changed - wherever possible - to functions; however the arguments are all integers,
+     so  these  must  be  changed  manually.  Simple  expressions  in  define  statements  are
+     recognized, as are most arithmetic operators: addition, subtraction, multiplication,
+     division, logical operators, comparison operators, shift operators. The C construct ( A
+     ? B : C) is also recognized and translated to a Pascal construct with an IF statement.
+     (This is buggy, however).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">preprocessor statements</span> </dt><dd 
+class="description">The conditional preprocessing commands are recognized and
+     translated into equivalent Pascal compiler directives. The special
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-97">
+     #ifdef&#x00A0;__cplusplus
+</div>
+     <!--l. 2604--><p class="nopar" >is also recognized and removed.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">typedef</span> </dt><dd 
+class="description">A typedef statement is changed into a Pascal type statement. The following basic types
+     are recognized:
+         <ul class="itemize1">
+         <li class="itemize"><span 
+class="cmtt-10">char </span>changed to <span 
+class="cmtt-10">char</span>.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">float </span>changed to <span 
+class="cmtt-10">real </span>(=double in Free Pascal).
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">int </span>changed to <span 
+class="cmtt-10">longint</span>.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">long </span>changed to <span 
+class="cmtt-10">longint</span>.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">long int </span>changed to <span 
+class="cmtt-10">longint</span>.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">short </span>changed to <span 
+class="cmtt-10">integer</span>.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">unsigned </span>changed to <span 
+class="cmtt-10">cardinal</span>.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">unsigned char </span>changed to <span 
+class="cmtt-10">byte</span>.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">unsigned int </span>changed to <span 
+class="cmtt-10">cardinal</span>.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">unsigned long int </span>changed to <span 
+class="cmtt-10">cardinal</span>.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">unsigned short </span>changed to <span 
+class="cmtt-10">word</span>.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">void </span>ignored.</li></ul>
+     <!--l. 2622--><p class="noindent" >These types are also changed if they appear in the arguments of a function or
+     procedure.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">functions and procedures</span> </dt><dd 
+class="description">Functions and procedures are translated as well. Pointer types may
+     be changed to call by reference arguments (using the <span 
+class="cmtt-10">var </span>argument) by using the <span 
+class="cmtt-10">-p</span>
+     command line argument. Functions that have a variable number of arguments are
+     changed to a function with a <span 
+class="cmtt-10">cvar </span>modifier. (This used to be the <span 
+class="cmtt-10">array of const</span>
+     argument.)
+     </dd><dt class="description">
+<span 
+class="cmbx-10">specifiers</span> </dt><dd 
+class="description">The <span 
+class="cmtt-10">extern </span>specifier is recognized; however it is ignored. The <span 
+class="cmtt-10">packed </span>specifier is also
+     recognised and changed with the <span 
+class="cmtt-10">PACKRECORDS </span>directive. The <span 
+class="cmtt-10">const </span>specifier is also
+     recognized, but is ignored.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">modifiers</span> </dt><dd 
+class="description">If the <span 
+class="cmtt-10">-w </span>option is specified, then the following modifiers are recognized:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-98">
+     STDCALL
+     &#x00A0;<br />CDECL
+     &#x00A0;<br />CALLBACK
+     &#x00A0;<br />PASCAL
+     &#x00A0;<br />WINAPI
+     &#x00A0;<br />APIENTRY
+     &#x00A0;<br />WINGDIAPI
+</div>
+     <!--l. 2645--><p class="nopar" >as defined in the win32 headers. If additionally the <span 
+class="cmtt-10">-x </span>option is specified then
+     the
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-99">
+     SYS_TRAP
+</div>
+     <!--l. 2650--><p class="nopar" >specifier is also recognized.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">enums</span> </dt><dd 
+class="description">Enum constructs are changed into enumeration types. Bear in mind that, in C,
+     enumeration types can have values assigned to them. Free Pascal also allows this to a certain
+     degree. If you know that values are assigned to enums, it is best to use the <span 
+class="cmtt-10">-e </span>option to
+     change the enumerations to a series of integer constants.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">unions</span> </dt><dd 
+class="description">Unions are changed to variant records.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">structs</span> </dt><dd 
+class="description">Structs are changed to Pascal records, with C packing.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 2663--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu90.html" >prev</a>] [<a 
+href="usersu90.html#tailusersu90.html" >prev-tail</a>] [<a 
+href="usersu91.html" >front</a>] [<a 
+href="userse40.html#usersu91.html" >up</a>] </p></div>
+<!--l. 2663--><p class="noindent" ><a 
+ id="tailusersu91.html"></a>  
+</body></html> 

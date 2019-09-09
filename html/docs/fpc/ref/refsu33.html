@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Definition</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 4927--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu34.html" >next</a>] [<a 
+href="#tailrefsu33.html">tail</a>] [<a 
+href="refse39.html#refsu33.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.6.1   </span> <a 
+href="ref.html#QQ2-85-113" id="x85-1070006.6.1">Definition</a></h4>
+<!--l. 4928--><p class="noindent" >Classes can contain properties as part of their fields list. A property acts like a normal
+field, i.e. its value can be retrieved or set, but it allows to redirect the access of the field
+through functions and procedures. They provide a means to associate an action with an
+assignment of or a reading from a class &#8217;field&#8217;. This allows e.g. checking that a value is valid
+when assigning, or, when reading, it allows to construct the value on the fly. Moreover,
+properties can be read-only or write only. The prototype declaration of a property is as
+follows:<a 
+ id="dx85-107001"></a>
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Properties</span><br 
+class="newline" /><BR/><img 
+src="ref89x.png" alt=" --              ---    ---       -        -------------------
+   property definition  -class--|property  identifier  -             --|
+----property specifiers hintdirective -----------------property interface-----
+     " ><BR/>
+     <BR/><img 
+src="ref90x.png" alt=" --              ----------------------- -           --
+   property interface  -property parameter list : type identifier
+------------------------------------------------------------------
+   -index -integerconstant--|
+     " ><BR/>
+     <BR/><img 
+src="ref91x.png" alt="--                 -  ---                 --  ------------------
+  property parameter list [  -parameter declaration-|]
+                                 ;
+     " ><BR/>
+     <BR/><img 
+src="ref92x.png" alt=" --property specifiers--|-------------|-------------------
+                   -read specifier-- ----write specifier----|
+----------------------------------implements specifier---------------
+   -            --|-            -| -                     --|
+    default specifier    stored specifier   defaultarraypropertyspecifier
+     " ><BR/>
+     <BR/><img 
+src="ref93x.png" alt="--read specifier- read -field or method-------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref94x.png" alt="--write specifier-write- field or method------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref95x.png" alt="--implements specifier-implements -|-identifier -------------------------
+                               ---, ----
+     " ><BR/>
+     <BR/><img 
+src="ref96x.png" alt="--default specifier--default------------------------------------------
+                |        -constant-| |
+                ------nodefault ------|
+     " ><BR/>
+     <BR/><img 
+src="ref97x.png" alt="--stored specifier-stored---constant----------------------------------
+                      -identifier -|
+     " ><BR/>
+     <BR/><img 
+src="ref98x.png" alt="--            ----           ------------------------------------
+  field or method  - field identifier  -|
+                 method identifier
+     " ><BR/>
+     <BR/><img 
+src="ref99x.png" alt="--defaultarraypropertyspecifier- ;- default -------------------------------
+     " ><BR/>
+                                                                            
+
+                                                                            
+     ___________________________________________________________________</div>
+<!--l. 4938--><p class="noindent" >A <span 
+class="cmtt-10">read specifier</span> <a 
+ id="dx85-107002"></a>is either the name of a field that contains the property, or the name of a
+method function that has the same return type as the property type. In the case of a simple type,
+this function must not accept an argument. In case of an array property, the function must accept
+a single argument of the same type as the index. In case of an indexed property, it must accept a
+integer as an argument.
+<!--l. 4945--><p class="noindent" >A <span 
+class="cmtt-10">read specifier </span>is optional, making the property write-only. Note that class methods cannot be
+used as read specifiers.
+<!--l. 4948--><p class="noindent" >A <span 
+class="cmtt-10">write specifier</span> <a 
+ id="dx85-107003"></a>is optional: If there is no <span 
+class="cmtt-10">write specifier</span>, the property is read-only. A write
+specifier is either the name of a field, or the name of a method procedure that accepts as a sole
+argument a variable of the same type as the property. In case of an array property, the procedure
+must accept 2 arguments: the first argument must have the same type as the index, the second
+argument must be of the same type as the property. Similarly, in case of an indexed property, the
+first parameter must be an integer.
+<!--l. 4956--><p class="noindent" >The section <a 
+ id="dx85-107004"></a><a 
+ id="dx85-107005"></a> (<span 
+class="cmtt-10">private</span>, <span 
+class="cmtt-10">published</span>) in which the specified function or procedure resides is
+irrelevant. Usually, however, this will be a protected or private method.
+<!--l. 4960--><p class="noindent" >For example, given the following declaration:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-196">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;MyClass&#x00A0;=&#x00A0;Class
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Field1&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Field2&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Field3&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;&#x00A0;Sety&#x00A0;(value&#x00A0;:&#x00A0;Longint);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;Gety&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;Getz&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;X&#x00A0;:&#x00A0;Longint&#x00A0;Read&#x00A0;Field1&#x00A0;write&#x00A0;Field2;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Y&#x00A0;:&#x00A0;Longint&#x00A0;Read&#x00A0;GetY&#x00A0;Write&#x00A0;Sety;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Z&#x00A0;:&#x00A0;Longint&#x00A0;Read&#x00A0;GetZ;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;MyClass&#x00A0;:&#x00A0;TMyClass;
+</div>
+<!--l. 4979--><p class="nopar" >The following are valid statements:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-197">
+WriteLn&#x00A0;(&#8217;X&#x00A0;:&#x00A0;&#8217;,MyClass.X);
+&#x00A0;<br />WriteLn&#x00A0;(&#8217;Y&#x00A0;:&#x00A0;&#8217;,MyClass.Y);
+&#x00A0;<br />WriteLn&#x00A0;(&#8217;Z&#x00A0;:&#x00A0;&#8217;,MyClass.Z);
+&#x00A0;<br />MyClass.X&#x00A0;:=&#x00A0;0;
+&#x00A0;<br />MyClass.Y&#x00A0;:=&#x00A0;0;
+</div>
+<!--l. 4987--><p class="nopar" >But the following would generate an error:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-198">
+MyClass.Z&#x00A0;:=&#x00A0;0;
+</div>
+<!--l. 4991--><p class="nopar" >because Z is a read-only property.
+<!--l. 4994--><p class="noindent" >What happens in the above statements is that when a value needs to be read, the compiler inserts
+a call to the various <span 
+class="cmtt-10">getNNN </span>methods of the object, and the result of this call is used. When an
+assignment is made, the compiler passes the value that must be assigned as a parameter to the
+various <span 
+class="cmtt-10">setNNN </span>methods.
+<!--l. 5000--><p class="noindent" >Because of this mechanism, properties cannot be passed as var arguments to a function or
+procedure, since there is no known address of the property (at least, not always).<a 
+ id="dx85-107006"></a>
+                                                                            
+
+                                                                            
+<!--l. 5004--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu34.html" >next</a>] [<a 
+href="refsu33.html" >front</a>] [<a 
+href="refse39.html#refsu33.html" >up</a>] </p></div>
+<!--l. 5004--><p class="noindent" ><a 
+ id="tailrefsu33.html"></a>  
+</body></html> 

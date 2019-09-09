@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Heap allocation strategy</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 5416--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu173.html" >next</a>] [<a 
+href="#tailprogsu172.html">tail</a>] [<a 
+href="progse34.html#progsu172.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">8.4.1   </span> <a 
+href="prog.html#QQ2-218-253" id="x218-2320008.4.1">Heap allocation strategy</a></h4>
+<!--l. 5418--><p class="noindent" >The heap is a memory structure which is organized as a stack. The heap bottom is stored in the
+variable <span 
+class="cmtt-10">HeapOrg</span>. Initially the heap pointer (<span 
+class="cmtt-10">HeapPtr</span>) points to the bottom of the heap.
+When a variable is allocated on the heap, <span 
+class="cmtt-10">HeapPtr </span>is incremented by the size of the
+allocated memory block. This has the effect of stacking dynamic variables on top of each
+other.
+<!--l. 5425--><p class="noindent" >Each time a block is allocated, its size is normalized to have a granularity of 16 (or 32 on 64 bit
+systems) bytes.
+<!--l. 5428--><p class="noindent" >When <span 
+class="cmtt-10">Dispose </span>or <span 
+class="cmtt-10">FreeMem </span>is called to dispose of a memory block which is not on the top of the
+heap, the heap becomes fragmented. The deallocation routines also add the freed blocks to the
+<span 
+class="cmtt-10">freelist </span>which is actually a linked list of free blocks. Furthermore, if the deallocated block was
+less then 8K in size, the free list cache is also updated.
+<!--l. 5435--><p class="noindent" >The free list cache is actually a cache of free heap blocks which have specific lengths (the adjusted
+block size divided by 16 gives the index into the free list cache table). It is faster to access then
+searching through the entire <span 
+class="cmtt-10">freelist</span>.
+<!--l. 5440--><p class="noindent" >The format of an entry in the <span 
+class="cmtt-10">freelist </span>is as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-215">
+&#x00A0;PFreeRecord&#x00A0;=&#x00A0;^TFreeRecord;
+&#x00A0;<br />&#x00A0;TFreeRecord&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Size&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Next&#x00A0;:&#x00A0;PFreeRecord;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Prev&#x00A0;:&#x00A0;PFreeRecord;
+&#x00A0;<br />&#x00A0;end;
+&#x00A0;<br />
+</div>
+<!--l. 5450--><p class="nopar" >
+<!--l. 5452--><p class="noindent" >The <span 
+class="cmtt-10">Next </span>field points to the next free block, while the <span 
+class="cmtt-10">Prev </span>field points to the previous free
+block.
+<!--l. 5455--><p class="noindent" >The algorithm for allocating memory is as follows:
+<!--l. 5457--><p class="noindent" >
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x218-232002x1">The size of the block to allocate is adjusted to a 16 (or 32) byte granularity.
+     </li>
+     <li 
+  class="enumerate" id="x218-232004x2">The cached free list is searched to find a free block of the specified size or greater, if so
+     it is allocated and the routine exits.
+     </li>
+     <li 
+  class="enumerate" id="x218-232006x3">The <span 
+class="cmtt-10">freelist </span>is searched to find a free block of the specified size or of bigger size, if
+     so it is allocated and the routine exits.
+     </li>
+     <li 
+  class="enumerate" id="x218-232008x4">If not found in the <span 
+class="cmtt-10">freelist </span>the heap is grown to allocate the specified memory, and
+     the routine exits.
+     </li>
+     <li 
+  class="enumerate" id="x218-232010x5">If the heap cannot be grown internally anymore, the runtime library generates a runtime
+     error 203.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 5471--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu173.html" >next</a>] [<a 
+href="progsu172.html" >front</a>] [<a 
+href="progse34.html#progsu172.html" >up</a>] </p></div>
+<!--l. 5471--><p class="noindent" ><a 
+ id="tailprogsu172.html"></a>  
+</body></html> 

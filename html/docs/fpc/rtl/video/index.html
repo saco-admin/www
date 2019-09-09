@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Reference for unit 'video'</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[Overview][<a href="../video/index-2.html">Constants</a>][<a href="../video/index-3.html">Types</a>][<a href="../video/index-5.html">Procedures and functions</a>][<a href="../video/index-6.html">Variables</a>][<a href="../video/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'video' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Reference for unit 'video'</h1>
+<p>Screen handling unit</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">uses</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../system/index.html">System</a><span class="sym">;</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The system unit</p></td>
+</tr>
+</table>
+<h2>Overview</h2>
+<p>The <span class="file">Video</span> unit implements a screen access layer which is system independent. It can be used to write on the screen in a system-independent way, which should be optimal on all platforms for which the unit is implemented. </p>
+<p>The working of the <span class="file">Video</span> is simple: After calling <a href="../video/initvideo.html">InitVideo</a>, the array <var>VideoBuf</var> contains a representation of the video screen of size <var>ScreenWidth*ScreenHeight</var>, going from left to right and top to bottom when walking the array elements: <var>VideoBuf[0]</var> contains the  character and color code of the top-left character on the screen. <var>VideoBuf[ScreenWidth]</var> contains the data for the character in the first column of the second row on the screen, and so on. </p>
+<p>To write to the 'screen', the text to be written should be written to the <var>VideoBuf</var> array. Calling <a href="../video/updatescreen.html">UpdateScreen</a> will then cp the text to the screen in the most optimal way. (an example can be found further on). </p>
+<p>The color attribute is a combination of the foreground and background color, plus the blink bit. The bits describe the various color combinations: </p>
+<dl>
+<dt>bits 0-3</dt>
+<dd>The foreground color. Can be set using all color constants.  </dd>
+<dt>bits 4-6</dt>
+<dd>The background color. Can be set using a subset of the color constants. </dd>
+<dt>bit 7</dt>
+<dd>The blinking bit. If this bit is set, the character will appear blinking. </dd>
+</dl>
+<p>Each possible color has a constant associated with it, see the constants section for a list of constants. </p>
+<p>The foreground and background color can be combined to a color attribute with the following code: </p>
+<pre>Attr<span class="sym">:=</span>ForeGroundColor <span class="sym">+</span> <span class="sym">(</span>BackGroundColor shl <span class="num">4</span><span class="sym">)</span><span class="sym">;</span>
+</pre>
+<p>The color attribute can be logically or-ed with the blink attribute to produce a blinking character: </p>
+<pre>Atrr<span class="sym">:=</span>Attr <span class="kw">or</span> blink<span class="sym">;</span>
+</pre>
+<p>But not all drivers may support this. </p>
+<p>The contents of the <var>VideoBuf</var> array may be modified: This is 'writing' to the screen. As soon as everything that needs to be written in the array is in the <var>VideoBuf</var> array, calling <var>UpdateScreen</var> will copy the contents of the array screen to the screen, in a manner that is as efficient as possible. </p>
+<p>The updating of the screen can be prohibited to optimize performance; To this end, the <a href="../video/lockscreenupdate.html">LockScreenUpdate</a> function can be used: This will increment an internal counter. As long as the counter differs from zero, calling <a href="../video/updatescreen.html">UpdateScreen</a> will not do anything. The counter can be lowered with <a href="../video/unlockscreenupdate.html">UnlockScreenUpdate</a>. When it reaches zero, the next call to <a href="../video/updatescreen.html">UpdateScreen</a> will actually update the screen. This is useful when having nested procedures that do a lot of screen writing. </p>
+<p>The video unit also presents an interface for custom screen drivers, thus it is possible to override the default screen driver with a custom screen  driver, see the <a href="../video/setvideodriver.html">SetVideoDriver</a> call. The current video driver can be retrieved using the <a href="../video/getvideodriver.html">GetVideoDriver</a> call. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>The video unit should <em>not</em> be used together with the <span class="file">crt</span> unit. Doing so will result in very strange behaviour, possibly program crashes. </td>
+</tr>
+</table>
+<h2>Related topics</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../video/vidutil.html">vidutil</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Examples utility unit</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../video/viddriver.html">viddriver</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Writing a custom video driver</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

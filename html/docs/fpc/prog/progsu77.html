@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$V or $VARSTRINGCHECKS : Var-string checking</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 1643--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu78.html" >next</a>] [<a 
+href="progsu76.html" >prev</a>] [<a 
+href="progsu76.html#tailprogsu76.html" >prev-tail</a>] [<a 
+href="#tailprogsu77.html">tail</a>] [<a 
+href="progse2.html#progsu77.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.77   </span> <a 
+href="prog.html#QQ2-84-83" id="x84-830001.2.77"><span 
+class="cmtt-10">$V </span>or <span 
+class="cmtt-10">$VARSTRINGCHECKS </span>: Var-string checking</a></h4>
+<!--l. 1645--><p class="noindent" >The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$VARSTRINGCHECKS </span><span 
+class="cmsy-10">} </span>determines how strict the compiler is when checking string type
+compatibility for strings passed by reference. When in the <span 
+class="cmtt-10">+ </span>or <span 
+class="cmtt-10">ON </span>state, the compiler checks that
+strings passed as parameters are of the same string type as the declared parameters of the
+procedure.
+<!--l. 1650--><p class="noindent" >By default, the compiler assumes that all short strings are type compatible. That is, the following
+code will compile:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-76">
+Procedure&#x00A0;MyProcedure(var&#x00A0;Arg:&#x00A0;String[10]);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Arg&#x00A0;&#8217;,Arg);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;S&#x00A0;:&#x00A0;String[12];
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;S:=&#8217;123456789012&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;Myprocedure(S);
+&#x00A0;<br />end.
+</div>
+<!--l. 1666--><p class="nopar" >The types of <span 
+class="cmtt-10">Arg </span>and <span 
+class="cmtt-10">S </span>are strictly speaking not compatible: The <span 
+class="cmtt-10">Arg </span>parameter is a string of
+length 10, and the variable <span 
+class="cmtt-10">S </span>is a string of length 12: The value will be silently truncated to a
+string of length 10.
+<!--l. 1672--><p class="noindent" >In the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$V+</span><span 
+class="cmsy-10">} </span>state, this code will trigger a compiler error:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-77">
+testv.pp(14,16)&#x00A0;Error:&#x00A0;string&#x00A0;types&#x00A0;doesn&#8217;t&#x00A0;match,&#x00A0;because&#x00A0;of&#x00A0;$V+&#x00A0;mode
+</div>
+<!--l. 1675--><p class="nopar" >Note that this is only for strings passed by reference, not for strings passed by value.
+                                                                            
+
+                                                                            
+<!--l. 1679--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu78.html" >next</a>] [<a 
+href="progsu76.html" >prev</a>] [<a 
+href="progsu76.html#tailprogsu76.html" >prev-tail</a>] [<a 
+href="progsu77.html" >front</a>] [<a 
+href="progse2.html#progsu77.html" >up</a>] </p></div>
+<!--l. 1679--><p class="noindent" ><a 
+ id="tailprogsu77.html"></a>  
+</body></html> 

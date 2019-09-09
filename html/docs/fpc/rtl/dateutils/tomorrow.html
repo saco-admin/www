@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Tomorrow</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dateutils/index.html">Overview</a>][<a href="../dateutils/index-2.html">Constants</a>][<a href="../dateutils/index-5.html">Procedures and functions</a>][<a href="../dateutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dateutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Tomorrow</h1>
+<p>Return the next day</p>
+<h2>Declaration</h2>
+<p>Source position: dateutil.inc line 111</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> Tomorrow<span class="sym">: </span><a href="../system/tdatetime.html">TDateTime</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Next day as <var>TDateTime</var>.</p>
+<h2>Description</h2>
+<p><var>Tomorrow</var> returns tomorrow's date. Tomorrow is determined from the system clock, i.e. it is <a href="../dateutils/today.html">Today</a> +1. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dateutils/today.html">Today</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the current date</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/yesterday.html">Yesterday</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the previous day.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example19<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the Tomorrow function }</span>
+
+<span class="kw">Uses</span> SysUtils<span class="sym">,</span>DateUtils<span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  Writeln<span class="sym">(</span>FormatDateTime<span class="sym">(</span><span class="str">'"Today is" dd mmmm yyyy'</span><span class="sym">,</span>Today<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>FormatDateTime<span class="sym">(</span><span class="str">'"Tomorrow will be" dd mmmm yyyy'</span><span class="sym">,</span>Tomorrow<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

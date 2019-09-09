@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFPGMap</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../fgl/index.html">Overview</a>][<a href="../fgl/index-2.html">Constants</a>][<a href="../fgl/index-3.html">Types</a>][<a href="../fgl/index-4.html">Classes</a>][<a href="../fgl/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'fgl' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TFPGMap</h1>
+<p>[<a href="../fgl/tfpgmap-1.html" onClick="window.open('../fgl/tfpgmap-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../fgl/tfpgmap-2.html" onClick="window.open('../fgl/tfpgmap-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../fgl/tfpgmap-3.html" onClick="window.open('../fgl/tfpgmap-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../fgl/tfpgmap-4.html" onClick="window.open('../fgl/tfpgmap-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../fgl/tfpgmap-5.html" onClick="window.open('../fgl/tfpgmap-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../fgl/tfpgmap-6.html" onClick="window.open('../fgl/tfpgmap-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Generic map</p>
+<h2>Declaration</h2>
+<p>Source position: fgl.pp line 281</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span><span class="kw"> generic </span> TFPGMap <span class="sym">&lt;</span>TKey<span class="sym">,</span>TData<span class="sym">&gt;</span><span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../fgl/tfpsmap.html">TFPSMap</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../fgl/tfpgmap.create.html">Create</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a new instance of the map</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../fgl/tfpgmap.add.html">Add</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Add a key and value to the map</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../fgl/tfpgmap.find.html">Find</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find item based on key</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../fgl/tfpgmap.trygetdata.html">TryGetData</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find data or return default</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../fgl/tfpgmap.addorsetdata.html">AddOrSetData</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Add data with given or set value if the key already exists.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../fgl/tfpgmap.indexof.html">IndexOf</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find index of a key in the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../fgl/tfpgmap.indexofdata.html">IndexOfData</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find index of data value in the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../fgl/tfpgmap.insertkey.html">InsertKey</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Insert a new key in the list</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../fgl/tfpgmap.insertkeydata.html">InsertKeyData</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Insert a new key with associated data in the list</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../fgl/tfpgmap.remove.html">Remove</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Remove a key from the list</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../fgl/tfpgmap.keys.html">Keys</a> []<span class="sym">: </span>TKey<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed access to the keys in the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../fgl/tfpgmap.data.html">Data</a> []<span class="sym">: </span>TData<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed access to the data in the list</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../fgl/tfpgmap.keydata.html">KeyData</a> []<span class="sym">: </span>TData<span class="sym">;</span><span class="kw"> default</span><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Access to data based on key</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../fgl/tfpgmap.oncompare.html">OnCompare</a><span class="sym">: </span>TKeyCompareFunc<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Alias for <var>OnKeyCompare</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../fgl/tfpgmap.onkeycompare.html">OnKeyCompare</a><span class="sym">: </span>TKeyCompareFunc<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compare function for key values.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../fgl/tfpgmap.ondatacompare.html">OnDataCompare</a><span class="sym">: </span>TDataCompareFunc<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compare function for data values.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../fgl/tfpgmap.html">TFPGMap</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Generic map</p></td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../fgl/tfpsmap.html">TFPSMap</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Basic map object, used in generic maps</p></td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../fgl/tfpslist.html">TFPSList</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Basic list of memory blocks</p></td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../system/tobject.html">TObject</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class of all classes.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TFPGMap</var> is a generic map class. It can be used to specialize a map for any key type and data type that do not require manual reference counting: For reference counted interface objects, <a href="../fgl/tfpgmapinterfacedobjectdata.html">TFPGMapInterfacedObjectData</a> must be used. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../fgl/tfpgmapinterfacedobjectdata.html">TFPGMapInterfacedObjectData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Generic map for reference counted objects</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

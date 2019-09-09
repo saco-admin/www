@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>I386 specific errors</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 3788--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu102.html" >next</a>] [<a 
+href="usersu100.html" >prev</a>] [<a 
+href="usersu100.html#tailusersu100.html" >prev-tail</a>] [<a 
+href="#tailusersu101.html">tail</a>] [<a 
+href="userse72.html#usersu101.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">C.13.2   </span> <a 
+href="user.html#QQ2-188-246" id="x188-195000C.13.2">I386 specific errors</a></h4>
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">repeat prefix and a segment override on </span><span 
+class="cmtt-10">&#x003C;= </span><span 
+class="cmbx-10">i386 ...</span> </dt><dd 
+class="description">A problem with interrupts and a
+     prefix instruction may occur and may cause false results on 386 and earlier computers.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fwait can cause emulation problems with emu387</span> </dt><dd 
+class="description">This  warning  is  reported  when
+     using the FWAIT instruction. It can cause emulation problems on systems which use
+     the em387.dxe emulator.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">You need GNU as version ¿= 2.81 to compile this MMX code</span> </dt><dd 
+class="description">MMX    assembler
+     code can only be compiled using GAS v2.8.1 or later.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">NEAR ignored</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">FAR ignored</span> </dt><dd 
+class="description"> <span 
+class="cmtt-10">NEAR </span>and <span 
+class="cmtt-10">FAR </span>are ignored in the Intel assemblers, but are still accepted for
+     compatibility with the 16-bit code model.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid size for MOVSX/MOVZX</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">16-bit base in 32-bit segment</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">16-bit index in 32-bit segment</span> </dt><dd 
+class="description">16-bit addressing is not supported. You must use 32-bit
+     addressing.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Constant reference not allowed</span> </dt><dd 
+class="description">It is not allowed to try to address a constant memory
+     address in protected mode.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Segment overrides not supported</span> </dt><dd 
+class="description">Intel style (eg: rep ds stosb) segment overrides are
+     not supported by the assembler parser.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Expressions of the form [sreg:reg...] are currently not supported</span> </dt><dd 
+class="description">To     access     a
+     memory operand in a different segment, you should use the sreg:[reg...] syntax instead
+     of [sreg:reg...]
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Size suffix and destination register do not match</span> </dt><dd 
+class="description">In  intel  AT&amp;T  syntax,  you  are
+     using a register size which does not concord with the operand size specified.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Invalid assembler syntax. No ref with brackets</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Trying to use a negative index register</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Local symbols not allowed as references</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid operand in bracket expression</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid symbol name:</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid Reference syntax</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid string as opcode operand:</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Null label references are not allowed</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Using a defined name as a local label</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid constant symbol</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid constant expression</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">/ at beginning of line not allowed</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">NOR not supported</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid floating point register name</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid floating point constant:</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Asm syntax error - Should start with bracket</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Asm syntax error - register:</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Asm syntax error - in opcode operand</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid String expression</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Constant expression out of bounds</span>  </dt><dd 
+class="description">
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid or missing opcode</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid real constant expression</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Parenthesis are not allowed</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid Reference</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Cannot use </span><span 
+class="cmbx-10">_</span><span 
+class="cmbx-10">_SELF outside a method</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Cannot use </span><span 
+class="cmbx-10">_</span><span 
+class="cmbx-10">_OLDEBP outside a nested procedure</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid segment override expression</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Strings not allowed as constants</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Switching sections is not allowed in an assembler block</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid global definition</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Line separator expected</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid local common definition</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid global common definition</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">assembler code not returned to text</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">invalid opcode size</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid character: ¡</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid character: ¿</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Unsupported opcode</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid suffix for intel assembler</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Extended not supported in this mode</span>  </dt><dd 
+class="description">
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Comp not supported in this mode</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Invalid Operand:</span>  </dt><dd 
+class="description">
+     </dd><dt class="description">
+ <span 
+class="cmbx-10">Override operator not supported</span>  </dt><dd 
+class="description"></dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 3877--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu102.html" >next</a>] [<a 
+href="usersu100.html" >prev</a>] [<a 
+href="usersu100.html#tailusersu100.html" >prev-tail</a>] [<a 
+href="usersu101.html" >front</a>] [<a 
+href="userse72.html#usersu101.html" >up</a>] </p></div>
+<!--l. 3877--><p class="noindent" ><a 
+ id="tailusersu101.html"></a>  
+</body></html> 

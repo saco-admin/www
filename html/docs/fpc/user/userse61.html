@@ -1,0 +1,700 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Scanner messages.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 82--><div class="crosslinks"><p class="noindent">[<a 
+href="userse62.html" >next</a>] [<a 
+href="userse60.html" >prev</a>] [<a 
+href="userse60.html#tailuserse60.html" >prev-tail</a>] [<a 
+href="#tailuserse61.html">tail</a>] [<a 
+href="userap3.html#userse61.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">C.2   </span> <a 
+href="user.html#QQ2-175-233" id="x175-182000C.2">Scanner messages.</a></h3>
+<!--l. 83--><p class="noindent" >This section lists the messages that the scanner emits. The scanner takes care of the lexical
+structure of the pascal file, i.e. it tries to find reserved words, strings, etc. It also takes care of
+directives and conditional compilation handling.
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Fatal: Unexpected end of file</span> </dt><dd 
+class="description">This typically happens in one of the following cases:
+         <ul class="itemize1">
+         <li class="itemize">The source file ends before the final <span 
+class="cmtt-10">end. </span>statement. This happens mostly when
+         the <span 
+class="cmtt-10">begin </span>and <span 
+class="cmtt-10">end </span>statements are not balanced;
+                                                                            
+
+                                                                            
+         </li>
+         <li class="itemize">An include file ends in the middle of a statement.
+         </li>
+         <li class="itemize">A comment was not closed.</li></ul>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: String exceeds line</span> </dt><dd 
+class="description">There is a missing closing &#8217; in a string, so it occupies multiple
+     lines.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: illegal character &#8221;arg1&#8221; (arg2)</span> </dt><dd 
+class="description">An illegal character was encountered in the input
+     file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Syntax error, &#8221;arg1&#8221; expected but &#8221;arg2&#8221; found</span> </dt><dd 
+class="description">This indicates that the compiler
+     expected a different token than the one you typed. It can occur almost anywhere it is possible
+     to make an error against the Pascal language.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Start reading includefile arg1</span> </dt><dd 
+class="description">When you provide the <span 
+class="cmtt-10">-vt </span>switch, the compiler tells you when it
+     starts reading an included file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Comment level arg1 found</span> </dt><dd 
+class="description">When the <span 
+class="cmtt-10">-vw </span>switch is used, then the compiler warns
+     you if it finds nested comments. Nested comments are not allowed in Turbo Pascal and
+     Delphi, and can be a possible source of errors.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: Ignored compiler switch &#8221;arg1&#8221;</span> </dt><dd 
+class="description">With <span 
+class="cmtt-10">-vn </span>on, the compiler warns if it ignores a
+     switch.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Illegal compiler switch &#8221;arg1&#8221;</span> </dt><dd 
+class="description">You included a compiler switch (i.e. <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$... </span><span 
+class="cmsy-10">}</span>) which
+     the compiler does not recognise.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Misplaced global compiler switch, ignored</span> </dt><dd 
+class="description">The compiler switch is misplaced. It
+     must be located at the start of the compilation unit, before the uses clause or any
+     declaration.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal char constant</span> </dt><dd 
+class="description">This happens when you specify a character with its ASCII code, as
+     in <span 
+class="cmtt-10">#96</span>, but the number is either illegal, or out of range.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Cannot open file &#8221;arg1&#8221;</span> </dt><dd 
+class="description">Free Pascal cannot find the program or unit source file you
+     specified on the command line.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Cannot open include file &#8221;arg1&#8221;</span> </dt><dd 
+class="description">Free Pascal cannot find the source file you specified in
+     a <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$include ..</span><span 
+class="cmsy-10">} </span>statement.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal record alignment specifier &#8221;arg1&#8221;</span> </dt><dd 
+class="description">You are specifying <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKRECORDS n</span><span 
+class="cmsy-10">} </span>or
+     <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$ALIGN n</span><span 
+class="cmsy-10">} </span>with an illegal value for <span 
+class="cmtt-10">n</span>. For $PACKRECORDS valid alignments are 1, 2, 4,
+     8, 16, 32, C, NORMAL, DEFAULT, and for $ALIGN valid alignments are 1, 2, 4, 8, 16, 32,
+     ON, OFF. Under mode MacPas $ALIGN also supports MAC68K, POWER and
+     RESET.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal enum minimum-size specifier &#8221;arg1&#8221;</span> </dt><dd 
+class="description">You are specifying the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKENUM n</span><span 
+class="cmsy-10">}</span>
+     with an illegal value for <span 
+class="cmtt-10">n</span>. Only 1,2,4, NORMAL or DEFAULT is valid here.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: $ENDIF expected for arg1 arg2 defined in arg3 line arg4</span> </dt><dd 
+class="description">Your conditional
+     compilation statements are unbalanced.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Syntax error while parsing a conditional compiling expression</span> </dt><dd 
+class="description">There is an
+     error in the expression following the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$if ..</span><span 
+class="cmsy-10">}</span>, <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$ifc </span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$setc </span><span 
+class="cmsy-10">} </span>compiler
+     directives.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Evaluating a conditional compiling expression</span> </dt><dd 
+class="description">There is an error in the expression
+     following the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$if ..</span><span 
+class="cmsy-10">}</span>, <span 
+class="cmmi-10">ifcor</span>setc compiler directives.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Macro contents are limited to 255 characters in length</span> </dt><dd 
+class="description">The contents of macros
+     cannot be longer than 255 characters.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: ENDIF without IF(N)DEF</span> </dt><dd 
+class="description">Your <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$IFDEF ..</span><span 
+class="cmsy-10">} </span>and <span 
+class="cmsy-10">{</span>$ENDIF<span 
+class="cmsy-10">} </span>statements are not
+     balanced.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: User defined: arg1</span> </dt><dd 
+class="description">A user defined fatal error occurred. See also the <a 
+href="../prog/prog.html" >Programmer&#8217;s
+     Guide</a>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: User defined: arg1</span> </dt><dd 
+class="description">A user defined error occurred. See also the <a 
+href="../prog/prog.html" >Programmer&#8217;s
+     Guide</a>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: User defined: arg1</span> </dt><dd 
+class="description">A user defined warning occurred. See also the <a 
+href="../prog/prog.html" >Programmer&#8217;s
+     Guide</a>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: User defined: arg1</span> </dt><dd 
+class="description">A user defined note was encountered. See also the <a 
+href="../prog/prog.html" >Programmer&#8217;s
+     Guide</a>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: User defined: arg1</span> </dt><dd 
+class="description">A user defined hint was encountered. See also the <a 
+href="../prog/prog.html" >Programmer&#8217;s
+     Guide</a>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Info: User defined: arg1</span> </dt><dd 
+class="description">User defined information was encountered. See also the <a 
+href="../prog/prog.html" >Programmer&#8217;s
+     Guide</a>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Keyword redefined as macro has no effect</span> </dt><dd 
+class="description">You cannot redefine keywords with
+     macros.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Macro buffer overflow while reading or expanding a macro</span> </dt><dd 
+class="description">Your macro or its
+     result was too long for the compiler.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Expanding of macros exceeds a depth of 16.</span> </dt><dd 
+class="description">When expanding a macro, macros
+     have been nested to a level of 16. The compiler will expand no further, since this may be a
+     sign that recursion is used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: compiler switches are not supported in // styled comments</span> </dt><dd 
+class="description">Compiler switches
+     should be in normal Pascal style comments.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Handling switch &#8221;arg1&#8221;</span> </dt><dd 
+class="description">When you set debugging info on (<span 
+class="cmtt-10">-vd</span>) the compiler tells you when it is
+     evaluating conditional compile statements.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ENDIF arg1 found</span> </dt><dd 
+class="description">When you turn on conditional messages (<span 
+class="cmtt-10">-vc</span>), the compiler tells you where
+     it encounters conditional statements.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">IFDEF arg1 found, arg2</span> </dt><dd 
+class="description">When you turn on conditional messages (<span 
+class="cmtt-10">-vc</span>), the compiler tells you
+     where it encounters conditional statements.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">IFOPT arg1 found, arg2</span> </dt><dd 
+class="description">When you turn on conditional messages (<span 
+class="cmtt-10">-vc</span>), the compiler tells you
+     where it encounters conditional statements.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">IF arg1 found, arg2</span> </dt><dd 
+class="description">When you turn on conditional messages (<span 
+class="cmtt-10">-vc</span>), the compiler tells you where
+     it encounters conditional statements.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">IFNDEF arg1 found, arg2</span> </dt><dd 
+class="description">When you turn on conditional messages (<span 
+class="cmtt-10">-vc</span>), the compiler tells
+     you where it encounters conditional statements.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ELSE arg1 found, arg2</span> </dt><dd 
+class="description">When you turn on conditional messages (<span 
+class="cmtt-10">-vc</span>), the compiler tells you
+     where it encounters conditional statements.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Skipping until...</span> </dt><dd 
+class="description">When you turn on conditional messages (<span 
+class="cmtt-10">-vc</span>), the compiler tells you
+     where it encounters conditional statements, and whether it is skipping or compiling
+     parts.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Info: Press ¡return¿ to continue</span> </dt><dd 
+class="description">When the <span 
+class="cmtt-10">-vi </span>switch is used, the compiler stops
+     compilation and waits for the <span 
+class="cmtt-10">Enter </span>key to be pressed when it encounters a <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$STOP</span><span 
+class="cmsy-10">}</span>
+     directive.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Unsupported switch &#8221;arg1&#8221;</span> </dt><dd 
+class="description">When warnings are turned on (<span 
+class="cmtt-10">-vw</span>), the compiler
+     warns you about unsupported switches. This means that the switch is used in Delphi or
+     Turbo Pascal, but not in Free Pascal.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Illegal compiler directive &#8221;arg1&#8221;</span> </dt><dd 
+class="description">When warnings are turned on (<span 
+class="cmtt-10">-vw</span>), the compiler
+     warns you about unrecognised switches. For a list of recognised switches, see the
+     <a 
+href="../prog/prog.html" >Programmer&#8217;s Guide</a>.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Back in arg1</span> </dt><dd 
+class="description">When you use the <span 
+class="cmtt-10">-vt </span>switch, the compiler tells you when it has finished reading
+     an include file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Unsupported application type: &#8221;arg1&#8221;</span> </dt><dd 
+class="description">You get this warning if you specify an
+     unknown application type with the directive <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$APPTYPE</span><span 
+class="cmsy-10">}</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: APPTYPE is not supported by the target OS</span> </dt><dd 
+class="description">The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$APPTYPE</span><span 
+class="cmsy-10">} </span>directive is
+     supported by certain operating systems only.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: DESCRIPTION is not supported by the target OS</span> </dt><dd 
+class="description">The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$DESCRIPTION</span><span 
+class="cmsy-10">}</span>
+     directive is not supported on this target OS.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: VERSION is not supported by target OS</span> </dt><dd 
+class="description">The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$VERSION</span><span 
+class="cmsy-10">} </span>directive is not supported
+     on this target OS.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: VERSION only for exes or DLLs</span> </dt><dd 
+class="description">The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$VERSION</span><span 
+class="cmsy-10">} </span>directive is only used for executable
+     or DLL sources.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Wrong format for VERSION directive &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$VERSION</span><span 
+class="cmsy-10">} </span>directive
+     format is majorversion.minorversion where majorversion and minorversion are
+     words.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal assembler style specified &#8221;arg1&#8221;</span> </dt><dd 
+class="description">When you specify an assembler mode
+     with the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$ASMMODE xxx</span><span 
+class="cmsy-10">} </span>directive, the compiler didn&#8217;t recognize the mode you
+     specified.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: ASM reader switch is not possible inside asm statement, &#8221;arg1&#8221; will be effective only for next</span> </dt><dd 
+class="description">
+     It is not possible to switch from one assembler reader to another inside an assembler block.
+     The new reader will be used for next assembler statements only.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Wrong switch toggle, use ON/OFF or +/-</span> </dt><dd 
+class="description">You need to use ON or OFF or a + or -
+     to toggle the switch.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Resource files are not supported for this target</span> </dt><dd 
+class="description">The target you are compiling for
+     doesn&#8217;t support resource files.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Include environment &#8221;arg1&#8221; not found in environment</span> </dt><dd 
+class="description">The included
+     environment variable cannot be found in the environment; it will be replaced by an empty
+     string instead.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal value for FPU register limit</span> </dt><dd 
+class="description">Valid values for this directive are 0..8 and
+     NORMAL/DEFAULT.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Only one resource file is supported for this target</span> </dt><dd 
+class="description">The target you are compiling
+     for supports only one resource file. The first resource file found is used, the others are
+     discarded.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Macro support has been turned off</span> </dt><dd 
+class="description">A macro declaration has been found, but
+     macro support is currently off, so the declaration will be ignored. To turn macro
+     support on compile with -Sm on the command line or add <span 
+class="cmsy-10">{</span>$MACRO ON<span 
+class="cmsy-10">} </span>in the
+     source.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal interface type specified. Valids are COM, CORBA or DEFAULT.</span> </dt><dd 
+class="description">The
+     interface type that was specified is not supported.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: APPID is only supported for PalmOS</span> </dt><dd 
+class="description">The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$APPID</span><span 
+class="cmsy-10">} </span>directive is only supported
+     for the PalmOS target.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: APPNAME is only supported for PalmOS</span> </dt><dd 
+class="description">The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$APPNAME</span><span 
+class="cmsy-10">} </span>directive is only
+     supported for the PalmOS target.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Constant strings cannot be longer than 255 chars</span> </dt><dd 
+class="description">A single string constant can
+     contain at most 255 chars. Try splitting up the string into multiple smaller parts and
+     concatenate them with a + operator.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Including include files exceeds a depth of 16.</span> </dt><dd 
+class="description">When including include files the files
+     have been nested to a level of 16. The compiler will expand no further, since this may be a
+     sign that recursion is used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Too many levels of PUSH</span> </dt><dd 
+class="description">A maximum of 20 levels is allowed. This error occurs only in
+     mode MacPas.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: A POP without a preceding PUSH</span> </dt><dd 
+class="description">This error occurs only in mode MacPas.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Macro or compile time variable &#8221;arg1&#8221; does not have any value</span> </dt><dd 
+class="description">Thus the
+     conditional compile time expression cannot be evaluated.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Wrong switch toggle, use ON/OFF/DEFAULT or +/-/*</span> </dt><dd 
+class="description">You need to use ON or
+     OFF or DEFAULT or a + or - or * to toggle the switch.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Mode switch &#8221;arg1&#8221; not allowed here</span> </dt><dd 
+class="description">A mode switch has already been encountered,
+     or, in the case of option -Mmacpas, a mode switch occurs after UNIT.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Compile time variable or macro &#8221;arg1&#8221; is not defined.</span> </dt><dd 
+class="description">Thus the conditional
+     compile time expression cannot be evaluated. Only in mode MacPas.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: UTF-8 code greater than 65535 found</span> </dt><dd 
+class="description">Free Pascal handles UTF-8 strings internally
+     as widestrings, i.e. the char codes are limited to 65535.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Malformed UTF-8 string</span> </dt><dd 
+class="description">The given string isn&#8217;t a valid UTF-8 string.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">UTF-8 signature found, using UTF-8 encoding</span> </dt><dd 
+class="description">The compiler found a UTF-8 encoding
+     signature ($ef, $bb, $bf) at the beginning of a file, so it interprets it as a UTF-8
+     file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Compile time expression: Wanted arg1 but got arg2 at arg3</span> </dt><dd 
+class="description">The type-check of a
+     compile time expression failed.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: APPTYPE is not supported by the target OS</span> </dt><dd 
+class="description">The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$APPTYPE</span><span 
+class="cmsy-10">} </span>directive is
+     supported by certain operating systems only.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal optimization specified &#8221;arg1&#8221;</span> </dt><dd 
+class="description">You specified an optimization with the
+     <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$OPTIMIZATION xxx</span><span 
+class="cmsy-10">} </span>directive, and the compiler didn&#8217;t recognize the optimization you
+     specified.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: SETPEFLAGS is not supported by the target OS</span> </dt><dd 
+class="description">The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$SETPEFLAGS</span><span 
+class="cmsy-10">} </span>directive
+     is not supported by the target OS.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: IMAGEBASE is not supported by the target OS</span> </dt><dd 
+class="description">The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$IMAGEBASE</span><span 
+class="cmsy-10">} </span>directive is
+     not supported by the target OS.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: MINSTACKSIZE is not supported by the target OS</span> </dt><dd 
+class="description">The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MINSTACKSIZE</span><span 
+class="cmsy-10">}</span>
+     directive is not supported by the target OS.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: MAXSTACKSIZE is not supported by the target OS</span> </dt><dd 
+class="description">The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MAXSTACKSIZE</span><span 
+class="cmsy-10">}</span>
+     directive is not supported by the target OS.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal state &#8221;arg1&#8221; for $WARN directive</span> </dt><dd 
+class="description">Only ON and OFF can be used as state
+     with a <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$WARN</span><span 
+class="cmsy-10">} </span>compiler directive.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal set packing value</span> </dt><dd 
+class="description">Only 0, 1, 2, 4, 8, DEFAULT and NORMAL are allowed as
+     packset parameters.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: PIC directive or switch ignored</span> </dt><dd 
+class="description">Several targets, such as <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span></span>, do not
+     support nor need PIC, so the PIC directive and switch are ignored.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: The switch &#8221;arg1&#8221; is not supported by the currently selected target</span> </dt><dd 
+class="description">Some
+     compiler switches like $E are not supported by all targets.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Framework-related options are only supported for Darwin/Mac OS X</span> </dt><dd 
+class="description">
+     Frameworks are not a known concept, or at least not supported by FPC, on operating
+     systems other than Darwin/Mac OS X.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal minimal floating point constant precision &#8221;arg1&#8221;</span> </dt><dd 
+class="description">Valid minimal precisions
+     for floating point constants are default, 32 and 64, which mean respectively minimal (usually
+     32 bit), 32 bit and 64 bit precision.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Overriding name of &#8221;main&#8221; procedure multiple times, was previously set to &#8221;arg1&#8221;</span> </dt><dd 
+class="description">
+     The name for the main entry procedure is specified more than once. Only the last name will
+     be used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Illegal identifier &#8221;arg1&#8221; for $WARN directive</span> </dt><dd 
+class="description">Identifier is not known by a
+     <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$WARN</span><span 
+class="cmsy-10">} </span>compiler directive.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal alignment directive</span> </dt><dd 
+class="description">The alignment directive is not valid. Either the alignment
+     type is not known or the alignment value is not a power of two.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: It is not possible to include a file that starts with an UTF-8 BOM in a module that uses a different code page</span> </dt><dd 
+class="description">
+     All source code that is part of a single compilation entity (program, library, unit) must be
+     encoded in the same code page
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Directive &#8221;arg1&#8221; is ignored for the the current target platform</span> </dt><dd 
+class="description">Some
+     directives are ignored for certain targets, such as changing the packrecords and packenum
+     settings on managed platforms.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Current system codepage &#8221;arg1&#8221; is not available for the compiler. Switching default codepage back to &#8221;arg2&#8221;.</span> </dt><dd 
+class="description">
+     The current system codepage is not known by the compiler. The compiler is compiled with
+     support for several codepages built-in. The codepage of the operation system is
+     not in that list. You will need to recompile the compiler with support for this
+     codepage.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: SETPEOPTFLAGS is not supported by the target OS</span> </dt><dd 
+class="description">The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$SETPEOPTFLAGS</span><span 
+class="cmsy-10">}</span>
+     directive is not supported by the target OS.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal argument for SETPEFLAGS</span> </dt><dd 
+class="description">The given argument for SETPEFLAGS is
+     neither a correct named value nor an ordinal value
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal argument for SETPEOPTFLAGS</span> </dt><dd 
+class="description">The given argument for SETPEOPTFLAGS is
+     neither a correct named value nor an ordinal value
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Directive arg1 is not supported on this target</span> </dt><dd 
+class="description">Not all compiler directives are
+     supported on all targets.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: The specified stack size is not within the valid range for the platform. Setting the stack size ignored.</span> </dt><dd 
+class="description">
+     The valid range for the stack size is 1024 - 67107839 on 32-bit and 64-bit platforms and 1024
+     - 65520 on 16-bit platforms. Additionally, for Turbo Pascal 7 compatibility reasons,
+     specifying a stack size of 65521 on 16-bit platforms actually sets the stack size to
+     65520.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: The specified HeapMax value is smaller than the HeapMin value. Setting HeapMax ignored.</span> </dt><dd 
+class="description">
+     The HeapMax value (if specified) must be greater than or equal to the HeapMin value.
+     Otherwise, the HeapMax value is ignored.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal argument for HUGEPOINTERNORMALIZATION</span> </dt><dd 
+class="description">The only allowed
+     values for HUGEPOINTERNORMALIZATION are BORLANDC, MICROSOFTC and
+     WATCOMC.</dd></dl>
+<!--l. 352--><div class="crosslinks"><p class="noindent">[<a 
+href="userse62.html" >next</a>] [<a 
+href="userse60.html" >prev</a>] [<a 
+href="userse60.html#tailuserse60.html" >prev-tail</a>] [<a 
+href="userse61.html" >front</a>] [<a 
+href="userap3.html#userse61.html" >up</a>] </p></div>
+<!--l. 352--><p class="noindent" ><a 
+ id="tailuserse61.html"></a>  
+</body></html> 

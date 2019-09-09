@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$a00016.html" title="Base class for __pool_alloc." alt="" coords="5,5,208,33"/>
+<area shape="rect" id="node3" href="$a00015.html" title="Allocator using a memory pool with a single lock." alt="" coords="257,5,471,33"/>
+</map>

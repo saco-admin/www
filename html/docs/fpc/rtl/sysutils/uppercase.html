@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>UpperCase</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>UpperCase</h1>
+<p>Return an uppercase version of a string.</p>
+<h2>Declaration</h2>
+<p>Source position: sysstrh.inc line 71</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> UpperCase<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>s<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> UpperCase<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>s<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>UpperCase</var> returns the uppercase equivalent of <var>S</var>. Ansi characters are not taken into account, only ASCII codes below 127 are converted. It is completely equivalent to the <var>UpCase</var> function of the system unit, and is provided for compatiibility only. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/ansilowercase.html">AnsiLowerCase</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return a lowercase version of a string.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/lowercase.html">LowerCase</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return a lowercase version of a string.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/ansiuppercase.html">AnsiUpperCase</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return an uppercase version of a string, taking into account special characters.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example87<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the UpperCase function }</span>
+
+<span class="kw">Uses</span> sysutils<span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  Writeln <span class="sym">(</span>UpperCase<span class="sym">(</span><span class="str">'this will come OUT ALL uPpErCaSe !'</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

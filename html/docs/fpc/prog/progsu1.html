@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$A or $ALIGN : Align Data</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 142--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu2.html" >next</a>] [<a 
+href="#tailprogsu1.html">tail</a>] [<a 
+href="progse2.html#progsu1.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.1   </span> <a 
+href="prog.html#QQ2-8-7" id="x8-70001.2.1"><span 
+class="cmtt-10">$A </span>or <span 
+class="cmtt-10">$ALIGN </span>: Align Data</a></h4>
+<!--l. 145--><p class="noindent" >The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$ALIGN </span>directive can be used to select the data alignment strategy of the compiler for
+records. It takes a numerical argument which can be 1, 2, 4, 8, 16 or 32, specifying the alignment
+boundary in bytes. For these values, it has the same effect as the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKRECORDS</span><span 
+class="cmsy-10">} </span>directive (see
+section <a 
+href="progsu60.html#x67-660001.2.60">1.2.60<!--tex4ht:ref: se:Packrecords --></a>, page <a 
+href="progsu60.html#x67-660001.2.60">154<!--tex4ht:ref: se:Packrecords --></a>).
+<!--l. 151--><p class="noindent" >Thus, the following
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-2">
+{$ALIGN&#x00A0;8}
+</div>
+<!--l. 154--><p class="nopar" >is equivalent to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-3">
+{$PACKRECORDS&#x00A0;8}
+</div>
+<!--l. 158--><p class="nopar" >
+<!--l. 160--><p class="noindent" >In MACPAS mode, additionally it can have the following values:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">MAC68K</span> </dt><dd 
+class="description">Specifies alignment following the m68K ABI.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">POWER</span> </dt><dd 
+class="description">Specifies alignment following the PowerPC ABI.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">POWERPC</span> </dt><dd 
+class="description">Specifies alignment following the PowerPC ABI.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">RESET</span> </dt><dd 
+class="description">Resets the default alignment.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ON</span> </dt><dd 
+class="description">Same as specifying 4.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">OFF</span> </dt><dd 
+class="description">Same as specifying 1.</dd></dl>
+<!--l. 169--><p class="noindent" >These values are not available in the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKRECORDS</span><span 
+class="cmsy-10">} </span>directive.
+                                                                            
+
+                                                                            
+<!--l. 171--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu2.html" >next</a>] [<a 
+href="progsu1.html" >front</a>] [<a 
+href="progse2.html#progsu1.html" >up</a>] </p></div>
+<!--l. 171--><p class="noindent" ><a 
+ id="tailprogsu1.html"></a>  
+</body></html> 

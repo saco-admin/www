@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Protocol definitions</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 7554--><div class="crosslinks"><p class="noindent">[<a 
+href="refse72.html" >next</a>] [<a 
+href="refse70.html" >prev</a>] [<a 
+href="refse70.html#tailrefse70.html" >prev-tail</a>] [<a 
+href="#tailrefse71.html">tail</a>] [<a 
+href="refch11.html#refse71.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">11.5   </span> <a 
+href="ref.html#QQ2-133-161" id="x133-15500011.5">Protocol definitions</a></h3>
+<!--l. 7555--><p class="noindent" >In Objective-C, protocols play the role that interfaces play in Object Pascal, but there are some
+differences:
+     <ul class="itemize1">
+     <li class="itemize">Protocol methods can be marked optional, i.e. the class implementing the protocol can
+     decide not to implement these methods.
+     </li>
+     <li class="itemize">Protocols can inherit from multiple other protocols.</li></ul>
+<!--l. 7563--><p class="noindent" >Objective-C classes can indicate which protocols they implement in the class definition, as could be
+seen in the syntax diagram for Objective-C classes.
+<!--l. 7566--><p class="noindent" >The following diagram shows how to declare a protocol. It starts with the <span 
+class="cmtt-10">objcprotocol </span>keyword:
+<a name="keyword_objcprotocol"></a>
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Protocol type</span><br 
+class="newline" /><BR/><img 
+src="ref124x.png" alt=" --objcprotocol--------------------------------------------
+               -external--|---------------------|-heritage|
+                         -name -string constant-
+----protocol method list--end ----------------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref125x.png" alt="--heritage -(---protocol type identifier--) -----------------------------
+             ---------, ---------|
+     " ><BR/>
+     <BR/><img 
+src="ref126x.png" alt="--                ---------------             ------------------
+  protocol method list | -required -|  method definition  |
+                   | -optional-|                  |
+                   ------------------------------|
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 7570--><p class="noindent" >As in the case of objective-Pascal classes, the <span 
+class="cmtt-10">external </span>specifier tells the compiler that the
+declaration is an import of a protocol defined elsewhere. For methods, almost the same rules apply
+as for methods in the Objective-Pascal class declarations. The exception is that message specifiers
+must be present.
+                                                                            
+
+                                                                            
+<!--l. 7576--><p class="noindent" >The <span 
+class="cmtt-10">required </span>and <span 
+class="cmtt-10">optional </span>specifiers before a series of method declarations are optional. If none
+is specified, <span 
+class="cmtt-10">required </span>is assumed. The following is a definition of a protocol:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-316">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;MyProtocol&#x00A0;=&#x00A0;objccprotocol
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;//&#x00A0;default&#x00A0;is&#x00A0;required
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;aRequiredMethod;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;message&#x00A0;&#8217;aRequiredMethod&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;optional
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;anOptionalMethodWithPara(para:&#x00A0;longint);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;message&#x00A0;&#8217;anOptionalMethodWithPara:&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;anotherOptionalMethod;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;message&#x00A0;&#8217;anotherOptionalMethod&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;required
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;aSecondRequiredMethod:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;message&#x00A0;&#8217;aSecondRequiredMethod&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;MyClassImplementingProtocol&#x00A0;=&#x00A0;objcclass(NSObject,MyProtocol)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;aRequiredMethod;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;anOptionalMethodWithPara(para:&#x00A0;longint);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;aSecondRequiredMethod:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 7600--><p class="nopar" >Note that in the class declaration, the message specifier was omitted. The compiler (and runtime)
+can deduce it from the protocol definition.
+                                                                            
+
+                                                                            
+<!--l. 7606--><div class="crosslinks"><p class="noindent">[<a 
+href="refse72.html" >next</a>] [<a 
+href="refse70.html" >prev</a>] [<a 
+href="refse70.html#tailrefse70.html" >prev-tail</a>] [<a 
+href="refse71.html" >front</a>] [<a 
+href="refch11.html#refse71.html" >up</a>] </p></div>
+<!--l. 7606--><p class="noindent" ><a 
+ id="tailrefse71.html"></a>  
+</body></html> 

@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Modifiers</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 10444--><div class="crosslinks"><p class="noindent">[<a 
+href="refse98.html" >next</a>] [<a 
+href="refse96.html" >prev</a>] [<a 
+href="refse96.html#tailrefse96.html" >prev-tail</a>] [<a 
+href="#tailrefse97.html">tail</a>] [<a 
+href="refch14.html#refse97.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">14.10   </span> <a 
+href="ref.html#QQ2-187-224" id="x187-20900014.10">Modifiers</a></h3>
+<a 
+ id="dx187-209001"></a>
+<a 
+ id="dx187-209002"></a>
+<!--l. 10446--><p class="noindent" >A function or procedure declaration can contain modifiers. Here we list the various
+possibilities:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Modifiers</span><br 
+class="newline" /><BR/><img 
+src="ref180x.png" alt="--modifiers---;-public---------------------------------------------
+           | ---------name   string constant--||
+           | -----alias -: exsptroinrtg constant -----||
+           | -----------interrupt------------||
+           | -----------iochecks------------||
+           | ----------call modifiers---------||
+           ----------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref181x.png" alt="--call modifiers----- cdecl-----------------------------------------
+              ----inline-----|
+              -----local-----|
+              |nostackframe --|
+              |--overload----|
+              |---pascal ----|
+              |-- register----|
+              |---safecall----|
+              --saveregisters--|
+              ---softfloat----|
+              ----svtdarcaarlgls----|
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 10449--><p class="noindent" >Free Pascal doesn&#8217;t support all Turbo Pascal modifiers (although it parses them for compatibility),
+but does support a number of additional modifiers. They are used mainly for assembler and
+reference to C object files.
+<!--l. 10453--><p class="noindent" >
+                                                                            
+
+                                                                            
+<div class="subsectionTOCS">
+&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.1 <a 
+href="refsu70.html#x188-21000014.10.1">alias</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.2 <a 
+href="refsu71.html#x189-21100014.10.2">cdecl</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.3 <a 
+href="refsu72.html#x190-21200014.10.3">export</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.4 <a 
+href="refsu73.html#x191-21300014.10.4">inline</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.5 <a 
+href="refsu74.html#x192-21400014.10.5">interrupt</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.6 <a 
+href="refsu75.html#x193-21500014.10.6">iocheck</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.7 <a 
+href="refsu76.html#x194-21600014.10.7">local</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.8 <a 
+href="refsu77.html#x195-21700014.10.8">noreturn</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.9 <a 
+href="refsu78.html#x196-21800014.10.9">nostackframe</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.10 <a 
+href="refsu79.html#x197-21900014.10.10">overload</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.11 <a 
+href="refsu80.html#x198-22000014.10.11">pascal</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.12 <a 
+href="refsu81.html#x199-22100014.10.12">public</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.13 <a 
+href="refsu82.html#x200-22200014.10.13">register</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.14 <a 
+href="refsu83.html#x201-22300014.10.14">safecall</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.15 <a 
+href="refsu84.html#x202-22400014.10.15">saveregisters</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.16 <a 
+href="refsu85.html#x203-22500014.10.16">softfloat</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.17 <a 
+href="refsu86.html#x204-22600014.10.17">stdcall</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >14.10.18 <a 
+href="refsu87.html#x205-22700014.10.18">varargs</a></span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                            
+
+                                                                            
+<!--l. 10831--><div class="crosslinks"><p class="noindent">[<a 
+href="refse98.html" >next</a>] [<a 
+href="refse96.html" >prev</a>] [<a 
+href="refse96.html#tailrefse96.html" >prev-tail</a>] [<a 
+href="refse97.html" >front</a>] [<a 
+href="refch14.html#refse97.html" >up</a>] </p></div>
+<!--l. 10831--><p class="noindent" ><a 
+ id="tailrefse97.html"></a>  
+</body></html> 

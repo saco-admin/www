@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDataSource.Enabled</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDataSource.Enabled</h1>
+<p>Enable or disable sending of events</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1875</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../db/tdatasource.html">TDataSource</a><span class="sym">.</span>Enabled<span class="sym"> : </span>Boolean<br>&nbsp;&nbsp;<span class="kw">read </span>FEnabled<br>&nbsp;&nbsp;<span class="kw">write </span>SetEnabled<br>&nbsp;&nbsp;<span class="kw">default </span>True<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Enabled</var> is by default set to <var>True</var>: the datasource instance communicates events from the dataset to components connected to the datasource, and vice versa: components can interact with the dataset. If the <var>Enabled</var> property is set to <var>False</var> then no  events are communicated to connected components: it is as if the dataset property was set to <var>Nil</var>. Reversely, the components cannot  interact with the dataset if the <var>Enabled</var> property is set to <var>False</var>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdataset.html">TDataset</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for records-based data-access</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdatasource.dataset.html">TDatasource.Dataset</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Dataset this datasource is connected to</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdatasource.autoedit.html">TDatasource.AutoEdit</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should the dataset be put in edit mode automatically</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

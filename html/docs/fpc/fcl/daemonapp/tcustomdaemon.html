@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCustomDaemon</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../daemonapp/index.html">Overview</a>][<a href="../daemonapp/index-1.html">Resource strings</a>][<a href="../daemonapp/index-3.html">Types</a>][<a href="../daemonapp/index-4.html">Classes</a>][<a href="../daemonapp/index-5.html">Procedures and functions</a>][<a href="../daemonapp/index-6.html">Variables</a>][<a href="../daemonapp/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'daemonapp' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCustomDaemon</h1>
+<p>[<a href="../daemonapp/tcustomdaemon-1.html" onClick="window.open('../daemonapp/tcustomdaemon-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../daemonapp/tcustomdaemon-2.html" onClick="window.open('../daemonapp/tcustomdaemon-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../daemonapp/tcustomdaemon-3.html" onClick="window.open('../daemonapp/tcustomdaemon-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../daemonapp/tcustomdaemon-4.html" onClick="window.open('../daemonapp/tcustomdaemon-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../daemonapp/tcustomdaemon-5.html" onClick="window.open('../daemonapp/tcustomdaemon-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../daemonapp/tcustomdaemon-6.html" onClick="window.open('../daemonapp/tcustomdaemon-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Base daemon application class</p>
+<h2>Declaration</h2>
+<p>Source position: daemonapp.pp line 41</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TCustomDaemon <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../../rtl/classes/tdatamodule.html">TDataModule</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../daemonapp/tcustomdaemon.checkcontrolmessages.html">CheckControlMessages</a><span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../daemonapp/tcustomdaemon.logmessage.html">LogMessage</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Log a message to the system log</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../daemonapp/tcustomdaemon.reportstatus.html">ReportStatus</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Report the current status to the operating system</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../daemonapp/tcustomdaemon.definition.html">Definition</a><span class="sym">: </span><a href="../daemonapp/tdaemondef.html">TDaemonDef</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The definition used to instantiate this daemon instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../daemonapp/tcustomdaemon.daemonthread.html">DaemonThread</a><span class="sym">: </span><a href="../../rtl/classes/tthread.html">TThread</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Thread in which daemon is running</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../daemonapp/tcustomdaemon.controller.html">Controller</a><span class="sym">: </span><a href="../daemonapp/tdaemoncontroller.html">TDaemonController</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt"><var>TDaemonController</var> instance controlling this daemon instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../daemonapp/tcustomdaemon.status.html">Status</a><span class="sym">: </span><a href="../daemonapp/tcurrentstatus.html">TCurrentStatus</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Current status of the daemon</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../daemonapp/tcustomdaemon.logger.html">Logger</a><span class="sym">: </span><a href="../eventlog/teventlog.html">TEventLog</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt"><var>TEventLog</var> instance used to send messages to the system log</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../daemonapp/tcustomdaemon.html">TCustomDaemon</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base daemon application class</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tdatamodule.html">TDataModule</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tcomponent.html">TComponent</a>,<a href="../../rtl/system/iunknown.html">IUnknown</a>,<a href="../../rtl/classes/iinterfacecomponentreference.html">IInterfaceComponentReference</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tpersistent.html">TPersistent</a>,<a href="../../rtl/classes/ifpobserved.html">IFPObserved</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TCustomDaemon</var> implements all the basic calls that are needed for a daemon to function. Descendents of <var>TCustomDaemon</var> can override these calls to implement the daemon-specific behaviour.  </p>
+<p><var>TCustomDaemon</var> is an abstract class, it should never be instantiated. Either a descendent of it must be created and instantiated, or a descendent of <a href="../daemonapp/tdaemon.html">TDaemon</a> can be designed to implement the behaviour of the daemon. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../daemonapp/tdaemon.html">TDaemon</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Daemon class for visual development</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../daemonapp/tdaemondef.html">TDaemonDef</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Daemon definition</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../daemonapp/tdaemoncontroller.html">TDaemonController</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Internal daemon controller class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../daemonapp/tdaemonapplication.html">TDaemonApplication</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Default descendent of <var>CustomDaemonApplication</var></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

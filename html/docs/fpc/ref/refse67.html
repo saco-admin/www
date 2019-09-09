@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Introduction</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 7293--><div class="crosslinks"><p class="noindent">[<a 
+href="refse68.html" >next</a>] [<a 
+href="#tailrefse67.html">tail</a>] [<a 
+href="refch11.html#refse67.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">11.1   </span> <a 
+href="ref.html#QQ2-129-157" id="x129-15100011.1">Introduction</a></h3>
+<!--l. 7294--><p class="noindent" >The preferred programming language to access Mac OS X system frameworks is Objective-C. In
+order to fully realize the potential offered by system interfaces written in that language, a variant
+of Object Pascal exists in the Free Pascal compiler that tries to offer the same functionality as
+Objective-C. This variant is called Objective-Pascal.
+<!--l. 7300--><p class="noindent" >The compiler has mode switches to enable the use of these Objective-C-related constructs. There
+are 2 kinds of Objective-C language features, discerned by a version number: Objective-C 1.0 and
+Objective-C 2.0.
+<!--l. 7304--><p class="noindent" >The Objective-C 1.0 language features can be enabled by adding a modeswitch to the source
+file:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-307">
+{$modeswitch&#x00A0;objectivec1}
+</div>
+<!--l. 7308--><p class="nopar" >or by using the <span 
+class="cmtt-10">-Mobjectivec1 </span>command line switch of the compiler.
+<!--l. 7311--><p class="noindent" >The Objective-C 2.0 language features can be enabled using a similar modewitch:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-308">
+{$modeswitch&#x00A0;objectivec2}
+</div>
+<!--l. 7315--><p class="nopar" >or the command-line option <span 
+class="cmtt-10">-Mobjectivec2</span>.
+<!--l. 7318--><p class="noindent" >The Objective-C 2.0 language features are a superset of the Objective-C 1.0 language features, and
+therefor the latter switch automatically implies the former. Programs using Objective-C 2.0
+language features will only work on Mac OS X 10.5 and later.
+<!--l. 7323--><p class="noindent" >The fact that objective-C features are enabled using mode switches rather than actual syntax
+modes, means they can be used in combination with every general syntax mode (fpc, objfpc, tp,
+delphi, macpas). Note that a <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$Mode </span><span 
+class="cmsy-10">} </span>directive switch will reset the mode switches, so the
+<span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$modeswitch </span><span 
+class="cmsy-10">} </span>statement should be located after it.
+                                                                            
+
+                                                                            
+<!--l. 7331--><div class="crosslinks"><p class="noindent">[<a 
+href="refse68.html" >next</a>] [<a 
+href="refse67.html" >front</a>] [<a 
+href="refch11.html#refse67.html" >up</a>] </p></div>
+<!--l. 7331--><p class="noindent" ><a 
+ id="tailrefse67.html"></a>  
+</body></html> 

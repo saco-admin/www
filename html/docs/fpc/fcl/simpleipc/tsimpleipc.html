@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSimpleIPC</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../simpleipc/index.html">Overview</a>][<a href="../simpleipc/index-1.html">Resource strings</a>][<a href="../simpleipc/index-2.html">Constants</a>][<a href="../simpleipc/index-3.html">Types</a>][<a href="../simpleipc/index-4.html">Classes</a>][<a href="../simpleipc/index-6.html">Variables</a>][<a href="../simpleipc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'simpleipc' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TSimpleIPC</h1>
+<p>[<a href="../simpleipc/tsimpleipc-1.html" onClick="window.open('../simpleipc/tsimpleipc-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../simpleipc/tsimpleipc-2.html" onClick="window.open('../simpleipc/tsimpleipc-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../simpleipc/tsimpleipc-3.html" onClick="window.open('../simpleipc/tsimpleipc-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../simpleipc/tsimpleipc-4.html" onClick="window.open('../simpleipc/tsimpleipc-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../simpleipc/tsimpleipc-5.html" onClick="window.open('../simpleipc/tsimpleipc-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../simpleipc/tsimpleipc-6.html" onClick="window.open('../simpleipc/tsimpleipc-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Ancestor for client/server simple IPC classes</p>
+<h2>Declaration</h2>
+<p>Source position: simpleipc.pp line 106</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TSimpleIPC <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../../rtl/classes/tcomponent.html">TComponent</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">published</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../simpleipc/tsimpleipc.active.html">Active</a><span class="sym">: </span>Boolean<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Communication channel active</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../simpleipc/tsimpleipc.serverid.html">ServerID</a><span class="sym">: </span>string<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unique server identification</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../simpleipc/tsimpleipc.html">TSimpleIPC</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Ancestor for client/server simple IPC classes</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tcomponent.html">TComponent</a>,<a href="../../rtl/system/iunknown.html">IUnknown</a>,<a href="../../rtl/classes/iinterfacecomponentreference.html">IInterfaceComponentReference</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tpersistent.html">TPersistent</a>,<a href="../../rtl/classes/ifpobserved.html">IFPObserved</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TSimpleIPC</var> is the common ancestor for the <a href="../simpleipc/tsimpleipcserver.html">TSimpleIPCServer</a> and <a href="../simpleipc/tsimpleipcclient.html">TSimpleIPCClient</a> classes. It implements some common properties between client and server. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../simpleipc/tsimpleipcserver.html">TSimpleIPCServer</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Simple IPC server component</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../simpleipc/tsimpleipcclient.html">TSimpleIPCClient</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Simple IPC client component</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$VARPROPSETTER : Enable use of var/out/const parameters for property setters.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 2434--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu122.html" >next</a>] [<a 
+href="progsu120.html" >prev</a>] [<a 
+href="progsu120.html#tailprogsu120.html" >prev-tail</a>] [<a 
+href="#tailprogsu121.html">tail</a>] [<a 
+href="progse3.html#progsu121.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.3.38   </span> <a 
+href="prog.html#QQ2-129-130" id="x129-1300001.3.38"><span 
+class="cmtt-10">$VARPROPSETTER </span>: Enable use of var/out/const parameters for property setters.</a></h4>
+<!--l. 2435--><p class="noindent" >This boolean directive is meant to import COM interfaces. Sometimes COM interfaces have
+property setters which accept arguments that are not by value, but by reference. These setters are
+normally forbidden. This flag enables the use of property setters with <span 
+class="cmtt-10">var</span>, <span 
+class="cmtt-10">const</span>, <span 
+class="cmtt-10">out</span>
+arguments. By default it is OFF. The effect is on interface declarations, but also on class
+definitions.
+<!--l. 2442--><p class="noindent" >The following example only compiles in the ON state:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-107">
+{$VARPROPSETTER&#x00A0;ON}
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TMyInterface&#x00A0;=&#x00A0;Interface
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;SetP(Var&#x00A0;AValue&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;GetP&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;MyP&#x00A0;:&#x00A0;Integer&#x00A0;Read&#x00A0;GetP&#x00A0;Write&#x00A0;SetP;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 2451--><p class="nopar" >In the <span 
+class="cmtt-10">OFF </span>state, the following error will be generated:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-108">
+testvp.pp(7,48)&#x00A0;Error:&#x00A0;Illegal&#x00A0;symbol&#x00A0;for&#x00A0;property&#x00A0;access
+</div>
+<!--l. 2455--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 2457--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu122.html" >next</a>] [<a 
+href="progsu120.html" >prev</a>] [<a 
+href="progsu120.html#tailprogsu120.html" >prev-tail</a>] [<a 
+href="progsu121.html" >front</a>] [<a 
+href="progse3.html#progsu121.html" >up</a>] </p></div>
+<!--l. 2457--><p class="noindent" ><a 
+ id="tailprogsu121.html"></a>  
+</body></html> 

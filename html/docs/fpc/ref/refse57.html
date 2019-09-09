@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Operator overloading and generics</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6475--><div class="crosslinks"><p class="noindent">[<a 
+href="refse56.html" >prev</a>] [<a 
+href="refse56.html#tailrefse56.html" >prev-tail</a>] [<a 
+href="#tailrefse57.html">tail</a>] [<a 
+href="refch8.html#refse57.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">8.9   </span> <a 
+href="ref.html#QQ2-116-144" id="x116-1380008.9">Operator overloading and generics</a></h3>
+<!--l. 6476--><p class="noindent" >Operator overloading (chapter <a 
+href="refch15.html#x207-22900015">15<!--tex4ht:ref: ch:operatoroverloading --></a>, page <a 
+href="refch15.html#x207-22900015">768<!--tex4ht:ref: ch:operatoroverloading --></a>) and generics are closely related. Imagine a generic
+class that has the following definition:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-276">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />unit&#x00A0;mya;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;Generic&#x00A0;TMyClass&#x003C;T&#x003E;&#x00A0;=&#x00A0;Class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;Add(A,B&#x00A0;:&#x00A0;T)&#x00A0;:&#x00A0;T;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Implementation
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;TMyClass.Add(A,B&#x00A0;:&#x00A0;T)&#x00A0;:&#x00A0;T;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=A+B;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 6498--><p class="nopar" >When the compiler replays the generics macro, the addition must be possible. For a specialization
+like this:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-277">
+TMyIntegerClass&#x00A0;=&#x00A0;specialize&#x00A0;TMyClass&#x003C;integer&#x003E;;
+</div>
+<!--l. 6503--><p class="nopar" >This is not a problem, as the <span 
+class="cmtt-10">Add </span>method would become:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-278">
+Procedure&#x00A0;TMyIntegerClass.Add(A,B&#x00A0;:&#x00A0;Integer)&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=A+B;
+&#x00A0;<br />end;
+</div>
+<!--l. 6511--><p class="nopar" >The compiler knows how to add 2 integers, so this code will compile without problems. But the
+following code:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-279">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TComplex&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Re,Im&#x00A0;:&#x00A0;Double;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TMyIntegerClass&#x00A0;=&#x00A0;specialize&#x00A0;TMyClass&#x003C;TComplex&#x003E;;
+</div>
+<!--l. 6522--><p class="nopar" >Will not compile, unless the addition of 2 <span 
+class="cmtt-10">TComplex </span>types is defined. This can be done using record
+operators:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-280">
+{$modeswitch&#x00A0;advancedrecords}
+&#x00A0;<br />uses&#x00A0;mya;
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TComplex&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Re,Im&#x00A0;:&#x00A0;Double;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;class&#x00A0;operator&#x00A0;+(a,b&#x00A0;:&#x00A0;TComplex)&#x00A0;:&#x00A0;TComplex;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />class&#x00A0;operator&#x00A0;TComplex.+&#x00A0;(a,b&#x00A0;:&#x00A0;TComplex)&#x00A0;:&#x00A0;TComplex;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result.re:=A.re+B.re;
+&#x00A0;<br />&#x00A0;&#x00A0;Result.im:=A.im+B.im;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TMyComplexClass&#x00A0;=&#x00A0;specialize&#x00A0;TMyClass&#x003C;TComplex&#x003E;;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Code&#x00A0;here
+&#x00A0;<br />end.
+</div>
+<!--l. 6549--><p class="nopar" >Currently, due to an implementation restriction, it will not work using a global operator, i.e. the
+following does not work yet:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-281">
+uses&#x00A0;mya;
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TComplex&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Re,Im&#x00A0;:&#x00A0;Double;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />operator&#x00A0;+&#x00A0;(a,b&#x00A0;:&#x00A0;TComplex)&#x00A0;:&#x00A0;TComplex;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result.re:=A.re+B.re;
+&#x00A0;<br />&#x00A0;&#x00A0;Result.im:=A.im+B.im;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TMyComplexClass&#x00A0;=&#x00A0;specialize&#x00A0;TMyClass&#x003C;TComplex&#x003E;;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Code&#x00A0;here
+&#x00A0;<br />end.
+</div>
+<!--l. 6572--><p class="nopar" >Support for this construct is expected in a future version of Free Pascal.
+                                                                            
+
+                                                                            
+<!--l. 6579--><div class="crosslinks"><p class="noindent">[<a 
+href="refse56.html" >prev</a>] [<a 
+href="refse56.html#tailrefse56.html" >prev-tail</a>] [<a 
+href="refse57.html" >front</a>] [<a 
+href="refch8.html#refse57.html" >up</a>] </p></div>
+<!--l. 6579--><p class="noindent" ><a 
+ id="tailrefse57.html"></a>  
+</body></html> 

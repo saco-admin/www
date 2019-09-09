@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>fpSelect</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>fpSelect</h1>
+<p>Wait for events on file descriptors</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 96</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FPSelect<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;N<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;readfds<span class="sym">: </span><a href="../baseunix/pfdset.html">pFDSet</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;writefds<span class="sym">: </span><a href="../baseunix/pfdset.html">pFDSet</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;exceptfds<span class="sym">: </span><a href="../baseunix/pfdset.html">pFDSet</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;TimeOut<span class="sym">: </span><a href="../baseunix/ptimeval.html">ptimeval</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> fpSelect<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;N<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;readfds<span class="sym">: </span><a href="../baseunix/pfdset.html">pFDSet</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;writefds<span class="sym">: </span><a href="../baseunix/pfdset.html">pFDSet</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;exceptfds<span class="sym">: </span><a href="../baseunix/pfdset.html">pFDSet</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;TimeOut<span class="sym">: </span><a href="../baseunix/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> fpSelect<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>T<span class="sym">: </span>Text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;TimeOut<span class="sym">: </span><a href="../baseunix/ptimeval.html">ptimeval</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> fpSelect<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>T<span class="sym">: </span>Text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;TimeOut<span class="sym">: </span><a href="../baseunix/time_t.html">time_t</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FpSelect</var> checks one of the file descriptors in the <var>FDSets</var> to see if the following I/O operation on the file descriptors will block. </p>
+<p><var>readfds, writefds</var> and <var>exceptfds</var> are pointers to arrays of 256 bits. If you want a file descriptor to be checked, you set the corresponding element in the array to 1. The other elements in the array must be set to zero. Three arrays are passed : The entries in <var>readfds</var> are checked to see if the following read operation will block. The entries in <var>writefds</var> are checked to see if the following write operation will block, while entries in <var>exceptfds</var> are checked to see if an  exception occorred on them. </p>
+<p>You can use the functions <a href="../baseunix/fpfd_zero.html">fpFD_ZERO</a>, <a href="../baseunix/fpfd_clr.html">fpFD_Clr</a>, <a href="../baseunix/fpfd_set.html">fpFD_Set</a> or <a href="../baseunix/fpfd_isset.html">fpFD_IsSet</a> to manipulate the individual  elements of a set. </p>
+<p>The pointers can be <var>Nil</var>. </p>
+<p>N is the value of the largest file descriptor in one of the sets, + 1. In other words, it is the position of the last bit which is set in the array of bits. </p>
+<p><var>TimeOut</var> can be used to set a time limit. If <var>TimeOut</var> can be two types : </p>
+<ol>
+<li><var>TimeOut</var> is of type <var>ptimeval</var> and contains a zero time, the call returns immediately.  If <var>TimeOut</var> is <var>Nil</var>, the kernel will wait forever, or until a status changed. </li>
+<li><var>TimeOut</var> is of type <var>cint</var>. If it is -1, this has the same effect as a <var>Timeout</var> of type  <var>PTime</var> which is <var>Nil</var>. Otherwise, <var>TimeOut</var> contains a time in milliseconds.</li>
+</ol>
+<p>When the TimeOut is reached, or one of the file descriptors has changed, the <var>Select</var> call returns. On return, it will have modified the entries in the array which have actually changed, and it returns the number of entries that have been changed. If the timout was reached, and no decsriptor changed, zero is returned; The arrays of indexes are undefined after that. On error, -1 is returned. </p>
+<p>The variant with the text file will execute the <var>FpSelect</var> call on the file descriptor associated with the text file <var>T</var></p>
+<h2>Errors</h2>
+<p>On error, the function returns -1. Extended error information can be retrieved using <a href="../baseunix/fpgeterrno.html">fpGetErrno</a>. </p>
+<dl>
+<dt>SYS_EBADF</dt>
+<dd>An invalid descriptor was specified in one of the sets.</dd>
+<dt>SYS_EINTR</dt>
+<dd>A non blocked signal was caught.</dd>
+<dt>SYS_EINVAL</dt>
+<dd><var>N</var> is negative or too big.</dd>
+<dt>SYS_ENOMEM</dt>
+<dd><var>Select</var> was unable to allocate memory for its internal tables.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpfd_zero.html">fpFD_ZERO</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clear all file descriptors in set</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpfd_clr.html">fpFD_Clr</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clears a filedescriptor in a set</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpfd_set.html">fpFD_Set</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set a filedescriptor in a set</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpfd_isset.html">fpFD_IsSet</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a filedescriptor is set</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example33<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Select function. }</span>
+
+<span class="kw">Uses</span> BaseUnix<span class="sym">;</span>
+
+<span class="kw">Var</span> FDS <span class="sym">:</span> Tfdset<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  fpfd_zero<span class="sym">(</span>FDS<span class="sym">)</span><span class="sym">;</span>
+  fpfd_set<span class="sym">(</span><span class="num">0</span><span class="sym">,</span>FDS<span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Press the &lt;ENTER&gt; to continue the program.'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ Wait until File descriptor 0 (=Input) changes }</span>
+  fpSelect <span class="sym">(</span><span class="num">1</span><span class="sym">,</span><span class="sym">@</span>FDS<span class="sym">,</span><span class="kw">nil</span><span class="sym">,</span><span class="kw">nil</span><span class="sym">,</span><span class="kw">nil</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ Get rid of &lt;ENTER&gt; in buffer }</span>
+  readln<span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Press &lt;ENTER&gt; key in less than 2 seconds...'</span><span class="sym">)</span><span class="sym">;</span>
+  Fpfd_zero<span class="sym">(</span>FDS<span class="sym">)</span><span class="sym">;</span>
+  FpFd_set <span class="sym">(</span><span class="num">0</span><span class="sym">,</span>FDS<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> fpSelect <span class="sym">(</span><span class="num">1</span><span class="sym">,</span><span class="sym">@</span>FDS<span class="sym">,</span><span class="kw">nil</span><span class="sym">,</span><span class="kw">nil</span><span class="sym">,</span><span class="num">2000</span><span class="sym">)</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+    Writeln <span class="sym">(</span><span class="str">'Thank you !'</span><span class="sym">)</span>
+    <span class="cmt">{ FD_ISSET(0,FDS) would be true here. }</span>
+  <span class="kw">else</span>
+    Writeln <span class="sym">(</span><span class="str">'Too late !'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FindFirst</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dos/index.html">Overview</a>][<a href="../dos/index-2.html">Constants</a>][<a href="../dos/index-3.html">Types</a>][<a href="../dos/index-5.html">Procedures and functions</a>][<a href="../dos/index-6.html">Variables</a>][<a href="../dos/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Dos' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FindFirst</h1>
+<p>Start search for one or more files.</p>
+<h2>Declaration</h2>
+<p>Source position: dosh.inc line 100</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> FindFirst<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>path<span class="sym">: </span><a href="../dos/pathstr.html">PathStr</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;attr<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>f<span class="sym">: </span><a href="../dos/searchrec.html">SearchRec</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FindFirst</var> searches the file specified in <var>Path</var>. Normal files, as well as all special files which have the attributes specified in <var>Attr</var> will be returned. </p>
+<p>It returns a <var>SearchRec</var> record for further searching in <var>F</var>. <var>Path</var> can contain the wildcard characters <var>?</var> (matches any single character) and <var>*</var> (matches 0 ore more arbitrary characters). In this case <var>FindFirst</var> will return the first file which matches the specified criteria. If <var>DosError</var> is different from zero, no file(s) matching the criteria  was(were) found. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>On the EMX target, you cannot issue two different <var>FindFirst</var> calls. That is, you must close any previous search operation with <a href="../dos/findclose.html">FindClose</a> before starting a new one. Failure to do so will end in a Run-Time Error 6  (Invalid file handle) </td>
+</tr>
+</table>
+<h2>Errors</h2>
+<p>Errors are reported in DosError. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dos/findnext.html">FindNext</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find next matching file after <a href="../dos/findfirst.html">FindFirst</a></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dos/findclose.html">FindClose</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Dispose resources allocated by a <a href="../dos/findfirst.html">FindFirst</a>/<a href="../dos/findnext.html">FindNext</a> sequence.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example7<span class="sym">;</span>
+<span class="kw">uses</span> Dos<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the FindFirst and FindNext function. }</span>
+
+<span class="kw">var</span>
+  Dir <span class="sym">:</span> SearchRec<span class="sym">;</span>
+<span class="kw">begin</span>
+  FindFirst<span class="sym">(</span><span class="str">'*.*'</span><span class="sym">,</span>archive<span class="sym">,</span>Dir<span class="sym">)</span><span class="sym">;</span>
+  WriteLn<span class="sym">(</span><span class="str">'FileName'</span><span class="sym">+</span>Space<span class="sym">(</span><span class="num">32</span><span class="sym">)</span><span class="sym">,</span><span class="str">'FileSize'</span><span class="sym">:</span><span class="num">9</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">while</span> <span class="sym">(</span>DosError<span class="sym">=</span><span class="num">0</span><span class="sym">)</span> <span class="kw">do</span>
+   <span class="kw">begin</span>
+     Writeln<span class="sym">(</span>Dir<span class="sym">.</span>Name<span class="sym">+</span>Space<span class="sym">(</span><span class="num">40</span><span class="sym">-</span>Length<span class="sym">(</span>Dir<span class="sym">.</span>Name<span class="sym">)</span><span class="sym">)</span><span class="sym">,</span>Dir<span class="sym">.</span>Size<span class="sym">:</span><span class="num">9</span><span class="sym">)</span><span class="sym">;</span>
+     FindNext<span class="sym">(</span>Dir<span class="sym">)</span><span class="sym">;</span>
+   <span class="kw">end</span><span class="sym">;</span>
+  FindClose<span class="sym">(</span>Dir<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

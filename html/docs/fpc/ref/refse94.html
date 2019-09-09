@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Forward declared functions</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 10319--><div class="crosslinks"><p class="noindent">[<a 
+href="refse95.html" >next</a>] [<a 
+href="refse93.html" >prev</a>] [<a 
+href="refse93.html#tailrefse93.html" >prev-tail</a>] [<a 
+href="#tailrefse94.html">tail</a>] [<a 
+href="refch14.html#refse94.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">14.7   </span> <a 
+href="ref.html#QQ2-184-221" id="x184-20600014.7">Forward declared functions</a></h3>
+<a 
+ id="dx184-206001"></a>
+<a 
+ id="dx184-206002"></a>
+<!--l. 10320--><p class="noindent" ><a name="keyword_forward"></a> A function can be declared without having it followed by its implementation, by having it followed
+by the <span 
+class="cmtt-10">forward </span>procedure. The effective implementation of that function must follow later in the
+module. The function can be used after a <span 
+class="cmtt-10">forward </span>declaration as if it had been implemented
+already. The following is an example of a forward declaration.
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-423">
+Program&#x00A0;testforward;
+&#x00A0;<br />Procedure&#x00A0;First&#x00A0;(n&#x00A0;:&#x00A0;longint);&#x00A0;forward;
+&#x00A0;<br />Procedure&#x00A0;Second;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;In&#x00A0;second.&#x00A0;Calling&#x00A0;first...&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;First&#x00A0;(1);
+&#x00A0;<br />end;
+&#x00A0;<br />Procedure&#x00A0;First&#x00A0;(n&#x00A0;:&#x00A0;longint);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;First&#x00A0;received&#x00A0;:&#x00A0;&#8217;,n);
+&#x00A0;<br />end;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Second;
+&#x00A0;<br />end.
+</div>
+<!--l. 10342--><p class="nopar" >A function can be forward declared only once. Likewise, in units, it is not allowed to have a
+forward declared function of a function that has been declared in the interface part. The interface
+declaration counts as a <span 
+class="cmtt-10">forward </span>declaration. The following unit will give an error when
+compiled:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-424">
+Unit&#x00A0;testforward;
+&#x00A0;<br />interface
+&#x00A0;<br />Procedure&#x00A0;First&#x00A0;(n&#x00A0;:&#x00A0;longint);
+&#x00A0;<br />Procedure&#x00A0;Second;
+&#x00A0;<br />implementation
+&#x00A0;<br />Procedure&#x00A0;First&#x00A0;(n&#x00A0;:&#x00A0;longint);&#x00A0;forward;
+&#x00A0;<br />Procedure&#x00A0;Second;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;In&#x00A0;second.&#x00A0;Calling&#x00A0;first...&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;First&#x00A0;(1);
+&#x00A0;<br />end;
+&#x00A0;<br />Procedure&#x00A0;First&#x00A0;(n&#x00A0;:&#x00A0;longint);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;First&#x00A0;received&#x00A0;:&#x00A0;&#8217;,n);
+&#x00A0;<br />end;
+&#x00A0;<br />end.
+</div>
+<!--l. 10365--><p class="nopar" >Reversely, functions declared in the interface section cannot be declared forward in the
+implementation section. Logically, since they already have been declared.
+                                                                            
+
+                                                                            
+<!--l. 10372--><div class="crosslinks"><p class="noindent">[<a 
+href="refse95.html" >next</a>] [<a 
+href="refse93.html" >prev</a>] [<a 
+href="refse93.html#tailrefse93.html" >prev-tail</a>] [<a 
+href="refse94.html" >front</a>] [<a 
+href="refch14.html#refse94.html" >up</a>] </p></div>
+<!--l. 10372--><p class="noindent" ><a 
+ id="tailrefse94.html"></a>  
+</body></html> 

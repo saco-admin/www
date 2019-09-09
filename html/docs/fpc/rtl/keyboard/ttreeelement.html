@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TTreeElement</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../keyboard/index.html">Overview</a>][<a href="../keyboard/index-2.html">Constants</a>][<a href="../keyboard/index-3.html">Types</a>][<a href="../keyboard/index-5.html">Procedures and functions</a>][<a href="../keyboard/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'keyboard' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TTreeElement</h1>
+<p>Tree element</p>
+<h2>Declaration</h2>
+<p>Source position: keyboard.pp line 35</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TTreeElement<span class="sym"> = </span><span class="kw">record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Next<span class="sym">: </span><a href="../keyboard/ptreeelement.html">PTreeElement</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reference to next scancode in the tree</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Parent<span class="sym">: </span><a href="../keyboard/ptreeelement.html">PTreeElement</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reference to parent scancode in the tree</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Child<span class="sym">: </span><a href="../keyboard/ptreeelement.html">PTreeElement</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reference to child scancode in the tree</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;CanBeTerminal<span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">This scancode is possibly the last of a sequence scancode</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;char<span class="sym">: </span><a href="../system/byte.html">Byte</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Key Character</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ScanValue<span class="sym">: </span><a href="../system/byte.html">Byte</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Key scancode</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;CharValue<span class="sym">: </span><a href="../system/byte.html">Byte</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Character value for scancode</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;SpecialHandler<span class="sym">: </span><a href="../keyboard/tprocedure.html">Tprocedure</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Procedure to handle this sequence</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TTreeELement</var> is used to describe key scancode sequences, and is used to handle special key combinations in <a href="../keyboard/addspecialsequence.html">AddSpecialSequence</a> on unix platforms. There should be no need to handle records of this type. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../keyboard/addspecialsequence.html">AddSpecialSequence</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Add a handler for a special key sequence</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

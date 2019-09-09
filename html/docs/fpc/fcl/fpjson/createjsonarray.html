@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>CreateJSONArray</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../fpjson/index.html">Overview</a>][<a href="../fpjson/index-2.html">Constants</a>][<a href="../fpjson/index-3.html">Types</a>][<a href="../fpjson/index-4.html">Classes</a>][<a href="../fpjson/index-5.html">Procedures and functions</a>][<a href="../fpjson/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'fpjson' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>CreateJSONArray</h1>
+<p>Create a JSON array</p>
+<h2>Declaration</h2>
+<p>Source position: fpjson.pp line 612</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> CreateJSONArray<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Data<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <span class="kw">Const</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../fpjson/tjsonarray.html">TJSONArray</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Data</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Data to include in the array.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>The <var>TJSONArray</var> instance representing <var>Data</var></p>
+<h2>Description</h2>
+<p><var>CreateJSONArray</var> retrieves the class registered to represent JSON array data, and  creates an instance of this class, passing <var>Data</var> to the constructor. For the <var>Data</var> array the same type conversion rules as for the constructor apply. </p>
+<h2>Errors</h2>
+<p>if one of the elements in <var>Data</var> cannot be converted to a JSON structure, an exception will be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../fpjson/getjsoninstancetype.html">GetJSONInstanceType</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">JSON factory: Get the JSONData class types to use</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fpjson/setjsoninstancetype.html">SetJSONInstanceType</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">JSON factory: Set the JSONData class types to use</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fpjson/getjson.html">GetJSON</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert JSON string to JSON data structure</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fpjson/createjson.html">CreateJSON</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a JSON data item</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../fpjson/tjsonarray.html">TJSONArray</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Class of <var>TJSONArray</var></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

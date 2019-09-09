@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TEncoding.GetBufferEncoding</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TEncoding.GetBufferEncoding</h1>
+<p>Attempt to guess the encoding of a buffer</p>
+<h2>Declaration</h2>
+<p>Source position: sysencodingh.inc line 59</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">class function</span> <a href="../sysutils/tencoding.html">TEncoding</a><span class="sym">.</span>GetBufferEncoding<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Buffer<span class="sym">: </span><a href="../sysutils/tbytes.html">TBytes</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>AEncoding<span class="sym">: </span><a href="../sysutils/tencoding.html">TEncoding</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">class function</span> <a href="../sysutils/tencoding.html">TEncoding</a><span class="sym">.</span>GetBufferEncoding<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Buffer<span class="sym">: </span><a href="../sysutils/tbytes.html">TBytes</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>AEncoding<span class="sym">: </span><a href="../sysutils/tencoding.html">TEncoding</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ADefaultEncoding<span class="sym">: </span><a href="../sysutils/tencoding.html">TEncoding</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>GetBufferEncoding</var> checks the BOM marker of an array of bytes <var>Buffer</var>, and returns the  found encoding in <var>AEncoding</var>. Only the <a href="../sysutils/tencoding.bigendianunicode.html">TEncoding.BigEndianUnicode</a><a href="../sysutils/tencoding.unicode.html">TEncoding.Unicode</a> and <a href="../sysutils/tencoding.utf8.html">TEncoding.UTF8</a> encodings will be tried. </p>
+<p>If <var>AEncoding</var> is non-Nil on entry, it will be used to check  the BOM marker with.  No other encoding will be tried in that case. </p>
+<p>If <var>ADefaultEncoding</var> is specified, it will be returned in case no match was found. </p>
+<p>The function returns the number of bytes in the BOM Marker.  </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/tencoding.bigendianunicode.html">TEncoding.BigEndianUnicode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Big-endian Unicode (UTF16BE) encoding instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tencoding.unicode.html">TEncoding.Unicode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">UTF16 encoding instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tencoding.utf8.html">TEncoding.UTF8</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">UTF8 encoding instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tencoding.getpreamble.html">TEncoding.GetPreamble</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the BOM Marker used by the encoding</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>getunicode</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../charset/index.html">Overview</a>][<a href="../charset/index-2.html">Constants</a>][<a href="../charset/index-3.html">Types</a>][<a href="../charset/index-5.html">Procedures and functions</a>][<a href="../charset/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'charset' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>getunicode</h1>
+<p>Map single-byte character to unicode character.</p>
+<h2>Declaration</h2>
+<p>Source position: charset.pp line 80</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> getunicode<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;c<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;p<span class="sym">: </span><a href="../charset/punicodemap.html">punicodemap</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../charset/tunicodechar.html">tunicodechar</a><span class="sym">;</span><br><br><span class="kw">function</span> getunicode<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AAnsiStr<span class="sym">: </span><a href="../system/pansichar.html">PAnsiChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AAnsiLen<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AMap<span class="sym">: </span><a href="../charset/punicodemap.html">punicodemap</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ADest<span class="sym">: </span><a href="../charset/tunicodestring.html">tunicodestring</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">c</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Character to translate</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">p</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Single-byte to Unicode character map to use.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Unicode character or number of unicode characters in translated string. </p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AAnsiStr</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Ansi string to tranform.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AAnsiLen</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Length (in bytes) of ansi string to tranform</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AMap</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Single-byte to Unicode character map to use.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADest</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Buffer for translated unicode string.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>The first form of <var>getunicode</var> will map a single character <var>c</var> to its unicode equivalent for mapping <var>p</var>.  If no equivalent can be found, <var>0</var> is returned. </p>
+<p>The second form of <var>getunicode</var> will transform a string (specified using a pointer <var>AAnsiStr</var> to a buffer with  length <var>AAnsiLen</var>) to a unicode string using single byte codepage map <var>AMap</var>. It returns the number of unicode characters.  If <var>ADest</var> is <var>Nil</var> then just the number of characters is returned. If <var>ADest</var> is not <var>nil</var>,  it must point to a buffer large enough to contain the unicode string, and the converted string will be copied to it. </p>
+<h2>Errors</h2>
+<p>No checking on the validity of the buffers is done. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../charset/getascii.html">getascii</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert unicode character or string to single-byte character or string.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

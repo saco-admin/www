@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>WriteLn</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>WriteLn</h1>
+<p>Write variable to a text file and append newline</p>
+<h2>Declaration</h2>
+<p>Source position: system.fpd line 67</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> WriteLn<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>V1<span class="sym">: </span>T</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> WriteLn<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>V1<span class="sym">: </span>T<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>V2<span class="sym">: </span>T</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> WriteLn<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>V1<span class="sym">: </span>T<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>V2<span class="sym">: </span>T<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>v3<span class="sym">: </span>T</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> WriteLn<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>F<span class="sym">: </span>Text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>V1<span class="sym">: </span>T</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> WriteLn<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>F<span class="sym">: </span>Text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>V1<span class="sym">: </span>T<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>V2<span class="sym">: </span>T</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> WriteLn<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>F<span class="sym">: </span>Text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>V1<span class="sym">: </span>T<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>V2<span class="sym">: </span>T<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>v3<span class="sym">: </span>T</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>WriteLn</var> does the same as <a href="../system/write.html">Write</a> for text files, and emits a Carriage Return - LineFeed character pair after that. If the parameter <var>F</var> is omitted, standard output is assumed. If no variables are specified, a newline character sequence is emitted,  resulting in a new line in the file <var>F</var>. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>The newline character is determined by the <a href="../system/slinebreak.html">slinebreak</a> constant. </td>
+</tr>
+</table>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>When writing string variables, no codepage conversions are done.  The string is copied as-is to the file descriptor.  In particular, for console output, it is the programmer's responsibility  to make sure that the codepage of the string matches the codepage of the console. </td>
+</tr>
+</table>
+<h2>Errors</h2>
+<p>If an error occurs, a run-time error is generated. This behavior can be controlled with the <var>{$I}</var> switch. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/write.html">Write</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write variable to a text file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/read.html">Read</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read from a text file into variable</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/readln.html">Readln</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read from a text file into variable and goto next line</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/blockwrite.html">Blockwrite</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write data from memory to an untyped file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/slinebreak.html">slinebreak</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Alias for <a href="../system/lineending.html">LineEnding</a></p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example75<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Write(ln) function. }</span>
+
+<span class="kw">Var</span>
+  F <span class="sym">:</span> File <span class="kw">of</span> Longint<span class="sym">;</span>
+  L <span class="sym">:</span> Longint<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Write <span class="sym">(</span><span class="str">'This is on the first line ! '</span><span class="sym">)</span><span class="sym">;</span> <span class="cmt">{ No CR/LF pair! }</span>
+  Writeln <span class="sym">(</span><span class="str">'And this too...'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'But this is already on the second line...'</span><span class="sym">)</span><span class="sym">;</span>
+  Assign <span class="sym">(</span>f<span class="sym">,</span><span class="str">'test.tmp'</span><span class="sym">)</span><span class="sym">;</span>
+  Rewrite <span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">For</span> L<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+    write <span class="sym">(</span>F<span class="sym">,</span>L<span class="sym">)</span><span class="sym">;</span> <span class="cmt">{ No writeln allowed here ! }</span>
+  Close <span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

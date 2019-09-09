@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Under Linux and BSD-like platforms</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 3207--><div class="crosslinks"><p class="noindent">[<a 
+href="userse51.html" >next</a>] [<a 
+href="userse49.html" >prev</a>] [<a 
+href="userse49.html#tailuserse49.html" >prev-tail</a>] [<a 
+href="#tailuserse50.html">tail</a>] [<a 
+href="userch9.html#userse50.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">9.4   </span> <a 
+href="user.html#QQ2-160-218" id="x160-1670009.4">Under Linux and BSD-like platforms</a></h3>
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">baseunix</span> </dt><dd 
+class="description">Basic Unix operations, basically a subset of the POSIX specification. Using this
+     unit should ensure portability across most unix systems.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">clocale</span> </dt><dd 
+class="description">This unit initializes the internationalization settings in the <span 
+class="cmss-10">sysutils </span>unit with settings
+     obtained through the C library.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">cthreads</span> </dt><dd 
+class="description">This unit should be specified as the first or second unit in the uses clause of your
+     program: it will use the Posix threads implementation to enable threads in your FPC
+     program.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">cwstring</span> </dt><dd 
+class="description">If widestring routines are used, then this unit should be inserted as one of the
+     first units in the uses clause of your program: it will initialize the widestring manager
+     in the system unit with routines that use C library functions to handle Widestring
+     conversions and other widestring operations.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">errors</span> </dt><dd 
+class="description">Returns a string describing an operating system error code.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Libc</span> </dt><dd 
+class="description">This is the interface to GLibc on a linux I386 system. It will <span 
+class="cmti-10">not </span>work for other
+     platforms, and is in general provided for Kylix compatibility.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ports</span> </dt><dd 
+class="description">This implements the various <span 
+class="cmtt-10">port[] </span>constructs. These are provided for compatibility
+     only, and it is not recommended to use them extensively. Programs using this construct
+     must be run as root or setuid root, and are a serious security risk on your system.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">termio</span> </dt><dd 
+class="description">Terminal control routines, which are compatible to the C library routines.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">unix</span> </dt><dd 
+class="description">Extended Unix operations.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">unixtype</span> </dt><dd 
+class="description">All types used commonly on Unix platforms.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 3235--><div class="crosslinks"><p class="noindent">[<a 
+href="userse51.html" >next</a>] [<a 
+href="userse49.html" >prev</a>] [<a 
+href="userse49.html#tailuserse49.html" >prev-tail</a>] [<a 
+href="userse50.html" >front</a>] [<a 
+href="userch9.html#userse50.html" >up</a>] </p></div>
+<!--l. 3235--><p class="noindent" ><a 
+ id="tailuserse50.html"></a>  
+</body></html> 

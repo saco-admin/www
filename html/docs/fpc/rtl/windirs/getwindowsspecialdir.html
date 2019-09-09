@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>GetWindowsSpecialDir</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../windirs/index.html">Overview</a>][<a href="../windirs/index-2.html">Constants</a>][<a href="../windirs/index-5.html">Procedures and functions</a>][<a href="../windirs/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'windirs' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>GetWindowsSpecialDir</h1>
+<p>Get the location of a special directory.</p>
+<h2>Declaration</h2>
+<p>Source position: windirs.pp line 69</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> GetWindowsSpecialDir<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ID<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;CreateIfNotExists<span class="sym">: </span>Boolean <span class="sym">=</span> True</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ID</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Identifier of the folder location to retrieve.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Full path of the folder identified by <var>ID</var>.</p>
+<h2>Description</h2>
+<p><var>GetWindowsSpecialDir</var> can be used to to get the path of special folders on the Windows system. The locations are identified using one of the <var>CSIDL_*</var> constants. If the ID of a location is or-ed with the <var>CSIDL_FLAG_CREATE</var> constant, then the directory will be created if it didn't exist yet (and the user has sufficient rights to do so). </p>
+<h2>Errors</h2>
+<p>On error, an empty string is returned. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

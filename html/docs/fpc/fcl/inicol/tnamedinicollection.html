@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TNamedIniCollection</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../inicol/index.html">Overview</a>][<a href="../inicol/index-2.html">Constants</a>][<a href="../inicol/index-4.html">Classes</a>][<a href="../inicol/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'inicol' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TNamedIniCollection</h1>
+<p>[<a href="../inicol/tnamedinicollection-1.html" onClick="window.open('../inicol/tnamedinicollection-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../inicol/tnamedinicollection-2.html" onClick="window.open('../inicol/tnamedinicollection-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../inicol/tnamedinicollection-3.html" onClick="window.open('../inicol/tnamedinicollection-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../inicol/tnamedinicollection-4.html" onClick="window.open('../inicol/tnamedinicollection-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../inicol/tnamedinicollection-5.html" onClick="window.open('../inicol/tnamedinicollection-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../inicol/tnamedinicollection-6.html" onClick="window.open('../inicol/tnamedinicollection-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Collection of named collection items</p>
+<h2>Declaration</h2>
+<p>Source position: inicol.pp line 64</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TNamedIniCollection <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../inicol/tinicollection.html">TIniCollection</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../inicol/tnamedinicollection.indexofuserdata.html">IndexOfUserData</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for an item based on it's <var>UserData</var> property</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../inicol/tnamedinicollection.indexofname.html">IndexOfName</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for an item, based on its name, and return its position</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../inicol/tnamedinicollection.findbyname.html">FindByName</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the item based on its name</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../inicol/tnamedinicollection.findbyuserdata.html">FindByUserData</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the item based on its <var>UserData</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../inicol/tnamedinicollection.nameditems.html">NamedItems</a> []<span class="sym">: </span><a href="../inicol/tnamedinicollectionitem.html">TNamedIniCollectionItem</a><span class="sym">;</span><span class="kw"> default</span><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed access to the <var>TNamedIniCollectionItem</var> items</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../inicol/tnamedinicollection.html">TNamedIniCollection</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Collection of named collection items</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../inicol/tinicollection.html">TIniCollection</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Collection which can write itself to an .ini file</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tcollection.html">TCollection</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tpersistent.html">TPersistent</a>,<a href="../../rtl/classes/ifpobserved.html">IFPObserved</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TNamedIniCollection</var> is the collection to go with the <a href="../inicol/tnamedinicollectionitem.html">TNamedIniCollectionItem</a> item class. it provides some functions to look for items based on the <a href="../inicol/tnamedinicollection.indexofuserdata.html">UserData</a> or based on the <a href="../inicol/tnamedinicollection.indexofname.html">Name</a>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../inicol/tnamedinicollectionitem.html">TNamedIniCollectionItem</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt"><a href="../inicol/tinicollectionitem.html">TIniCollectionItem</a> with a name property</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inicol/tnamedinicollection.indexofuserdata.html">IndexOfUserData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for an item based on it's <var>UserData</var> property</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inicol/tnamedinicollection.indexofname.html">IndexOfName</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for an item, based on its name, and return its position</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

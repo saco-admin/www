@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FormatFloat</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FormatFloat</h1>
+<p>Format a float according to a certain mask.</p>
+<h2>Declaration</h2>
+<p>Source position: sysstrh.inc line 208</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FormatFloat<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Format<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span>Extended</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> FormatFloat<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Format<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span>Extended<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>FormatSettings<span class="sym">: </span><a href="../sysutils/tformatsettings.html">TFormatSettings</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FormatFloat</var> formats the floating-point value given by <var>Value</var> using  the format specifications in <var>Format</var>. The format specifier can give format specifications for positive, negative or zero values (separated by  a semicolon). </p>
+<p>If the formatspecifier is empty or the value needs more than 18 digits to be correctly represented, the result is formatted with a call to  <a href="../sysutils/floattostrf.html">FloatToStrF</a> with the <var>ffGeneral</var> format option. </p>
+<p>The following format specifiers are supported: </p>
+<dl>
+<dt>0</dt>
+<dd>is a digit place holder. If there is a corresponding digit in  the value being formatted, then it replaces the 0. If not, the 0 is left as-is. </dd>
+<dt>#</dt>
+<dd>is also a digit place holder. If there is a corresponding digit in the value being formatted, then it replaces the #. If not, it is removed. by a space. </dd>
+<dt>.</dt>
+<dd>determines the location of the decimal point. Only the first '.' character is taken into account. If the value contains digits after the decimal point, then it is replaced by the value of the <var>DecimalSeparator</var> character. </dd>
+<dt>,</dt>
+<dd>determines the use of the thousand separator character in the output string. If the format string contains one or more ',' charactes,  then thousand separators will be used. The <var>ThousandSeparator</var> character is used. </dd>
+<dt>E+</dt>
+<dd>determines the use of scientific notation. If 'E+' or 'E-' (or their lowercase counterparts) are present then scientific notation is used. The number of digits in the output string is determined by the number of <var>0</var> characters after the '<var>E+</var>' </dd>
+<dt>;</dt>
+<dd>This character separates sections for positive, negative, and zero numbers in the format string.	 </dd>
+</dl>
+<h2>Errors</h2>
+<p>If an error occurs, an exception is raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/floattostr.html">FloatToStr</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a float value to a string using a fixed format.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example89<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the FormatFloat function }</span>
+
+<span class="kw">Uses</span> sysutils<span class="sym">;</span>
+
+<span class="kw">Const</span>
+  NrFormat<span class="sym">=</span><span class="num">9</span><span class="sym">;</span>
+  FormatStrings <span class="sym">:</span> <span class="kw">Array</span><span class="sym">[</span><span class="num">1</span><span class="sym">.</span><span class="sym">.</span>NrFormat<span class="sym">]</span> <span class="kw">of</span> string <span class="sym">=</span> <span class="sym">(</span>
+        <span class="str">''</span><span class="sym">,</span>
+        <span class="chr">'0'</span><span class="sym">,</span>
+        <span class="str">'0.00'</span><span class="sym">,</span>
+        <span class="str">'#.##'</span><span class="sym">,</span>
+        <span class="str">'#,##0.00'</span><span class="sym">,</span>
+        <span class="str">'#,##0.00;(#,##0.00)'</span><span class="sym">,</span>
+        <span class="str">'#,##0.00;;Zero'</span><span class="sym">,</span>
+        <span class="str">'0.000E+00'</span><span class="sym">,</span>
+        <span class="str">'#.###E-0'</span><span class="sym">)</span><span class="sym">;</span>
+  NrValue <span class="sym">=</span> <span class="num">5</span><span class="sym">;</span>
+  FormatValues <span class="sym">:</span> <span class="kw">Array</span><span class="sym">[</span><span class="num">1</span><span class="sym">.</span><span class="sym">.</span>NrValue<span class="sym">]</span> <span class="kw">of</span> Double <span class="sym">=</span>
+    <span class="sym">(</span><span class="num">1234</span><span class="sym">,</span><span class="sym">-</span><span class="num">1234</span><span class="sym">,</span><span class="num">0</span><span class="sym">.</span><span class="num">5</span><span class="sym">,</span><span class="num">0</span><span class="sym">,</span><span class="sym">-</span><span class="num">0</span><span class="sym">.</span><span class="num">5</span><span class="sym">)</span><span class="sym">;</span>
+
+  Width  <span class="sym">=</span> <span class="num">12</span><span class="sym">;</span>
+  FWidth <span class="sym">=</span> <span class="num">20</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  I<span class="sym">,</span>J <span class="sym">:</span> Integer<span class="sym">;</span>
+  S <span class="sym">:</span> String<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Write<span class="sym">(</span><span class="str">'Format'</span><span class="sym">:</span>FWidth<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> to NrValue <span class="kw">do</span>
+    Write<span class="sym">(</span>FormatValues<span class="sym">[</span>i<span class="sym">]</span><span class="sym">:</span>Width<span class="sym">:</span><span class="num">2</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> to NrFormat <span class="kw">do</span>
+    <span class="kw">begin</span>
+    Write<span class="sym">(</span>FormatStrings<span class="sym">[</span>i<span class="sym">]</span><span class="sym">:</span>FWidth<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">For</span> J<span class="sym">:=</span><span class="num">1</span> to NrValue <span class="kw">do</span>
+      <span class="kw">begin</span>
+      S<span class="sym">:=</span>FormatFloat<span class="sym">(</span>FormatStrings<span class="sym">[</span>I<span class="sym">]</span><span class="sym">,</span>FormatValues<span class="sym">[</span>j<span class="sym">]</span><span class="sym">)</span><span class="sym">;</span>
+      Write<span class="sym">(</span>S<span class="sym">:</span>Width<span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">end</span><span class="sym">;</span>
+    Writeln<span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

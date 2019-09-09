@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TLogCodeEvent</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../eventlog/index.html">Overview</a>][<a href="../eventlog/index-1.html">Resource strings</a>][<a href="../eventlog/index-3.html">Types</a>][<a href="../eventlog/index-4.html">Classes</a>][<a href="../eventlog/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'eventlog' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TLogCodeEvent</h1>
+<p>Callback type to retrieve custom event codes</p>
+<h2>Declaration</h2>
+<p>Source position: eventlog.pp line 27</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TLogCodeEvent<span class="sym"> = </span><span class="kw">procedure</span><span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Sender<span class="sym">: </span><a href="../../rtl/system/tobject.html">TObject</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>Code<span class="sym">: </span><a href="../../rtl/system/dword.html">DWord</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span> <span class="kw">of object</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Sender</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt"><var>TEventLog</var> instance that triggered the event</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Code</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Code to return</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TLogCodeEvent</var> is the event type for the <a href="../eventlog/teventlog.ongetcustomevent.html">OnGetCustomEvent</a> and <a href="../eventlog/teventlog.ongetcustomeventid.html">OnGetCustomEventID</a>  event handlers. It should return a OS system log code for the  <var>etCustom</var> log event or event ID type in the <var>Code</var> parameter. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../eventlog/teventlog.ongetcustomevent.html">TEventLog.OnGetCustomEvent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event to retrieve custom event Code</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../eventlog/teventlog.ongetcustomeventid.html">TEventLog.OnGetCustomEventID</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event to retrieve custom event ID</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../eventlog/tlogcategoryevent.html">TLogCategoryEvent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback type to return custom category code</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

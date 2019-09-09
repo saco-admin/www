@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$a00222.html" title="Primary template, base class for branch structure policies." alt="" coords="7,55,428,83"/>
+<area shape="rect" id="node3" href="$a00326.html" title="Base class for trie policies." alt="" coords="516,30,1007,58"/>
+<area shape="rect" id="node9" href="$a00379.html" title="Functor updating ranks of entrees." alt="" coords="477,81,1045,109"/>
+<area shape="rect" id="node5" href="$a00382.html" title="Functor updating ranks of entrees." alt="" coords="1095,5,1655,33"/>
+<area shape="rect" id="node7" href="$a00383.html" title="A node updator that allows tries to be searched for the range of values that match a certain prefix..." alt="" coords="1101,55,1648,83"/>
+</map>

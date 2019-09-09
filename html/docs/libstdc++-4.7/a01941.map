@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00051.html" title="Base class for incremental control and throw." alt="" coords="252,55,431,83"/>
+<area shape="rect" id="node13" href="$a00059.html" title="Base class for random probability control and throw." alt="" coords="240,106,443,134"/>
+<area shape="rect" id="node5" href="$a00073.html" title="__gnu_cxx::throw_allocator_base\&lt; _Tp, limit_condition \&gt;" alt="" coords="503,5,873,33"/>
+<area shape="rect" id="node9" href="$a00076.html" title="__gnu_cxx::throw_value_base\&lt; limit_condition \&gt;" alt="" coords="529,55,847,83"/>
+<area shape="rect" id="node7" href="$a00074.html" title="Allocator throwing via limit condition." alt="" coords="945,5,1212,33"/>
+<area shape="rect" id="node11" href="$a00077.html" title="Type throwing via limit condition." alt="" coords="981,55,1176,83"/>
+<area shape="rect" id="node15" href="$a00073.html" title="__gnu_cxx::throw_allocator_base\&lt; _Tp, random_condition \&gt;" alt="" coords="492,106,884,134"/>
+<area shape="rect" id="node19" href="$a00076.html" title="__gnu_cxx::throw_value_base\&lt; random_condition \&gt;" alt="" coords="517,157,859,185"/>
+<area shape="rect" id="node17" href="$a00075.html" title="Allocator throwing via random condition." alt="" coords="933,106,1224,134"/>
+<area shape="rect" id="node21" href="$a00078.html" title="Type throwing via random condition." alt="" coords="969,157,1188,185"/>
+</map>

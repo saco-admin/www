@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TWinPEImageResourceReader</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../winpeimagereader/index.html">Overview</a>][<a href="../winpeimagereader/index-4.html">Classes</a>][<a href="../winpeimagereader/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'winpeimagereader' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TWinPEImageResourceReader</h1>
+<p>[<a href="../winpeimagereader/twinpeimageresourcereader-1.html" onClick="window.open('../winpeimagereader/twinpeimageresourcereader-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../winpeimagereader/twinpeimageresourcereader-2.html" onClick="window.open('../winpeimagereader/twinpeimageresourcereader-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../winpeimagereader/twinpeimageresourcereader-3.html" onClick="window.open('../winpeimagereader/twinpeimageresourcereader-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../winpeimagereader/twinpeimageresourcereader-4.html" onClick="window.open('../winpeimagereader/twinpeimageresourcereader-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../winpeimagereader/twinpeimageresourcereader-5.html" onClick="window.open('../winpeimagereader/twinpeimageresourcereader-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../winpeimagereader/twinpeimageresourcereader-6.html" onClick="window.open('../winpeimagereader/twinpeimageresourcereader-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>PE image file resource reader</p>
+<h2>Declaration</h2>
+<p>Source position: winpeimagereader.pp line 29</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TWinPEImageResourceReader <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../resource/tabstractresourcereader.html">TAbstractResourceReader</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">protected</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../winpeimagereader/twinpeimageresourcereader.checkdosstub.html">CheckDosStub</a><span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../winpeimagereader/twinpeimageresourcereader.checkpesignature.html">CheckPESignature</a><span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresourcereader.getextensions.html">GetExtensions</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresourcereader.getdescription.html">GetDescription</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resource/tabstractresourcereader.load.html">Load</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresourcereader.checkmagic.html">CheckMagic</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../resource/tabstractresourcereader.create.html">Create</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../winpeimagereader/twinpeimageresourcereader.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../winpeimagereader/twinpeimageresourcereader.html">TWinPEImageResourceReader</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">PE image file resource reader</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../resource/tabstractresourcereader.html">TAbstractResourceReader</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base abstract resource reader class</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TObject</span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This class provides a reader for Microsoft Windows PE image files containing resources.</p>
+<p>PE is the file format used by Microsoft Windows executables, dynamic link libraries and so on.</p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>This reader can only read full PE images, not COFF object files. Use <a href="../coffreader/tcoffresourcereader.html">TCoffResourceReader</a> instead.</td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresourcereader.html">TAbstractResourceReader</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base abstract resource reader class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../coffreader/tcoffresourcereader.html">TCoffResourceReader</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">COFF resource reader</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

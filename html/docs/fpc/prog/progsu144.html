@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Intel 80x86 standard routine prologue / epilogue</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 4223--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu145.html" >next</a>] [<a 
+href="#tailprogsu144.html">tail</a>] [<a 
+href="progse25.html#progsu144.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.6.1   </span> <a 
+href="prog.html#QQ2-179-188" id="x179-1820006.6.1">Intel 80x86 standard routine prologue / epilogue</a></h4>
+<!--l. 4224--><p class="noindent" >Standard entry code for procedures and functions is as follows on the 80x86 architecture:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-179">
+&#x00A0;&#x00A0;&#x00A0;pushl&#x00A0;&#x00A0;&#x00A0;%ebp
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;movl&#x00A0;&#x00A0;&#x00A0;&#x00A0;%esp,%ebp
+</div>
+<!--l. 4229--><p class="nopar" >
+<!--l. 4231--><p class="noindent" >The generated exit sequence for procedure and functions looks as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-180">
+&#x00A0;&#x00A0;&#x00A0;leave
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;ret&#x00A0;&#x00A0;$xx
+</div>
+<!--l. 4235--><p class="nopar" >
+<!--l. 4237--><p class="noindent" >Where <span 
+class="cmtt-10">xx </span>is the total size of the pushed parameters.
+<!--l. 4239--><p class="noindent" >To have more information on function return values take a look at section <a 
+href="progse20.html#x160-1610006.1">6.1<!--tex4ht:ref: se:RegConvs --></a>, page
+<a 
+href="progse20.html#x160-1610006.1">371<!--tex4ht:ref: se:RegConvs --></a>.
+                                                                            
+
+                                                                            
+<!--l. 4243--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu145.html" >next</a>] [<a 
+href="progsu144.html" >front</a>] [<a 
+href="progse25.html#progsu144.html" >up</a>] </p></div>
+<!--l. 4243--><p class="noindent" ><a 
+ id="tailprogsu144.html"></a>  
+</body></html> 

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDataSetErrorEvent</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDataSetErrorEvent</h1>
+<p>Error handling callback</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1334</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TDataSetErrorEvent<span class="sym"> = </span><span class="kw">procedure</span><span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;DataSet<span class="sym">: </span><a href="../db/tdataset.html">TDataSet</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;E<span class="sym">: </span><a href="../db/edatabaseerror.html">EDatabaseError</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>DataAction<span class="sym">: </span><a href="../db/tdataaction.html">TDataAction</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span> <span class="kw">of object</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">DataSet</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Dataset that triggered the event</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">E</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Exception object that caused the operation to fail.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">DataAction</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Action to take upon return of the event handler.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TDatasetErrorEvent</var> is used by the <a href="../db/tdataset.onediterror.html">TDataset.OnEditError</a>, <a href="../db/tdataset.onposterror.html">TDataset.OnPostError</a>  and <a href="../db/tdataset.ondeleteerror.html">TDataset.OnDeleteError</a> event handlers to allow the programmer to specfy what should be done if an update operation fails with an exception: The <var>Dataset</var> parameter indicates what dataset triggered  the event, the <var>E</var> parameter contains the exception object. The <var>DataAction</var> must be set by the  event handler, and based on it's return value, the dataset instance will take appropriate action. The default  value is <var>daFail</var>, i.e. the exception will be raised again. For a list of available return values,  see <a href="../db/tdataaction.html">TDataAction</a>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdataaction.html">TDataAction</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Action to take when a data manipulation operation has failed.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

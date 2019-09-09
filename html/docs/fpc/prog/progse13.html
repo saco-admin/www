@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Units</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 3520--><div class="crosslinks"><p class="noindent">[<a 
+href="progse14.html" >next</a>] [<a 
+href="#tailprogse13.html">tail</a>] [<a 
+href="progch4.html#progse13.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">4.1   </span> <a 
+href="prog.html#QQ2-151-154" id="x151-1520004.1">Units</a></h3>
+<!--l. 3522--><p class="noindent" >When you compile a unit, the Free Pascal compiler generates 2 files:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x151-152002x1">A unit description file.
+     </li>
+     <li 
+  class="enumerate" id="x151-152004x2">An assembly language file.</li></ol>
+<!--l. 3527--><p class="noindent" >The assembly language file contains the actual source code for the statements in your unit, and the
+necessary memory allocations for any variables you use in your unit. This file is converted by the
+assembler to an object file (with extension <span 
+class="cmss-10">.o</span>) which can then be linked to other units and your
+program, to form an executable.
+<!--l. 3533--><p class="noindent" >By default, the assembly file is removed after it has been compiled. Only in the case of the <span 
+class="cmtt-10">-s</span>
+command line option, the assembly file will be left on disk, so the assembler can be called later.
+You can disable the erasing of the assembler file with the <span 
+class="cmtt-10">-a </span>switch.
+<!--l. 3538--><p class="noindent" >The unit file contains all the information the compiler needs to use the unit:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x151-152006x1">Other used units, both in interface and implementation.
+     </li>
+     <li 
+  class="enumerate" id="x151-152008x2">Types and variables from the interface section of the unit.
+     </li>
+     <li 
+  class="enumerate" id="x151-152010x3">Function declarations from the interface section of the unit.
+     </li>
+     <li 
+  class="enumerate" id="x151-152012x4">Some debugging information, when compiled with debugging.</li></ol>
+<!--l. 3547--><p class="noindent" >The detailed contents and structure of this file are described in appendix <a 
+href="progap1.html#x276-292000A">A<!--tex4ht:ref: ch:AppA --></a>, on page <a 
+href="progap4.html#x286-302000D">709<!--tex4ht:ref: ch:AppD --></a>. You can
+examine a unit description file using the <span 
+class="cmss-10">ppudump </span>program, which shows the contents of the
+file.
+<!--l. 3552--><p class="noindent" >If you want to distribute a unit without source code, you must provide both the unit description
+file and the object file.
+                                                                            
+
+                                                                            
+<!--l. 3555--><p class="noindent" >You can also provide a C header file to go with the object file. In that case, your unit can be used
+by someone who wishes to write his programs in C. However, you must make this header file
+yourself since the Free Pascal compiler doesn&#8217;t make one for you.
+                                                                            
+
+                                                                            
+<!--l. 3562--><div class="crosslinks"><p class="noindent">[<a 
+href="progse14.html" >next</a>] [<a 
+href="progse13.html" >front</a>] [<a 
+href="progch4.html#progse13.html" >up</a>] </p></div>
+<!--l. 3562--><p class="noindent" ><a 
+ id="tailprogse13.html"></a>  
+</body></html> 

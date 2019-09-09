@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Writing portable code</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2413--><div class="crosslinks"><p class="noindent">[<a 
+href="userse35.html" >prev</a>] [<a 
+href="userse35.html#tailuserse35.html" >prev-tail</a>] [<a 
+href="#tailuserse36.html">tail</a>] [<a 
+href="userch7.html#userse36.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">7.4   </span> <a 
+href="user.html#QQ2-134-190" id="x134-1410007.4">Writing portable code</a></h3>
+<!--l. 2415--><p class="noindent" >Free Pascal is designed to be cross-platform. This means that the basic RTL units are usable on all
+platforms, and the compiler behaves the same on all platforms (as far as possible). The
+Object Pascal language is the same on all platforms. Nevertheless, FPC comes with a lot
+of units that are not portable, but provide access to all possibilities that a platform
+provides.
+<!--l. 2422--><p class="noindent" >The following are some guidelines to consider when writing portable code:
+     <ul class="itemize1">
+     <li class="itemize">Avoid system-specific units. The system unit, the objects and classes units and the
+     SysUtils unit are guaranteed to work on all systems. So is the DOS unit, but that is
+     deprecated.
+     </li>
+     <li class="itemize">Avoid direct hardware access. Limited, console-like hardware access is available for
+     most platforms in the Video, Mouse and Keyboard units.
+     </li>
+     <li class="itemize">Do not use hard-coded filename conventions. See below for more information on this.
+     </li>
+     <li class="itemize">Make no assumptions on the internal representation of types. Various processors store
+     information in different ways (&#8217;endianness&#8217;).
+     </li>
+     <li class="itemize">If system-specific functionality is needed, it is best to separate this out in a single unit.
+     Porting efforts will then be limited to re-implementing this unit for the new platform.
+     </li>
+     <li class="itemize">Don&#8217;t  use  assembler,  unless  you  have  to.  Assembler  is  processor  specific.  Some
+     instructions will not work even on the same processor family.
+     </li>
+     <li class="itemize">Do not assume that pointers and integers have the same size. They do on an Intel 32-bit
+     processor, but not necessarily on other processors. The <span 
+class="cmtt-10">PtrInt </span>type is an alias for the
+     integer type that has the same size as a pointer. <span 
+class="cmtt-10">SizeInt </span>is used for all size-related
+     issues.</li></ul>
+<!--l. 2445--><p class="noindent" >The system unit contains some constants which describe file access on a system:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">AllFilesMask</span> </dt><dd 
+class="description">a file mask that will return all files in a directory. This is <span 
+class="cmtt-10">* </span>on Unix-like
+     platforms, and <span 
+class="cmtt-10">*.* </span>on dos and windows like platforms.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">LineEnding</span> </dt><dd 
+class="description">A  character  or  string  which  describes  the  end-of-line  marker  used  on  the
+     current platform. Commonly, this is one of #10, #13#10 or #13.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">LFNSupport</span> </dt><dd 
+class="description">A boolean that indicates whether the system supports long filenames (i.e. is
+     not limited to MS-DOS 8.3 filenames).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">DirectorySeparator</span> </dt><dd 
+class="description">The character which acts as a separator between directory parts of a
+     path.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">DriveSeparator</span> </dt><dd 
+class="description">For systems that support drive letters, this is the character that is used
+     to separate the drive indication from the path.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">PathSeparator</span> </dt><dd 
+class="description">The character used to separate items in a list (notably, a PATH).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">maxExitCode</span> </dt><dd 
+class="description">The maximum value for a process exitcode.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">MaxPathLen</span> </dt><dd 
+class="description">The maximum length of a filename, including a path.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">FileNameCaseSensitive</span> </dt><dd 
+class="description">A boolean  that  indicates  whether  filenames  are  handled  case
+     sensitively.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">FileNameCasePreserving</span> </dt><dd 
+class="description">A boolean that indicates whether case in filenames is preserved
+     on creation or rename.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">UnusedHandle</span> </dt><dd 
+class="description">A value used to indicate an unused/invalid file handle.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">StdInputHandle</span> </dt><dd 
+class="description">The value of the standard input file handle. This is not always 0 (zero),
+     as is commonly the case on Unices.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">StdOutputHandle</span> </dt><dd 
+class="description">The value of the standard output file handle. This is not always 1, as
+     is commonly the case on Unices.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">StdErrorHandle</span> </dt><dd 
+class="description">The value of the standard diagnostics output file handle. This is not
+     always 2, as is commonly the case on Unices.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">CtrlZMarksEOF</span> </dt><dd 
+class="description">A boolean that indicates whether the #26 character marks the end of a
+     file (an old MS-DOS convention).</dd></dl>
+<!--l. 2473--><p class="noindent" >To ease writing portable filesystem code, the Free Pascal file routines in the system unit and
+<span 
+class="cmss-10">sysutils </span>unit treat the common directory separator characters (/ and <span 
+class="cmsy-10">\</span>) as equivalent. That means
+that if you use / on a <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> </span>system, it will be transformed to a backslash, and vice
+versa.
+<!--l. 2478--><p class="noindent" >This feature is controlled by 2 (pre-initialized) variables in the system unit:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">AllowDirectorySeparators</span> </dt><dd 
+class="description">A set of characters which, when used in filenames, are treated
+     as directory separators. They are transformed to the <span 
+class="cmtt-10">DirectorySeparator </span>character.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">AllowDriveSeparators</span> </dt><dd 
+class="description">A set of characters which, when used in filenames, are treated as
+     drive separator characters. They are transformed to the <span 
+class="cmtt-10">DriveSeparator </span>character.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 2492--><div class="crosslinks"><p class="noindent">[<a 
+href="userse35.html" >prev</a>] [<a 
+href="userse35.html#tailuserse35.html" >prev-tail</a>] [<a 
+href="userse36.html" >front</a>] [<a 
+href="userch7.html#userse36.html" >up</a>] </p></div>
+<!--l. 2492--><p class="noindent" ><a 
+ id="tailuserse36.html"></a>  
+</body></html> 

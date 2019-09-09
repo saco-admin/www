@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>How to implement a new resource writer</title>
+<link rel="stylesheet" href="fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="how to implement a new resource reader.html">Previous</a>][<a href="index.html">Up</a>][<a href="format of resources in object files.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle"> (<a href="index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h2>How to implement a new resource writer</h2>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>This chapter assumes you have some experience in using this library.</td>
+</tr>
+</table>
+<p>We'll see how to implement a writer for a new resource file format. A resource writer is a descendant of <b>TAbstractResourceWriter</b>, and it's usually implemented in a unit named <var>namewriter</var>, where <i>name</i> is file format name.</p>
+<p>Suppose we must write a writer for file format <i>foo</i>; we could start with a unit like this:</p>
+<pre><span class="kw">unit</span> foowriter<span class="sym">;</span>
+
+<span class="dir">{$MODE OBJFPC}</span> <span class="dir">{$H+}</span>
+
+<span class="kw">interface</span>
+
+<span class="kw">uses</span>
+  Classes<span class="sym">,</span> SysUtils<span class="sym">,</span> resource<span class="sym">;</span>
+
+<span class="kw">type</span>
+  TFooResourceWriter <span class="sym">=</span> <span class="kw">class</span> <span class="sym">(</span>TAbstractResourceWriter<span class="sym">)</span>
+  <span class="kw">protected</span>
+    <span class="kw">function</span> GetExtensions <span class="sym">:</span> string<span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+    <span class="kw">function</span> GetDescription <span class="sym">:</span> string<span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+    <span class="kw">procedure</span> Write<span class="sym">(</span>aResources <span class="sym">:</span> TResources<span class="sym">;</span> aStream <span class="sym">:</span> TStream<span class="sym">)</span><span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+  <span class="kw">public</span>
+    <span class="kw">constructor</span> Create<span class="sym">;</span> <span class="kw">override</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">implementation</span>
+
+<span class="kw">function</span> TFooResourceWriter<span class="sym">.</span>GetExtensions<span class="sym">:</span> string<span class="sym">;</span>
+<span class="kw">begin</span>
+
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">function</span> TFooResourceWriter<span class="sym">.</span>GetDescription<span class="sym">:</span> string<span class="sym">;</span>
+<span class="kw">begin</span>
+
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">procedure</span> TFooResourceWriter<span class="sym">.</span>Write<span class="sym">(</span>aResources<span class="sym">:</span> TResources<span class="sym">;</span> aStream<span class="sym">:</span> TStream<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">begin</span>
+
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">constructor</span> TFooResourceWriter<span class="sym">.</span>Create<span class="sym">;</span>
+<span class="kw">begin</span>
+
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">initialization</span>
+  TResources<span class="sym">.</span>RegisterWriter<span class="sym">(</span><span class="str">'.foo'</span><span class="sym">,</span>TFooResourceWriter<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<p>Note that in the <var>initialization</var> section, <var>TFooResourceWriter</var> is registered for extension <var>.foo</var>.</p>
+<p>We must implement abstract methods of <b>TAbstractResourceWriter</b>. Let's start with the simpler ones, <b>GetExtensions</b> and <b>GetDescription</b>.</p>
+<pre><span class="kw">function</span> TFooResourceWriter<span class="sym">.</span>GetExtensions<span class="sym">:</span> string<span class="sym">;</span>
+<span class="kw">begin</span>
+  Result<span class="sym">:=</span><span class="str">'.foo'</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">function</span> TFooResourceWriter<span class="sym">.</span>GetDescription<span class="sym">:</span> string<span class="sym">;</span>
+<span class="kw">begin</span>
+  Result<span class="sym">:=</span><span class="str">'FOO resource writer'</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>Now let's see <b>Write</b>. This method must write all resources in the <b>TResources</b> object to the stream.</p>
+<p>Suppose that our foo format is very simple:</p>
+<ul>
+<li>the header is made by a 4-byte signature (<var>FOO*</var>), a <var>longword</var> holding the number of resources in the file, and other 8 bytes of padding.</li>
+<li><p>each resource has a 16-byte header containing:</p><ul>
+<li>a longword for the resource type (only IDs are allowed for types)</li>
+<li>a longword for the resource name (only IDs are allowed for names)</li>
+<li>a longword for the language ID</li>
+<li>a longword for the size of the resource data</li></ul></li>
+<li>after the resource header immediately comes the resource data, possibly padded so that it ends on a 4 byte boundary. </li>
+<li>file format is little-endian </li>
+</ul>
+<p>Our <b>Write</b> method could be something like this:</p>
+<pre><span class="kw">procedure</span> TFooResourceWriter<span class="sym">.</span>Write<span class="sym">(</span>aResources<span class="sym">:</span> TResources<span class="sym">;</span> aStream<span class="sym">:</span> TStream<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">var</span> i <span class="sym">:</span> integer<span class="sym">;</span>
+<span class="kw">begin</span>
+  WriteFileHeader<span class="sym">(</span>aStream<span class="sym">,</span>aResources<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">for</span> i<span class="sym">:=</span><span class="num">0</span> to aResources<span class="sym">.</span>Count<span class="sym">-</span><span class="num">1</span> <span class="kw">do</span>
+    WriteResource<span class="sym">(</span>aStream<span class="sym">,</span>aResources<span class="sym">[</span>i<span class="sym">]</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>So we must implement <var>WriteFileHeader</var>, which writes the 16-byte file header, and <var>WriteResource</var>, which writes a single resource with its header.</p>
+<p>Let's start from the first one:</p>
+<pre><span class="kw">procedure</span> TFooResourceWriter<span class="sym">.</span>WriteFileHeader<span class="sym">(</span>aStream<span class="sym">:</span> TStream<span class="sym">;</span> aResources<span class="sym">:</span> TResources<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">var</span> signature <span class="sym">:</span> <span class="kw">array</span><span class="sym">[</span><span class="num">0</span><span class="sym">.</span><span class="sym">.</span><span class="num">3</span><span class="sym">]</span> <span class="kw">of</span> char<span class="sym">;</span>
+    rescount <span class="sym">:</span> longword<span class="sym">;</span>
+    padding <span class="sym">:</span> qword<span class="sym">;</span>
+<span class="kw">begin</span>
+  signature<span class="sym">:=</span><span class="str">'FOO*'</span><span class="sym">;</span>
+  rescount<span class="sym">:=</span>aResources<span class="sym">.</span>Count<span class="sym">;</span>
+  padding<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+
+  aStream<span class="sym">.</span>WriteBuffer<span class="sym">(</span>signature<span class="sym">[</span><span class="num">0</span><span class="sym">]</span><span class="sym">,</span><span class="num">4</span><span class="sym">)</span><span class="sym">;</span>
+  aStream<span class="sym">.</span>WriteBuffer<span class="sym">(</span>rescount<span class="sym">,</span>sizeof<span class="sym">(</span>rescount<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  aStream<span class="sym">.</span>WriteBuffer<span class="sym">(</span>padding<span class="sym">,</span>sizeof<span class="sym">(</span>padding<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>This code simply writes the file header as defined in foo format. Note that if we are running on a big endian system we should swap bytes before writing, e.g. calling <var>SwapEndian</var> function, but for simplicity this is omitted.</p>
+<p>Now <var>WriteResource</var> comes. This method could be like this:</p>
+<pre><span class="kw">procedure</span> TFooResourceWriter<span class="sym">.</span>WriteResource<span class="sym">(</span>aStream<span class="sym">:</span> TStream<span class="sym">;</span> aResource<span class="sym">:</span> TAbstractResource<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">var</span> aType <span class="sym">:</span> longword<span class="sym">;</span>
+    aName <span class="sym">:</span> longword<span class="sym">;</span>
+    aLangID <span class="sym">:</span> longword<span class="sym">;</span>
+    aDataSize <span class="sym">:</span> longword<span class="sym">;</span>
+<span class="kw">begin</span>
+  aType<span class="sym">:=</span>aResource<span class="sym">.</span>_Type<span class="sym">.</span>ID<span class="sym">;</span>
+  aName<span class="sym">:=</span>aResource<span class="sym">.</span>Name<span class="sym">.</span>ID<span class="sym">;</span>
+  aLangID<span class="sym">:=</span>aResource<span class="sym">.</span>LangID<span class="sym">;</span>
+  aDataSize<span class="sym">:=</span>aResource<span class="sym">.</span>RawData<span class="sym">.</span>Size<span class="sym">;</span>
+
+  <span class="cmt">//write resource header</span>
+  aStream<span class="sym">.</span>WriteBuffer<span class="sym">(</span>aType<span class="sym">,</span>sizeof<span class="sym">(</span>aType<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  aStream<span class="sym">.</span>WriteBuffer<span class="sym">(</span>aName<span class="sym">,</span>sizeof<span class="sym">(</span>aName<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  aStream<span class="sym">.</span>WriteBuffer<span class="sym">(</span>aLangID<span class="sym">,</span>sizeof<span class="sym">(</span>aLangID<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  aStream<span class="sym">.</span>WriteBuffer<span class="sym">(</span>aDataSize<span class="sym">,</span>sizeof<span class="sym">(</span>aDataSize<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+
+  <span class="cmt">//write resource data</span>
+  aResource<span class="sym">.</span>RawData<span class="sym">.</span>Position<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  aStream<span class="sym">.</span>CopyFrom<span class="sym">(</span>aResource<span class="sym">.</span>RawData<span class="sym">,</span>aResource<span class="sym">.</span>RawData<span class="sym">.</span>Size<span class="sym">)</span><span class="sym">;</span>
+
+  <span class="cmt">//align data so that it ends on a 4-byte boundary</span>
+  Align4Bytes<span class="sym">(</span>aStream<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>We write the 16-byte resource header, and then resource data. Note that if resources have been loaded from a stream and the user didn't modify resource data, we are copying data directly from the original stream.</p>
+<p><var>Align4Bytes</var> is a private method (not shown for simplicity) that writes some padding bytes to the stream if needed, since FOO file format specifies that resource data must be padded to end on a 4 byte boundary. Again, we didn't consider endianess for simplicity. And finally, note that foo format only supports IDs for types and names, so if one of them is a name (that is, a string) this code might cause exceptions to be raised.</p>
+<p><b>Note:</b> More complex file formats store resources in a tree hierarchy; since <b>TResources</b> internally stores resources in this way too, a writer can choose to acquire a reference to the internal tree used by the <b>TResources</b> object (see <b>TAbstractResourceWriter.GetTree</b>) and use it directly. For these file formats resources can be written faster, since there is no overhead involved in building a separate resource tree in the writer.</p>
+<p>That's all. Now you should be able to create a real resource writer.</p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDelphiReader</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../streamex/index.html">Overview</a>][<a href="../streamex/index-2.html">Constants</a>][<a href="../streamex/index-4.html">Classes</a>][<a href="../streamex/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'streamex' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDelphiReader</h1>
+<p>[<a href="../streamex/tdelphireader-1.html" onClick="window.open('../streamex/tdelphireader-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../streamex/tdelphireader-2.html" onClick="window.open('../streamex/tdelphireader-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../streamex/tdelphireader-3.html" onClick="window.open('../streamex/tdelphireader-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../streamex/tdelphireader-4.html" onClick="window.open('../streamex/tdelphireader-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../streamex/tdelphireader-5.html" onClick="window.open('../streamex/tdelphireader-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../streamex/tdelphireader-6.html" onClick="window.open('../streamex/tdelphireader-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Stream reader with BiDi Support</p>
+<h2>Declaration</h2>
+<p>Source position: streamex.pp line 58</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TDelphiReader <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../../rtl/classes/treader.html">TReader</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../streamex/tdelphireader.getdriver.html">GetDriver</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the driver class as a <a href="../streamex/tbidirbinaryobjectreader.html">TBidirBinaryObjectReader</a> class </p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../streamex/tdelphireader.readstr.html">ReadStr</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Overrides the standard <var>ReadStr</var> method</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../streamex/tdelphireader.read.html">Read</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read data from stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../streamex/tdelphireader.position.html">Position</a><span class="sym">: </span><a href="../../rtl/system/longint.html">LongInt</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Position in the stream</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../streamex/tdelphireader.html">TDelphiReader</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Stream reader with BiDi Support</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/treader.html">TReader</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tfiler.html">TFiler</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TDelphiReader</var> is a descendent of <var>TReader</var> which has support for BiDi Streaming. It overrides the stream reading methods for strings, and makes sure the stream can be positioned in the case of strings. For this purpose, it makes use of the <a href="../streamex/tbidirbinaryobjectreader.html">TBidirBinaryObjectReader</a> driver class. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../streamex/tdelphiwriter.html">TDelphiWriter</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Stream writer with BiDi Support</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../streamex/tbidirbinaryobjectreader.html">TBidirBinaryObjectReader</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Binary component stream reader with BiDi support</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

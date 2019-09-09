@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>descr</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="fpdoc.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="fpdoc.css"> 
+</head><body 
+>
+<!--l. 360--><div class="crosslinks"><p class="noindent">[<a 
+href="fpdocsu9.html" >next</a>] [<a 
+href="fpdocsu7.html" >prev</a>] [<a 
+href="fpdocsu7.html#tailfpdocsu7.html" >prev-tail</a>] [<a 
+href="#tailfpdocsu8.html">tail</a>] [<a 
+href="fpdocse7.html#fpdocsu8.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.2.8   </span> <a 
+href="fpdoc.html#QQ2-20-19" id="x20-190003.2.8">descr</a></h4>
+<!--l. 362--><p class="noindent" >This option specifies the name of a description file that contains the actual documentation for the
+unit. This option can be given several times, for several description files. The file will be searched
+relative to the current directory. No extension is added to the file, it should be a complete
+filename.
+<!--l. 368--><p class="noindent" >If the filename starts with an &#8217;at&#8217; sign <span 
+class="cmtt-10">@</span>, then it is interpreted as a text file which contains a list
+of filenames, one per line. Each of these files will be added to the list of description
+files.
+<!--l. 372--><p class="noindent" >The nodes in the description files will be merged into one big tree. This means that the
+documentation can be divided over multiple files. When merging the description files, nodes that
+occur twice will end up only once in the big node tree: the last node will always be the node that
+ends up in the parse tree. This means that the order of the various input commands or the
+ordering of the files in the file list is important.
+<!--l. 379--><p class="noindent" >Examples:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-13">
+--descr=crt.xml
+</div>
+<!--l. 382--><p class="nopar" >will tell <span 
+class="cmcsc-10">FPD<span 
+class="small-caps">o</span><span 
+class="small-caps">c</span> </span>to read documentation from <span 
+class="cmss-10">crt.xml</span>, while
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-14">
+--descr=@fcl.lst
+</div>
+<!--l. 386--><p class="nopar" >will tell <span 
+class="cmcsc-10">FPD<span 
+class="small-caps">o</span><span 
+class="small-caps">c</span> </span>to read filenames from <span 
+class="cmss-10">fcl.lst</span>; each of the filenames found in it will be added to the
+list of files to be scanned for descriptions.
+                                                                            
+
+                                                                            
+<!--l. 392--><div class="crosslinks"><p class="noindent">[<a 
+href="fpdocsu9.html" >next</a>] [<a 
+href="fpdocsu7.html" >prev</a>] [<a 
+href="fpdocsu7.html#tailfpdocsu7.html" >prev-tail</a>] [<a 
+href="fpdocsu8.html" >front</a>] [<a 
+href="fpdocse7.html#fpdocsu8.html" >up</a>] </p></div>
+<!--l. 392--><p class="noindent" ><a 
+ id="tailfpdocsu8.html"></a>  
+</body></html> 

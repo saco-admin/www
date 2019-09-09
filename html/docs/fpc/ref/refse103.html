@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Comparison operator</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 11201--><div class="crosslinks"><p class="noindent">[<a 
+href="refse104.html" >next</a>] [<a 
+href="refse102.html" >prev</a>] [<a 
+href="refse102.html#tailrefse102.html" >prev-tail</a>] [<a 
+href="#tailrefse103.html">tail</a>] [<a 
+href="refch15.html#refse103.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">15.5   </span> <a 
+href="ref.html#QQ2-212-250" id="x212-23400015.5">Comparison operator</a></h3>
+<a 
+ id="dx212-234001"></a>
+<!--l. 11203--><p class="noindent" >The comparison operator can be overloaded to compare two different types or to compare two
+equal types that are not basic types. If the operands are not simple types, the result type of a
+comparison operator need not always be a boolean, but then they cannot be used in an <span 
+class="cmtt-10">if</span>, <span 
+class="cmtt-10">repeat</span>
+or <span 
+class="cmtt-10">while </span>statement.
+<!--l. 11208--><p class="noindent" >The comparison operators that can be overloaded are:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">equal to</span> </dt><dd 
+class="description">(=) To determine if two variables are equal.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">unequal to</span> </dt><dd 
+class="description">(<span 
+class="cmmi-10">&#x003C;&#x003E;</span>) To determine if two variables are different.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">less than</span> </dt><dd 
+class="description">(<span 
+class="cmmi-10">&#x003C;</span>) To determine if one variable is less than another.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">greater than</span> </dt><dd 
+class="description">(<span 
+class="cmmi-10">&#x003E;</span>) To determine if one variable is greater than another.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">greater than or equal to</span> </dt><dd 
+class="description">(<span 
+class="cmmi-10">&#x003E;</span>=) To determine if one variable is greater than or equal to
+     another.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">less than or equal to</span> </dt><dd 
+class="description">(<span 
+class="cmmi-10">&#x003C;</span>=)  To  determine  if  one  variable  is  greater  than  or  equal  to
+     another.</dd></dl>
+<!--l. 11220--><p class="noindent" >If there is no separate operator for <span 
+class="cmti-10">unequal to </span>(<span 
+class="cmmi-10">&#x003C;&#x003E;</span>), then, to evaluate a statement that contains
+the <span 
+class="cmti-10">unequal to </span>operator, the compiler uses the <span 
+class="cmti-10">equal to </span>operator (=), and negates the result. The
+opposite is not true: if no &#8221;equal to&#8221; but an &#8221;unequal to&#8221; operator exists, the compiler will not use
+it to evaluate an expression containing the equal (=) operator.
+<!--l. 11226--><p class="noindent" >As an example, the following operator allows to compare two complex numbers:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-463">
+operator&#x00A0;=&#x00A0;(z1,&#x00A0;z2&#x00A0;:&#x00A0;complex)&#x00A0;b&#x00A0;:&#x00A0;boolean;
+</div>
+<!--l. 11230--><p class="nopar" >the above definition allows comparisons of the following form:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-464">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;C1,C2&#x00A0;:&#x00A0;Complex;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;If&#x00A0;C1=C2&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln(&#8217;C1&#x00A0;and&#x00A0;C2&#x00A0;are&#x00A0;equal&#8217;);
+&#x00A0;<br />end;
+</div>
+<!--l. 11240--><p class="nopar" >
+<!--l. 11242--><p class="noindent" >The comparison operator definition needs 2 parameters, with the types that the operator is meant
+to compare. Here also, the compiler doesn&#8217;t apply commutativity: if the two types are different,
+then it is necessary to define 2 comparison operators.
+<!--l. 11247--><p class="noindent" >In the case of complex numbers, it is, for instance necessary to define 2 comparisons: one with the
+complex type first, and one with the real type first.
+<!--l. 11251--><p class="noindent" >Given the definitions
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-465">
+operator&#x00A0;=&#x00A0;(z1&#x00A0;:&#x00A0;complex;r&#x00A0;:&#x00A0;real)&#x00A0;b&#x00A0;:&#x00A0;boolean;
+&#x00A0;<br />operator&#x00A0;=&#x00A0;(r&#x00A0;:&#x00A0;real;&#x00A0;z1&#x00A0;:&#x00A0;complex)&#x00A0;b&#x00A0;:&#x00A0;boolean;
+</div>
+<!--l. 11255--><p class="nopar" >the following two comparisons are possible:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-466">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;R,S&#x00A0;:&#x00A0;Real;
+&#x00A0;<br />&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;Complex;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;If&#x00A0;(C=R)&#x00A0;or&#x00A0;(S=C)&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Ok&#8217;);
+&#x00A0;<br />end;
+</div>
+<!--l. 11266--><p class="nopar" >Note that the order of the real and complex type in the two comparisons is reversed.
+<!--l. 11270--><p class="noindent" >The following example shows that the result type does not need to be a boolean:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-467">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TMyRec&#x00A0;=&#x00A0;record&#x00A0;a,b&#x00A0;:&#x00A0;integer;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />operator&#x00A0;=&#x00A0;(x,y&#x00A0;:&#x00A0;TMyRec)&#x00A0;r&#x00A0;:&#x00A0;string;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;if&#x00A0;(x.a=y.a)&#x00A0;and&#x00A0;(x.b=y.b)&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;R:=&#8217;equal&#8217;
+&#x00A0;<br />&#x00A0;&#x00A0;else
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;R:=&#8217;differ&#8217;;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;x,y&#x00A0;:&#x00A0;TMyRec;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;x.a:=1;
+&#x00A0;<br />&#x00A0;&#x00A0;y.a:=1;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(x=y);
+&#x00A0;<br />&#x00A0;&#x00A0;x.a:=2;
+&#x00A0;<br />&#x00A0;&#x00A0;y.a:=3;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(x=y);
+&#x00A0;<br />end.
+</div>
+<!--l. 11295--><p class="nopar" >When executed, this example will print
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-468">
+equal
+&#x00A0;<br />differ
+</div>
+<!--l. 11300--><p class="nopar" >obviously, a statement as
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-469">
+if&#x00A0;(x=y)&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;writeln(&#8217;Equal&#8217;);
+</div>
+<!--l. 11305--><p class="nopar" >Will not compile, since the if statement needs a boolean check:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-470">
+Error:&#x00A0;Incompatible&#x00A0;types:&#x00A0;got&#x00A0;"ShortString"&#x00A0;expected&#x00A0;"Boolean"
+</div>
+<!--l. 11309--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 11311--><div class="crosslinks"><p class="noindent">[<a 
+href="refse104.html" >next</a>] [<a 
+href="refse102.html" >prev</a>] [<a 
+href="refse102.html#tailrefse102.html" >prev-tail</a>] [<a 
+href="refse103.html" >front</a>] [<a 
+href="refch15.html#refse103.html" >up</a>] </p></div>
+<!--l. 11311--><p class="noindent" ><a 
+ id="tailrefse103.html"></a>  
+</body></html> 

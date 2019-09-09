@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>StrToFloat</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>StrToFloat</h1>
+<p>Convert a string to a floating-point value.</p>
+<h2>Declaration</h2>
+<p>Source position: sysstrh.inc line 173</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> StrToFloat<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Extended<span class="sym">;</span><br><br><span class="kw">function</span> StrToFloat<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>FormatSettings<span class="sym">: </span><a href="../sysutils/tformatsettings.html">TFormatSettings</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Extended<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>StrToFloat</var> converts the string <var>S</var> to a floating point value. <var>S</var> should contain a valid string representation of a floating point  value (either in decimal or scientific notation). The <var>thousandseparator</var> character may however not be used. </p>
+<p>Up to and including version 2.2.2 of the compiler, if the string contains a decimal value, then the decimal separator character can either be a '.' or the value of the <var>DecimalSeparator</var> variable. </p>
+<p>As of version 2.3.1, the string may contain only the <var>DecimalSeparator</var>  character. The dot ('.') can no longer be used instead of the <var>DecimalSeparator</var>. </p>
+<h2>Errors</h2>
+<p>If the string <var>S</var> doesn't contain a valid floating point string, then an exception will be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/texttofloat.html">TextToFloat</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a buffer to a float value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/floattostr.html">FloatToStr</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a float value to a string using a fixed format.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/formatfloat.html">FormatFloat</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Format a float according to a certain mask.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/strtoint.html">StrToInt</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a string to an integer value.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example90<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the StrToFloat function }</span>
+<span class="dir">{$mode objfpc}</span>
+<span class="dir">{$h+ }</span>
+
+<span class="kw">Uses</span> SysUtils<span class="sym">;</span>
+
+<span class="kw">Const</span>
+  NrValues <span class="sym">=</span> <span class="num">5</span><span class="sym">;</span>
+  TestStr <span class="sym">:</span> <span class="kw">Array</span><span class="sym">[</span><span class="num">1</span><span class="sym">.</span><span class="sym">.</span>NrValues<span class="sym">]</span> <span class="kw">of</span> string <span class="sym">=</span>
+           <span class="sym">(</span><span class="str">'1,1'</span><span class="sym">,</span><span class="str">'-0,2'</span><span class="sym">,</span><span class="str">'1,2E-4'</span><span class="sym">,</span><span class="chr">'0'</span><span class="sym">,</span><span class="str">'1E4'</span><span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> Testit<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  I <span class="sym">:</span> Integer<span class="sym">;</span>
+  E <span class="sym">:</span> Extended<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Writeln<span class="sym">(</span><span class="str">'Using DecimalSeparator : '</span><span class="sym">,</span>DecimalSeparator<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> to NrValues <span class="kw">do</span>
+    <span class="kw">begin</span>
+    Writeln<span class="sym">(</span><span class="str">'Converting : '</span><span class="sym">,</span>TestStr<span class="sym">[</span>i<span class="sym">]</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">Try</span>
+      E<span class="sym">:=</span>StrToFloat<span class="sym">(</span>TestStr<span class="sym">[</span>i<span class="sym">]</span><span class="sym">)</span><span class="sym">;</span>
+      Writeln<span class="sym">(</span><span class="str">'Converted value : '</span><span class="sym">,</span>E<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">except</span>
+      <span class="kw">On</span> E <span class="sym">:</span> Exception <span class="kw">do</span>
+        Writeln<span class="sym">(</span><span class="str">'Exception when converting : '</span><span class="sym">,</span>E<span class="sym">.</span>Message<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  DecimalSeparator<span class="sym">:=</span><span class="chr">','</span><span class="sym">;</span>
+  Testit<span class="sym">;</span>
+  DecimalSeparator<span class="sym">:=</span><span class="chr">'.'</span><span class="sym">;</span>
+  Testit<span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

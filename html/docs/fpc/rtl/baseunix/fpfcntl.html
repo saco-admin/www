@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpFcntl</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpFcntl</h1>
+<p>File control operations.</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 58</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpFcntl<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;fildes<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;cmd<span class="sym">: </span><a href="../baseunix/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> FpFcntl<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;fildes<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;cmd<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;arg<span class="sym">: </span><a href="../baseunix/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> FpFcntl<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;fildes<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;cmd<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>arg<span class="sym">: </span><a href="../baseunix/flock.html">FLock</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Read/set a file's attributes. <var>Fildes</var>  a valid file descriptor. <var>Cmd</var> speciefies what to do, and is one of the following: </p>
+<dl>
+<dt>F_GetFd</dt>
+<dd>Read the close_on_exec flag. If the low-order bit is 0, then the file will remain open across execve calls.</dd>
+<dt>F_GetFl</dt>
+<dd>Read the descriptor's flags.</dd>
+<dt>F_GetOwn</dt>
+<dd>Get the Process ID of the owner of a socket.</dd>
+<dt>F_SetFd</dt>
+<dd>Set the close_on_exec flag of <var>fildes</var>. (only the least siginificant bit is used). </dd>
+<dt>F_GetLk</dt>
+<dd>Return the <var>flock</var> record that prevents this process from obtaining the lock, or set the <var>l_type</var> field of the lock of there is no obstruction. <var>Arg</var> is the flock record. </dd>
+<dt>F_SetLk</dt>
+<dd>Set the lock or clear it (depending on <var>l_type</var> in the <var>flock</var> structure). if the lock is held by another process, an error occurs. </dd>
+<dt>F_GetLkw</dt>
+<dd>Same as for <b>F_Setlk</b>, but wait until the lock is released. </dd>
+<dt>F_SetOwn</dt>
+<dd>Set the Process or process group that owns a socket. </dd>
+</dl>
+<p>The function returns 0 if successful, -1 otherwise. </p>
+<h2>Errors</h2>
+<p>On error, -1 is returned. Use <a href="../baseunix/fpgeterrno.html">fpGetErrno</a> for extended error information.  </p>
+<dl>
+<dt>sys_ebadf</dt>
+<dd><var>Fd</var> has a bad file descriptor.</dd>
+<dt>sys_eagain or sys_eaccess</dt>
+<dd>For \textbf{F_SetLk}, if the lock is held by another process.</dd>
+</dl>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

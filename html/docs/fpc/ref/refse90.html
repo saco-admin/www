@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Function results</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 9593--><div class="crosslinks"><p class="noindent">[<a 
+href="refse91.html" >next</a>] [<a 
+href="refse89.html" >prev</a>] [<a 
+href="refse89.html#tailrefse89.html" >prev-tail</a>] [<a 
+href="#tailrefse90.html">tail</a>] [<a 
+href="refch14.html#refse90.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">14.3   </span> <a 
+href="ref.html#QQ2-174-211" id="x174-19600014.3">Function results</a></h3>
+<!--l. 9594--><p class="noindent" >The result of a function can be set by setting the result variable: this can be the function identifier
+or, (only in <span 
+class="cmtt-10">ObjFPC </span>or <span 
+class="cmtt-10">Delphi </span>mode) the special <span 
+class="cmtt-10">Result </span>identifier:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-401">
+Function&#x00A0;MyFunction&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;MyFunction:=12;&#x00A0;//&#x00A0;Return&#x00A0;12
+&#x00A0;<br />end;
+</div>
+<!--l. 9603--><p class="nopar" >In <span 
+class="cmtt-10">Delphi </span>or <span 
+class="cmtt-10">ObjFPC </span>mode, the above can also be coded as:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-402">
+Function&#x00A0;MyFunction&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=12;
+&#x00A0;<br />end;
+</div>
+<!--l. 9611--><p class="nopar" >As an extension to Delphi syntax, the <span 
+class="cmtt-10">ObjFPC </span>mode also supports a special extension of the <span 
+class="cmtt-10">Exit</span>
+procedure:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-403">
+Function&#x00A0;MyFunction&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Exit(12);
+&#x00A0;<br />end;
+</div>
+<!--l. 9620--><p class="nopar" >The <span 
+class="cmtt-10">Exit </span>call sets the result of the function and jumps to the final <span 
+class="cmtt-10">End </span>of the function declaration
+block. It can be seen as the equivalent of the C <span 
+class="cmtt-10">return </span>instruction.
+<!--l. 9625--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Function results are treated as pass-by-reference parameters. That is especially important for
+managed types: The function result may be non-nil on entry, and set to a valid instance of the
+type.
+                                                                            
+
+                                                                            
+<!--l. 9633--><div class="crosslinks"><p class="noindent">[<a 
+href="refse91.html" >next</a>] [<a 
+href="refse89.html" >prev</a>] [<a 
+href="refse89.html#tailrefse89.html" >prev-tail</a>] [<a 
+href="refse90.html" >front</a>] [<a 
+href="refch14.html#refse90.html" >up</a>] </p></div>
+<!--l. 9633--><p class="noindent" ><a 
+ id="tailrefse90.html"></a>  
+</body></html> 

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TEZcgi.Values</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../ezcgi/index.html">Overview</a>][<a href="../ezcgi/index-2.html">Constants</a>][<a href="../ezcgi/index-4.html">Classes</a>][<a href="../ezcgi/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'ezcgi' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TEZcgi.Values</h1>
+<p>Variables passed to the CGI script</p>
+<h2>Declaration</h2>
+<p>Source position: ezcgi.pp line 71</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../ezcgi/tezcgi.html">TEZcgi</a><span class="sym">.</span>Values<span class="sym">[</span>Index<span class="sym">: </span>string<span class="sym">]</span><span class="sym"> : </span>string<br>&nbsp;&nbsp;<span class="kw">read </span>GetVal<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Values</var> is a name-based array of variables that were passed to the script by the web server or the HTTP request. The <var>Index</var> variable is the name of the variable whose value should be retrieved. The following standard values are available: </p>
+<dl>
+<dt></dt>
+<dd></dd>
+<dt>AUTH_TYPE</dt>
+<dd>Authorization type</dd>
+<dt>CONTENT_LENGTH</dt>
+<dd>Content length</dd>
+<dt>CONTENT_TYPE</dt>
+<dd>Content type</dd>
+<dt>GATEWAY_INTERFACE</dt>
+<dd>Used gateway interface</dd>
+<dt>PATH_INFO</dt>
+<dd>Requested URL</dd>
+<dt>PATH_TRANSLATED</dt>
+<dd>Transformed URL</dd>
+<dt>QUERY_STRING</dt>
+<dd>Client query string</dd>
+<dt>REMOTE_ADDR</dt>
+<dd>Address of remote client</dd>
+<dt>REMOTE_HOST</dt>
+<dd>DNS name of remote client</dd>
+<dt>REMOTE_IDENT</dt>
+<dd>Remote identity.</dd>
+<dt>REMOTE_USER</dt>
+<dd>Remote user</dd>
+<dt>REQUEST_METHOD</dt>
+<dd>Request methods (POST or GET)</dd>
+<dt>SCRIPT_NAME</dt>
+<dd>Script name</dd>
+<dt>SERVER_NAME</dt>
+<dd>Server host name</dd>
+<dt>SERVER_PORT</dt>
+<dd>Server port</dd>
+<dt>SERVER_PROTOCOL</dt>
+<dd>Server protocol</dd>
+<dt>SERVER_SOFTWARE</dt>
+<dd>Web server software</dd>
+<dt>HTTP_ACCEPT</dt>
+<dd>Accepted responses</dd>
+<dt>HTTP_ACCEPT_CHARSET</dt>
+<dd>Accepted character sets</dd>
+<dt>HTTP_ACCEPT_ENCODING</dt>
+<dd>Accepted encodings</dd>
+<dt>HTTP_IF_MODIFIED_SINCE</dt>
+<dd>Proxy information</dd>
+<dt>HTTP_REFERER</dt>
+<dd>Referring page</dd>
+<dt>HTTP_USER_AGENT</dt>
+<dd>Client software name</dd>
+</dl>
+<p>Other than the standard list, any variables that were passed by the web-client request, are also available. Note that the variables are case insensitive. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../ezcgi/tezcgi.variables.html">TEZCGI.Variables</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed array with variables as name=value pairs.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ezcgi/tezcgi.names.html">TEZCGI.Names</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed array with available variable names.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ezcgi/tezcgi.getvalue.html">TEZCGI.GetValue</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the value of a request variable.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ezcgi/tezcgi.variablecount.html">TEZcgi.VariableCount</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of available variables.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

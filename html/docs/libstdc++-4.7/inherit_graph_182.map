@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$a00289.html" title="Node base." alt="" coords="7,55,463,83"/>
+<area shape="rect" id="node3" href="$a00281.html" title="Head node for PATRICIA tree." alt="" coords="515,5,933,33"/>
+<area shape="rect" id="node5" href="$a00282.html" title="Internal node type, PATRICIA tree." alt="" coords="513,55,935,83"/>
+<area shape="rect" id="node7" href="$a00286.html" title="Leaf node for PATRICIA tree." alt="" coords="517,106,931,134"/>
+</map>

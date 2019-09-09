@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>OBJFPC mode</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 7931--><div class="crosslinks"><p class="noindent">[<a 
+href="progse76.html" >next</a>] [<a 
+href="progse74.html" >prev</a>] [<a 
+href="progse74.html#tailprogse74.html" >prev-tail</a>] [<a 
+href="#tailprogse75.html">tail</a>] [<a 
+href="progap4.html#progse75.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">D.4   </span> <a 
+href="prog.html#QQ2-290-335" id="x290-306000D.4">OBJFPC mode</a></h3>
+<!--l. 7932--><p class="noindent" >This mode is selected by the <span 
+class="cmtt-10">$MODE OBJFPC </span>switch. On the command line, this mode is selected by
+the <span 
+class="cmtt-10">-Mobjfpc </span>switch.
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x290-306002x1">You must use the address operator to assign procedural variables.
+     </li>
+     <li 
+  class="enumerate" id="x290-306004x2">A forward declaration must be repeated exactly the same by the implementation of a
+     function/procedure. In particular, you cannot omit the parameters when implementing
+     the function or procedure, and the calling convention must be repeated as well.
+     </li>
+     <li 
+  class="enumerate" id="x290-306006x3">Overloading of functions is allowed.
+     </li>
+     <li 
+  class="enumerate" id="x290-306008x4">Nested comments are allowed.
+     </li>
+     <li 
+  class="enumerate" id="x290-306010x5">Inline code is allowed: There is no need to enable it with the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$INLINE</span><span 
+class="cmsy-10">} </span>directive.
+     </li>
+     <li 
+  class="enumerate" id="x290-306012x6">The Objpas unit is loaded right after the <span 
+class="cmss-10">system </span>unit. One of the consequences of this
+     is that the type <span 
+class="cmtt-10">Integer </span>is redefined as <span 
+class="cmtt-10">Longint</span>.
+     </li>
+     <li 
+  class="enumerate" id="x290-306014x7">You can use the cvar type.
+     </li>
+     <li 
+  class="enumerate" id="x290-306016x8">PChars are converted to strings automatically.
+     </li>
+     <li 
+  class="enumerate" id="x290-306018x9">Parameters in class methods cannot have the same names as class properties.
+     </li>
+     <li 
+  class="enumerate" id="x290-306020x10">Strings are shortstrings by default. You can use the <span 
+class="cmtt-10">-Sh </span>command line switch or the
+     <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H+</span><span 
+class="cmsy-10">} </span>switch to change this.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 7955--><div class="crosslinks"><p class="noindent">[<a 
+href="progse76.html" >next</a>] [<a 
+href="progse74.html" >prev</a>] [<a 
+href="progse74.html#tailprogse74.html" >prev-tail</a>] [<a 
+href="progse75.html" >front</a>] [<a 
+href="progap4.html#progse75.html" >up</a>] </p></div>
+<!--l. 7955--><p class="noindent" ><a 
+ id="tailprogse75.html"></a>  
+</body></html> 

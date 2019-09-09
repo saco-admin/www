@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCheckConstraint.CustomConstraint</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCheckConstraint.CustomConstraint</h1>
+<p>User-defined constraint</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1057</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../db/tcheckconstraint.html">TCheckConstraint</a><span class="sym">.</span>CustomConstraint<span class="sym"> : </span>string<br>&nbsp;&nbsp;<span class="kw">read </span>FCustomConstraint<br>&nbsp;&nbsp;<span class="kw">write </span>FCustomConstraint<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>CustomConstraint</var> is an SQL expression with an additional user-defined constraint.  The expression should be enforced by a <a href="../db/tdataset.html">TDataset</a> descendent when data is posted to the dataset. If the constraint is violated, then the dataset should raise an exception, with  message as specified in <a href="../db/tcheckconstraint.errormessage.html">TCheckConstraint.ErrorMessage</a></p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tcheckconstraint.errormessage.html">TCheckConstraint.ErrorMessage</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Message to display when the constraint is violated</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

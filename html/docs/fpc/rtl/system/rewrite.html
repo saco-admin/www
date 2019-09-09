@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Rewrite</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Rewrite</h1>
+<p>Open file for writing</p>
+<h2>Declaration</h2>
+<p>Source position: systemh.inc line 1182</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> Rewrite<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>f<span class="sym">: </span>file<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;l<span class="sym">: </span><a href="../system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> Rewrite<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>f<span class="sym">: </span>file</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> Rewrite<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>f<span class="sym">: </span>TypedFile</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> Rewrite<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>t<span class="sym">: </span>Text</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Rewrite</var> opens a file <var>F</var> for writing. <var>F</var> can be any file type. If <var>F</var> is an untyped or typed file, then it is opened for reading and writing. If <var>F</var> is an untyped file, the record size can be specified in the optional parameter <var>L</var>. Default a value of 128 is used. if <var>Rewrite</var> finds a file with the same name as <var>F</var>, this file is truncated to length <var>0</var>. If it doesn't find such a file, a new file is created.  Contrary to Turbo Pascal, Free Pascal opens the file with mode <var>fmoutput</var>. If it should be opened in <var>fminout</var> mode, an extra call to <a href="../system/reset.html">Reset</a> is needed.  File sharing is not taken into account when calling <var>Rewrite</var>.  </p>
+<h2>Errors</h2>
+<p>Depending on the state of the <var>{$I}</var> switch, a runtime error can be  generated if there is an error. In the <var>{$I-}</var> state, use <var>IOResult</var> to check for errors. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/reset.html">Reset</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Open file for reading</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/assign.html">Assign</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Assign a name to a file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/close.html">Close</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Close a file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/flush.html">Flush</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write file buffers to disk</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/append.html">Append</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Open a file in append mode</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example52<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Rewrite function. }</span>
+
+<span class="kw">Var</span> F <span class="sym">:</span> File<span class="sym">;</span>
+    I <span class="sym">:</span> longint<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Assign <span class="sym">(</span>F<span class="sym">,</span><span class="str">'Test.tmp'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ Create the file. Recordsize is 4 }</span>
+  Rewrite <span class="sym">(</span>F<span class="sym">,</span>Sizeof<span class="sym">(</span>I<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+    BlockWrite <span class="sym">(</span>F<span class="sym">,</span>I<span class="sym">,</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+  close <span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ F contains now a binary representation of</span>
+<span class="cmt">    10 longints going from 1 to 10 }</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

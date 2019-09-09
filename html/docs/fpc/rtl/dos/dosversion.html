@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>DosVersion</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dos/index.html">Overview</a>][<a href="../dos/index-2.html">Constants</a>][<a href="../dos/index-3.html">Types</a>][<a href="../dos/index-5.html">Procedures and functions</a>][<a href="../dos/index-6.html">Variables</a>][<a href="../dos/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Dos' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>DosVersion</h1>
+<p>Current OS version</p>
+<h2>Declaration</h2>
+<p>Source position: dosh.inc line 85</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> DosVersion<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>DosVersion</var> returns the operating system or kernel version. The low byte contains the major version number, while the high byte  contains the minor version number. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>On systems where versions consists of more then two numbers,  only the first two numbers will be returned. For example Linux version 2.1.76  will give you DosVersion 2.1. Some operating systems, such as FreeBSD, do not have system calls to return the kernel version, in that case a value of 0 will be returned. </td>
+</tr>
+</table>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example1<span class="sym">;</span>
+<span class="kw">uses</span> Dos<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the DosVersion function. }</span>
+
+<span class="kw">var</span>
+  OS      <span class="sym">:</span> string<span class="sym">[</span><span class="num">32</span><span class="sym">]</span><span class="sym">;</span>
+  Version <span class="sym">:</span> word<span class="sym">;</span>
+<span class="kw">begin</span>
+<span class="dir">{$IFDEF LINUX}</span>
+  OS<span class="sym">:=</span><span class="str">'Linux'</span><span class="sym">;</span>
+<span class="dir">{$ENDIF}</span>
+<span class="dir">{$ifdef FreeBSD}</span>
+  OS<span class="sym">:=</span><span class="str">'FreeBSD'</span><span class="sym">;</span>
+<span class="dir">{$endif}</span>
+<span class="dir">{$ifdef NetBSD}</span>
+  OS<span class="sym">:=</span><span class="str">'NetBSD'</span><span class="sym">;</span>
+<span class="dir">{$endif}</span>
+<span class="dir">{$ifdef Solaris}</span>
+  OS<span class="sym">:=</span><span class="str">'Solaris'</span><span class="sym">;</span>
+<span class="dir">{$endif}</span>
+<span class="dir">{$ifdef QNX}</span>
+  OS<span class="sym">:=</span><span class="str">'QNX'</span><span class="sym">;</span>
+<span class="dir">{$endif}</span>
+
+<span class="dir">{$IFDEF DOS}</span>
+  OS<span class="sym">:=</span><span class="str">'Dos'</span><span class="sym">;</span>
+<span class="dir">{$ENDIF}</span>
+  Version<span class="sym">:=</span>DosVersion<span class="sym">;</span>
+  WriteLn<span class="sym">(</span><span class="str">'Current '</span><span class="sym">,</span>OS<span class="sym">,</span><span class="str">' version is '</span><span class="sym">,</span>Lo<span class="sym">(</span>Version<span class="sym">)</span><span class="sym">,</span><span class="chr">'.'</span><span class="sym">,</span>Hi<span class="sym">(</span>Version<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

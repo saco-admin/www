@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Some Windows issues</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 7192--><div class="crosslinks"><p class="noindent">[<a 
+href="progse57.html" >prev</a>] [<a 
+href="progse57.html#tailprogse57.html" >prev-tail</a>] [<a 
+href="#tailprogse58.html">tail</a>] [<a 
+href="progch12.html#progse58.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">12.5   </span> <a 
+href="prog.html#QQ2-268-307" id="x268-28400012.5">Some Windows issues</a></h3>
+<!--l. 7194--><p class="noindent" >By default, Free Pascal (actually, the linker used by Free Pascal) creates libraries that are not
+relocatable. This means that they must be loaded at a fixed address in memory: this address is
+called the ImageBase address. If two Free Pascal generated libraries are loaded by a program, there
+will be a conflict, because the first library already occupies the memory location where the second
+library should be loaded.
+<!--l. 7201--><p class="noindent" >There are 2 switches in Free Pascal which control the generation of shared libraries under
+<span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span></span>:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">-WR</span> </dt><dd 
+class="description">Generate  a  relocatable  library.  This  library  can  be  moved  to  another  location  in
+     memory if the ImageBase address it wants is already in use.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-WB</span> </dt><dd 
+class="description">Specify the ImageBase address for the generated library. The standard ImageBase
+     used by Free Pascal is <span 
+class="cmtt-10">0x10000000</span>. This switch allows changing that by specifying
+     another address, for instance <span 
+class="cmtt-10">-WB11000000</span>.</dd></dl>
+<!--l. 7212--><p class="noindent" >The first option is preferred, as a program may load many libraries present on the system, and they
+could already be using the ImageBase address. The second option is faster, as no relocation needs
+to be done if the ImageBase address is not yet in use.
+                                                                            
+
+                                                                            
+<!--l. 7221--><div class="crosslinks"><p class="noindent">[<a 
+href="progse57.html" >prev</a>] [<a 
+href="progse57.html#tailprogse57.html" >prev-tail</a>] [<a 
+href="progse58.html" >front</a>] [<a 
+href="progch12.html#progse58.html" >up</a>] </p></div>
+<!--l. 7221--><p class="noindent" ><a 
+ id="tailprogse58.html"></a>  
+</body></html> 

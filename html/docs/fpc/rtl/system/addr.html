@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Addr</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Addr</h1>
+<p>Return address of a variable</p>
+<h2>Declaration</h2>
+<p>Source position: system.fpd line 31</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> Addr<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;X<span class="sym">: </span>TAnytype</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Addr</var> returns a pointer to its argument, which can be any type, or a function or procedure name. The returned pointer isn't typed. The same result can be obtained by the <var>@</var> operator, which can return a typed pointer (see the programmer's guide). </p>
+<h2>Errors</h2>
+<p>None </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/sizeof.html">SizeOf</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return size of a variable or type.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example2<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Addr function. }</span>
+
+<span class="kw">Const</span> Zero <span class="sym">:</span> integer <span class="sym">=</span> <span class="num">0</span><span class="sym">;</span>
+
+<span class="kw">Var</span> p <span class="sym">:</span> pointer<span class="sym">;</span>
+    i <span class="sym">:</span> Integer<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  p<span class="sym">:=</span>Addr<span class="sym">(</span>p<span class="sym">)</span><span class="sym">;</span>     <span class="cmt">{ P points to itself }</span>
+  p<span class="sym">:=</span>Addr<span class="sym">(</span>I<span class="sym">)</span><span class="sym">;</span>     <span class="cmt">{ P points to I }</span>
+  p<span class="sym">:=</span>Addr<span class="sym">(</span>Zero<span class="sym">)</span><span class="sym">;</span>  <span class="cmt">{ P points to 'Zero' }</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

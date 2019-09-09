@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Units</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 11434--><div class="crosslinks"><p class="noindent">[<a 
+href="refse107.html" >next</a>] [<a 
+href="refse105.html" >prev</a>] [<a 
+href="refse105.html#tailrefse105.html" >prev-tail</a>] [<a 
+href="#tailrefse106.html">tail</a>] [<a 
+href="refch16.html#refse106.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">16.2   </span> <a 
+href="ref.html#QQ2-216-254" id="x216-23800016.2">Units</a></h3>
+<a 
+ id="dx216-238001"></a>
+<!--l. 11435--><p class="noindent" ><a name="keyword_unit"></a> A unit contains a set of declarations, procedures and functions that can be used by a program or
+another unit. The syntax for a unit is as follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Units</span><br 
+class="newline" /><BR/><img 
+src="ref190x.png" alt=" --    -         -           -                --
+---unit--unit-header-interface part-implemenetnadtion. part-----------------
+   -initialization part------------------|
+   |               -finalization part| |
+   -------begin ---statement---------|
+                 ----;-----|
+     " ><BR/>
+     <BR/><img 
+src="ref191x.png" alt="                  ------.------|
+--unit header- unit---unit identifier ---|-------------; ---------------
+                                 -hint directives-
+     " ><BR/>
+     <BR/><img 
+src="ref192x.png" alt="--interface part-interface-------------------------------------------
+                       -uses clause| |-constant declaration part-||
+                                    ||--type declaration part--||
+                                    ||-variable declaration part-||
+                                    || property declaration part-||
+                                    |--procedure headers part- |
+                                    ------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref193x.png" alt="--procedure headers part|procedure header--;--|----------------------
+                     --function header-    -call modifiers-;--
+     " ><BR/>
+     <BR/><img 
+src="ref194x.png" alt="--implementation part-implementation --------------declaration part------
+                                  -uses clause-|
+     " ><BR/>
+     <BR/><img 
+src="ref195x.png" alt="--             -           ---        --------------------------
+  initialization part  initialization   -statem;ent--|
+     " ><BR/>
+     <BR/><img 
+src="ref196x.png" alt="--            -          ---        ----------------------------
+  finalization part  finalization   -statement--|
+                               ;
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 11440--><p class="noindent" >As can be seen from the syntax diagram, a unit always consists of a interface and an
+implementation part. Optionally, there is an initialization block and a finalization block, containing
+code that will be executed when the program is started, and when the program stops,
+respectively.
+<!--l. 11445--><p class="noindent" ><a name="keyword_interface"></a><a name="keyword_implementation"></a> Both the interface part or implementation part can be empty, but the keywords <span 
+class="cmtt-10">Interface </span>and
+<span 
+class="cmtt-10">implementation </span>must be specified. The following is a completely valid unit;
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-474">
+unit&#x00A0;a;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 11457--><p class="nopar" >
+<!--l. 11459--><p class="noindent" >The interface part declares all identifiers that must be exported from the unit. This can be
+constant, type or variable identifiers, and also procedure or function identifier declarations. The
+interface part cannot contain code that is executed: only declarations are allowed. The following is
+a valid interface part:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-475">
+unit&#x00A0;a;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;b;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;MyFunction&#x00A0;:&#x00A0;SomeBType;
+&#x00A0;<br />
+&#x00A0;<br />Implementation
+</div>
+<!--l. 11474--><p class="nopar" >The type <span 
+class="cmtt-10">SomeBType </span>is defined in unit <span 
+class="cmtt-10">b</span>.
+<!--l. 11477--><p class="noindent" >All functions and methods that are declared in the interface part must be implemented in the
+implementation part of the unit, except for declarations of external functions or procedures. If a
+declared method or function is not implemented in the implementation part, the compiler will give
+an error, for example the following:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-476">
+unit&#x00A0;unita;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;MyFunction&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 11492--><p class="nopar" >Will result in the following error:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-477">
+unita.pp(5,10)&#x00A0;Error:&#x00A0;Forward&#x00A0;declaration&#x00A0;not&#x00A0;solved&#x00A0;"MyFunction:SmallInt;"
+</div>
+<!--l. 11496--><p class="nopar" >
+<!--l. 11498--><p class="noindent" >The implementation part is primarily intended for the implementation of the functions and
+procedures declared in the interface part. However, it can also contain declarations of
+it&#8217;s own: the declarations inside the implementation part are <span 
+class="cmti-10">not </span>accessible outside the
+unit.
+<!--l. 11503--><p class="noindent" >The initialization and finalization part of a unit are optional.
+<!--l. 11505--><p class="noindent" >The initialization block is used to initialize certain variables or execute code that is necessary for
+the correct functioning of the unit. The initialization parts of the units are executed in the order
+that the compiler loaded the units when compiling a program. They are executed before the first
+statement of the program is executed.
+<!--l. 11512--><p class="noindent" >The finalization part of the units are executed in the reverse order of the initialization execution.
+They are used for instance to clean up any resources allocated in the initialization part of the unit,
+or during the lifetime of the program. The finalization part is always executed in the case of a
+normal program termination: whether it is because the final <span 
+class="cmtt-10">end </span>is reached in the program code or
+because a <span 
+class="cmtt-10">Halt </span>instruction was executed somewhere.
+<!--l. 11520--><p class="noindent" >In case the program stops during the execution of the initialization blocks of one of
+the units, only the units that were already initialized will be finalized. <a name="keyword_initialization"></a><a name="keyword_finalization"></a> Note that in
+difference with Delphi, in Free Pascal a <span 
+class="cmtt-10">finalization </span>block can be present without an
+<span 
+class="cmtt-10">Initialization </span>block. That means the following will compile in Free Pascal, but not in
+Delphi.
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-478">
+Finalization
+&#x00A0;<br />&#x00A0;&#x00A0;CleanupUnit;
+&#x00A0;<br />end.
+</div>
+<!--l. 11531--><p class="nopar" >An initialization section by itself (i.e. without finalization) may simply be replaced by a statement
+block. That is, the following:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-479">
+Initialization
+&#x00A0;<br />&#x00A0;&#x00A0;InitializeUnit;
+&#x00A0;<br />end.
+</div>
+<!--l. 11538--><p class="nopar" >is completely equivalent to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-480">
+Begin
+&#x00A0;<br />&#x00A0;&#x00A0;InitializeUnit;
+&#x00A0;<br />end.
+</div>
+<!--l. 11544--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 11548--><div class="crosslinks"><p class="noindent">[<a 
+href="refse107.html" >next</a>] [<a 
+href="refse105.html" >prev</a>] [<a 
+href="refse105.html#tailrefse105.html" >prev-tail</a>] [<a 
+href="refse106.html" >front</a>] [<a 
+href="refch16.html#refse106.html" >up</a>] </p></div>
+<!--l. 11548--><p class="noindent" ><a 
+ id="tailrefse106.html"></a>  
+</body></html> 

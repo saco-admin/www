@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Reference for unit 'fpwidestring'</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[Overview][<a href="../fpwidestring/index-5.html">Procedures and functions</a>][<a href="../fpwidestring/index-6.html">Variables</a>][<a href="../fpwidestring/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'fpwidestring' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Reference for unit 'fpwidestring'</h1>
+<p>Native Object Pascal Unicode string support</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">uses</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../system/index.html">System</a><span class="sym">,</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The system unit</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../unicodedata/index.html">unicodedata</a><span class="sym">;</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unicode data management</p></td>
+</tr>
+</table>
+<h2>Overview</h2>
+<p><var>fpwidestring</var> implements unicode string support for the Free Pascal RTL using native Object Pascal routines. It is meant to be used on operating systems where the operating system does not natively support Unicode transformations and operations. </p>
+<p>In general, it is sufficient to include the unit in the uses clause of a program. The initialization code of the unit will set the unicode string manager of the system unit to the object pascal implementation contained in this unit. </p>
+<p>This unit needs unicode collation and character set tables in order to be able to do its work correctly. These must be registered using the routines of the <a href="../unicodedata/index.html">unicodedata</a> unit: the FPC project distributes some unicode collation data in <var>.bco</var> files which can be loaded  using the <a href="../unicodedata/loadcollation.html">LoadCollation</a> routine. </p>
+<p>In order for sorting and comparing of strings to work, a collation must be used. The collation in general depends on the internationalization of the application. Since the system unit does not know about collations, the collation must be set in the <var>fpWideString</var> unit using the <a href="../fpwidestring/setactivecollation.html">SetActiveCollation</a> function.  The collation can be set on a per-thread basis. </p>
+<p>New threads get <a href="../fpwidestring/defaultcollationname.html">DefaultCollationName</a> as the active collation name. </p>
+<p>The <span class="file">fpwidestring</span> unit performs conversions between unicode and single-byte ansistring conversions (excluding UTF8). Support for various  single-byte encodings are based on the <a href="../charset/index.html">charset</a> unit.  This unit can be used to load single byte code pages. Various code page units  such as <span class="file">cp895</span>,  <span class="file">cp932</span>, <span class="file">cp950</span> are  provided by the "rtl-unicode" package. </p>
+<p>The <span class="file">fpwidestring</span> requires at least the Default Unicode Collation  Element Table to be registered (called <var>DUCET</var>).  The DUCET encoding is provided by the <span class="file">unicodeducet</span> unit. More information can be found in the <a href="../unicodedata/index.html">unicodedata</a> unit. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

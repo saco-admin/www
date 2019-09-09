@@ -1,0 +1,298 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FloatToStrF</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FloatToStrF</h1>
+<p>Convert a float value to a string using a given format.</p>
+<h2>Declaration</h2>
+<p>Source position: sysstrh.inc line 140</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FloatToStrF<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span>Extended<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;format<span class="sym">: </span><a href="../sysutils/tfloatformat.html">TFloatFormat</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Precision<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Digits<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> FloatToStrF<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span>Extended<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;format<span class="sym">: </span><a href="../sysutils/tfloatformat.html">TFloatFormat</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Precision<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Digits<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>FormatSettings<span class="sym">: </span><a href="../sysutils/tformatsettings.html">TFormatSettings</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> FloatToStrF<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span>Double<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;format<span class="sym">: </span><a href="../sysutils/tfloatformat.html">TFloatFormat</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Precision<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Digits<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> FloatToStrF<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span>Double<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;format<span class="sym">: </span><a href="../sysutils/tfloatformat.html">TFloatFormat</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Precision<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Digits<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>FormatSettings<span class="sym">: </span><a href="../sysutils/tformatsettings.html">TFormatSettings</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> FloatToStrF<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span>Single<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;format<span class="sym">: </span><a href="../sysutils/tfloatformat.html">TFloatFormat</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Precision<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Digits<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> FloatToStrF<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span>Single<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;format<span class="sym">: </span><a href="../sysutils/tfloatformat.html">TFloatFormat</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Precision<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Digits<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>FormatSettings<span class="sym">: </span><a href="../sysutils/tformatsettings.html">TFormatSettings</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> FloatToStrF<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span>Comp<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;format<span class="sym">: </span><a href="../sysutils/tfloatformat.html">TFloatFormat</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Precision<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Digits<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> FloatToStrF<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span>Comp<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;format<span class="sym">: </span><a href="../sysutils/tfloatformat.html">TFloatFormat</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Precision<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Digits<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>FormatSettings<span class="sym">: </span><a href="../sysutils/tformatsettings.html">TFormatSettings</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> FloatToStrF<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span>Currency<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;format<span class="sym">: </span><a href="../sysutils/tfloatformat.html">TFloatFormat</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Precision<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Digits<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> FloatToStrF<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span>Currency<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;format<span class="sym">: </span><a href="../sysutils/tfloatformat.html">TFloatFormat</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Precision<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Digits<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>FormatSettings<span class="sym">: </span><a href="../sysutils/tformatsettings.html">TFormatSettings</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> FloatToStrF<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span><a href="../system/int64.html">Int64</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;format<span class="sym">: </span><a href="../sysutils/tfloatformat.html">TFloatFormat</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Precision<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Digits<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> FloatToStrF<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span><a href="../system/int64.html">Int64</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;format<span class="sym">: </span><a href="../sysutils/tfloatformat.html">TFloatFormat</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Precision<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Digits<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>FormatSettings<span class="sym">: </span><a href="../sysutils/tformatsettings.html">TFormatSettings</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FloatToStrF</var> converts the floating point number <var>value</var> to a string representation, according to the settings of the parameters <var>Format</var>, <var>Precision</var> and <var>Digits</var>. </p>
+<p>The meaning of the <var>Precision</var> and <var>Digits</var> parameter depends on the <var>Format</var> parameter. The format is controlled mainly by the <var>Format</var> parameter. It can have one of the following values: </p>
+<dl>
+<dt>ffcurrency</dt>
+<dd>Money format. <var>Value</var> is converted to a string using the global variables <var>CurrencyString</var>, <var>CurrencyFormat</var> and <var>NegCurrFormat</var>. The <var>Digits</var> paramater specifies the number of digits following the decimal point and should be in the range -1 to 18. If Digits equals <var>-1</var>, <var>CurrencyDecimals</var> is assumed. The <var>Precision</var> parameter is ignored. </dd>
+<dt>ffExponent</dt>
+<dd>Scientific format. <var>Value</var> is converted to a string using scientific notation: 1 digit before the decimal point, possibly preceded by a minus sign if <var>Value</var> is negative. The number of digits after the decimal point is controlled by <var>Precision</var> and must lie in the range 0 to 15. </dd>
+<dt>ffFixed</dt>
+<dd>Fixed point format. <var>Value</var> is converted to a string using fixed point notation. The result is composed of all digits of the integer part of <var>Value</var>, preceded by a minus sign if <var>Value</var> is negative. Following the integer part is <var>DecimalSeparator</var> and then the fractional part of <var>Value</var>, rounded off to <var>Digits</var> numbers. If the number is too large then the result will be in scientific notation. </dd>
+<dt>ffGeneral</dt>
+<dd>General number format. The argument is converted to a string using <var>ffExponent</var> or <var>ffFixed</var> format, depending on wich one gives the shortest string. There will be no trailing zeroes. If <var>Value</var> is less than <var>0.00001</var> or if the number of decimals left of the decimal point is larger than <var>Precision</var> then scientific notation is used, and <var>Digits</var> is the minimum number of digits in the exponent. Otherwise <var>Digits</var> is ignored. </dd>
+<dt>ffnumber</dt>
+<dd>Is the same as <var>ffFixed</var>, except that thousand separators are inserted in the resulting string. </dd>
+</dl>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/floattostr.html">FloatToStr</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a float value to a string using a fixed format.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/floattotext.html">FloatToText</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return a string representation of a float, with a given format.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example68<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the FloatToStrF function }</span>
+
+<span class="kw">Uses</span> sysutils<span class="sym">;</span>
+
+<span class="kw">Const</span> Fmt <span class="sym">:</span> <span class="kw">Array</span> <span class="sym">[</span>TFloatFormat<span class="sym">]</span> <span class="kw">of</span> string<span class="sym">[</span><span class="num">10</span><span class="sym">]</span> <span class="sym">=</span>
+         <span class="sym">(</span><span class="str">'general'</span><span class="sym">,</span><span class="str">'exponent'</span><span class="sym">,</span><span class="str">'fixed'</span><span class="sym">,</span><span class="str">'number'</span><span class="sym">,</span><span class="str">'Currency'</span><span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> Testit <span class="sym">(</span>Value <span class="sym">:</span>  Extended<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span> I<span class="sym">,</span>J <span class="sym">:</span> longint<span class="sym">;</span>
+    FF <span class="sym">:</span> TFloatFormat<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">5</span> to <span class="num">15</span> <span class="kw">do</span>
+    <span class="kw">For</span> J<span class="sym">:=</span><span class="num">1</span> to <span class="num">4</span> <span class="kw">do</span>
+      <span class="kw">For</span> FF<span class="sym">:=</span>ffgeneral to ffcurrency <span class="kw">do</span>
+        <span class="kw">begin</span>
+        Write <span class="sym">(</span>Value<span class="sym">,</span><span class="str">'(Prec: '</span><span class="sym">,</span>I<span class="sym">:</span><span class="num">2</span><span class="sym">,</span><span class="str">', Dig: '</span><span class="sym">,</span>J<span class="sym">,</span><span class="str">', fmt : '</span><span class="sym">,</span>Fmt<span class="sym">[</span>ff<span class="sym">]</span><span class="sym">,</span><span class="str">') : '</span><span class="sym">)</span><span class="sym">;</span>
+        Writeln <span class="sym">(</span>FloatToStrf<span class="sym">(</span>Value<span class="sym">,</span>FF<span class="sym">,</span>I<span class="sym">,</span>J<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+        Write <span class="sym">(</span><span class="sym">-</span>Value<span class="sym">,</span><span class="str">'(Prec: '</span><span class="sym">,</span>I<span class="sym">:</span><span class="num">2</span><span class="sym">,</span><span class="str">', Dig: '</span><span class="sym">,</span>J<span class="sym">,</span><span class="str">', fmt : '</span><span class="sym">,</span>Fmt<span class="sym">[</span>ff<span class="sym">]</span><span class="sym">,</span><span class="str">') : '</span><span class="sym">)</span><span class="sym">;</span>
+        Writeln <span class="sym">(</span>FloatToStrf<span class="sym">(</span><span class="sym">-</span>Value<span class="sym">,</span>FF<span class="sym">,</span>I<span class="sym">,</span>J<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  Testit <span class="sym">(</span><span class="num">1</span><span class="sym">.</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+  Testit <span class="sym">(</span><span class="num">1</span><span class="sym">.</span><span class="num">1</span>E1<span class="sym">)</span><span class="sym">;</span>
+  Testit <span class="sym">(</span><span class="num">1</span><span class="sym">.</span><span class="num">1</span>E<span class="sym">-</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+  Testit <span class="sym">(</span><span class="num">1</span><span class="sym">.</span><span class="num">1</span>E5<span class="sym">)</span><span class="sym">;</span>
+  Testit <span class="sym">(</span><span class="num">1</span><span class="sym">.</span><span class="num">1</span>E<span class="sym">-</span><span class="num">5</span><span class="sym">)</span><span class="sym">;</span>
+  Testit <span class="sym">(</span><span class="num">1</span><span class="sym">.</span><span class="num">1</span>E10<span class="sym">)</span><span class="sym">;</span>
+  Testit <span class="sym">(</span><span class="num">1</span><span class="sym">.</span><span class="num">1</span>E<span class="sym">-</span><span class="num">10</span><span class="sym">)</span><span class="sym">;</span>
+  Testit <span class="sym">(</span><span class="num">1</span><span class="sym">.</span><span class="num">1</span>E15<span class="sym">)</span><span class="sym">;</span>
+  Testit <span class="sym">(</span><span class="num">1</span><span class="sym">.</span><span class="num">1</span>E<span class="sym">-</span><span class="num">15</span><span class="sym">)</span><span class="sym">;</span>
+  Testit <span class="sym">(</span><span class="num">1</span><span class="sym">.</span><span class="num">1</span>E100<span class="sym">)</span><span class="sym">;</span>
+  Testit <span class="sym">(</span><span class="num">1</span><span class="sym">.</span><span class="num">1</span>E<span class="sym">-</span><span class="num">100</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

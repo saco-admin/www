@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>AssignStream</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../streamio/index.html">Overview</a>][<a href="../streamio/index-5.html">Procedures and functions</a>][<a href="../streamio/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'StreamIO' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>AssignStream</h1>
+<p>Assign a text file to a stream.</p>
+<h2>Declaration</h2>
+<p>Source position: streamio.pp line 25</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> AssignStream<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>F<span class="sym">: </span><a href="../../rtl/system/textfile.html">Textfile</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Stream<span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">F</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The file one wishes to reroute through a stream.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Stream</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The stream that should perform the actual I/O.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>AssignStream</var> assigns the stream <var>Stream</var> to file <var>F</var>. The file can subsequently be used to write to the stream, using the standard <a href="../../rtl/system/write.html">Write</a> calls. </p>
+<p>Before writing, call <a href="../../rtl/system/rewrite.html">Rewrite</a> on the stream. Before reading, call <a href="../../rtl/system/reset.html">Reset</a>. </p>
+<h2>Errors</h2>
+<p>if <var>Stream</var> is <var>Nil</var>, an exception will be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../../rtl/classes/tstream.html">TStream</a></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../streamio/getstream.html">GetStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the stream, associated with a file.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

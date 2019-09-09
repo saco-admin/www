@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Definition</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 2747--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu128.html" >next</a>] [<a 
+href="#tailprogsu127.html">tail</a>] [<a 
+href="progse7.html#progsu127.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">2.4.1   </span> <a 
+href="prog.html#QQ2-140-143" id="x140-1410002.4.1">Definition</a></h4>
+<!--l. 2749--><p class="noindent" >In addition to the regular Turbo Pascal constructs for conditional compilation, the Free Pascal
+compiler also supports a stronger conditional compile mechanism: The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$IF</span><span 
+class="cmsy-10">} </span>construct, which can
+be used to evaluate compile-time expressions.
+<!--l. 2755--><p class="noindent" >The prototype of this construct is as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-123">
+{$if&#x00A0;expr}
+&#x00A0;<br />&#x00A0;&#x00A0;CompileTheseLines;
+&#x00A0;<br />{$else}
+&#x00A0;<br />&#x00A0;&#x00A0;BetterCompileTheseLines;
+&#x00A0;<br />{$endif}
+</div>
+<!--l. 2762--><p class="nopar" >
+<!--l. 2764--><p class="noindent" >The content of an expression is restricted to what can be evaluated at compile-time:
+     <ul class="itemize1">
+     <li class="itemize">Constants (strings, numbers)
+     </li>
+     <li class="itemize">Macros
+     </li>
+     <li class="itemize">Compile time variables (mode MacPas only)
+     </li>
+     <li class="itemize">Pascal constant expressions (mode Delphi only)</li></ul>
+<!--l. 2772--><p class="noindent" >The symbols are replaced with their value. For macros recursive substitution might
+occur.
+<!--l. 2775--><p class="noindent" >The following boolean operators are available:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-124">
+=,&#x00A0;&#x00A0;&#x003C;&#x003E;,&#x00A0;&#x00A0;&#x003E;,&#x00A0;&#x00A0;&#x003C;,&#x00A0;&#x00A0;&#x003E;=,&#x00A0;&#x00A0;&#x003C;=,&#x00A0;AND,&#x00A0;&#x00A0;NOT,&#x00A0;&#x00A0;OR,&#x00A0;&#x00A0;IN
+</div>
+<!--l. 2778--><p class="nopar" >The IN operator tests for presence of a compile-time variable in a set.
+<!--l. 2781--><p class="noindent" >The following functions are also available:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">TRUE</span> </dt><dd 
+class="description">Defined in MacPas mode only, it evaluates to True. In other modes, 1 can be used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">FALSE</span> </dt><dd 
+class="description">Defined in MacPas mode only, it evaluates to False. In other modes, 0 can be used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">DEFINED(sym)</span> </dt><dd 
+class="description">will evaluate to <span 
+class="cmtt-10">TRUE </span>if a compile time symbol is defined. In MacPas mode, the
+     parentheses are optional, i.e.
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-125">
+     {$IF&#x00A0;DEFINED(MySym)}
+</div>
+     <!--l. 2791--><p class="nopar" >is equivalent to
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-126">
+     {$IF&#x00A0;DEFINED&#x00A0;MySym}
+</div>
+     <!--l. 2795--><p class="nopar" >
+     </dd><dt class="description">
+<span 
+class="cmbx-10">UNDEFINED sym</span> </dt><dd 
+class="description">will evaluate to <span 
+class="cmtt-10">TRUE </span>if a compile time symbol is <span 
+class="cmti-10">not </span>defined, and <span 
+class="cmtt-10">FALSE</span>
+     otherwise (mode MacPas only).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">OPTION(opt)</span> </dt><dd 
+class="description">evaluates to <span 
+class="cmtt-10">TRUE </span>if a compiler option is set (mode MacPas only). It is equivalent
+     to the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$IFOPT </span><span 
+class="cmsy-10">} </span>directive.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">SIZEOF(passym)</span> </dt><dd 
+class="description">Evaluates to the size of a pascal type, variable or constant.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">DECLARED(passym)</span> </dt><dd 
+class="description">Evaluates to <span 
+class="cmtt-10">TRUE </span>if the pascal symbol is declared at this point in the
+     sources, or <span 
+class="cmtt-10">FALSE </span>if it is not yet defined.</dd></dl>
+<!--l. 2807--><p class="noindent" >In expressions, the following rules are used for evaluation:
+     <ul class="itemize1">
+     <li class="itemize">If all parts of the expression can be evaluated as booleans (with 1 and 0 representing
+     <span 
+class="cmtt-10">TRUE </span>and <span 
+class="cmtt-10">FALSE</span>), the expression is evaluated using booleans.
+     </li>
+     <li class="itemize">If all parts of the expression can be evaluated as numbers, then the expression is
+     evaluated using numbers.
+     </li>
+     <li class="itemize">In all other cases, the expression is evaluated using strings.</li></ul>
+<!--l. 2816--><p class="noindent" >If the complete expression evaluates to <span 
+class="cmtt-10">&#8217;0&#8217;</span>, then it is considered <span 
+class="cmtt-10">False </span>and rejected. Otherwise it
+is considered <span 
+class="cmtt-10">True </span>and accepted. This may have unexpected consequences:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-127">
+{$if&#x00A0;0}
+</div>
+<!--l. 2821--><p class="nopar" >will evaluate to <span 
+class="cmtt-10">False </span>and be rejected, while
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-128">
+{$if&#x00A0;00}
+</div>
+<!--l. 2825--><p class="nopar" >will evaluate to <span 
+class="cmtt-10">True</span>.
+                                                                            
+
+                                                                            
+<!--l. 2828--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu128.html" >next</a>] [<a 
+href="progsu127.html" >front</a>] [<a 
+href="progse7.html#progsu127.html" >up</a>] </p></div>
+<!--l. 2828--><p class="noindent" ><a 
+ id="tailprogsu127.html"></a>  
+</body></html> 

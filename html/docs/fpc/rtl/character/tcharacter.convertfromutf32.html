@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCharacter.ConvertFromUtf32</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../character/index.html">Overview</a>][<a href="../character/index-3.html">Types</a>][<a href="../character/index-4.html">Classes</a>][<a href="../character/index-5.html">Procedures and functions</a>][<a href="../character/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'character' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TCharacter.ConvertFromUtf32</h1>
+<p>Convert a UTF32 character to UnicodeString</p>
+<h2>Declaration</h2>
+<p>Source position: character.pas line 85</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">class function</span> <a href="../character/tcharacter.html">TCharacter</a><span class="sym">.</span>ConvertFromUtf32<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AChar<span class="sym">: </span><a href="../system/ucs4char.html">UCS4Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AChar</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">UTF32 character to convert to UTF16.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>A UTF16 unicode string representing <var>AChar</var></p>
+<h2>Description</h2>
+<p><var>TCharacter.ConvertFromUtf32</var> converts a single UTF32 character <var>AChar</var> to a UTF16 string.  This is the opposite of <a href="../character/tcharacter.converttoutf32.html">TCharacter.ConvertToUtf32</a>. </p>
+<p>The result is a string, since multiple UTF16 characters can be needed to encode a single UTF32 character. </p>
+<h2>Errors</h2>
+<p>If <var>AChar</var> is not in the valid range of UTF32 characters, an <a href="../sysutils/eargumentoutofrangeexception.html">EArgumentOutOfRangeException</a> exception is raised.  </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/eargumentoutofrangeexception.html">EArgumentOutOfRangeException</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Argument out of valid range passed to a function</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.converttoutf32.html">TCharacter.ConvertToUtf32</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a UTF16 character to a UTF32 character</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

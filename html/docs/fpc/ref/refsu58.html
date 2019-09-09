@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The For..to/downto..do statement</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 8880--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu59.html" >next</a>] [<a 
+href="refsu57.html" >prev</a>] [<a 
+href="refsu57.html#tailrefsu57.html" >prev-tail</a>] [<a 
+href="#tailrefsu58.html">tail</a>] [<a 
+href="refse86.html#refsu58.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">13.2.4   </span> <a 
+href="ref.html#QQ2-164-201" id="x164-18600013.2.4">The <span 
+class="cmtt-10">For..to/downto..do </span>statement</a></h4>
+<a 
+ id="dx164-186001"></a>
+<a 
+ id="dx164-186002"></a>
+<a 
+ id="dx164-186003"></a>
+<a 
+ id="dx164-186004"></a>
+<a 
+ id="dx164-186005"></a>
+<!--l. 8882--><p class="noindent" ><a name="keyword_for"></a><a name="keyword_do"></a><a name="keyword_downto"></a> Free Pascal supports the <span 
+class="cmtt-10">For </span>loop construction. A <span 
+class="cmtt-10">for </span>loop is used in case one wants to calculate
+something a fixed number of times. The prototype syntax is as follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">For statement</span><br 
+class="newline" /><BR/><img 
+src="ref154x.png" alt=" --           -   -            -   -          -----  -----
+   for statement  for control variable :=   initial value -  to  --|
+----final value-do -statement------------------------downto-----------
+     " ><BR/>
+     <BR/><img 
+src="ref155x.png" alt="--control variable-variable identifier-----------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref156x.png" alt="--initial value expression -------------------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref157x.png" alt="--        -         --------------------------------------------
+  final value expression
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 8887--><p class="noindent" >Here, <span 
+class="cmtt-10">Statement </span>can be a compound statement. When the <span 
+class="cmtt-10">For </span>statement is encountered, the
+control variable is initialized with the initial value, and is compared with the final value. What
+happens next depends on whether <span 
+class="cmtt-10">to </span>or <span 
+class="cmtt-10">downto </span>is used:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x164-186007x1">In the case <span 
+class="cmtt-10">To </span>is used, if the initial value is larger than the final value then <span 
+class="cmtt-10">Statement</span>
+     will never be executed.
+     </li>
+     <li 
+  class="enumerate" id="x164-186009x2">In the case <span 
+class="cmtt-10">DownTo </span>is used, if the initial value is less than the final value then <span 
+class="cmtt-10">Statement</span>
+     will never be executed.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 8897--><p class="noindent" >After this check, the statement after <span 
+class="cmtt-10">Do </span>is executed. After the execution of the statement, the
+control variable is increased or decreased with 1, depending on whether <span 
+class="cmtt-10">To </span>or <span 
+class="cmtt-10">Downto </span>is used. The
+control variable must be an ordinal type, no other types can be used as counters in a
+loop.
+<!--l. 8903--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span>
+     <ul class="itemize1">
+     <li class="itemize">Free Pascal always calculates the upper bound before initializing the counter variable
+     with the initial value.
+     </li>
+     <li class="itemize">It is not allowed to change (i.e. assign a value to) the value of a loop variable inside
+     the loop.
+     </li>
+     <li class="itemize">The value of the loop variable is undefined after a loop has completed or if a loop is not
+     executed at all. If the loop was terminated prematurely with an exception or a <span 
+class="cmtt-10">break</span>
+     statement, the loop variable retains the value it had when the loop was exited.
+     </li></ul>
+<!--l. 8921--><p class="noindent" >The following are valid loops:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-371">
+For&#x00A0;Day&#x00A0;:=&#x00A0;Monday&#x00A0;to&#x00A0;Friday&#x00A0;do&#x00A0;Work;
+&#x00A0;<br />For&#x00A0;I&#x00A0;:=&#x00A0;100&#x00A0;downto&#x00A0;1&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;Counting&#x00A0;down&#x00A0;:&#x00A0;&#8217;,i);
+&#x00A0;<br />For&#x00A0;I&#x00A0;:=&#x00A0;1&#x00A0;to&#x00A0;7*dwarfs&#x00A0;do&#x00A0;KissDwarf(i);
+</div>
+<!--l. 8927--><p class="nopar" >The following will generate an error:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-372">
+For&#x00A0;I:=0&#x00A0;to&#x00A0;100&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;DoSomething;
+&#x00A0;<br />&#x00A0;&#x00A0;I:=I*2;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 8935--><p class="nopar" >because the loop variable <span 
+class="cmtt-10">I </span>cannot be assigned to inside the loop.
+<!--l. 8938--><p class="noindent" >If the statement is a compound statement, then the <span 
+class="cmtt-10">Break </span>and <span 
+class="cmtt-10">Continue </span>system routines can be
+used to jump to the end or just after the end of the <span 
+class="cmtt-10">For </span>statement. Note that <span 
+class="cmtt-10">Break </span>and <span 
+class="cmtt-10">Continue</span>
+are not reserved words and therefor can be overloaded.
+                                                                            
+
+                                                                            
+<!--l. 8943--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu59.html" >next</a>] [<a 
+href="refsu57.html" >prev</a>] [<a 
+href="refsu57.html#tailrefsu57.html" >prev-tail</a>] [<a 
+href="refsu58.html" >front</a>] [<a 
+href="refse86.html#refsu58.html" >up</a>] </p></div>
+<!--l. 8943--><p class="noindent" ><a 
+ id="tailrefsu58.html"></a>  
+</body></html> 

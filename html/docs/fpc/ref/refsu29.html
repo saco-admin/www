@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Class constructors and destructors</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 4588--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu30.html" >next</a>] [<a 
+href="refsu28.html" >prev</a>] [<a 
+href="refsu28.html#tailrefsu28.html" >prev-tail</a>] [<a 
+href="#tailrefsu29.html">tail</a>] [<a 
+href="refse38.html#refsu29.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.5.5   </span> <a 
+href="ref.html#QQ2-80-108" id="x80-1020006.5.5">Class constructors and destructors</a></h4>
+<!--l. 4589--><p class="noindent" >A class constructor or destructor can also be created. They serve to instantiate some class variables
+or class properties which must be initialized before a class can be used. These constructors are
+called automatically at program startup: The constructor is called before the initialization section
+of the unit it is declared in, the destructor is called after the finalisation section of the unit it is
+declared in.
+<!--l. 4593--><p class="noindent" >There are some caveats when using class destructors/constructors:
+     <ul class="itemize1">
+     <li class="itemize">There may be only one constructor per class. The name is arbitraty, but it can not
+     have parameters.
+     </li>
+     <li class="itemize">There may be only one destructor per class. The name is arbitrary, but it can not have
+     parameters.
+     </li>
+     <li class="itemize">Neither constructor nor destructor can be virtual.
+     </li>
+     <li class="itemize">The class constructor/destructor is called irrespective of the use of the class: even if a
+     class is never used, the constructor and destructor are called anyway.
+     </li>
+     <li class="itemize">There is no guaranteed order in which the class constructors or destructors are called.
+     For nested classes, the only guaranteed order is that the constructors of nested classes
+     are  called  after  the  constructor  of  the  encompassing  class  is  called,  and  for  the
+     destructors the opposite order is used.</li></ul>
+<!--l. 4605--><p class="noindent" >The following program:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-182">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />{$h+}
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TA&#x00A0;=&#x00A0;Class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;Private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;GetA&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;SetA(AValue&#x00A0;:&#x00A0;integer);
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Class&#x00A0;Constructor&#x00A0;create;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Class&#x00A0;Destructor&#x00A0;destroy;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;A&#x00A0;:&#x00A0;Integer&#x00A0;Read&#x00A0;GetA&#x00A0;Write&#x00A0;SetA;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />{Class}&#x00A0;Function&#x00A0;TA.GetA&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=-1;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />{Class}&#x00A0;Procedure&#x00A0;TA.SetA(AValue&#x00A0;:&#x00A0;integer);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;//
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Class&#x00A0;Constructor&#x00A0;TA.Create;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Class&#x00A0;constructor&#x00A0;TA&#8217;);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Class&#x00A0;Destructor&#x00A0;TA.Destroy;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Class&#x00A0;destructor&#x00A0;TA&#8217;);
+&#x00A0;<br />
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;TA;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />end.
+</div>
+<!--l. 4653--><p class="nopar" >Will, when run, output the following:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-183">
+Class&#x00A0;constructor&#x00A0;TA
+&#x00A0;<br />Class&#x00A0;destructor&#x00A0;TA
+</div>
+<!--l. 4658--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 4661--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu30.html" >next</a>] [<a 
+href="refsu28.html" >prev</a>] [<a 
+href="refsu28.html#tailrefsu28.html" >prev-tail</a>] [<a 
+href="refsu29.html" >front</a>] [<a 
+href="refse38.html#refsu29.html" >up</a>] </p></div>
+<!--l. 4661--><p class="noindent" ><a 
+ id="tailrefsu29.html"></a>  
+</body></html> 

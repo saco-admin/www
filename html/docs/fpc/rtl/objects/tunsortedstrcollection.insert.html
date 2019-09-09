@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TUnSortedStrCollection.Insert</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../objects/index.html">Overview</a>][<a href="../objects/index-2.html">Constants</a>][<a href="../objects/index-3.html">Types</a>][<a href="../objects/index-4.html">Classes</a>][<a href="../objects/index-5.html">Procedures and functions</a>][<a href="../objects/index-6.html">Variables</a>][<a href="../objects/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Objects' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TUnSortedStrCollection.Insert</h1>
+<p>Insert a new string in the collection.</p>
+<h2>Declaration</h2>
+<p>Source position: objects.pp line 483</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code">  <span class="kw">procedure</span> <a href="../objects/tunsortedstrcollection.html">TUnSortedStrCollection</a><span class="sym">.</span>Insert<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Item<span class="sym">: </span>Pointer</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Insert</var> inserts a string at the end of the collection, instead of on it's alphabetical place, resulting in an unsorted collection of strings. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../objects/tcollection.insert.html">TCollection.Insert</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Insert a new item in the collection at the end.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> ex39<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the TUnsortedStrCollection.Insert method }</span>
+
+<span class="kw">Uses</span> Objects<span class="sym">,</span>Strings<span class="sym">;</span>
+
+<span class="kw">Var</span> C <span class="sym">:</span> PUnsortedStrCollection<span class="sym">;</span>
+    S <span class="sym">:</span> String<span class="sym">;</span>
+    I <span class="sym">:</span> longint<span class="sym">;</span>
+    P <span class="sym">:</span> Pchar<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Randomize<span class="sym">;</span>
+  C<span class="sym">:=</span>New<span class="sym">(</span>PUnsortedStrCollection<span class="sym">,</span>Init<span class="sym">(</span><span class="num">120</span><span class="sym">,</span><span class="num">10</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Inserting 100 records at random places.'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> to <span class="num">100</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    Str<span class="sym">(</span>Random<span class="sym">(</span><span class="num">100</span><span class="sym">)</span><span class="sym">,</span>S<span class="sym">)</span><span class="sym">;</span>
+    S<span class="sym">:=</span><span class="str">'String with value '</span><span class="sym">+</span>S<span class="sym">;</span>
+    C<span class="sym">^</span><span class="sym">.</span>Insert<span class="sym">(</span>NewStr<span class="sym">(</span>S<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">0</span> to <span class="num">99</span> <span class="kw">do</span>
+    Writeln <span class="sym">(</span>I<span class="sym">:</span><span class="num">2</span><span class="sym">,</span><span class="str">': '</span><span class="sym">,</span>PString<span class="sym">(</span>C<span class="sym">^</span><span class="sym">.</span>At<span class="sym">(</span>i<span class="sym">)</span><span class="sym">)</span><span class="sym">^</span> <span class="sym">)</span><span class="sym">;</span>
+  Dispose<span class="sym">(</span>C<span class="sym">,</span>Done<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

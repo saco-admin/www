@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>ScanDateTime</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dateutils/index.html">Overview</a>][<a href="../dateutils/index-2.html">Constants</a>][<a href="../dateutils/index-5.html">Procedures and functions</a>][<a href="../dateutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dateutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>ScanDateTime</h1>
+<p>Scans a string for a DateTime pattern and returns the date/time</p>
+<h2>Declaration</h2>
+<p>Source position: dateutil.inc line 436</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> ScanDateTime<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Pattern<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>s<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>fmt<span class="sym">: </span><a href="../sysutils/tformatsettings.html">TFormatSettings</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;startpos<span class="sym">: </span><a href="../system/integer.html">Integer</a> <span class="sym">=</span> <span class="num">1</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tdatetime.html">TDateTime</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> ScanDateTime<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Pattern<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>s<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;startpos<span class="sym">: </span><a href="../system/integer.html">Integer</a> <span class="sym">=</span> <span class="num">1</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tdatetime.html">TDateTime</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ScanDateTime</var> scans string <var>S</var> for the date/time pattern <var>Pattern</var>, starting at position <var>StartPos</var> (default 1). Optionally, the format settings <var>fmt</var> can be specified. </p>
+<p>In effect, this function does the opposite of what <a href="../sysutils/formatdatetime.html">FormatDateTime</a> does. The <var>Pattern</var> variable must contain a valid date/time pattern: note that not all possible formatdatetime patterns  can be recognized, e.g., <var>hn</var> cannot be detected properly. </p>
+<h2>Errors</h2>
+<p>In case of an error, a <a href="../sysutils/econverterror.html">EConvertError</a> exception is raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/formatdatetime.html">FormatDateTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return a string representation of a <var>TDateTime</var> value with a given format.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

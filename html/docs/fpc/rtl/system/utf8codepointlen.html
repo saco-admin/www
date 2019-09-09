@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Utf8CodePointLen</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Utf8CodePointLen</h1>
+<p>Length of an UTF-8 codepoint.</p>
+<h2>Declaration</h2>
+<p>Source position: systemh.inc line 1079</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> Utf8CodePointLen<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;P<span class="sym">: </span><a href="../system/pansichar.html">PAnsiChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;MaxLookAhead<span class="sym">: </span><a href="../system/sizeint.html">SizeInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;IncludeCombiningDiacriticalMarks<span class="sym">: </span>Boolean</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/sizeint.html">SizeInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Utf8CodePointLen</var> returns the length of the UTF-8 codepoint starting at the beginning of <var>P</var>. It will look at at most <var>MaxLookAhead</var> bytes to do create this codepoint. If <var>IncludeCombiningDiacriticalMarks</var> is true, combining diacritical marks trailing the first codepoint (which itself can also be such a mark) will be considered to be part of the codepoint. </p>
+<p>If the function returns a value &gt; 0, then this is the number of bytes occupied by the codepoint and, if requested, the trailing combining diacritical marks. If the result = 0, this means that all bytes within the requested <var>MaxLookAhead</var> could be part of a single valid codepoint and, if requested, its trailing diacritical marks, but that the codepoint is incomplete and more bytes need to be looked at. If the result is &lt; 0, then the function determined that the codepoint was invalid after processing the number of bytes equal to the absolute value of the function result. </p>
+<p>If <var>IncludeCombiningDiacriticalMarks</var> is <var>True</var>, then </p>
+<ul>
+<li>If the function processes all <var>MaxLookAhead</var> bytes, it will return the value <var>MaxLookAhead</var> rather than 0, even though in theory more combining diacritical marks might follow if more bytes would be looked at. Therefore, in order to ascertain that all combining diacritical marks are processed, pass all bytes at once to this function. </li>
+<li>If an invalid sequence is detected while processing a potential combining diacritical mark after a valid codepoint has been found already, the function will return the length of this valid codepoint (plus that of any preceding valid combining diacritical marks) as a positive value. The idea is that this invalid sequence at the end is by definition not a combining diacritical mark (since all of those are valid sequences) and hence should not render the preceding codepoint invalid. </li>
+</ul>
+<h2>Errors</h2>
+<p>None. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

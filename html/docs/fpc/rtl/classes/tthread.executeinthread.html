@@ -1,0 +1,335 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TThread.ExecuteInThread</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TThread.ExecuteInThread</h1>
+<p>Execute a method or static procedure in a thread</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 1696</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">class function</span> <a href="../classes/tthread.html">TThread</a><span class="sym">.</span>ExecuteInThread<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AMethod<span class="sym">: </span><a href="../classes/tthreadexecutehandler.html">TThreadExecuteHandler</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AOnTerminate<span class="sym">: </span><a href="../classes/tnotifyevent.html">TNotifyEvent</a> <span class="sym">=</span> <span class="kw">Nil</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../classes/tthread.html">TThread</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">class function</span> <a href="../classes/tthread.html">TThread</a><span class="sym">.</span>ExecuteInThread<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AMethod<span class="sym">: </span><a href="../classes/tthreadexecutestatushandler.html">TThreadExecuteStatusHandler</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AOnStatus<span class="sym">: </span><a href="../classes/tthreadstatusnotifyevent.html">TThreadStatusNotifyEvent</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AOnTerminate<span class="sym">: </span><a href="../classes/tnotifyevent.html">TNotifyEvent</a> <span class="sym">=</span> <span class="kw">Nil</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../classes/tthread.html">TThread</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">class function</span> <a href="../classes/tthread.html">TThread</a><span class="sym">.</span>ExecuteInThread<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AMethod<span class="sym">: </span><a href="../classes/tthreadexecutecallback.html">TThreadExecuteCallBack</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AData<span class="sym">: </span>Pointer <span class="sym">=</span> <span class="kw">Nil</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AOnTerminate<span class="sym">: </span><a href="../classes/tnotifycallback.html">TNotifyCallBack</a> <span class="sym">=</span> <span class="kw">Nil</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../classes/tthread.html">TThread</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">class function</span> <a href="../classes/tthread.html">TThread</a><span class="sym">.</span>ExecuteInThread<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AMethod<span class="sym">: </span><a href="../classes/tthreadexecutestatuscallback.html">TThreadExecuteStatusCallBack</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AOnStatus<span class="sym">: </span><a href="../classes/tthreadstatusnotifycallback.html">TThreadStatusNotifyCallBack</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AData<span class="sym">: </span>Pointer <span class="sym">=</span> <span class="kw">Nil</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AOnTerminate<span class="sym">: </span><a href="../classes/tnotifycallback.html">TNotifyCallBack</a> <span class="sym">=</span> <span class="kw">Nil</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../classes/tthread.html">TThread</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TThread.ExecuteInThread</var> is a class method which allows to quickly execute a method or procedure in a thread. The method or procedure to be executed is passed in <var>Method</var>, this can be a method or a plain (static) procedure. </p>
+<p>The caller can be notified of thread termination: In the optional argument <var>AOnTerminate</var> a callback (procedure or method, depending on the signature) can be specified that will be called when  the thread terminated. This callback is executed in the main thread. </p>
+<p>The signature of <var>AMethod</var> determines whether status reporting is enabled or not.  If the method of type <a href="../classes/tthreadexecutestatushandler.html">TThreadExecuteStatusHandler</a> or <a href="../classes/tthreadexecutestatuscallback.html">TThreadExecuteStatusCallback</a>,  then an extra <var>AOnStatus</var> callback must be specified. This callback will be called in the main thread whenever the thread wishes to be report its status. The status callback should not do extensive work, because while the  status callback is called, thread execution is suspended. </p>
+<p>When using a plain procedure, extra data can be passed on to the procedure in <var>AData</var>. The <var>AData</var> pointer will be passed to the  thread method, and also to the thread status callback and thread termination callback. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/tthreadexecutehandler.html">TThreadExecuteHandler</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Signature of method to execute in a thread, without status reporting</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tthreadexecutestatushandler.html">TThreadExecuteStatusHandler</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Signature of method to execute in a thread, with status reporting</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tthreadexecutestatuscallback.html">TThreadExecuteStatusCallback</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Signature of procedure to execute in a thread, with status reporting</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tthreadexecutecallback.html">TThreadExecuteCallback</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Signature of procedure to execute in a thread, without status reporting</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> tthrc<span class="sym">;</span>
+
+<span class="kw">uses</span> cthreads<span class="sym">,</span> sysutils<span class="sym">,</span> classes<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  D <span class="sym">:</span> Integer<span class="sym">;</span>
+
+<span class="kw">Procedure</span> DoneThread<span class="sym">(</span>Sender <span class="sym">:</span> TObject<span class="sym">;</span> AData <span class="sym">:</span> Pointer<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Writeln<span class="sym">(</span><span class="str">'Thread '</span><span class="sym">,</span>TThread<span class="sym">(</span>Sender<span class="sym">)</span><span class="sym">.</span>ThreadID<span class="sym">,</span><span class="str">' done. D is currently: '</span><span class="sym">,</span> PInteger<span class="sym">(</span>AData<span class="sym">)</span><span class="sym">^</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> DoThread<span class="sym">(</span>AData <span class="sym">:</span> Pointer<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  I <span class="sym">:</span> integer<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">for</span> I<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    Sleep<span class="sym">(</span><span class="num">10</span><span class="sym">*</span>Random<span class="sym">(</span><span class="num">30</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    Writeln<span class="sym">(</span><span class="str">'Thread '</span><span class="sym">,</span>TThread<span class="sym">.</span>CurrentThread<span class="sym">.</span>ThreadID<span class="sym">,</span><span class="str">' ping '</span><span class="sym">,</span>I<span class="sym">)</span><span class="sym">;</span>
+    Inc<span class="sym">(</span>PInteger<span class="sym">(</span>AData<span class="sym">)</span><span class="sym">^</span><span class="sym">,</span>i<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  T1<span class="sym">,</span>T2 <span class="sym">:</span> TThread<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  T1<span class="sym">:=</span>TThread<span class="sym">.</span>ExecuteInThread<span class="sym">(</span><span class="sym">@</span>DoThread<span class="sym">,</span><span class="sym">@</span>D<span class="sym">,</span><span class="sym">@</span>DoneThread<span class="sym">)</span><span class="sym">;</span>
+  T2<span class="sym">:=</span>TThread<span class="sym">.</span>ExecuteInThread<span class="sym">(</span><span class="sym">@</span>DoThread<span class="sym">,</span><span class="sym">@</span>D<span class="sym">,</span><span class="sym">@</span>DoneThread<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Main thread done'</span><span class="sym">)</span><span class="sym">;</span>
+  T1<span class="sym">.</span>WaitFor<span class="sym">;</span>
+  T2<span class="sym">.</span>WaitFor<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<h2>Example</h2>
+<pre><span class="kw">program</span> tthre<span class="sym">;</span>
+
+<span class="dir">{$mode objfpc}</span>
+<span class="dir">{$H+}</span>
+
+<span class="kw">uses</span> cthreads<span class="sym">,</span> sysutils<span class="sym">,</span> classes<span class="sym">;</span>
+
+<span class="kw">Type</span>
+  TTestThread <span class="sym">=</span> <span class="kw">Class</span><span class="sym">(</span>TObject<span class="sym">)</span>
+    D <span class="sym">:</span> Integer<span class="sym">;</span>
+    <span class="kw">Procedure</span> DoneThread<span class="sym">(</span>Sender <span class="sym">:</span> TObject<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">Procedure</span> DoThread<span class="sym">;</span>
+    <span class="kw">Procedure</span> Run<span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+  
+
+
+
+<span class="kw">Procedure</span> TTestThread<span class="sym">.</span>DoneThread<span class="sym">(</span>Sender <span class="sym">:</span> TObject<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Writeln<span class="sym">(</span><span class="str">'Thread '</span><span class="sym">,</span>TThread<span class="sym">(</span>Sender<span class="sym">)</span><span class="sym">.</span>ThreadID<span class="sym">,</span><span class="str">' done. D is currently: '</span><span class="sym">,</span> D<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> TTestThread<span class="sym">.</span>DoThread<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  I <span class="sym">:</span> integer<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">for</span> I<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    Sleep<span class="sym">(</span><span class="num">10</span><span class="sym">*</span>Random<span class="sym">(</span><span class="num">30</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    Writeln<span class="sym">(</span><span class="str">'Thread '</span><span class="sym">,</span>TThread<span class="sym">.</span>CurrentThread<span class="sym">.</span>ThreadID<span class="sym">,</span><span class="str">' ping '</span><span class="sym">,</span>I<span class="sym">)</span><span class="sym">;</span>
+    Inc<span class="sym">(</span>D<span class="sym">,</span>i<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> TTestThread<span class="sym">.</span>Run<span class="sym">;</span>
+
+
+<span class="kw">Var</span>
+  T1<span class="sym">,</span>T2 <span class="sym">:</span> TThread<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  T1<span class="sym">:=</span>TThread<span class="sym">.</span>ExecuteInThread<span class="sym">(</span><span class="sym">@</span>DoThread<span class="sym">,</span><span class="sym">@</span>DoneThread<span class="sym">)</span><span class="sym">;</span>
+  T2<span class="sym">:=</span>TThread<span class="sym">.</span>ExecuteInThread<span class="sym">(</span><span class="sym">@</span>DoThread<span class="sym">,</span><span class="sym">@</span>DoneThread<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Main thread done'</span><span class="sym">)</span><span class="sym">;</span>
+  T1<span class="sym">.</span>WaitFor<span class="sym">;</span>
+  T2<span class="sym">.</span>WaitFor<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">With</span> TTestThread<span class="sym">.</span>Create <span class="kw">do</span>
+    <span class="kw">try</span>
+      Run<span class="sym">;</span>
+    <span class="kw">finally</span>
+      Free<span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>  
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<h2>Example</h2>
+<pre><span class="kw">program</span> tthrcs<span class="sym">;</span>
+<span class="dir">{$h+}</span>
+<span class="kw">uses</span> cthreads<span class="sym">,</span> sysutils<span class="sym">,</span> classes<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  D <span class="sym">:</span> Integer<span class="sym">;</span>
+  DoneThreads <span class="sym">:</span> INteger<span class="sym">;</span>
+  
+<span class="kw">Procedure</span> DoneThread<span class="sym">(</span>Sender <span class="sym">:</span> TObject<span class="sym">;</span> Data <span class="sym">:</span> Pointer<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Inc<span class="sym">(</span>DoneThreads<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Thread '</span><span class="sym">,</span>TThread<span class="sym">(</span>Sender<span class="sym">)</span><span class="sym">.</span>ThreadID<span class="sym">,</span><span class="str">' done. D is currently: '</span><span class="sym">,</span> PInteger<span class="sym">(</span>Data<span class="sym">)</span><span class="sym">^</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> ReportThreadStatus<span class="sym">(</span>Sender <span class="sym">:</span> TThread<span class="sym">;</span> AData <span class="sym">:</span> Pointer<span class="sym">;</span><span class="kw">Const</span> status <span class="sym">:</span> String<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+   Writeln<span class="sym">(</span><span class="str">'Thread '</span><span class="sym">,</span>Sender<span class="sym">.</span>ThreadID<span class="sym">,</span><span class="str">' Status report : '</span><span class="sym">,</span>Status<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+
+<span class="kw">Procedure</span> DoThread<span class="sym">(</span>AData <span class="sym">:</span> Pointer<span class="sym">;</span> Report <span class="sym">:</span> TThreadReportStatus<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  I <span class="sym">:</span> integer<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">for</span> I<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    Sleep<span class="sym">(</span><span class="num">10</span><span class="sym">*</span>Random<span class="sym">(</span><span class="num">30</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    Report<span class="sym">(</span><span class="str">'Ping '</span><span class="sym">+</span>IntToStr<span class="sym">(</span>i<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    Inc<span class="sym">(</span>PInteger<span class="sym">(</span>AData<span class="sym">)</span><span class="sym">^</span><span class="sym">,</span>i<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  T1<span class="sym">,</span>T2 <span class="sym">:</span> TThread<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  DoneThreads<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  T1<span class="sym">:=</span>TThread<span class="sym">.</span>ExecuteInThread<span class="sym">(</span><span class="sym">@</span>DoThread<span class="sym">,</span><span class="sym">@</span>ReportThreadStatus<span class="sym">,</span><span class="sym">@</span>D<span class="sym">,</span><span class="sym">@</span>DoneThread<span class="sym">)</span><span class="sym">;</span>
+  T2<span class="sym">:=</span>TThread<span class="sym">.</span>ExecuteInThread<span class="sym">(</span><span class="sym">@</span>DoThread<span class="sym">,</span><span class="sym">@</span>ReportThreadStatus<span class="sym">,</span><span class="sym">@</span>D<span class="sym">,</span><span class="sym">@</span>DoneThread<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Main thread loop'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">While</span> DoneThreads<span class="sym">&lt;</span><span class="num">2</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    Sleep<span class="sym">(</span><span class="num">10</span><span class="sym">)</span><span class="sym">;</span>
+    CheckSynchronize<span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  T1<span class="sym">.</span>WaitFor<span class="sym">;</span>
+  T2<span class="sym">.</span>WaitFor<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<h2>Example</h2>
+<pre><span class="kw">program</span> tthrc<span class="sym">;</span>
+
+<span class="dir">{$mode objfpc}</span>
+<span class="dir">{$H+}</span>
+
+<span class="kw">uses</span> cthreads<span class="sym">,</span> sysutils<span class="sym">,</span> classes<span class="sym">;</span>
+
+<span class="kw">Type</span>
+  TTestThread <span class="sym">=</span> <span class="kw">Class</span><span class="sym">(</span>TObject<span class="sym">)</span>
+    D <span class="sym">:</span> Integer<span class="sym">;</span>
+    DoneThreads <span class="sym">:</span> integer<span class="sym">;</span>
+    <span class="kw">Procedure</span> DoneThread<span class="sym">(</span>Sender <span class="sym">:</span> TObject<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">Procedure</span> ReportThreadStatus<span class="sym">(</span>Sender <span class="sym">:</span> TThread<span class="sym">;</span> <span class="kw">Const</span> status <span class="sym">:</span> String<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">Procedure</span> DoThread<span class="sym">(</span>Report<span class="sym">:</span> TThreadReportStatus<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">Procedure</span> Run<span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+
+
+<span class="kw">Procedure</span> TTestThread<span class="sym">.</span>DoneThread<span class="sym">(</span>Sender <span class="sym">:</span> TObject<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Inc<span class="sym">(</span>DoneThreads<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Thread '</span><span class="sym">,</span>TThread<span class="sym">(</span>Sender<span class="sym">)</span><span class="sym">.</span>ThreadID<span class="sym">,</span><span class="str">' done. D is currently: '</span><span class="sym">,</span> D<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> TTestThread<span class="sym">.</span>ReportThreadStatus<span class="sym">(</span>Sender <span class="sym">:</span> TThread<span class="sym">;</span> <span class="kw">Const</span> status <span class="sym">:</span> String<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+   Writeln<span class="sym">(</span><span class="str">'Thread '</span><span class="sym">,</span>Sender<span class="sym">.</span>ThreadID<span class="sym">,</span><span class="str">' Status report : '</span><span class="sym">,</span>Status<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> TTestThread<span class="sym">.</span>DoThread<span class="sym">(</span>Report <span class="sym">:</span> TThreadReportStatus<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  I <span class="sym">:</span> integer<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">for</span> I<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    Sleep<span class="sym">(</span><span class="num">10</span><span class="sym">*</span>Random<span class="sym">(</span><span class="num">30</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    Report<span class="sym">(</span><span class="str">'Ping '</span><span class="sym">+</span>IntToStr<span class="sym">(</span>i<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    Inc<span class="sym">(</span>D<span class="sym">,</span>i<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> TTestThread<span class="sym">.</span>Run<span class="sym">;</span>
+
+
+<span class="kw">Var</span>
+  T1<span class="sym">,</span>T2 <span class="sym">:</span> TThread<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  DoneThreads<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  T1<span class="sym">:=</span>TThread<span class="sym">.</span>ExecuteInThread<span class="sym">(</span><span class="sym">@</span>DoThread<span class="sym">,</span><span class="sym">@</span>ReportThreadStatus<span class="sym">,</span><span class="sym">@</span>DoneThread<span class="sym">)</span><span class="sym">;</span>
+  T2<span class="sym">:=</span>TThread<span class="sym">.</span>ExecuteInThread<span class="sym">(</span><span class="sym">@</span>DoThread<span class="sym">,</span><span class="sym">@</span>ReportThreadStatus<span class="sym">,</span><span class="sym">@</span>DoneThread<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Main thread loop'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">While</span> DoneThreads<span class="sym">&lt;</span><span class="num">2</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    Sleep<span class="sym">(</span><span class="num">10</span><span class="sym">)</span><span class="sym">;</span>
+    CheckSynchronize<span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  T1<span class="sym">.</span>WaitFor<span class="sym">;</span>
+  T2<span class="sym">.</span>WaitFor<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">With</span> TTestThread<span class="sym">.</span>Create <span class="kw">do</span>
+    <span class="kw">try</span>
+      Run<span class="sym">;</span>
+    <span class="kw">finally</span>
+      Free<span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>  
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

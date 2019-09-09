@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCustomApplication.CheckOptions</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../custapp/index.html">Overview</a>][<a href="../custapp/index-3.html">Types</a>][<a href="../custapp/index-4.html">Classes</a>][<a href="../custapp/index-6.html">Variables</a>][<a href="../custapp/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'CustApp' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCustomApplication.CheckOptions</h1>
+<p>Check whether all given options on the command-line are valid.</p>
+<h2>Declaration</h2>
+<p>Source position: custapp.pp line 76</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../custapp/tcustomapplication.html">TCustomApplication</a><span class="sym">.</span>CheckOptions<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ShortOptions<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Longopts<span class="sym">: </span><a href="../../rtl/classes/tstrings.html">TStrings</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Opts<span class="sym">: </span><a href="../../rtl/classes/tstrings.html">TStrings</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;NonOpts<span class="sym">: </span><a href="../../rtl/classes/tstrings.html">TStrings</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AllErrors<span class="sym">: </span>Boolean <span class="sym">=</span> False</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> <a href="../custapp/tcustomapplication.html">TCustomApplication</a><span class="sym">.</span>CheckOptions<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ShortOptions<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Longopts<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Opts<span class="sym">: </span><a href="../../rtl/classes/tstrings.html">TStrings</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;NonOpts<span class="sym">: </span><a href="../../rtl/classes/tstrings.html">TStrings</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AllErrors<span class="sym">: </span>Boolean <span class="sym">=</span> False</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> <a href="../custapp/tcustomapplication.html">TCustomApplication</a><span class="sym">.</span>CheckOptions<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ShortOptions<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Longopts<span class="sym">: </span><a href="../../rtl/classes/tstrings.html">TStrings</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AllErrors<span class="sym">: </span>Boolean <span class="sym">=</span> False</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> <a href="../custapp/tcustomapplication.html">TCustomApplication</a><span class="sym">.</span>CheckOptions<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ShortOptions<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>LongOpts<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AllErrors<span class="sym">: </span>Boolean <span class="sym">=</span> False</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> <a href="../custapp/tcustomapplication.html">TCustomApplication</a><span class="sym">.</span>CheckOptions<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ShortOptions<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>LongOpts<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AllErrors<span class="sym">: </span>Boolean <span class="sym">=</span> False</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ShortOptions</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of valid short options.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Longopts</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of valid long options.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Opts</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Valid options passed to the program.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">NonOpts</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Non-option strings passed to the program.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AllErrors</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should all errors be returned, or just the first one?</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Empty string or error-message</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ShortOptions</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of valid short options.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Longopts</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of valid long options.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Opts</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Valid options passed to the program.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">NonOpts</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Non-option strings passed to the program.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AllErrors</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should all errors be returned, or just the first one?</p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ShortOptions</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of valid short options.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Longopts</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of valid long options.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AllErrors</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should all errors be returned, or just the first one?</p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ShortOptions</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of valid short options.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">LongOpts</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of valid long options.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AllErrors</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should all errors be returned, or just the first one?</p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ShortOptions</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of valid short options.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">LongOpts</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of valid long options.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AllErrors</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should all errors be returned, or just the first one?</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>CheckOptions</var> scans the command-line and checks whether the options given are valid options. It also checks whether options that require a valued are indeed specified with a value. </p>
+<p>The <var>ShortOptions</var> contains a string with valid short option characters. Each character in the string is a valid option character. If a character is followed by a colon (:), then a value must be specified. If it is followed by 2 colon characters (::) then the value is optional. </p>
+<p><var>LongOpts</var> is a list of strings (which can be specified as an  array, a <var>TStrings</var> instance or a string with whitespace-separated values) of valid long options. </p>
+<p>When the function returns, if <var>Opts</var> is non-<var>Nil</var>, the  <var>Opts</var> stringlist is filled with the passed valid options.  If <var>NonOpts</var> is non-nil, it is filled with any non-option  strings that were passed on the command-line. </p>
+<p>The function returns an empty string if all specified options were valid options, and whether options requiring a value have a value. If an error was found during the check, the return value is a string describing the error. </p>
+<p>Options are identified as command-line parameters which start with  <a href="../custapp/tcustomapplication.optionchar.html">OptionChar</a> (by default the dash ('-') character). </p>
+<p>if <var>AllErrors</var> is <var>True</var> then all errors are returned, separated by a <a href="../../rtl/system/slinebreak.html">sLineBreak</a> character. </p>
+<h2>Errors</h2>
+<p>If an error was found during the check, the return value is a string describing the error(s). </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../custapp/tcustomapplication.findoptionindex.html">FindOptionIndex</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the index of an option.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../custapp/tcustomapplication.getoptionvalue.html">GetOptionValue</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the value of a command-line option.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../custapp/tcustomapplication.hasoption.html">HasOption</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether an option was specified.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../custapp/tcustomapplication.casesensitiveoptions.html">CaseSensitiveOptions</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Are options interpreted case sensitive or not</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../custapp/tcustomapplication.optionchar.html">OptionChar</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Command-line switch character</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

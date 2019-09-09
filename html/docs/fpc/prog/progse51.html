@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Tips to get smaller code</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 6843--><div class="crosslinks"><p class="noindent">[<a 
+href="progse52.html" >next</a>] [<a 
+href="progse50.html" >prev</a>] [<a 
+href="progse50.html#tailprogse50.html" >prev-tail</a>] [<a 
+href="#tailprogse51.html">tail</a>] [<a 
+href="progch11.html#progse51.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">11.5   </span> <a 
+href="prog.html#QQ2-256-292" id="x256-27000011.5">Tips to get smaller code</a></h3>
+<!--l. 6844--><p class="noindent" >Here are some tips given to get the smallest code possible.
+     <ul class="itemize1">
+     <li class="itemize">Find a better algorithm.
+     </li>
+     <li class="itemize">Use the <span 
+class="cmtt-10">-Og </span>compiler switch.
+     </li>
+     <li class="itemize">Regroup global static variables in the same module which have the same size together
+     to minimize the number of alignment directives (which increases the <span 
+class="cmtt-10">.bss </span>and <span 
+class="cmtt-10">.data</span>
+     sections unnecessarily). Internally this is due to the fact that all static data is written
+     to in the assembler file, in the order they are declared in the pascal source code.
+     </li>
+     <li class="itemize">Do not use the <span 
+class="cmtt-10">cdecl </span>modifier, as this generates about 1 additional instruction after
+     each subroutine call.
+     </li>
+     <li class="itemize">Use the smartlinking options for all your units (including the <span 
+class="cmtt-10">system </span>unit).
+     </li>
+     <li class="itemize">Do not use ansistrings, widestrings and exception support, as these require a lot of
+     code overhead.
+     </li>
+     <li class="itemize">Turn off range checking and stack-checking.
+     </li>
+     <li class="itemize">Turn off runtime type information generation.
+     </li></ul>
+                                                                            
+
+                                                                            
+<!--l. 6873--><div class="crosslinks"><p class="noindent">[<a 
+href="progse52.html" >next</a>] [<a 
+href="progse50.html" >prev</a>] [<a 
+href="progse50.html#tailprogse50.html" >prev-tail</a>] [<a 
+href="progse51.html" >front</a>] [<a 
+href="progch11.html#progse51.html" >up</a>] </p></div>
+<!--l. 6873--><p class="noindent" ><a 
+ id="tailprogse51.html"></a>  
+</body></html> 

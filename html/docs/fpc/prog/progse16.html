@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Saturation support</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 3641--><div class="crosslinks"><p class="noindent">[<a 
+href="progse17.html" >next</a>] [<a 
+href="progse15.html" >prev</a>] [<a 
+href="progse15.html#tailprogse15.html" >prev-tail</a>] [<a 
+href="#tailprogse16.html">tail</a>] [<a 
+href="progch5.html#progse16.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">5.2   </span> <a 
+href="prog.html#QQ2-155-158" id="x155-1560005.2">Saturation support</a></h3>
+<!--l. 3644--><p class="noindent" >One important point of MMX is the support of saturated operations. If an operation would cause
+an overflow, the value stays at the highest or lowest possible value for the data type: If you use
+byte values you get normally 250+12=6. This is very annoying when doing color manipulations or
+changing audio samples, when you have to do a word add and check if the value is greater than
+255. The solution is saturation: 250+12 gives 255. Saturated operations are supported by
+the <span 
+class="cmtt-10">MMX </span>unit. If you want to use them, you have simple turn the switch saturation on:
+<span 
+class="cmtt-10">$saturation+</span>
+<!--l. 3655--><p class="noindent" >Here is an example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-168">
+Program&#x00A0;SaturationDemo;
+&#x00A0;<br />{
+&#x00A0;<br />&#x00A0;&#x00A0;example&#x00A0;for&#x00A0;saturation,&#x00A0;scales&#x00A0;data&#x00A0;(for&#x00A0;example&#x00A0;audio)
+&#x00A0;<br />&#x00A0;&#x00A0;with&#x00A0;1.5&#x00A0;with&#x00A0;rounding&#x00A0;to&#x00A0;negative&#x00A0;infinity
+&#x00A0;<br />}
+&#x00A0;<br />uses&#x00A0;mmx;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;audio1&#x00A0;:&#x00A0;tmmxword;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;i:&#x00A0;smallint;
+&#x00A0;<br />
+&#x00A0;<br />const
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;helpdata1&#x00A0;:&#x00A0;tmmxword&#x00A0;=&#x00A0;($c000,$c000,$c000,$c000);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;helpdata2&#x00A0;:&#x00A0;tmmxword&#x00A0;=&#x00A0;($8000,$8000,$8000,$8000);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;{&#x00A0;audio1&#x00A0;contains&#x00A0;four&#x00A0;16&#x00A0;bit&#x00A0;audio&#x00A0;samples&#x00A0;}
+&#x00A0;<br />{$mmx+}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;{&#x00A0;convert&#x00A0;it&#x00A0;to&#x00A0;$8000&#x00A0;is&#x00A0;defined&#x00A0;as&#x00A0;zero,&#x00A0;multiply&#x00A0;data&#x00A0;with&#x00A0;0.75&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;audio1:=(audio1+helpdata2)*(helpdata1);
+&#x00A0;<br />{$saturation+}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;{&#x00A0;avoid&#x00A0;overflows&#x00A0;(all&#x00A0;values&#x003E;$ffff&#x00A0;becomes&#x00A0;$ffff)&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;audio1:=(audio1+helpdata2)-helpdata2;
+&#x00A0;<br />{$saturation-}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;{&#x00A0;now&#x00A0;mupltily&#x00A0;with&#x00A0;2&#x00A0;and&#x00A0;change&#x00A0;to&#x00A0;integer&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;for&#x00A0;i:=0&#x00A0;to&#x00A0;3&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;audio1[i]&#x00A0;:=&#x00A0;audio1[i]&#x00A0;shl&#x00A0;1;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;audio1:=audio1-helpdata2;
+&#x00A0;<br />{$mmx-}
+&#x00A0;<br />end.
+</div>
+<!--l. 3687--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 3689--><div class="crosslinks"><p class="noindent">[<a 
+href="progse17.html" >next</a>] [<a 
+href="progse15.html" >prev</a>] [<a 
+href="progse15.html#tailprogse15.html" >prev-tail</a>] [<a 
+href="progse16.html" >front</a>] [<a 
+href="progch5.html#progse16.html" >up</a>] </p></div>
+<!--l. 3689--><p class="noindent" ><a 
+ id="tailprogse16.html"></a>  
+</body></html> 

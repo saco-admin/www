@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$OBJECTPATH : Specify object path.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 2220--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu109.html" >next</a>] [<a 
+href="progsu107.html" >prev</a>] [<a 
+href="progsu107.html#tailprogsu107.html" >prev-tail</a>] [<a 
+href="#tailprogsu108.html">tail</a>] [<a 
+href="progse3.html#progsu108.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.3.25   </span> <a 
+href="prog.html#QQ2-116-117" id="x116-1170001.3.25"><span 
+class="cmtt-10">$OBJECTPATH </span>: Specify object path.</a></h4>
+<!--l. 2222--><p class="noindent" >This option serves to specify the object path, where the compiler looks for object files.
+<span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$OBJECTPATH XXX</span><span 
+class="cmsy-10">} </span>will add <span 
+class="cmtt-10">XXX </span>to the object path. <span 
+class="cmtt-10">XXX </span>can contain one or more paths, separated
+by semicolons or colons.
+<!--l. 2227--><p class="noindent" >For example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-101">
+{$OBJECTPATH&#x00A0;../inc;../i386}
+&#x00A0;<br />
+&#x00A0;<br />{$L&#x00A0;strings.o}
+</div>
+<!--l. 2232--><p class="nopar" >
+<!--l. 2234--><p class="noindent" >will add the directories <span 
+class="cmss-10">../inc </span>and <span 
+class="cmss-10">../i386 </span>to the object path of the compiler. The compiler will look
+for the file <span 
+class="cmss-10">strings.o </span>in both these directories, and will link the first found file in the program. This
+directive is equivalent to the <span 
+class="cmtt-10">-Fo </span>command line switch.
+<!--l. 2239--><p class="noindent" >Caution is in order when using this directive: If you distribute files, the locations of the files may
+not be the same as on your machine; moreover, the directory structure may be different. In general
+it would be fair to say that you should avoid using <span 
+class="cmti-10">absolute </span>paths, instead use <span 
+class="cmti-10">relative </span>paths, as in
+the example above. Only use this directive if you are certain of the locations where
+the files reside. If you are not sure, it is better practice to use makefiles and makefile
+variables.
+                                                                            
+
+                                                                            
+<!--l. 2247--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu109.html" >next</a>] [<a 
+href="progsu107.html" >prev</a>] [<a 
+href="progsu107.html#tailprogsu107.html" >prev-tail</a>] [<a 
+href="progsu108.html" >front</a>] [<a 
+href="progse3.html#progsu108.html" >up</a>] </p></div>
+<!--l. 2247--><p class="noindent" ><a 
+ id="tailprogsu108.html"></a>  
+</body></html> 

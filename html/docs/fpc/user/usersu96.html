@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>ptopu unit</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2947--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu95.html" >prev</a>] [<a 
+href="usersu95.html#tailusersu95.html" >prev-tail</a>] [<a 
+href="#tailusersu96.html">tail</a>] [<a 
+href="userse44.html#usersu96.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">8.8.3   </span> <a 
+href="user.html#QQ2-150-208" id="x150-1570008.8.3">ptopu unit</a></h4>
+<!--l. 2949--><p class="noindent" >The source of the <span 
+class="cmss-10">PtoP </span>program is conveniently split in two files: one is a unit containing an object
+that does the actual beautifying of the source, the other is a shell built around this object so it can
+be used from the command line. This design makes it possible to include the object in a program
+(e.g. an IDE) and use its features to format code.
+<!--l. 2955--><p class="noindent" >The object resides in the <span 
+class="cmss-10">PtoPU </span>unit, and is declared as follows
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-105">
+&#x00A0;&#x00A0;TPrettyPrinter=Object(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Indent&#x00A0;:&#x00A0;Integer;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{&#x00A0;How&#x00A0;many&#x00A0;characters&#x00A0;to&#x00A0;indent&#x00A0;?&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;InS&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;PStream;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;OutS&#x00A0;&#x00A0;&#x00A0;:&#x00A0;PStream;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;DiagS&#x00A0;&#x00A0;:&#x00A0;PStream;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;CfgS&#x00A0;:&#x00A0;PStream;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Constructor&#x00A0;Create;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;PrettyPrint&#x00A0;:&#x00A0;Boolean;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+</div>
+<!--l. 2966--><p class="nopar" >
+<!--l. 2968--><p class="noindent" >Using this object is very simple. The procedure is as follows:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x150-157002x1">Create the object, using its constructor.
+     </li>
+     <li 
+  class="enumerate" id="x150-157004x2">Set the <span 
+class="cmtt-10">InS </span>stream. This is an open stream, from which Pascal source will be read.
+     This is a mandatory step.
+     </li>
+     <li 
+  class="enumerate" id="x150-157006x3">Set the <span 
+class="cmtt-10">OutS </span>stream. This is an open stream, to which the beautified Pascal source will
+     be written. This is a mandatory step.
+     </li>
+     <li 
+  class="enumerate" id="x150-157008x4">Set the <span 
+class="cmtt-10">DiagS </span>stream. Any diagnostics will be written to this stream. This step is
+     optional. If you don&#8217;t set this, no diagnostics are written.
+     </li>
+     <li 
+  class="enumerate" id="x150-157010x5">Set the <span 
+class="cmtt-10">CfgS </span>stream. A configuration is read from this stream. (see the previous section
+     for more information about configuration). This step is optional. If you don&#8217;t set this,
+     a default configuration is used.
+     </li>
+     <li 
+  class="enumerate" id="x150-157012x6">Set the <span 
+class="cmtt-10">Indent </span>variable. This is the number of spaces to use when indenting. Tab
+     characters are not used in the program. This step is optional. The indent variable is
+     initialized to 2.
+     </li>
+     <li 
+  class="enumerate" id="x150-157014x7">Call <span 
+class="cmtt-10">PrettyPrint</span>. This will pretty-print the source in <span 
+class="cmtt-10">InS </span>and write the result to <span 
+class="cmtt-10">OutS</span>.
+     The function returns <span 
+class="cmtt-10">True </span>if no errors occurred, <span 
+class="cmtt-10">False </span>otherwise.</li></ol>
+<!--l. 2989--><p class="noindent" >So, a minimal procedure would be:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-106">
+Procedure&#x00A0;CleanUpCode;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;Ins,OutS&#x00A0;:&#x00A0;PBufStream;
+&#x00A0;<br />&#x00A0;&#x00A0;PPRinter&#x00A0;:&#x00A0;TPrettyPrinter;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Ins:=New(PBufStream,Init(&#8217;ugly.pp&#8217;,StopenRead,TheBufSize));
+&#x00A0;<br />&#x00A0;&#x00A0;OutS:=New(PBufStream,Init(&#8217;beauty.pp&#8217;,StCreate,TheBufSize));
+&#x00A0;<br />&#x00A0;&#x00A0;PPrinter.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;PPrinter.Ins:=Ins;
+&#x00A0;<br />&#x00A0;&#x00A0;PPrinter.outS:=OutS;
+&#x00A0;<br />&#x00A0;&#x00A0;PPrinter.PrettyPrint;
+&#x00A0;<br />end;
+</div>
+<!--l. 3005--><p class="nopar" >
+<!--l. 3007--><p class="noindent" >Using memory streams allows very fast formatting of code, and is particularly suitable for
+editors.
+                                                                            
+
+                                                                            
+<!--l. 3010--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu95.html" >prev</a>] [<a 
+href="usersu95.html#tailusersu95.html" >prev-tail</a>] [<a 
+href="usersu96.html" >front</a>] [<a 
+href="userse44.html#usersu96.html" >up</a>] </p></div>
+<!--l. 3010--><p class="noindent" ><a 
+ id="tailusersu96.html"></a>  
+</body></html> 

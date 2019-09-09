@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFPSMap.Duplicates</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../fgl/index.html">Overview</a>][<a href="../fgl/index-2.html">Constants</a>][<a href="../fgl/index-3.html">Types</a>][<a href="../fgl/index-4.html">Classes</a>][<a href="../fgl/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'fgl' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TFPSMap.Duplicates</h1>
+<p>What to do with duplicate key values</p>
+<h2>Declaration</h2>
+<p>Source position: fgl.pp line 269</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../fgl/tfpsmap.html">TFPSMap</a><span class="sym">.</span>Duplicates<span class="sym"> : </span><a href="../types/tduplicates.html">TDuplicates</a><br>&nbsp;&nbsp;<span class="kw">read </span>FDuplicates<br>&nbsp;&nbsp;<span class="kw">write </span>FDuplicates<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Duplicates</var> can be set to determine what to do with duplicate key values in the map: </p>
+<dl>
+<dt>dupIgnore</dt>
+<dd>Ignore the new item, do not add it to the list.</dd>
+<dt>dupAccept</dt>
+<dd>Accept duplicates, adding them to the list.</dd>
+<dt>dupError</dt>
+<dd>Raise an error when an attempt is made to add a duplicate.</dd>
+</dl>
+<p>The value is ignored if <a href="../fgl/tfpsmap.sorted.html">Sorted</a> is <var>False</var>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../fgl/tfpsmap.sorted.html">TFPSMap.Sorted</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the map permanently sorted on key ?</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../types/tduplicates.html">types.TDuplicates</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Enumeration type, indicating what to do with duplicates in a list.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

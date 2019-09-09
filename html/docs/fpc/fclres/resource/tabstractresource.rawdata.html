@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TAbstractResource.RawData</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../resource/index.html">Overview</a>][<a href="../resource/index-1.html">Resource strings</a>][<a href="../resource/index-2.html">Constants</a>][<a href="../resource/index-3.html">Types</a>][<a href="../resource/index-4.html">Classes</a>][<a href="../resource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'resource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TAbstractResource.RawData</h1>
+<p>The raw resource data stream</p>
+<h2>Declaration</h2>
+<p>Source position: resource.pp line 175</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../resource/tabstractresource.html">TAbstractResource</a><span class="sym">.</span>RawData<span class="sym"> : </span><a href="../../rtl/classes/tstream.html">TStream</a><br>&nbsp;&nbsp;<span class="kw">read </span>GetRawData<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This property provides access to the resource raw data in a stream-like way.</p>
+<p>When a resource has been read from a stream, RawData redirects read operations to the original stream. When RawData is written to, a copy-on-write mechanism copies data from the original stream to a memory stream.</p>
+<p>The copy-on-write behaviour can be controlled via <a href="../resource/tabstractresource.cachedata.html">CacheData</a> property.</p>
+<p>Note that for some predefined resource types there are better ways to read and write resource data: some resource types use specific formats, so RawData might not always be what one expected. E.g. in a resource of type <a href="../resource/rt_bitmap.html">RT_BITMAP</a>, RawData doesn't contain a valid BMP file: in this case it's better to use <a href="../bitmapresource/tbitmapresource.bitmapdata.html">BitmapData</a> stream of <a href="../bitmapresource/tbitmapresource.html">TBitmapResource</a> class to work with a BMP-like stream.</p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>When writing to a "specialized" stream in a descendant class (like the <a href="../bitmapresource/tbitmapresource.bitmapdata.html">TBitmapResource.BitmapData</a> stream mentioned earlier), RawData contents might not be valid anymore. If you need to access RawData again, be sure to call <a href="../resource/tabstractresource.updaterawdata.html">UpdateRawData</a> method first.</td>
+</tr>
+</table>
+<p>Usually there isn't much penalty in using specialized streams in descendant classes, since data isn't duplicated in two or more streams, whenever possible. So, having a very large bitmap resource and reading/writing it via <a href="../bitmapresource/tbitmapresource.bitmapdata.html">TBitmapResource.BitmapData</a> doesn't mean the bitmap is allocated two times.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresource.cachedata.html">TAbstractResource.CacheData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Controls the copy-on-write behaviour of the resource</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresource.updaterawdata.html">TAbstractResource.UpdateRawData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Updates RawData stream.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresource.setcustomrawdatastream.html">TAbstractResource.SetCustomRawDataStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Sets a custom stream as the underlying stream for RawData</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

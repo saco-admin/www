@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Declaring the external object code</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 4546--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu149.html" >prev</a>] [<a 
+href="progsu149.html#tailprogsu149.html" >prev-tail</a>] [<a 
+href="#tailprogsu150.html">tail</a>] [<a 
+href="progse28.html#progsu150.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">7.1.4   </span> <a 
+href="prog.html#QQ2-189-200" id="x189-1920007.1.4">Declaring the external object code</a></h4>
+<!--l. 4548--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="progse28.html#QQ2-189-201" id="x189-1930007.1.4">Linking to an object file</a></h5>
+<!--l. 4551--><p class="noindent" >Having declared the external function or variable that resides in an object file, you can use it as if
+it were defined in your own program or unit. To produce an executable, you must still link the
+object file in. This can be done with the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$L file.o</span><span 
+class="cmsy-10">} </span>directive.
+<!--l. 4556--><p class="noindent" >This will cause the linker to link in the object file <span 
+class="cmss-10">file.o</span>. On most systems, this filename is case
+sensitive. The object file is first searched in the current directory, and then the directories specified
+by the <span 
+class="cmtt-10">-Fo </span>command line.
+<!--l. 4561--><p class="noindent" >You cannot specify libraries in this way, it is for object files only.
+<!--l. 4563--><p class="noindent" >Here we present an example. Consider that you have some assembly routine which uses the C
+calling convention that calculates the nth Fibonacci number:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-195">
+.text
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;.align&#x00A0;4
+&#x00A0;<br />.globl&#x00A0;Fibonacci
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;.type&#x00A0;Fibonacci,@function
+&#x00A0;<br />Fibonacci:
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;pushl&#x00A0;%ebp
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;movl&#x00A0;%esp,%ebp
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;movl&#x00A0;8(%ebp),%edx
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;xorl&#x00A0;%ecx,%ecx
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;xorl&#x00A0;%eax,%eax
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;movl&#x00A0;$1,%ebx
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;incl&#x00A0;%edx
+&#x00A0;<br />loop:
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;decl&#x00A0;%edx
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;je&#x00A0;endloop
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;movl&#x00A0;%ecx,%eax
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;addl&#x00A0;%ebx,%eax
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;movl&#x00A0;%ebx,%ecx
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;movl&#x00A0;%eax,%ebx
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;jmp&#x00A0;loop
+&#x00A0;<br />endloop:
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;movl&#x00A0;%ebp,%esp
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;popl&#x00A0;%ebp
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;ret
+</div>
+<!--l. 4590--><p class="nopar" >Then you can call this function with the following Pascal Program:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-196">
+Program&#x00A0;FibonacciDemo;
+&#x00A0;<br />
+&#x00A0;<br />var&#x00A0;i&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;Fibonacci&#x00A0;(L&#x00A0;:&#x00A0;longint):longint;cdecl;external;
+&#x00A0;<br />
+&#x00A0;<br />{$L&#x00A0;fib.o}
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;For&#x00A0;I:=1&#x00A0;to&#x00A0;40&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;writeln&#x00A0;(&#8217;Fib(&#8217;,i,&#8217;)&#x00A0;:&#x00A0;&#8217;,Fibonacci&#x00A0;(i));
+&#x00A0;<br />end.
+</div>
+<!--l. 4605--><p class="nopar" >With just two commands, this can be made into a program:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-197">
+as&#x00A0;-o&#x00A0;fib.o&#x00A0;fib.s
+&#x00A0;<br />ppc386&#x00A0;fibo.pp
+</div>
+<!--l. 4610--><p class="nopar" >This example supposes that you have your assembler routine in <span 
+class="cmss-10">fib.s</span>, and your Pascal program in
+<span 
+class="cmss-10">fibo.pp</span>.
+<!--l. 4616--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="progse28.html#QQ2-189-202" id="x189-1940007.1.4">Linking to a library</a></h5>
+<!--l. 4619--><p class="noindent" >To link your program to a library, the procedure depends on how you declared the external
+procedure.
+<!--l. 4622--><p class="noindent" >In case you used the following syntax to declare your procedure:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-198">
+Procedure&#x00A0;ProcName&#x00A0;(Args&#x00A0;:&#x00A0;TPRocArgs);&#x00A0;external&#x00A0;&#8217;Name&#8217;;
+</div>
+<!--l. 4625--><p class="nopar" >You don&#8217;t need to take additional steps to link your file in, the compiler will do all that is needed
+for you. On <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> </span>it will link to <span 
+class="cmss-10">name.dll</span>, on <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>and most <span 
+class="cmcsc-10"><span 
+class="small-caps">u</span><span 
+class="small-caps">n</span><span 
+class="small-caps">i</span><span 
+class="small-caps">x</span></span>&#8217;es your program will be
+linked to library <span 
+class="cmss-10">libname</span>, which can be a static or dynamic library.
+<!--l. 4631--><p class="noindent" >In case you used
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-199">
+Procedure&#x00A0;ProcName&#x00A0;(Args&#x00A0;:&#x00A0;TPRocArgs);&#x00A0;external;
+</div>
+<!--l. 4634--><p class="nopar" >You still need to explicitly link to the library. This can be done in 2 ways:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x189-194002x1">You can tell the compiler in the source file what library to link to using the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$LinkLib</span>
+     <span 
+class="cmtt-10">&#8217;Name&#8217;</span><span 
+class="cmsy-10">} </span>directive:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-200">
+     {$LinkLib&#x00A0;&#8217;gpm&#8217;}
+</div>
+     <!--l. 4641--><p class="nopar" >This will link to the <span 
+class="cmss-10">gpm </span>library. On <span 
+class="cmcsc-10"><span 
+class="small-caps">u</span><span 
+class="small-caps">n</span><span 
+class="small-caps">i</span><span 
+class="small-caps">x</span> </span>systems (such as <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span></span>), you must not specify the
+     extension or &#8217;lib&#8217; prefix of the library. The compiler takes care of that. On other systems
+     (such as <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span></span>), you need to specify the full name.
+     </li>
+     <li 
+  class="enumerate" id="x189-194004x2">You can also tell the compiler on the command line to link in a library: The <span 
+class="cmtt-10">-k </span>option can be
+     used for that. For example
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-201">
+     ppc386&#x00A0;-k&#8217;-lgpm&#8217;&#x00A0;myprog.pp
+</div>
+     <!--l. 4650--><p class="nopar" >Is equivalent to the above method, and tells the linker to link to the <span 
+class="cmss-10">gpm </span>library.</li></ol>
+<!--l. 4655--><p class="noindent" >As an example, consider the following program:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-202">
+program&#x00A0;printlength;
+&#x00A0;<br />
+&#x00A0;<br />{$linklib&#x00A0;c}&#x00A0;{&#x00A0;Case&#x00A0;sensitive&#x00A0;}
+&#x00A0;<br />
+&#x00A0;<br />{&#x00A0;Declaration&#x00A0;for&#x00A0;the&#x00A0;standard&#x00A0;C&#x00A0;function&#x00A0;strlen&#x00A0;}
+&#x00A0;<br />Function&#x00A0;strlen&#x00A0;(P&#x00A0;:&#x00A0;pchar)&#x00A0;:&#x00A0;longint;&#x00A0;cdecl;external;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(strlen(&#8217;Programming&#x00A0;is&#x00A0;easy&#x00A0;!&#8217;));
+&#x00A0;<br />end.
+</div>
+<!--l. 4667--><p class="nopar" >This program can be compiled with:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-203">
+ppc386&#x00A0;&#x00A0;prlen.pp
+</div>
+<!--l. 4671--><p class="nopar" >Supposing, of course, that the program source resides in <span 
+class="cmss-10">prlen.pp</span>.
+<!--l. 4674--><p class="noindent" >To use functions in C that have a variable number of arguments, you must compile your unit or
+program in <span 
+class="cmtt-10">objfpc </span>mode or <span 
+class="cmtt-10">Delphi </span>mode, and use the <span 
+class="cmtt-10">Array of const </span>argument, as in the
+following example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-204">
+program&#x00A0;testaocc;
+&#x00A0;<br />
+&#x00A0;<br />{$mode&#x00A0;objfpc}
+&#x00A0;<br />
+&#x00A0;<br />Const
+&#x00A0;<br />&#x00A0;&#x00A0;P&#x00A0;:&#x00A0;Pchar
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;=&#x00A0;&#8217;example&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;F&#x00A0;:&#x00A0;Pchar
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;=&#x00A0;&#8217;This&#x00A0;%s&#x00A0;uses&#x00A0;printf&#x00A0;to&#x00A0;print&#x00A0;numbers&#x00A0;(%d)&#x00A0;and&#x00A0;strings.&#8217;#10;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;printf(fm:&#x00A0;pchar;args:&#x00A0;array&#x00A0;of&#x00A0;const);cdecl;external&#x00A0;&#8217;c&#8217;;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;printf(F,[P,123]);
+&#x00A0;<br />end.
+</div>
+<!--l. 4694--><p class="nopar" >The output of this program looks like this:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-205">
+This&#x00A0;example&#x00A0;uses&#x00A0;printf&#x00A0;to&#x00A0;print&#x00A0;numbers&#x00A0;(123)&#x00A0;and&#x00A0;strings.
+</div>
+<!--l. 4698--><p class="nopar" >As an alternative, the program can be constructed as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-206">
+program&#x00A0;testaocc;
+&#x00A0;<br />
+&#x00A0;<br />Const
+&#x00A0;<br />&#x00A0;&#x00A0;P&#x00A0;:&#x00A0;Pchar
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;=&#x00A0;&#8217;example&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;F&#x00A0;:&#x00A0;Pchar
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;=&#x00A0;&#8217;This&#x00A0;%s&#x00A0;uses&#x00A0;printf&#x00A0;to&#x00A0;print&#x00A0;numbers&#x00A0;(%d)&#x00A0;and&#x00A0;strings.&#8217;#10;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;printf(fm:&#x00A0;pchar);cdecl;varargs;external&#x00A0;&#8217;c&#8217;;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;printf(F,P,123);
+&#x00A0;<br />end.
+</div>
+<!--l. 4714--><p class="nopar" >The <span 
+class="cmtt-10">varargs </span>modifier signals the compiler that the function allows a variable number of arguments
+(the ellipsis notation in C).
+                                                                            
+
+                                                                            
+<!--l. 4719--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu149.html" >prev</a>] [<a 
+href="progsu149.html#tailprogsu149.html" >prev-tail</a>] [<a 
+href="progsu150.html" >front</a>] [<a 
+href="progse28.html#progsu150.html" >up</a>] </p></div>
+<!--l. 4719--><p class="noindent" ><a 
+ id="tailprogsu150.html"></a>  
+</body></html> 

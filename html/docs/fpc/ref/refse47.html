@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>CORBA and other Interfaces</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5720--><div class="crosslinks"><p class="noindent">[<a 
+href="refse48.html" >next</a>] [<a 
+href="refse46.html" >prev</a>] [<a 
+href="refse46.html#tailrefse46.html" >prev-tail</a>] [<a 
+href="#tailrefse47.html">tail</a>] [<a 
+href="refch7.html#refse47.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">7.6   </span> <a 
+href="ref.html#QQ2-100-128" id="x100-1220007.6">CORBA and other Interfaces</a></h3>
+<a 
+ id="dx100-122001"></a>
+<a 
+ id="dx100-122002"></a>
+<a 
+ id="dx100-122003"></a>
+<!--l. 5722--><p class="noindent" >COM is not the only architecture where interfaces are used. CORBA knows interfaces, UNO (the
+OpenOffice API) uses interfaces, and Java as well. These languages do not know the <span 
+class="cmtt-10">IUnknown</span>
+interface used as the basis of all interfaces in COM. It would therefore be a bad idea if an interface
+automatically descended from <span 
+class="cmtt-10">IUnknown </span>if no parent interface was specified. Therefore, a directive
+<span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$INTERFACES</span><span 
+class="cmsy-10">} </span>was introduced in Free Pascal: it specifies what the parent interface is of an
+interface, declared without parent. More information about this directive can be found in the
+<a 
+href="../prog/prog.html" >Programmer&#8217;s Guide</a>.
+<!--l. 5732--><p class="noindent" >Note that COM interfaces are by default reference counted, because they descend from
+<span 
+class="cmtt-10">IUnknown</span>.<a 
+ id="dx100-122004"></a>
+<!--l. 5735--><p class="noindent" >Corba interfaces are identified by a simple string so they are assignment compatible
+with strings and not with <span 
+class="cmtt-10">TGUID</span>. The compiler does not do any automatic reference
+counting for the CORBA interfaces, so the programmer is responsible for any reference
+bookkeeping.
+                                                                            
+
+                                                                            
+<!--l. 5740--><div class="crosslinks"><p class="noindent">[<a 
+href="refse48.html" >next</a>] [<a 
+href="refse46.html" >prev</a>] [<a 
+href="refse46.html#tailrefse46.html" >prev-tail</a>] [<a 
+href="refse47.html" >front</a>] [<a 
+href="refch7.html#refse47.html" >up</a>] </p></div>
+<!--l. 5740--><p class="noindent" ><a 
+ id="tailrefse47.html"></a>  
+</body></html> 

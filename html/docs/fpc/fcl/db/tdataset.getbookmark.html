@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDataSet.GetBookmark</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDataSet.GetBookmark</h1>
+<p>Get a bookmark pointer (deprecated)</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1642</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../db/tdataset.html">TDataSet</a><span class="sym">.</span>GetBookmark<span class="sym">: </span><a href="../db/tbookmark.html">TBookMark</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Bookmark for curren location or <var>Nil</var></p>
+<h2>Description</h2>
+<p><var>GetBookmark</var> gets a bookmark pointer to the current cursor location.  The <b>TDataset.SetBookmark</b> call can be used to return to the current record in the dataset. After use, the bookmark must be disposed of with the <a href="../db/tdataset.freebookmark.html">TDataset.FreeBookmark</a> call. The bookmark will be <var>Nil</var> if the dataset is empty or not active. </p>
+<p>This call is deprecated. Use the <a href="../db/tdataset.bookmark.html">TDataset.Bookmark</a> property instead to get a bookmark. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><b>TDataset.SetBookmark</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.freebookmark.html">TDataset.FreeBookmark</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Free a bookmark obtained with <var>GetBookmark</var> (deprecated)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.bookmark.html">TDataset.Bookmark</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get or set the current cursor position</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

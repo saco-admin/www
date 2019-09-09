@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>XorEncode</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../strutils/index.html">Overview</a>][<a href="../strutils/index-1.html">Resource strings</a>][<a href="../strutils/index-2.html">Constants</a>][<a href="../strutils/index-3.html">Types</a>][<a href="../strutils/index-5.html">Procedures and functions</a>][<a href="../strutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'strutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>XorEncode</h1>
+<p>Encode a string by XOR-ing its characters using characters of a given key, representing the result as hex values.</p>
+<h2>Declaration</h2>
+<p>Source position: strutils.pp line 188</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> XorEncode<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Key<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Source<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Key</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Key to use when encoding.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Source</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String ro encode.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Original encoded string.</p>
+<h2>Description</h2>
+<p><var>XorEncode</var>  encodes the string <var>Source</var> by XOR-ing each character in <var>Source</var> with the corresponding character in <var>Key</var> (repeating <var>Key</var> as often as necessary) and representing the resulting ASCII code as a hexadecimal number (of length 2). The result is therefore twice as long as the original string, and every 2 bytes represent an ASCII code.  </p>
+<p>Feeding the resulting string with the same key <var>Key</var> to the <a href="../strutils/xordecode.html">XorDecode</a> function will result in the original <var>Source</var> string. </p>
+<p>This function can be used e.g. to trivially encode a password in a configuration file. </p>
+<h2>Errors</h2>
+<p>None.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../strutils/xordecode.html">XorDecode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Decode a string encoded with <a href="../strutils/xorencode.html">XorEncode</a></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../strutils/xorstring.html">XorString</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encode a string by XOR-ing its characters using characters of a given key.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../strutils/hex2dec.html">Hex2Dec</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Converts a hexadecimal string to a decimal value</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

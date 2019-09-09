@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$Q or $OV or $OVERFLOWCHECKS: Overflow checking</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 1424--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu65.html" >next</a>] [<a 
+href="progsu63.html" >prev</a>] [<a 
+href="progsu63.html#tailprogsu63.html" >prev-tail</a>] [<a 
+href="#tailprogsu64.html">tail</a>] [<a 
+href="progse2.html#progsu64.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.64   </span> <a 
+href="prog.html#QQ2-71-70" id="x71-700001.2.64"><span 
+class="cmtt-10">$Q </span>or <span 
+class="cmtt-10">$OV </span>or <span 
+class="cmtt-10">$OVERFLOWCHECKS</span>: Overflow checking</a></h4>
+<!--l. 1426--><p class="noindent" >The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$Q+</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$OV+</span><span 
+class="cmsy-10">} </span>(MACPAS mode only) or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$OVERFLOWCHECKS ON</span><span 
+class="cmsy-10">} </span>directive turns on integer
+overflow checking. This means that the compiler inserts code to check for overflow when doing
+computations with integers. When an overflow occurs, the run-time library will generate a run-time
+error 215: it prints a message <span 
+class="cmtt-10">Overflow at xxx</span>, and exits the program with exit code
+215.
+<!--l. 1432--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span>Overflow checking behaviour is not the same as in Turbo Pascal since all arithmetic
+operations are done via 32-bit or 64-bit values. Furthermore, the <span 
+class="cmtt-10">Inc() </span>and <span 
+class="cmtt-10">Dec </span>standard
+system procedures <span 
+class="cmti-10">are </span>checked for overflow in Free Pascal, while in Turbo Pascal they are
+not.
+<!--l. 1438--><p class="noindent" >Using the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$Q-</span><span 
+class="cmsy-10">} </span>switch (or the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$OV-</span><span 
+class="cmsy-10">} </span>switch in MACPAS mode) switches off the overflow
+checking code generation.
+<!--l. 1441--><p class="noindent" >The generation of overflow checking code can also be controlled using the <span 
+class="cmtt-10">-Co </span>command line
+compiler option (see the <a 
+href="../user/user.html" >User&#8217;s Guide</a>).
+<!--l. 1444--><p class="noindent" >In Delphi, overflow checking is only switchable at the procedure level. In Free Pascal, the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$Q </span><span 
+class="cmsy-10">}</span>
+directive can be used at the expression level.
+                                                                            
+
+                                                                            
+<!--l. 1447--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu65.html" >next</a>] [<a 
+href="progsu63.html" >prev</a>] [<a 
+href="progsu63.html#tailprogsu63.html" >prev-tail</a>] [<a 
+href="progsu64.html" >front</a>] [<a 
+href="progse2.html#progsu64.html" >up</a>] </p></div>
+<!--l. 1447--><p class="noindent" ><a 
+ id="tailprogsu64.html"></a>  
+</body></html> 

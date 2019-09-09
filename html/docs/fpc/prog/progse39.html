@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The resource string file</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 5916--><div class="crosslinks"><p class="noindent">[<a 
+href="progse40.html" >next</a>] [<a 
+href="progse38.html" >prev</a>] [<a 
+href="progse38.html#tailprogse38.html" >prev-tail</a>] [<a 
+href="#tailprogse39.html">tail</a>] [<a 
+href="progch9.html#progse39.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">9.2   </span> <a 
+href="prog.html#QQ2-227-263" id="x227-2410009.2">The resource string file</a></h3>
+<!--l. 5917--><p class="noindent" >When a unit is compiled that contains a <span 
+class="cmtt-10">resourcestring </span>section, the compiler does 2
+things:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x227-241002x1">It generates a table that contains the value of the strings as declared in the sources.
+     </li>
+     <li 
+  class="enumerate" id="x227-241004x2">It generates a <span 
+class="cmti-10">resource string file </span>that contains the names of all strings, together with
+     their declared values.</li></ol>
+<!--l. 5924--><p class="noindent" >This approach has 2 advantages: first of all, the value of the string is always present in the
+program. If the programmer doesn&#8217;t care to translate the strings, the default values
+are always present in the binary. This also avoids having to provide a file containing
+the strings. Secondly, having all strings together in a compiler generated file ensures
+that all strings are together (you can have multiple resourcestring sections in 1 unit or
+program) and having this file in a fixed format, allows the programmer to choose his way of
+internationalization.
+<!--l. 5933--><p class="noindent" >For each unit that is compiled and that contains a resourcestring section, the compiler generates a
+file that has the name of the unit, and an extension <span 
+class="cmss-10">.rst</span>. The format of this file is as
+follows:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x227-241006x1">An empty line.
+     </li>
+     <li 
+  class="enumerate" id="x227-241008x2">A line starting with a hash sign (<span 
+class="cmtt-10">#</span>) and the hash value of the string, preceded by the
+     text <span 
+class="cmtt-10">hash value =</span>.
+     </li>
+     <li 
+  class="enumerate" id="x227-241010x3">A   third   line,   containing   the   name   of   the   resource   string   in   the   format
+     <span 
+class="cmtt-10">unitname.constantname</span>, all lowercase, followed by an equal sign, and the string value,
+     in a format equal to the pascal representation of this string. The line may be continued
+     on the next line, in that case it reads as a pascal string expression with a plus sign in
+     it.
+     </li>
+     <li 
+  class="enumerate" id="x227-241012x4">Another empty line.</li></ol>
+<!--l. 5947--><p class="noindent" >If the unit contains no <span 
+class="cmtt-10">resourcestring </span>section, no file is generated.
+<!--l. 5949--><p class="noindent" >For example, the following unit:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-224">
+unit&#x00A0;rsdemo;
+&#x00A0;<br />
+&#x00A0;<br />{$mode&#x00A0;delphi}
+&#x00A0;<br />{$H+}
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />resourcestring
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;First&#x00A0;=&#x00A0;&#8217;First&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;Second&#x00A0;=&#x00A0;&#8217;A&#x00A0;Second&#x00A0;very&#x00A0;long&#x00A0;string&#x00A0;that&#x00A0;should&#x00A0;cover&#x00A0;more&#x00A0;than&#x00A0;1&#x00A0;line&#8217;;
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 5967--><p class="nopar" >Will result in the following resource string file:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-225">
+&#x00A0;<br />#&#x00A0;hash&#x00A0;value&#x00A0;=&#x00A0;5048740
+&#x00A0;<br />rsdemo.first=&#8217;First&#8217;
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />#&#x00A0;hash&#x00A0;value&#x00A0;=&#x00A0;171989989
+&#x00A0;<br />rsdemo.second=&#8217;A&#x00A0;Second&#x00A0;very&#x00A0;long&#x00A0;string&#x00A0;that&#x00A0;should&#x00A0;cover&#x00A0;more&#x00A0;than&#x00A0;1&#x00A0;li&#8217;+
+&#x00A0;<br />&#8217;ne&#8217;
+&#x00A0;<br />
+</div>
+<!--l. 5979--><p class="nopar" >The hash value is calculated with the function <span 
+class="cmtt-10">Hash</span>. It is present in the <span 
+class="cmss-10">objpas </span>unit. The value is
+the same value that the GNU gettext mechanism uses. It is in no way unique, and can only be used
+to speed up searches.
+<!--l. 5985--><p class="noindent" >The <span 
+class="cmss-10">rstconv </span>utility that comes with the Free Pascal compiler allows manipulation of these resource
+string files. At the moment, it can only be used to make a <span 
+class="cmss-10">.po </span>file that can be fed to the GNU
+<span 
+class="cmss-10">msgfmt </span>program. If someone wishes to have another format (Win32 resource files spring to mind),
+one can enhance the <span 
+class="cmss-10">rstconv </span>program so it can generate other types of files as well. GNU gettext
+was chosen because it is available on all platforms, and is already widely used in the <span 
+class="cmtt-10">Unix </span>and free
+software community. Since the Free Pascal team doesn&#8217;t want to restrict the use of resource
+strings, the <span 
+class="cmss-10">.rst </span>format was chosen to provide a neutral method, not restricted to any
+tool.
+<!--l. 5996--><p class="noindent" >If you use resource strings in your units, and you want people to be able to translate the
+strings, you must provide the resource string file. Currently, there is no way to extract
+them from the unit file, though this is in principle possible. It is not required to do this,
+the program can be compiled without it, but then the translation of the strings isn&#8217;t
+possible.
+                                                                            
+
+                                                                            
+<!--l. 6002--><div class="crosslinks"><p class="noindent">[<a 
+href="progse40.html" >next</a>] [<a 
+href="progse38.html" >prev</a>] [<a 
+href="progse38.html#tailprogse38.html" >prev-tail</a>] [<a 
+href="progse39.html" >front</a>] [<a 
+href="progch9.html#progse39.html" >up</a>] </p></div>
+<!--l. 6002--><p class="noindent" ><a 
+ id="tailprogse39.html"></a>  
+</body></html> 

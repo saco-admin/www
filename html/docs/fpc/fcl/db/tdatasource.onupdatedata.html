@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDataSource.OnUpdateData</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDataSource.OnUpdateData</h1>
+<p>Called whenever the data in the dataset must be updated</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1878</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../db/tdatasource.html">TDataSource</a><span class="sym">.</span>OnUpdateData<span class="sym"> : </span><a href="../../rtl/classes/tnotifyevent.html">TNotifyEvent</a><br>&nbsp;&nbsp;<span class="kw">read </span>FOnUpdateData<br>&nbsp;&nbsp;<span class="kw">write </span>FOnUpdateData<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>OnUpdateData</var> is called whenever the dataset needs the latest data from the controls: usually just before a <a href="../db/tdataset.post.html">TDataset.Post</a> operation. It can be used to copy data from non-db-aware controls to the dataset just before the dataset is posting the changes to the underlying  database. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdatasource.ondatachange.html">TDatasource.OnDataChange</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called whenever data changes in the current record</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdatasource.onstatechange.html">TDatasource.OnStateChange</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called whenever the state of the dataset changes</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.post.html">TDataset.Post</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Post pending edits to the database.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

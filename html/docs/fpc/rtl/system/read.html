@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Read</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Read</h1>
+<p>Read from a text file into variable</p>
+<h2>Declaration</h2>
+<p>Source position: system.fpd line 55</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> Read<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>F<span class="sym">: </span>Text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Args<span class="sym">: </span>Arguments</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> Read<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Args<span class="sym">: </span>Arguments</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Read</var> reads one or more values from a file <var>F</var>, and stores the result in <var>V1</var>, <var>V2</var>, etc.; If no file <var>F</var> is specified, then standard input is read. If <var>F</var> is of type <var>Text</var>, then the variables <var>V1, V2</var> etc. must be of type <var>Char</var>, <var>Integer</var>, <var>Real</var>, <var>String</var>. If <var>F</var> is a typed file, then each of the variables must be of the type specified in the declaration of <var>F</var>. Untyped files are not allowed as an argument. </p>
+<p>In earlier versions of FPC, it was also allowed to read <var>Pchar</var> null-terminated strings, but this has been removed, since there is no buffer checking possible. </p>
+<h2>Errors</h2>
+<p>If no data is available, empty values are returned (0 for ordinal values, empty strings for string values) </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/readln.html">Readln</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read from a text file into variable and goto next line</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/blockread.html">Blockread</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read data from an untyped file into memory</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/write.html">Write</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write variable to a text file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/blockwrite.html">Blockwrite</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write data from memory to an untyped file</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example50<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Read(Ln) function. }</span>
+
+<span class="kw">Var</span> S <span class="sym">:</span> String<span class="sym">;</span>
+    C <span class="sym">:</span> Char<span class="sym">;</span>
+    F <span class="sym">:</span> File <span class="kw">of</span> char<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Assign <span class="sym">(</span>F<span class="sym">,</span><span class="str">'ex50.pp'</span><span class="sym">)</span><span class="sym">;</span>
+  Reset <span class="sym">(</span>F<span class="sym">)</span><span class="sym">;</span>
+  C<span class="sym">:=</span><span class="chr">'A'</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'The characters before the first space in ex50.pp are : '</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">While</span> <span class="kw">not</span> Eof<span class="sym">(</span>f<span class="sym">)</span> <span class="kw">and</span> <span class="sym">(</span>C<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="chr">' '</span><span class="sym">)</span> <span class="kw">do</span>
+    <span class="kw">Begin</span>
+    Read <span class="sym">(</span>F<span class="sym">,</span>C<span class="sym">)</span><span class="sym">;</span>
+    Write <span class="sym">(</span>C<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+ Writeln<span class="sym">;</span>
+ Close <span class="sym">(</span>F<span class="sym">)</span><span class="sym">;</span>
+ Writeln <span class="sym">(</span><span class="str">'Type some words. An empty line ends the program.'</span><span class="sym">)</span><span class="sym">;</span>
+ <span class="kw">repeat</span>
+   Readln <span class="sym">(</span>S<span class="sym">)</span><span class="sym">;</span>
+ <span class="kw">until</span> S<span class="sym">=</span><span class="str">''</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TNonFreePooledMemManager.NewItem</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../pooledmm/index.html">Overview</a>][<a href="../pooledmm/index-3.html">Types</a>][<a href="../pooledmm/index-4.html">Classes</a>][<a href="../pooledmm/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'pooledmm' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TNonFreePooledMemManager.NewItem</h1>
+<p>Return a pointer to a new memory block</p>
+<h2>Declaration</h2>
+<p>Source position: pooledmm.pp line 87</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../pooledmm/tnonfreepooledmemmanager.html">TNonFreePooledMemManager</a><span class="sym">.</span>NewItem<span class="sym">: </span>Pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Pointer to a new memory block</p>
+<h2>Description</h2>
+<p><var>NewItem</var> returns a pointer to an unused memory block of size <a href="../pooledmm/tnonfreepooledmemmanager.itemsize.html">ItemSize</a>. It will allocate new memory on the heap if necessary. </p>
+<p>Note that there is no way to mark the memory block as free, except by clearing the whole list. </p>
+<h2>Errors</h2>
+<p>If no more memory is available, an exception may be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../pooledmm/tnonfreepooledmemmanager.clear.html">TNonFreePooledMemManager.Clear</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clears the memory</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

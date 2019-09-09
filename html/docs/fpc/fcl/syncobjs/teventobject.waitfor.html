@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TEventObject.WaitFor</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../syncobjs/index.html">Overview</a>][<a href="../syncobjs/index-2.html">Constants</a>][<a href="../syncobjs/index-3.html">Types</a>][<a href="../syncobjs/index-4.html">Classes</a>][<a href="../syncobjs/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'syncobjs' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TEventObject.WaitFor</h1>
+<p>Wait for the event to be set.</p>
+<h2>Declaration</h2>
+<p>Source position: syncobjs.pp line 74</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../syncobjs/teventobject.html">TEventObject</a><span class="sym">.</span>WaitFor<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Timeout<span class="sym">: </span><a href="../../rtl/system/cardinal.html">Cardinal</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../syncobjs/twaitresult.html">TWaitResult</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Timeout</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Maximum time to wait for the event to be set</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Reason for returning</p>
+<h2>Description</h2>
+<p><var>WaitFor</var> should be used in threads that should be notified when the event is set. When <var>WaitFor</var> is called, and the event is not set, the thread will be suspended. As soon as the event is set by some other thread (using <a href="../syncobjs/teventobject.setevent.html">SetEvent</a>) or the timeout period (<var>TimeOut</var>) has expired, the <var>WaitFor</var> function returns. The return value depends on the condition that caused the <var>WaitFor</var> function to return. </p>
+<p>The calling thread will wait indefinitely when the constant <var>INFINITE</var> is specified for the <var>TimeOut</var> parameter. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../syncobjs/teventobject.setevent.html">TEventObject.SetEvent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set the event</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStream.GetPos</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../objects/index.html">Overview</a>][<a href="../objects/index-2.html">Constants</a>][<a href="../objects/index-3.html">Types</a>][<a href="../objects/index-4.html">Classes</a>][<a href="../objects/index-5.html">Procedures and functions</a>][<a href="../objects/index-6.html">Variables</a>][<a href="../objects/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Objects' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TStream.GetPos</h1>
+<p>Return current position in the stream</p>
+<h2>Declaration</h2>
+<p>Source position: objects.pp line 284</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code">  <span class="kw">function</span> <a href="../objects/tstream.html">TStream</a><span class="sym">.</span>GetPos<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>If the stream's status is <var>stOk</var>, <var>GetPos</var> returns the current  position in the stream. Otherwise it returns <var>-1</var></p>
+<h2>Errors</h2>
+<p><var>-1</var> is returned if the status is an error condition. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../objects/tstream.seek.html">TStream.Seek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set stream position.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../objects/tstream.getsize.html">TStream.GetSize</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the size of the stream.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> ex11<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the TStream.GetPos function }</span>
+
+<span class="kw">Uses</span> objects<span class="sym">;</span>
+
+<span class="kw">Var</span> L <span class="sym">:</span> String<span class="sym">;</span>
+    S <span class="sym">:</span> PStream<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  L<span class="sym">:=</span><span class="str">'Some kind of string'</span><span class="sym">;</span>
+  S<span class="sym">:=</span>New<span class="sym">(</span>PMemoryStream<span class="sym">,</span>Init<span class="sym">(</span><span class="num">100</span><span class="sym">,</span><span class="num">10</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Stream position before write: '</span><span class="sym">,</span>S<span class="sym">^</span><span class="sym">.</span>GetPos<span class="sym">)</span><span class="sym">;</span>
+  S<span class="sym">^</span><span class="sym">.</span>WriteStr<span class="sym">(</span><span class="sym">@</span>L<span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Stream position after write : '</span><span class="sym">,</span>S<span class="sym">^</span><span class="sym">.</span>GetPos<span class="sym">)</span><span class="sym">;</span>
+  Dispose<span class="sym">(</span>S<span class="sym">,</span>Done<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>    
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

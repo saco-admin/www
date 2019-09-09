@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>IFPObserved.FPOAttachObserver</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>IFPObserved.FPOAttachObserver</h1>
+<p>Attach a new observer to the object</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 168</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code">  <span class="kw">procedure</span> <a href="../classes/ifpobserved.html">IFPObserved</a><span class="sym">.</span>FPOAttachObserver<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AObserver<span class="sym">: </span><a href="../system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FPOAttachObserver</var> must be called with an object instance <var>AObserver</var> that implements the <a href="../classes/ifpobserver.html">IFPObserver</a> interface. The <a href="../classes/ifpobserver.fpoobservedchanged.html">FPOObservedChanged</a>  method of the interface will be called whenever <b>FPONotifyObservers</b> is used to notify observers of a change. Objects implementing this interface should check that <var>AObserver</var> actually implements the <a href="../classes/ifpobserver.html">IFPObserver</a> interface. </p>
+<p>Do not make assumptions on how the interface behaves if <var>FPOAttachObserver</var> is called more than once with the same interface. It may add the object to the list of observers unconditionally (in which case it will be notified twice) or it may check that it is not yet in the list. </p>
+<h2>Errors</h2>
+<p>If <var>AObserver</var> does not implement the <a href="../classes/ifpobserver.html">IFPObserver</a> interface, an <a href="../classes/eobserver.html">EObserver</a> exception must be raised.  No other errors should be raised, other than a possible out of memory error. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/ifpobserver.html">IFPObserver</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Interface for an object to observe other objects.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/ifpobserver.fpoobservedchanged.html">FPOObservedChanged</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Entry point for change notifications</p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>FPONotifyObservers</b></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

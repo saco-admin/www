@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>5 Compiler configuration</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 989--><div class="crosslinks"><p class="noindent">[<a 
+href="userch6.html" >next</a>] [<a 
+href="userch4.html" >prev</a>] [<a 
+href="userch4.html#tailuserch4.html" >prev-tail</a>] [<a 
+href="#tailuserch5.html">tail</a>] [<a 
+href="user.html#userch5.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;5</span><br /><a 
+href="user.html#QQ2-33-42" id="x33-400005">Compiler configuration</a></h2>
+<!--l. 992--><p class="noindent" >The output of the compiler can be controlled in many ways. This can be done essentially in two
+distinct ways:
+     <ul class="itemize1">
+     <li class="itemize">Using command line options.
+     </li>
+     <li class="itemize">Using the configuration file: <span 
+class="cmss-10">fpc.cfg</span>.</li></ul>
+<!--l. 998--><p class="noindent" >The compiler first reads the configuration file. Only then are the command line options checked.
+This creates the possibility to set some basic options in the configuration file, and at the same time
+you can still set some specific options when compiling some unit or program. First we list the
+command line options, and then we explain how to specify the command line options
+in the configuration file. When reading this, keep in mind that the options are case
+sensitive.
+<div class="sectionTOCS">
+&#x00A0;<span class="sectionToc" >5.1 <a 
+href="userse16.html#x34-410005.1">Using the command line options</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.1.1 <a 
+href="usersu12.html#x35-420005.1.1">General options</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.1.2 <a 
+href="usersu13.html#x36-430005.1.2">Options for getting feedback</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.1.3 <a 
+href="usersu14.html#x37-440005.1.3">Options concerning files and directories</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.1.4 <a 
+href="usersu15.html#x38-450005.1.4">Options controlling the kind of output.</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.1.5 <a 
+href="usersu16.html#x39-460005.1.5">Options concerning the sources (language options)</a></span>
+<br />&#x00A0;<span class="sectionToc" >5.2 <a 
+href="userse17.html#x40-470005.2">Using the configuration file</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.1 <a 
+href="usersu17.html#x41-480005.2.1">Conditional processing of the config file</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.2 <a 
+href="usersu18.html#x42-490005.2.2">#CFGDIR</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.3 <a 
+href="usersu19.html#x43-500005.2.3">#IFDEF</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.4 <a 
+href="usersu20.html#x44-510005.2.4">#IFNDEF</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.5 <a 
+href="usersu21.html#x45-520005.2.5">#ELSE</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.6 <a 
+href="usersu22.html#x46-530005.2.6">#ENDIF</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.7 <a 
+href="usersu23.html#x47-540005.2.7">#DEFINE</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.8 <a 
+href="usersu24.html#x48-550005.2.8">#UNDEF</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.9 <a 
+href="usersu25.html#x49-560005.2.9">#WRITE</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.10 <a 
+href="usersu26.html#x50-570005.2.10">#INCLUDE</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.11 <a 
+href="usersu27.html#x51-580005.2.11">#SECTION</a></span>
+<br />&#x00A0;<span class="sectionToc" >5.3 <a 
+href="userse18.html#x52-590005.3">Variable substitution in paths</a></span>
+</div>
+
+
+                                                                            
+
+                                                                            
+<!--l. 24--><div class="crosslinks"><p class="noindent">[<a 
+href="userch6.html" >next</a>] [<a 
+href="userch4.html" >prev</a>] [<a 
+href="userch4.html#tailuserch4.html" >prev-tail</a>] [<a 
+href="userch5.html" >front</a>] [<a 
+href="user.html#userch5.html" >up</a>] </p></div>
+<!--l. 24--><p class="noindent" ><a 
+ id="tailuserch5.html"></a>  
+</body></html> 

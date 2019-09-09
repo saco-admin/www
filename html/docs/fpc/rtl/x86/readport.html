@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>ReadPort</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../x86/index.html">Overview</a>][<a href="../x86/index-5.html">Procedures and functions</a>][<a href="../x86/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'x86' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>ReadPort</h1>
+<p>Read data from a PC port</p>
+<h2>Declaration</h2>
+<p>Source position: x86.pp line 25</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> ReadPort<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Port<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>Value<span class="sym">: </span><a href="../system/byte.html">Byte</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> ReadPort<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Port<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>Value<span class="sym">: </span><a href="../system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> ReadPort<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Port<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>Value<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ReadPort</var> reads one Byte, Word or Longint from port <var>Port</var> into <var>Value</var>. </p>
+<p>Note that you need permission to read a port. This permission can be set by  the root user with the <a href="../x86/fpioperm.html">FpIOPerm</a> call. </p>
+<h2>Errors</h2>In case of an error (not enough permissions read this port), runtime 216  (
+<em>Access Violation</em>) will occur. 
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../x86/fpioperm.html">FpIOPerm</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set permission on IO ports</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../x86/readportb.html">ReadPortB</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read bytes from a PC port</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../x86/readportw.html">ReadPortW</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read Words from a PC port</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../x86/readportl.html">ReadPortL</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read longints from a PC port</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../x86/writeport.html">WritePort</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write data to PC port</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../x86/writeportb.html">WritePortB</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write byte to PC port</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../x86/writeportl.html">WritePortL</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write longint to PC port.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../x86/writeportw.html">WritePortW</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write Word to PC port</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

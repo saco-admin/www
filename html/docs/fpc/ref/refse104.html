@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>In operator</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 11311--><div class="crosslinks"><p class="noindent">[<a 
+href="refse103.html" >prev</a>] [<a 
+href="refse103.html#tailrefse103.html" >prev-tail</a>] [<a 
+href="#tailrefse104.html">tail</a>] [<a 
+href="refch15.html#refse104.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">15.6   </span> <a 
+href="ref.html#QQ2-213-251" id="x213-23500015.6">In operator</a></h3>
+<!--l. 11312--><p class="noindent" >As of version 2.6 of Free pascal, the <span 
+class="cmtt-10">In </span>operator can be overloaded as well. The first argument of
+the in operator must be the operand on the left of the <span 
+class="cmtt-10">in </span>keyword. The following overloads the in
+operator for records:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-471">
+&#x00A0;<br />{$mode&#x00A0;objfpc}{$H+}
+&#x00A0;<br />
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;TMyRec&#x00A0;=&#x00A0;record&#x00A0;A:&#x00A0;Integer&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />operator&#x00A0;in&#x00A0;(const&#x00A0;A:&#x00A0;Integer;&#x00A0;const&#x00A0;B:&#x00A0;TMyRec):&#x00A0;boolean;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result&#x00A0;:=&#x00A0;A&#x00A0;=&#x00A0;B.A;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;R:&#x00A0;TMyRec;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;R.A&#x00A0;:=&#x00A0;10;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(1&#x00A0;in&#x00A0;R);&#x00A0;//&#x00A0;false
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(10&#x00A0;in&#x00A0;R);&#x00A0;//&#x00A0;true
+&#x00A0;<br />end.
+</div>
+<!--l. 11335--><p class="nopar" >The <span 
+class="cmtt-10">in </span>operator can also be overloaded for other types than ordinal types, as in the following
+example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-472">
+{$mode&#x00A0;objfpc}{$H+}
+&#x00A0;<br />
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;TMyRec&#x00A0;=&#x00A0;record&#x00A0;A:&#x00A0;Integer&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />operator&#x00A0;in&#x00A0;(const&#x00A0;A:&#x00A0;TMyRec;&#x00A0;const&#x00A0;B:&#x00A0;TMyRec):&#x00A0;boolean;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result&#x00A0;:=&#x00A0;A.A&#x00A0;=&#x00A0;B.A;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;S,R:&#x00A0;TMyRec;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;R.A&#x00A0;:=&#x00A0;10;
+&#x00A0;<br />&#x00A0;&#x00A0;S.A:=1;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(S&#x00A0;in&#x00A0;R);&#x00A0;//&#x00A0;false
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(R&#x00A0;in&#x00A0;R);&#x00A0;//&#x00A0;true
+&#x00A0;<br />end.
+</div>
+<!--l. 11357--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 11363--><div class="crosslinks"><p class="noindent">[<a 
+href="refse103.html" >prev</a>] [<a 
+href="refse103.html#tailrefse103.html" >prev-tail</a>] [<a 
+href="refse104.html" >front</a>] [<a 
+href="refch15.html#refse104.html" >up</a>] </p></div>
+<!--l. 11363--><p class="noindent" ><a 
+ id="tailrefse104.html"></a>  
+</body></html> 

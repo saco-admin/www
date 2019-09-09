@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>ExtractRelativepath</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>ExtractRelativepath</h1>
+<p>Extract a relative path from a filename, given a base directory.</p>
+<h2>Declaration</h2>
+<p>Source position: finah.inc line 32</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> ExtractRelativepath<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>BaseName<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>DestNAme<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span><br><br><span class="kw">function</span> ExtractRelativepath<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>BaseName<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>DestNAme<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/rawbytestring.html">RawByteString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ExtractRelativePath</var> constructs a relative path to go from <var>BaseName</var> to <var>DestName</var>. If <var>DestName</var> is on another drive (Not on Unix-like platforms) then the whole <var>Destname</var> is returned. </p>
+<p>Note that directories must end on a path delimiter for this function to work correctly.  If not, the last part is stripped and treated as a file name. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/extractfilename.html">ExtractFileName</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Extract the filename part from a full path filename.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/extractfilepath.html">ExtractFilePath</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Extract the path from a filename.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/extractfiledir.html">ExtractFileDir</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Extract the drive and directory part of a filename.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/extractfiledrive.html">ExtractFileDrive</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Extract the drive part from a filename.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/extractfileext.html">ExtractFileExt</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the extension from a filename.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example35<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the ExtractRelativePath function }</span>
+
+<span class="kw">Uses</span> sysutils<span class="sym">;</span>
+
+<span class="kw">Procedure</span> Testit <span class="sym">(</span>FromDir<span class="sym">,</span>ToDir <span class="sym">:</span> String<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Write <span class="sym">(</span><span class="str">'From "'</span><span class="sym">,</span>FromDir<span class="sym">,</span><span class="str">'" to "'</span><span class="sym">,</span>ToDir<span class="sym">,</span><span class="str">'" via "'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span>ExtractRelativePath<span class="sym">(</span>FromDir<span class="sym">,</span>ToDir<span class="sym">)</span><span class="sym">,</span><span class="chr">'"'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Begin</span>
+ Testit <span class="sym">(</span><span class="str">'/pp/src/compiler/'</span><span class="sym">,</span><span class="str">'/pp/bin/win32/ppc386/'</span><span class="sym">)</span><span class="sym">;</span>
+ Testit <span class="sym">(</span><span class="str">'/pp/bin/win32/ppc386/'</span><span class="sym">,</span><span class="str">'/pp/src/compiler/'</span><span class="sym">)</span><span class="sym">;</span>
+ Testit <span class="sym">(</span><span class="str">'/pp/bin/win32/'</span><span class="sym">,</span><span class="str">'/pp/src/compiler/ppcx386/'</span><span class="sym">)</span><span class="sym">;</span>
+ Testit <span class="sym">(</span><span class="str">'/pp/bin/win32/'</span><span class="sym">,</span><span class="str">'/pp/src/compiler/ppcx386'</span><span class="sym">)</span><span class="sym">;</span>
+ Testit <span class="sym">(</span><span class="str">'/pp/bin/win32'</span><span class="sym">,</span><span class="str">'/pp/src/compiler/ppcx386'</span><span class="sym">)</span><span class="sym">;</span>
+ Testit <span class="sym">(</span><span class="str">'e:/pp/bin/win32/ppc386/'</span><span class="sym">,</span><span class="str">'d:/pp/src/compiler/'</span><span class="sym">)</span><span class="sym">;</span>
+ Testit <span class="sym">(</span><span class="str">'e:\pp\bin\win32\ppc386/'</span><span class="sym">,</span><span class="str">'d:\pp\src\compiler/'</span><span class="sym">)</span><span class="sym">;</span>
+ Testit <span class="sym">(</span><span class="str">'C:\FPC\3.0.2\'</span><span class="sym">,</span><span class="str">'C:\FPC\3.0.2\'</span><span class="sym">)</span><span class="sym">;</span>
+ Testit <span class="sym">(</span><span class="str">'C:\FPC\3.0.2\'</span><span class="sym">,</span><span class="str">'C:\FPC\3.0.4rc1\'</span><span class="sym">)</span><span class="sym">;</span>
+ Testit <span class="sym">(</span><span class="str">'Q:\'</span><span class="sym">,</span><span class="str">'Q:\FPC\3.0.4rc1\'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

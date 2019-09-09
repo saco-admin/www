@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Reset</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Reset</h1>
+<p>Open file for reading</p>
+<h2>Declaration</h2>
+<p>Source position: systemh.inc line 1184</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> Reset<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>f<span class="sym">: </span>file<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;l<span class="sym">: </span><a href="../system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> Reset<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>f<span class="sym">: </span>file</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> Reset<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>f<span class="sym">: </span>TypedFile</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> Reset<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>t<span class="sym">: </span>Text</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Reset</var> opens a file <var>F</var> for reading. <var>F</var> can be any file type. If <var>F</var> is a text file, or refers to standard I/O (e.g : '') then it is  opened read-only, otherwise it is opened using the mode specified in  <var>filemode</var>.  If <var>F</var> is an untyped file, the record size can be specified in the optional parameter <var>L</var>. A default value of 128 is used.  File sharing is not taken into account when calling <var>Reset</var>. </p>
+<h2>Errors</h2>
+<p>Depending on the state of the <var>{$I}</var> switch, a runtime error can be  generated if there is an error. In the <var>{$I-}</var> state, use <var>IOResult</var> to check for errors. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/rewrite.html">Rewrite</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Open file for writing</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/assign.html">Assign</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Assign a name to a file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/close.html">Close</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Close a file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/append.html">Append</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Open a file in append mode</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example51<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Reset function. }</span>
+
+<span class="kw">Function</span> FileExists <span class="sym">(</span>Name <span class="sym">:</span> String<span class="sym">)</span> <span class="sym">:</span> boolean<span class="sym">;</span>
+
+<span class="kw">Var</span> F <span class="sym">:</span> File<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="dir">{$i-}</span>
+  Assign <span class="sym">(</span>F<span class="sym">,</span>Name<span class="sym">)</span><span class="sym">;</span>
+  Reset <span class="sym">(</span>F<span class="sym">)</span><span class="sym">;</span>
+  <span class="dir">{$I+}</span>
+  FileExists<span class="sym">:=</span><span class="sym">(</span>IoResult<span class="sym">=</span><span class="num">0</span><span class="sym">)</span> <span class="kw">and</span> <span class="sym">(</span>Name<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="str">''</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> FileExists <span class="kw">then</span>
+    Close <span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">If</span> FileExists <span class="sym">(</span>Paramstr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">)</span> <span class="kw">then</span>
+    Writeln <span class="sym">(</span><span class="str">'File found'</span><span class="sym">)</span>
+  <span class="kw">else</span>
+    Writeln <span class="sym">(</span><span class="str">'File NOT found'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

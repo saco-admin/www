@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$MAXFPUREGISTERS : Maximum number of FPU registers for variables</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 1095--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu50.html" >next</a>] [<a 
+href="progsu48.html" >prev</a>] [<a 
+href="progsu48.html#tailprogsu48.html" >prev-tail</a>] [<a 
+href="#tailprogsu49.html">tail</a>] [<a 
+href="progse2.html#progsu49.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.49   </span> <a 
+href="prog.html#QQ2-56-55" id="x56-550001.2.49"><span 
+class="cmtt-10">$MAXFPUREGISTERS </span>: Maximum number of FPU registers for variables</a></h4>
+<!--l. 1097--><p class="noindent" >The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MAXFPUREGISTERS XXX</span><span 
+class="cmsy-10">} </span>directive tells the compiler how many floating point variables can
+be kept in the floating point processor registers on an Intel X86 processor. This switch is ignored
+unless the <span 
+class="cmtt-10">-Or </span>(use register variables) optimization is used.
+<!--l. 1102--><p class="noindent" >This is quite tricky because the Intel FPU stack is limited to 8 entries. The compiler uses a
+heuristic algorithm to determine how many variables should be put onto the stack: in leaf
+procedures it is limited to 3 and in non leaf procedures to 1. But in case of a deep call tree
+or, even worse, a recursive procedure, this can still lead to a FPU stack overflow, so
+the user can tell the compiler how many (floating point) variables should be kept in
+registers.
+<!--l. 1109--><p class="noindent" >The directive accepts the following arguments:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">N</span> </dt><dd 
+class="description">where <span 
+class="cmtt-10">N </span>is the maximum number of FPU registers to use. Currently this can be in the
+     range 0 to 7.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Normal</span> </dt><dd 
+class="description">restores the heuristic and standard behavior.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Default</span> </dt><dd 
+class="description">restores the heuristic and standard behaviour.</dd></dl>
+<!--l. 1118--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span>This directive is valid until the end of the current procedure.
+                                                                            
+
+                                                                            
+<!--l. 1121--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu50.html" >next</a>] [<a 
+href="progsu48.html" >prev</a>] [<a 
+href="progsu48.html#tailprogsu48.html" >prev-tail</a>] [<a 
+href="progsu49.html" >front</a>] [<a 
+href="progse2.html#progsu49.html" >up</a>] </p></div>
+<!--l. 1121--><p class="noindent" ><a 
+ id="tailprogsu49.html"></a>  
+</body></html> 

@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The If..then..else statement</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 8814--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu58.html" >next</a>] [<a 
+href="refsu56.html" >prev</a>] [<a 
+href="refsu56.html#tailrefsu56.html" >prev-tail</a>] [<a 
+href="#tailrefsu57.html">tail</a>] [<a 
+href="refse86.html#refsu57.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">13.2.3   </span> <a 
+href="ref.html#QQ2-163-200" id="x163-18500013.2.3">The <span 
+class="cmtt-10">If..then..else </span>statement</a></h4>
+<a 
+ id="dx163-185001"></a>
+<a 
+ id="dx163-185002"></a>
+<a 
+ id="dx163-185003"></a>
+<a 
+ id="dx163-185004"></a>
+<!--l. 8815--><p class="noindent" ><a name="keyword_if"></a><a name="keyword_then"></a><a name="keyword_else"></a> The <span 
+class="cmtt-10">If .. then .. else.. </span>prototype syntax is
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">If then statements</span><br 
+class="newline" /><BR/><img 
+src="ref153x.png" alt="--          -  -        -     -        --------------------------
+  if statement if expression  then   statement  -    -        --|
+                                          else  statement
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 8818--><p class="noindent" >The expression between the <span 
+class="cmtt-10">if </span>and <span 
+class="cmtt-10">then </span>keywords must have a <span 
+class="cmtt-10">Boolean </span>result type.
+If the expression evaluates to <span 
+class="cmtt-10">True </span>then the statement following the <span 
+class="cmtt-10">then </span>keyword is
+executed.
+<!--l. 8822--><p class="noindent" >If the expression evaluates to <span 
+class="cmtt-10">False</span>, then the statement following the <span 
+class="cmtt-10">else </span>keyword is executed, if
+it is present.
+<!--l. 8825--><p class="noindent" >Some points to note:
+     <ul class="itemize1">
+     <li class="itemize">Be aware of the fact that the boolean expression by default will be short-cut evaluated,
+     meaning that the evaluation will be stopped at the point where the outcome is known
+     with certainty.
+     </li>
+     <li class="itemize">Also, before the <span 
+class="cmtt-10">else </span>keyword, no semicolon (<span 
+class="cmtt-10">;</span>) is allowed, but all statements can be
+     compound statements.
+     </li>
+     <li class="itemize">In nested <span 
+class="cmtt-10">If.. then .. else </span>constructs, some ambiguity may araise as to which <span 
+class="cmtt-10">else</span>
+     statement pairs with which <span 
+class="cmtt-10">if </span>statement. The rule is that the <span 
+class="cmtt-10">else </span>keyword matches
+     the first <span 
+class="cmtt-10">if </span>keyword (searching backwards) not already matched by an <span 
+class="cmtt-10">else </span>keyword.</li></ul>
+<!--l. 8840--><p class="noindent" >For example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-367">
+If&#x00A0;exp1&#x00A0;Then
+&#x00A0;<br />&#x00A0;&#x00A0;If&#x00A0;exp2&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Stat1
+&#x00A0;<br />else
+&#x00A0;<br />&#x00A0;&#x00A0;stat2;
+</div>
+<!--l. 8847--><p class="nopar" >Despite its appearance, the statement is syntactically equivalent to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-368">
+If&#x00A0;exp1&#x00A0;Then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;If&#x00A0;exp2&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Stat1
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;else
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;stat2
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;end;
+</div>
+<!--l. 8857--><p class="nopar" >and not to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-369">
+{&#x00A0;NOT&#x00A0;EQUIVALENT&#x00A0;}
+&#x00A0;<br />If&#x00A0;exp1&#x00A0;Then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;If&#x00A0;exp2&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Stat1
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;end
+&#x00A0;<br />else
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;stat2;
+</div>
+<!--l. 8868--><p class="nopar" >If it is this latter construct which is needed, the <span 
+class="cmtt-10">begin </span>and <span 
+class="cmtt-10">end </span>keywords must be present. When in
+doubt, it is better to add them.
+<!--l. 8872--><p class="noindent" >The following is a valid statement:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-370">
+If&#x00A0;Today&#x00A0;in&#x00A0;[Monday..Friday]&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;Must&#x00A0;work&#x00A0;harder&#8217;)
+&#x00A0;<br />else
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;Take&#x00A0;a&#x00A0;day&#x00A0;off.&#8217;);
+</div>
+<!--l. 8878--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 8880--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu58.html" >next</a>] [<a 
+href="refsu56.html" >prev</a>] [<a 
+href="refsu56.html#tailrefsu56.html" >prev-tail</a>] [<a 
+href="refsu57.html" >front</a>] [<a 
+href="refse86.html#refsu57.html" >up</a>] </p></div>
+<!--l. 8880--><p class="noindent" ><a 
+ id="tailrefsu57.html"></a>  
+</body></html> 

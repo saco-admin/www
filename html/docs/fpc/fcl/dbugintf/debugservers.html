@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Writing a debug server</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dbugintf/index.html">Up</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dbugintf' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h2>Writing a debug server</h2>
+<p>Writing a debug server is relatively easy. It should instantiate a <var>TSimpleIPCServer</var> class from the <a href="../simpleipc/index.html">SimpleIPC</a> unit, and use the <var>DebugServerID</var> as <var>ServerID</var> identification. This constant, as well as the record containing the message which is sent between  client  and server is defined in the <span class="file">msgintf</span> unit. </p>
+<p>The <span class="file">dbugintf</span> unit relies on the <a href="../simpleipc/index.html">SimpleIPC</a> mechanism to communicate with the debug server, hence it works on all platforms that have a functional version of that unit. It also uses <var>TProcess</var> to start the debug server if needed, so the  <a href="../process/index.html">process</a> unit should also be functional. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

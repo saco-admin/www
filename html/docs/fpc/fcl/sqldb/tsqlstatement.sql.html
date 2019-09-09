@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSQLStatement.SQL</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TSQLStatement.SQL</h1>
+<p>The SQL statement to execute</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 414</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../sqldb/tsqlstatement.html">TSQLStatement</a><span class="sym">.</span>SQL<span class="sym"> : </span><a href="../../rtl/classes/tstrings.html">TStrings</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>SQL</var> must be set to the SQL statement to execute. It must not be a statement that returns a result set. This is the statement that will be passed on to the database engine when <a href="../sqldb/tcustomsqlstatement.prepare.html">Prepare</a> is called. </p>
+<p>If <b>ParamCheck</b> equals <var>True</var> (the default), the SQL statement can contain parameter names where literal values can occur, in the form <var>:ParamName</var>. Keywords or table names cannot be specified as parameters. If the underlying database engine supports it, the parameter support of the database will be used to transfer the values from the <b>Params</b> collection. If not, it will be emulated. The <var>Params</var> collection is automatically populated when the SQL statement is set. </p>
+<p>Some databases support executing multiple SQL statements in 1 call. Therefor, no attempt is done to ensure that <var>SQL</var> contains a single SQL statement. However, error reporting and the <a href="../sqldb/tcustomsqlstatement.rowsaffected.html">RowsAffected</a> function may be wrong in such a case. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><b>ParseSQL</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>CheckParams</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>Params</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tcustomsqlstatement.prepare.html">Prepare</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Prepare the statement for execution</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tcustomsqlstatement.rowsaffected.html">RowsAffected</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of rows affected by the SQL statement.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

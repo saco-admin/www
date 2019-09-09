@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TProcess.Handle</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../process/index.html">Overview</a>][<a href="../process/index-3.html">Types</a>][<a href="../process/index-4.html">Classes</a>][<a href="../process/index-5.html">Procedures and functions</a>][<a href="../process/index-6.html">Variables</a>][<a href="../process/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'process' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TProcess.Handle</h1>
+<p>Handle of the process</p>
+<h2>Declaration</h2>
+<p>Source position: process.pp line 125</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../process/tprocess.html">TProcess</a><span class="sym">.</span>Handle<span class="sym"> : </span><a href="../../rtl/sysutils/thandle.html">THandle</a><br>&nbsp;&nbsp;<span class="kw">read </span>FProcessHandle<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Handle</var> identifies the process. In Unix systems, this is the process ID. On windows, this is the process handle. It can be used to signal the process. </p>
+<p>The handle is only valid after <a href="../process/tprocess.execute.html">TProcess.Execute</a> has been called. It is not reset after the process stopped. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../process/tprocess.threadhandle.html">TProcess.ThreadHandle</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Main process thread handle</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.processid.html">TProcess.ProcessID</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">ID of the process.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.threadid.html">TProcess.ThreadID</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">ID of the main process thread</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

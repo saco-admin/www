@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FileOpen</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FileOpen</h1>
+<p>Open an existing file and return a filehandle</p>
+<h2>Declaration</h2>
+<p>Source position: filutilh.inc line 123</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FileOpen<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>FileName<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Mode<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/thandle.html">THandle</a><span class="sym">;</span><br><br><span class="kw">function</span> FileOpen<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>FileName<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Mode<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../sysutils/thandle.html">THandle</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FileOpen</var> opens a file with name <var>FileName</var> with mode <var>Mode</var>. <var>Mode</var> can be one of the following constants: </p>
+<dl>
+<dt>fmOpenRead</dt>
+<dd>Open file in read-only mode</dd>
+<dt>fmOpenWrite</dt>
+<dd>Open file in write-only mode</dd>
+<dt>fmOpenReadWrite</dt>
+<dd>Open file in read/write mode.</dd>
+</dl>
+<p>Under Windows and Unix, the above mode can be or-ed with one of the following sharing/locking flags: </p>
+<dl>
+<dt>fmShareCompat</dt>
+<dd>Open file in DOS share-compatibility mode</dd>
+<dt>fmShareExclusive</dt>
+<dd>Lock file for exclusive use</dd>
+<dt>fmShareDenyWrite</dt>
+<dd>Lock file so other processes can only read.</dd>
+<dt>fmShareDenyRead</dt>
+<dd>Lock file so other processes cannot read.</dd>
+<dt>fmShareDenyNone</dt>
+<dd>Do not lock file.</dd>
+</dl>
+<p>If the file has been successfully opened, it can be read  from or written to (depending on the <var>Mode</var> parameter) with the <a href="../sysutils/fileread.html">FileRead</a> and <var>FileWrite</var> functions. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>Remark that you cannot open a file if it doesn't exist yet, i.e. it will not be created for you. If you want tp create a new file, or overwrite an old one, use the <a href="../sysutils/filecreate.html">FileCreate</a> function. </td>
+</tr>
+</table>
+<p>There are some limitations to the sharing modes. </p>
+<ol>
+<li>Sharing modes are only available on Unix and Windows platforms.</li>
+<li>Unix only support sharing modes as of 2.4.0.</li>
+<li>fmShareDenyRead only works under Windows at this time, and will always  result in an error on Unix platforms because its file locking APIs do not  support this concept.</li>
+<li>File locking is advisory on Unix platforms. This means that the locks  are only checked when a file is opened using a file locking mode. In other  cases, existing locks are simply ignored. In particular, this means that  <var>fmShareDenyNone</var> has no effect under Unix, because this can only  be implemented as ``use no locking'' on those platforms. As a result, opening  a file using this mode will always succeed under Unix as far as the locking  is concerned, even if the file has already been opened using  <var>fmShareExclusive</var>.</li>
+<li>Under Solaris, closing a single file handle associated with a file will result in all locks on that file (even via other handles) being destroyed  due to the behaviour of the underlying API (fcntl). Because of the same reason, on Solaris you cannot use <var>fmShareDenyWrite</var> in combination with <var>fmOpenWrite</var>, nor <var>fmShareExclusive</var>  in combination with <var>fmOpenRead</var> although both work with fmOpenReadWrite.</li>
+</ol>
+<p>For an example, see <a href="../sysutils/filecreate.html">FileCreate</a></p>
+<h2>Errors</h2>
+<p>On Error, <var>THandle(-1)</var> is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/fmopenread.html">fmOpenRead</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Open file in read-only mode</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/fmopenwrite.html">fmOpenWrite</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Open file in write-only mode</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/fmopenreadwrite.html">fmOpenReadWrite</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Open file in read/write mode.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/fmsharedenywrite.html">fmShareDenyWrite</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Lock file so other processes can only read.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/fmshareexclusive.html">fmShareExclusive</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Lock file for exclusive use</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/fmsharedenyread.html">fmShareDenyRead</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Lock file so other processes cannot read.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/fmsharedenynone.html">fmShareDenyNone</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Do not lock file.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/fmsharecompat.html">fmShareCompat</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Open file in DOS share-compatibility mode</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/fileclose.html">FileClose</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Close a file handle.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/filewrite.html">FileWrite</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write data from a buffer to a given filehandle.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/filecreate.html">FileCreate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a new file and return a handle to it.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/fileread.html">FileRead</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read data from a filehandle in a buffer.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/filetruncate.html">FileTruncate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Truncate an open file to a given size.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/fileseek.html">FileSeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set the current file position on a file handle.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

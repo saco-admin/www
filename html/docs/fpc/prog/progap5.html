@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>E Using fpcmake</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 8010--><div class="crosslinks"><p class="noindent">[<a 
+href="progap6.html" >next</a>] [<a 
+href="progap4.html" >prev</a>] [<a 
+href="progap4.html#tailprogap4.html" >prev-tail</a>] [<a 
+href="#tailprogap5.html">tail</a>] [<a 
+href="prog.html#progap5.html" >up</a>] </p></div>
+<h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;E</span><br /><a 
+href="prog.html#QQ2-293-338" id="x293-309000E">Using <span 
+class="cmss-10">fpcmake</span></a></h2>
+<div class="sectionTOCS">
+&#x00A0;<span class="sectionToc" >E.1 <a 
+href="progse78.html#x294-310000E.1">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >E.2 <a 
+href="progse79.html#x295-311000E.2">Functionality</a></span>
+<br />&#x00A0;<span class="sectionToc" >E.3 <a 
+href="progse80.html#x296-312000E.3">Usage</a></span>
+<br />&#x00A0;<span class="sectionToc" >E.4 <a 
+href="progse81.html#x297-313000E.4">Format of the configuration file</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.4.1 <a 
+href="progsu195.html#x298-314000E.4.1">clean</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.4.2 <a 
+href="progsu196.html#x299-315000E.4.2">compiler</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.4.3 <a 
+href="progsu197.html#x300-316000E.4.3">Default</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.4.4 <a 
+href="progsu198.html#x301-317000E.4.4">Dist</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.4.5 <a 
+href="progsu199.html#x302-318000E.4.5">Install</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.4.6 <a 
+href="progsu200.html#x303-319000E.4.6">Package</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.4.7 <a 
+href="progsu201.html#x304-320000E.4.7">Prerules</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.4.8 <a 
+href="progsu202.html#x305-321000E.4.8">Requires</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.4.9 <a 
+href="progsu203.html#x306-322000E.4.9">Rules</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.4.10 <a 
+href="progsu204.html#x307-323000E.4.10">Target</a></span>
+<br />&#x00A0;<span class="sectionToc" >E.5 <a 
+href="progse82.html#x308-324000E.5">Programs needed to use the generated makefile</a></span>
+<br />&#x00A0;<span class="sectionToc" >E.6 <a 
+href="progse83.html#x309-325000E.6">Variables that affect the generated makefile</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.6.1 <a 
+href="progsu205.html#x310-326000E.6.1">Directory variables</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.6.2 <a 
+href="progsu206.html#x311-327000E.6.2">Compiler command line variables </a></span>
+<br />&#x00A0;<span class="sectionToc" >E.7 <a 
+href="progse84.html#x312-328000E.7">Variables set by <span 
+class="cmss-10">fpcmake</span></a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.7.1 <a 
+href="progsu207.html#x313-329000E.7.1">Directory variables</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.7.2 <a 
+href="progsu208.html#x314-330000E.7.2">Target variables</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.7.3 <a 
+href="progsu209.html#x315-331000E.7.3">Compiler command line variables</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.7.4 <a 
+href="progsu210.html#x316-332000E.7.4">Program names</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.7.5 <a 
+href="progsu211.html#x317-333000E.7.5">File extensions</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.7.6 <a 
+href="progsu212.html#x318-334000E.7.6">Target files</a></span>
+<br />&#x00A0;<span class="sectionToc" >E.8 <a 
+href="progse85.html#x319-335000E.8">Rules and targets created by <span 
+class="cmss-10">fpcmake</span></a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.8.1 <a 
+href="progsu213.html#x320-336000E.8.1">Pattern rules</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.8.2 <a 
+href="progsu214.html#x321-337000E.8.2">Build rules</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.8.3 <a 
+href="progsu215.html#x322-338000E.8.3">Cleaning rules</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.8.4 <a 
+href="progsu216.html#x323-339000E.8.4">Archiving rules</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.8.5 <a 
+href="progsu217.html#x324-340000E.8.5">Installation rules</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >E.8.6 <a 
+href="progsu218.html#x325-341000E.8.6">Informative rules</a></span>
+                                                                            
+
+                                                                            
+</div>
+
+
+
+
+
+
+
+                                                                            
+
+                                                                            
+<!--l. 8759--><div class="crosslinks"><p class="noindent">[<a 
+href="progap6.html" >next</a>] [<a 
+href="progap4.html" >prev</a>] [<a 
+href="progap4.html#tailprogap4.html" >prev-tail</a>] [<a 
+href="progap5.html" >front</a>] [<a 
+href="prog.html#progap5.html" >up</a>] </p></div>
+<!--l. 8759--><p class="noindent" ><a 
+ id="tailprogap5.html"></a>  
+</body></html> 

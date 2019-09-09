@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The ptop configuration file</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2838--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu96.html" >next</a>] [<a 
+href="usersu94.html" >prev</a>] [<a 
+href="usersu94.html#tailusersu94.html" >prev-tail</a>] [<a 
+href="#tailusersu95.html">tail</a>] [<a 
+href="userse44.html#usersu95.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">8.8.2   </span> <a 
+href="user.html#QQ2-149-205" id="x149-1560008.8.2">The ptop configuration file</a></h4>
+<!--l. 2840--><p class="noindent" >Creating and distributing a configuration file for ptop is not necessary, unless you want to modify
+the standard behaviour of <span 
+class="cmss-10">ptop</span>. The configuration file is never preloaded, so if you want to use it
+you should always specify it with a <span 
+class="cmtt-10">-c ptop.cfg </span>parameter.
+<!--l. 2845--><p class="noindent" >The structure of a ptop configuration file is a simple building block repeated several (20-30) times,
+for each Pascal keyword known to the <span 
+class="cmss-10">ptop </span>program. (See the default configuration file or <span 
+class="cmss-10">ptopu.pp</span>
+source to find out which keywords are known).
+<!--l. 2850--><p class="noindent" >The basic building block of the configuration file consists of one or two lines, describing how <span 
+class="cmss-10">ptop</span>
+should react on a certain keyword. First comes a line without square brackets with the following
+format:
+<!--l. 2854--><p class="noindent" >keyword=option1,option2,option3,...
+<!--l. 2856--><p class="noindent" >If one of the options is &#8221;dindonkey&#8221; (see further below), a second line - with square brackets - is
+needed:
+<!--l. 2859--><p class="noindent" >[keyword]=otherkeyword1,otherkeyword2,otherkeyword3,...
+<!--l. 2861--><p class="noindent" >As you can see the block contains two types of identifiers: keywords (keyword and otherkeyword1..3
+in above example) and options, (option1..3 above).
+<!--l. 2864--><p class="noindent" ><span 
+class="cmtt-10">Keywords </span>are the built-in valid Pascal structure-identifiers like BEGIN, END, CASE,
+IF, THEN, ELSE, IMPLEMENTATION. The default configuration file lists most of
+these.
+<!--l. 2867--><p class="noindent" >Besides the real Pascal keywords, some other codewords are used for operators and comment
+expressions as in table (<a 
+href="#x149-156001r1">8.1<!--tex4ht:ref: tab:keywords --></a>).
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 2870--><p class="noindent" ><a 
+ id="x149-156001r1"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;8.1: </span><span  
+class="content">Keywords for operators</span></div><!--tex4ht:label?: x149-156001r1 -->
+<div class="center" 
+>
+<!--l. 2870--><p class="noindent" >
+<div class="tabular"> <table id="TBL-12" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-12-1g"><col 
+id="TBL-12-1"><col 
+id="TBL-12-2"><col 
+id="TBL-12-3"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-12-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-1-1"  
+class="td11">Name of codeword</td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-1-2"  
+class="td11">Operator                                 </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-2-1"  
+class="td11">casevar                </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-2-2"  
+class="td11">: in a case label ( unequal &#8217;colon&#8217;)</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-3-1"  
+class="td11">becomes              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-3-2"  
+class="td11">:=                                         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-4-1"  
+class="td11">delphicomment     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-4-2"  
+class="td11">//                                          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-5-1"  
+class="td11">opencomment       </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-5-2"  
+class="td11"><span 
+class="cmsy-10">{ </span>or (*                                    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-6-1"  
+class="td11">closecomment       </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-6-2"  
+class="td11"><span 
+class="cmsy-10">} </span>or *)                                    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-7-1"  
+class="td11">semicolon             </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-7-2"  
+class="td11">;                                            </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-8-1"  
+class="td11">colon                   </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-8-2"  
+class="td11">:                                            </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-9-1"  
+class="td11">equals                 </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-9-2"  
+class="td11">=                                          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-10-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-10-1"  
+class="td11">openparen            </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-10-2"  
+class="td11">[                                            </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-11-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-11-1"  
+class="td11">closeparen            </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-11-2"  
+class="td11">]                                            </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-12-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-12-1"  
+class="td11">period                 </td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-12-2"  
+class="td11">.                                            </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-13-"><td  style="white-space:nowrap; text-align:left;" id="TBL-12-13-1"  
+class="td11">                </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+<!--l. 2885--><p class="noindent" >The <span 
+class="cmbx-10">options </span>codewords define actions to be taken when the keyword before the equal sign is
+found, as listed in table (<a 
+href="#x149-156002r2">8.2<!--tex4ht:ref: tab:ptopoptions --></a>).
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 2888--><p class="noindent" ><a 
+ id="x149-156002r2"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;8.2: </span><span  
+class="content">Possible options</span></div><!--tex4ht:label?: x149-156002r2 -->
+<div class="center" 
+>
+<!--l. 2888--><p class="noindent" >
+<div class="tabular"> <table id="TBL-13" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-13-1g"><col 
+id="TBL-13-1"><col 
+id="TBL-13-2"><col 
+id="TBL-13-3"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-13-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-1-1"  
+class="td11">Option   </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-1-2"  
+class="td11">does what                                     </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-2-1"  
+class="td11">crsupp     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-2-2"  
+class="td11">Suppress CR before the keyword.      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-3-1"  
+class="td11">crbefore   </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-3-2"  
+class="td11">Force CR before keyword.                </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-4-1"  
+class="td11">         </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-4-2"  
+class="td11">(do not use with crsupp.)                 </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-5-1"  
+class="td11">blinbefore</td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-5-2"  
+class="td11">Blank line before keyword.               </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-6-1"  
+class="td11">dindonkey</td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-6-2"  
+class="td11">De-indent on associated keywords.     </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-7-1"  
+class="td11">         </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-7-2"  
+class="td11">(see below)                                   </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-8-1"  
+class="td11">dindent    </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-8-2"  
+class="td11">Deindent (always)                          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-9-1"  
+class="td11">spbef       </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-9-2"  
+class="td11">Space before                                 </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-10-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-10-1"  
+class="td11">spaft       </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-10-2"  
+class="td11">Space after                                   </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-11-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-11-1"  
+class="td11">gobsym   </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-11-2"  
+class="td11">Print symbols which follow a            </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-12-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-12-1"  
+class="td11">         </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-12-2"  
+class="td11">keyword but which do not                </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-13-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-13-1"  
+class="td11">         </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-13-2"  
+class="td11">affect layout. prints until                 </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-14-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-14-1"  
+class="td11">         </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-14-2"  
+class="td11">terminators occur.                          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-15-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-15-1"  
+class="td11">         </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-15-2"  
+class="td11">(terminators are hard-coded in pptop,</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-16-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-16-1"  
+class="td11">         </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-16-2"  
+class="td11">still needs changing)                       </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-17-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-17-1"  
+class="td11">inbytab    </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-17-2"  
+class="td11">Indent by tab.                               </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-18-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-18-1"  
+class="td11">crafter     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-18-2"  
+class="td11">Force CR after keyword.                  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-19-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-19-1"  
+class="td11">upper      </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-19-2"  
+class="td11">Prints keyword all uppercase            </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-20-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-20-1"  
+class="td11">lower       </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-20-2"  
+class="td11">Prints keyword all lowercase             </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-21-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-21-1"  
+class="td11">capital     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-21-2"  
+class="td11">Capitalizes keyword: 1st letter          </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-22-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-22-1"  
+class="td11">         </td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-22-2"  
+class="td11">uppercase, rest lowercase.                </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-23-"><td  style="white-space:nowrap; text-align:left;" id="TBL-13-23-1"  
+class="td11">         </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+<!--l. 2913--><p class="noindent" >The option &#8221;dindonkey&#8221; given in table table (<a 
+href="#x149-156002r2">8.2<!--tex4ht:ref: tab:ptopoptions --></a>) requires some further explanation. &#8221;dindonkey&#8221;
+is a contraction of &#8221;DeINDent ON associated KEYword&#8221;. When it is present as an option
+in the first line, then a second, square-bracketed, line is required. A de-indent will be
+performed when any of the other keywords listed in the second line are encountered in the
+source.
+<!--l. 2920--><p class="noindent" >Example: The lines
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-104">
+else=crbefore,dindonkey,inbytab,upper
+&#x00A0;<br />[else]=if,then,else
+</div>
+<!--l. 2924--><p class="nopar" >
+<!--l. 2926--><p class="noindent" >mean the following:
+     <ul class="itemize1">
+     <li class="itemize">The keyword this block is about is <span 
+class="cmbx-10">else </span>because it&#8217;s on the LEFT side of both equal
+     signs.
+     </li>
+     <li class="itemize">The option <span 
+class="cmtt-10">crbefore </span>signals not to allow other code (so just spaces) before the ELSE
+     keyword on the same line.
+     </li>
+     <li class="itemize">The option <span 
+class="cmtt-10">dindonkey </span>de-indents if the parser finds any of the keywords in the square
+     brackets line (if,then,else).
+     </li>
+     <li class="itemize">The option <span 
+class="cmtt-10">inbytab </span>means indent by a tab.
+     </li>
+     <li class="itemize">The option <span 
+class="cmtt-10">upper </span>uppercase the keyword (else or Else becomes ELSE)</li></ul>
+<!--l. 2939--><p class="noindent" >Try to play with the configfile step by step until you find the effect you desire. The configurability
+and possibilities of ptop are quite large. E.g. I like all keywords uppercased instead of capitalized,
+so I replaced all capital keywords in the default file by upper.
+<!--l. 2944--><p class="noindent" ><span 
+class="cmss-10">ptop </span>is still development software. So it is wise to visually check the generated source and try to
+compile it, to see if <span 
+class="cmss-10">ptop </span>hasn&#8217;t introduced any errors.
+                                                                            
+
+                                                                            
+<!--l. 2947--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu96.html" >next</a>] [<a 
+href="usersu94.html" >prev</a>] [<a 
+href="usersu94.html#tailusersu94.html" >prev-tail</a>] [<a 
+href="usersu95.html" >front</a>] [<a 
+href="userse44.html#usersu95.html" >up</a>] </p></div>
+<!--l. 2947--><p class="noindent" ><a 
+ id="tailusersu95.html"></a>  
+</body></html> 

@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The heap grows</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 5471--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu174.html" >next</a>] [<a 
+href="progsu172.html" >prev</a>] [<a 
+href="progsu172.html#tailprogsu172.html" >prev-tail</a>] [<a 
+href="#tailprogsu173.html">tail</a>] [<a 
+href="progse34.html#progsu173.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">8.4.2   </span> <a 
+href="prog.html#QQ2-219-254" id="x219-2330008.4.2">The heap grows</a></h4>
+<!--l. 5472--><p class="noindent" >The heap allocates memory from the operating system on an as-needed basis.
+<!--l. 5474--><p class="noindent" >OS memory is requested in blocks: It first tries to increase memory in a 64Kb chunk if the size to
+allocate is less than 64Kb, or 256Kb or 1024K otherwise. If this fails, it tries to increase the heap
+by the amount you requested from the heap.
+<!--l. 5479--><p class="noindent" >If the attempt to reserve OS memory fails, the value returned depends on the value of the
+<span 
+class="cmtt-10">ReturnNilIfGrowHeapFails </span>global variable. This is summarized in table (<a 
+href="#x219-233001r12">8.12<!--tex4ht:ref: tab:growheapnil --></a>).
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 5483--><p class="noindent" ><a 
+ id="x219-233001r12"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;8.12: </span><span  
+class="content">ReturnNilIfGrowHeapFails value</span></div><!--tex4ht:label?: x219-233001r12 -->
+<div class="center" 
+>
+<!--l. 5483--><p class="noindent" >
+<div class="tabular"> <table id="TBL-21" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-21-1g"><col 
+id="TBL-21-1"></colgroup><colgroup id="TBL-21-2g"><col 
+id="TBL-21-2"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-21-1-"><td  style="white-space:nowrap; text-align:center;" id="TBL-21-1-1"  
+class="td11">ReturnNilIfGrowHeapFails</td><td  style="white-space:nowrap; text-align:left;" id="TBL-21-1-2"  
+class="td11">Default memory                                   </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-21-2-"><td  style="white-space:nowrap; text-align:center;" id="TBL-21-2-1"  
+class="td11">         value               </td><td  style="white-space:nowrap; text-align:left;" id="TBL-21-2-2"  
+class="td11">manager action                                    </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-21-3-"><td  style="white-space:nowrap; text-align:center;" id="TBL-21-3-1"  
+class="td11">        FALSE             </td><td  style="white-space:nowrap; text-align:left;" id="TBL-21-3-2"  
+class="td11">(The default) Runtime error 203 generated</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-21-4-"><td  style="white-space:nowrap; text-align:center;" id="TBL-21-4-1"  
+class="td11">         TRUE              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-21-4-2"  
+class="td11"><span 
+class="cmtt-10">GetMem</span>, <span 
+class="cmtt-10">ReallocMem </span>and <span 
+class="cmtt-10">New </span>returns <span 
+class="cmtt-10">nil </span></td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-21-5-"><td  style="white-space:nowrap; text-align:center;" id="TBL-21-5-1"  
+class="td11">                       </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+<!--l. 5493--><p class="noindent" ><span 
+class="cmtt-10">ReturnNilIfGrowHeapFails </span>can be set to change the behavior of the default memory manager
+error handler.
+                                                                            
+
+                                                                            
+<!--l. 5498--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu174.html" >next</a>] [<a 
+href="progsu172.html" >prev</a>] [<a 
+href="progsu172.html#tailprogsu172.html" >prev-tail</a>] [<a 
+href="progsu173.html" >front</a>] [<a 
+href="progse34.html#progsu173.html" >up</a>] </p></div>
+<!--l. 5498--><p class="noindent" ><a 
+ id="tailprogsu173.html"></a>  
+</body></html> 

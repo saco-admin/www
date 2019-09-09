@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>IncrementalCompareString</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unicodedata/index.html">Overview</a>][<a href="../unicodedata/index-1.html">Resource strings</a>][<a href="../unicodedata/index-2.html">Constants</a>][<a href="../unicodedata/index-3.html">Types</a>][<a href="../unicodedata/index-5.html">Procedures and functions</a>][<a href="../unicodedata/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'unicodedata' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>IncrementalCompareString</h1>
+<p>Compare 2 strings using the specified collation</p>
+<h2>Declaration</h2>
+<p>Source position: unicodedata.pas line 402</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> IncrementalCompareString<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AStrA<span class="sym">: </span><a href="../system/punicodechar.html">PUnicodeChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ALengthA<span class="sym">: </span><a href="../system/sizeint.html">SizeInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AStrB<span class="sym">: </span><a href="../system/punicodechar.html">PUnicodeChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ALengthB<span class="sym">: </span><a href="../system/sizeint.html">SizeInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ACollation<span class="sym">: </span><a href="../unicodedata/puca_databook.html">PUCA_DataBook</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> IncrementalCompareString<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AStrA<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AStrB<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ACollation<span class="sym">: </span><a href="../unicodedata/puca_databook.html">PUCA_DataBook</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AStrA</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">First string in comparison.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ALengthA</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Length of string <var>AStrA</var>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AStrB</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Second string in comparison.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ALengthB</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Length of string <var>AStrN</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ACollation</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Collation to use.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>A signed integer indicating the alphabetic order of <var>AStrA</var> and <var>AStrB</var>.</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AStrA</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">First string in comparison.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AStrB</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Second string in comparison.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ACollation</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Collation to use.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>IncrementalCompareString</var> creates 2 compare keys from the strings <var>AStrA</var> and <var>AStrB</var> using  collation data in <var>ACollation</var>. The keys are computed only to the point where the two strings differ. This means the keys cannot be reused for other comparisons if the strings differ.  The two strings can be specified as a unicode string or as a pointer to a null-terminated character array with a length  (<var>ALengthA</var> and <var>ALengthB</var>). It returns then the result of <a href="../unicodedata/comparesortkey.html">CompareSortKey</a>. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../unicodedata/computesortkey.html">ComputeSortKey</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compute the sort key for a string</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unicodedata/comparesortkey.html">CompareSortKey</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compare two sort keys.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TIniFile.CacheUpdates</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../inifiles/index.html">Overview</a>][<a href="../inifiles/index-3.html">Types</a>][<a href="../inifiles/index-4.html">Classes</a>][<a href="../inifiles/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'IniFiles' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TIniFile.CacheUpdates</h1>
+<p>Should changes be kept in memory</p>
+<h2>Declaration</h2>
+<p>Source position: inifiles.pp line 228</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../inifiles/tinifile.html">TIniFile</a><span class="sym">.</span>CacheUpdates<span class="sym"> : </span>Boolean<br>&nbsp;&nbsp;<span class="kw">read </span>FCacheUpdates<br>&nbsp;&nbsp;<span class="kw">write </span>SetCacheUpdates<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>CacheUpdates</var> determines how to deal with changes to the ini-file data: if set to <var>True</var> then changes are kept in memory till the file is written to disk with a call to <a href="../inifiles/tinifile.updatefile.html">UpdateFile</a>. If it is set to <var>False</var> then each call that changes the data of the ini-file will result in a call to <var>UpdateFile</var>. This is the default behaviour, but it may aversely affect performance. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../inifiles/tinifile.updatefile.html">UpdateFile</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Update the file on disk</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

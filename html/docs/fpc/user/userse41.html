@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>h2paspp - preprocessor for h2pas</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2663--><div class="crosslinks"><p class="noindent">[<a 
+href="userse42.html" >next</a>] [<a 
+href="userse40.html" >prev</a>] [<a 
+href="userse40.html#tailuserse40.html" >prev-tail</a>] [<a 
+href="#tailuserse41.html">tail</a>] [<a 
+href="userch8.html#userse41.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">8.5   </span> <a 
+href="user.html#QQ2-142-198" id="x142-1490008.5">h2paspp - preprocessor for h2pas</a></h3>
+<!--l. 2664--><p class="noindent" ><span 
+class="cmtt-10">h2paspp </span>can be used as a simple preprocessor for <span 
+class="cmss-10">h2pas</span>. It removes some of the constructs that
+h2pas has difficulties with. <span 
+class="cmss-10">h2paspp </span>reads one or more C header files and preprocesses them,
+writing the result to files with the same name as the originals as it goes along. It does
+not accept all preprocessed tokens of C, but takes care of the following preprocessor
+directives:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">#define symbol</span> </dt><dd 
+class="description">Defines the new symbol <span 
+class="cmtt-10">symbol</span>. Note that macros are not supported.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">#if symbol</span> </dt><dd 
+class="description">The text following this directive is included if <span 
+class="cmtt-10">symbol </span>is defined.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">#ifdef symbol</span> </dt><dd 
+class="description">The text following this directive is included if <span 
+class="cmtt-10">symbol </span>is defined.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">#ifndef symbol</span> </dt><dd 
+class="description">The text following this directive is included if <span 
+class="cmtt-10">symbol </span>is not defined.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">#include filename</span> </dt><dd 
+class="description">Include directives are removed, unless the <span 
+class="cmtt-10">-I </span>option was given, in which
+     case the include file is included and written to the output file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">#undef symbol</span> </dt><dd 
+class="description">The symbol <span 
+class="cmtt-10">symbol </span>is undefined.</dd></dl>
+<!--l. 2681--><p class="noindent" >
+<div class="subsectionTOCS">
+&#x00A0;&#x00A0;<span class="subsectionToc" >8.5.1 <a 
+href="usersu92.html#x143-1500008.5.1">Usage</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >8.5.2 <a 
+href="usersu93.html#x144-1510008.5.2">Options</a></span>
+</div>
+
+                                                                            
+
+                                                                            
+<!--l. 2698--><div class="crosslinks"><p class="noindent">[<a 
+href="userse42.html" >next</a>] [<a 
+href="userse40.html" >prev</a>] [<a 
+href="userse40.html#tailuserse40.html" >prev-tail</a>] [<a 
+href="userse41.html" >front</a>] [<a 
+href="userch8.html#userse41.html" >up</a>] </p></div>
+<!--l. 2698--><p class="noindent" ><a 
+ id="tailuserse41.html"></a>  
+</body></html> 

@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Whole program optimization messages</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2818--><div class="crosslinks"><p class="noindent">[<a 
+href="userse72.html" >next</a>] [<a 
+href="userse70.html" >prev</a>] [<a 
+href="userse70.html#tailuserse70.html" >prev-tail</a>] [<a 
+href="#tailuserse71.html">tail</a>] [<a 
+href="userap3.html#userse71.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">C.12   </span> <a 
+href="user.html#QQ2-185-243" id="x185-192000C.12">Whole program optimization messages</a></h3>
+<!--l. 2819--><p class="noindent" >This section lists errors that occur when the compiler is performing whole program
+optimization.
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Fatal: Cannot open whole program optimization feedback file &#8221;arg1&#8221;</span> </dt><dd 
+class="description">
+     The compiler cannot open the specified feedback file with whole program optimization
+     information.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Processing whole program optimization information in wpo feedback file &#8221;arg1&#8221;</span> </dt><dd 
+class="description">
+     The compiler starts processing whole program optimization information found in the
+     named file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Finished processing the whole program optimization information in wpo feedback file &#8221;arg1&#8221;</span> </dt><dd 
+class="description">
+     The  compiler  has  finished  processing  the  whole  program  optimization  information
+     found in the named file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Expected section header, but got &#8221;arg2&#8221; at line arg1 of wpo feedback file</span> </dt><dd 
+class="description">
+     The compiler expected a section header in the whole program optimization file (starting
+     with %), but did not find it.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: No handler registered for whole program optimization section &#8221;arg2&#8221; at line arg1 of wpo feedback file, ignoring</span> </dt><dd 
+class="description">
+     The compiler has no handler to deal with the mentioned whole program optimization
+     information section, and will therefore ignore it and skip to the next section.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Found whole program optimization section &#8221;arg1&#8221; with information about &#8221;arg2&#8221;</span> </dt><dd 
+class="description">
+     The compiler encountered a section with whole program optimization information, and
+     according to its handler this section contains information usable for the mentioned
+     purpose.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: The selected whole program optimizations require a previously generated feedback file (use -Fw to specify)</span> </dt><dd 
+class="description">
+     The compiler needs information gathered during a previous compilation run to perform
+     the selected whole program optimizations. You can specify the location of the feedback
+     file containing this information using the -Fw switch.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: No collected information necessary to perform &#8221;arg1&#8221; whole program optimization found</span> </dt><dd 
+class="description">
+     While you pointed the compiler to a file containing whole program optimization feedback,
+     it did not contain the information necessary to perform the selected optimizations. You
+     most likely have to recompile the program using the appropate -OWxxx switch.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Specify a whole program optimization feedback file to store the generated info in (using -FW)</span> </dt><dd 
+class="description">
+     You have to specify the feedback file in which the compiler has to store the whole
+     program optimization feedback that is generated during the compilation run. This can
+     be done using the -FW switch.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Not generating any whole program optimization information, yet a feedback file was specified (using -FW)</span> </dt><dd 
+class="description">
+     The compiler was instructed to store whole program optimization feedback into a file
+     specified using -FW, but not to actually generated any whole program optimization
+     feedback. The classes of to be generated information can be speciied using -OWxxx.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Not performing any whole program optimizations, yet an input feedback file was specified (using -Fw)</span> </dt><dd 
+class="description">
+     The compiler was not instructed to perform any whole program optimizations (no
+     -Owxxx parameters), but nevertheless an input file with such feedback was specified
+     (using -Fwyyy). Since this can indicate that you forgot to specify an -Owxxx parameter,
+     the compiler generates an error in this case.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Skipping whole program optimization section &#8221;arg1&#8221;, because not needed by the requested optimizations</span> </dt><dd 
+class="description">
+     The whole program optimization feedback file contains a section with information that
+     is not required by the selected whole program optimizations.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Overriding previously read information for &#8221;arg1&#8221; from feedback input file using information in section &#8221;arg2&#8221;</span> </dt><dd 
+class="description">
+     The feedback file contains multiple sections that provide the same class of information
+     (e.g., information about which virtual methods can be devirtualized). In this case, the
+     information in last encountered section is used. Turn on debugging output (-vd) to see
+     which class of information is provided by each section.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot extract symbol liveness information from program when stripping symbols, use -Xs-</span> </dt><dd 
+class="description">
+     Certain  symbol  liveness  collectors  extract  the  symbol  information  from  the  linked
+     program. If the symbol information is stripped (option -Xs), this is not possible.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot extract symbol liveness information from program when when not linking</span> </dt><dd 
+class="description">
+     Certain  symbol  liveness  collectors  extract  the  symbol  information  from  the  linked
+     program. If the program is not linked by the compiler, this is not possible.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Cannot find &#8221;arg1&#8221; or &#8221;arg2&#8221; to extract symbol liveness information from linked program</span> </dt><dd 
+class="description">
+     Certain symbol liveness collectors need a helper program to extract the symbol information
+     from the linked program. This helper program is normally &#8217;nm&#8217;, which is part of the
+     GNU binutils.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Error during reading symbol liveness information produced by &#8221;arg1&#8221;</span> </dt><dd 
+class="description">
+     An error occurred during the reading of the symbol liveness file that was generated
+     using the &#8217;nm&#8217; or &#8217;objdump&#8217; program. The reason can be that it was shorter than
+     expected, or that its format was not understood.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Error executing &#8221;arg1&#8221; (exitcode: arg2) to extract symbol information from linked program</span> </dt><dd 
+class="description">
+     Certain symbol liveness collectors need a helper program to extract the symbol information
+     from the linked program. The helper program produced the reported error code when
+     it was run on the linked program.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Collection of symbol liveness information can only help when using smart linking, use -CX -XX</span> </dt><dd 
+class="description">
+     Whether or not a symbol is live is determined by looking whether it exists in the final
+     linked program. Without smart linking/dead code stripping, all symbols are always
+     included, regardless of whether they are actually used or not. So in that case all symbols
+     will be seen as live, which makes this optimization ineffective.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot create specified whole program optimisation feedback file &#8221;arg1&#8221;</span> </dt><dd 
+class="description">
+     The compiler is unable to create the file specified using the -FW parameter to store
+     the whole program optimisation information.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 3628--><div class="crosslinks"><p class="noindent">[<a 
+href="userse72.html" >next</a>] [<a 
+href="userse70.html" >prev</a>] [<a 
+href="userse70.html#tailuserse70.html" >prev-tail</a>] [<a 
+href="userse71.html" >front</a>] [<a 
+href="userap3.html#userse71.html" >up</a>] </p></div>
+<!--l. 3628--><p class="noindent" ><a 
+ id="tailuserse71.html"></a>  
+</body></html> 

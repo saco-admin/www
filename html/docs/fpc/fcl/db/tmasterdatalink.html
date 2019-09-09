@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TMasterDataLink</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TMasterDataLink</h1>
+<p>[<a href="../db/tmasterdatalink-1.html" onClick="window.open('../db/tmasterdatalink-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../db/tmasterdatalink-2.html" onClick="window.open('../db/tmasterdatalink-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../db/tmasterdatalink-3.html" onClick="window.open('../db/tmasterdatalink-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../db/tmasterdatalink-4.html" onClick="window.open('../db/tmasterdatalink-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../db/tmasterdatalink-5.html" onClick="window.open('../db/tmasterdatalink-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../db/tmasterdatalink-6.html" onClick="window.open('../db/tmasterdatalink-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Datalink for Master-Detail relationships between datasets.</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1800</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TMasterDataLink <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../db/tdetaildatalink.html">TDetailDataLink</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../db/tmasterdatalink.create.html">Create</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a new instance of <var>TMasterDataLink</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../db/tmasterdatalink.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Free the datalink instance from memory</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../db/tmasterdatalink.fieldnames.html">FieldNames</a><span class="sym">: </span>string<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of fieldnames that make up the master-detail relationship</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../db/tmasterdatalink.fields.html">Fields</a><span class="sym">: </span><a href="../../rtl/classes/tlist.html">TList</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of fields as specified in <var>FieldNames</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../db/tmasterdatalink.onmasterchange.html">OnMasterChange</a><span class="sym">: </span><a href="../../rtl/classes/tnotifyevent.html">TNotifyEvent</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called whenever the master dataset data changes</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../db/tmasterdatalink.onmasterdisable.html">OnMasterDisable</a><span class="sym">: </span><a href="../../rtl/classes/tnotifyevent.html">TNotifyEvent</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called whenever the master dataset is disabled</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../db/tmasterdatalink.html">TMasterDataLink</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Datalink for Master-Detail relationships between datasets.</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../db/tdetaildatalink.html">TDetailDataLink</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Represents the link between a detail data source and a master datasource.</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../db/tdatalink.html">TDataLink</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Data event handling agent for controls</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tpersistent.html">TPersistent</a>,<a href="../../rtl/classes/ifpobserved.html">IFPObserved</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TMasterDataLink</var> is a <var>TDatalink</var> descendent which handles master-detail relations.  It can be used in <a href="../db/tdataset.html">TDataset</a> descendents that must have master-detail functionality:  the detail dataset creates an instance of <var>TMasterDataLink</var> to point to the master dataset,  which is subsequently available through the <a href="../db/tdatalink.dataset.html">TDataLink.Dataset</a> property. </p>
+<p>The class also provides functionailty for keeping a list of fields that make up the master-detail functionality, in the <a href="../db/tmasterdatalink.fieldnames.html">TMasterDatalink.FieldNames</a> and <a href="../db/tmasterdatalink.fields.html">TMasterDataLink.Fields</a> properties. </p>
+<p>This class should never be used in application code. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdataset.html">TDataset</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for records-based data-access</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdatalink.datasource.html">TDatalink.DataSource</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Datasource this datalink is connected to</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdatalink.dataset.html">TDatalink.DataSet</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Dataset this datalink is connected to</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tmasterdatalink.fieldnames.html">TMasterDatalink.FieldNames</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of fieldnames that make up the master-detail relationship</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tmasterdatalink.fields.html">TMasterDataLink.Fields</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of fields as specified in <var>FieldNames</var></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

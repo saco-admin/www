@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TIPCServerComm.StartServer</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../simpleipc/index.html">Overview</a>][<a href="../simpleipc/index-1.html">Resource strings</a>][<a href="../simpleipc/index-2.html">Constants</a>][<a href="../simpleipc/index-3.html">Types</a>][<a href="../simpleipc/index-4.html">Classes</a>][<a href="../simpleipc/index-6.html">Variables</a>][<a href="../simpleipc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'simpleipc' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TIPCServerComm.StartServer</h1>
+<p>Start the server-side of the communication channel</p>
+<h2>Declaration</h2>
+<p>Source position: simpleipc.pp line 95</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../simpleipc/tipcservercomm.html">TIPCServerComm</a><span class="sym">.</span>StartServer<span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>StartServer</var> sets up the server-side of the communication channel. After <var>StartServer</var> was called, a client can connect to the communication channel, and send messages to the server. </p>
+<p>It is called when the <a href="../simpleipc/tsimpleipc.active.html">TSimpleIPC.Active</a> property of the <a href="../simpleipc/tsimpleipcserver.html">TSimpleIPCServer</a> instance is set to <var>True</var>. </p>
+<p>If <var>Threaded</var> is <var>True</var> then a background thread is started which will check for new messages periodically (see also <a href="../simpleipc/tsimpleipcserver.threadtimeout.html">TSimpleIPCServer.ThreadTimeOut</a>). The arrival of new messages can be acted upon with <a href="../simpleipc/tsimpleipcserver.onmessagequeued.html">TSimpleIPCServer.OnMessageQueued</a>. </p>
+<h2>Errors</h2>
+<p>In case of an error, an <a href="../simpleipc/eipcerror.html">EIPCError</a> exception is raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../simpleipc/tsimpleipcserver.html">TSimpleIPCServer</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Simple IPC server component</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../simpleipc/tsimpleipc.active.html">TSimpleIPC.Active</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Communication channel active</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../simpleipc/tsimpleipcserver.onmessagequeued.html">TSimpleIPCServer.OnMessageQueued</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event called when a new message has arrived</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../simpleipc/tsimpleipcserver.threadtimeout.html">TSimpleIPCServer.ThreadTimeOut</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Timeout waiting for message</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

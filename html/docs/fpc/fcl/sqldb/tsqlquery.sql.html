@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSQLQuery.SQL</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TSQLQuery.SQL</h1>
+<p>The SQL statement to execute</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 657</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../sqldb/tsqlquery.html">TSQLQuery</a><span class="sym">.</span>SQL<span class="sym"> : </span><a href="../../rtl/classes/tstringlist.html">TStringList</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>SQL</var> is the SQL statement that will be executed when <a href="../sqldb/tcustomsqlquery.execsql.html">ExecSQL</a> is called, or <a href="../db/tdataset.open.html">Open</a> is called. It should contain a valid SQL statement for the connection to which the <a href="../sqldb/tsqlquery.html">TSQLQuery</a> component is connected. SQLDB will not attempt to modify the SQL statement so it is accepted by the SQL engine. </p>
+<p>Setting or modifying the SQL statement will call <a href="../sqldb/tcustomsqlquery.unprepare.html">UnPrepare</a></p>
+<p>If <a href="../sqldb/tsqlquery.parsesql.html">ParseSQL</a> is <var>True</var>, the SQL statement will be parsed and the <a href="../sqldb/tsqlquery.params.html">Params</a>  property will be updated with the names of the parameters found in the SQL statement. </p>
+<p>See also Using parameters</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlquery.parsesql.html">TSQLQuery.ParseSQL</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should the SQL statement be parsed or not</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlquery.params.html">TSQLQuery.Params</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Parameters detected in the SQL statement.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tcustomsqlquery.execsql.html">TCustomSQLQuery.ExecSQL</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute a SQL statement that does not return a result set</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.open.html">TDataset.Open</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Activate the dataset: Fetch data into memory.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

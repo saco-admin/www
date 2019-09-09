@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>WeekOfTheMonth</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dateutils/index.html">Overview</a>][<a href="../dateutils/index-2.html">Constants</a>][<a href="../dateutils/index-5.html">Procedures and functions</a>][<a href="../dateutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dateutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>WeekOfTheMonth</h1>
+<p>Extract the week of the month (and optionally month and year) from a DateTime value</p>
+<h2>Declaration</h2>
+<p>Source position: dateutil.inc line 189</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> WeekOfTheMonth<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AValue<span class="sym">: </span><a href="../system/tdatetime.html">TDateTime</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/word.html">Word</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> WeekOfTheMonth<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AValue<span class="sym">: </span><a href="../system/tdatetime.html">TDateTime</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>AYear<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>AMonth<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/word.html">Word</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AValue</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Datetime value of which to calculate the week, month and year.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Week of the month</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AValue</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Datetime value of which to calculate the week, month and year.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AYear</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Year part of <var>AValue</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AMonth</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Month part of <var>AValue</var></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>WeekOfTheMonth</var> extracts the week of the month from <var>Avalue</var> and returns it, and optionally returns the year and month as well (in <var>AYear</var>, <var>AMonth</var> respectively).  </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>Note that weeks are numbered from 1 using the ISO 8601 standard, and the day of the week as well.  This means that the year and month may not be the same as the year part of the date, since the week may start in the previous year as the first week of the year is the week with at least 4 days in it. </td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dateutils/weekoftheyear.html">WeekOfTheYear</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Extract the week of the year (and optionally year) of a DateTime indication.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/dayofthemonth.html">DayOfTheMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Extract the day (of month) part of a DateTime value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/hourofthemonth.html">HourOfTheMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the number of hours passed since the start of the month.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/minuteofthemonth.html">MinuteOfTheMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate number of minutes elapsed since the start of the month.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/secondofthemonth.html">SecondOfTheMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate number of seconds elapsed since the start of the month.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/millisecondofthemonth.html">MilliSecondOfTheMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate number of milliseconds elapsed since the start of the month.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example41<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the WeekOfTheMonth function }</span>
+
+<span class="kw">Uses</span> SysUtils<span class="sym">,</span>DateUtils<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  N <span class="sym">:</span> TDateTime<span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  N<span class="sym">:=</span>Now<span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Week of the Month        : '</span><span class="sym">,</span>WeekOfTheMonth<span class="sym">(</span>N<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Day of the Month         : '</span><span class="sym">,</span>DayOfTheMonth<span class="sym">(</span>N<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Hour of the Month        : '</span><span class="sym">,</span>HourOfTheMonth<span class="sym">(</span>N<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Minute of the Month      : '</span><span class="sym">,</span>MinuteOfTheMonth<span class="sym">(</span>N<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Second of the Month      : '</span><span class="sym">,</span>SecondOfTheMonth<span class="sym">(</span>N<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'MilliSecond of the Month : '</span><span class="sym">,</span>
+          MilliSecondOfTheMonth<span class="sym">(</span>N<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

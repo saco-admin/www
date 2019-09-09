@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>registerbinarymapping</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../charset/index.html">Overview</a>][<a href="../charset/index-2.html">Constants</a>][<a href="../charset/index-3.html">Types</a>][<a href="../charset/index-5.html">Procedures and functions</a>][<a href="../charset/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'charset' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>registerbinarymapping</h1>
+<p>Load and register binary single-byte codepage to unicode map from file</p>
+<h2>Declaration</h2>
+<p>Source position: charset.pp line 75</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> registerbinarymapping<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>directory<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>cpname<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">directory</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Directory to load mapping from.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">cpname</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Code page mapping to load.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>True on succes, false on error.</p>
+<h2>Description</h2>
+<p><var>registerbinarymapping</var> calls <a href="../charset/loadbinaryunicodemapping.html">loadbinaryunicodemapping</a> using <var>directory</var>  and <var>cpname</var> and registers the resulting mapping, if any was succesfully loaded, using <a href="../charset/registermapping.html">registermapping</a>. It returns <var>True</var> if the operation was succesful. </p>
+<h2>Errors</h2>
+<p>On error, <var>False</var> is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../charset/loadbinaryunicodemapping.html">loadbinaryunicodemapping</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Load binary single-byte codepage to unicode map from file or memory</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../charset/registermapping.html">registermapping</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Register mapping</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

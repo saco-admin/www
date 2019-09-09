@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TField.OnValidate</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TField.OnValidate</h1>
+<p>Event to validate the value of a field before it is written to the data buffer</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 452</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../db/tfield.html">TField</a><span class="sym">.</span>OnValidate<span class="sym"> : </span><a href="../db/tfieldnotifyevent.html">TFieldNotifyEvent</a><br>&nbsp;&nbsp;<span class="kw">read </span>FOnValidate<br>&nbsp;&nbsp;<span class="kw">write </span>FOnValidate<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>OnValidate</var> is called prior to writing a new field value to the dataset's data buffer.  It can be used to prevent writing the new value to the buffer by raising an exception in the event handler. Note that this event handler is always called, irrespective of the way the value of the field is set. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tfield.text.html">TField.Text</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Text representation of the field</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfield.ongettext.html">TField.OnGetText</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event to format the field's content</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfield.onsettext.html">TField.OnSetText</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event to set the field's content based on a user-formatted string</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfield.onchange.html">TField.OnChange</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event triggerd when the field's value has changed</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

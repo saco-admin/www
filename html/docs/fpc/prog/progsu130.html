@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>AT&amp;T Syntax</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 3336--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu129.html" >prev</a>] [<a 
+href="progsu129.html#tailprogsu129.html" >prev-tail</a>] [<a 
+href="#tailprogsu130.html">tail</a>] [<a 
+href="progse10.html#progsu130.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.2.2   </span> <a 
+href="prog.html#QQ2-147-150" id="x147-1480003.2.2">AT&amp;T Syntax</a></h4>
+<!--l. 3338--><p class="noindent" >In earlier versions, Free Pascal used only the <span 
+class="cmcsc-10"><span 
+class="small-caps">g</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span> </span><span 
+class="cmtt-10">as </span>assembler to generate its object files for the
+Intel x86 processors. Only after some time, an internal assembler was created, which wrote directly
+to an object file.
+<!--l. 3343--><p class="noindent" >Since the <span 
+class="cmcsc-10"><span 
+class="small-caps">g</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span> </span>assembler uses AT&amp;T assembly syntax, the code you write should use the same
+syntax. The differences between AT&amp;T and Intel syntax as used in Turbo Pascal are summarized
+in the following:
+     <ul class="itemize1">
+     <li class="itemize">The  opcode  names  include  the  size  of  the  operand.  In  general,  one  can  say  that
+     the  AT&amp;T  opcode  name  is  the  Intel  opcode  name,  suffixed  with  a  &#8217;<span 
+class="cmtt-10">l</span>&#8217;,  &#8217;<span 
+class="cmtt-10">w</span>&#8217;  or  &#8217;<span 
+class="cmtt-10">b</span>&#8217;
+     for, respectively, longint (32 bit), word (16 bit) and byte (8 bit) memory or register
+     references. As an example, the Intel construct &#8217;<span 
+class="cmtt-10">mov al, bl</span> is equivalent to the AT&amp;T
+     style &#8217;<span 
+class="cmtt-10">movb %bl,%al</span>&#8217; instruction.
+     </li>
+     <li class="itemize">AT&amp;T immediate operands are designated with &#8217;$&#8217;, while Intel syntax doesn&#8217;t use a
+     prefix for immediate operands. Thus the Intel construct &#8217;<span 
+class="cmtt-10">mov ax, 2</span>&#8217; becomes &#8217;<span 
+class="cmtt-10">movb</span>
+     <span 
+class="cmtt-10">$2, %al</span>&#8217; in AT&amp;T syntax.
+     </li>
+     <li class="itemize">AT&amp;T register names are prefixed with a &#8217;<span 
+class="cmtt-10">%</span>&#8217; sign. They are undelimited in Intel syntax.
+     </li>
+     <li class="itemize">AT&amp;T indicates absolute jump/call operands with &#8217;<span 
+class="cmtt-10">*</span>&#8217;, Intel syntax doesn&#8217;t delimit
+     these addresses.
+     </li>
+     <li class="itemize">The  order  of  the  source  and  destination  operands  is  reversed.  AT&amp;T  syntax  uses
+     &#8217;<span 
+class="cmtt-10">Source, Dest</span>&#8217;, while Intel syntax features &#8217;<span 
+class="cmtt-10">Dest, Source</span>&#8217;. Thus the Intel construct
+     &#8217;<span 
+class="cmtt-10">add eax, 4</span>&#8217; transforms to &#8217;<span 
+class="cmtt-10">addl $4, %eax</span>&#8217; in the AT&amp;T dialect.
+     </li>
+     <li class="itemize">Immediate  long  jumps  are  prefixed  with  the  &#8217;<span 
+class="cmtt-10">l</span>&#8217;  prefix.  Thus  the  Intel  &#8217;<span 
+class="cmtt-10">call/jmp</span>
+     <span 
+class="cmtt-10">section:offset&#8217; </span>is transformed to &#8217;<span 
+class="cmtt-10">lcall/ljmp $section,$offset</span>&#8217;. Similarly, the
+     far return is &#8217;<span 
+class="cmtt-10">lret</span>&#8217;, instead of the Intel &#8217;<span 
+class="cmtt-10">ret far</span>&#8217;.
+     </li>
+     <li class="itemize">Memory references are specified differently in AT&amp;T and Intel assembly. The Intel indirect
+     memory reference
+         <div class="quote">
+         <!--l. 3371--><p class="noindent" ><span 
+class="cmtt-10">Segment:[Base + Index*Scale + Offs]</span></div>
+     <!--l. 3373--><p class="noindent" >is written in AT&amp;T syntax as:
+                                                                            
+
+                                                                            
+         <div class="quote">
+         <!--l. 3375--><p class="noindent" ><span 
+class="cmtt-10">Segment:Offs(Base,Index,Scale)</span></div>
+     <!--l. 3377--><p class="noindent" >Where <span 
+class="cmtt-10">Base </span>and <span 
+class="cmtt-10">Index </span>are optional 32-bit base and index registers, and <span 
+class="cmtt-10">Scale </span>is used to
+     multiply <span 
+class="cmtt-10">Index</span>. It can take the values 1,2,4 and 8. The <span 
+class="cmtt-10">Segment </span>is used to specify an
+     optional segment register for the memory operand.</li></ul>
+<!--l. 3383--><p class="noindent" >More information about the AT&amp;T syntax can be found in the <span 
+class="cmtt-10">as </span>manual, although the following
+differences with normal AT&amp;T assembly must be taken into account:
+     <ul class="itemize1">
+     <li class="itemize">Only the following directives are presently supported:
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">.byte</span> </dt><dd 
+class="description">
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">.word</span> </dt><dd 
+class="description">
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">.long</span> </dt><dd 
+class="description">
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">.ascii</span> </dt><dd 
+class="description">
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">.asciz</span> </dt><dd 
+class="description">
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">.globl</span> </dt><dd 
+class="description"></dd></dl>
+     </li>
+     <li class="itemize">The following directives are recognized but are not supported:
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">.align</span> </dt><dd 
+class="description">
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">.lcomm</span> </dt><dd 
+class="description"></dd></dl>
+     <!--l. 3401--><p class="noindent" >Eventually they will be supported.
+     </li>
+     <li class="itemize">Directives are case sensitive, other identifiers are not case sensitive.
+     </li>
+     <li class="itemize">Contrary to <span 
+class="cmss-10">gas</span>, local labels/symbols <span 
+class="cmti-10">must </span>start with <span 
+class="cmtt-10">.L</span>.
+     </li>
+     <li class="itemize">The not operator <span 
+class="cmtt-10">&#8217;!&#8217; </span>is not supported.
+     </li>
+     <li class="itemize">String expressions in operands are not supported.
+     </li>
+     <li class="itemize">CBTW,CWTL,CWTD and CLTD are not supported, use the normal Intel equivalents
+     instead.
+     </li>
+     <li class="itemize">Constant expressions which represent memory references are not allowed, even though
+     constant immediate value expressions are supported. Examples:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-163">
+     const&#x00A0;myid&#x00A0;=&#x00A0;10;
+     &#x00A0;<br />...
+     &#x00A0;<br />movl&#x00A0;$myid,%eax&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;--&#x00A0;allowed
+     &#x00A0;<br />movl&#x00A0;myid(%esi),%eax&#x00A0;&#x00A0;--&#x00A0;not&#x00A0;allowed.
+</div>
+     <!--l. 3416--><p class="nopar" >
+     </li>
+     <li class="itemize">When the <span 
+class="cmtt-10">.globl </span>directive is found, the symbol immediately following it is made
+     public and is immediately emitted. Therefore label names with this name will be
+     ignored.
+     </li>
+     <li class="itemize">Only Single and Double FPU opcodes are supported.</li></ul>
+<!--l. 3423--><p class="noindent" >The AT&amp;T inline assembler supports the following macros:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">_</span><span 
+class="cmbx-10">_RESULT</span> </dt><dd 
+class="description">represents the function result return value.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">_</span><span 
+class="cmbx-10">_SELF</span> </dt><dd 
+class="description">represents the object method pointer in methods.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">_</span><span 
+class="cmbx-10">_OLDEBP</span> </dt><dd 
+class="description">represents the old base pointer in recursive routines.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 3432--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu129.html" >prev</a>] [<a 
+href="progsu129.html#tailprogsu129.html" >prev-tail</a>] [<a 
+href="progsu130.html" >front</a>] [<a 
+href="progse10.html#progsu130.html" >up</a>] </p></div>
+<!--l. 3432--><p class="noindent" ><a 
+ id="tailprogsu130.html"></a>  
+</body></html> 

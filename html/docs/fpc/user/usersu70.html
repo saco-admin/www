@@ -1,0 +1,573 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Compiler options</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1834--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu71.html" >next</a>] [<a 
+href="usersu69.html" >prev</a>] [<a 
+href="usersu69.html#tailusersu69.html" >prev-tail</a>] [<a 
+href="#tailusersu70.html">tail</a>] [<a 
+href="userse29.html#usersu70.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.11.4   </span> <a 
+href="user.html#QQ2-107-141" id="x107-1140006.11.4">Compiler options</a></h4>
+<!--l. 1835--><p class="noindent" >The menu <span 
+class="cmbx-10">&#8221;Options&#8212;Compiler&#8221; </span>allow the settting of options that affect the compilers
+behaviour. When this menu item is chosen, a dialog pops up that displays several tabs.
+<!--l. 1839--><p class="noindent" >There are six tabs:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Syntax</span> </dt><dd 
+class="description">Here options can be set that affect the various syntax aspects of the code. They
+     correspond mostly to the <span 
+class="cmtt-10">-S </span>option on the command line (section <a 
+href="usersu16.html#x39-460005.1.5">5.1.5<!--tex4ht:ref: se:sourceoptions --></a>, page <a 
+href="usersu16.html#x39-460005.1.5">118<!--tex4ht:ref: se:sourceoptions --></a>).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Code generation</span> </dt><dd 
+class="description">These options control the generated code; they are mostly concerned
+     with the <span 
+class="cmtt-10">-C </span>and <span 
+class="cmtt-10">-X </span>command line options.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Verbose</span> </dt><dd 
+class="description">These set the verbosity of the compiler when compiling. The messages of the
+     compiler are shown in the compiler messages window (can be called with <span 
+class="cmcsc-10">F12</span>).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Browser</span> </dt><dd 
+class="description">Options concerning the generated browser information. Browser information needs
+     to be generated for the symbol browser to work.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Assembler</span> </dt><dd 
+class="description">Options concerning the reading of assembler blocks (-R on the command line)
+     and the generated assembler (<span 
+class="cmtt-10">-A </span>on the command line)
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Processor</span> </dt><dd 
+class="description">Here the target processor can be selected.</dd></dl>
+<!--l. 1856--><p class="noindent" >On each tab page, there are two entry boxes: the first for Conditional defines and the second for
+additional compiler arguments. The symbols, and arguments, should be separated with
+semi-colons.
+<!--l. 1860--><p class="noindent" >The syntax tab of the compiler options dialog is shown in figure (<a 
+href="#x107-114001r23">6.23<!--tex4ht:ref: fig:ocompa --></a>).
+<!--l. 1862--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x107-114001r23"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 1862--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;6.23: </span><span  
+class="content">The syntax options tab</span></div><!--tex4ht:label?: x107-114001r23 -->
+<!--l. 1862--><p class="noindent" ><img 
+src="user24x.png" alt="PIC" class="graphics" width="400.34999pt" height="253.82082pt" ><!--tex4ht:graphics  
+name="user24x.png" src="pics/ide/ocompa.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 1862--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 1864--><p class="noindent" >In the syntax options dialog, the following options can be set:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Stop after first error</span> </dt><dd 
+class="description">when checked, the compiler stops after the first error. Normally the
+     compiler continues compiling till a fatal error is reached. (<span 
+class="cmtt-10">-Se </span>(see page <a 
+href="usersu16.html#x39-460005.1.5">120<!--tex4ht:ref: option:Se --></a>) on the
+     command line)
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Allow label and goto</span> </dt><dd 
+class="description">Allow the use of label declarations and goto statements (<span 
+class="cmtt-10">-Sg </span>(see
+     page <a 
+href="usersu16.html#x39-460005.1.5">121<!--tex4ht:ref: option:Sg --></a>) on the command line).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Enable macros</span> </dt><dd 
+class="description">Allow the use of macros (<span 
+class="cmtt-10">-Sm </span>(see page <a 
+href="usersu16.html#x39-460005.1.5">122<!--tex4ht:ref: option:Sm --></a>)).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Allow inline</span> </dt><dd 
+class="description">Allow the use of inlined functions (<span 
+class="cmtt-10">-Sc </span>(see page <a 
+href="usersu16.html#x39-460005.1.5">120<!--tex4ht:ref: option:Sc --></a>) on the command line).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Include assertion code</span> </dt><dd 
+class="description">Include <span 
+class="cmtt-10">Assert </span>statements in the code.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Load kylix compat. unit</span> </dt><dd 
+class="description">Load the Kylix compatibility unit.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Allow STATIC in objects</span> </dt><dd 
+class="description">Allow the <span 
+class="cmtt-10">Static </span>modifier for object methods (<span 
+class="cmtt-10">-St </span>(see page
+     <a 
+href="usersu16.html#x39-460005.1.5">122<!--tex4ht:ref: option:St --></a>) on the command line)
+     </dd><dt class="description">
+<span 
+class="cmbx-10">C-like operators</span> </dt><dd 
+class="description">Allows the use of some extended operators such as <span 
+class="cmtt-10">+=, -= </span>etc. (<span 
+class="cmtt-10">-Sc </span>(see
+     page <a 
+href="usersu16.html#x39-460005.1.5">120<!--tex4ht:ref: option:Sc --></a>) on the command line).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Compiler mode</span> </dt><dd 
+class="description">select the appropriate compiler mode:
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">Free Pascal Dialect</span> </dt><dd 
+class="description">The default Free Pascal compiler mode (<span 
+class="cmtt-10">FPC</span>).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Object pascal extensions on</span> </dt><dd 
+class="description">Enables the use of classes and exceptions (<span 
+class="cmtt-10">-Sd </span>(see
+         page <a 
+href="usersu16.html#x39-460005.1.5">120<!--tex4ht:ref: option:Sd --></a>) on the command line).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Turbo pascal compatible</span> </dt><dd 
+class="description">Try to be more Turbo Pascal compatible (<span 
+class="cmtt-10">-So </span>(see page
+         <a 
+href="usersu16.html#x39-460005.1.5">122<!--tex4ht:ref: option:So --></a>) on the command line).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Delphi compatible</span> </dt><dd 
+class="description">Try to be more Delphi compatible (<span 
+class="cmtt-10">-Sd </span>(see page <a 
+href="usersu16.html#x39-460005.1.5">120<!--tex4ht:ref: option:Sd --></a>) on the
+         command line).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Macintosh Pascal dialect</span> </dt><dd 
+class="description">Try to be Macintosh pascal compatible.</dd></dl>
+     </dd></dl>
+<!--l. 1897--><p class="noindent" >The code generation tab of the compiler options dialog is shown in figure (<a 
+href="#x107-114002r24">6.24<!--tex4ht:ref: fig:ocompb --></a>).
+<!--l. 1900--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x107-114002r24"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 1900--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;6.24: </span><span  
+class="content">The code generation options tab</span></div><!--tex4ht:label?: x107-114002r24 -->
+<!--l. 1900--><p class="noindent" ><img 
+src="user25x.png" alt="PIC" class="graphics" width="400.34999pt" height="255.36415pt" ><!--tex4ht:graphics  
+name="user25x.png" src="pics/ide/ocompb.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 1900--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 1902--><p class="noindent" >In the code generation dialog, the following options can be set:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Run-time checks</span> </dt><dd 
+class="description">Controls what run-time checking code is generated. If such a check fails, a
+     run-time error is generated. The following checking code can be generated:
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">Range checking</span> </dt><dd 
+class="description">Checks the results of enumeration and subset type operations (<span 
+class="cmtt-10">-Cr</span>
+         (see page <a 
+href="usersu15.html#x38-450005.1.4">110<!--tex4ht:ref: option:Cr --></a>) command line option).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Stack checking</span> </dt><dd 
+class="description">Checks whether the stack limit is not reached (<span 
+class="cmtt-10">-Cs </span>(see page <a 
+href="usersu15.html#x38-450005.1.4">110<!--tex4ht:ref: option:Cs --></a>)
+         command line option).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">I/O checking</span> </dt><dd 
+class="description">Checks the result of IO operations (<span 
+class="cmtt-10">-Ci </span>(see page <a 
+href="usersu15.html#x38-450005.1.4">110<!--tex4ht:ref: option:Ci --></a>) command line
+         option).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Integer overflow checking</span> </dt><dd 
+class="description">Checks the result of integer operations (<span 
+class="cmtt-10">-Co </span>(see page
+         <a 
+href="usersu15.html#x38-450005.1.4">110<!--tex4ht:ref: option:Co --></a>) command line option).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Object method call checking</span> </dt><dd 
+class="description">Check the validity of the method pointer prior to
+         calling it.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Position independent code</span> </dt><dd 
+class="description">Generate PIC code.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Create smartlinkable units</span> </dt><dd 
+class="description">Create smartlinkable units.</dd></dl>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Optimizations</span> </dt><dd 
+class="description">What optimizations should be used when compiling:
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">Generate faster code</span> </dt><dd 
+class="description">Corresponds to the <span 
+class="cmtt-10">-OG </span>command line option.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Generate smaller code</span> </dt><dd 
+class="description">Corresponds to the <span 
+class="cmtt-10">-Og </span>command line option.</dd></dl>
+     </dd></dl>
+<!--l. 1931--><p class="noindent" >More information on these switches can be found in section <a 
+href="usersu15.html#x38-450005.1.4">5.1.4<!--tex4ht:ref: se:codegen --></a>, page <a 
+href="usersu15.html#x38-450005.1.4">108<!--tex4ht:ref: se:codegen --></a>.
+<!--l. 1933--><p class="noindent" >The processor tab of the compiler options dialog is shown in figure (<a 
+href="#x107-114003r25">6.25<!--tex4ht:ref: fig:ocompf --></a>).
+<!--l. 1936--><p class="noindent" >In the processor dialog, the target processor can be set. The compiler can use different
+optimizations for different processors.
+<!--l. 1939--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x107-114003r25"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 1939--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;6.25: </span><span  
+class="content">The processor selection tab</span></div><!--tex4ht:label?: x107-114003r25 -->
+<!--l. 1939--><p class="noindent" ><img 
+src="user26x.png" alt="PIC" class="graphics" width="400.34999pt" height="254.47499pt" ><!--tex4ht:graphics  
+name="user26x.png" src="pics/ide/ocompf.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 1939--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 1941--><p class="noindent" >The verbose tab of the compiler options dialog is shown in figure (<a 
+href="#x107-114004r26">6.26<!--tex4ht:ref: fig:ocompc --></a>).
+<!--l. 1944--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x107-114004r26"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 1944--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;6.26: </span><span  
+class="content">The verbosity options tab</span></div><!--tex4ht:label?: x107-114004r26 -->
+<!--l. 1944--><p class="noindent" ><img 
+src="user27x.png" alt="PIC" class="graphics" width="400.34999pt" height="255.06282pt" ><!--tex4ht:graphics  
+name="user27x.png" src="pics/ide/ocompc.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 1944--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 1946--><p class="noindent" >In this dialog, the following verbosity options can be set (on the command line: <span 
+class="cmtt-10">-v </span>(see page
+<a 
+href="usersu13.html#x36-430005.1.2">104<!--tex4ht:ref: option:v --></a>)):
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Warnings</span> </dt><dd 
+class="description">Generate warnings. Corresponds to <span 
+class="cmtt-10">-vw </span>on the command line.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Notes</span> </dt><dd 
+class="description">Generate notes. Corresponds to <span 
+class="cmtt-10">-vn </span>on the command line.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hints</span> </dt><dd 
+class="description">Generate hints. Corresponds to <span 
+class="cmtt-10">-vh </span>on the command line.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">General info</span> </dt><dd 
+class="description">Generate general information. Corresponds to <span 
+class="cmtt-10">-vi </span>on the command line.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">User,tried info</span> </dt><dd 
+class="description">Generate information on used and tried files. Corresponds to <span 
+class="cmtt-10">-vut </span>on the
+     command line.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">All</span> </dt><dd 
+class="description">Switch on full verbosity. Corresponds to <span 
+class="cmtt-10">-va </span>on the command line.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Show all procedures if error</span> </dt><dd 
+class="description">If  an  error  using  overloaded  procedure  occurs,  show  all
+     procedures. Corresponds to <span 
+class="cmtt-10">-vb </span>on the command line.</dd></dl>
+<!--l. 1966--><p class="noindent" >The browser tab of the compiler options dialog is shown in figure (<a 
+href="#x107-114005r27">6.27<!--tex4ht:ref: fig:ocompd --></a>).
+<!--l. 1968--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x107-114005r27"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 1968--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;6.27: </span><span  
+class="content">The browser options tab</span></div><!--tex4ht:label?: x107-114005r27 -->
+<!--l. 1968--><p class="noindent" ><img 
+src="user28x.png" alt="PIC" class="graphics" width="400.34999pt" height="254.64684pt" ><!--tex4ht:graphics  
+name="user28x.png" src="pics/ide/ocompd.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 1968--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 1970--><p class="noindent" >In this dialog, the browser options can be set:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">No browser</span> </dt><dd 
+class="description">(default) No browser information is generated by the compiler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Only global browser</span> </dt><dd 
+class="description">Browser  information  is  generated  for  global  symbols  only,  i.e.
+     symbols defined not in a procedure or function (<span 
+class="cmtt-10">-b </span>on the command line)
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Local and global browser</span> </dt><dd 
+class="description">Browser information is generated for all symbols, i.e. also for
+     symbols that are defined in procedures or functions (<span 
+class="cmtt-10">-bl </span>on the command line)</dd></dl>
+<!--l. 1980--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> If no browser information is generated, the symbol browser of the IDE will not work.
+<!--l. 1984--><p class="noindent" >The assembler tab of the compiler options dialog is shown in figure (<a 
+href="#x107-114006r28">6.28<!--tex4ht:ref: fig:ocompe --></a>). The actual dialog may
+vary, as it depends on the target CPU the IDE was compiled for.
+<!--l. 1988--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x107-114006r28"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 1988--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;6.28: </span><span  
+class="content">The assembler options tab</span></div><!--tex4ht:label?: x107-114006r28 -->
+<!--l. 1988--><p class="noindent" ><img 
+src="user29x.png" alt="PIC" class="graphics" width="400.34999pt" height="174.75885pt" ><!--tex4ht:graphics  
+name="user29x.png" src="pics/ide/ocompe.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 1988--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 1990--><p class="noindent" >In this dialog, the assembler reader and writer options can be set:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Assembler reader</span> </dt><dd 
+class="description">This permits setting the style of the assembler blocks in the sources:
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">AT&amp;T assembler</span> </dt><dd 
+class="description">The assembler is written in <span 
+class="cmtt-10">AT&amp;T </span>style assembler (<span 
+class="cmtt-10">-Ratt </span>on the
+         command line).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Intel style assembler</span> </dt><dd 
+class="description">The  assembler  is  written  in  <span 
+class="cmtt-10">Intel </span>style  assembler  blocks
+         (<span 
+class="cmtt-10">-Rintel </span>on the command line).</dd></dl>
+     <!--l. 2002--><p class="noindent" >remark that this option is global, but locally the assembler style can be changed with
+     compiler directives.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Assembler info</span> </dt><dd 
+class="description">When writing assembler files, this option decides which extra information is
+     written to the assembler file in comments:
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">List source</span> </dt><dd 
+class="description">The  source  lines  are  written  to  the  assembler  files  together  with  the
+         generated assembler (<span 
+class="cmtt-10">-al </span>on the command line).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">List register allocation</span> </dt><dd 
+class="description">The  compiler&#8217;s  internal  register  allocation/deallocation
+         information is written to the assembler file (<span 
+class="cmtt-10">-ar </span>on the command line).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">List temp allocation</span> </dt><dd 
+class="description">The temporary register allocation/deallocation is written to
+         the assembler file. (<span 
+class="cmtt-10">-at </span>on the command line).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">List node allocation</span> </dt><dd 
+class="description">The node allocation/deallocation is written to the assembler
+         file. (<span 
+class="cmtt-10">-an </span>on the command line).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">use pipe with assembler</span> </dt><dd 
+class="description">use a pipe on unix systems when feeding the assembler
+         code to an external assembler.</dd></dl>
+     <!--l. 2019--><p class="noindent" >The latter three of these options are mainly useful for debugging the compiler itself, it should
+     rarely be necessary to use these.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Assembler output</span> </dt><dd 
+class="description">This option tells the compiler what assembler output should be
+     generated.
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">Use default output</span> </dt><dd 
+class="description">This depends on the target.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Use GNU as</span> </dt><dd 
+class="description">Assemble using <span 
+class="cmcsc-10"><span 
+class="small-caps">g</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span> </span><span 
+class="cmss-10">as </span>(<span 
+class="cmtt-10">-Aas </span>on the command line).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Use NASM coff</span> </dt><dd 
+class="description">Produce  NASM  coff  assembler  (go32v2,  <span 
+class="cmtt-10">-Anasmcoff </span>on  the
+         command line)
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Use NASM elf</span> </dt><dd 
+class="description">Produce NASM elf assembler (<span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span></span>, <span 
+class="cmtt-10">-Anasmelf </span>on the command
+         line).
+                                                                            
+
+                                                                            
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Use NASM obj</span> </dt><dd 
+class="description">Produce NASM obj assembler (<span 
+class="cmtt-10">-Anasmobj </span>on the command line).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Use MASM</span> </dt><dd 
+class="description">Produce  MASM  (Microsoft  assembler)  assembler  (<span 
+class="cmtt-10">-Amasm </span>on  the
+         command line).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Use TASM</span> </dt><dd 
+class="description">Produce TASM (Turbo Assembler) assembler (<span 
+class="cmtt-10">-Atasm </span>on the command
+         line).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Use coff</span> </dt><dd 
+class="description">Write binary coff files directly using the internal assembler (go32v2, <span 
+class="cmtt-10">-Acoff</span>
+         on the command line).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">Use pecoff</span> </dt><dd 
+class="description">Write binary pecoff files files directly using the internal writer. (Win32)</dd></dl>
+     </dd></dl>
+<!--l. 2046--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu71.html" >next</a>] [<a 
+href="usersu69.html" >prev</a>] [<a 
+href="usersu69.html#tailusersu69.html" >prev-tail</a>] [<a 
+href="usersu70.html" >front</a>] [<a 
+href="userse29.html#usersu70.html" >up</a>] </p></div>
+<!--l. 2046--><p class="noindent" ><a 
+ id="tailusersu70.html"></a>  
+</body></html> 

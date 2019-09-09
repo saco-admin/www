@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>DetectXTerm</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../process/index.html">Overview</a>][<a href="../process/index-3.html">Types</a>][<a href="../process/index-4.html">Classes</a>][<a href="../process/index-5.html">Procedures and functions</a>][<a href="../process/index-6.html">Variables</a>][<a href="../process/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'process' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>DetectXTerm</h1>
+<p>Detect the terminal program.</p>
+<h2>Declaration</h2>
+<p>Source position: process.pp line 173</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> DetectXTerm<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>The terminal program to use, or empty if none was found.</p>
+<h2>Description</h2>
+<p><var>DetectXTerm</var> checks if <a href="../process/xtermprogram.html">XTermProgram</a> is set. if so, it returns that. If <var>XTermProgram</var> is empty, the list specified in <a href="../process/tryterminals.html">TryTerminals</a> is tested for existence.  If none is found, then the <var>DESKTOP_SESSION</var> environment variable is examined: </p>
+<dl>
+<dt>kde</dt>
+<dd>konsole is used if it is found.</dd>
+<dt>gnome</dt>
+<dd>gnome-terminal is used if it is found</dd>
+<dt>windowmaker</dt>
+<dd>aterm or xterm are used if found.</dd>
+</dl>
+<p>If after all this, no terminal is found, then a list of default programs is tested: 'x-terminal-emulator','xterm','aterm','wterm','rxvt'. </p>
+<p>If a terminal program is found, then it is saved in <var>XTermProgram</var>, so the next call to <var>DetectXTerm</var> will re-use the value. If the search must be performed again, it is sufficient to set <var>XTermProgram</var> to the empty string. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../process/xtermprogram.html">XTermProgram</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Default XTerm program to use</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tryterminals.html">TryTerminals</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">A list of terminal programs to use (unix only)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.xtermprogram.html">TProcess.XTermProgram</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">XTerm program to use (unix only)</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

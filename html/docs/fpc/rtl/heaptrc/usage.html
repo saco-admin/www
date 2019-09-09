@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>HeapTrc Usage</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../heaptrc/environment.html">Previous</a>][<a href="../heaptrc/index.html">Up</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'heaptrc' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>HeapTrc Usage</h2>
+<p>You must use the <var>-gh</var> switch, to let the compiler insert the unit by itself, so you don't have to include it in your uses clause. In fact, as of version 3.0.0 you may no longer do so. </p>
+<p>The below example shows how to use the heaptrc unit. </p>
+<p>This is the memory dump shown when running this program in a standard way: </p>
+<pre>Marked memory at <span class="num">0040</span>FA50 invalid
+Wrong size <span class="sym">:</span> <span class="num">128</span> allocated <span class="num">64</span> freed
+  <span class="num">0</span>x00408708
+  <span class="num">0</span>x0040CB49
+  <span class="num">0</span>x0040C481
+Call trace <span class="kw">for</span> block <span class="num">0</span>x0040FA50 size <span class="num">128</span>
+  <span class="num">0</span>x0040CB3D
+  <span class="num">0</span>x0040C481
+</pre>
+<p>If you use the <span class="file">lineinfo</span> unit (or use the <var>-gl</var> switch) as well, then <span class="file">heaptrc</span> will also give you the filenames and line-numbers of the procedures in the backtrace: </p>
+<pre>Marked memory at <span class="num">00410</span>DA0 invalid
+Wrong size <span class="sym">:</span> <span class="num">128</span> allocated <span class="num">64</span> freed
+  <span class="num">0</span>x004094B8
+  <span class="num">0</span>x0040D8F9  main<span class="sym">,</span>  line <span class="num">25</span> <span class="kw">of</span> heapex<span class="sym">.</span>pp
+  <span class="num">0</span>x0040D231
+Call trace <span class="kw">for</span> block <span class="num">0</span>x00410DA0 size <span class="num">128</span>
+  <span class="num">0</span>x0040D8ED  main<span class="sym">,</span>  line <span class="num">23</span> <span class="kw">of</span> heapex<span class="sym">.</span>pp
+  <span class="num">0</span>x0040D231
+</pre>
+<p>If lines without filename/line-number occur, this means there is a unit which has no debug info included. </p>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> heapex<span class="sym">;</span>
+
+<span class="cmt">{ </span>
+<span class="cmt">  Program used to demonstrate the usage of heaptrc unit </span>
+<span class="cmt">  Compile this program with the -gh command-line option</span>
+<span class="cmt">}</span>
+
+<span class="kw">Var</span> P1 <span class="sym">:</span> <span class="sym">^</span>Longint<span class="sym">;</span>
+    P2 <span class="sym">:</span> Pointer<span class="sym">;</span>
+    I <span class="sym">:</span> longint<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="dir">{$IF NOT DECLARED(heaptrc)}</span>
+  <span class="dir">{$ERROR You mmust compile this program with -gh}</span>
+  <span class="dir">{$ENDIF}</span>
+  New<span class="sym">(</span>P1<span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">// causes previous allocation not to be de-allocated</span>
+  New<span class="sym">(</span>P1<span class="sym">)</span><span class="sym">;</span>
+  Dispose<span class="sym">(</span>P1<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    GetMem <span class="sym">(</span>P2<span class="sym">,</span><span class="num">128</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="cmt">// When I is even, deallocate block. We loose 5 times 128</span>
+    <span class="cmt">// bytes this way.</span>
+    <span class="kw">If</span> <span class="sym">(</span>I mod <span class="num">2</span><span class="sym">)</span> <span class="sym">=</span> <span class="num">0</span> <span class="kw">Then</span> FreeMem<span class="sym">(</span>P2<span class="sym">,</span><span class="num">128</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  GetMem<span class="sym">(</span>P2<span class="sym">,</span><span class="num">128</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">// This will provoke an error and a memory dump</span>
+  Freemem <span class="sym">(</span>P2<span class="sym">,</span><span class="num">64</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

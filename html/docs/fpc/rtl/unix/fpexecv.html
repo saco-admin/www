@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpExecV</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unix/index.html">Overview</a>][<a href="../unix/index-2.html">Constants</a>][<a href="../unix/index-3.html">Types</a>][<a href="../unix/index-5.html">Procedures and functions</a>][<a href="../unix/index-6.html">Variables</a>][<a href="../unix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Unix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpExecV</h1>
+<p>Execute process</p>
+<h2>Declaration</h2>
+<p>Source position: unix.pp line 87</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpExecV<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>PathName<span class="sym">: </span>AnsiString<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;args<span class="sym">: </span><a href="../system/ppchar.html">PPChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FpExecV</var> replaces the currently running program with the program, specified in <var>PathName</var>. It gives the program the options in <var>args</var>. This is a pointer to an array of pointers to null-terminated strings. The last pointer in this array should be nil. The current environment is passed to the program. On success, <var>FpExecV</var> does not return. </p>
+<h2>Errors</h2>
+<p>Extended error information is returned by the <a href="../baseunix/fpgeterrno.html">FpGetErrno</a> function: </p>
+<dl>
+<dt>sys_eacces</dt>
+<dd>File is not a regular file, or has no execute permission. A compononent of the path has no search permission.</dd>
+<dt>sys_eperm</dt>
+<dd>The file system is mounted <i>noexec</i>.</dd>
+<dt>sys_e2big</dt>
+<dd>Argument list too big.</dd>
+<dt>sys_enoexec</dt>
+<dd>The magic number in the file is incorrect.</dd>
+<dt>sys_enoent</dt>
+<dd>The file does not exist.</dd>
+<dt>sys_enomem</dt>
+<dd>Not enough memory for kernel.</dd>
+<dt>sys_enotdir</dt>
+<dd>A component of the path is not a directory.</dd>
+<dt>sys_eloop</dt>
+<dd>The path contains a circular reference (via symlinks).</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpexecve.html">FpExecve</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute process using environment</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unix/fpexecvp.html">FpExecvp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute process, search path</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unix/fpexecle.html">FpExecle</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute process (using argument list, environment)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unix/fpexecl.html">FpExecl</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute process (using argument list, environment)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unix/fpexeclp.html">FpExeclp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute process (using argument list, environment; search path)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpfork.html">FpFork</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create child process</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example8<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Execv function. }</span>
+
+<span class="kw">Uses</span> Unix<span class="sym">,</span> strings<span class="sym">;</span>
+
+<span class="kw">Const</span> Arg0 <span class="sym">:</span> PChar <span class="sym">=</span> <span class="str">'/bin/ls'</span><span class="sym">;</span>
+      Arg1 <span class="sym">:</span> Pchar <span class="sym">=</span> <span class="str">'-l'</span><span class="sym">;</span>
+
+<span class="kw">Var</span> PP <span class="sym">:</span> PPchar<span class="sym">;</span>
+
+
+<span class="kw">begin</span>
+  GetMem <span class="sym">(</span>PP<span class="sym">,</span><span class="num">3</span><span class="sym">*</span>SizeOf<span class="sym">(</span>Pchar<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  PP<span class="sym">[</span><span class="num">0</span><span class="sym">]</span><span class="sym">:=</span>Arg0<span class="sym">;</span>
+  PP<span class="sym">[</span><span class="num">1</span><span class="sym">]</span><span class="sym">:=</span>Arg1<span class="sym">;</span>
+  PP<span class="sym">[</span><span class="num">3</span><span class="sym">]</span><span class="sym">:=</span><span class="kw">Nil</span><span class="sym">;</span>
+  <span class="cmt">{ Execute '/bin/ls -l', with current environment }</span>
+  fpExecv <span class="sym">(</span><span class="str">'/bin/ls'</span><span class="sym">,</span>pp<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

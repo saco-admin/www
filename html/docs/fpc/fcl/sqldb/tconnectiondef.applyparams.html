@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TConnectionDef.ApplyParams</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TConnectionDef.ApplyParams</h1>
+<p>Apply parameters to an instance of <var>TSQLConnection</var></p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 772</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code">  <span class="kw">procedure</span> <a href="../sqldb/tconnectiondef.html">TConnectionDef</a><span class="sym">.</span>ApplyParams<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Params<span class="sym">: </span><a href="../../rtl/classes/tstrings.html">TStrings</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AConnection<span class="sym">: </span><a href="../sqldb/tsqlconnection.html">TSQLConnection</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Params</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Parameters to apply in <var>Name=Value</var> form</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AConnection</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Connection instance to which to apply the parameters</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ApplyParams</var> must be overridden to apply any params specified in the <var>Params</var> argument to the <a href="../sqldb/tsqlconnection.html">TSQLConnection</a> descendent in <var>AConnection</var>. It can be used to convert <var>Name=Value</var> pairs to properties of the actual connection instance. </p>
+<p>When called, <var>AConnection</var>  is guaranteed to be of the same type as returned by <a href="../sqldb/tconnectiondef.connectionclass.html">TConnectionDef.ConnectionClass</a>. <var>Params</var> contains the contents of the <a href="../sqldb/tsqlconnection.params.html">TSQLConnection.Params</a> property of the connector. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlconnection.params.html">TSQLConnection.Params</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Extra connection parameters</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

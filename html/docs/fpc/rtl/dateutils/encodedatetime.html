@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>EncodeDateTime</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dateutils/index.html">Overview</a>][<a href="../dateutils/index-2.html">Constants</a>][<a href="../dateutils/index-5.html">Procedures and functions</a>][<a href="../dateutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dateutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>EncodeDateTime</h1>
+<p>Encodes a DateTime value from all its parts</p>
+<h2>Declaration</h2>
+<p>Source position: dateutil.inc line 304</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> EncodeDateTime<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AYear<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AMonth<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ADay<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AHour<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AMinute<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ASecond<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AMilliSecond<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tdatetime.html">TDateTime</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AYear</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Year</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AMonth</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Month</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADay</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Day of the month</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AHour</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Hour of the day</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AMinute</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Minutes</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ASecond</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Seconds</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AMilliSecond</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Milliseconds</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>DateTime value representing the complete timestamp</p>
+<h2>Description</h2>
+<p><var>EncodeDateTime</var> encodes the values <var>AYear</var><var>AMonth</var>, <var>ADay</var>,<var>AHour</var>, <var>AMinute</var>,<var>ASecond</var> and <var>AMilliSecond</var> to a date/time valueand returns this value. </p>
+<p>For an example, see <a href="../dateutils/decodedatetime.html">DecodeDateTime</a>. </p>
+<h2>Errors</h2>
+<p>If any of the arguments is not valid, then an <var>EConvertError</var> exception is raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dateutils/decodedatetime.html">DecodeDateTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Decode a datetime value in a date and time value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/encodedatemonthweek.html">EncodeDateMonthWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encodes a year, month, week of month and day of week to a DateTime value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/encodedateweek.html">EncodeDateWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encode a <var>TDateTime</var> value from a year, week and day of week triplet</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/encodedateday.html">EncodeDateDay</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encodes a year and day of year to a DateTime value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/tryencodedatetime.html">TryEncodeDateTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encode a Year, Month, Day, Hour, minute, seconds, milliseconds tuplet to a <var>TDateTime</var> value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/tryencodedateweek.html">TryEncodeDateWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encode a year, week and day of week triplet to a <var>TDateTime</var> value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/tryencodedateday.html">TryEncodeDateDay</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encode a year and day of year to a <var>TDateTime</var> value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/tryencodedatemonthweek.html">TryEncodeDateMonthWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encode a year, month, week of month and day of week to a <var>TDateTime</var> value</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

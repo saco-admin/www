@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Options concerning the sources (language options)</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1475--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu15.html" >prev</a>] [<a 
+href="usersu15.html#tailusersu15.html" >prev-tail</a>] [<a 
+href="#tailusersu16.html">tail</a>] [<a 
+href="userse16.html#usersu16.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">5.1.5   </span> <a 
+href="user.html#QQ2-39-48" id="x39-460005.1.5">Options concerning the sources (language options)</a></h4>
+<!--l. 1477--><p class="noindent" >For more information on these options, see <a 
+href="../prog/prog.html" >Programmer&#8217;s Guide</a>
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">-Mmode</span> </dt><dd 
+class="description"> Set language mode to <span 
+class="cmtt-10">mode</span>, which can be one of the following:
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">delphi</span> </dt><dd 
+class="description">Try to be Delphi compatible. This is more strict than the <span 
+class="cmtt-10">objfpc </span>mode, since
+         some Free Pascal extensions are switched off.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">fpc</span> </dt><dd 
+class="description">Free Pascal dialect (default).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">macpas</span> </dt><dd 
+class="description">Try to be compatible with Macintosh Pascal dialects.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">objfpc</span> </dt><dd 
+class="description">Switch on some Delphi extensions. This is different from Delphi mode, because
+         some Free Pascal constructs are still available.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">tp</span> </dt><dd 
+class="description">Try to be TP/BP 7.0 compatible. This means no function overloading etc.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">ISO</span> </dt><dd 
+class="description">In this mode, the compiler complies with the requirements of level 0 and level 1
+         of ISO/IEC 7185.</dd></dl>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Mfeature</span> </dt><dd 
+class="description"> Select language feature <span 
+class="cmtt-10">feature</span>. As of FPC version 2.3.1, the <span 
+class="cmtt-10">-M </span>command line
+     switch can be used to select individual language features. In that case, <span 
+class="cmtt-10">feature </span>is one of the
+     following keywords:
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">CLASS</span> </dt><dd 
+class="description">Use object pascal classes.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">OBJPAS</span> </dt><dd 
+class="description">Automatically include the ObjPas unit.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">RESULT</span> </dt><dd 
+class="description">Enable the <span 
+class="cmtt-10">Result </span>identifier for function results.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">PCHARTOSTRING</span> </dt><dd 
+class="description">Allow  automatic  conversion  of  null-terminated  strings  to
+         strings,
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">CVAR</span> </dt><dd 
+class="description">Allow the use of the <span 
+class="cmtt-10">CVAR </span>keyword.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">NESTEDCOMMENTS</span> </dt><dd 
+class="description">Allow use of nested comments.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">CLASSICPROCVARS</span> </dt><dd 
+class="description">Use classical procedural variables.
+                                                                            
+
+                                                                            
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">MACPROCVARS</span> </dt><dd 
+class="description">Use mac-style procedural variables.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">REPEATFORWARD</span> </dt><dd 
+class="description">Implementation   and   Forward   declaration   must   match
+         completely.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">POINTERTOPROCVAR</span> </dt><dd 
+class="description">Allow   silent   conversion   of   pointers   to   procedural
+         variables.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">AUTODEREF</span> </dt><dd 
+class="description">Automatic (silent) dereferencing of typed pointers.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">INITFINAL</span> </dt><dd 
+class="description">Allow use of <span 
+class="cmtt-10">Initialization </span>and <span 
+class="cmtt-10">Finalization</span>
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">ANSISTRINGS</span> </dt><dd 
+class="description">Allow use of ansistrings.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">OUT</span> </dt><dd 
+class="description">Allow use of the <span 
+class="cmtt-10">out </span>parameter type.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">DEFAULTPARAMETERS</span> </dt><dd 
+class="description">Allow use of default parameter values.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">HINTDIRECTIVE</span> </dt><dd 
+class="description">Support the hint directives (<span 
+class="cmtt-10">deprecated</span>, <span 
+class="cmtt-10">platform </span>etc.)
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">DUPLICATELOCALS</span> </dt><dd 
+class="description">Allow method arguments with the same name as properties
+         in classes.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">PROPERTIES</span> </dt><dd 
+class="description">Allow use of global properties.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">ALLOWINLINE</span> </dt><dd 
+class="description">Allow inline procedures.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">EXCEPTIONS</span> </dt><dd 
+class="description">Allow the use of exceptions.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">OBJECTIVEC1</span> </dt><dd 
+class="description">Allow the use of objective C version 1.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">OBJECTIVEC2</span> </dt><dd 
+class="description">Allow the use of objective C version 2.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">NESTEDPROCVARS</span> </dt><dd 
+class="description">Allow  assigning  local  procedures  to  nested  procedural
+         variables and defining inline procedural variable types, which can always accept
+         local procedures, in parameter declarations.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">NONLOCALGOTO</span> </dt><dd 
+class="description">Allow a GOTO statement to jump outside the local scope (as
+         ISO Pascal).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">ADVANCEDRECORDS</span> </dt><dd 
+class="description">Allow   the   use   of   advanced   records   (records   with
+         methods/properties)
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">ISOUNARYMINUS</span> </dt><dd 
+class="description">Treat unary minus like in ISO Pascal: same precedence level
+         as binary minus/plus.</dd></dl>
+     <!--l. 1527--><p class="noindent" >The keyword can be followed by a plus or minus sign to enable or disable the
+     feature.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Rxxx</span> </dt><dd 
+class="description"> Specify what kind of assembler you use in your <span 
+class="cmtt-10">asm </span>assembler code blocks. Here <span 
+class="cmtt-10">xxx </span>is one
+     of the following:
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">att</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description"><span 
+class="cmtt-10">asm </span>blocks contain AT&amp;T-style assembler. This is the default style.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">intel</span> </dt><dd 
+class="description"><span 
+class="cmtt-10">asm </span>blocks contain Intel-style assembler.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">default</span> </dt><dd 
+class="description">Use the default assembler for the specified target.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">direct</span> </dt><dd 
+class="description"><span 
+class="cmtt-10">asm </span>blocks  should  be  copied  as  is  in  the  assembler,  only  replacing  certain
+         variables.</dd></dl>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-S2</span> </dt><dd 
+class="description"> Switch on Delphi 2 extensions (<span 
+class="cmtt-10">objfpc </span>mode). Deprecated, use <span 
+class="cmtt-10">-Mobjfpc </span>instead.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Sa</span> </dt><dd 
+class="description"> Include assert statements in compiled code. Omitting this option will cause assert statements
+     to be ignored.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Sc</span> </dt><dd 
+class="description"> Support C-style operators, i.e. <span 
+class="cmtt-10">*=, +=, /= and -=</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Sd</span> </dt><dd 
+class="description"> Try to be Delphi compatible. Deprecated, use <span 
+class="cmtt-10">-Mdelphi </span>instead.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-SeN</span> </dt><dd 
+class="description"> The compiler stops after the N-th error. Normally, the compiler tries to continue compiling
+     after an error, until 50 errors are reached, or a fatal error is reached, and then it stops. With
+     this switch, the compiler will stop after the N-th error (if N is omitted, a default of 1 is
+     assumed). Instead of a number, one of <span 
+class="cmtt-10">n</span>, <span 
+class="cmtt-10">h </span>or <span 
+class="cmtt-10">w </span>can also be specified. In that case the
+     compiler will consider notes, hints or warnings as errors and stop when one is
+     encountered.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Sf</span> </dt><dd 
+class="description">Enable certain features in compiler and RTL. This allows for finer control over available
+     language features than the mode switch. Possible values are:
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">HEAP</span> </dt><dd 
+class="description">Allow heap memory.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">INITFINAL</span> </dt><dd 
+class="description">Initialization/finalization.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">RTTI</span> </dt><dd 
+class="description">Allow use of RTTI.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">CLASSES</span> </dt><dd 
+class="description">Allow use of classes.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">EXCEPTIONS</span> </dt><dd 
+class="description">Allow use of exceptions.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">EXITCODE</span> </dt><dd 
+class="description">Allow use of exit code for applications.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">ANSISTRINGS</span> </dt><dd 
+class="description">Allow use of ansistrings.
+                                                                            
+
+                                                                            
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">WIDESTRINGS</span> </dt><dd 
+class="description">Allow use of widestrings.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">TEXTIO</span> </dt><dd 
+class="description">Allow use of standard Pascal text file I/O.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">CONSOLEIO</span> </dt><dd 
+class="description">Allow use of standard Pascal console I/O (text file).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">FILEIO</span> </dt><dd 
+class="description">Allow use of standard Pascal binary file I/O.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">RANDOM</span> </dt><dd 
+class="description">Allow use of Random() function.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">VARIANTS</span> </dt><dd 
+class="description">Allow use of variants.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">OBJECTS</span> </dt><dd 
+class="description">Allow use of TP-style objects.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">DYNARRAYS</span> </dt><dd 
+class="description">Allow use of dynamic arrays.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">THREADING</span> </dt><dd 
+class="description">Allow use of threading.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">COMMANDARGS</span> </dt><dd 
+class="description">Allow use of command-line arguments.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">PROCESSES</span> </dt><dd 
+class="description">Allow use of processes.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">STACKCHECK</span> </dt><dd 
+class="description">Enable stack checking.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">DYNLIBS</span> </dt><dd 
+class="description">Allow use of dynamically loadable libraries in the system unit.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">SOFTFPU</span> </dt><dd 
+class="description">Allow (enable) the use of software floating point operations.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">OBJECTIVEC1</span> </dt><dd 
+class="description">Allow use of Objective C support routines.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">RESOURCES</span> </dt><dd 
+class="description">Allow use of resources.
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">UNICODESTRING</span> </dt><dd 
+class="description">Allow use of unicode strings.</dd></dl>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Sg</span> </dt><dd 
+class="description"> Support the <span 
+class="cmtt-10">label </span>and <span 
+class="cmtt-10">goto </span>commands. By default these are not supported. You must also
+     specify this option if you use labels in assembler statements. (if you use the <span 
+class="cmtt-10">AT&amp;T </span>style
+     assember)
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Sh</span> </dt><dd 
+class="description">Use ansistrings by default for strings. If this option is specified, the compiler will interpret the
+     <span 
+class="cmtt-10">string </span>keyword as an ansistring. Otherwise it is supposed to be a shortstring (TP
+     style).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Si</span> </dt><dd 
+class="description"> Support <span 
+class="cmtt-10">C++ </span>style INLINE.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-SIXXX</span> </dt><dd 
+class="description">Set interfaces style to <span 
+class="cmtt-10">XXX</span>. Here <span 
+class="cmtt-10">XXX </span>is one of
+                                                                            
+
+                                                                            
+         <dl class="description"><dt class="description">
+     <span 
+class="cmbx-10">COM</span> </dt><dd 
+class="description">COM compatible interfaces (reference counted, descend from IUnknown).
+         </dd><dt class="description">
+     <span 
+class="cmbx-10">CORBA</span> </dt><dd 
+class="description">Not reference counted interfaces.</dd></dl>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Sk</span> </dt><dd 
+class="description">Load the Kylix compatibility unit (<span 
+class="cmss-10">fpcylix</span>).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Sm</span> </dt><dd 
+class="description"> Support C-style macros.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-So</span> </dt><dd 
+class="description"> Try to be Borland TP 7.0 compatible. Deprecated, use <span 
+class="cmtt-10">-Mtp </span>instead.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Ss</span> </dt><dd 
+class="description"> The name of constructors must be <span 
+class="cmtt-10">init</span>, and the name of destructors should be
+     <span 
+class="cmtt-10">done</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-St</span> </dt><dd 
+class="description"> Allow the <span 
+class="cmtt-10">static </span>keyword in objects.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Sv</span> </dt><dd 
+class="description">Support vector processing (uses CPU vector extensions if available)
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Sx</span> </dt><dd 
+class="description">Enable exception keywords (default in Delphi/Objfpc mode). This will mark all exception
+     related keywords as keywords, also in Turbo Pascal or <span 
+class="cmss-10">FPC </span>mode. This can be used to check
+     for code which should be mode-neutral as much as possible.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Sy</span> </dt><dd 
+class="description">@pointer returns a typed pointer, this is the same as the $T+ option.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Un</span> </dt><dd 
+class="description"> Do not check the unit name. Normally, the unit name is the same as the filename. This
+     option allows them to be different.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Us</span> </dt><dd 
+class="description"> Compile a system unit. This option causes the compiler to define only some very basic
+     types.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 1622--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu15.html" >prev</a>] [<a 
+href="usersu15.html#tailusersu15.html" >prev-tail</a>] [<a 
+href="usersu16.html" >front</a>] [<a 
+href="userse16.html#usersu16.html" >up</a>] </p></div>
+<!--l. 1622--><p class="noindent" ><a 
+ id="tailusersu16.html"></a>  
+</body></html> 

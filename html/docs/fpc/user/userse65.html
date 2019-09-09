@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Code generator messages</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2209--><div class="crosslinks"><p class="noindent">[<a 
+href="userse66.html" >next</a>] [<a 
+href="userse64.html" >prev</a>] [<a 
+href="userse64.html#tailuserse64.html" >prev-tail</a>] [<a 
+href="#tailuserse65.html">tail</a>] [<a 
+href="userap3.html#userse65.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">C.6   </span> <a 
+href="user.html#QQ2-179-237" id="x179-186000C.6">Code generator messages</a></h3>
+<!--l. 2210--><p class="noindent" >This section lists all messages that can be displayed if the code generator encounters an error
+condition.
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Error: Parameter list size exceeds 65535 bytes</span> </dt><dd 
+class="description">The    I386    processor    limits    the
+     parameter list to 65535 bytes. (The <span 
+class="cmtt-10">RET </span>instruction causes this.)
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: File types must be var parameters</span> </dt><dd 
+class="description">You    cannot    specify    files    as    value
+     parameters, i.e., they must always be declared <span 
+class="cmtt-10">var </span>parameters.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The use of a far pointer isn&#8217;t allowed there</span> </dt><dd 
+class="description">Free Pascal doesn&#8217;t support far pointers,
+     so you cannot take the address of an expression which has a far reference as a result. The <span 
+class="cmtt-10">mem</span>
+     construct has a far reference as a result, so the following code will produce this
+     error:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-149">
+     &#x00A0;var&#x00A0;p&#x00A0;:&#x00A0;pointer;
+     &#x00A0;<br />&#x00A0;...
+     &#x00A0;<br />&#x00A0;p:=@mem[a000:000];
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 2228--><p class="nopar" >
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: EXPORT declared functions cannot be called</span> </dt><dd 
+class="description">No longer in use.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Possible illegal call of constructor or destructor</span> </dt><dd 
+class="description">The compiler detected that a
+     constructor or destructor is called within a a method. This will probably lead to problems,
+     since constructors / destructors require parameters on entry.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: Inefficient code</span> </dt><dd 
+class="description">Your statement seems dubious to the compiler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: unreachable code</span> </dt><dd 
+class="description">You specified a construct which will never be executed.
+     Example:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-150">
+     &#x00A0;while&#x00A0;false&#x00A0;do
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;begin
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;{..&#x00A0;code&#x00A0;...}
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;end;
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 2244--><p class="nopar" >
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Abstract methods cannot be called directly</span> </dt><dd 
+class="description">You cannot call an abstract method
+     directly. Instead, you must call an overriding child method, because an abstract method isn&#8217;t
+     implemented.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Register arg1 weight arg2 arg3</span> </dt><dd 
+class="description">Debugging message. Shown when the compiler considers a
+     variable for keeping in the registers.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Stack frame is omitted</span> </dt><dd 
+class="description">Some procedure/functions do not need a complete stack-frame, so it is
+     omitted. This message will be displayed when the -vd switch is used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Object or class methods cannot be inline.</span> </dt><dd 
+class="description">You cannot have inlined object
+     methods.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Procvar calls cannot be inline.</span> </dt><dd 
+class="description">A procedure with a procedural variable call cannot be
+     inlined.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: No code for inline procedure stored</span> </dt><dd 
+class="description">The compiler couldn&#8217;t store code for the inline
+     procedure.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Element zero of an ansi/wide- or longstring cannot be accessed, use (set)length instead</span> </dt><dd 
+class="description">
+     You should use <span 
+class="cmtt-10">setlength </span>to set the length of an ansi/wide/longstring and <span 
+class="cmtt-10">length </span>to get the
+     length of such string type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Constructors or destructors cannot be called inside a &#8217;with&#8217; clause</span> </dt><dd 
+class="description">Inside a <span 
+class="cmtt-10">with</span>
+     clause you cannot call a constructor or destructor for the object you have in the <span 
+class="cmtt-10">with</span>
+     clause.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot call message handler methods directly</span> </dt><dd 
+class="description">A message method handler method
+     cannot be called directly if it contains an explicit <span 
+class="cmtt-10">Self </span>argument.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Jump in or outside of an exception block</span> </dt><dd 
+class="description">It is not allowed to jump in or outside of
+     an exception block like <span 
+class="cmtt-10">try..finally..end;</span>. For example, the following code will produce
+     this error:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-151">
+     &#x00A0;label&#x00A0;1;
+     &#x00A0;<br />
+     &#x00A0;<br />&#x00A0;...
+     &#x00A0;<br />
+     &#x00A0;<br />&#x00A0;try
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;if&#x00A0;not(final)&#x00A0;then
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;goto&#x00A0;1;&#x00A0;&#x00A0;&#x00A0;//&#x00A0;this&#x00A0;line&#x00A0;will&#x00A0;cause&#x00A0;an&#x00A0;error
+     &#x00A0;<br />&#x00A0;finally
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;...
+     &#x00A0;<br />&#x00A0;end;
+     &#x00A0;<br />&#x00A0;1:
+     &#x00A0;<br />&#x00A0;...
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 2285--><p class="nopar" >
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Control flow statements are not allowed in a finally block</span> </dt><dd 
+class="description">It isn&#8217;t allowed to use
+     the control flow statements <span 
+class="cmtt-10">break</span>, <span 
+class="cmtt-10">continue </span>and <span 
+class="cmtt-10">exit </span>inside a finally statement. The
+     following example shows the problem:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-152">
+     &#x00A0;...
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;try
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;p;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;finally
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;...
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;exit;&#x00A0;&#x00A0;//&#x00A0;This&#x00A0;exit&#x00A0;ISN&#8217;T&#x00A0;allowed
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;end;
+     &#x00A0;<br />&#x00A0;...
+     &#x00A0;<br />
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 2300--><p class="nopar" >If the procedure <span 
+class="cmtt-10">p </span>raises an exception the finally block is executed. If the execution reaches
+     the exit, it&#8217;s unclear what to do: exit the procedure or search for another exception
+     handler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Parameters size exceeds limit for certain cpu&#8217;s</span> </dt><dd 
+class="description">This indicates that you are
+     declaring more than 64K of parameters, which might not be supported on other processor
+     targets.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Local variable size exceed limit for certain cpu&#8217;s</span> </dt><dd 
+class="description">This indicates that you are
+     declaring more than 32K of local variables, which might not be supported on other processor
+     targets.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Local variables size exceeds supported limit</span> </dt><dd 
+class="description">This indicates that you are declaring
+     more than 32K of local variables, which is not supported by this processor.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: BREAK not allowed</span> </dt><dd 
+class="description">You&#8217;re trying to use <span 
+class="cmtt-10">break </span>outside a loop construction.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: CONTINUE not allowed</span> </dt><dd 
+class="description">You&#8217;re trying to use <span 
+class="cmtt-10">continue </span>outside a loop construction.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Unknown compilerproc &#8221;arg1&#8221;. Check if you use the correct run time library.</span> </dt><dd 
+class="description">
+     The compiler expects that the runtime library contains certain subroutines. If you see this
+     error and you didn&#8217;t change the runtime library code, it&#8217;s very likely that the runtime library
+     you&#8217;re using doesn&#8217;t match the compiler in use. If you changed the runtime library this
+     error means that you removed a subroutine which the compiler needs for internal
+     use.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Cannot find system type &#8221;arg1&#8221;. Check if you use the correct run time library.</span> </dt><dd 
+class="description">
+     The compiler expects that the runtime library contains certain type definitions. If you see
+     this error and you didn&#8217;t change the runtime library code, it&#8217;s very likely that the runtime
+     library you&#8217;re using doesn&#8217;t match the compiler in use. If you changed the runtime library
+     this error means that you removed a type which the compiler needs for internal
+     use.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Inherited call to abstract method ignored</span> </dt><dd 
+class="description">This message appears only in Delphi mode
+     when you call an abstract method of a parent class via <span 
+class="cmtt-10">inherited;</span>. The call is then
+     ignored.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Goto label &#8221;arg1&#8221; not defined or optimized away</span> </dt><dd 
+class="description">The label used in the goto
+     definition is not defined or optimized away by the unreachable code elemination.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Cannot find type &#8221;arg1&#8221; in unit &#8221;arg2&#8221;. Check if you use the correct run time library.</span> </dt><dd 
+class="description">
+     The compiler expects that the runtime library contains certain type definitions. If you see
+     this error and you didn&#8217;t change the runtime library code, it&#8217;s very likely that the runtime
+     library you&#8217;re using doesn&#8217;t match the compiler in use. If you changed the runtime library
+     this error means that you removed a type which the compiler needs for internal
+     use.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Interprocedural gotos are allowed only to outer subroutines</span> </dt><dd 
+class="description">Gotos between
+     subroutines are only allowed if the goto jumps from an inner to an outer subroutine or from a
+     subroutine to the main program
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Label must be defined in the same scope as it is declared</span> </dt><dd 
+class="description">In ISO mode, labels
+     must be defined in the same scope as they are declared.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Leaving procedures containing explicit or implicit exceptions frames using goto is not allowed</span> </dt><dd 
+class="description">
+     Non-local gotos might not be used to leave procedures using exceptions either implicitly or
+     explicitly. Procedures which use automated types like ansistrings or class constructurs are
+     affected by this too.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: In ISO mode, the mod operator is defined only for positive quotient</span> </dt><dd 
+class="description">In ISO
+     pascal, only positive values are allowed for the quotient: <span 
+class="cmtt-10">n mod m </span>is only valid if
+     <span 
+class="cmtt-10">m&#x003E;0</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Auto inlining: arg1</span> </dt><dd 
+class="description">Due to auto inlining turned on, the compiler auto inlines this
+     subroutine.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The function used, is not supported by the selected instruction set: arg1</span> </dt><dd 
+class="description">Some
+     functions cannot be implemented efficiently for certain instruction sets, one example is fused
+     multiply/add. To avoid very inefficient code, the compiler complains in this case, so
+     either select another instruction set or replace the function call by alternative
+     code
+     </dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 2357--><div class="crosslinks"><p class="noindent">[<a 
+href="userse66.html" >next</a>] [<a 
+href="userse64.html" >prev</a>] [<a 
+href="userse64.html#tailuserse64.html" >prev-tail</a>] [<a 
+href="userse65.html" >front</a>] [<a 
+href="userap3.html#userse65.html" >up</a>] </p></div>
+<!--l. 2357--><p class="noindent" ><a 
+ id="tailuserse65.html"></a>  
+</body></html> 

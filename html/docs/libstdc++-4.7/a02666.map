@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00070.html" title="Provides a layer of compatibility for C.This GNU extension provides extensions for working with stand..." alt="" coords="668,5,985,33"/>
+<area shape="rect" id="node5" href="$a00421.html" title="The actual work of input and output (for files).This class associates both its input and output seque..." alt="" coords="705,258,948,286"/>
+<area shape="rect" id="node15" href="$a00572.html" title="The actual work of input and output (for std::string).This class associates either or both of its inp..." alt="" coords="696,106,957,134"/>
+<area shape="rect" id="node17" href="$a00426.html" title="std::basic_streambuf\&lt; char, _Traits \&gt;" alt="" coords="699,157,955,185"/>
+<area shape="rect" id="node19" href="$a00426.html" title="std::basic_streambuf\&lt; char, char_traits\&lt; char \&gt; \&gt;" alt="" coords="657,207,996,235"/>
+<area shape="rect" id="node21" href="$a00426.html" title="std::basic_streambuf\&lt; _CharT, encoding_char_traits\&lt; _CharT \&gt; \&gt;" alt="" coords="611,55,1043,83"/>
+<area shape="rect" id="node24" href="$a00426.html" title="std::basic_streambuf\&lt; char_type, traits_type \&gt;" alt="" coords="669,309,984,337"/>
+<area shape="rect" id="node7" href="$a00069.html" title="Provides a layer of compatibility for C/POSIX.This GNU extension provides extensions for working with..." alt="" coords="1439,229,1721,257"/>
+<area shape="rect" id="node9" href="$a00421.html" title="std::basic_filebuf\&lt; _CharT, encoding_char_traits\&lt; _CharT \&gt; \&gt;" alt="" coords="1377,157,1783,185"/>
+<area shape="rect" id="node13" href="$a00421.html" title="std::basic_filebuf\&lt; char_type, traits_type \&gt;" alt="" coords="1435,294,1725,322"/>
+<area shape="rect" id="node11" href="$a00042.html" title="class enc_filebuf." alt="" coords="1836,157,2063,185"/>
+</map>

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDaemonController.Controller</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../daemonapp/index.html">Overview</a>][<a href="../daemonapp/index-1.html">Resource strings</a>][<a href="../daemonapp/index-3.html">Types</a>][<a href="../daemonapp/index-4.html">Classes</a>][<a href="../daemonapp/index-5.html">Procedures and functions</a>][<a href="../daemonapp/index-6.html">Variables</a>][<a href="../daemonapp/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'daemonapp' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDaemonController.Controller</h1>
+<p>Controller</p>
+<h2>Declaration</h2>
+<p>Source position: daemonapp.pp line 131</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../daemonapp/tdaemoncontroller.html">TDaemonController</a><span class="sym">.</span>Controller<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ControlCode<span class="sym">: </span><a href="../../rtl/system/dword.html">DWord</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;EventType<span class="sym">: </span><a href="../../rtl/system/dword.html">DWord</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;EventData<span class="sym">: </span>Pointer</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ControlCode</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Control code sent by the system</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">EventType</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event type sent by the system</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">EventData</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Additional event data sent by the system</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Controller</var> is responsible for sending the control code to the daemon thread so it can be processed. </p>
+<p>This routine is currently only used on windows, as there is no service manager on Linux. Later on this may be changed to respond to signals on Linux as well. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../daemonapp/tdaemon.oncontrolcode.html">TDaemon.OnControlCode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Called when a control code is received for the daemon</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

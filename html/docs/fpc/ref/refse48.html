@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Reference counting</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5740--><div class="crosslinks"><p class="noindent">[<a 
+href="refse47.html" >prev</a>] [<a 
+href="refse47.html#tailrefse47.html" >prev-tail</a>] [<a 
+href="#tailrefse48.html">tail</a>] [<a 
+href="refch7.html#refse48.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">7.7   </span> <a 
+href="ref.html#QQ2-101-129" id="x101-1230007.7">Reference counting</a></h3>
+<!--l. 5741--><p class="noindent" >All COM interfaces use reference counting. This means that whenever an interface is assigned to a
+variable, it&#8217;s reference count is updated. Whenever the variable goes out of scope, the reference
+count is automatically decreased. When the reference count reaches zero, usually the instance of
+the class that implements the interface, is freed.
+<!--l. 5747--><p class="noindent" >Care must be taken with this mechanism. The compiler may or may not create temporary variables
+when evaluating expressions, and assign the interface to a temporary variable, and only then assign
+the temporary variable to the actual result variable. No assumptions should be made about the
+number of temporary variables or the time when they are finalized - this may (and indeed does)
+differ from the way other compilers (e.g. Delphi) handle expressions with interfaces. E.g. a type
+cast is also an expression:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-228">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;AClass;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;AInterface(B.Intf).testproc;
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;...
+&#x00A0;<br />end;
+</div>
+<!--l. 5763--><p class="nopar" >Assume the interface <span 
+class="cmtt-10">intf </span>is reference counted. When the compiler evaluates <span 
+class="cmtt-10">B.Intf</span>, it creates a
+temporary variable. This variable may be released only when the procedure exits: it is therefor
+invalid to e.g. free the instance <span 
+class="cmtt-10">B </span>prior to the exit of the procedure, since when the temporary
+variable is finalized, it will attempt to free <span 
+class="cmtt-10">B </span>again.
+<!--l. 5770--><p class="noindent" >Additionally, function results may point to a non-nil valid COM interface on entry: this is because
+the function result is treated as a var parameter.
+                                                                            
+
+                                                                            
+<!--l. 5776--><div class="crosslinks"><p class="noindent">[<a 
+href="refse47.html" >prev</a>] [<a 
+href="refse47.html#tailrefse47.html" >prev-tail</a>] [<a 
+href="refse48.html" >front</a>] [<a 
+href="refch7.html#refse48.html" >up</a>] </p></div>
+<!--l. 5776--><p class="noindent" ><a 
+ id="tailrefse48.html"></a>  
+</body></html> 

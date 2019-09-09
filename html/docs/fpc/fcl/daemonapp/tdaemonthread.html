@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDaemonThread</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../daemonapp/index.html">Overview</a>][<a href="../daemonapp/index-1.html">Resource strings</a>][<a href="../daemonapp/index-3.html">Types</a>][<a href="../daemonapp/index-4.html">Classes</a>][<a href="../daemonapp/index-5.html">Procedures and functions</a>][<a href="../daemonapp/index-6.html">Variables</a>][<a href="../daemonapp/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'daemonapp' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDaemonThread</h1>
+<p>[<a href="../daemonapp/tdaemonthread-1.html" onClick="window.open('../daemonapp/tdaemonthread-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../daemonapp/tdaemonthread-2.html" onClick="window.open('../daemonapp/tdaemonthread-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../daemonapp/tdaemonthread-3.html" onClick="window.open('../daemonapp/tdaemonthread-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../daemonapp/tdaemonthread-4.html" onClick="window.open('../daemonapp/tdaemonthread-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../daemonapp/tdaemonthread-5.html" onClick="window.open('../daemonapp/tdaemonthread-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../daemonapp/tdaemonthread-6.html" onClick="window.open('../daemonapp/tdaemonthread-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Thread to run daemons in</p>
+<h2>Declaration</h2>
+<p>Source position: daemonapp.pp line 308</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TDaemonThread <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../../rtl/classes/tthread.html">TThread</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../daemonapp/tdaemonthread.create.html">Create</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a new thread</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../daemonapp/tdaemonthread.execute.html">Execute</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Run the daemon</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../daemonapp/tdaemonthread.checkcontrolmessage.html">CheckControlMessage</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if a control message has arrived</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../daemonapp/tdaemonthread.stopdaemon.html">StopDaemon</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Stops the daemon</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../daemonapp/tdaemonthread.pausedaemon.html">PauseDaemon</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Pause the daemon</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../daemonapp/tdaemonthread.continuedaemon.html">ContinueDaemon</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Continue the daemon</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../daemonapp/tdaemonthread.shutdowndaemon.html">ShutDownDaemon</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Shut down daemon</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../daemonapp/tdaemonthread.interrogatedaemon.html">InterrogateDaemon</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Report the daemon status</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../daemonapp/tdaemonthread.daemon.html">Daemon</a><span class="sym">: </span><a href="../daemonapp/tcustomdaemon.html">TCustomDaemon</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Daemon instance</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../daemonapp/tdaemonthread.html">TDaemonThread</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Thread to run daemons in</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tthread.html">TThread</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TDaemonThread</var> is the thread in which the daemons in the application are run. Each daemon is run in it's own thread. </p>
+<p>It should not be necessary to create these threads manually, the  <a href="../daemonapp/tdaemoncontroller.html">TDaemonController</a> class will take care of this. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../daemonapp/tdaemoncontroller.html">TDaemonController</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Internal daemon controller class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../daemonapp/tdaemon.html">TDaemon</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Daemon class for visual development</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

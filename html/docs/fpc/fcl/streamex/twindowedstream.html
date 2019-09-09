@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TWindowedStream</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../streamex/index.html">Overview</a>][<a href="../streamex/index-2.html">Constants</a>][<a href="../streamex/index-4.html">Classes</a>][<a href="../streamex/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'streamex' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TWindowedStream</h1>
+<p>[<a href="../streamex/twindowedstream-1.html" onClick="window.open('../streamex/twindowedstream-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../streamex/twindowedstream-2.html" onClick="window.open('../streamex/twindowedstream-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../streamex/twindowedstream-3.html" onClick="window.open('../streamex/twindowedstream-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../streamex/twindowedstream-4.html" onClick="window.open('../streamex/twindowedstream-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../streamex/twindowedstream-5.html" onClick="window.open('../streamex/twindowedstream-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../streamex/twindowedstream-6.html" onClick="window.open('../streamex/twindowedstream-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Provide a window on another stream</p>
+<h2>Declaration</h2>
+<p>Source position: streamex.pp line 164</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TWindowedStream <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../../rtl/classes/townerstream.html">TOwnerStream</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../streamex/twindowedstream.create.html">Create</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Initialize a new instance of <var>TWindowedStream</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../streamex/twindowedstream.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Destroy the <var>TWindowedStream</var> instance.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../streamex/twindowedstream.read.html">Read</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read data from the stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../streamex/twindowedstream.write.html">Write</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read data to the stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../streamex/twindowedstream.seek.html">Seek</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reposition the stream</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../streamex/twindowedstream.html">TWindowedStream</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Provide a window on another stream</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/townerstream.html">TOwnerStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tstream.html">TStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TWindowedStream</var> is a <a href="../../rtl/classes/tstream.html">TStream</a> descendent that can be used to provide a window on the data of another stream. The position and size of the window can be determined in the constructor, and the stream will behave as a normal stream. The actual reading (or writing) will happen on the source stream. </p>
+<p>If the source stream has some limitations (e.g. no <a href="../../rtl/classes/tstream.seek.html">Seek</a>) then the <var>TWindowedStream</var> will inherit these limitations. </p>
+<p>The <var>TWindowedStream</var> will keep track of the last position it used, and will attempt to restore it if it was modified between calls to <var>Read</var> and <var>Write</var>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../../rtl/classes/tstream.html">TStream</a></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../streamex/twindowedstream.create.html">TWindowedStream.Create</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Initialize a new instance of <var>TWindowedStream</var></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

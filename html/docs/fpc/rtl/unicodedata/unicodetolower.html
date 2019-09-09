@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>UnicodeToLower</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unicodedata/index.html">Overview</a>][<a href="../unicodedata/index-1.html">Resource strings</a>][<a href="../unicodedata/index-2.html">Constants</a>][<a href="../unicodedata/index-3.html">Types</a>][<a href="../unicodedata/index-5.html">Procedures and functions</a>][<a href="../unicodedata/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'unicodedata' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>UnicodeToLower</h1>
+<p>Transform unicode string to lowercase</p>
+<h2>Declaration</h2>
+<p>Source position: unicodedata.pas line 370</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> UnicodeToLower<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AString<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AIgnoreInvalidSequence<span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>AResultString<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AString</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String to convert to lowercase.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AIgnoreInvalidSequence</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set to true to ignore invalid characters.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AResultString</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Lowercase equivalent of <var>AString</var></p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Zero if all went well, nonzero indicates an error.</p>
+<h2>Description</h2>
+<p><var>UnicodeToLower</var> transforms a UTF16 unicode string <var>AString</var> to its lowercase equivalent and returns this in <var>AResultString</var>. If the transformation was succesful, then the function returns <var>0</var>. A nonzero return value means an error occurred.  <var>AResultString</var> will remain untouched in that case. </p>
+<p>If a character in <var>AString</var> cannot be found in the unicode data tables, an error will be reported, unless <var>AIgnoreInvalidSequence</var>  is set to <var>True</var>, in which case the character will be copied as-is to the output. </p>
+<p>Unicode collation data can be loaded using <a href="../unicodedata/registercollation.html">RegisterCollation</a> or <a href="../unicodedata/loadcollation.html">LoadCollation</a></p>
+<h2>Errors</h2>
+<p>On error, a nonzero value will be returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../unicodedata/unicodetoupper.html">UnicodeToUpper</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Transform unicode string to uppercase</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unicodedata/registercollation.html">RegisterCollation</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Register a new collation</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unicodedata/loadcollation.html">LoadCollation</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Load a binary collation data file from file</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

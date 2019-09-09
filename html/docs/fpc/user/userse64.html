@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Symbol handling</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1901--><div class="crosslinks"><p class="noindent">[<a 
+href="userse65.html" >next</a>] [<a 
+href="userse63.html" >prev</a>] [<a 
+href="userse63.html#tailuserse63.html" >prev-tail</a>] [<a 
+href="#tailuserse64.html">tail</a>] [<a 
+href="userap3.html#userse64.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">C.5   </span> <a 
+href="user.html#QQ2-178-236" id="x178-185000C.5">Symbol handling</a></h3>
+<!--l. 1902--><p class="noindent" >This section lists all the messages that concern the handling of symbols. This means all things that
+have to do with procedure and variable names.
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Error: Identifier not found &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The  compiler  doesn&#8217;t  know  this  symbol.  Usually
+     happens when you misspell the name of a variable or procedure, or when you forget to
+     declare a variable.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Internal Error in SymTableStack()</span> </dt><dd 
+class="description">An internal error occurred in the compiler;
+     If you encounter such an error, please contact the developers and try to provide an
+     exact description of the circumstances in which the error occurs.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Duplicate identifier &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The identifier was already declared in the current
+     scope.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Identifier already defined in arg1 at line arg2</span> </dt><dd 
+class="description">The   identifier   was   already
+     declared in a previous scope.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Unknown identifier &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The identifier encountered has not been declared, or
+     is used outside the scope where it is defined.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Forward declaration not solved &#8221;arg1&#8221;</span> </dt><dd 
+class="description">This can happen in two cases:
+         <ul class="itemize1">
+         <li class="itemize">You declare a function in the <span 
+class="cmtt-10">interface </span>part, or with a <span 
+class="cmtt-10">forward </span>directive, but
+         do not implement it.
+         </li>
+         <li class="itemize">You reference a type which isn&#8217;t declared in the current <span 
+class="cmtt-10">type </span>block.</li></ul>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Error in type definition</span> </dt><dd 
+class="description">There is an error in your definition of a new array type. One of
+     the range delimiters in an array declaration is erroneous. For example, <span 
+class="cmtt-10">Array [1..1.25] </span>will
+     trigger this error.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Forward type not resolved &#8221;arg1&#8221;</span> </dt><dd 
+class="description">A symbol was forward defined, but no declaration
+     was encountered.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Only static variables can be used in static methods or outside methods</span> </dt><dd 
+class="description">A static
+     method of an object can only access static variables.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Record or object or class type expected</span> </dt><dd 
+class="description">The variable or expression isn&#8217;t of the type
+     <span 
+class="cmtt-10">record </span>or <span 
+class="cmtt-10">object </span>or <span 
+class="cmtt-10">class</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Instances of classes or objects with an abstract method are not allowed</span> </dt><dd 
+class="description">You are
+     trying to generate an instance of a class which has an abstract method that wasn&#8217;t
+     overridden.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Label not defined &#8221;arg1&#8221;</span> </dt><dd 
+class="description">A label was declared, but not defined.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Label used but not defined &#8221;arg1&#8221;</span> </dt><dd 
+class="description">A label was declared and used, but not
+     defined.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal label declaration</span> </dt><dd 
+class="description">This error should never happen; it occurs if a label is defined
+     outside a procedure or function.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: GOTO and LABEL are not supported (use switch -Sg)</span> </dt><dd 
+class="description">You must use the -Sg
+     switch to compile a program which has <span 
+class="cmtt-10">label</span>s and <span 
+class="cmtt-10">goto </span>statements. By default, <span 
+class="cmtt-10">label </span>and
+     <span 
+class="cmtt-10">goto </span>are not supported.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Label not found</span> </dt><dd 
+class="description">A <span 
+class="cmtt-10">goto label </span>was encountered, but the label wasn&#8217;t declared.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: identifier isn&#8217;t a label</span> </dt><dd 
+class="description">The identifier specified after the <span 
+class="cmtt-10">goto </span>isn&#8217;t of type
+     label.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: label already defined</span> </dt><dd 
+class="description">You are defining a label twice. You can define a label only
+     once.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: illegal type declaration of set elements</span> </dt><dd 
+class="description">The declaration of a set contains an invalid
+     type definition.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Forward class definition not resolved &#8221;arg1&#8221;</span> </dt><dd 
+class="description">You declared a class, but you did not
+     implement it.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Unit &#8221;arg1&#8221; not used in arg2</span> </dt><dd 
+class="description">The unit referenced in the <span 
+class="cmtt-10">uses </span>clause is not
+     used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Parameter &#8221;arg1&#8221; not used</span> </dt><dd 
+class="description">The identifier was declared (locally or globally) but was not
+     used (locally or globally).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: Local variable &#8221;arg1&#8221; not used</span> </dt><dd 
+class="description">You have declared, but not used, a variable in a
+     procedure or function implementation.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Value parameter &#8221;arg1&#8221; is assigned but never used</span> </dt><dd 
+class="description">The identifier was declared
+     (locally or globally) and assigned to, but is not used (locally or globally) after the
+     assignment.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: Local variable &#8221;arg1&#8221; is assigned but never used</span> </dt><dd 
+class="description">The variable in a procedure or
+     function implementation is declared and assigned to, but is not used after the
+     assignment.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Local arg1 &#8221;arg2&#8221; is not used</span> </dt><dd 
+class="description">A local symbol is never used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: Private field &#8221;arg1.arg2&#8221; is never used</span> </dt><dd 
+class="description">The indicated private field is defined, but is
+     never used in the code.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: Private field &#8221;arg1.arg2&#8221; is assigned but never used</span> </dt><dd 
+class="description">The indicated private field is
+     declared and assigned to, but never read.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: Private method &#8221;arg1.arg2&#8221; never used</span> </dt><dd 
+class="description">The indicated private method is declared but
+     is never used in the code.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Set type expected</span> </dt><dd 
+class="description">The variable or expression is not of type <span 
+class="cmtt-10">set</span>. This happens in an <span 
+class="cmtt-10">in</span>
+     statement.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Function result does not seem to be set</span> </dt><dd 
+class="description">You can get this warning if the compiler
+     thinks that a function return value is not set. This will not be displayed for assembler
+     procedures, or procedures that contain assembler blocks.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Type &#8221;arg1&#8221; is not aligned correctly in current record for C</span> </dt><dd 
+class="description">Arrays with sizes
+     not multiples of 4 will be wrongly aligned for C structures.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Unknown record field identifier &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The field doesn&#8217;t exist in the record/object
+     definition.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Local variable &#8221;arg1&#8221; does not seem to be initialized</span> </dt><dd 
+class="description">This message is displayed
+     if the compiler thinks that a variable will be used (i.e. it appears in the right-hand side of an
+     expression) when it was not initialized first (i.e. appeared in the left-hand side of an
+     assignment).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Variable &#8221;arg1&#8221; does not seem to be initialized</span> </dt><dd 
+class="description">This message is displayed if the
+     compiler thinks that a variable will be used (i.e. it appears in the right-hand side of an
+     expression) when it was not initialized first (i.e. appeared in the left-hand side of an
+     assignment).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: identifier idents no member &#8221;arg1&#8221;</span> </dt><dd 
+class="description">This error is generated when an identifier of a
+     record, field or method is accessed while it is not defined.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Found declaration: arg1</span> </dt><dd 
+class="description">You get this when you use the <span 
+class="cmtt-10">-vh </span>switch.In the case of an
+     overloaded procedure not being found. Then all candidate overloaded procedures are listed,
+     with their parameter lists.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Data element too large</span> </dt><dd 
+class="description">You get this when you declare a data element whose size
+     exceeds the prescribed limit (2 Gb on 80386+/68020+ processors).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: No matching implementation for interface method &#8221;arg1&#8221; found</span> </dt><dd 
+class="description">There was no
+     matching method found which could implement the interface method. Check argument types
+     and result type of the methods.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Symbol &#8221;arg1&#8221; is deprecated</span> </dt><dd 
+class="description">This means that a symbol (a variable, routine, etc...)
+     which is declared as <span 
+class="cmtt-10">deprecated </span>is used. Deprecated symbols may no longer be available in
+     newer versions of the unit / library. Use of this symbol should be avoided as much as
+     possible.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Symbol &#8221;arg1&#8221; is not portable</span> </dt><dd 
+class="description">This means that a symbol (a variable,
+     routine, etc...) which is declared as <span 
+class="cmtt-10">platform </span>is used. This symbol&#8217;s value, use and
+     availability is platform specific and should not be used if the source code must be
+     portable.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Symbol &#8221;arg1&#8221; is not implemented</span> </dt><dd 
+class="description">This means that a symbol (a variable, routine,
+     etc...) which is declared as <span 
+class="cmtt-10">unimplemented </span>is used. This symbol is defined, but is not yet
+     implemented on this specific platform.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t create unique type from this type</span> </dt><dd 
+class="description">Only simple types like ordinal, float and
+     string types are supported when redefining a type with <span 
+class="cmtt-10">type newtype = type</span>
+     <span 
+class="cmtt-10">oldtype;</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Local variable &#8221;arg1&#8221; does not seem to be initialized</span> </dt><dd 
+class="description">This message is displayed if
+     the compiler thinks that a variable will be used (i.e. it appears in the right-hand side of an
+     expression) when it was not initialized first (i.e. it did not appear in the left-hand side of an
+     assignment).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Variable &#8221;arg1&#8221; does not seem to be initialized</span> </dt><dd 
+class="description">This message is displayed if the
+     compiler thinks that a variable will be used (i.e. it appears in the right-hand side of an
+     expression) when it was not initialized first (i.e. t did not appear in the left-hand side of an
+     assignment).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Function result variable does not seem to initialized</span> </dt><dd 
+class="description">This message is displayed
+     if the compiler thinks that the function result variable will be used (i.e. it appears in the
+     right-hand side of an expression) before it is initialized (i.e. before it appeared in the
+     left-hand side of an assignment).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Function result variable does not seem to be initialized</span> </dt><dd 
+class="description">This message is displayed if
+     the compiler thinks that the function result variable will be used (i.e. it appears in the
+     right-hand side of an expression) before it is initialized (i.e. it appears in the left-hand side of
+     an assignment)
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Variable &#8221;arg1&#8221; read but nowhere assigned</span> </dt><dd 
+class="description">You have read the value of a
+     variable, but nowhere assigned a value to it.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Found abstract method: arg1</span> </dt><dd 
+class="description">When getting a warning about constructing a
+     class/object with abstract methods you get this hint to assist you in finding the affected
+     method.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Symbol &#8221;arg1&#8221; is experimental</span> </dt><dd 
+class="description">This means that a symbol (a variable, routine,
+     etc...) which is declared as <span 
+class="cmtt-10">experimental </span>is used. Experimental symbols might disappear or
+     change semantics in future versions. Usage of this symbol should be avoided as much as
+     possible.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Forward declaration &#8221;arg1&#8221; not resolved, assumed external</span> </dt><dd 
+class="description">This happens if
+     you declare a function in the <span 
+class="cmtt-10">interface </span>of a unit in macpas mode, but do not implement
+     it.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Symbol &#8221;arg1&#8221; is belongs to a library</span> </dt><dd 
+class="description">This means that a symbol (a variable,
+     routine, etc...) which is declared as <span 
+class="cmtt-10">library </span>is used. Library symbols may not be available in
+     other libraries.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Symbol &#8221;arg1&#8221; is deprecated: &#8221;arg2&#8221;</span> </dt><dd 
+class="description">This means that a symbol (a variable,
+     routine, etc...) which is declared as <span 
+class="cmtt-10">deprecated </span>is used. Deprecated symbols may no longer
+     be available in newer versions of the unit / library. Use of this symbol should be avoided as
+     much as possible.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot find an enumerator for the type &#8221;arg1&#8221;</span> </dt><dd 
+class="description">This means that compiler cannot
+     find an apropriate enumerator to use in the for-in loop. To create an enumerator you need to
+     defind an operator enumerator or add a public or published GetEnumerator method to the
+     class or object definition.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot find a &#8221;MoveNext&#8221; method in enumerator &#8221;arg1&#8221;</span> </dt><dd 
+class="description">This means that
+     compiler cannot find a public MoveNext method with the Boolean return type in the
+     enumerator class or object definition.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot find a &#8221;Current&#8221; property in enumerator &#8221;arg1&#8221;</span> </dt><dd 
+class="description">This means that
+     compiler cannot find a public Current property in the enumerator class or object
+     definition.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Mismatch between number of declared parameters and number of colons in message string.</span> </dt><dd 
+class="description">
+     In Objective-C, a message name automatically contains as many colons as parameters. In
+     order to prevent mistakes when specifying the message name in FPC, the compiler checks
+     whether this is also the case here. Note that in case of messages taking a variable number
+     of arguments translated to FPC via an <span 
+class="cmtt-10">array of const </span>parameter, this final
+     <span 
+class="cmtt-10">array of const </span>parameter is not counted. Neither are the hidden <span 
+class="cmtt-10">self </span>and <span 
+class="cmtt-10">_cmd</span>
+     parameters.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: Private type &#8221;arg1.arg2&#8221; never used</span> </dt><dd 
+class="description">The indicated private type is declared but is
+     never used in the code.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: Private const &#8221;arg1.arg2&#8221; never used</span> </dt><dd 
+class="description">The indicated private const is declared but is
+     never used in the code.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: Private property &#8221;arg1.arg2&#8221; never used</span> </dt><dd 
+class="description">The indicated private property is declared
+     but is never used in the code.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Unit &#8221;arg1&#8221; is deprecated</span> </dt><dd 
+class="description">This means that a unit which is declared as <span 
+class="cmtt-10">deprecated</span>
+     is used. Deprecated units may no longer be available in newer versions of the library. Use of
+     this unit should be avoided as much as possible.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Unit &#8221;arg1&#8221; is deprecated: &#8221;arg2&#8221;</span> </dt><dd 
+class="description">This means that a unit which is
+     declared as <span 
+class="cmtt-10">deprecated </span>is used. Deprecated units may no longer be available
+     in newer versions of the library. Use of this unit should be avoided as much as
+     possible.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Unit &#8221;arg1&#8221; is not portable</span> </dt><dd 
+class="description">This means that a unit which is declared as <span 
+class="cmtt-10">platform</span>
+     is used. This unit use and availability is platform specific and should not be used if the source
+     code must be portable.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Unit &#8221;arg1&#8221; is belongs to a library</span> </dt><dd 
+class="description">This means that a unit which is declared as
+     <span 
+class="cmtt-10">library </span>is used. Library units may not be available in other libraries.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Unit &#8221;arg1&#8221; is not implemented</span> </dt><dd 
+class="description">This means that a unit which is declared as
+     <span 
+class="cmtt-10">unimplemented </span>is used. This unit is defined, but is not yet implemented on this specific
+     platform.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Unit &#8221;arg1&#8221; is experimental</span> </dt><dd 
+class="description">This means that a unit which is declared as
+     <span 
+class="cmtt-10">experimental </span>is used. Experimental units might disappear or change semantics in future
+     versions. Usage of this unit should be avoided as much as possible.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: No full definition of the formally declared class &#8221;arg1&#8221; is in scope. Add the unit containing its full definition to the uses clause.</span> </dt><dd 
+class="description">
+     Objecive-C and Java classes can be imported formally, without using the the unit in which it
+     is fully declared. This enables making forward references to such classes and breaking circular
+     dependencies amongst units. However, as soon as you wish to actually do something with an
+     entity of this class type (such as access one of its fields, send a message to it, or use
+     it to inherit from), the compiler requires the full definition of the class to be in
+     scope.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Gotos into initialization or finalization blocks of units are not allowed</span> </dt><dd 
+class="description">Gotos
+     into initialization or finalization blockse of units are not allowed.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Invalid external name &#8221;arg1&#8221; for formal class &#8221;arg2&#8221;</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Complete class definition with external name &#8221;arg1&#8221; here</span> </dt><dd 
+class="description">When a class is
+     declared using a formal external definition, the actual external definition (if any) must specify
+     the same external name as the formal definition (since both definitions refer to the same
+     actual class type).
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Possible library conflict: symbol &#8221;arg1&#8221; from library &#8221;arg2&#8221; also found in library &#8221;arg3&#8221;</span> </dt><dd 
+class="description">
+     Some OS do not have library specific namespaces, for those OS, the function declared as
+     &#8221;external &#8217;libname&#8217; name &#8217;funcname&#8217;&#8221;, the &#8217;libname&#8217; part is only a hint, funcname might also
+     be loaded by another library. This warning appears if &#8217;funcname&#8217; is used twice with two
+     different library names.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot add implicit constructor &#8217;Create&#8217; because identifier already used by &#8221;arg1&#8221;</span> </dt><dd 
+class="description">
+     Java does not automatically add inherited constructors to child classes, so that they can be
+     hidden. However, if a class does not explicitly declare at least one constructor, the compiler is
+     required to add a public, parameterless constructor. In Java, constructors are
+     nameless, but in FPC they are all called &#8220;Create&#8221;. Therefore, if you do not add a
+     constructor to a Java class and furthermore use the &#8220;Create&#8221; identifier for another
+     entity (e.g., a field, or a parameterless method), the compiler cannot satisfy this
+     requirement.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot generate default constructor for class, because parent has no parameterless constructor</span> </dt><dd 
+class="description">
+     Java does not automatically add inherited constructors to child classes, so that they can be
+     hidden. However, if a class does not explicitly declare at least one constructor, the compiler is
+     required to add a public, parameterless constructor. This compiler must then call the
+     parameterless constructor from the parent class inside this added constructor. This is
+     however impossible if the parent class does not declare such a constructor. In this case you
+     must add a valid constructor yourself.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Adding helper for arg1</span> </dt><dd 
+class="description">A helper for the mentioned type is added to the current
+     scope
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Found declaration: arg1</span> </dt><dd 
+class="description">This message shows all overloaded declarations in case of an
+     error.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Local variable &#8221;arg1&#8221; of a managed type does not seem to be initialized</span> </dt><dd 
+class="description">
+     This message is displayed if the compiler thinks that a variable will be used (i.e. it appears in
+     the right-hand side of an expression) when it was not initialized first (i.e. appeared in the
+     left-hand side of an assignment). Since the variable is managed, i. e. implicitly initialized by
+     the compiler, this might be intended behaviour and does not necessarily mean that the code
+     is wrong.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Variable &#8221;arg1&#8221; of a managed type does not seem to be initialized</span> </dt><dd 
+class="description">This
+     message is displayed if the compiler thinks that a variable will be used (i.e. it appears in the
+     right-hand side of an expression) when it was not initialized first (i.e. appeared in the
+     left-hand side of an assignment). Since the variable is managed, i. e. implicitly initialized by
+     the compiler, this might be intended behaviour and does not necessarily mean that the code
+     is wrong.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Local variable &#8221;arg1&#8221; of a managed type does not seem to be initialized</span> </dt><dd 
+class="description">This
+     message is displayed if the compiler thinks that a variable will be used (i.e. it appears in the
+     right-hand side of an expression) when it was not initialized first (i.e. it did not appear in the
+     left-hand side of an assignment). Since the variable is managed, i. e. implicitly initialized by
+     the compiler, this might be intended behaviour and does not necessarily mean that the code
+     is wrong.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Variable &#8221;arg1&#8221; of a managed type does not seem to be initialized</span> </dt><dd 
+class="description">This message
+     is displayed if the compiler thinks that a variable will be used (i.e. it appears in the
+     right-hand side of an expression) when it was not initialized first (i.e. t did not appear in the
+     left-hand side of an assignment). Since the variable is managed, i. e. implicitly initialized by
+     the compiler, this might be intended behaviour and does not necessarily mean that the code
+     is wrong.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: function result variable of a managed type does not seem to initialized</span> </dt><dd 
+class="description">This
+     message is displayed if the compiler thinks that the function result variable will be used (i.e.
+     it appears in the right-hand side of an expression) before it is initialized (i.e. before it
+     appeared in the left-hand side of an assignment). Since the variable is managed, i. e.
+     implicitly initialized by the compiler, this might be intended behaviour and does not
+     necessarily mean that the code is wrong.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Function result variable of a managed type does not seem to be initialized</span> </dt><dd 
+class="description">This
+     message is displayed if the compiler thinks that the function result variable will be used (i.e.
+     it appears in the right-hand side of an expression) before it is initialized (i.e. it appears in the
+     left-hand side of an assignment). Since the variable is managed, i. e. implicitly initialized by
+     the compiler, this might be intended behaviour and does not necessarily mean that the code
+     is wrong.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Duplicate identifier &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The identifier was already declared in an Objective-C
+     category that&#8217;s in the same scope as the current identifier. This is a warning instead of an
+     error, because while this hides the identifier from the category, there are often many unused
+     categories in scope.</dd></dl>
+<!--l. 2209--><div class="crosslinks"><p class="noindent">[<a 
+href="userse65.html" >next</a>] [<a 
+href="userse63.html" >prev</a>] [<a 
+href="userse63.html#tailuserse63.html" >prev-tail</a>] [<a 
+href="userse64.html" >front</a>] [<a 
+href="userap3.html#userse64.html" >up</a>] </p></div>
+<!--l. 2209--><p class="noindent" ><a 
+ id="tailuserse64.html"></a>  
+</body></html> 

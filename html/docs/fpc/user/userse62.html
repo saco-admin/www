@@ -1,0 +1,2407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Parser messages</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 352--><div class="crosslinks"><p class="noindent">[<a 
+href="userse63.html" >next</a>] [<a 
+href="userse61.html" >prev</a>] [<a 
+href="userse61.html#tailuserse61.html" >prev-tail</a>] [<a 
+href="#tailuserse62.html">tail</a>] [<a 
+href="userap3.html#userse62.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">C.3   </span> <a 
+href="user.html#QQ2-176-234" id="x176-183000C.3">Parser messages</a></h3>
+<!--l. 353--><p class="noindent" >This section lists all parser messages. The parser takes care of the semantics of you language, i.e. it
+determines if your Pascal constructs are correct.
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Error: Parser - Syntax Error</span> </dt><dd 
+class="description">An   error   against   the   Turbo   Pascal   language   was
+     encountered. This typically happens when an illegal character is found in the source
+     file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: INTERRUPT procedure cannot be nested</span> </dt><dd 
+class="description">An <span 
+class="cmtt-10">INTERRUPT </span>procedure must be
+     global.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Procedure type &#8221;arg1&#8221; ignored</span> </dt><dd 
+class="description">The specified procedure directive is ignored
+     by FPC programs.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Not all declarations of &#8221;arg1&#8221; are declared with OVERLOAD</span> </dt><dd 
+class="description">When  you
+     want to use overloading using the <span 
+class="cmtt-10">OVERLOAD </span>directive, then all declarations need to
+     have <span 
+class="cmtt-10">OVERLOAD </span>specified.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Duplicate exported function name &#8221;arg1&#8221;</span> </dt><dd 
+class="description">Exported function names inside a
+     specific DLL must all be different.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Duplicate exported function index arg1</span> </dt><dd 
+class="description">Exported  function  indexes  inside  a
+     specific DLL must all be different.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Invalid index for exported function</span> </dt><dd 
+class="description">DLL function index must be in the range
+     <span 
+class="cmtt-10">1..$FFFF</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Relocatable DLL or executable arg1 debug info does not work, disabled.</span> </dt><dd 
+class="description">
+     It is currently not possible to include debug information in a relocatable DLL.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: To allow debugging for win32 code you need to disable relocation with -WN option</span> </dt><dd 
+class="description">
+     Stabs debug info is wrong for relocatable DLL or EXES. Use -WN if you want to debug
+     win32 executables.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Constructor name must be INIT</span> </dt><dd 
+class="description">You are declaring an object constructor with
+     a name which is not <span 
+class="cmtt-10">init</span>, and the <span 
+class="cmtt-10">-Ss </span>switch is in effect. See the switch <span 
+class="cmtt-10">-Ss </span>(see page
+     <a 
+href="usersu16.html#x39-460005.1.5">122<!--tex4ht:ref: option:Ss --></a>).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Destructor name must be DONE</span> </dt><dd 
+class="description">You are declaring an object destructor with
+     a name which is not <span 
+class="cmtt-10">done</span>, and the <span 
+class="cmtt-10">-Ss </span>switch is in effect. See the switch <span 
+class="cmtt-10">-Ss </span>(see page
+     <a 
+href="usersu16.html#x39-460005.1.5">122<!--tex4ht:ref: option:Ss --></a>).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Procedure type INLINE not supported</span> </dt><dd 
+class="description">You tried to compile a program with
+     C++ style inlining, and forgot to specify the <span 
+class="cmtt-10">-Si </span>option (<span 
+class="cmtt-10">-Si </span>(see page <a 
+href="usersu16.html#x39-460005.1.5">121<!--tex4ht:ref: option:Si --></a>)). The
+     compiler doesn&#8217;t support C++ styled inlining by default.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Constructor should be public</span> </dt><dd 
+class="description">Constructors must be in the &#8217;public&#8217; part of
+     an object (class) declaration.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Destructor should be public</span> </dt><dd 
+class="description">Destructors must be in the &#8217;public&#8217; part of an
+     object (class) declaration.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: Class should have one destructor only</span> </dt><dd 
+class="description">You can declare only one destructor for
+     a class.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Local class definitions are not allowed</span> </dt><dd 
+class="description">Classes must be defined globally. They
+     cannot be defined inside a procedure or function.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Anonymous class definitions are not allowed</span> </dt><dd 
+class="description">An invalid object (class) declaration
+     was encountered, i.e. an object or class without methods that isn&#8217;t derived from another
+     object or class. For example:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-127">
+     &#x00A0;Type&#x00A0;o&#x00A0;=&#x00A0;object
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;a&#x00A0;:&#x00A0;longint;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 405--><p class="nopar" >will trigger this error.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: The object &#8221;arg1&#8221; has no VMT</span> </dt><dd 
+class="description">This is a note indicating that the declared object has
+     no virtual method table.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal parameter list</span> </dt><dd 
+class="description">You are calling a function with parameters that are of a different
+     type than the declared parameters of the function.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Wrong number of parameters specified for call to &#8221;arg1&#8221;</span> </dt><dd 
+class="description">There is an error in the
+     parameter list of the function or procedure &#8211; the number of parameters is not
+     correct.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: overloaded identifier &#8221;arg1&#8221; isn&#8217;t a function</span> </dt><dd 
+class="description">The compiler encountered a symbol
+     with the same name as an overloaded function, but it is not a function it can
+     overload.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: overloaded functions have the same parameter list</span> </dt><dd 
+class="description">You&#8217;re declaring overloaded
+     functions, but with the same parameter list. Overloaded function must have at least 1
+     different parameter in their declaration.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: function header doesn&#8217;t match the previous declaration &#8221;arg1&#8221;</span> </dt><dd 
+class="description">You
+     declared a function with the same parameters but different result type or function
+     modifiers.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: function header &#8221;arg1&#8221; doesn&#8217;t match forward : var name changes arg2 =¿ arg3</span> </dt><dd 
+class="description">
+     You declared the function in the <span 
+class="cmtt-10">interface </span>part, or with the <span 
+class="cmtt-10">forward </span>directive, but defined
+     it with a different parameter list.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: Values in enumeration types have to be ascending</span> </dt><dd 
+class="description">Free Pascal allows enumeration
+     constructions as in C. Examine the following two declarations:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-128">
+     &#x00A0;type&#x00A0;a&#x00A0;=&#x00A0;(A_A,A_B,A_E:=6,A_UAS:=200);
+     &#x00A0;<br />&#x00A0;type&#x00A0;a&#x00A0;=&#x00A0;(A_A,A_B,A_E:=6,A_UAS:=4);
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 435--><p class="nopar" >The second declaration would produce an error. <span 
+class="cmtt-10">A</span><span 
+class="cmtt-10">_UAS </span>needs to have a value higher than <span 
+class="cmtt-10">A</span><span 
+class="cmtt-10">_E</span>,
+     i.e. at least 7.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: With cannot be used for variables in a different segment</span> </dt><dd 
+class="description">With stores a variable
+     locally on the stack, but this is not possible if the variable belongs to another
+     segment.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: function nesting ¿ 31</span> </dt><dd 
+class="description">You can nest function definitions only 31 levels deep.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: range check error while evaluating constants</span> </dt><dd 
+class="description">The constants are out of their allowed
+     range.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: range check error while evaluating constants</span> </dt><dd 
+class="description">The constants are out of their
+     allowed range.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: duplicate case label</span> </dt><dd 
+class="description">You are specifying the same label 2 times in a <span 
+class="cmtt-10">case</span>
+     statement.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Upper bound of case range is less than lower bound</span> </dt><dd 
+class="description">The upper bound of a <span 
+class="cmtt-10">case</span>
+     label is less than the lower bound and this is useless.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: typed constants of classes or interfaces are not allowed</span> </dt><dd 
+class="description">You cannot declare a
+     constant of type class or object.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: functions variables of overloaded functions are not allowed</span> </dt><dd 
+class="description">You are trying to
+     assign an overloaded function to a procedural variable. This is not allowed.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: string length must be a value from 1 to 255</span> </dt><dd 
+class="description">The length of a shortstring in Pascal is
+     limited to 255 characters. You are trying to declare a string with length less than 1 or greater
+     than 255.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: use extended syntax of NEW and DISPOSE for instances of objects</span> </dt><dd 
+class="description">If you
+     have a pointer <span 
+class="cmtt-10">a </span>to an object type, then the statement <span 
+class="cmtt-10">new(a) </span>will not initialize the object
+     (i.e. the constructor isn&#8217;t called), although space will be allocated. You should issue the
+     <span 
+class="cmtt-10">new(a,init) </span>statement. This will allocate space, and call the constructor of the
+     object.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: use of NEW or DISPOSE for untyped pointers is meaningless</span> </dt><dd 
+class="description">
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: use of NEW or DISPOSE is not possible for untyped pointers</span> </dt><dd 
+class="description">You cannot use
+     <span 
+class="cmtt-10">new(p) </span>or <span 
+class="cmtt-10">dispose(p) </span>if <span 
+class="cmtt-10">p </span>is an untyped pointer because no size is associated to an untyped
+     pointer. It is accepted for compatibility in <span 
+class="cmtt-10">TP </span>and <span 
+class="cmtt-10">DELPHI </span>modes, but the compiler will still
+     warn you if it finds such a construct.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: class identifier expected</span> </dt><dd 
+class="description">This happens when the compiler scans a procedure declaration
+     that contains a dot, i.e., an object or class method, but the type in front of the dot is not a
+     known type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: type identifier not allowed here</span> </dt><dd 
+class="description">You cannot use a type inside an expression.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: method identifier expected</span> </dt><dd 
+class="description">This identifier is not a method. This happens when the
+     compiler scans a procedure declaration that contains a dot, i.e., an object or class method,
+     but the procedure name is not a procedure of this type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: function header doesn&#8217;t match any method of this class &#8221;arg1&#8221;</span> </dt><dd 
+class="description">This identifier is
+     not a method. This happens when the compiler scans a procedure declaration that contains a
+     dot, i.e., an object or class method, but the procedure name is not a procedure of this
+     type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">procedure/function arg1</span> </dt><dd 
+class="description">When using the <span 
+class="cmtt-10">-vd </span>switch, the compiler tells you when it starts
+     processing a procedure or function implementation.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal floating point constant</span> </dt><dd 
+class="description">The compiler expects a floating point expression, and
+     gets something else.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: FAIL can be used in constructors only</span> </dt><dd 
+class="description">You are using the <span 
+class="cmtt-10">fail </span>keyword outside a
+     constructor method.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Destructors cannot have parameters</span> </dt><dd 
+class="description">You are declaring a destructor with a parameter
+     list. Destructor methods cannot have parameters.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Only class methods, class properties and class variables can be referred with class references</span> </dt><dd 
+class="description">
+     This error occurs in a situation like the following:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-129">
+     &#x00A0;Type&#x00A0;:
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Tclass&#x00A0;=&#x00A0;Class&#x00A0;of&#x00A0;Tobject;
+     &#x00A0;<br />
+     &#x00A0;<br />&#x00A0;Var&#x00A0;C&#x00A0;:&#x00A0;TClass;
+     &#x00A0;<br />
+     &#x00A0;<br />&#x00A0;begin
+     &#x00A0;<br />&#x00A0;...
+     &#x00A0;<br />&#x00A0;C.free
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 509--><p class="nopar" ><span 
+class="cmtt-10">Free </span>is not a class method and hence cannot be called with a class reference.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Only class methods, class properties and class variables can be accessed in class methods</span> </dt><dd 
+class="description">
+     This is related to the previous error. You cannot call a method of an object from inside a
+     class method. The following code would produce this error:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-130">
+     &#x00A0;class&#x00A0;procedure&#x00A0;tobject.x;
+     &#x00A0;<br />
+     &#x00A0;<br />&#x00A0;begin
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;free
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 520--><p class="nopar" >Because free is a normal method of a class it cannot be called from a class method.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Constant and CASE types do not match</span> </dt><dd 
+class="description">One of the labels is not of the same type as
+     the case variable.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The symbol cannot be exported from a library</span> </dt><dd 
+class="description">You can only export procedures and
+     functions when you write a library. You cannot export variables or constants.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: An inherited method is hidden by &#8221;arg1&#8221;</span> </dt><dd 
+class="description">A method that is declared <span 
+class="cmtt-10">virtual </span>in
+     a parent class, should be overridden in the descendant class with the <span 
+class="cmtt-10">override </span>directive. If
+     you don&#8217;t specify the <span 
+class="cmtt-10">override </span>directive, you will hide the parent method; you will not
+     override it.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: There is no method in an ancestor class to be overridden: &#8221;arg1&#8221;</span> </dt><dd 
+class="description">You are trying
+     to <span 
+class="cmtt-10">override </span>a virtual method of a parent class that does not exist.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: No member is provided to access property</span> </dt><dd 
+class="description">You specified no <span 
+class="cmtt-10">read </span>directive for a
+     property.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Stored property directive is not yet implemented</span> </dt><dd 
+class="description">This message is no longer
+     used, as the <span 
+class="cmtt-10">stored </span>directive has been implemented.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal symbol for property access</span> </dt><dd 
+class="description">There is an error in the <span 
+class="cmtt-10">read </span>or <span 
+class="cmtt-10">write</span>
+     directives for an array property. When you declare an array property, you can only
+     access it with procedures and functions. The following code would cause such an
+     error.
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-131">
+     &#x00A0;tmyobject&#x00A0;=&#x00A0;class
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;i&#x00A0;:&#x00A0;integer;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;property&#x00A0;x&#x00A0;[i&#x00A0;:&#x00A0;integer]:&#x00A0;integer&#x00A0;read&#x00A0;I&#x00A0;write&#x00A0;i;
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 548--><p class="nopar" >
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot access a protected field of an object here</span> </dt><dd 
+class="description">Fields that are declared in a
+     <span 
+class="cmtt-10">protected </span>section of an object or class declaration cannot be accessed outside the module
+     where the object is defined, or outside descendent object methods.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot access a private field of an object here</span> </dt><dd 
+class="description">Fields that are declared in a
+     <span 
+class="cmtt-10">private </span>section of an object or class declaration cannot be accessed outside the module
+     where the class is defined.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Overridden methods must have the same return type: &#8221;arg2&#8221; is overridden by &#8221;arg1&#8221; which has another return type</span> </dt><dd 
+class="description">
+     If you declare overridden methods in a class definition, they must have the same return
+     type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: EXPORT declared functions cannot be nested</span> </dt><dd 
+class="description">You cannot declare a function or
+     procedure within a function or procedure that was declared as an export procedure.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Methods cannot be EXPORTed</span> </dt><dd 
+class="description">You cannot declare a procedure that is a method for
+     an object as <span 
+class="cmtt-10">export</span>ed.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Call by var for arg no. arg1 has to match exactly: Got &#8221;arg2&#8221; expected &#8221;arg3&#8221;</span> </dt><dd 
+class="description">
+     When calling a function declared with <span 
+class="cmtt-10">var </span>parameters, the variables in the function call must
+     be of exactly the same type. There is no automatic type conversion.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Class isn&#8217;t a parent class of the current class</span> </dt><dd 
+class="description">When calling inherited methods, you
+     are trying to call a method of a non-related class. You can only call an inherited method of a
+     parent class.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: SELF is only allowed in methods</span> </dt><dd 
+class="description">You are trying to use the <span 
+class="cmtt-10">self </span>parameter outside an
+     object&#8217;s method. Only methods get passed the <span 
+class="cmtt-10">self </span>parameters.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Methods can be only in other methods called direct with type identifier of the class</span> </dt><dd 
+class="description">
+     A construction like <span 
+class="cmtt-10">sometype.somemethod </span>is only allowed in a method.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal use of &#8217;:&#8217;</span> </dt><dd 
+class="description">You are using the format <span 
+class="cmtt-10">: </span>(colon) 2 times on an expression that is not
+     a real expression.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: range check error in set constructor or duplicate set element</span> </dt><dd 
+class="description">The declaration of a
+     set contains an error. Either one of the elements is outside the range of the set type, or two of
+     the elements are in fact the same.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Pointer to object expected</span> </dt><dd 
+class="description">You specified an illegal type in a <span 
+class="cmtt-10">new </span>statement. The
+     extended syntax of <span 
+class="cmtt-10">new </span>needs an object as a parameter.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Expression must be constructor call</span> </dt><dd 
+class="description">When using the extended syntax of <span 
+class="cmtt-10">new</span>, you
+     must specify the constructor method of the object you are trying to create. The procedure
+     you specified is not a constructor.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Expression must be destructor call</span> </dt><dd 
+class="description">When using the extended syntax of <span 
+class="cmtt-10">dispose</span>, you
+     must specify the destructor method of the object you are trying to dispose of. The procedure
+     you specified is not a destructor.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal order of record elements</span> </dt><dd 
+class="description">When declaring a constant record, you specified the
+     fields in the wrong order.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Expression type must be class or record type, got arg1</span> </dt><dd 
+class="description">A <span 
+class="cmtt-10">with </span>statement needs an
+     argument that is of the type <span 
+class="cmtt-10">record </span>or <span 
+class="cmtt-10">class</span>. You are using <span 
+class="cmtt-10">with </span>on an expression that is
+     not of this type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Procedures cannot return a value</span> </dt><dd 
+class="description">In Free Pascal, you can specify a return value for a
+     function when using the <span 
+class="cmtt-10">exit </span>statement. This error occurs when you try to do this with a
+     procedure. Procedures cannot return a value.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: constructors, destructors and class operators must be methods</span> </dt><dd 
+class="description">You&#8217;re declaring
+     a procedure as destructor, constructor or class operator, when the procedure isn&#8217;t a class
+     method.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Operator is not overloaded</span> </dt><dd 
+class="description">You&#8217;re trying to use an overloaded operator when it is not
+     overloaded for this type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Impossible to overload assignment for equal types</span> </dt><dd 
+class="description">You cannot overload assignment
+     for types that the compiler considers as equal.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Impossible operator overload</span> </dt><dd 
+class="description">The combination of operator, arguments and return type
+     are incompatible.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Re-raise isn&#8217;t possible there</span> </dt><dd 
+class="description">You are trying to re-raise an exception where it is not
+     allowed. You can only re-raise exceptions in an <span 
+class="cmtt-10">except </span>block.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The extended syntax of new or dispose isn&#8217;t allowed for a class</span> </dt><dd 
+class="description">You cannot
+     generate an instance of a class with the extended syntax of <span 
+class="cmtt-10">new</span>. The constructor must be
+     used for that. For the same reason, you cannot call <span 
+class="cmtt-10">dispose </span>to de-allocate an instance of a
+     class, the destructor must be used for that.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Procedure overloading is switched off</span> </dt><dd 
+class="description">When using the <span 
+class="cmtt-10">-So </span>switch, procedure
+     overloading is switched off. Turbo Pascal does not support function overloading.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: It is not possible to overload this operator. Related overloadable operators (if any) are: arg1</span> </dt><dd 
+class="description">
+     You are trying to overload an operator which cannot be overloaded. The following operators
+     can be overloaded :
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-132">
+     &#x00A0;&#x00A0;&#x00A0;&#x00A0;+,&#x00A0;-,&#x00A0;*,&#x00A0;/,&#x00A0;=,&#x00A0;&#x003E;,&#x00A0;&#x003C;,&#x00A0;&#x003C;=,&#x00A0;&#x003E;=,&#x00A0;is,&#x00A0;as,&#x00A0;in,&#x00A0;**,&#x00A0;:=
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 636--><p class="nopar" >
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Comparative operator must return a boolean value</span> </dt><dd 
+class="description">When overloading the <span 
+class="cmtt-10">=</span>
+     operator, the function must return a boolean value.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Only virtual methods can be abstract</span> </dt><dd 
+class="description">You are declaring a method as abstract, when
+     it is not declared to be virtual.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Use of unsupported feature: &#8221;arg1&#8221;.</span> </dt><dd 
+class="description">You&#8217;re trying to force the compiler into doing
+     something it cannot do yet.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The mix of different kind of objects (class, object, interface, etc) isn&#8217;t allowed</span> </dt><dd 
+class="description">
+     You cannot derive <span 
+class="cmtt-10">objects</span>, <span 
+class="cmtt-10">classes</span>, <span 
+class="cmtt-10">cppclasses </span>and <span 
+class="cmtt-10">interfaces </span>intertwined. E.g. a class
+     cannot have an object as parent and vice versa.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Unknown procedure directive had to be ignored: &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The procedure
+     directive you specified is unknown.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: arg1 can be associated with only one variable</span> </dt><dd 
+class="description">You cannot specify more than
+     one variable before the <span 
+class="cmtt-10">absolute</span>, <span 
+class="cmtt-10">export</span>, <span 
+class="cmtt-10">external</span>, <span 
+class="cmtt-10">weakexternal</span>, <span 
+class="cmtt-10">public </span>and
+     <span 
+class="cmtt-10">cvar </span>directives. As a result, for example the following construct will provide this
+     error:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-133">
+     &#x00A0;Var&#x00A0;Z&#x00A0;:&#x00A0;Longint;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;X,Y&#x00A0;:&#x00A0;Longint&#x00A0;absolute&#x00A0;Z;
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 657--><p class="nopar" >
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: absolute can only be associated with a var or const</span> </dt><dd 
+class="description">The address of an <span 
+class="cmtt-10">absolute</span>
+     directive can only point to a variable or constant. Therefore, the following code will produce
+     this error:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-134">
+     &#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;X;
+     &#x00A0;<br />
+     &#x00A0;<br />&#x00A0;&#x00A0;var&#x00A0;p&#x00A0;:&#x00A0;longint&#x00A0;absolute&#x00A0;x;
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 665--><p class="nopar" >
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Only one variable can be initialized</span> </dt><dd 
+class="description">You cannot specify more than one variable with
+     a initial value in Delphi mode.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Abstract methods shouldn&#8217;t have any definition (with function body)</span> </dt><dd 
+class="description">Abstract
+     methods can only be declared, you cannot implement them. They should be overridden by a
+     descendant class.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: This overloaded function cannot be local (must be exported)</span> </dt><dd 
+class="description">You are defining an
+     overloaded function in the implementation part of a unit, but there is no corresponding
+     declaration in the interface part of the unit.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Virtual methods are used without a constructor in &#8221;arg1&#8221;</span> </dt><dd 
+class="description">If you declare
+     objects or classes that contain virtual methods, you need to have a constructor and
+     destructor to initialize them. The compiler encountered an object or class with virtual
+     methods that doesn&#8217;t have a constructor/destructor pair.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Macro defined: arg1</span> </dt><dd 
+class="description">When <span 
+class="cmtt-10">-vc </span>is used, the compiler tells you when it defines macros.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Macro undefined: arg1</span> </dt><dd 
+class="description">When <span 
+class="cmtt-10">-vc </span>is used, the compiler tells you when it undefines
+     macros.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Macro arg1 set to arg2</span> </dt><dd 
+class="description">When <span 
+class="cmtt-10">-vc </span>is used, the compiler tells you what values macros
+     get.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Info: Compiling arg1</span> </dt><dd 
+class="description">When you turn on information messages (<span 
+class="cmtt-10">-vi</span>), the compiler tells you
+     what units it is recompiling.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Parsing interface of unit arg1</span> </dt><dd 
+class="description">This tells you that the reading of the interface of the current
+     unit has started
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Parsing implementation of arg1</span> </dt><dd 
+class="description">This tells you that the code reading of the implementation of
+     the current unit, library or program starts
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Compiling arg1 for the second time</span> </dt><dd 
+class="description">When you request debug messages (<span 
+class="cmtt-10">-vd</span>) the compiler
+     tells you what units it recompiles for the second time.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: No property found to override</span> </dt><dd 
+class="description">You want to override a property of a parent class,
+     when there is, in fact, no such property in the parent class.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Only one default property is allowed</span> </dt><dd 
+class="description">You specified a property as <span 
+class="cmtt-10">Default</span>, but
+     the class already has a default property, and a class can have only one default
+     property.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The default property must be an array property</span> </dt><dd 
+class="description">Only array properties of classes
+     can be made <span 
+class="cmtt-10">default </span>properties.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Virtual constructors are only supported in class object model</span> </dt><dd 
+class="description">You cannot have
+     virtual constructors in objects. You can only have them in classes.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: No default property available</span> </dt><dd 
+class="description">You are trying to access a default property of a class,
+     but this class (or one of its ancestors) doesn&#8217;t have a default property.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The class cannot have a published section, use the </span><span 
+class="cmbsy-10">{</span><span 
+class="cmbx-10">$M+</span><span 
+class="cmbsy-10">} </span><span 
+class="cmbx-10">switch</span> </dt><dd 
+class="description">If you want a
+     <span 
+class="cmtt-10">published </span>section in a class definition, you must use the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$M+</span><span 
+class="cmsy-10">} </span>switch, which turns on
+     generation of type information.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Forward declaration of class &#8221;arg1&#8221; must be resolved here to use the class as ancestor</span> </dt><dd 
+class="description">
+     To be able to use an object as an ancestor object, it must be defined first. This error occurs
+     in the following situation:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-135">
+     &#x00A0;&#x00A0;Type&#x00A0;ParentClas&#x00A0;=&#x00A0;Class;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;ChildClass&#x00A0;=&#x00A0;Class(ParentClass)
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;...
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 723--><p class="nopar" >where <span 
+class="cmtt-10">ParentClass </span>is declared but not defined.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Local operators not supported</span> </dt><dd 
+class="description">You cannot overload locally, i.e. inside procedures or
+     function definitions.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Procedure directive &#8221;arg1&#8221; not allowed in interface section</span> </dt><dd 
+class="description">This procedure
+     directive is not allowed in the <span 
+class="cmtt-10">interface </span>section of a unit. You can only use it in the
+     <span 
+class="cmtt-10">implementation </span>section.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Procedure directive &#8221;arg1&#8221; not allowed in implementation section</span> </dt><dd 
+class="description">This
+     procedure directive is not allowed in the <span 
+class="cmtt-10">implementation </span>section of a unit. You can only use
+     it in the <span 
+class="cmtt-10">interface </span>section.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Procedure directive &#8221;arg1&#8221; not allowed in procvar declaration</span> </dt><dd 
+class="description">This procedure
+     directive cannot be part of a procedural or function type declaration.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Function is already declared Public/Forward &#8221;arg1&#8221;</span> </dt><dd 
+class="description">You will get this error if a
+     function is defined as <span 
+class="cmtt-10">forward </span>twice. Or if it occurs in the <span 
+class="cmtt-10">interface </span>section, and again as a
+     <span 
+class="cmtt-10">forward </span>declaration in the <span 
+class="cmtt-10">implementation </span>section.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot use both EXPORT and EXTERNAL</span> </dt><dd 
+class="description">These two procedure directives are
+     mutually exclusive.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: &#8221;arg1&#8221; not yet supported inside inline procedure/function</span> </dt><dd 
+class="description">Inline procedures don&#8217;t
+     support this declaration.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Inlining disabled</span> </dt><dd 
+class="description">Inlining of procedures is disabled.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Info: Writing Browser log arg1</span> </dt><dd 
+class="description">When information messages are on, the compiler warns you
+     when it writes the browser log (generated with the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$Y+ </span><span 
+class="cmsy-10">} </span>switch).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: may be pointer dereference is missing</span> </dt><dd 
+class="description">The compiler thinks that a pointer may need a
+     dereference.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Selected assembler reader not supported</span> </dt><dd 
+class="description">The selected assembler reader (with
+     <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$ASMMODE xxx</span><span 
+class="cmsy-10">} </span>is not supported. The compiler can be compiled with or without support for
+     a particular assembler reader.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Procedure directive &#8221;arg1&#8221; has conflicts with other directives</span> </dt><dd 
+class="description">You specified a
+     procedure directive that conflicts with other directives. For instance <span 
+class="cmtt-10">cdecl </span>and <span 
+class="cmtt-10">pascal </span>are
+     mutually exclusive.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Calling convention doesn&#8217;t match forward</span> </dt><dd 
+class="description">This error happens when you declare a
+     function or procedure with e.g. <span 
+class="cmtt-10">cdecl; </span>but omit this directive in the implementation, or vice
+     versa. The calling convention is part of the function declaration, and must be repeated in the
+     function definition.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Property cannot have a default value</span> </dt><dd 
+class="description">Set properties or indexed properties cannot
+     have a default value.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The default value of a property must be constant</span> </dt><dd 
+class="description">The value of a <span 
+class="cmtt-10">default</span>
+     declared property must be known at compile time. The value you specified is only
+     known at run time. This happens e.g. if you specify a variable name as a default
+     value.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Symbol cannot be published, can be only a class</span> </dt><dd 
+class="description">Only class type variables can be
+     in a <span 
+class="cmtt-10">published </span>section of a class if they are not declared as a property.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: This kind of property cannot be published</span> </dt><dd 
+class="description">Properties in a <span 
+class="cmtt-10">published </span>section cannot
+     be array properties. They must be moved to public sections. Properties in a <span 
+class="cmtt-10">published</span>
+     section must be an ordinal type, a real type, strings or sets.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: An import name is required</span> </dt><dd 
+class="description">Some targets need a name for the imported procedure or
+     a <span 
+class="cmtt-10">cdecl </span>specifier.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Division by zero</span> </dt><dd 
+class="description">A division by zero was encounted.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Invalid floating point operation</span> </dt><dd 
+class="description">An operation on two real type values produced an
+     overflow or a division by zero.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Upper bound of range is less than lower bound</span> </dt><dd 
+class="description">The upper bound of an array
+     declaration is less than the lower bound and this is not possible.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: string &#8221;arg1&#8221; is longer than &#8221;arg2&#8221;</span> </dt><dd 
+class="description">The size of the constant string is larger than
+     the size you specified in string type definition.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: string length is larger than array of char length</span> </dt><dd 
+class="description">The size of the constant string is
+     larger than the size you specified in the <span 
+class="cmtt-10">Array[x..y] of char </span>definition.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal expression after message directive</span> </dt><dd 
+class="description">Free Pascal supports only integer or string
+     values as message constants.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Message handlers can take only one call by ref. parameter</span> </dt><dd 
+class="description">A method declared
+     with the <span 
+class="cmtt-10">message </span>directive as message handler can take only one parameter which must be
+     declared as call by reference. Parameters are declared as call by reference using the
+     <span 
+class="cmtt-10">var</span>-directive.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Duplicate message label: &#8221;arg1&#8221;</span> </dt><dd 
+class="description">A label for a message is used twice in one
+     object/class.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Self can only be an explicit parameter in methods which are message handlers</span> </dt><dd 
+class="description">
+     The <span 
+class="cmtt-10">Self </span>parameter can only be passed explicitly to a method which is declared as message
+     handler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Threadvars can be only static or global</span> </dt><dd 
+class="description">Threadvars must be static or global; you
+     cannot declare a thread local to a procedure. Local variables are always local to a
+     thread, because every thread has its own stack and local variables are stored on the
+     stack.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Direct assembler not supported for binary output format</span> </dt><dd 
+class="description">You cannot use direct
+     assembler when using a binary writer. Choose an other output format or use another
+     assembler reader.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Don&#8217;t load OBJPAS unit manually, use </span><span 
+class="cmbsy-10">{</span><span 
+class="cmbx-10">$mode objfpc</span><span 
+class="cmbsy-10">} </span><span 
+class="cmbx-10">or </span><span 
+class="cmbsy-10">{</span><span 
+class="cmbx-10">$mode delphi</span><span 
+class="cmbsy-10">} </span><span 
+class="cmbx-10">instead</span> </dt><dd 
+class="description">
+     You are trying to load the <span 
+class="cmss-10">ObjPas </span>unit manually from a <span 
+class="cmtt-10">uses </span>clause. This is not a good
+     idea. Use the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MODE OBJFPC</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$mode delphi</span><span 
+class="cmsy-10">} </span>directives which load the unit
+     automatically.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: OVERRIDE cannot be used in objects</span> </dt><dd 
+class="description"><span 
+class="cmtt-10">Override </span>is not supported for objects, use
+     <span 
+class="cmtt-10">virtual </span>instead to override a method of a parent object.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Data types which require initialization/finalization cannot be used in variant records</span> </dt><dd 
+class="description">
+     Some data types (e.g. <span 
+class="cmtt-10">ansistring</span>) need initialization/finalization code which is implicitly
+     generated by the compiler. Such data types cannot be used in the variant part of a
+     record.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Resourcestrings can be only static or global</span> </dt><dd 
+class="description">Resourcestring cannot be declared
+     local, only global or using the static directive.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Exit with argument cannot be used here</span> </dt><dd 
+class="description">An exit statement with an argument for
+     the return value cannot be used here. This can happen for example in <span 
+class="cmtt-10">try..except </span>or
+     <span 
+class="cmtt-10">try..finally </span>blocks.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The type of the storage symbol must be boolean</span> </dt><dd 
+class="description">If you specify a storage symbol in
+     a property declaration, it must be a boolean type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: This symbol isn&#8217;t allowed as storage symbol</span> </dt><dd 
+class="description">You cannot use this type of symbol as
+     storage specifier in property declaration. You can use only methods with the result type
+     boolean, boolean class fields or boolean constants.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Only classes which are compiled in $M+ mode can be published</span> </dt><dd 
+class="description">A class-typed
+     field in the published section of a class can only be a class which was compiled in <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$M+</span><span 
+class="cmsy-10">} </span>or
+     which is derived from such a class. Normally such a class should be derived from
+     <span 
+class="cmtt-10">TPersistent</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Procedure directive expected</span> </dt><dd 
+class="description">This error is triggered when you have a <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$Calling</span><span 
+class="cmsy-10">}</span>
+     directive without a calling convention specified. It also happens when declaring a procedure
+     in a const block and you used a ; after a procedure declaration which must be followed by a
+     procedure directive. Correct declarations are:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-136">
+     &#x00A0;const
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;p&#x00A0;:&#x00A0;procedure;stdcall=nil;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;p&#x00A0;:&#x00A0;procedure&#x00A0;stdcall=nil;
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 851--><p class="nopar" >
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The value for a property index must be of an ordinal type</span> </dt><dd 
+class="description">The value you use to
+     index a property must be of an ordinal type, for example an integer or enumerated
+     type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Procedure name too short to be exported</span> </dt><dd 
+class="description">The length of the procedure/function
+     name must be at least 2 characters long. This is because of a bug in dlltool which doesn&#8217;t
+     parse the .def file correctly with a name of length 1.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: No DEFFILE entry can be generated for unit global vars</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Compile without -WD option</span> </dt><dd 
+class="description">You need to compile this file without the -WD switch
+     on the command line.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: You need ObjFpc (-S2) or Delphi (-Sd) mode to compile this module</span> </dt><dd 
+class="description">You need
+     to use <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MODE OBJFPC</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MODE DELPHI</span><span 
+class="cmsy-10">} </span>to compile this file. Or use the corresponding
+     command line switch, either <span 
+class="cmtt-10">-Mobjfpc </span>or <span 
+class="cmtt-10">-MDelphi.</span>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot export with index under arg1</span> </dt><dd 
+class="description">Exporting of functions or procedures with a
+     specified index is not supported on this target.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Exporting of variables is not supported under arg1</span> </dt><dd 
+class="description">Exporting of variables is not
+     supported on this target.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Improper GUID syntax</span> </dt><dd 
+class="description">The GUID indication does not have the proper syntax. It
+     should be of the form
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-137">
+     &#x00A0;{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 875--><p class="nopar" >Where each <span 
+class="cmtt-10">X </span>represents a hexadecimal digit.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Procedure named &#8221;arg1&#8221; not found that is suitable for implementing the arg2.arg3</span> </dt><dd 
+class="description">
+     The compiler cannot find a suitable procedure which implements the given method of an
+     interface. A procedure with the same name is found, but the arguments do not
+     match.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: interface identifier expected</span> </dt><dd 
+class="description">This happens when the compiler scans a <span 
+class="cmtt-10">class</span>
+     declaration that contains <span 
+class="cmtt-10">interface </span>function name mapping code like this:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-138">
+     &#x00A0;type
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;TMyObject&#x00A0;=&#x00A0;class(TObject,&#x00A0;IDispatch)
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;IUnknown.QueryInterface=MyQueryInterface;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;....
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 888--><p class="nopar" >and the <span 
+class="cmtt-10">interface </span>before the dot is not listed in the inheritance list.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Type &#8221;arg1&#8221; cannot be used as array index type</span> </dt><dd 
+class="description">Types like <span 
+class="cmtt-10">qword </span>or <span 
+class="cmtt-10">int64 </span>are not
+     allowed as array index type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Con- and destructors are not allowed in interfaces</span> </dt><dd 
+class="description">Constructor and destructor
+     declarations are not allowed in interfaces. In the most cases method <span 
+class="cmtt-10">QueryInterface </span>of
+     <span 
+class="cmtt-10">IUnknown </span>can be used to create a new interface.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Access specifiers cannot be used in INTERFACEs and OBJCPROTOCOLs</span> </dt><dd 
+class="description">The
+     access specifiers <span 
+class="cmtt-10">public</span>, <span 
+class="cmtt-10">private</span>, <span 
+class="cmtt-10">protected </span>and <span 
+class="cmtt-10">published </span>cannot be used in interfaces,
+     Objective-C protocols and categories because all methods of an interface/protocol/category
+     must be public.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: An interface, helper or Objective-C protocol or category cannot contain fields</span> </dt><dd 
+class="description">
+     Declarations of fields are not allowed in interfaces, helpers and Objective-C protocols and
+     categories. An interface/helper/protocol/category can contain only methods and properties
+     with method read/write specifiers.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot declare local procedure as EXTERNAL</span> </dt><dd 
+class="description">Declaring local procedures as
+     external is not possible. Local procedures get hidden parameters that will make the chance of
+     errors very high.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Some fields coming before &#8221;arg1&#8221; were not initialized</span> </dt><dd 
+class="description">In Delphi mode, not all
+     fields of a typed constant record have to be initialized, but the compiler warns you when it
+     detects such situations.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Some fields coming before &#8221;arg1&#8221; were not initialized</span> </dt><dd 
+class="description">In all syntax modes but
+     Delphi mode, you cannot leave some fields uninitialized in the middle of a typed constant
+     record.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Some fields coming after &#8221;arg1&#8221; were not initialized</span> </dt><dd 
+class="description">You can leave some fields
+     at the end of a type constant record uninitialized (The compiler will initialize them to zero
+     automatically). This may be the cause of subtle problems.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: VarArgs directive (or &#8217;...&#8217; in MacPas) without CDecl/CPPDecl/MWPascal and External</span> </dt><dd 
+class="description">
+     The varargs directive (or the &#8220;...&#8221; varargs parameter in MacPas mode) can only be used with
+     procedures or functions that are declared with <span 
+class="cmtt-10">external </span>and one of <span 
+class="cmtt-10">cdecl</span>, <span 
+class="cmtt-10">cppdecl </span>and
+     <span 
+class="cmtt-10">mwpascal</span>. This functionality is only supported to provide a compatible interface to C
+     functions like printf.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Self must be a normal (call-by-value) parameter</span> </dt><dd 
+class="description">You cannot declare <span 
+class="cmtt-10">Self </span>as a
+     const or var parameter, it must always be a call-by-value parameter.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Interface &#8221;arg1&#8221; has no interface identification</span> </dt><dd 
+class="description">When you want to assign an
+     interface to a constant, then the interface must have a GUID value set.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Unknown class field or method identifier &#8221;arg1&#8221;</span> </dt><dd 
+class="description">Properties must refer to a field or
+     method in the same class.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Overriding calling convention &#8221;arg1&#8221; with &#8221;arg2&#8221;</span> </dt><dd 
+class="description">There are two directives in
+     the procedure declaration that specify a calling convention. Only the last directive will be
+     used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Typed constants of the type &#8221;procedure of object&#8221; can only be initialized with NIL</span> </dt><dd 
+class="description">
+     You cannot assign the address of a method to a typed constant which has a &#8217;procedure of
+     object&#8217; type, because such a constant requires two addresses: that of the method (which is
+     known at compile time) and that of the object or class instance it operates on (which cannot
+     be known at compile time).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Default value can only be assigned to one parameter</span> </dt><dd 
+class="description">It is not possible to specify a
+     default value for several parameters at once. The following is invalid:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-139">
+     &#x00A0;Procedure&#x00A0;MyProcedure&#x00A0;(A,B&#x00A0;:&#x00A0;Integer&#x00A0;=&#x00A0;0);
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 942--><p class="nopar" >Instead, this should be declared as
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-140">
+     &#x00A0;Procedure&#x00A0;MyProcedure&#x00A0;(A&#x00A0;:&#x00A0;Integer&#x00A0;=&#x00A0;0;&#x00A0;B&#x00A0;:&#x00A0;Integer&#x00A0;=&#x00A0;0);
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 946--><p class="nopar" >
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Default parameter required for &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The specified parameter requires a default
+     value.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Use of unsupported feature!</span> </dt><dd 
+class="description">You&#8217;re trying to force the compiler into doing
+     something it cannot do yet.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: C arrays are passed by reference</span> </dt><dd 
+class="description">Any array passed to a C function is passed by a
+     pointer (i.e. by reference).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: C array of const must be the last argument</span> </dt><dd 
+class="description">You cannot add any other argument
+     after an <span 
+class="cmtt-10">array of const </span>for <span 
+class="cmtt-10">cdecl </span>functions, as the size pushed on stack for this argument
+     is not known.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Type &#8221;arg1&#8221; redefinition</span> </dt><dd 
+class="description">This is an indicator that a previously declared type is
+     being redefined as something else. This may, or may not be, a potential source of
+     errors.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: cdecl&#8217;ared functions have no high parameter</span> </dt><dd 
+class="description">Functions declared with the <span 
+class="cmtt-10">cdecl</span>
+     modifier do not pass an extra implicit parameter.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: cdecl&#8217;ared functions do not support open strings</span> </dt><dd 
+class="description">Openstring is not supported
+     for functions that have the <span 
+class="cmtt-10">cdecl </span>modifier.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot initialize variables declared as threadvar</span> </dt><dd 
+class="description">Variables declared as threadvar
+     cannot be initialized with a default value. The variables will always be filled with zero at the
+     start of a new thread.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Message directive is only allowed in Classes</span> </dt><dd 
+class="description">The message directive is only supported
+     for Class types.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Procedure or Function expected</span> </dt><dd 
+class="description">A class method can only be specified for procedures
+     and functions.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Calling convention directive ignored: &#8221;arg1&#8221;</span> </dt><dd 
+class="description">Some calling conventions are
+     supported only by certain CPUs. I.e. most non-i386 ports support only the standard ABI
+     calling convention of the CPU.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: REINTRODUCE cannot be used in objects</span> </dt><dd 
+class="description"><span 
+class="cmtt-10">reintroduce </span>is not supported for
+     objects, Objective-C classes and Objective-C protocols.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Each argument must have its own location</span> </dt><dd 
+class="description">If locations for arguments are specified
+     explicitly as it is required by some syscall conventions, each argument must have its own
+     location. Things like
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-141">
+     &#x00A0;procedure&#x00A0;p(i,j&#x00A0;:&#x00A0;longint&#x00A0;&#8217;r1&#8217;);
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 984--><p class="nopar" >are not allowed.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Each argument must have an explicit location</span> </dt><dd 
+class="description">If one argument has an explicit
+     argument location, all arguments of a procedure must have one.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Unknown argument location</span> </dt><dd 
+class="description">The location specified for an argument isn&#8217;t recognized
+     by the compiler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: 32 Bit-Integer or pointer variable expected</span> </dt><dd 
+class="description">The libbase for MorphOS/AmigaOS can
+     be given only as <span 
+class="cmtt-10">longint</span>, <span 
+class="cmtt-10">dword </span>or any pointer variable.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Goto statements are not allowed between different procedures</span> </dt><dd 
+class="description">It isn&#8217;t allowed to
+     use <span 
+class="cmtt-10">goto </span>statements referencing labels outside the current procedure. The following example
+     shows the problem:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-142">
+     &#x00A0;...
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;p1;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;label
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;l1;
+     &#x00A0;<br />
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;p2;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;begin
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;goto&#x00A0;l1;&#x00A0;//&#x00A0;This&#x00A0;goto&#x00A0;ISN&#8217;T&#x00A0;allowed
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+     &#x00A0;<br />
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;begin
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;p2
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;l1:
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;end;
+     &#x00A0;<br />&#x00A0;...
+     &#x00A0;<br />
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 1013--><p class="nopar" >
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Procedure too complex, it requires too many registers</span> </dt><dd 
+class="description">Your procedure body is
+     too long for the compiler. You should split the procedure into multiple smaller
+     procedures.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal expression</span> </dt><dd 
+class="description">This can occur under many circumstances. Usually when trying to
+     evaluate constant expressions.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Invalid integer expression</span> </dt><dd 
+class="description">You made an expression which isn&#8217;t an integer, and the
+     compiler expects the result to be an integer.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal qualifier</span> </dt><dd 
+class="description">One of the following is happening :
+         <ul class="itemize1">
+         <li class="itemize">You&#8217;re trying to access a field of a variable that is not a record.
+         </li>
+         <li class="itemize">You&#8217;re indexing a variable that is not an array.
+         </li>
+         <li class="itemize">You&#8217;re dereferencing a variable that is not a pointer.</li></ul>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: High range limit ¡ low range limit</span> </dt><dd 
+class="description">You are declaring a subrange, and the high limit is
+     less than the low limit of the range.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Exit&#8217;s parameter must be the name of the procedure it is used in or of a surrounding procedure</span> </dt><dd 
+class="description">
+     The parameter of a exit call in macpas mode must be either the name of the current
+     subroutine or of a surrounding one
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal assignment to for-loop variable &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The type of a <span 
+class="cmtt-10">for </span>loop variable must
+     be an ordinal type. Loop variables cannot be reals or strings. You also cannot assign values to
+     loop variables inside the loop (Except in Delphi and TP modes). Use a while or repeat loop
+     instead if you need to do something like that, since those constructs were built for
+     that.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot declare local variable as EXTERNAL</span> </dt><dd 
+class="description">Declaring local variables as external
+     is not allowed. Only global variables can reference external variables.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Procedure is already declared EXTERNAL</span> </dt><dd 
+class="description">The procedure is already declared with
+     the EXTERNAL directive in an interface or forward declaration.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Implicit uses of Variants unit</span> </dt><dd 
+class="description">The Variant type is used in the unit without any
+     used unit using the Variants unit. The compiler has implicitly added the Variants unit to the
+     uses list. To remove this warning the Variants unit needs to be added to the uses
+     statement.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Class and static methods cannot be used in INTERFACES</span> </dt><dd 
+class="description">The specifier <span 
+class="cmtt-10">class</span>
+     and directive <span 
+class="cmtt-10">static </span>cannot be used in interfaces because all methods of an interface must be
+     public.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Overflow in arithmetic operation</span> </dt><dd 
+class="description">An operation on two integer values produced an
+     overflow.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Protected or private expected</span> </dt><dd 
+class="description"><span 
+class="cmtt-10">strict </span>can be only used together with <span 
+class="cmtt-10">protected </span>or
+     <span 
+class="cmtt-10">private</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: SLICE cannot be used outside of parameter list</span> </dt><dd 
+class="description"><span 
+class="cmtt-10">slice </span>can be used only for
+     arguments accepting an open array parameter.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: A DISPINTERFACE cannot have a parent class</span> </dt><dd 
+class="description">A DISPINTERFACE is a special
+     type of interface which cannot have a parent class. Dispinterface always derive from
+     IDispatch type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: A DISPINTERFACE needs a guid</span> </dt><dd 
+class="description">A DISPINTERFACE always needs an interface
+     identification (a GUID).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Overridden methods must have a related return type. This code may crash, it depends on a Delphi parser bug (&#8221;arg2&#8221; is overridden by &#8221;arg1&#8221; which has another return type)</span> </dt><dd 
+class="description">
+     If you declare overridden methods in a class definition, they must have the same return type.
+     Some versions of Delphi allow you to change the return type of interface methods, and even
+     to change procedures into functions, but the resulting code may crash depending on the types
+     used and the way the methods are called.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Dispatch IDs must be ordinal constants</span> </dt><dd 
+class="description">The <span 
+class="cmtt-10">dispid </span>keyword must be followed by an
+     ordinal constant (the dispid index).
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The range of the array is too large</span> </dt><dd 
+class="description">Regardless of the size taken up by its elements, an
+     array cannot have more than high(ptrint) elements. Additionally, the range type must be a
+     subrange of ptrint.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The address cannot be taken of bit packed array elements and record fields</span> </dt><dd 
+class="description">If
+     you declare an array or record as <span 
+class="cmtt-10">packed </span>in Mac Pascal mode (or as <span 
+class="cmtt-10">packed </span>in any mode
+     with <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$bitpacking on</span><span 
+class="cmsy-10">}</span>), it will be packed at the bit level. This means it becomes impossible
+     to take addresses of individual array elements or record fields. The only exception to this
+     rule is in the case of packed arrays elements whose packed size is a multple of 8
+     bits.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Dynamic arrays cannot be packed</span> </dt><dd 
+class="description">Only regular (and possibly in the future also open)
+     arrays can be packed.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Bit packed array elements and record fields cannot be used as loop variables</span> </dt><dd 
+class="description">If
+     you declare an array or record as <span 
+class="cmtt-10">packed </span>in Mac Pascal mode (or as <span 
+class="cmtt-10">packed </span>in any mode
+     with <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$bitpacking on</span><span 
+class="cmsy-10">}</span>), it will be packed at the bit level. For performance reasons, they
+     cannot be used as loop variables.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: VAR, TYPE and CONST are allowed only in records, objects and classes</span> </dt><dd 
+class="description">The
+     usage of VAR, TYPE and CONST to declare new types inside an object is allowed only
+     inside records, objects and classes.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: This type cannot be a generic</span> </dt><dd 
+class="description">Only Classes, Objects, Interfaces and Records are
+     allowed to be used as generic.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Don&#8217;t load LINEINFO unit manually, Use the -gl compiler switch instead</span> </dt><dd 
+class="description">
+     Do not use the <span 
+class="cmss-10">lineinfo </span>unit directly, Use the <span 
+class="cmtt-10">-gl </span>switch which automatically adds the correct
+     unit for reading the selected type of debugging information. The unit that needs
+     to be used depends on the type of debug information used when compiling the
+     binary.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: No function result type specified for function &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The first time you declare a
+     function you have to declare it completely, including all parameters and the result
+     type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Specialization is only supported for generic types</span> </dt><dd 
+class="description">Types which are not generics
+     cannot be specialized.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Generics cannot be used as parameters when specializing generics</span> </dt><dd 
+class="description">When
+     specializing a generic, only non-generic types can be used as parameters.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Constants of objects containing a VMT are not allowed</span> </dt><dd 
+class="description">If an object requires a
+     VMT either because it contains a constructor or virtual methods, it&#8217;s not allowed to
+     create constants of it. In TP and Delphi mode this is allowed for compatibility
+     reasons.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Taking the address of labels defined outside the current scope isn&#8217;t allowed</span> </dt><dd 
+class="description">It
+     isn&#8217;t allowed to take the address of labels outside the current procedure.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot initialize variables declared as external</span> </dt><dd 
+class="description">Variables declared as external
+     cannot be initialized with a default value.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal function result type</span> </dt><dd 
+class="description">Some types like file types cannot be used as function
+     result.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: No common type possible between &#8221;arg1&#8221; and &#8221;arg2&#8221;</span> </dt><dd 
+class="description">To perform an operation on
+     integers, the compiler converts both operands to their common type, which appears to be an
+     invalid type. To determine the common type of the operands, the compiler takes the
+     minimum of the minimal values of both types, and the maximum of the maximal values of
+     both types. The common type is then minimum..maximum.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Generics without specialization cannot be used as a type for a variable</span> </dt><dd 
+class="description">Generics
+     must be always specialized before being used as variable type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Register list is ignored for pure assembler routines</span> </dt><dd 
+class="description">When using pure assembler
+     routines, the list with modified registers is ignored.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Implements property must have class or interface type</span> </dt><dd 
+class="description">A property which
+     implements an interface must be of type class or interface.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Implements-property must implement interface of correct type, found &#8221;arg1&#8221; expected &#8221;arg2&#8221;</span> </dt><dd 
+class="description">
+     A property which implements an interface actually implements a different interface.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Implements-property must have read specifier</span> </dt><dd 
+class="description">A property which implements an
+     interface must have at least a read specifier.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Implements-property must not have write-specifier</span> </dt><dd 
+class="description">A property which implements
+     an interface may not have a write specifier.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Implements-property must not have stored-specifier</span> </dt><dd 
+class="description">A property which implements
+     an interface may not have a stored specifier.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Implements-property used on unimplemented interface: &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The
+     interface which is implemented by a property is not an interface implemented by the
+     class.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Floating point not supported for this target</span> </dt><dd 
+class="description">The compiler parsed a floating point
+     expression, but it is not supported.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Class &#8221;arg1&#8221; does not implement interface &#8221;arg2&#8221;</span> </dt><dd 
+class="description">The delegated interface is not
+     implemented by the class given in the implements clause.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Type used by implements must be an interface</span> </dt><dd 
+class="description">The <span 
+class="cmtt-10">implements </span>keyword must be
+     followed by an interface type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Variables cannot be exported with a different name on this target, add the name to the declaration using the &#8221;export&#8221; directive (variable name: arg1, declared export name: arg2)</span> </dt><dd 
+class="description">
+     On most targets it is not possible to change the name under which a variable is exported
+     inside the <span 
+class="cmtt-10">exports </span>statement of a library. In that case, you have to specify the export
+     name at the point where the variable is declared, using the <span 
+class="cmtt-10">export </span>and <span 
+class="cmtt-10">alias</span>
+     directives.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Weak external symbols are not supported for the current target</span> </dt><dd 
+class="description">A &#8221;weak
+     external&#8221; symbol is a symbol which may or may not exist at (either static or dynamic) link
+     time. This concept may not be available (or implemented yet) on the current cpu/OS
+     target.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Forward type definition does not match</span> </dt><dd 
+class="description">Classes and interfaces being defined forward
+     must have the same type when being implemented. A forward interface cannot be changed
+     into a class.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: Virtual method &#8221;arg1&#8221; has a lower visibility (arg2) than parent class arg3 (arg4)</span> </dt><dd 
+class="description">
+     The virtual method overrides an method that is declared with a higher visibility. This might
+     give unexpected results. E.g., in case the new visibility is private then a call to &#8220;inherited&#8221; in
+     a new child class will call the higher-visible method in a parent class and ignores the private
+     method.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Fields cannot appear after a method or property definition, start a new visibility section first</span> </dt><dd 
+class="description">
+     Once a method or property has been defined in a class or object, you cannot define any fields
+     afterwards without starting a new visibility section (such as <span 
+class="cmtt-10">public</span>, <span 
+class="cmtt-10">private</span>, etc.). The
+     reason is that otherwise the source code can appear ambiguous to the compiler,
+     since it is possible to use modifiers such as <span 
+class="cmtt-10">default </span>and <span 
+class="cmtt-10">register </span>also as field
+     names.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Parameters or result types cannot contain local type definitions. Use a separate type definition in a type block.</span> </dt><dd 
+class="description">
+     In Pascal, types are not considered to be identical simply because they are semantically
+     equivalent. Two variables or parameters are only considered to be of the same type if they
+     refer to the same type definition. As a result, it is not allowed to define new types inside
+     parameter lists, because then it is impossible to refer to the same type definition in the
+     procedure headers of the interface and implementation of a unit (both procedure headers
+     would define a separate type). Keep in mind that expressions such as &#8220;file of byte&#8221; or
+     &#8220;string[50]&#8221; also define a new type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: ABSTRACT and SEALED conflict</span> </dt><dd 
+class="description">ABSTRACT and SEALED cannot be used
+     together in one declaration
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot create a descendant of the sealed class &#8221;arg1&#8221;</span> </dt><dd 
+class="description">Sealed means that class
+     cannot be derived by another class.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: SEALED class cannot have an ABSTRACT method</span> </dt><dd 
+class="description">Sealed means that class
+     cannot be derived. Therefore no one class is able to override an abstract method in a sealed
+     class.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Only virtual methods can be final</span> </dt><dd 
+class="description">You are declaring a method as final, when it is not
+     declared to be virtual.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Final method cannot be overridden: &#8221;arg1&#8221;</span> </dt><dd 
+class="description">You are trying to <span 
+class="cmtt-10">override </span>a virtual
+     method of a parent class that does not exist.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Only one message can be used per method.</span> </dt><dd 
+class="description">It is not possible to associate multiple
+     messages with a single method.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Invalid enumerator identifier: &#8221;arg1&#8221;</span> </dt><dd 
+class="description">Only &#8221;MoveNext&#8221; and &#8221;Current&#8221; enumerator
+     identifiers are supported.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Enumerator identifier required</span> </dt><dd 
+class="description">&#8221;MoveNext&#8221; or &#8221;Current&#8221; identifier must follow the
+     <span 
+class="cmtt-10">enumerator </span>modifier.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Enumerator MoveNext pattern method is not valid. Method must be a function with the Boolean return type and no required arguments.</span> </dt><dd 
+class="description">
+     &#8221;MoveNext&#8221; enumerator pattern method must be a function with Boolean return type and
+     no required arguments
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Enumerator Current pattern property is not valid. Property must have a getter.</span> </dt><dd 
+class="description">
+     &#8221;Current&#8221; enumerator pattern property must have a getter
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Only one enumerator MoveNext method is allowed per class/object</span> </dt><dd 
+class="description">Class or
+     Object can have only one enumerator MoveNext declaration.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Only one enumerator Current property is allowed per class/object</span> </dt><dd 
+class="description">Class or
+     Object can have only one enumerator Current declaration.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: For in loop cannot be used for the type &#8221;arg1&#8221;</span> </dt><dd 
+class="description">For in loop can be used not for all
+     types. For example it cannot be used for the enumerations with jumps.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Objective-C messages require their Objective-C selector name to be specified using the &#8221;message&#8221; directive.</span> </dt><dd 
+class="description">
+     Objective-C messages require their Objective-C name (selector name) to be specified using
+     the <span 
+class="cmtt-10">message &#8216;someName:&#8217; </span>procedure directive. While bindings to other languages
+     automatically generate such names based on the identifier you use (by replacing all
+     underscores with colons), this is unsafe since nothing prevents an Objective-C method name
+     to contain actual colons.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Objective-C does not have formal constructors nor destructors. Use the alloc, initXXX and dealloc messages.</span> </dt><dd 
+class="description">
+     The Objective-C language does not have any constructors or destructors. While there are
+     some messages with a similar purpose (such as <span 
+class="cmtt-10">init </span>and <span 
+class="cmtt-10">dealloc</span>), these cannot be identified
+                                                                            
+
+                                                                            
+     using automatic parsers and do not guarantee anything like Pascal constructors/destructors
+     (e.g., you have to take care of only calling &#8220;designated&#8221; inherited &#8220;constructors&#8221;). For these
+     reasons, we have opted to follow the standard Objective-C patterns for instance
+     creation/destruction.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Message name is too long (max. 255 characters)</span> </dt><dd 
+class="description">Due to compiler implementation
+     reasons, message names are currently limited to 255 characters.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Objective-C message symbol name for &#8221;arg1&#8221; is too long</span> </dt><dd 
+class="description">Due to compiler
+     implementation reasons, mangled message names (i.e., the symbol names used in the
+     assembler code) are currently limited to 255 characters.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Defining a new Objective-C root class. To derive from another root class (e.g., NSObject), specify it as the parent class.</span> </dt><dd 
+class="description">
+     If no parent class is specified for an Object Pascal class, then it automatically derives from
+     TObject. Objective-C classes however do not automatically derive from NSObject, because
+     one can have multiple root classes in Objective-C. For example, in the Cocoa framework both
+     NSObject and NSProxy are root classes. Therefore, you have to explicitly define a
+     parent class (such as NSObject) if you want to derive your Objective-C class from
+     it.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Objective-C classes cannot have published sections.</span> </dt><dd 
+class="description">In Object Pascal, &#8220;published&#8221;
+     determines whether or not RTTI is generated. Since the Objective-C runtime always
+     needs RTTI for everything, this specified does not make sense for Objective-C
+     classes.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: This module requires an Objective-C mode switch to be compiled</span> </dt><dd 
+class="description">This error
+     indicates the use of Objective-C language features without an Objective-C mode
+     switch active. Enable one via the -M command line switch, or the $modeswitch x
+     directive.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Inherited methods can only be overridden in Objective-C and Java, add &#8221;override&#8221; (inherited method defined in arg1)</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Inherited methods can only be overridden in Objective-C and Java, add &#8221;override&#8221; (inherited method defined in arg1).</span> </dt><dd 
+class="description">
+     It is not possible to <span 
+class="cmtt-10">reintroduce </span>methods in Objective-C or Java like in Object Pascal.
+     Methods with the same name always map to the same virtual method entry. In order to make
+     this clear in the source code, the compiler always requires the <span 
+class="cmtt-10">override </span>directive to be
+     specified when implementing overriding Objective-C or Java methods in Pascal. If the
+     implementation is external, this rule is relaxed because Objective-C and Java do not have
+     any <span 
+class="cmtt-10">override</span>-style keyword (since it&#8217;s the default and only behaviour in these
+     languages), which makes it hard for automated header conversion tools to include
+     it everywhere. The type in which the inherited method is defined is explicitly
+     mentioned, because this may either be an objcclass or an objccategory in case of
+     Objective-C.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Message name &#8221;arg1&#8221; in inherited class is different from message name &#8221;arg2&#8221; in current class.</span> </dt><dd 
+class="description">
+     An overriding Objective-C method cannot have a different message name than an inherited
+     method. The reason is that these message names uniquely define the message to the
+     Objective-C runtime, which means that giving them a different message name breaks the
+     &#8220;override&#8221; semantics.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: It is not yet possible to make unique copies of Objective-C or Java types</span> </dt><dd 
+class="description">
+     Duplicating an Objective-C or Java type using <span 
+class="cmtt-10">type x = type y; </span>is not yet supported. You
+     may be able to obtain the desired effect using <span 
+class="cmtt-10">type x = objcclass(y) end; </span>resp. <span 
+class="cmtt-10">type x =</span>
+     <span 
+class="cmtt-10">class(y) end; </span>instead.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Objective-C categories and Object Pascal class helpers cannot be used as types</span> </dt><dd 
+class="description">It
+     is not possible to declare a variable as an instance of an Objective-C category or an Object
+     Pascal class helper. A category/class helper adds methods to the scope of an existing class,
+     but does not define a type by itself. An exception of this rule is when inheriting an Object
+     Pascal class helper from another class helper.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Categories do not override, but replace methods. Use &#8221;reintroduce&#8221; instead.</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Replaced methods can only be reintroduced in Objective-C, add &#8221;reintroduce&#8221; (replaced method defined in arg1).</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Replaced methods can only be reintroduced in Objective-C, add &#8221;reintroduce&#8221; (replaced method defined in arg1).</span> </dt><dd 
+class="description">
+     A category replaces an existing method in an Objective-C class, rather than that
+     it overrides it. Calling an inherited method from an category method will call
+     that method in the extended class&#8217; parent, not in the extended class itself. The
+     replaced method in the original class is basically lost, and can no longer be called or
+     referred to. This behaviour corresponds somewhat more closely to <span 
+class="cmtt-10">reintroduce</span>
+     than to <span 
+class="cmtt-10">override </span>(although in case of <span 
+class="cmtt-10">reintroduce </span>in Object Pascal, hidden
+     methods are still reachable via inherited). The type in which the inherited method is
+     defined is explicitly mentioned, because this may either be an objcclass or an
+     objccategory.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Getter for implements interface must use the target&#8217;s default calling convention.</span> </dt><dd 
+class="description">
+     Interface getters are called via a helper in the run time library, and hence have to use the
+     default calling convention for the target (<span 
+class="cmtt-10">register </span>on i386 and x86_64, <span 
+class="cmtt-10">stdcall </span>on other
+     architectures).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Typed files cannot contain reference-counted types.</span> </dt><dd 
+class="description">The data in a typed file
+     cannot be of a reference counted type (such as <span 
+class="cmtt-10">ansistring </span>or a record containing a field that
+     is reference counted).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Operator is not overloaded: arg2 &#8221;arg1&#8221;</span> </dt><dd 
+class="description">You are trying to use an overloaded
+     operator when it is not overloaded for this type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Operator is not overloaded: &#8221;arg1&#8221; arg2 &#8221;arg3&#8221;</span> </dt><dd 
+class="description">You are trying to use an
+     overloaded operator when it is not overloaded for this type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Expected another arg1 array elements</span> </dt><dd 
+class="description">When declaring a typed constant array, you
+     provided to few elements to initialize the array
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: String constant too long while ansistrings are disabled</span> </dt><dd 
+class="description">Only when a piece of code
+     is compiled with ansistrings enabled (<span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H+</span><span 
+class="cmsy-10">}</span>), string constants longer than 255 characters are
+     allowed.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Type cannot be used as univ parameter because its size is unknown at compile time: &#8221;arg1&#8221;</span> </dt><dd 
+class="description">
+     <span 
+class="cmtt-10">univ </span>parameters are compatible with all values of the same size, but this cannot be checked
+     in case a parameter&#8217;s size is unknown at compile time.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Only one class constructor can be declared in class: &#8221;arg1&#8221;</span> </dt><dd 
+class="description">You are trying to
+     declare more than one class constructor but only one class constructor can be
+     declared.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Only one class destructor can be declared in class: &#8221;arg1&#8221;</span> </dt><dd 
+class="description">You are trying
+     to declare more than one class destructor but only one class destructor can be
+     declared.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Class constructors cannot have parameters</span> </dt><dd 
+class="description">You are declaring a class constructor
+     with a parameter list. Class constructor methods cannot have parameters.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Class destructors cannot have parameters</span> </dt><dd 
+class="description">You are declaring a class destructor with
+     a parameter list. Class destructor methods cannot have parameters.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: This construct requires the </span><span 
+class="cmsy-10">\</span><span 
+class="cmbsy-10">{</span><span 
+class="cmsy-10">\</span><span 
+class="cmbx-10">$modeswitch objectivec1</span><span 
+class="cmsy-10">\</span><span 
+class="cmbsy-10">} </span><span 
+class="cmbx-10">mode switch to be active</span> </dt><dd 
+class="description">
+     Objective-Pascal constructs are not supported when <span 
+class="cmsy-10">{</span>$modeswitch ObjectiveC1<span 
+class="cmsy-10">} </span>is not
+     active.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Unicodechar/string constants cannot be converted to ansi/shortstring at compile-time</span> </dt><dd 
+class="description">
+     It is not possible to use unicodechar and unicodestring constants in constant expressions that
+     have to be converted into an ansistring or shortstring at compile time, for example inside
+     typed constants. The reason is that the compiler cannot know what the actual ansi encoding
+     will be at run time.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: For-in Objective-Pascal loops require </span><span 
+class="cmsy-10">\</span><span 
+class="cmbsy-10">{</span><span 
+class="cmsy-10">\</span><span 
+class="cmbx-10">$modeswitch ObjectiveC2</span><span 
+class="cmsy-10">\</span><span 
+class="cmbsy-10">} </span><span 
+class="cmbx-10">to be active</span> </dt><dd 
+class="description">
+     Objective-C &#8220;fast enumeration&#8221; support was added in Objective-C 2.0, and hence the
+     appropriate modeswitch has to be activated to expose this feature. Note that Objective-C 2.0
+     programs require Mac OS X 10.5 or later.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The compiler cannot find the NSFastEnumerationProtocol or NSFastEnumerationState type in the CocoaAll unit</span> </dt><dd 
+class="description">
+     Objective-C for-in loops (fast enumeration) require that the compiler can find a unit
+     called CocoaAll that contains definitions for the NSFastEnumerationProtocol and
+     NSFastEnumerationState types. If you get this error, most likely the compiler is finding and
+     loading an alternate CocoaAll unit.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Typed constants of the type &#8217;procedure is nested&#8217; can only be initialized with NIL and global procedures/functions</span> </dt><dd 
+class="description">
+     A nested procedural variable consists of two components: the address of the procedure/function
+     to call (which is always known at compile time), and also a parent frame pointer
+     (which is never known at compile time) in case the procedural variable contains a
+     reference to a nested procedure/function. Therefore such typed constants can only be
+     initialized with global functions/procedures since these do not require a parent frame
+     pointer.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Declaration of generic class inside another generic class is not allowed</span> </dt><dd 
+class="description">At the
+     moment, scanner supports recording of only one token buffer at the time (guarded by internal
+     error 200511173 in tscannerfile.startrecordtokens). Since generics are implemented by
+     recording tokens, it is not possible to have declaration of generic class inside another generic
+     class.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Forward declaration &#8221;arg1&#8221; must be resolved before a class can conform to or implement it</span> </dt><dd 
+class="description">
+     An Objective-C protocol or Java Interface must be fully defined before classes can conform to
+     it. This error occurs in the following situation (example for Objective-C, but the same goes
+     for Java interfaces):
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-143">
+     &#x00A0;&#x00A0;Type&#x00A0;MyProtocol&#x00A0;=&#x00A0;objcprotoocl;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;ChildClass&#x00A0;=&#x00A0;Class(NSObject,MyProtocol)
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;...
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 1334--><p class="nopar" >where <span 
+class="cmtt-10">MyProtocol </span>is declared but not defined.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Record types cannot have published sections</span> </dt><dd 
+class="description">Published sections can be used only
+     inside classes.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Destructors are not allowed in records or helpers</span> </dt><dd 
+class="description">Destructor declarations are not
+     allowed in records or helpers.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Class methods must be static in records</span> </dt><dd 
+class="description">Class methods declarations are not allowed
+     in records without static modifier. Records have no inheritance and therefore non static class
+     methods have no sence for them.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Parameterless constructors are not allowed in records or record/type helpers</span> </dt><dd 
+class="description">
+     Constructor declarations with no arguments are not allowed in records or record/type
+     helpers.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Either the result or at least one parameter must be of type &#8221;arg1&#8221;</span> </dt><dd 
+class="description">It is required
+     that either the result of the routine or at least one of its parameters be of the specified type.
+     For example class operators either take an instance of the structured type in which they are
+     defined, or they return one.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Type parameters may require initialization/finalization - cannot be used in variant records</span> </dt><dd 
+class="description">
+     Type parameters may be specialized with types which (e.g. <span 
+class="cmtt-10">ansistring</span>) need
+     initialization/finalization code which is implicitly generated by the compiler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Variables being declared as external cannot be in a custom section</span> </dt><dd 
+class="description">A section
+     directive is not valid for variables being declared as external.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Non-static and non-global variables cannot have a section directive</span> </dt><dd 
+class="description">A variable
+     placed in a custom section is always statically allocated so it must be either a static or global
+     variable.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: &#8221;arg1&#8221; is not allowed in helper types</span> </dt><dd 
+class="description">Some directives and specifiers like &#8221;virtual&#8221;,
+     &#8221;dynamic&#8221;, &#8221;override&#8221; are not allowed inside helper types in mode ObjFPC (they are ignored
+     in mode Delphi), because they have no meaning within helpers. Also &#8221;abstract&#8221; isn&#8217;t allowed
+     in either mode.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Class constructors are not allowed in helpers</span> </dt><dd 
+class="description">Class constructor declarations are not
+     allowed in helpers.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The use of &#8221;inherited&#8221; is not allowed in a record</span> </dt><dd 
+class="description">As records don&#8217;t suppport
+     inheritance the use of &#8221;inherited&#8221; is prohibited for these as well as for record helpers (in
+     mode &#8221;Delphi&#8221; only).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Type declarations are not allowed in local or anonymous records</span> </dt><dd 
+class="description">Records with
+     types must be defined globally. Types cannot be defined inside records which are defined in a
+     procedure or function or in anonymous records.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Duplicate implements clause for interface &#8221;arg1&#8221;</span> </dt><dd 
+class="description">A class may delegate an interface
+     using the &#8221;implements&#8221; clause only to a single property. Delegating it multiple times is a
+     error.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Interface &#8221;arg1&#8221; cannot be delegated by &#8221;arg2&#8221;, it already has method resolutions</span> </dt><dd 
+class="description">
+     Method resolution clause maps a method of an interface to a method of the current class.
+     Therefore the current class has to implement the interface directly. Delegation is not
+     possible.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Interface &#8221;arg1&#8221; cannot have method resolutions, &#8221;arg2&#8221; already delegates it</span> </dt><dd 
+class="description">
+     Method resoulution is only possible for interfaces that are implemented directly, not by
+     delegation.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Invalid codepage</span> </dt><dd 
+class="description">When declaring a string with a given codepage, the range of valid
+     codepages values is limited to 0 to 65535.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Only fields (var-sections) and constants can be final in object types</span> </dt><dd 
+class="description">A final
+     (class) field must be assigned a single value in the (class) constructor, and cannot be
+     overwritten afterwards. A final (typed) constant is read-only.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Final fields are currently only supported for external classes</span> </dt><dd 
+class="description">Support for final
+     fields in non-external classes requires a full data flow analysis implementation in FPC, which
+     it currently still lacks.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Typed constants are not allowed here, only formal constants are</span> </dt><dd 
+class="description">Java interfaces
+     define a namespace in which formal constant can be defined, but since they define no storage
+     it is not possible to define typed constants in them (those are more or less the same as
+     initialised class fields).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Constructors are not automatically inherited in the JVM; explicitly add a constructor that calls the inherited one if you need it</span> </dt><dd 
+class="description">
+     Java does not automatically add inherited constructors to child classes, so that they can be
+     hidden. For compatibility with external Java code, FPC does the same. If you require access
+     to the same constructors in a child class, define them in the child class and call the inherited
+     one from there.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Parsing internally generated code: arg1</span> </dt><dd 
+class="description">The compiler sometimes internally constructs Pascal
+     code that is subsequently injected into the program. These messages display such code, in
+     order to help with debugging errors in them.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: This language feature is not supported on managed VM targets</span> </dt><dd 
+class="description">Certain
+     language features are not supported on targets that are managed virtual machines.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Calling a virtual constructor for the current instance inside another constructor is not possible on the JVM target</span> </dt><dd 
+class="description">
+     The JVM does not natively support virtual constructor. Unforunately, we are not aware of a
+     way to emulate them in a way that makes it possible to support calling virtual constructors
+     for the current instance inside another constructor.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Overriding method &#8221;arg1&#8221; cannot have a lower visibility (arg2) than in parent class arg3 (arg4)</span> </dt><dd 
+class="description">
+     The JVM does not allow lowering the visibility of an overriding method.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Procedure/Function declared with call option NOSTACKFRAME but without ASSEMBLER</span> </dt><dd 
+class="description">
+     nostackframe call modifier is supposed to be used in conjunction with assembler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Procedure/Function declared with call option NOSTACKFRAME but local stack size is arg1</span> </dt><dd 
+class="description">
+     nostackframe call modifier used without assembler modifier might still generate local stack
+     needs.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Cannot generate property getter/setter arg1 because its name clashes with existing identifier arg2</span> </dt><dd 
+class="description">
+     Automatically generated getters/setters cannot have the same name as existing identifiers,
+     because this may change the behaviour of existing code.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Automatically generated property getter/setter arg1 overrides the same-named getter/setter in class arg2</span> </dt><dd 
+class="description">
+     Automatically generated property getters/setters on the JVM platform are virtual methods,
+     because the JVM does not support non-virtual methods that can be changed
+     in child classes. This means that if a child class changes an inherited property
+     definition, the behaviour of that property can change compared to native targets since
+     even if a variable is declared as the parent type, by calling the virtual method
+     the getter from the child will be used. This is different from the behaviour on
+     native targets or when not activating automatically generated setters/getters,
+     because in that case only the declared type of a variable influences the property
+     behaviour.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Case mismatch between declared property getter/setter arg1 and automatically constructed name arg2, not changing declared name</span> </dt><dd 
+class="description">
+     If a property&#8217;s specified getter/setter already corresponded to the naming convention specified by
+     the automatic getter/setter generation setting except in terms of upper/lowercase, the
+     compiler will print a warning because it cannot necessarily change that other declaration
+     itself not can it add one using the correct case (it could conflict with the original
+     declaration). Manually correct the case of the getter/setter to conform to the desired coding
+     rules. <span 
+class="cmtt-10">TChild </span>overrides
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Constants declarations are not allowed in local or anonymous records</span> </dt><dd 
+class="description">Records
+     with constants must be defined globally. Constants cannot be defined inside records which are
+     defined in a procedure or function or in anonymous records.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Method declarations are not allowed in local or anonymous records</span> </dt><dd 
+class="description">Records
+     with methods must be defined globally. Methods cannot be defined inside records which are
+     defined in a procedure or function or in anonymous records.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Property declarations are not allowed in local or anonymous records</span> </dt><dd 
+class="description">Records
+     with properties must be defined globally. Properties cannot be defined inside records which
+     are defined in a procedure or function or in anonymous records.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Class memeber declarations are not allowed in local or anonymous records</span> </dt><dd 
+class="description">
+     Records with class members must be defined globally. Class members cannot be
+     defined inside records which are defined in a procedure or function or in anonymous
+     records.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Visibility section &#8221;arg1&#8221; not allowed in records</span> </dt><dd 
+class="description">The visibility sections <span 
+class="cmtt-10">(</span>protected)
+     and <span 
+class="cmtt-10">(</span>strict protected) are only useful together with inheritance. Since records do not support
+     that they are forbidden.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Directive &#8221;arg1&#8221; not allowed here</span> </dt><dd 
+class="description">This directive is not allowed in the given context.
+     E.g. &#8221;static&#8221; is not allowed for instance methods or class operators.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Assembler blocks not allowed inside generics</span> </dt><dd 
+class="description">The use of assembler blocks/routines
+     is not allowed inside generics.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Properties can be only static, global or inside structured types</span> </dt><dd 
+class="description">Properties
+     cannot be declared local, only global, using the static directive or inside structured
+     types.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Overloaded routines have the same mangled name</span> </dt><dd 
+class="description">Some platforms, such as the
+     JVM platform, encode the parameters in the routine name in a prescribed way, and this
+     encoding may map different Pascal types to the same encoded (a.k.a.&#x00A0;&#8220;mangled&#8221;) name. This
+     error can only be solved by removing or changing the conflicting definitions&#8217; parameter
+     declarations or routine names.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Default values can only be specified for value, const and constref parameters</span> </dt><dd 
+class="description">A
+     default parameter value allows you to not specify a value for this parameter when calling the
+     routine, and the compiler will instead pass the specified default (constant) value. As a
+     result, default values can only be specified for parameters that can accept constant
+     values.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Pointer type &#8221;arg1&#8221; ignored</span> </dt><dd 
+class="description">The specified pointer type modifier is ignored,
+     because it is not supported on the current platform. This happens, for example, when a far
+     pointer is declared on a non-x86 platform.
+     </dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 1472--><div class="crosslinks"><p class="noindent">[<a 
+href="userse63.html" >next</a>] [<a 
+href="userse61.html" >prev</a>] [<a 
+href="userse61.html#tailuserse61.html" >prev-tail</a>] [<a 
+href="userse62.html" >front</a>] [<a 
+href="userap3.html#userse62.html" >up</a>] </p></div>
+<!--l. 1472--><p class="noindent" ><a 
+ id="tailuserse62.html"></a>  
+</body></html> 

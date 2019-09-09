@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Using dos memory under the Go32 extender</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 5767--><div class="crosslinks"><p class="noindent">[<a 
+href="progse36.html" >next</a>] [<a 
+href="progse34.html" >prev</a>] [<a 
+href="progse34.html#tailprogse34.html" >prev-tail</a>] [<a 
+href="#tailprogse35.html">tail</a>] [<a 
+href="progch8.html#progse35.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">8.5   </span> <a 
+href="prog.html#QQ2-222-258" id="x222-2360008.5">Using <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>memory under the Go32 extender</a></h3>
+<!--l. 5770--><p class="noindent" >Because Free Pascal for <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>is a 32 bit compiler, and uses a <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>extender, accessing DOS memory
+isn&#8217;t trivial. What follows is an attempt to an explanation of how to access and use <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>or real mode
+memory<span class="footnote-mark"><a 
+href="#fn3x9" id="fn3x9-bk"><sup class="textsuperscript">3</sup></a></span><a 
+ id="x222-236001f3"></a>.
+<!--l. 5775--><p class="noindent" >In <span 
+class="cmti-10">Proteced Mode</span>, memory is accessed through <span 
+class="cmti-10">Selectors </span>and <span 
+class="cmti-10">Offsets</span>. You can think of Selectors as
+the protected mode equivalents of segments.
+<!--l. 5779--><p class="noindent" >In Free Pascal, a pointer is an offset into the <span 
+class="cmtt-10">DS </span>selector, which points to the Data of your
+program.
+<!--l. 5782--><p class="noindent" >To access the (real mode) <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>memory, somehow you need a selector that points to the <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span></span>
+memory. The <span 
+class="cmss-10">go32 </span>unit provides you with such a selector: The <span 
+class="cmtt-10">DosMemSelector </span>variable, as it is
+conveniently called.
+<!--l. 5787--><p class="noindent" >You can also allocate memory in <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span></span>&#8217;s memory space, using the <span 
+class="cmtt-10">global</span><span 
+class="cmtt-10">_dos</span><span 
+class="cmtt-10">_alloc</span>
+function of the <span 
+class="cmss-10">go32 </span>unit. This function will allocate memory in a place where <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>sees
+it.
+<!--l. 5791--><p class="noindent" >As an example, here is a function that returns memory in real mode <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>and returns a
+selector:offset pair for it.
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-219">
+procedure&#x00A0;dosalloc(var&#x00A0;selector&#x00A0;:&#x00A0;word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;var&#x00A0;segment&#x00A0;:&#x00A0;word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;size&#x00A0;:&#x00A0;longint);
+&#x00A0;<br />
+&#x00A0;<br />var&#x00A0;result&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;result&#x00A0;:=&#x00A0;global_dos_alloc(size);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;selector&#x00A0;:=&#x00A0;word(result);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;segment&#x00A0;:=&#x00A0;word(result&#x00A0;shr&#x00A0;16);
+&#x00A0;<br />end;
+</div>
+<!--l. 5805--><p class="nopar" >(You need to free this memory using the <span 
+class="cmtt-10">global</span><span 
+class="cmtt-10">_dos</span><span 
+class="cmtt-10">_free </span>function.)
+<!--l. 5808--><p class="noindent" >You can access any place in memory using a selector. You can get a selector using the
+function:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-220">
+function&#x00A0;allocate_ldt_descriptors(count&#x00A0;:&#x00A0;word)&#x00A0;:&#x00A0;word;
+</div>
+<!--l. 5812--><p class="nopar" >and then let this selector point to the physical memory you want using the function
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-221">
+function&#x00A0;set_segment_base_address(d&#x00A0;:&#x00A0;word;s&#x00A0;:&#x00A0;longint)&#x00A0;:&#x00A0;boolean;
+</div>
+<!--l. 5817--><p class="nopar" >Its length can be set using the function:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-222">
+function&#x00A0;set_segment_limit(d&#x00A0;:&#x00A0;word;s&#x00A0;:&#x00A0;longint)&#x00A0;:&#x00A0;boolean;
+</div>
+<!--l. 5821--><p class="nopar" >You can manipulate the memory pointed to by the selector using the functions of the GO32 unit.
+For instance with the <span 
+class="cmtt-10">seg</span><span 
+class="cmtt-10">_fillchar </span>function. After using the selector, you must free it again using
+the function:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-223">
+function&#x00A0;free_ldt_descriptor(d&#x00A0;:&#x00A0;word)&#x00A0;:&#x00A0;boolean;
+</div>
+<!--l. 5827--><p class="nopar" >
+<!--l. 5829--><p class="noindent" >More information on all this can be found in the <a 
+href="../rtl/index.html" >Unit Reference</a>, the chapter on the <span 
+class="cmss-10">go32</span>
+unit.
+                                                                            
+
+                                                                            
+<div class="footnotes"><!--l. 5773--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn3x9-bk" id="fn3x9"><sup class="textsuperscript">3</sup></a></span><span 
+class="cmr-8">Thanks for the explanation to Thomas Schatzl (E-mail: </span><span 
+class="cmtt-8">tom</span><span 
+class="cmtt-8">_at</span><span 
+class="cmtt-8">_work@geocities.com</span><span 
+class="cmr-8">)</span>            </div> <!--l. 5832--><div class="crosslinks"><p class="noindent">[<a 
+href="progse36.html" >next</a>]
+[<a 
+href="progse34.html" >prev</a>] [<a 
+href="progse34.html#tailprogse34.html" >prev-tail</a>] [<a 
+href="progse35.html" >front</a>] [<a 
+href="progch8.html#progse35.html" >up</a>] </p></div>
+<!--l. 5832--><p class="noindent" ><a 
+ id="tailprogse35.html"></a>  
+</body></html> 

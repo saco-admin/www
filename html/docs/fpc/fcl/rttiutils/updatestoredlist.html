@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>UpdateStoredList</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../rttiutils/index.html">Overview</a>][<a href="../rttiutils/index-2.html">Constants</a>][<a href="../rttiutils/index-3.html">Types</a>][<a href="../rttiutils/index-4.html">Classes</a>][<a href="../rttiutils/index-5.html">Procedures and functions</a>][<a href="../rttiutils/index-6.html">Variables</a>][<a href="../rttiutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'rttiutils' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>UpdateStoredList</h1>
+<p>Update a stringlist with object references</p>
+<h2>Declaration</h2>
+<p>Source position: rttiutils.pp line 130</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> UpdateStoredList<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AComponent<span class="sym">: </span><a href="../../rtl/classes/tcomponent.html">TComponent</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AStoredList<span class="sym">: </span><a href="../../rtl/classes/tstrings.html">TStrings</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;FromForm<span class="sym">: </span>Boolean</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AComponent</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Root component</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AStoredList</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of property references to resolve</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">FromForm</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Start search from form or search globally</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>UpdateStoredList</var> will parse the strings in <var>AStoredList</var> using <a href="../rttiutils/parsestoreditem.html">ParseStoredItem</a> and will replace the <var>Objects</var>  properties with the instance of the object whose name each property path in  the list refers to. If <var>FromForm</var> is <var>True</var>, then all  instances are searched relative to <var>AComponent</var>, i.e. they must be owned by <var>AComponent</var>. If <var>FromForm</var> is <var>False</var> the instances are searched in the global list of streamed components. (the <a href="../rttiutils/findglobalcomponentcallback.html">FindGlobalComponentCallBack</a> callback must be set for the search to work correctly in this case) </p>
+<p>If a component cannot be found, the reference string to the property is removed from the stringlist. </p>
+<h2>Errors</h2>
+<p>If <var>AComponent</var> is <var>Nil</var>, an exception may be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../rttiutils/parsestoreditem.html">ParseStoredItem</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Split a property reference to component reference and property name</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../rttiutils/tpropsstorage.storeobjectsprops.html">TPropsStorage.StoreObjectsProps</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Store a list of component properties</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../rttiutils/tpropsstorage.loadobjectsprops.html">TPropsStorage.LoadObjectsProps</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Load a list of component properties</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../rttiutils/findglobalcomponentcallback.html">FindGlobalComponentCallBack</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when component references must be resolved.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

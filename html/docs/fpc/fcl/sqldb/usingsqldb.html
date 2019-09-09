@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Using SQLDB to access databases</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Up</a>][<a href="../sqldb/universalconnectors.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h2>Using SQLDB to access databases</h2>
+<p>SQLDB can be used to connect to any SQL capable database. It allows to execute SQL statements on any supported database type in a uniform way, and allows to fetch and manipulate result sets (such as returned by a SELECT statement) using a standard <a href="../db/tdataset.html">TDataset</a> interface. SQLDB takes care that updates to the database are posted automatically to the database, in a cached manner. </p>
+<p>When using SQLDB, 3 components are always needed: </p>
+<ol>
+<li>A <a href="../sqldb/tsqlconnection.html">TSQLConnection</a> descendent. This represents the connection to the database: the location of the database, and the username and password to authenticate the connection must be specified here. For each supported database type (Firebird, PostgreSQL, MySQL) there is a separate connection component. They all descend from <var>TSQLConnection</var>. </li>
+<li>A <a href="../sqldb/tsqltransaction.html">TSQLTransaction</a> component. SQLDB allows you to have multiple active but independent transactions in your application. (useful for instance in middle-tier applications). If the native database client library does not support this directly, it is emulated using multiple connections to the database. </li>
+<li>A <a href="../sqldb/tsqlquery.html">TSQLQuery</a> component. This encapsulates an SQL statement. Any kind of SQL statement can be executed. The <var>TSQLQuery</var> component is a <var>TDataset</var> descendent: If the statement returns a result set, then it can be manipulated using the usual <var>TDataset</var> mechanisms. </li>
+</ol>
+<p>The 3 components must be linked together: the connection must point to a default transaction (it is used to execute certain queries for metadata), the transaction component must point to a connection component. The TSQLQuery component must point to both a transaction and a database. </p>
+<p>So in order to view the contents of a table, typically the procedure goes like this: </p>
+<pre><span class="dir">{$mode objfpc}</span><span class="dir">{$h+}</span>
+<span class="kw">uses</span> sqldb<span class="sym">,</span> ibconnection<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  C <span class="sym">:</span> TSQLConnection<span class="sym">;</span>
+  T <span class="sym">:</span> TSQLTransaction<span class="sym">;</span>
+  Q <span class="sym">:</span> TSQLQuery<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="cmt">// Create a connection.</span>
+  C<span class="sym">:=</span>TIBConnection<span class="sym">.</span>Create<span class="sym">(</span><span class="kw">Nil</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">try</span>
+    <span class="cmt">// Set credentials.</span>
+    C<span class="sym">.</span>UserName<span class="sym">:=</span><span class="str">'MyUSER'</span><span class="sym">;</span>
+    C<span class="sym">.</span>Password<span class="sym">:=</span><span class="str">'Secret'</span><span class="sym">;</span>
+    C<span class="sym">.</span>DatabaseName<span class="sym">:=</span><span class="str">'/home/firebird/events.fb'</span><span class="sym">;</span>
+    <span class="cmt">// Create a transaction.</span>
+    T<span class="sym">:=</span>TSQLTransaction<span class="sym">.</span>Create<span class="sym">(</span>C<span class="sym">)</span><span class="sym">;</span>
+    <span class="cmt">// Point to the database instance</span>
+    T<span class="sym">.</span>Database<span class="sym">:=</span>C<span class="sym">;</span>
+    <span class="cmt">// Now we can open the database.</span>
+    C<span class="sym">.</span>Connected<span class="sym">:=</span>True<span class="sym">;</span>
+    <span class="cmt">// Create a query to return data</span>
+    Q<span class="sym">:=</span>TSQLQuery<span class="sym">.</span>Create<span class="sym">(</span>C<span class="sym">)</span><span class="sym">;</span>
+    <span class="cmt">// Point to database and transaction.</span>
+    Q<span class="sym">.</span>Database<span class="sym">:=</span>C<span class="sym">;</span>
+    Q<span class="sym">.</span>Transaction<span class="sym">:=</span>T<span class="sym">;</span>
+    <span class="cmt">// Set the SQL select statement</span>
+    Q<span class="sym">.</span>SQL<span class="sym">.</span>Text<span class="sym">:=</span><span class="str">'SELECT * FROM USERS'</span><span class="sym">;</span>
+    <span class="cmt">// And now use the standard TDataset methods.</span>
+    Q<span class="sym">.</span>Open<span class="sym">;</span>
+    <span class="kw">While</span> <span class="kw">not</span> Q<span class="sym">.</span>EOF <span class="kw">do</span>
+      <span class="kw">begin</span>
+      Writeln<span class="sym">(</span>Q<span class="sym">.</span>FieldByName<span class="sym">(</span><span class="str">'U_NAME'</span><span class="sym">)</span><span class="sym">.</span>AsString<span class="sym">)</span><span class="sym">;</span>
+      Q<span class="sym">.</span>Next
+      <span class="kw">end</span><span class="sym">;</span>
+    Q<span class="sym">.</span>Close<span class="sym">;</span>
+  <span class="kw">finally</span>
+    C<span class="sym">.</span>Free<span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<p>The above code is quite simple. The connection type is <var>TIBConnection</var>, which is used for Firebird/Interbase databases. To connect to another database (for instance PostgreSQL), the exact same code could be used, but instead of a <var>TIBConnection</var>, a <var>TPQConnection</var> component must be used: </p>
+<pre><span class="dir">{$mode objfpc}</span><span class="dir">{$h+}</span>
+<span class="kw">uses</span> sqldb<span class="sym">,</span> pqconnection<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  C <span class="sym">:</span> TSQLConnection<span class="sym">;</span>
+  T <span class="sym">:</span> TSQLTransaction<span class="sym">;</span>
+  Q <span class="sym">:</span> TSQLQuery<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="cmt">// Create a connection.</span>
+  C<span class="sym">:=</span>TPQConnection<span class="sym">.</span>Create<span class="sym">(</span><span class="kw">Nil</span><span class="sym">)</span><span class="sym">;</span>
+</pre>
+<p>The rest of the code remains identical. </p>
+<p>The above code used an SQL SELECT statement and the <var>Open</var> method to fetch data from the database. Almost the same method applies when trying to execute other kinds of queries, such as DDL queries: </p>
+<pre><span class="dir">{$mode objfpc}</span><span class="dir">{$h+}</span>
+<span class="kw">uses</span> sqldb<span class="sym">,</span> ibconnection<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  C <span class="sym">:</span> TSQLConnection<span class="sym">;</span>
+  T <span class="sym">:</span> TSQLTransaction<span class="sym">;</span>
+  Q <span class="sym">:</span> TSQLQuery<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  C<span class="sym">:=</span>TIBConnection<span class="sym">.</span>Create<span class="sym">(</span><span class="kw">Nil</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">try</span>
+    C<span class="sym">.</span>UserName<span class="sym">:=</span><span class="str">'MyUSER'</span><span class="sym">;</span>
+    C<span class="sym">.</span>Password<span class="sym">:=</span><span class="str">'Secret'</span><span class="sym">;</span>
+    C<span class="sym">.</span>DatabaseName<span class="sym">:=</span><span class="str">'/home/firebird/events.fb'</span><span class="sym">;</span>
+    T<span class="sym">:=</span>TSQLTransaction<span class="sym">.</span>Create<span class="sym">(</span>C<span class="sym">)</span><span class="sym">;</span>
+    T<span class="sym">.</span>Database<span class="sym">:=</span>C<span class="sym">;</span>
+    C<span class="sym">.</span>Connected<span class="sym">:=</span>True<span class="sym">;</span>
+    Q<span class="sym">:=</span>TSQLQuery<span class="sym">.</span>Create<span class="sym">(</span>C<span class="sym">)</span><span class="sym">;</span>
+    Q<span class="sym">.</span>Database<span class="sym">:=</span>C<span class="sym">;</span>
+    Q<span class="sym">.</span>Transaction<span class="sym">:=</span>T<span class="sym">;</span>
+    <span class="cmt">// Set the SQL statement. SQL is a tstrings instance.</span>
+    <span class="kw">With</span> Q<span class="sym">.</span>SQL <span class="kw">do</span>
+      <span class="kw">begin</span>
+      Add<span class="sym">(</span><span class="str">'CREATE TABLE USERS ( '</span><span class="sym">)</span><span class="sym">;</span>
+      Add<span class="sym">(</span><span class="str">' U_NAME VARCHAR(50), '</span><span class="sym">)</span><span class="sym">;</span>
+      Add<span class="sym">(</span><span class="str">' U_PASSWORD VARCHAR(50) '</span><span class="sym">)</span><span class="sym">;</span>
+      Add<span class="sym">(</span><span class="str">' ) '</span><span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">end</span><span class="sym">;</span>
+    <span class="cmt">// And now execute the query using ExecSQL</span>
+    <span class="cmt">// There is no result, so Open cannot be used.</span>
+    Q<span class="sym">.</span>ExecSQL<span class="sym">;</span>
+    <span class="cmt">// Commit the transaction.</span>
+    T<span class="sym">.</span>Commit<span class="sym">;</span>
+  <span class="kw">finally</span>
+    C<span class="sym">.</span>Free<span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<p>As can be seen from the above example, the setup is the same as in the case of fetching data. Note that <a href="../sqldb/tsqlquery.html">TSQLQuery</a> can only execute 1 SQL statement during ExecSQL. If many SQL statements must be executed, <a href="../sqldb/tsqlscript.html">TSQLScript</a> must be used. </p>
+<p>There is much more to <var>TSQLQuery</var> than explained here: it can use parameters (see <a href="../sqldb/usingparams.html">UsingParams</a>) and it can automatically update the data that you edit in it (see <a href="../sqldb/updatesqls.html">UpdateSQLs</a>). </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlconnection.html">TSQLConnection</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">An abstract class representing a connection to a SQL Database</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqltransaction.html">TSQLTransaction</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Transaction in which a <var>TSQLQuery</var> is handled</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlquery.html">TSQLQuery</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Class to handle SQL commands (with or without result set)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlconnector.html">TSQLConnector</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Universal connection component</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlscript.html">TSQLScript</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Component to execute various SQL statements</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/usingparams.html">UsingParams</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Using parameters</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/updatesqls.html">UpdateSQLs</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Automatic generation of update SQL statements</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

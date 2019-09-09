@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFindComponentEvent</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../rttiutils/index.html">Overview</a>][<a href="../rttiutils/index-2.html">Constants</a>][<a href="../rttiutils/index-3.html">Types</a>][<a href="../rttiutils/index-4.html">Classes</a>][<a href="../rttiutils/index-5.html">Procedures and functions</a>][<a href="../rttiutils/index-6.html">Variables</a>][<a href="../rttiutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'rttiutils' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TFindComponentEvent</h1>
+<p>Event callback to locate a component instance</p>
+<h2>Declaration</h2>
+<p>Source position: rttiutils.pp line 138</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TFindComponentEvent<span class="sym"> = </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Name<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/classes/tcomponent.html">TComponent</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Name</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Name path of component to search for</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Component instance</p>
+<h2>Description</h2>
+<p><var>TFindComponentEvent</var> should return the component instance for the component with name path <var>Name</var>. The name path should  be relative to the global list of loaded components. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../rttiutils/updatestoredlist.html">UpdateStoredList</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Update a stringlist with object references</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../rttiutils/findglobalcomponentcallback.html">FindGlobalComponentCallBack</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback used when component references must be resolved.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

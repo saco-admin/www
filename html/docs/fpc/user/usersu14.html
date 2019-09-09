@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Options concerning files and directories</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1113--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu15.html" >next</a>] [<a 
+href="usersu13.html" >prev</a>] [<a 
+href="usersu13.html#tailusersu13.html" >prev-tail</a>] [<a 
+href="#tailusersu14.html">tail</a>] [<a 
+href="userse16.html#usersu14.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">5.1.3   </span> <a 
+href="user.html#QQ2-37-46" id="x37-440005.1.3">Options concerning files and directories</a></h4>
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">-exxx</span> </dt><dd 
+class="description">Specify  <span 
+class="cmss-10">xxx </span>as the directory containing the executables for the programs <span 
+class="cmss-10">as </span>(the
+     assembler) and <span 
+class="cmtt-10">ld </span>(the linker).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-FaXYZ</span> </dt><dd 
+class="description">load units <span 
+class="cmtt-10">XYZ </span>after the system unit, but before any other unit is loaded. <span 
+class="cmtt-10">XYZ </span>is a
+     comma-separated list of unit names. This can only be used for programs, and has the
+     same effect as if <span 
+class="cmtt-10">XYZ </span>were inserted as the first item in the program&#8217;s <span 
+class="cmtt-10">uses </span>clause.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-FcXXX</span> </dt><dd 
+class="description">Set the input codepage to <span 
+class="cmtt-10">XXX</span>. Experimental.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-FCxxx</span> </dt><dd 
+class="description">Set the RC compiler (resource compiler) binary name to <span 
+class="cmss-10">xxx</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Fd</span> </dt><dd 
+class="description">Disable the compiler&#8217;s internal directory cache. By default, the compiler caches the
+     names of all files in a directory as soon as it looks for a single file in said directory.
+     This ensures that the correct case of all file names is used in the debug information.
+     It also allows to create compiled files with the correct casing when compiling on a
+     case-preserving file systems under an OS that also support case-sensitive file systems.
+     Lastly,  it  can  also  increase  performance.  This  feature  can  however  cause  severe
+     slowdowns on networked file systems, especially when compiling trivial programs in
+     directories containing many files, and such slowdowns can be addressed by disabling
+     the cache using this switch.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-FD</span> </dt><dd 
+class="description">Same as <span 
+class="cmtt-10">-e</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Fexxx</span> </dt><dd 
+class="description">Write errors, etc. to the file named <span 
+class="cmss-10">xxx</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-FExxx</span> </dt><dd 
+class="description">Write the executable and units to directory <span 
+class="cmss-10">xxx </span>instead of the current directory. If
+     this option contains a path component and is followed by an option <span 
+class="cmtt-10">-o </span>(see page <a 
+href="usersu15.html#x38-450005.1.4">113<!--tex4ht:ref: option:o --></a>)),
+     then the <span 
+class="cmtt-10">-o </span>path will override the <span 
+class="cmtt-10">-FE </span>path setting.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Ffxxx</span> </dt><dd 
+class="description">Add <span 
+class="cmss-10">xxx </span>to the framework path (only for Darwin).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Fg</span> </dt><dd 
+class="description">?
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Fixxx</span> </dt><dd 
+class="description">Add <span 
+class="cmss-10">xxx </span>to the include file search path.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Flxxx</span> </dt><dd 
+class="description">Add <span 
+class="cmss-10">xxx </span>to the library search path. (This is also passed to the linker.)
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-FLxxx</span> </dt><dd 
+class="description">(<span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>only) Use <span 
+class="cmss-10">xxx </span>as the dynamic linker. The default is <span 
+class="cmss-10">/lib/ld-linux.so.2</span>, or
+     <span 
+class="cmss-10">/lib/ld-linux.so.1</span>, depending on which one is found first.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Fmxxx</span> </dt><dd 
+class="description">Load the unicode conversion table from file <span 
+class="cmss-10">x.txt </span>in the directory where the compiler
+     is located. Only used when <span 
+class="cmtt-10">-Fc </span>is also in effect.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-FMxxx</span> </dt><dd 
+class="description">Set the directory where to search for unicode binary files to <span 
+class="cmtt-10">xxx</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Foxxx</span> </dt><dd 
+class="description">Add <span 
+class="cmss-10">xxx </span>to the object file search path. This path is used when looking for files that
+     need to be linked in.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Frxxx</span> </dt><dd 
+class="description">Specify <span 
+class="cmss-10">xxx </span>as the file which contain the compiler messages. This will override the
+     compiler&#8217;s built-in default messages, which are in english.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-FRxxx</span> </dt><dd 
+class="description">set the resource (.res) linker to <span 
+class="cmss-10">xxx</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Fuxxx</span> </dt><dd 
+class="description">Add <span 
+class="cmss-10">xxx </span>to the unit search path. Units are first searched in the current directory. If
+     they are not found there then the compiler searches them in the unit path. You must
+     <span 
+class="cmti-10">always </span>supply the path to the system unit. The <span 
+class="cmss-10">xxx </span>path can contain a single wildcard
+     (*) which will be expanded to all possible directory names found at that location. Note
+     that the location itself is not included in the list. See section <a 
+href="usersu7.html#x21-280003.1.2">3.1.2<!--tex4ht:ref: se:unitsearching --></a>, page <a 
+href="usersu7.html#x21-280003.1.2">58<!--tex4ht:ref: se:unitsearching --></a> for more
+     information about this option.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-FUxxx</span> </dt><dd 
+class="description">Write units to directory <span 
+class="cmtt-10">xxx </span>instead of the current directory. It overrides the <span 
+class="cmtt-10">-FE</span>
+     option.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Ixxx</span> </dt><dd 
+class="description"> Add <span 
+class="cmss-10">xxx </span>to the include file search path. This option has the same effect as <span 
+class="cmtt-10">-Fi</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-FWxxx</span> </dt><dd 
+class="description">store generated Whole Program Optimization information in file <span 
+class="cmss-10">xxx</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-Fwxxx</span> </dt><dd 
+class="description">Read Whole Program Optimization information (as saved using -FWxxx) from file
+     <span 
+class="cmss-10">xxx</span>.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 1185--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu15.html" >next</a>] [<a 
+href="usersu13.html" >prev</a>] [<a 
+href="usersu13.html#tailusersu13.html" >prev-tail</a>] [<a 
+href="usersu14.html" >front</a>] [<a 
+href="userse16.html#usersu14.html" >up</a>] </p></div>
+<!--l. 1185--><p class="noindent" ><a 
+ id="tailusersu14.html"></a>  
+</body></html> 

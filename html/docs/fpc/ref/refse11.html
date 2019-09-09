@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Resource strings</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 803--><div class="crosslinks"><p class="noindent">[<a 
+href="refse10.html" >prev</a>] [<a 
+href="refse10.html#tailrefse10.html" >prev-tail</a>] [<a 
+href="#tailrefse11.html">tail</a>] [<a 
+href="refch2.html#refse11.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">2.3   </span> <a 
+href="ref.html#QQ2-23-22" id="x23-220002.3">Resource strings</a></h3>
+<a 
+ id="dx23-22001"></a>
+<a 
+ id="dx23-22002"></a>
+<a 
+ id="dx23-22003"></a>
+<!--l. 804--><p class="noindent" ><a name="keyword_resourcestring"></a> A special kind of constant declaration block is the <span 
+class="cmtt-10">Resourcestring </span>block. Resourcestring
+declarations are much like constant string declarations: resource strings act as constant strings, but
+they can be localized by means of a set of special routines in the <span 
+class="cmss-10">objpas </span>unit. A resource string
+declaration block is only allowed in the <span 
+class="cmtt-10">Delphi </span>or <span 
+class="cmtt-10">Objfpc </span>modes.
+<!--l. 812--><p class="noindent" >The following is an example of a resourcestring definition:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-30">
+Resourcestring
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;FileMenu&#x00A0;=&#x00A0;&#8217;&amp;File...&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;EditMenu&#x00A0;=&#x00A0;&#8217;&amp;Edit...&#8217;;
+</div>
+<!--l. 818--><p class="nopar" >All string constants defined in the resourcestring section are stored in special tables. The strings in
+these tables can be manipulated at runtime with some special mechanisms in the <span 
+class="cmss-10">objpas</span>
+unit.
+<!--l. 823--><p class="noindent" >Semantically, the strings act like ordinary constants; It is not allowed to assign values to them
+(except through the special mechanisms in the <span 
+class="cmss-10">objpas </span>unit). However, they can be used in
+assignments or expressions as ordinary string constants. The main use of the resourcestring section
+is to provide an easy means of internationalization.
+<!--l. 829--><p class="noindent" >More on the subject of resourcestrings can be found in the <a 
+href="../prog/prog.html" >Programmer&#8217;s Guide</a>, and in the <span 
+class="cmss-10">objpas</span>
+unit reference.
+<!--l. 832--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Note that a resource string which is given as an expression will not change if the parts of the
+expression are changed:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-31">
+resourcestring
+&#x00A0;<br />&#x00A0;&#x00A0;Part1&#x00A0;=&#x00A0;&#8217;First&#x00A0;part&#x00A0;of&#x00A0;a&#x00A0;long&#x00A0;string.&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;Part2&#x00A0;=&#x00A0;&#8217;Second&#x00A0;part&#x00A0;of&#x00A0;a&#x00A0;long&#x00A0;string.&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;Sentence&#x00A0;=&#x00A0;Part1+&#8217;&#x00A0;&#8217;+Part2;
+</div>
+<!--l. 840--><p class="nopar" >If the localization routines translate <span 
+class="cmtt-10">Part1 </span>and <span 
+class="cmtt-10">Part2</span>, the <span 
+class="cmtt-10">Sentence </span>constant will not be
+translated automatically: it has a separate entry in the resource string tables, and must therefor be
+translated separately. The above construct simply says that the initial value of <span 
+class="cmtt-10">Sentence </span>equals
+<span 
+class="cmtt-10">Part1+&#8217; &#8217;+Part2</span>.
+<!--l. 848--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Likewise, when using resource strings in a constant array, only the initial values of the resource
+strings will be used in the array: when the individual constants are translated, the elements in the
+array will retain their original value.
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-32">
+resourcestring
+&#x00A0;<br />&#x00A0;&#x00A0;Yes&#x00A0;=&#x00A0;&#8217;Yes.&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;No&#x00A0;=&#x00A0;&#8217;No.&#8217;;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;YesNo&#x00A0;:&#x00A0;Array[Boolean]&#x00A0;of&#x00A0;string&#x00A0;=&#x00A0;(No,Yes);
+&#x00A0;<br />&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;Boolean;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(YesNo[B]);
+&#x00A0;<br />end.
+</div>
+<!--l. 865--><p class="nopar" >This will print &#8217;Yes.&#8217; or &#8217;No.&#8217; depending on the value of B, even if the constants Yes and No have
+been localized by some localization mechanism.
+                                                                            
+
+                                                                            
+<!--l. 873--><div class="crosslinks"><p class="noindent">[<a 
+href="refse10.html" >prev</a>] [<a 
+href="refse10.html#tailrefse10.html" >prev-tail</a>] [<a 
+href="refse11.html" >front</a>] [<a 
+href="refch2.html#refse11.html" >up</a>] </p></div>
+<!--l. 873--><p class="noindent" ><a 
+ id="tailrefse11.html"></a>  
+</body></html> 

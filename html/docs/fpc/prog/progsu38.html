@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$I or $IOCHECKS : Input/Output checking</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 762--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu39.html" >next</a>] [<a 
+href="progsu37.html" >prev</a>] [<a 
+href="progsu37.html#tailprogsu37.html" >prev-tail</a>] [<a 
+href="#tailprogsu38.html">tail</a>] [<a 
+href="progse2.html#progsu38.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.38   </span> <a 
+href="prog.html#QQ2-45-44" id="x45-440001.2.38"><span 
+class="cmtt-10">$I </span>or <span 
+class="cmtt-10">$IOCHECKS </span>: Input/Output checking</a></h4>
+<!--l. 764--><p class="noindent" >The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$I-</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$IOCHECKS OFF</span><span 
+class="cmsy-10">} </span>directive tells the compiler not to generate input/output checking
+code in the program. By default, the compiler generates I/O checking code. This behaviour can be
+controlled globally with the <span 
+class="cmtt-10">-Ci </span>switch.
+<!--l. 769--><p class="noindent" >When compiling using the <span 
+class="cmtt-10">-Ci </span>compiler switch, the Free Pascal compiler inserts input/output
+checking code after every input/output call in the code. If an error occurred during input or
+output, then a run-time error will be generated. This switch can also be used to avoid this
+behaviour.
+<!--l. 774--><p class="noindent" >If no I/O checking code is generated, to check if something went wrong, the <span 
+class="cmtt-10">IOResult </span>function can
+be used to see if everything went without problems.
+<!--l. 778--><p class="noindent" >Conversely, <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$I+</span><span 
+class="cmsy-10">} </span>will turn error-checking back on, until another directive is encountered which
+turns it off again.
+<!--l. 781--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> When an I/O error occurs and I/O-checking code generation is off, all subsequent I/O operations
+are ignored until the IO error status code is cleared.
+<!--l. 785--><p class="noindent" >When the <span 
+class="cmtt-10">IOResult </span>function from the system unit is called, it returns the current IO status code
+and resets it.
+<!--l. 788--><p class="noindent" >The effect of this is that <span 
+class="cmtt-10">IOResult </span>must be checked after each I/O operation for subsequent I/O
+operations to succeed.
+<!--l. 792--><p class="noindent" >The most common use for this switch is to check if the opening of a file went without problems, as
+in the following piece of code:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-36">
+assign&#x00A0;(f,&#8217;file.txt&#8217;);
+&#x00A0;<br />{$I-}
+&#x00A0;<br />rewrite&#x00A0;(f);
+&#x00A0;<br />{$I+}
+&#x00A0;<br />if&#x00A0;IOResult&#x003C;&#x003E;0&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Error&#x00A0;opening&#x00A0;file:&#x00A0;"file.txt"&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;exit
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 804--><p class="nopar" >See the <span 
+class="cmtt-10">IOResult </span>function explanation in <a 
+href="../ref/ref.html" >Reference Guide</a> for a detailed description of the possible
+errors that can occur when using input/output checking.
+                                                                            
+
+                                                                            
+<!--l. 809--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu39.html" >next</a>] [<a 
+href="progsu37.html" >prev</a>] [<a 
+href="progsu37.html#tailprogsu37.html" >prev-tail</a>] [<a 
+href="progsu38.html" >front</a>] [<a 
+href="progse2.html#progsu38.html" >up</a>] </p></div>
+<!--l. 809--><p class="noindent" ><a 
+ id="tailprogsu38.html"></a>  
+</body></html> 

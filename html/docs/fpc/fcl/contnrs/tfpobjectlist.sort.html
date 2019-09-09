@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFPObjectList.Sort</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../contnrs/index.html">Overview</a>][<a href="../contnrs/index-2.html">Constants</a>][<a href="../contnrs/index-3.html">Types</a>][<a href="../contnrs/index-4.html">Classes</a>][<a href="../contnrs/index-5.html">Procedures and functions</a>][<a href="../contnrs/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'contnrs' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TFPObjectList.Sort</h1>
+<p>Sort the list of objects</p>
+<h2>Declaration</h2>
+<p>Source position: contnrs.pp line 61</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../contnrs/tfpobjectlist.html">TFPObjectList</a><span class="sym">.</span>Sort<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Compare<span class="sym">: </span><a href="../../rtl/classes/tlistsortcompare.html">TListSortCompare</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Compare</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compare function for two objects.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Sort</var> will perform a quick-sort on the list, using <var>Compare</var> as the compare algorithm. This function should accept 2 pointers and should return the following result: </p>
+<dl>
+<dt>less than 0</dt>
+<dd>If the first pointer comes before the second.</dd>
+<dt>equal to 0</dt>
+<dd>If the pointers have the same value.</dd>
+<dt>larger than 0</dt>
+<dd>If the first pointer comes after the second.</dd>
+</dl>
+<p>The function should be able to deal with <var>Nil</var> values. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../../rtl/classes/tlist.sort.html">#rtl.classes.TList.Sort</a></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

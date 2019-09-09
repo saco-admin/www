@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$SMARTLINK : Use smartlinking</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 2357--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu118.html" >next</a>] [<a 
+href="progsu116.html" >prev</a>] [<a 
+href="progsu116.html#tailprogsu116.html" >prev-tail</a>] [<a 
+href="#tailprogsu117.html">tail</a>] [<a 
+href="progse3.html#progsu117.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.3.34   </span> <a 
+href="prog.html#QQ2-125-126" id="x125-1260001.3.34"><span 
+class="cmtt-10">$SMARTLINK </span>: Use smartlinking</a></h4>
+<!--l. 2359--><p class="noindent" >A unit that is compiled in the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$SMARTLINK ON</span><span 
+class="cmsy-10">} </span>state will be compiled in such a way that it can
+be used for smartlinking. This means that the unit is chopped in logical pieces: each procedure is
+put in its own object file, and all object files are put together in a big archive. When using such a
+unit, only the pieces of code that you really need or call will be linked in your program, thus
+reducing the size of your executable substantially.
+<!--l. 2367--><p class="noindent" >Beware: using smartlinked units slows down the compilation process, because a separate object
+file must be created for each procedure. If you have units with many functions and
+procedures, this can be a time consuming process, even more so if you use an external
+assembler (the assembler is called to assemble each procedure or function code block
+separately).
+<!--l. 2373--><p class="noindent" >The smartlinking directive should be specified <span 
+class="cmti-10">before </span>the unit declaration part:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-105">
+{$SMARTLINK&#x00A0;ON}
+&#x00A0;<br />
+&#x00A0;<br />Unit&#x00A0;MyUnit;
+&#x00A0;<br />
+&#x00A0;<br />Interface
+&#x00A0;<br />&#x00A0;...
+</div>
+<!--l. 2382--><p class="nopar" >
+<!--l. 2384--><p class="noindent" >This directive is equivalent to the <span 
+class="cmtt-10">-CX </span>command line switch.
+                                                                            
+
+                                                                            
+<!--l. 2386--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu118.html" >next</a>] [<a 
+href="progsu116.html" >prev</a>] [<a 
+href="progsu116.html#tailprogsu116.html" >prev-tail</a>] [<a 
+href="progsu117.html" >front</a>] [<a 
+href="progse3.html#progsu117.html" >up</a>] </p></div>
+<!--l. 2386--><p class="noindent" ><a 
+ id="tailprogsu117.html"></a>  
+</body></html> 

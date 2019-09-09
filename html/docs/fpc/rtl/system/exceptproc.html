@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>ExceptProc</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>ExceptProc</h1>
+<p>Current exception handling procedure.</p>
+<h2>Declaration</h2>
+<p>Source position: objpash.inc line 345</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">const</span> ExceptProc<span class="sym">: </span><a href="../system/texceptproc.html">TExceptProc</a> <span class="sym">=</span> <span class="kw">Nil</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This constant points to the current exception handling procedure.  This routine is called when an unhandled exception occurs, i.e. an exception that is not stopped by a except block. </p>
+<p>If the handler is not set, the RTL will emit a run-time error 217 when an unhandler exception occurs. </p>
+<p>It is set by the <a href="../sysutils/index.html">sysutils</a> unit.  </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

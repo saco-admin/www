@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>GetCapabilities</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../video/index.html">Overview</a>][<a href="../video/index-2.html">Constants</a>][<a href="../video/index-3.html">Types</a>][<a href="../video/index-5.html">Procedures and functions</a>][<a href="../video/index-6.html">Variables</a>][<a href="../video/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'video' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>GetCapabilities</h1>
+<p>Get current driver capabilities.</p>
+<h2>Declaration</h2>
+<p>Source position: videoh.inc line 130</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> GetCapabilities<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>GetCapabilities</var> returns the capabilities of the current driver. It is an or-ed combination of the following constants: </p>
+<dl>
+<dt>cpUnderLine</dt>
+<dd>Video driver supports underline attribute</dd>
+<dt>cpBlink</dt>
+<dd>Video driver supports blink attribute</dd>
+<dt>cpColor</dt>
+<dd>Video driver supports color</dd>
+<dt>cpChangeFont</dt>
+<dd>Video driver supports changing screen font.</dd>
+<dt>cpChangeMode</dt>
+<dd>Video driver supports changing mode</dd>
+<dt>cpChangeCursor</dt>
+<dd>Video driver supports changing cursor shape.</dd>
+</dl>
+<p>Note that the video driver should not yet be initialized to use this function. It is a property of the driver. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../video/getcursortype.html">GetCursorType</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get screen cursor type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../video/getvideodriver.html">GetVideoDriver</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get a copy of the current video driver.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example4<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the GetCapabilities function. }</span>
+
+<span class="kw">Uses</span> video<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  W<span class="sym">:</span> Word<span class="sym">;</span>
+
+  <span class="kw">Procedure</span> TestCap<span class="sym">(</span>Cap<span class="sym">:</span> Word<span class="sym">;</span> Msg <span class="sym">:</span> String<span class="sym">)</span><span class="sym">;</span>
+
+  <span class="kw">begin</span>
+    Write<span class="sym">(</span>Msg<span class="sym">,</span><span class="str">' : '</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> <span class="sym">(</span>W <span class="kw">and</span> Cap<span class="sym">=</span>Cap<span class="sym">)</span> <span class="kw">then</span>
+      Writeln<span class="sym">(</span><span class="str">'Yes'</span><span class="sym">)</span>
+    <span class="kw">else</span>
+      Writeln<span class="sym">(</span><span class="str">'No'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  W<span class="sym">:=</span>GetCapabilities<span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Video driver supports following functionality'</span><span class="sym">)</span><span class="sym">;</span>
+  TestCap<span class="sym">(</span>cpUnderLine<span class="sym">,</span><span class="str">'Underlined characters'</span><span class="sym">)</span><span class="sym">;</span>
+  TestCap<span class="sym">(</span>cpBlink<span class="sym">,</span><span class="str">'Blinking characters'</span><span class="sym">)</span><span class="sym">;</span>
+  TestCap<span class="sym">(</span>cpColor<span class="sym">,</span><span class="str">'Color characters'</span><span class="sym">)</span><span class="sym">;</span>
+  TestCap<span class="sym">(</span>cpChangeFont<span class="sym">,</span><span class="str">'Changing font'</span><span class="sym">)</span><span class="sym">;</span>
+  TestCap<span class="sym">(</span>cpChangeMode<span class="sym">,</span><span class="str">'Changing video mode'</span><span class="sym">)</span><span class="sym">;</span>
+  TestCap<span class="sym">(</span>cpChangeCursor<span class="sym">,</span><span class="str">'Changing cursor shape'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

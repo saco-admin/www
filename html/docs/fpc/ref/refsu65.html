@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Variable parameters</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 9694--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu66.html" >next</a>] [<a 
+href="refsu64.html" >prev</a>] [<a 
+href="refsu64.html#tailrefsu64.html" >prev-tail</a>] [<a 
+href="#tailrefsu65.html">tail</a>] [<a 
+href="refse91.html#refsu65.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">14.4.2   </span> <a 
+href="ref.html#QQ2-177-214" id="x177-19900014.4.2">Variable parameters</a></h4>
+<a 
+ id="dx177-199001"></a>
+<!--l. 9695--><p class="noindent" ><a name="keyword_var"></a> Variable parameters are declared as follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Variable parameters</span><br 
+class="newline" /><BR/><img 
+src="ref175x.png" alt="--              -   -           --------------------------------
+  variable parameter var  identifier list -  -------------           --|
+                                  :  -array - of -| type identifier
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 9698--><p class="noindent" >When parameters are declared as variable parameters, the procedure or function accesses
+immediately the variable that the calling block passed in its parameter list. The procedure gets a
+pointer to the variable that was passed, and uses this pointer to access the variable&#8217;s value. From
+this, it follows that any changes made to the parameter, will propagate back to the calling block.
+This mechanism can be used to pass values back in procedures. Because of this, the calling block
+must pass a parameter of <span 
+class="cmti-10">exactly </span>the same type as the declared parameter&#8217;s type. If it does not, the
+compiler will generate an error.
+<!--l. 9709--><p class="noindent" >Variable and constant parameters can be untyped. In that case the variable has no type, and hence
+is incompatible with all other types. However, the address operator can be used on it,
+or it can be passed to a function that has also an untyped parameter. If an untyped
+parameter is used in an assignment, or a value must be assigned to it, a typecast must be
+used.
+<!--l. 9715--><p class="noindent" >File type variables must always be passed as variable parameters.
+<!--l. 9717--><p class="noindent" >Open arrays can be passed as variable parameters. See section <a 
+href="refsu68.html#x180-20200014.4.5">14.4.5<!--tex4ht:ref: se:openarray --></a>, page <a 
+href="refsu68.html#x180-20200014.4.5">699<!--tex4ht:ref: se:openarray --></a> for more
+information on using open arrays.
+<!--l. 9720--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span>
+     <ul class="itemize1">
+     <li class="itemize">Note that default values are not supported for variable parameters. This would make
+     little sense since it defeats the purpose of being able to pass a value back to the caller.
+     </li>
+     <li class="itemize">A function result is internally treated as a variable parameter, and may have a non-zero
+     (or non-nil) initial value. This is especially important for managed types.</li></ul>
+                                                                            
+
+                                                                            
+<!--l. 9733--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu66.html" >next</a>] [<a 
+href="refsu64.html" >prev</a>] [<a 
+href="refsu64.html#tailrefsu64.html" >prev-tail</a>] [<a 
+href="refsu65.html" >front</a>] [<a 
+href="refse91.html#refsu65.html" >up</a>] </p></div>
+<!--l. 9733--><p class="noindent" ><a 
+ id="tailrefsu65.html"></a>  
+</body></html> 

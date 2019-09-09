@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Signaling changed registers</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 3465--><div class="crosslinks"><p class="noindent">[<a 
+href="progse11.html" >prev</a>] [<a 
+href="progse11.html#tailprogse11.html" >prev-tail</a>] [<a 
+href="#tailprogse12.html">tail</a>] [<a 
+href="progch3.html#progse12.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">3.4   </span> <a 
+href="prog.html#QQ2-149-152" id="x149-1500003.4">Signaling changed registers</a></h3>
+<!--l. 3467--><p class="noindent" >When the compiler uses variables, it sometimes stores them, or the result of some calculations, in
+the processor registers. If you insert assembler code in your program that modifies the processor
+registers, then this may interfere with the compiler&#8217;s idea about the registers. To avoid this
+problem, Free Pascal allows you to tell the compiler which registers have changed in an <span 
+class="cmtt-10">asm </span>block.
+The compiler will then save and reload these registers if it was using them. Telling the compiler
+which registers have changed is done by specifying a set of register names behind an assembly
+block, as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-165">
+asm
+&#x00A0;<br />&#x00A0;&#x00A0;...
+&#x00A0;<br />end&#x00A0;[&#8217;R1&#8217;,&#x00A0;...&#x00A0;,&#8217;Rn&#8217;];
+</div>
+<!--l. 3481--><p class="nopar" >Here <span 
+class="cmtt-10">R1 </span>to <span 
+class="cmtt-10">Rn </span>are the names of the registers you modify in your assembly code.
+<!--l. 3485--><p class="noindent" >As an example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-166">
+&#x00A0;&#x00A0;&#x00A0;asm
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;movl&#x00A0;BP,%eax
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;movl&#x00A0;4(%eax),%eax
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;movl&#x00A0;%eax,__RESULT
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;end&#x00A0;[&#8217;EAX&#8217;];
+</div>
+<!--l. 3492--><p class="nopar" >This example tells the compiler that the <span 
+class="cmtt-10">EAX </span>register was modified.
+<!--l. 3495--><p class="noindent" >For assembler routines, i.e., routines that are written completely in assembler, the ABI of the
+processor &amp; platform must be respected, i.e. the routine itself must know what registers to save
+and what not, but it can tell the compiler using the same method what registers were changed or
+not. The compiler will save specified registers to the stack on entry and restore them on routine
+exit.
+<!--l. 3502--><p class="noindent" >The only thing the compiler normally does, is create a minimal stack frame if needed (e.g. when
+variables are declared). All the rest is up to the programmer.
+                                                                            
+
+                                                                            
+<!--l. 3510--><div class="crosslinks"><p class="noindent">[<a 
+href="progse11.html" >prev</a>] [<a 
+href="progse11.html#tailprogse11.html" >prev-tail</a>] [<a 
+href="progse12.html" >front</a>] [<a 
+href="progch3.html#progse12.html" >up</a>] </p></div>
+<!--l. 3510--><p class="noindent" ><a 
+ id="tailprogse12.html"></a>  
+</body></html> 

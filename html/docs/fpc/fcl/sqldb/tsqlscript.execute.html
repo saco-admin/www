@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSQLScript.Execute</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TSQLScript.Execute</h1>
+<p>Execute the script.</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 694</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../sqldb/tsqlscript.html">TSQLScript</a><span class="sym">.</span>Execute<span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Execute</var> will execute the statements specified in <a href="../sqldb/tsqlscript.script.html">Script</a> one by one, till the last statement is processed or an exception is raised. </p>
+<p>If an error occurs during execution, normally an exception is raised. If the <a href="../sqldb/tsqlscript.onexception.html">TSQLScript.OnException</a> event handler is set, it may stop the event handler. </p>
+<h2>Errors</h2>
+<p>Handle errors using <a href="../sqldb/tsqlscript.onexception.html">TSQLScript.OnException</a>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlscript.script.html">Script</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The script to execute</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlscript.onexception.html">TSQLScript.OnException</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Exception handling event</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

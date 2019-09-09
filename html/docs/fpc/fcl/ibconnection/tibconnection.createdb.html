@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TIBConnection.CreateDB</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../ibconnection/index.html">Overview</a>][<a href="../ibconnection/index-2.html">Constants</a>][<a href="../ibconnection/index-3.html">Types</a>][<a href="../ibconnection/index-4.html">Classes</a>][<a href="../ibconnection/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'IBConnection' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TIBConnection.CreateDB</h1>
+<p>Creates a database on disk</p>
+<h2>Declaration</h2>
+<p>Source position: ibconnection.pp line 119</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../ibconnection/tibconnection.html">TIBConnection</a><span class="sym">.</span>CreateDB<span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Instructs the Interbase or Firebird database server to create a new database.</p>
+<p>If set, the <a href="../sqldb/tsqlconnection.params.html">TSQLConnection.Params</a> (specifically, <var>PAGE_SIZE</var>) and <a href="../sqldb/tsqlconnection.charset.html">TSQLConnection.CharSet</a> properties influence the database creation.</p>
+<p>If creating a database using a client/server environment, the <var>TIBConnection</var> code will connect to the database server before trying to create the database. Therefore make sure the connection properties are already correctly set, e.g. <a href="../sqldb/tsqlconnection.hostname.html">TSQLConnection.HostName</a>, <a href="../sqldb/tsqlconnection.username.html">TSQLConnection.UserName</a>, <a href="../sqldb/tsqlconnection.password.html">TSQLConnection.Password</a>.</p>
+<p>If creating a database using Firebird embedded, make sure the embedded library is loaded, the <a href="../sqldb/tsqlconnection.hostname.html">TSQLConnection.HostName</a> property is empty, and set the <a href="../sqldb/tsqlconnection.username.html">TSQLConnection.UserName</a> to e.g. 'SYSDBA'. See <var>TIBConnection</var>: Firebird/Interbase specific                                    <a href="../sqldb/tsqlconnection.html">TSQLConnection</a> for details on loading the embedded database library.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlconnection.params.html">TSQLConnection.Params</a></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlconnection.dropdb.html">TSQLConnection.DropDB</a></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ibconnection/tibconnection.html">TIBConnection</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt"><var>TIBConnection</var>: Firebird/Interbase specific                                    <a href="../sqldb/tsqlconnection.html">TSQLConnection</a></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

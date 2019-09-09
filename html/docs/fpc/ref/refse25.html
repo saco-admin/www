@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Initializing variables using default</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3296--><div class="crosslinks"><p class="noindent">[<a 
+href="refse26.html" >next</a>] [<a 
+href="refse24.html" >prev</a>] [<a 
+href="refse24.html#tailrefse24.html" >prev-tail</a>] [<a 
+href="#tailrefse25.html">tail</a>] [<a 
+href="refch4.html#refse25.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">4.5   </span> <a 
+href="ref.html#QQ2-56-80" id="x56-740004.5">Initializing variables using default</a></h3>
+<a 
+ id="dx56-74001"></a>
+<!--l. 3298--><p class="noindent" >Some variables must be initialized because they contain managed types. For variables
+that are declared in the <span 
+class="cmtt-10">var </span>section of a function or in the main program, this happens
+automatically. For variables that are allocated on the heap, this is not necessarily the
+case.
+<!--l. 3302--><p class="noindent" >For this, the compiler contains the <span 
+class="cmtt-10">Default </span>intrinsic. This function accepts a type identifier as the
+argument, and will return a correctly initialized variable of that type. in essence, it will zero out
+the whole variable.
+<!--l. 3305--><p class="noindent" >The following gives an example of its use:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-126">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;TRecord&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;i:&#x00A0;LongInt;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;s:&#x00A0;AnsiString;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;i:&#x00A0;LongInt;
+&#x00A0;<br />&#x00A0;&#x00A0;o:&#x00A0;TObject;
+&#x00A0;<br />&#x00A0;&#x00A0;r:&#x00A0;TRecord;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;i&#x00A0;:=&#x00A0;Default(LongInt);&#x00A0;//&#x00A0;0
+&#x00A0;<br />&#x00A0;&#x00A0;o&#x00A0;:=&#x00A0;Default(TObject);&#x00A0;//&#x00A0;Nil
+&#x00A0;<br />&#x00A0;&#x00A0;r&#x00A0;:=&#x00A0;Default(TRecord);&#x00A0;//&#x00A0;(&#x00A0;i:&#x00A0;0;&#x00A0;s:&#x00A0;&#8217;&#8217;)
+&#x00A0;<br />end.
+</div>
+<!--l. 3322--><p class="nopar" >The case where a variable is allocated on the heap, is more interesting:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-127">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;TRecord&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;i:&#x00A0;LongInt;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;s:&#x00A0;AnsiString;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;i:&#x00A0;^LongInt;
+&#x00A0;<br />&#x00A0;&#x00A0;o:&#x00A0;^TObject;
+&#x00A0;<br />&#x00A0;&#x00A0;r:&#x00A0;^TRecord;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;i:=GetMem(SizeOf(Longint));
+&#x00A0;<br />&#x00A0;&#x00A0;i^&#x00A0;:=&#x00A0;Default(LongInt);&#x00A0;//&#x00A0;0
+&#x00A0;<br />&#x00A0;&#x00A0;o:=GetMem(SizeOf(TObject));
+&#x00A0;<br />&#x00A0;&#x00A0;o^&#x00A0;:=&#x00A0;Default(TObject);&#x00A0;//&#x00A0;Nil
+&#x00A0;<br />&#x00A0;&#x00A0;r:=GetMem(SizeOf(TRecord));
+&#x00A0;<br />&#x00A0;&#x00A0;r^&#x00A0;:=&#x00A0;Default(TRecord);&#x00A0;//&#x00A0;(&#x00A0;i:&#x00A0;0;&#x00A0;s:&#x00A0;&#8217;&#8217;)
+&#x00A0;<br />end.
+</div>
+<!--l. 3343--><p class="nopar" >It works for all types, except the various file types (or complex types containing a file
+type).
+<!--l. 3346--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span>
+     <ul class="itemize1">
+     <li class="itemize">For generics, the use of <span 
+class="cmtt-10">Default </span>is especially useful, since the type of a variable may
+     not be known during the declaration of a generic. For more information section <a 
+href="refse55.html#x114-1360008.7">8.7<!--tex4ht:ref: se:genericdefault --></a>,
+     page <a 
+href="refse55.html#x114-1360008.7">446<!--tex4ht:ref: se:genericdefault --></a>.
+     </li>
+     <li class="itemize">Function results are available as a <span 
+class="cmtt-10">Result </span>identifier, and as such resemble variables.
+     They are not variables, but are treated as passed-by-reference parameters. They are
+     therefor not initialized.</li></ul>
+                                                                            
+
+                                                                            
+<!--l. 3358--><div class="crosslinks"><p class="noindent">[<a 
+href="refse26.html" >next</a>] [<a 
+href="refse24.html" >prev</a>] [<a 
+href="refse24.html#tailrefse24.html" >prev-tail</a>] [<a 
+href="refse25.html" >front</a>] [<a 
+href="refch4.html#refse25.html" >up</a>] </p></div>
+<!--l. 3358--><p class="noindent" ><a 
+ id="tailrefse25.html"></a>  
+</body></html> 

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Introduction</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="fpdoc.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="fpdoc.css"> 
+</head><body 
+>
+<!--l. 907--><div class="crosslinks"><p class="noindent">[<a 
+href="fpdocse11.html" >next</a>] [<a 
+href="#tailfpdocse10.html">tail</a>] [<a 
+href="fpdocch4.html#fpdocse10.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">4.1   </span> <a 
+href="fpdoc.html#QQ2-64-63" id="x64-630004.1">Introduction</a></h3>
+<!--l. 908--><p class="noindent" >When there are a lot of units to document, the command-line can be rather long. On some
+operating systems, this is a problem, as the length of the command-line easily exceeds the
+maximum length of command-line options supported by the OS. Also, command-lines are difficult
+to read and/or parse. fpdoc has always supported reading options from a file, but this is not very
+structured and difficult to handle in e.g. an IDE.
+<!--l. 915--><p class="noindent" >Therefor it is possible to write a project file. The project file is an XML file that describes an fpdoc
+project. The XML file contains only a few tag names.
+<!--l. 919--><p class="noindent" >In general, it looks as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-33">
+&#x003C;?xml&#x00A0;version="1.0"&#x00A0;encoding="utf-8"?&#x003E;
+&#x00A0;<br />&#x003C;docproject&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x003C;options&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x003C;option&#x00A0;name="ostarget"&#x00A0;value="Linux"/&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x003C;option&#x00A0;name="cputarget"&#x00A0;value="x86_64"/&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x003C;option&#x00A0;name="show-private"&#x00A0;value="false"/&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x003C;option&#x00A0;name="stop-on-parser-error"&#x00A0;value="false"/&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x003C;/options&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x003C;packages&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x003C;package&#x00A0;name="rtl"&#x00A0;output="rtl"&#x00A0;content="rtl.xct"&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x003C;units&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x003C;unit&#x00A0;file="../rtl/objpas/objpas.pp"
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;options="-dHASINTF"/&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x003C;unit&#x00A0;file="../rtl/objpas/types.pp"
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;options=""/&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x003C;/units&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x003C;descriptions&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x003C;description&#x00A0;file="rtl.xml"/&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x003C;description&#x00A0;file="system.xml"/&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x003C;/descriptions&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x003C;/package&#x003E;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x003C;/packages&#x003E;
+&#x00A0;<br />&#x003C;/docproject&#x003E;
+</div>
+<!--l. 945--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 949--><div class="crosslinks"><p class="noindent">[<a 
+href="fpdocse11.html" >next</a>] [<a 
+href="fpdocse10.html" >front</a>] [<a 
+href="fpdocch4.html#fpdocse10.html" >up</a>] </p></div>
+<!--l. 949--><p class="noindent" ><a 
+ id="tailfpdocse10.html"></a>  
+</body></html> 

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>IsPublishedProp</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../typinfo/index.html">Overview</a>][<a href="../typinfo/index-2.html">Constants</a>][<a href="../typinfo/index-3.html">Types</a>][<a href="../typinfo/index-4.html">Classes</a>][<a href="../typinfo/index-5.html">Procedures and functions</a>][<a href="../typinfo/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'typinfo' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>IsPublishedProp</h1>
+<p>Check whether a published property exists.</p>
+<h2>Declaration</h2>
+<p>Source position: typinfo.pp line 337</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> IsPublishedProp<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Instance<span class="sym">: </span><a href="../system/tobject.html">TObject</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>PropName<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><br><br><span class="kw">function</span> IsPublishedProp<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AClass<span class="sym">: </span><a href="../system/tclass.html">TClass</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>PropName<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>IsPublishedProp</var> returns true if a class has a published property with name <var>PropName</var>. The class can be specfied in one of two ways: </p>
+<dl>
+<dt>AClass</dt>
+<dd>A class pointer to the class.</dd>
+<dt>Instance</dt>
+<dd>An instance of the class.</dd>
+</dl>
+<h2>Errors</h2>
+<p>No checks are done to ensure <var>Instance</var> or <var>AClass</var> are valid pointers. Specifying an invalid property name in <var>PropName</var> will result in an <var>EPropertyError</var> exception.                                                  </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../typinfo/isstoredprop.html">IsStoredProp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a property is stored.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../typinfo/propistype.html">PropIsType</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check the type of a published property.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> example10<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the IsPublishedProp function }</span>
+
+<span class="dir">{$mode objfpc}</span>
+
+<span class="kw">uses</span> rttiobj<span class="sym">,</span>typinfo<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  O <span class="sym">:</span> TMyTestObject<span class="sym">;</span>
+  PI <span class="sym">:</span> PPropInfo<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  O<span class="sym">:=</span>TMyTestObject<span class="sym">.</span>Create<span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Property tests    : '</span><span class="sym">)</span><span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'IsPublishedProp(O,BooleanField)     : '</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>IsPublishedProp<span class="sym">(</span>O<span class="sym">,</span><span class="str">'BooleanField'</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'IsPublishedProp(Class,BooleanField) : '</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>IsPublishedProp<span class="sym">(</span>O<span class="sym">.</span>ClassType<span class="sym">,</span><span class="str">'BooleanField'</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'IsPublishedProp(O,SomeField)        : '</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>IsPublishedProp<span class="sym">(</span>O<span class="sym">,</span><span class="str">'SomeField'</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Write<span class="sym">(</span><span class="str">'IsPublishedProp(Class,SomeField)    : '</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>IsPublishedProp<span class="sym">(</span>O<span class="sym">.</span>ClassType<span class="sym">,</span><span class="str">'SomeField'</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  O<span class="sym">.</span>Free<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

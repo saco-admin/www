@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$H or $LONGSTRINGS : Use AnsiStrings</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 614--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu26.html" >next</a>] [<a 
+href="progsu24.html" >prev</a>] [<a 
+href="progsu24.html#tailprogsu24.html" >prev-tail</a>] [<a 
+href="#tailprogsu25.html">tail</a>] [<a 
+href="progse2.html#progsu25.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.25   </span> <a 
+href="prog.html#QQ2-32-31" id="x32-310001.2.25"><span 
+class="cmtt-10">$H </span>or <span 
+class="cmtt-10">$LONGSTRINGS </span>: Use AnsiStrings</a></h4>
+<!--l. 616--><p class="noindent" >If <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$LONGSTRINGS ON</span><span 
+class="cmsy-10">} </span>is specified, the keyword <span 
+class="cmtt-10">String </span>(no length specifier) will be treated as
+<span 
+class="cmtt-10">AnsiString</span>, and the compiler will treat the corresponding variable as an ansistring, and
+will generate corresponding code. This switch corresponds to the <span 
+class="cmtt-10">-Sh </span>command line
+option.
+<!--l. 622--><p class="noindent" >By default, the use of ansistrings is off, corresponding to <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H-</span><span 
+class="cmsy-10">}</span>. The <span 
+class="cmss-10">system </span>unit is compiled
+without ansistrings, all its functions accept shortstring arguments. The same is true for all RTL
+units, except the <span 
+class="cmss-10">sysutils </span>unit, which is compiled with ansistrings.
+<!--l. 627--><p class="noindent" >However, the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MODE</span><span 
+class="cmsy-10">} </span>statement influences the default value of <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H</span><span 
+class="cmsy-10">}</span>: a <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MODE DELPHI</span><span 
+class="cmsy-10">} </span>directive
+implies a <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H+</span><span 
+class="cmsy-10">} </span>statement, all other modes switch it off. As a result, you should always put <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H+</span><span 
+class="cmsy-10">}</span>
+after a mode directive. This behaviour has changed, in older Free Pascal versions this was not
+so.
+                                                                            
+
+                                                                            
+<!--l. 633--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu26.html" >next</a>] [<a 
+href="progsu24.html" >prev</a>] [<a 
+href="progsu24.html#tailprogsu24.html" >prev-tail</a>] [<a 
+href="progsu25.html" >front</a>] [<a 
+href="progse2.html#progsu25.html" >up</a>] </p></div>
+<!--l. 633--><p class="noindent" ><a 
+ id="tailprogsu25.html"></a>  
+</body></html> 

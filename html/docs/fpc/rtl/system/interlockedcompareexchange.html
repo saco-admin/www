@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>InterlockedCompareExchange</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>InterlockedCompareExchange</h1>
+<p>Conditional exchange</p>
+<h2>Declaration</h2>
+<p>Source position: systemh.inc line 1332</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> InterlockedCompareExchange<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>Target<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;NewValue<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Comperand<span class="sym">: </span><a href="../system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/longint.html">LongInt</a><span class="sym">;</span><br><br><span class="kw">function</span> InterlockedCompareExchange<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>Target<span class="sym">: </span>Pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;NewValue<span class="sym">: </span>Pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Comperand<span class="sym">: </span>Pointer</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Pointer<span class="sym">;</span><br><br><span class="kw">function</span> InterlockedCompareExchange<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>Target<span class="sym">: </span><a href="../system/cardinal.html">Cardinal</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;NewValue<span class="sym">: </span><a href="../system/cardinal.html">Cardinal</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Comperand<span class="sym">: </span><a href="../system/cardinal.html">Cardinal</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/cardinal.html">Cardinal</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>InterlockedCompareExchange</var> does an  compare-and-exchange operation on the specified values in a thread-safe way.  The function compares <var>Target</var> and <var>Comparand</var> and exchanges <var>Target</var> with <var>NewValue</var> if <var>Target</var> and <var>Comparand</var> are equal. It returns the old value of <var>Target</var>.  This is done in a thread-safe way, i.e., only one processor is accessing the <var>Target</var> variable at a time. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/interlockeddecrement.html">InterLockedDecrement</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Thread-safe decrement</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/interlockedincrement.html">InterLockedIncrement</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Thread-safe increment</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/interlockedexchange.html">InterLockedExchange</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Exchange 2 integers in a thread-safe way</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/interlockedexchangeadd.html">InterLockedExchangeAdd</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Thread-safe add and exchange of 2 values</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

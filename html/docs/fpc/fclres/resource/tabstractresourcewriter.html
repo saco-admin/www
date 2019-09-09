@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TAbstractResourceWriter</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../resource/index.html">Overview</a>][<a href="../resource/index-1.html">Resource strings</a>][<a href="../resource/index-2.html">Constants</a>][<a href="../resource/index-3.html">Types</a>][<a href="../resource/index-4.html">Classes</a>][<a href="../resource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'resource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TAbstractResourceWriter</h1>
+<p>[<a href="../resource/tabstractresourcewriter-1.html" onClick="window.open('../resource/tabstractresourcewriter-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../resource/tabstractresourcewriter-2.html" onClick="window.open('../resource/tabstractresourcewriter-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../resource/tabstractresourcewriter-3.html" onClick="window.open('../resource/tabstractresourcewriter-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../resource/tabstractresourcewriter-4.html" onClick="window.open('../resource/tabstractresourcewriter-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../resource/tabstractresourcewriter-5.html" onClick="window.open('../resource/tabstractresourcewriter-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../resource/tabstractresourcewriter-6.html" onClick="window.open('../resource/tabstractresourcewriter-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Base abstract resource writer class</p>
+<h2>Declaration</h2>
+<p>Source position: resource.pp line 305</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TAbstractResourceWriter <span class="sym">=</span> <span class="kw">class</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">protected</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresourcewriter.gettree.html">GetTree</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Gets the internal resource tree of a TResources object</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresourcewriter.getextensions.html">GetExtensions</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the extensions the writer is registered for</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresourcewriter.getdescription.html">GetDescription</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the description of the writer</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resource/tabstractresourcewriter.write.html">Write</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Writes resources to a stream</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../resource/tabstractresourcewriter.create.html">Create</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a new writer object</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../resource/tabstractresourcewriter.extensions.html">Extensions</a><span class="sym">: </span>string<span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The extensions of file types the writer is able to write</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../resource/tabstractresourcewriter.description.html">Description</a><span class="sym">: </span>string<span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The writer description</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../resource/tabstractresourcewriter.html">TAbstractResourceWriter</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base abstract resource writer class</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TObject</span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This is the base class that represents a resource writer.</p>
+<p>A resource writer is an object whose job is to write all resources contained in a <a href="../resource/tresources.html">TResources</a> object to a stream in a specific format.</p>
+<p>Typically, a <a href="../resource/tresources.html">TResources</a> object invokes <a href="../resource/tabstractresourcewriter.write.html">Write</a> method of the resource writer when it wants the writer to write data to a stream.</p>
+<p>Usually each resource writer registers itself with <a href="../resource/tresources.html">TResources</a> class in the <var>initialization</var> section of the unit in which it is implemented: this way a <a href="../resource/tresources.html">TResources</a> object can find it when it is asked to write itself to a file, and no writer was specified (the writer is found based on the extension of the file to write to).</p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>An object of this class should never be directly instantiated: use a descendant class instead.</td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../resource/tresources.html">TResources</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">A collection of resources</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresource.html">TAbstractResource</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base abstract resource class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresourcereader.html">TAbstractResourceReader</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base abstract resource reader class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../reswriter/tresresourcewriter.html">TResResourceWriter</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">.res resource writer</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../coffwriter/tcoffresourcewriter.html">TCoffResourceWriter</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">COFF resource writer</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../elfwriter/telfresourcewriter.html">TElfResourceWriter</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">ELF resource writer</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../externalwriter/texternalresourcewriter.html">TExternalResourceWriter</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">External file resource writer</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

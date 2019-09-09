@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The memory model.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 4889--><div class="crosslinks"><p class="noindent">[<a 
+href="progse32.html" >next</a>] [<a 
+href="#tailprogse31.html">tail</a>] [<a 
+href="progch8.html#progse31.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">8.1   </span> <a 
+href="prog.html#QQ2-197-210" id="x197-2020008.1">The memory model.</a></h3>
+<!--l. 4891--><p class="noindent" >The Free Pascal compiler issues 32-bit or 64-bit code. This has several consequences:
+                                                                            
+
+                                                                            
+     <ul class="itemize1">
+     <li class="itemize">You need a 32-bit or 64-bit processor to run the generated code.
+     </li>
+     <li class="itemize">You don&#8217;t need to bother with segment selectors. Memory can be addressed using
+     a  single  32-bit  (on  32-bit  processors)  or  64-bit  (on  64-bit  processors  with  64-bit
+     addressing) pointer. The amount of memory is limited only by the available amount of
+     (virtual) memory on your machine.
+     </li>
+     <li class="itemize">The structures you define are unlimited in size. Arrays can be as long as you want.
+     You can request memory blocks from any size.</li></ul>
+                                                                            
+
+                                                                            
+<!--l. 4906--><div class="crosslinks"><p class="noindent">[<a 
+href="progse32.html" >next</a>] [<a 
+href="progse31.html" >front</a>] [<a 
+href="progch8.html#progse31.html" >up</a>] </p></div>
+<!--l. 4906--><p class="noindent" ><a 
+ id="tailprogse31.html"></a>  
+</body></html> 

@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Usage</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 2828--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu127.html" >prev</a>] [<a 
+href="progsu127.html#tailprogsu127.html" >prev-tail</a>] [<a 
+href="#tailprogsu128.html">tail</a>] [<a 
+href="progse7.html#progsu128.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">2.4.2   </span> <a 
+href="prog.html#QQ2-141-144" id="x141-1420002.4.2">Usage</a></h4>
+<!--l. 2829--><p class="noindent" >The basic usage of compile time expressions is as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-129">
+{$if&#x00A0;expr}
+&#x00A0;<br />&#x00A0;&#x00A0;CompileTheseLines;
+&#x00A0;<br />{$endif}
+</div>
+<!--l. 2834--><p class="nopar" >If <span 
+class="cmtt-10">expr </span>evaluates to <span 
+class="cmtt-10">TRUE</span>, then <span 
+class="cmtt-10">CompileTheseLines </span>will be included in the source.
+<!--l. 2838--><p class="noindent" >Like in regular pascal, it is possible to use <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$ELSE </span><span 
+class="cmsy-10">}</span>:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-130">
+{$if&#x00A0;expr}
+&#x00A0;<br />&#x00A0;&#x00A0;CompileTheseLines;
+&#x00A0;<br />{$else}
+&#x00A0;<br />&#x00A0;&#x00A0;BetterCompileTheseLines;
+&#x00A0;<br />{$endif}
+</div>
+<!--l. 2845--><p class="nopar" >If <span 
+class="cmtt-10">expr </span>evaluates to <span 
+class="cmtt-10">True</span>, <span 
+class="cmtt-10">CompileTheseLines </span>will be compiled. Otherwise, <span 
+class="cmtt-10">BetterCompileTheseLines</span>
+will be compiled.
+<!--l. 2849--><p class="noindent" >Additionally, it is possible to use <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$ELSEIF</span><span 
+class="cmsy-10">}</span>
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-131">
+{$IF&#x00A0;&#x00A0;expr}
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;...
+&#x00A0;<br />{$ELSEIF&#x00A0;&#x00A0;expr}
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;...
+&#x00A0;<br />{$ELSEIF&#x00A0;&#x00A0;expr}
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;...
+&#x00A0;<br />{$ELSE}
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;...
+&#x00A0;<br />{$ENDIF}
+</div>
+<!--l. 2860--><p class="nopar" >
+<!--l. 2862--><p class="noindent" >In addition to the above constructs, which are also supported by Delphi, the above is completely
+equivalent to the following construct in MacPas mode:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-132">
+{$IFC&#x00A0;&#x00A0;expr}
+&#x00A0;<br />&#x00A0;&#x00A0;//...
+&#x00A0;<br />{$ELIFC&#x00A0;&#x00A0;expr}
+&#x00A0;<br />...
+&#x00A0;<br />{$ELIFC&#x00A0;&#x00A0;expr}
+&#x00A0;<br />...
+&#x00A0;<br />{$ELSEC}
+&#x00A0;<br />...
+&#x00A0;<br />{$ENDC}
+</div>
+<!--l. 2874--><p class="nopar" >that is, <span 
+class="cmtt-10">IFC </span>corresponds to <span 
+class="cmtt-10">IF</span>, <span 
+class="cmtt-10">ELIFC </span>corresponds to <span 
+class="cmtt-10">ELSEIF</span>, <span 
+class="cmtt-10">ELSEC </span>is equivalent with <span 
+class="cmtt-10">ELSE </span>and
+<span 
+class="cmtt-10">ENDC </span>is the equivalent of <span 
+class="cmtt-10">ENDIF</span>. Additionally, <span 
+class="cmtt-10">IFEND </span>is equivalent to <span 
+class="cmtt-10">ENDIF</span>:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-133">
+{$IF&#x00A0;EXPR}
+&#x00A0;<br />&#x00A0;&#x00A0;CompileThis;
+&#x00A0;<br />{$ENDIF}
+</div>
+<!--l. 2883--><p class="nopar" >
+<!--l. 2885--><p class="noindent" >In MacPas mode it is possible to mix these constructs.
+<!--l. 2887--><p class="noindent" >The following example shows some of the possibilities:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-134">
+{$ifdef&#x00A0;fpc}
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;y&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />{$else&#x00A0;fpc}
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;z&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />{$endif&#x00A0;fpc}
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;x&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />
+&#x00A0;<br />{$IF&#x00A0;(FPC_VERSION&#x00A0;&#x003E;&#x00A0;2)&#x00A0;or
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;((FPC_VERSION&#x00A0;=&#x00A0;2)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;and&#x00A0;((FPC_RELEASE&#x00A0;&#x003E;&#x00A0;0)&#x00A0;or
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;((FPC_RELEASE&#x00A0;=&#x00A0;0)&#x00A0;and&#x00A0;(FPC_PATCH&#x00A0;&#x003E;=&#x00A0;1))))}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;{$DEFINE&#x00A0;FPC_VER_201_PLUS}
+&#x00A0;<br />&#x00A0;{$ENDIF}
+&#x00A0;<br />{$ifdef&#x00A0;FPC_VER_201_PLUS}
+&#x00A0;<br />{$info&#x00A0;At&#x00A0;least&#x00A0;this&#x00A0;is&#x00A0;version&#x00A0;2.0.1}
+&#x00A0;<br />{$else}
+&#x00A0;<br />{$fatal&#x00A0;Problem&#x00A0;with&#x00A0;version&#x00A0;check}
+&#x00A0;<br />{$endif}
+&#x00A0;<br />
+&#x00A0;<br />{$define&#x00A0;x:=1234}
+&#x00A0;<br />{$if&#x00A0;x=1234}
+&#x00A0;<br />{$info&#x00A0;x=1234}
+&#x00A0;<br />{$else}
+&#x00A0;<br />{$fatal&#x00A0;x&#x00A0;should&#x00A0;be&#x00A0;1234}
+&#x00A0;<br />{$endif}
+&#x00A0;<br />
+&#x00A0;<br />{$if&#x00A0;12asdf&#x00A0;and&#x00A0;12asdf}
+&#x00A0;<br />{$info&#x00A0;$if&#x00A0;12asdf&#x00A0;and&#x00A0;12asdf&#x00A0;is&#x00A0;ok}
+&#x00A0;<br />{$else}
+&#x00A0;<br />{$fatal&#x00A0;$if&#x00A0;12asdf&#x00A0;and&#x00A0;12asdf&#x00A0;rejected}
+&#x00A0;<br />{$endif}
+&#x00A0;<br />
+&#x00A0;<br />{$if&#x00A0;0&#x00A0;or&#x00A0;1}
+&#x00A0;<br />{$info&#x00A0;$if&#x00A0;0&#x00A0;or&#x00A0;1&#x00A0;is&#x00A0;ok}
+&#x00A0;<br />{$else}
+&#x00A0;<br />{$fatal&#x00A0;$if&#x00A0;0&#x00A0;or&#x00A0;1&#x00A0;rejected}
+&#x00A0;<br />{$endif}
+&#x00A0;<br />
+&#x00A0;<br />{$if&#x00A0;0}
+&#x00A0;<br />{$fatal&#x00A0;$if&#x00A0;0&#x00A0;accepted}
+&#x00A0;<br />{$else}
+                                                                            
+
+                                                                            
+&#x00A0;<br />{$info&#x00A0;$if&#x00A0;0&#x00A0;is&#x00A0;ok}
+&#x00A0;<br />{$endif}
+&#x00A0;<br />
+&#x00A0;<br />{$if&#x00A0;12=12}
+&#x00A0;<br />{$info&#x00A0;$if&#x00A0;12=12&#x00A0;is&#x00A0;ok}
+&#x00A0;<br />{$else}
+&#x00A0;<br />{$fatal&#x00A0;$if&#x00A0;12=12&#x00A0;rejected}
+&#x00A0;<br />{$endif}
+&#x00A0;<br />
+&#x00A0;<br />{$if&#x00A0;12&#x003C;&#x003E;312}
+&#x00A0;<br />{$info&#x00A0;$if&#x00A0;12&#x003C;&#x003E;312&#x00A0;is&#x00A0;ok}
+&#x00A0;<br />{$else}
+&#x00A0;<br />{$fatal&#x00A0;$if&#x00A0;12&#x003C;&#x003E;312&#x00A0;rejected}
+&#x00A0;<br />{$endif}
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />{$if&#x00A0;12&#x003C;=312}
+&#x00A0;<br />{$info&#x00A0;$if&#x00A0;12&#x003C;=312&#x00A0;is&#x00A0;ok}
+&#x00A0;<br />{$else}
+&#x00A0;<br />{$fatal&#x00A0;$if&#x00A0;12&#x003C;=312&#x00A0;rejected}
+&#x00A0;<br />{$endif}
+&#x00A0;<br />
+&#x00A0;<br />{$if&#x00A0;12&#x003C;312}
+&#x00A0;<br />{$info&#x00A0;$if&#x00A0;12&#x003C;312&#x00A0;is&#x00A0;ok}
+&#x00A0;<br />{$else}
+&#x00A0;<br />{$fatal&#x00A0;$if&#x00A0;12&#x003C;312&#x00A0;rejected}
+&#x00A0;<br />{$endif}
+&#x00A0;<br />
+&#x00A0;<br />{$if&#x00A0;a12=a12}
+&#x00A0;<br />{$info&#x00A0;$if&#x00A0;a12=a12&#x00A0;is&#x00A0;ok}
+&#x00A0;<br />{$else}
+&#x00A0;<br />{$fatal&#x00A0;$if&#x00A0;a12=a12&#x00A0;rejected}
+&#x00A0;<br />{$endif}
+&#x00A0;<br />
+&#x00A0;<br />{$if&#x00A0;a12&#x003C;=z312}
+&#x00A0;<br />{$info&#x00A0;$if&#x00A0;a12&#x003C;=z312&#x00A0;is&#x00A0;ok}
+&#x00A0;<br />{$else}
+&#x00A0;<br />{$fatal&#x00A0;$if&#x00A0;a12&#x003C;=z312&#x00A0;rejected}
+&#x00A0;<br />{$endif}
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />{$if&#x00A0;a12&#x003C;z312}
+&#x00A0;<br />{$info&#x00A0;$if&#x00A0;a12&#x003C;z312&#x00A0;is&#x00A0;ok}
+&#x00A0;<br />{$else}
+&#x00A0;<br />{$fatal&#x00A0;$if&#x00A0;a12&#x003C;z312&#x00A0;rejected}
+&#x00A0;<br />{$endif}
+&#x00A0;<br />
+&#x00A0;<br />{$if&#x00A0;not(0)}
+&#x00A0;<br />{$info&#x00A0;$if&#x00A0;not(0)&#x00A0;is&#x00A0;OK}
+&#x00A0;<br />{$else}
+&#x00A0;<br />{$fatal&#x00A0;$if&#x00A0;not(0)&#x00A0;rejected}
+&#x00A0;<br />{$endif}
+&#x00A0;<br />
+&#x00A0;<br />{$IF&#x00A0;NOT&#x00A0;UNDEFINED&#x00A0;FPC}
+                                                                            
+
+                                                                            
+&#x00A0;<br />//&#x00A0;Detect&#x00A0;FPC&#x00A0;stuff&#x00A0;when&#x00A0;compiling&#x00A0;on&#x00A0;MAC.
+&#x00A0;<br />{$SETC&#x00A0;TARGET_RT_MAC_68881:=&#x00A0;FALSE}
+&#x00A0;<br />{$SETC&#x00A0;TARGET_OS_MAC&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:=&#x00A0;(NOT&#x00A0;UNDEFINED&#x00A0;MACOS)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;OR&#x00A0;(NOT&#x00A0;UNDEFINED&#x00A0;DARWIN)}
+&#x00A0;<br />{$SETC&#x00A0;TARGET_OS_WIN32&#x00A0;&#x00A0;&#x00A0;&#x00A0;:=&#x00A0;NOT&#x00A0;UNDEFINED&#x00A0;WIN32}
+&#x00A0;<br />{$SETC&#x00A0;TARGET_OS_UNIX&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:=&#x00A0;(NOT&#x00A0;UNDEFINED&#x00A0;UNIX)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;AND&#x00A0;(UNDEFINED&#x00A0;DARWIN)}
+&#x00A0;<br />{$SETC&#x00A0;TYPE_EXTENDED&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:=&#x00A0;TRUE}
+&#x00A0;<br />{$SETC&#x00A0;TYPE_LONGLONG&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:=&#x00A0;FALSE}
+&#x00A0;<br />{$SETC&#x00A0;TYPE_BOOL&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:=&#x00A0;FALSE}
+&#x00A0;<br />{$ENDIF}
+&#x00A0;<br />
+&#x00A0;<br />{$info&#x00A0;*************************************************}
+&#x00A0;<br />{$info&#x00A0;*&#x00A0;Now&#x00A0;have&#x00A0;to&#x00A0;follow&#x00A0;at&#x00A0;least&#x00A0;2&#x00A0;error&#x00A0;messages:&#x00A0;*}
+&#x00A0;<br />{$info&#x00A0;*************************************************}
+&#x00A0;<br />
+&#x00A0;<br />{$if&#x00A0;not(0}
+&#x00A0;<br />{$endif}
+&#x00A0;<br />
+&#x00A0;<br />{$if&#x00A0;not(&#x003C;}
+&#x00A0;<br />{$endif}
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 3015--><p class="nopar" >As you can see from the example, this construct isn&#8217;t useful when used with normal symbols, only
+if you use macros, which are explained in section <a 
+href="progse5.html#x137-1380002.2">2.2<!--tex4ht:ref: se:Macros --></a>, page <a 
+href="progse5.html#x137-1380002.2">283<!--tex4ht:ref: se:Macros --></a>. They can be very useful. When
+trying this example, you must switch on macro support, with the <span 
+class="cmtt-10">-Sm </span>command line
+switch.
+<!--l. 3021--><p class="noindent" >The following example works only in MacPas mode:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-135">
+{$SETC&#x00A0;TARGET_OS_MAC&#x00A0;:=&#x00A0;(NOT&#x00A0;UNDEFINED&#x00A0;MACOS)&#x00A0;OR&#x00A0;(NOT&#x00A0;UNDEFINED&#x00A0;DARWIN)}
+&#x00A0;<br />
+&#x00A0;<br />{$SETC&#x00A0;DEBUG&#x00A0;:=&#x00A0;TRUE}
+&#x00A0;<br />{$SETC&#x00A0;VERSION&#x00A0;:=&#x00A0;4}
+&#x00A0;<br />{$SETC&#x00A0;NEWMODULEUNDERDEVELOPMENT&#x00A0;:=&#x00A0;(VERSION&#x00A0;&#x003E;=&#x00A0;4)&#x00A0;OR&#x00A0;DEBUG}
+&#x00A0;<br />
+&#x00A0;<br />{$IFC&#x00A0;NEWMODULEUNDERDEVELOPMENT}
+&#x00A0;<br />&#x00A0;&#x00A0;{$IFC&#x00A0;TARGET_OS_MAC}
+&#x00A0;<br />&#x00A0;&#x00A0;...&#x00A0;new&#x00A0;mac&#x00A0;code
+&#x00A0;<br />&#x00A0;&#x00A0;{$ELSEC}
+&#x00A0;<br />&#x00A0;&#x00A0;...&#x00A0;new&#x00A0;other&#x00A0;code
+&#x00A0;<br />&#x00A0;&#x00A0;{$ENDC}
+&#x00A0;<br />{$ELSEC}
+&#x00A0;<br />...&#x00A0;old&#x00A0;code
+&#x00A0;<br />{$ENDC}
+</div>
+<!--l. 3038--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 3042--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu127.html" >prev</a>] [<a 
+href="progsu127.html#tailprogsu127.html" >prev-tail</a>] [<a 
+href="progsu128.html" >front</a>] [<a 
+href="progse7.html#progsu128.html" >up</a>] </p></div>
+<!--l. 3042--><p class="noindent" ><a 
+ id="tailprogsu128.html"></a>  
+</body></html> 

@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Array properties</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5060--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu36.html" >next</a>] [<a 
+href="refsu34.html" >prev</a>] [<a 
+href="refsu34.html#tailrefsu34.html" >prev-tail</a>] [<a 
+href="#tailrefsu35.html">tail</a>] [<a 
+href="refse39.html#refsu35.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.6.3   </span> <a 
+href="ref.html#QQ2-87-115" id="x87-1090006.6.3">Array properties</a></h4>
+<!--l. 5061--><p class="noindent" >Array properties also exist.<a 
+ id="dx87-109001"></a> These are properties that accept an index, just as an array does. The
+index can be one-dimensional, or multi-dimensional. In difference with normal (static or dynamic)
+arrays, the index of an array property doesn&#8217;t have to be an ordinal type, but can be any
+type.
+<!--l. 5066--><p class="noindent" >A <span 
+class="cmtt-10">read specifier </span>for an array property is the name method function that has the same return
+type as the property type. The function must accept as a sole arguent a variable of the
+same type as the index type. For an array property, one cannot specify fields as <span 
+class="cmtt-10">read</span>
+<span 
+class="cmtt-10">specifiers</span>.
+<!--l. 5072--><p class="noindent" >A <span 
+class="cmtt-10">write specifier </span>for an array property is the name of a method procedure that accepts two
+arguments: the first argument has the same type as the index, and the second argument is a
+parameter of the same type as the property type. As an example, see the following
+declaration:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-200">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TIntList&#x00A0;=&#x00A0;Class
+&#x00A0;<br />&#x00A0;&#x00A0;Private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;GetInt&#x00A0;(I&#x00A0;:&#x00A0;Longint)&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;GetAsString&#x00A0;(A&#x00A0;:&#x00A0;String)&#x00A0;:&#x00A0;String;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;SetInt&#x00A0;(I&#x00A0;:&#x00A0;Longint;&#x00A0;Value&#x00A0;:&#x00A0;Longint;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;SetAsString&#x00A0;(A&#x00A0;:&#x00A0;String;&#x00A0;Value&#x00A0;:&#x00A0;String);
+&#x00A0;<br />&#x00A0;&#x00A0;Public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Items&#x00A0;[i&#x00A0;:&#x00A0;Longint]&#x00A0;:&#x00A0;Longint&#x00A0;Read&#x00A0;GetInt
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Write&#x00A0;SetInt;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;StrItems&#x00A0;[S&#x00A0;:&#x00A0;String]&#x00A0;:&#x00A0;String&#x00A0;Read&#x00A0;GetAsString
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Write&#x00A0;SetAsstring;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;AIntList&#x00A0;:&#x00A0;TIntList;
+</div>
+<!--l. 5094--><p class="nopar" >Then the following statements would be valid:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-201">
+AIntList.Items[26]&#x00A0;:=&#x00A0;1;
+&#x00A0;<br />AIntList.StrItems[&#8217;twenty-five&#8217;]&#x00A0;:=&#x00A0;&#8217;zero&#8217;;
+&#x00A0;<br />WriteLn&#x00A0;(&#8217;Item&#x00A0;26&#x00A0;:&#x00A0;&#8217;,AIntList.Items[26]);
+&#x00A0;<br />WriteLn&#x00A0;(&#8217;Item&#x00A0;25&#x00A0;:&#x00A0;&#8217;,AIntList.StrItems[&#8217;twenty-five&#8217;]);
+</div>
+<!--l. 5101--><p class="nopar" >While the following statements would generate errors:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-202">
+AIntList.Items[&#8217;twenty-five&#8217;]&#x00A0;:=&#x00A0;1;
+&#x00A0;<br />AIntList.StrItems[26]&#x00A0;:=&#x00A0;&#8217;zero&#8217;;
+</div>
+<!--l. 5106--><p class="nopar" >Because the index types are wrong.
+<!--l. 5109--><p class="noindent" >Array properties can be multi-demensional:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-203">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TGrid&#x00A0;=&#x00A0;Class
+&#x00A0;<br />&#x00A0;&#x00A0;Private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;GetCell&#x00A0;(I,J&#x00A0;:&#x00A0;Longint)&#x00A0;:&#x00A0;String;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;SetCell&#x00A0;(I,J&#x00A0;:&#x00A0;Longint;&#x00A0;Value&#x00A0;:&#x00A0;String);
+&#x00A0;<br />&#x00A0;&#x00A0;Public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Cellcs&#x00A0;[Row,Col&#x00A0;:&#x00A0;Longint]&#x00A0;:&#x00A0;String&#x00A0;Read&#x00A0;GetCell
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Write&#x00A0;SetCell;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 5120--><p class="nopar" >If there are N dimensions, then the types of the first N arguments of the getter and setter must
+correspond to the types of the N index specifiers in the array property definition.
+                                                                            
+
+                                                                            
+<!--l. 5125--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu36.html" >next</a>] [<a 
+href="refsu34.html" >prev</a>] [<a 
+href="refsu34.html#tailrefsu34.html" >prev-tail</a>] [<a 
+href="refsu35.html" >front</a>] [<a 
+href="refse39.html#refsu35.html" >up</a>] </p></div>
+<!--l. 5125--><p class="noindent" ><a 
+ id="tailrefsu35.html"></a>  
+</body></html> 

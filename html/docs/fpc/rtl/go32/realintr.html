@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>realintr</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../go32/index.html">Overview</a>][<a href="../go32/index-2.html">Constants</a>][<a href="../go32/index-3.html">Types</a>][<a href="../go32/index-5.html">Procedures and functions</a>][<a href="../go32/index-6.html">Variables</a>][<a href="../go32/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'go32' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>realintr</h1>
+<p>Simulate interrupt</p>
+<h2>Declaration</h2>
+<p>Source position: go32.pp line 104</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> realintr<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;intnr<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>regs<span class="sym">: </span><a href="../go32/trealregs.html">trealregs</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Simulates an interrupt in real mode. </p>
+<p>Parameters: </p>
+<dl>
+<dt>intnr</dt>
+<dd>interrupt number to issue in real mode.</dd>
+<dt>regs</dt>
+<dd>registers data structure.</dd>
+</dl>
+<p>Return values: The supplied registers data structure contains the values that were returned by the real mode interrupt. <var>True</var> if successful, <var>False</var> if not. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>The function transfers control to the address specified by the real mode interrupt vector of intnr. The real mode handler must return by executing an IRET. </td>
+</tr>
+</table>
+<h2>Errors</h2>
+<p>Check the <a href="../go32/int31error.html">int31error</a> variable. </p>
+<h2>Example</h2>
+<pre><span class="cmt">{ This example demonstrates the use of the flag constants in</span>
+<span class="cmt">conjunction with an interrupt call</span>
+<span class="cmt"></span>
+<span class="cmt">In detail it checks if APM (advanced power management) is</span>
+<span class="cmt">available.</span>
+<span class="cmt"></span>
+<span class="cmt">Int 15h 5300h - APM specification : Installation check</span>
+<span class="cmt">Input : AX = 5300h</span>
+<span class="cmt">        BX = device id of system BIOS (= 0000h)</span>
+<span class="cmt">Return : Carry clear if successful</span>
+<span class="cmt">        AH = major version (BCD)</span>
+<span class="cmt">        AL = minor version (BCD)</span>
+<span class="cmt">}</span>
+
+<span class="kw">uses</span>
+        go32<span class="sym">;</span>
+
+<span class="kw">var</span>
+        r <span class="sym">:</span> trealregs<span class="sym">;</span>
+
+<span class="kw">begin</span>
+        <span class="cmt">{ set register values and issue real mode interrupt call }</span>
+        r<span class="sym">.</span>ax <span class="sym">:=</span> <span class="num">$5300</span><span class="sym">;</span>
+        r<span class="sym">.</span>bx <span class="sym">:=</span> <span class="num">0</span><span class="sym">;</span>
+        realintr<span class="sym">(</span><span class="num">$15</span><span class="sym">,</span> r<span class="sym">)</span><span class="sym">;</span>
+        <span class="cmt">{ check if carry clear and write a suited message }</span>
+        <span class="kw">if</span> <span class="sym">(</span><span class="sym">(</span>r<span class="sym">.</span>flags <span class="kw">and</span> carryflag<span class="sym">)</span><span class="sym">=</span><span class="num">0</span><span class="sym">)</span> <span class="kw">then</span> <span class="kw">begin</span>
+                Writeln<span class="sym">(</span><span class="str">'APM v'</span><span class="sym">,</span> <span class="sym">(</span>r<span class="sym">.</span>ah <span class="kw">and</span> <span class="num">$f</span><span class="sym">)</span><span class="sym">,</span> <span class="chr">'.'</span><span class="sym">,</span>
+                        <span class="sym">(</span>r<span class="sym">.</span>al shr <span class="num">4</span><span class="sym">)</span><span class="sym">,</span> <span class="sym">(</span>r<span class="sym">.</span>al <span class="kw">and</span> <span class="num">$f</span><span class="sym">)</span><span class="sym">,</span> <span class="str">' detected'</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">end</span> <span class="kw">else</span>
+                Writeln<span class="sym">(</span><span class="str">'APM not present'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

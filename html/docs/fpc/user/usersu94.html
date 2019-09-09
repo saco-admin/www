@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>ptop program</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2803--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu95.html" >next</a>] [<a 
+href="#tailusersu94.html">tail</a>] [<a 
+href="userse44.html#usersu94.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">8.8.1   </span> <a 
+href="user.html#QQ2-148-204" id="x148-1550008.8.1">ptop program</a></h4>
+<!--l. 2808--><p class="noindent" ><span 
+class="cmss-10">ptop </span>is a source beautifier written by Peter Grogono based on the ancient pretty-printer by
+Ledgard, Hueras, and Singer, modernized by the Free Pascal team (objects, streams, configurability
+etc).
+<!--l. 2812--><p class="noindent" >This configurability, and the thorough bottom-up design are the advantages of this program over
+the diverse Turbo Pascal source beautifiers on e.g. SIMTEL.
+<!--l. 2815--><p class="noindent" >The program is quite simple to operate:
+<!--l. 2817--><p class="noindent" >ptop &#8221;[-v] [-i indent] [-b bufsize ][-c <span 
+class="cmss-10">optsfile</span>] <span 
+class="cmss-10">infile outfile</span>&#8221;
+<!--l. 2819--><p class="noindent" >The <span 
+class="cmss-10">infile </span>parameter is the Pascal file to be processed, and will be written to <span 
+class="cmss-10">outfile</span>, overwriting an
+existing <span 
+class="cmss-10">outfile </span>if it exists.
+<!--l. 2822--><p class="noindent" >Some options modify the behaviour of ptop:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">-h</span> </dt><dd 
+class="description">Write an overview of the possible parameters and command line syntax.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-c </span><span 
+class="cmssbx-10">ptop.cfg</span> </dt><dd 
+class="description">Read  some  configuration  data  from  configuration  file  instead  of  using  the
+     internal defaults then. A config file is not required, the program can operate without
+     one. See also -g.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-i ident</span> </dt><dd 
+class="description">Set the number of indent spaces used for BEGIN END; and other blocks.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-b bufsize</span> </dt><dd 
+class="description">Set  the  streaming  buffersize  to  bufsize.  The  default  is  255;  0  is  considered
+     non-valid and ignored.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-v</span> </dt><dd 
+class="description">Be verbose. Currently only outputs the number of lines read/written and some error
+     messages.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">-g </span><span 
+class="cmssbx-10">ptop.cfg</span> </dt><dd 
+class="description">Write <span 
+class="cmss-10">ptop </span>configuration defaults to the file &#8221;ptop.cfg&#8221;. The contents of this file
+     can be changed to your liking, and it can be used with the -c option.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 2838--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu95.html" >next</a>] [<a 
+href="usersu94.html" >front</a>] [<a 
+href="userse44.html#usersu94.html" >up</a>] </p></div>
+<!--l. 2838--><p class="noindent" ><a 
+ id="tailusersu94.html"></a>  
+</body></html> 

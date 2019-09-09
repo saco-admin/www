@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$a00186.html" title="__gnu_pbds::basic_branch\&lt; Key, Mapped, Tag, detail::trie_traits\&lt; Key, Mapped, _ATraits, Node_Update, Tag, _Alloc \&gt;::node_update, __gnu_cxx::typelist::create2\&lt; _ATraits, detail::trie_traits\&lt; Key, Mapped, _ATraits, Node_Update, Tag, _Alloc \&gt; \&gt;::type, _Alloc \&gt;" alt="" coords="7,5,1620,33"/>
+<area shape="rect" id="node3" href="$a00381.html" title="__gnu_pbds::trie\&lt; Key, Mapped, _ATraits, Tag, Node_Update, _Alloc \&gt;" alt="" coords="1671,5,2119,33"/>
+</map>

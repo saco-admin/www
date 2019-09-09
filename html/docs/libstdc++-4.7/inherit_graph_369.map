@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$a00428.html" title="std::binary_function\&lt; _T1, _T2, bool \&gt;" alt="" coords="5,81,264,109"/>
+<area shape="rect" id="node3" href="$a00127.html" title="Constructs predicate for equality from strict weak ordering predicate." alt="" coords="333,5,699,33"/>
+<area shape="rect" id="node5" href="$a00128.html" title="Similar to std::equal_to, but allows two different types." alt="" coords="391,55,641,83"/>
+<area shape="rect" id="node7" href="$a00133.html" title="Similar to std::less, but allows two different types." alt="" coords="401,106,631,134"/>
+<area shape="rect" id="node9" href="$a00135.html" title="Compare __a pair of types lexicographically, descending." alt="" coords="313,157,719,185"/>
+</map>

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TUnicodeSearchRec</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TUnicodeSearchRec</h1>
+<p>Unicode searchrec record</p>
+<h2>Declaration</h2>
+<p>Source position: filutilh.inc line 47</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TUnicodeSearchRec<span class="sym"> = </span><span class="kw">record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Time<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Last modification timestamp</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Size<span class="sym">: </span><a href="../system/int64.html">Int64</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">File size in bytes</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Attr<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">File Attributes</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Name<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">File name, unicode aware (no path)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ExcludeAttr<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">For internal use only</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;FindHandle<span class="sym">: </span>Pointer<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Native file search handle. For internal use only, treat as opaque</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Mode<span class="sym">: </span><a href="../unixtype/tmode.html">TMode</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">File permissions (mode, Unix only)</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TRawbyteSearchRec</var> is a search handle description record using multi-byte strings. It is initialized by a call to <a href="../sysutils/findfirst.html">FindFirst</a> and can be used to do subsequent calls to <a href="../sysutils/findnext.html">FindNext</a>. It contains the result of these function calls. It must be used to close the search sequence with a call to <a href="../sysutils/findclose.html">FindClose</a>. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>Not all fields of this record should be used. Some of the fields are for internal use only. (<var>PathOnly</var> for example, is only provided for Kylix compatibility) </td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/trawbytesearchrec.html">TRawByteSearchRec</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Record describing a search handle or result (single-byte string version)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tsearchrec.html">TSearchRec</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Record describing a search handle or result</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/findfirst.html">FindFirst</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Start a file search and return a findhandle</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/findnext.html">FindNext</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find the next entry in a findhandle.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/findclose.html">FindClose</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Close a find handle</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

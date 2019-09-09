@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSysInfo</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../linux/index.html">Overview</a>][<a href="../linux/index-2.html">Constants</a>][<a href="../linux/index-3.html">Types</a>][<a href="../linux/index-5.html">Procedures and functions</a>][<a href="../linux/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Linux' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TSysInfo</h1>
+<p>Record with system information, used by the <a href="../linux/sysinfo.html">SysInfo</a> call.</p>
+<h2>Declaration</h2>
+<p>Source position: linux.pp line 31</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TSysInfo<span class="sym"> = </span><span class="kw">record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;uptime<span class="sym">: </span><a href="../unixtype/clong.html">clong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of seconds since boot.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;loads<span class="sym">: </span><span class="kw">array</span> <span class="sym">[</span><span class="num">0</span><span class="sym">.</span><span class="sym">.</span><span class="num">2</span><span class="sym">]</span> <span class="kw">of</span> <a href="../unixtype/culong.html">culong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">1, 5 and 15 minute load averages.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;totalram<span class="sym">: </span><a href="../unixtype/culong.html">culong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">total amount of main memory.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;freeram<span class="sym">: </span><a href="../unixtype/culong.html">culong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">amount of free memory.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;sharedram<span class="sym">: </span><a href="../unixtype/culong.html">culong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">amount of shared memory.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;bufferram<span class="sym">: </span><a href="../unixtype/culong.html">culong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">amount of memory used by buffers.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;totalswap<span class="sym">: </span><a href="../unixtype/culong.html">culong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">total amount of swapspace.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;freeswap<span class="sym">: </span><a href="../unixtype/culong.html">culong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">amount of free swapspace.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;procs<span class="sym">: </span><a href="../unixtype/cushort.html">cushort</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">number of current processes.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;pad<span class="sym">: </span><a href="../unixtype/cushort.html">cushort</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Alignment padding</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;totalhigh<span class="sym">: </span><a href="../unixtype/culong.html">culong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Total amount of high memory</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;freehigh<span class="sym">: </span><a href="../unixtype/culong.html">culong</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Total free amount of high memory in bytes</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;mem_unit<span class="sym">: </span><a href="../unixtype/cuint.html">cuint</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Memory unit size in bytes</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$PACKRECORDS : Alignment of record elements</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 1354--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu61.html" >next</a>] [<a 
+href="progsu59.html" >prev</a>] [<a 
+href="progsu59.html#tailprogsu59.html" >prev-tail</a>] [<a 
+href="#tailprogsu60.html">tail</a>] [<a 
+href="progse2.html#progsu60.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.60   </span> <a 
+href="prog.html#QQ2-67-66" id="x67-660001.2.60"><span 
+class="cmtt-10">$PACKRECORDS </span>: Alignment of record elements</a></h4>
+<!--l. 1356--><p class="noindent" >This directive controls the byte alignment of the elements in a record, object or class type
+definition.
+<!--l. 1359--><p class="noindent" >It is of the following form:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-64">
+{$PACKRECORDS&#x00A0;n}
+</div>
+<!--l. 1362--><p class="nopar" >
+<!--l. 1364--><p class="noindent" >Where <span 
+class="cmtt-10">n </span>is one of 1, 2, 4, 8, 16, 32 <span 
+class="cmtt-10">C</span>, <span 
+class="cmtt-10">NORMAL </span>or <span 
+class="cmtt-10">DEFAULT </span>(or 0). This means that the elements of a
+record which have size greater than <span 
+class="cmtt-10">n </span>will be aligned on <span 
+class="cmtt-10">n </span>byte boundaries. Elements with size less
+than or equal to <span 
+class="cmtt-10">n </span>will be aligned to a natural boundary, i.e. to a power of two that is equal
+to or larger than the element&#8217;s size. The special value <span 
+class="cmtt-10">C </span>is used to specify alignment
+as by the GNU CC compiler. It should be used only when making import units for C
+routines.
+<!--l. 1373--><p class="noindent" >The default alignment (which can be selected with <span 
+class="cmtt-10">DEFAULT</span>) is natural alignment.
+<!--l. 1375--><p class="noindent" >More information on this and an example program can be found in the reference guide, in the
+section about record types.
+<!--l. 1378--><p class="noindent" >The following shorthands can be used for this directive:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-65">
+{$A1&#x00A0;}
+&#x00A0;<br />{$A2&#x00A0;}
+&#x00A0;<br />{$A4&#x00A0;}
+&#x00A0;<br />{$A8&#x00A0;}
+</div>
+<!--l. 1384--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 1386--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu61.html" >next</a>] [<a 
+href="progsu59.html" >prev</a>] [<a 
+href="progsu59.html#tailprogsu59.html" >prev-tail</a>] [<a 
+href="progsu60.html" >front</a>] [<a 
+href="progse2.html#progsu60.html" >up</a>] </p></div>
+<!--l. 1386--><p class="noindent" ><a 
+ id="tailprogsu60.html"></a>  
+</body></html> 

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Utf8ToUnicode</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Utf8ToUnicode</h1>
+<p>Convert a buffer with UTF-8 characters to widestring characters</p>
+<h2>Declaration</h2>
+<p>Source position: ustringh.inc line 131</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> Utf8ToUnicode<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Dest<span class="sym">: </span><a href="../system/punicodechar.html">PUnicodeChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Source<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;MaxChars<span class="sym">: </span><a href="../system/sizeint.html">SizeInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/sizeint.html">SizeInt</a><span class="sym">;</span><br><br><span class="kw">function</span> Utf8ToUnicode<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Dest<span class="sym">: </span><a href="../system/punicodechar.html">PUnicodeChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;MaxDestChars<span class="sym">: </span><a href="../system/sizeuint.html">SizeUInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Source<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;SourceBytes<span class="sym">: </span><a href="../system/sizeuint.html">SizeUInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/sizeuint.html">SizeUInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Utf8ToUnicode</var> converts the buffer in <var>Source</var> with a length of <var>SourceBytes</var> or for a maximum length of <var>MaxChars</var>  (or <var>MaxDestChars</var>) widestring  characters to the buffer pointed to by <var>Dest</var>. </p>
+<p>The function returns the number of copied widestring characters. </p>
+<h2>Errors</h2>
+<p>On error, -1 is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/utf8encode.html">UTF8Encode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a widestring or unicodestring to an UTF-8 encoded ansistring</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/utf8decode.html">UTF8Decode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert an UTF-8 encoded ansistring to a unicodestring</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/utf8toansi.html">Utf8ToAnsi</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a UTF-8 encoded unicode string to an ansistring</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/setwidestringmanager.html">SetWideStringManager</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set the widestring manager</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

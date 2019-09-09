@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$ASMMODE : Assembler mode (Intel 80x86 only)</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 187--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu4.html" >next</a>] [<a 
+href="progsu2.html" >prev</a>] [<a 
+href="progsu2.html#tailprogsu2.html" >prev-tail</a>] [<a 
+href="#tailprogsu3.html">tail</a>] [<a 
+href="progse2.html#progsu3.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.3   </span> <a 
+href="prog.html#QQ2-10-9" id="x10-90001.2.3"><span 
+class="cmtt-10">$ASMMODE </span>: Assembler mode (Intel 80x86 only)</a></h4>
+<!--l. 191--><p class="noindent" >The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$ASMMODE XXX</span><span 
+class="cmsy-10">} </span>directive informs the compiler what kind of assembler it can expect in an <span 
+class="cmtt-10">asm</span>
+block. The <span 
+class="cmtt-10">XXX </span>should be replaced by one of the following:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">att</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Indicates that <span 
+class="cmtt-10">asm </span>blocks contain AT&amp;T syntax assembler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">intel</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Indicates that <span 
+class="cmtt-10">asm </span>blocks contain Intel syntax assembler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">direct</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">Tells the compiler that asm blocks should be copied directly to the assembler file. It
+     is not possible to use such assembler blocks when the internal assembler of the compiler
+     is used.</dd></dl>
+<!--l. 202--><p class="noindent" >These switches are local, and retain their value to the end of the unit that is compiled, unless they
+are replaced by another directive of the same type. The command line switch that corresponds to
+this switch is <span 
+class="cmtt-10">-R</span>.
+<!--l. 206--><p class="noindent" >The default assembler reader is the AT&amp;T reader.
+                                                                            
+
+                                                                            
+<!--l. 208--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu4.html" >next</a>] [<a 
+href="progsu2.html" >prev</a>] [<a 
+href="progsu2.html#tailprogsu2.html" >prev-tail</a>] [<a 
+href="progsu3.html" >front</a>] [<a 
+href="progse2.html#progsu3.html" >up</a>] </p></div>
+<!--l. 208--><p class="noindent" ><a 
+ id="tailprogsu3.html"></a>  
+</body></html> 

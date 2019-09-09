@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCharacter.ConvertToUtf32</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../character/index.html">Overview</a>][<a href="../character/index-3.html">Types</a>][<a href="../character/index-4.html">Classes</a>][<a href="../character/index-5.html">Procedures and functions</a>][<a href="../character/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'character' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TCharacter.ConvertToUtf32</h1>
+<p>Convert a UTF16 character to a UTF32 character</p>
+<h2>Declaration</h2>
+<p>Source position: character.pas line 86</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">class function</span> <a href="../character/tcharacter.html">TCharacter</a><span class="sym">.</span>ConvertToUtf32<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AString<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AIndex<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/ucs4char.html">UCS4Char</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">class function</span> <a href="../character/tcharacter.html">TCharacter</a><span class="sym">.</span>ConvertToUtf32<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AString<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AIndex<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>ACharLength<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/ucs4char.html">UCS4Char</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">class function</span> <a href="../character/tcharacter.html">TCharacter</a><span class="sym">.</span>ConvertToUtf32<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AHighSurrogate<span class="sym">: </span><a href="../system/unicodechar.html">UnicodeChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ALowSurrogate<span class="sym">: </span><a href="../system/unicodechar.html">UnicodeChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/ucs4char.html">UCS4Char</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AString</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String containing the character to encode</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AIndex</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Index at which the character to encode is located.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>The unicode character in UTF32 format</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AString</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String containing the character to encode</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AIndex</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Index at which the character to encode is located.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ACharLength</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Character length (in UTF16 characters)</p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AHighSurrogate</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The high pair of the surrogate</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ALowSurrogate</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The low pair of the surrogate</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TCharacter.ConvertToUtf32</var> converts a UTF16-encoded unicode character to a Unicode32 character. This is the opposite of <a href="../character/tcharacter.convertfromutf32.html">TCharacter.ConvertFromUtf32</a>. The function exists in several overloaded versions, to be able to present the  unicode character in one of 2 ways: </p>
+<ol>
+<li>As a position <var>AIndex</var> (in unicodechar units) in a string <var>AString</var> to a Unicode32 character. The source is a string, since multiple UTF16 characters can be needed to encode a single UTF32 character. In this form, Optionally, the character length (1 or 2) can be returned in <var>ACharLength</var>. </li>
+<li>As 2 UTF16 unicode characters, representing the high and low surrogate pairs: <var>AHighSurrogate</var> and <var>ALowSurrogate</var>. </li>
+</ol>
+<h2>Errors</h2>
+<p>If <var>AIndex</var> is not a valid character index in the string <var>AString</var>, an <a href="../sysutils/eargumentoutofrangeexception.html">EArgumentOutOfRangeException</a> exception is raised.  If the character at that position is not complete, an <a href="../sysutils/eargumentexception.html">EArgumentException</a> exception is raised.  </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../character/tcharacter.convertfromutf32.html">TCharacter.ConvertFromUtf32</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a UTF32 character to UnicodeString</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/eargumentoutofrangeexception.html">EArgumentOutOfRangeException</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Argument out of valid range passed to a function</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/eargumentexception.html">EArgumentException</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Invalid argument passed to a function</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

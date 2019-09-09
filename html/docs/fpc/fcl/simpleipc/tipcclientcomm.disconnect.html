@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TIPCClientComm.Disconnect</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../simpleipc/index.html">Overview</a>][<a href="../simpleipc/index-1.html">Resource strings</a>][<a href="../simpleipc/index-2.html">Constants</a>][<a href="../simpleipc/index-3.html">Types</a>][<a href="../simpleipc/index-4.html">Classes</a>][<a href="../simpleipc/index-6.html">Variables</a>][<a href="../simpleipc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'simpleipc' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TIPCClientComm.Disconnect</h1>
+<p>Disconnect from the server</p>
+<h2>Declaration</h2>
+<p>Source position: simpleipc.pp line 202</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../simpleipc/tipcclientcomm.html">TIPCClientComm</a><span class="sym">.</span>Disconnect<span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Disconnect</var> closes the communication channel with the server. Any calls to <var>SendMessage</var> are invalid after <var>Disconnect</var> was called. </p>
+<p><var>Disconnect</var> is called by the <a href="../simpleipc/tsimpleipcclient.disconnect.html">TSimpleIPCClient.Disconnect</a> call or when the <a href="../simpleipc/tsimpleipc.active.html">Active</a> property is set to <var>False</var>. </p>
+<p>Messages can no longer be sent after <var>Disconnect</var> was called. </p>
+<h2>Errors</h2>
+<p>If the connection shutdown fails, or the connection was already shut down,  then an exception may be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../simpleipc/tsimpleipcclient.disconnect.html">TSimpleIPCClient.Disconnect</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Disconnect from the server</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../simpleipc/tsimpleipc.active.html">Active</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Communication channel active</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../simpleipc/tipcclientcomm.connect.html">Connect</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Connect to the server</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

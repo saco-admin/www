@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpDup2</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpDup2</h1>
+<p>Duplicate one filehandle to another</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 39</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpDup2<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;fildes<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;fildes2<span class="sym">: </span><a href="../baseunix/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> FpDup2<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>oldfile<span class="sym">: </span>text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>newfile<span class="sym">: </span>text</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> FpDup2<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>oldfile<span class="sym">: </span>file<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>newfile<span class="sym">: </span>file</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Makes <var>fildes2</var> or <var>NewFile</var> an exact copy of <var>fildes</var> or <var>OldFile</var>, after having flushed the buffer of <var>OldFile</var> in the case of text or untyped files.  </p>
+<p>After a call to fdup2, the 2 file descriptors point to the same physical device (a file, socket, or a terminal). </p>
+<p><var>NewFile</var> can be an assigned file. If <var>newfile</var> or <var>fildes</var> was open, it is closed first.  Due to the buffering mechanism of Pascal, this has not the same functionality  as the <var>dup2</var> call in C. The internal Pascal buffers are not the same  after this call, but when the buffers are flushed (e.g. after output), the output  is sent to the same file. Doing an lseek will, however, work as in C, i.e. doing  a lseek will change the fileposition in both files. </p>
+<p>The function returns the new file descriptor number, on error -1 is returned, and the error can be retrieved with <a href="../baseunix/fpgeterrno.html">fpgeterrno</a></p>
+<h2>Errors</h2>
+<p>In case of error, the following error codes can be reported: </p>
+<dl>
+<dt>sys_ebadf</dt>
+<dd><var>OldFile</var> (or <var>fildes</var>) hasn't been assigned.</dd>
+<dt>sys_emfile</dt>
+<dd>Maximum number of open files for the process is reached.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpdup.html">fpDup</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Duplicate a file handle</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> Example32<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the FpDup2 function. }</span>
+
+<span class="kw">uses</span> BaseUnix<span class="sym">;</span>
+
+<span class="kw">var</span> f <span class="sym">:</span> text<span class="sym">;</span>
+    i <span class="sym">:</span> longint<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Assign <span class="sym">(</span>f<span class="sym">,</span><span class="str">'text.txt'</span><span class="sym">)</span><span class="sym">;</span>
+  Rewrite <span class="sym">(</span>F<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">For</span> i<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span> writeln <span class="sym">(</span>F<span class="sym">,</span><span class="str">'Line : '</span><span class="sym">,</span>i<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> fpdup2 <span class="sym">(</span>output<span class="sym">,</span>f<span class="sym">)</span><span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    Writeln <span class="sym">(</span><span class="str">'Dup2 Failed !'</span><span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'This is written to stdout.'</span><span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span>f<span class="sym">,</span><span class="str">'This is written to the dup file, and flushed'</span><span class="sym">)</span><span class="sym">;</span>
+  flush<span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+  writeln<span class="sym">;</span>
+  <span class="cmt">{ Remove file. Comment this if you want to check flushing.}</span>
+  fpUnlink <span class="sym">(</span><span class="str">'text.txt'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

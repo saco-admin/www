@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$IFOPT : Start conditional compilation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 689--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu34.html" >next</a>] [<a 
+href="progsu32.html" >prev</a>] [<a 
+href="progsu32.html#tailprogsu32.html" >prev-tail</a>] [<a 
+href="#tailprogsu33.html">tail</a>] [<a 
+href="progse2.html#progsu33.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.33   </span> <a 
+href="prog.html#QQ2-40-39" id="x40-390001.2.33"><span 
+class="cmtt-10">$IFOPT </span>: Start conditional compilation</a></h4>
+<!--l. 691--><p class="noindent" >The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$IFOPT switch</span><span 
+class="cmsy-10">} </span>will compile the text that follows it if the switch <span 
+class="cmtt-10">switch </span>is currently in the
+specified state. If it isn&#8217;t in the specified state, then compilation continues after the corresponding
+<span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$ELSE</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$ENDIF</span><span 
+class="cmsy-10">} </span>directive.
+<!--l. 696--><p class="noindent" >As an example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-34">
+{$IFOPT&#x00A0;M+}
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(&#8217;Compiled&#x00A0;with&#x00A0;type&#x00A0;information&#8217;);
+&#x00A0;<br />{$ENDIF}
+</div>
+<!--l. 701--><p class="nopar" >Will compile the <span 
+class="cmtt-10">Writeln </span>statement only if generation of type information is on.
+<!--l. 704--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span>The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$IFOPT</span><span 
+class="cmsy-10">} </span>directive accepts only short options, i.e. <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$IFOPT TYPEINFO</span><span 
+class="cmsy-10">} </span>will not be
+accepted.
+                                                                            
+
+                                                                            
+<!--l. 708--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu34.html" >next</a>] [<a 
+href="progsu32.html" >prev</a>] [<a 
+href="progsu32.html#tailprogsu32.html" >prev-tail</a>] [<a 
+href="progsu33.html" >front</a>] [<a 
+href="progse2.html#progsu33.html" >up</a>] </p></div>
+<!--l. 708--><p class="noindent" ><a 
+ id="tailprogsu33.html"></a>  
+</body></html> 

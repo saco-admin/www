@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>shmat</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../ipc/index.html">Overview</a>][<a href="../ipc/index-2.html">Constants</a>][<a href="../ipc/index-3.html">Types</a>][<a href="../ipc/index-5.html">Procedures and functions</a>][<a href="../ipc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'ipc' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>shmat</h1>
+<p>Attach a shared memory block.</p>
+<h2>Declaration</h2>
+<p>Source position: ipc.pp line 406</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> shmat<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;shmid<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;shmaddr<span class="sym">: </span>pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;shmflg<span class="sym">: </span><a href="../unixtype/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>shmat</var> attaches a shared memory block with identified <var>shmid</var>  to the current process. The function returns a pointer to the shared memory block. </p>
+<p>If <var>shmaddr</var> is <var>Nil</var>, then the system chooses a free unmapped memory region, as high up in memory space as possible. </p>
+<p>If <var>shmaddr</var> is non-nil, and <var>SHM_RND</var> is in <var>shmflg</var>, then  the returned address is <var>shmaddr</var>, rounded down to <var>SHMLBA</var>. If <var>SHM_RND</var> is not specified, then <var>shmaddr</var> must be a page-aligned address. </p>
+<p>The parameter <var>shmflg</var> can be used to control the behaviour of the <var>shmat</var> call. It consists of a ORed combination of the following constants: </p>
+<dl>
+<dt>SHM_RND</dt>
+<dd>The suggested address in <var>shmaddr</var> is rounded down to <var>SHMLBA</var>. </dd>
+<dt>SHM_RDONLY</dt>
+<dd>the shared memory is attached for read access only. Otherwise the memory is attached for read-write. The process then needs read-write permissions to access the shared memory. </dd>
+</dl>
+<p>For an example, see <a href="../ipc/shmctl.html">shmctl</a>. </p>
+<h2>Errors</h2>
+<p>If an error occurs, -1 is returned, and <var>IPCerror</var> is set. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../ipc/shmget.html">shmget</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the ID of a shared memory block, possibly creating it</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ipc/shmdt.html">shmdt</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Detach shared memory block.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ipc/shmctl.html">shmctl</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Perform control operations on a shared memory block.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

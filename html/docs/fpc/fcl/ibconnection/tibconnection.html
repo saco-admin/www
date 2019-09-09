@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TIBConnection</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../ibconnection/index.html">Overview</a>][<a href="../ibconnection/index-2.html">Constants</a>][<a href="../ibconnection/index-3.html">Types</a>][<a href="../ibconnection/index-4.html">Classes</a>][<a href="../ibconnection/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'IBConnection' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TIBConnection</h1>
+<p>[<a href="../ibconnection/tibconnection-1.html" onClick="window.open('../ibconnection/tibconnection-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../ibconnection/tibconnection-2.html" onClick="window.open('../ibconnection/tibconnection-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../ibconnection/tibconnection-3.html" onClick="window.open('../ibconnection/tibconnection-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../ibconnection/tibconnection-4.html" onClick="window.open('../ibconnection/tibconnection-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../ibconnection/tibconnection-5.html" onClick="window.open('../ibconnection/tibconnection-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../ibconnection/tibconnection-6.html" onClick="window.open('../ibconnection/tibconnection-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p><var>TIBConnection</var>: Firebird/Interbase specific                                    <a href="../sqldb/tsqlconnection.html">TSQLConnection</a></p>
+<h2>Declaration</h2>
+<p>Source position: ibconnection.pp line 55</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TIBConnection <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../sqldb/tsqlconnection.html">TSQLConnection</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../ibconnection/tibconnection.create.html">Create</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a <var>TIBConnection</var> object</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../sqldb/tsqlconnection.getconnectioninfo.html">GetConnectionInfo</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../ibconnection/tibconnection.createdb.html">CreateDB</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a database on disk</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../ibconnection/tibconnection.dropdb.html">DropDB</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Deletes a database from disk</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../ibconnection/tibconnection.blobsegmentsize.html">BlobSegmentSize</a><span class="sym">: </span><a href="../../rtl/system/word.html">Word</a><span class="sym">;</span>  [rw]<span class="kw"> deprecated</span> <span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write this amount of bytes per BLOB segment</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../ibconnection/tibconnection.odsmajorversion.html">ODSMajorVersion</a><span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span>  [r]</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">published</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../ibconnection/tibconnection.databasename.html">DatabaseName</a><span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Name of the database to connect to</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../ibconnection/tibconnection.dialect.html">Dialect</a><span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span>  [rws]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Database dialect</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../ibconnection/tibconnection.checktransactionparams.html">CheckTransactionParams</a><span class="sym">: </span>Boolean<span class="sym">;</span>  [rw]</span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../ibconnection/tibconnection.keepconnection.html">KeepConnection</a><span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Keep open connection after first query</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../ibconnection/tibconnection.loginprompt.html">LoginPrompt</a><span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Switch for showing custom login prompt</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../ibconnection/tibconnection.params.html">Params</a><span class="sym">: </span><a href="../../rtl/classes/tstrings.html">TStrings</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Firebird/Interbase specific parameters</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../ibconnection/tibconnection.onlogin.html">OnLogin</a><span class="sym">: </span><a href="../db/tloginevent.html">TLoginEvent</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event triggered when a login prompt needs to be shown.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../ibconnection/tibconnection.html">TIBConnection</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt"><var>TIBConnection</var>: Firebird/Interbase specific                                    <a href="../sqldb/tsqlconnection.html">TSQLConnection</a></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../sqldb/tsqlconnection.html">TSQLConnection</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">An abstract class representing a connection to a SQL Database</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../db/tdatabase.html">TDatabase</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for connecting a FreePascal application to an external Database engine</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../db/tcustomconnection.html">TCustomConnection</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Abstract class for connections to a server</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tcomponent.html">TComponent</a>,<a href="../../rtl/system/iunknown.html">IUnknown</a>,<a href="../../rtl/classes/iinterfacecomponentreference.html">IInterfaceComponentReference</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tpersistent.html">TPersistent</a>,<a href="../../rtl/classes/ifpobserved.html">IFPObserved</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TIBConnection</var> is a descendant of                                        <a href="../sqldb/tsqlconnection.html">TSQLConnection</a> and represents a connection to a Firebird/Interbase server.</p>
+<p>It is designed to work with Interbase 6, Firebird 1 and newer database servers.</p>
+<p><var>TIBConnection</var> by default requires the Firebird/Interbase client library (e.g. gds32.dll, libfbclient.so, fbclient.dll,fbembed.dll) and its dependencies to be installed on the system. The bitness between library and your application must match: e.g. use 32 bit fbclient when developing a 32 bit application on 64 bit Linux.</p>
+<p>On Windows, in accordance with the regular Windows way of loading DLLs, the library can also be in the executable directory. In fact, this directory is searched first, and might be a good option for distributing software to end users as it eliminates problems with incompatible DLL versions.</p>
+<p><var>TIBConnection</var> is based on FPC Interbase/Firebird code (ibase60.inc) that tries to load the client library. If you want to use Firebird embedded, make sure the embedded library is searched/loaded first. There are several ways to do this: </p>
+<ul>
+<li>Include <var>ibase60</var> in your uses clause, set <var>UseEmbeddedFirebird</var> to true</li>
+<li>On Windows, with FPC newer than 2.5.1, put fbembed.dll in your application directory</li>
+<li>On Windows, put the fbembed.dll in your application directory and rename it to fbclient.dll</li>
+</ul>
+<p>Pre 2.5.1 versions of FPC did not try to load the fbembed library by default. See                                           <a href="http://mantis.freepascal.org/view.php?id=17664">FPC bug 17664</a> for more details.</p>
+<p>An indication of which DLLs need to be installed on Windows (Firebird 2.5, differs between           versions: </p>
+<ul>
+<li>fbclient.dll (or fbembed.dll)</li>
+<li>firebird.msg</li>
+<li>ib_util.dll</li>
+<li>icudt30.dll</li>
+<li>icuin30.dll</li>
+<li>icuuc30.dll</li>
+<li>msvcp80.dll</li>
+<li>msvcr80.dll</li>
+</ul>
+<p>Please see your database documentation for details.</p>
+<p>The <var>TIBConnection</var> component does not reliably detect           computed fields as such. This means that automatically generated update sql           statements will attempt to update these fields, resulting in SQL           errors. These errors can be avoided by removing the           <var>pfInUpdate</var> flag from the provideroptions from a field, once it has been created:           </p>
+<pre>MyQuery<span class="sym">.</span>FieldByName<span class="sym">(</span><span class="str">'full_name'</span><span class="sym">)</span><span class="sym">.</span>ProviderFlags<span class="sym">:=</span><span class="sym">[</span><span class="sym">]</span><span class="sym">;</span>
+          
+</pre>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlconnection.html">TSQLConnection</a></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

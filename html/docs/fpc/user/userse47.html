@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Standard units</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 3104--><div class="crosslinks"><p class="noindent">[<a 
+href="userse48.html" >next</a>] [<a 
+href="#tailuserse47.html">tail</a>] [<a 
+href="userch9.html#userse47.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">9.1   </span> <a 
+href="user.html#QQ2-157-215" id="x157-1640009.1">Standard units</a></h3>
+<!--l. 3106--><p class="noindent" >The following units are standard and are meant to be ported to all platforms supported by Free
+Pascal. A brief description of each unit is also given.
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">charset</span> </dt><dd 
+class="description">A unit to provide mapping of character sets.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">cmem</span> </dt><dd 
+class="description">Using this unit replaces the Free Pascal memory manager with the memory manager
+     of the C library.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">crt</span> </dt><dd 
+class="description">This unit is similar to the unit of the same name of Turbo Pascal. It implements writing
+     to the console in color, moving the text cursor around and reading from the keyboard.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">dos</span> </dt><dd 
+class="description">This unit provides basic routines for accessing the operating system. This includes file
+     searching, environment variables access, getting the operating system version, getting
+     and setting the system time. It is to note that some of these routines are duplicated in
+     functionality in the <span 
+class="cmtt-10">sysutils </span>unit.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">dynlibs</span> </dt><dd 
+class="description">Provides cross-platform access to loading dynamical libraries.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">getopts</span> </dt><dd 
+class="description">This  unit  gives  you  the  <span 
+class="cmcsc-10"><span 
+class="small-caps">g</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span>  </span><span 
+class="cmtt-10">getopts </span>command  line  arguments  handling
+     mechanism. It also supports long options.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">graph</span> </dt><dd 
+class="description"><span 
+class="cmti-10">This unit is deprecated</span>. This unit provides basic graphics handling, with routines to
+                                                                            
+
+                                                                            
+     draw lines on the screen, display text etc. It provides the same functions as the Turbo
+     Pascal unit.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">heaptrc</span> </dt><dd 
+class="description">a unit which debugs the heap usage. When the program exits, it outputs a summary
+     of the used memory, and dumps a summary of unreleased memory blocks (if any). You
+     should not include this unit directly, instead use the <span 
+class="cmtt-10">-gh </span>command-line switch.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">keyboard</span> </dt><dd 
+class="description">provides basic keyboard handling routines in a platform independent way, and
+     supports writing custom drivers.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">macpas</span> </dt><dd 
+class="description">This unit implements several functions available only in MACPAS mode. This unit
+     should not be included; it&#8217;s automatically included when the MACPAS mode is used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">math</span> </dt><dd 
+class="description">This   unit   contains   common   mathematical   routines   (trigonometric   functions,
+     logarithms, etc.) as well as more complex ones (summations of arrays, normalization
+     functions, etc.).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">matrix</span> </dt><dd 
+class="description">A unit providing matrix manipulation routines.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">mmx</span> </dt><dd 
+class="description">This unit provides support for <span 
+class="cmtt-10">mmx </span>extensions in your code.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">mouse</span> </dt><dd 
+class="description">Provides basic mouse handling routines in a platform independent way, and supports
+     writing custom drivers.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">objects</span> </dt><dd 
+class="description">This  unit  provides  the  base  object  for  standard  Turbo  Pascal  objects.  It  also
+     implements  File  and  Memory  stream  objects,  as  well  as  sorted  and  non-sorted
+     collections, and string streams.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">objpas</span> </dt><dd 
+class="description">Is used for Delphi compatibility. You should never load this unit explicitly; it is
+     automatically loaded if you request Delphi mode.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">printer</span> </dt><dd 
+class="description">This unit provides all you need for rudimentary access to the printer using standard
+     I/O routines.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">sockets</span> </dt><dd 
+class="description">This gives the programmer access to sockets and TCP/IP programming.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">strings</span> </dt><dd 
+class="description">This unit provides basic string handling routines for the <span 
+class="cmtt-10">pchar </span>type, comparable to
+     similar routines in standard <span 
+class="cmtt-10">C </span>libraries.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">system</span> </dt><dd 
+class="description">This unit is available for all supported platforms. It includes among others, basic file
+     I/O routines, memory management routines, all compiler helper routines, and directory
+     services routines.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">strutils</span> </dt><dd 
+class="description">Offers a lot of extended string handling routines.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">dateutils</span> </dt><dd 
+class="description">Offers a lot of extended date/time handling routines for almost any date and time
+     math.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">sysutils</span> </dt><dd 
+class="description">Is an alternative implementation of the sysutils unit of Delphi. It includes file I/O
+     access routines which takes care of file locking, date and string handling routines, file
+     search, date and string conversion routines.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">typinfo</span> </dt><dd 
+class="description">Provides functions to access runtime Type Information, just like Delphi.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">variants</span> </dt><dd 
+class="description">Provides basic variant handling.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">video</span> </dt><dd 
+class="description">Provides basic screen handling in a platform independent way, and supports writing
+     custom drivers.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 3175--><div class="crosslinks"><p class="noindent">[<a 
+href="userse48.html" >next</a>] [<a 
+href="userse47.html" >front</a>] [<a 
+href="userch9.html#userse47.html" >up</a>] </p></div>
+<!--l. 3175--><p class="noindent" ><a 
+ id="tailuserse47.html"></a>  
+</body></html> 

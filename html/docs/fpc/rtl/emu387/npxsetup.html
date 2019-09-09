@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>npxsetup</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../emu387/index.html">Overview</a>][<a href="../emu387/index-5.html">Procedures and functions</a>][<a href="../emu387/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'emu387' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>npxsetup</h1>
+<p>Set up coprocessor emulation.</p>
+<h2>Declaration</h2>
+<p>Source position: emu387.pp line 18</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> npxsetup<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;prog_name<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>npxsetup</var> checks whether a coprocessor is found. If not, it loads the  file <span class="file">wmemu387.dxe</span> into memory and initializes the code in it. </p>
+<p>If the environment variable <var>387</var> is set to <var>N</var>, then the emulation will be loaded, even if there is a coprocessor present. If the variable doesn't exist, or is set to any other value, the unit will try to detect  the presence of a coprocessor unit. </p>
+<p>The function searches the file <span class="file">wmemu387.dxe</span> in the following way: </p>
+<ol>
+<li>If the environment variable <var>EMU387</var> is set, then it is assumed to point at the <span class="file">wmemu387.dxe</span> file. </li>
+<li>if the environment variable <var>EMU387</var> does not exist, then the  function will take the path part of  <var>prog_name</var> and look in that directory for the file <span class="file">wmemu387.dxe</span>. </li>
+</ol>
+<p>It should never be necessary to call this function, because the initialization code of the unit contains a call to the function with as an argument <var>paramstr(0)</var>. This means that you should deliver the file <var>wmemu387.dxe</var> together with your program. </p>
+<h2>Errors</h2>
+<p>If there is an error, an error message is printed to standard error, and the program is halted, since any floating-point code is bound to fail anyhow. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

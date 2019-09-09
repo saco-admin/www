@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSortedCollection</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../objects/index.html">Overview</a>][<a href="../objects/index-2.html">Constants</a>][<a href="../objects/index-3.html">Types</a>][<a href="../objects/index-4.html">Classes</a>][<a href="../objects/index-5.html">Procedures and functions</a>][<a href="../objects/index-6.html">Variables</a>][<a href="../objects/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Objects' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TSortedCollection</h1>
+<p>[<a href="../objects/tsortedcollection-1.html" onClick="window.open('../objects/tsortedcollection-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../objects/tsortedcollection-2.html" onClick="window.open('../objects/tsortedcollection-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../objects/tsortedcollection-3.html" onClick="window.open('../objects/tsortedcollection-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../objects/tsortedcollection-4.html" onClick="window.open('../objects/tsortedcollection-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../objects/tsortedcollection-5.html" onClick="window.open('../objects/tsortedcollection-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../objects/tsortedcollection-6.html" onClick="window.open('../objects/tsortedcollection-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Abstract sorted collection.</p>
+<h2>Declaration</h2>
+<p>Source position: objects.pp line 435</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TSortedCollection <span class="sym">=</span> <span class="kw">object</span><span class="sym">(</span><a href="../objects/tcollection.html">TCollection</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../objects/tsortedcollection.duplicates.html">Duplicates</a><span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">If <var>True</var> duplicate strings are allowed in the collection.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../objects/tsortedcollection.init.html">Init</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Instantiates a new instance of a <var>TSortedCollection</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../objects/tsortedcollection.load.html">Load</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Instantiates a new instance of a <var>TSortedCollection</var> and loads it from stream.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../objects/tsortedcollection.keyof.html">KeyOf</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the key of an item</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../objects/tsortedcollection.indexof.html">IndexOf</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return index of an item in the collection.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../objects/tsortedcollection.compare.html">Compare</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compare two items in the collection.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../objects/tsortedcollection.search.html">Search</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for item with given key.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../objects/tsortedcollection.insert.html">Insert</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Insert new item in collection.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../objects/tsortedcollection.store.html">Store</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write the collection to the stream.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../objects/tsortedcollection.html">TSortedCollection</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Abstract sorted collection.</p></td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../objects/tcollection.html">TCollection</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Manage a collection of pointers of objects</p></td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../objects/tobject.html">TObject</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Basis of all objects</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TSortedCollection</var> is an abstract class, implementing a sorted collection. You should never use an instance of <var>TSortedCollection</var> directly, instead you should declare a descendent type, and override the <a href="../objects/tsortedcollection.compare.html">Compare</a> method. </p>
+<p>Because the collection is ordered, <var>TSortedCollection</var> overrides some <var>TCollection</var> methods, to provide faster routines for lookup. </p>
+<p>The <a href="../objects/tsortedcollection.compare.html">Compare</a> method decides how elements in the collection should be ordered. Since <var>TCollection</var> has no way of knowing how to order pointers, you must override the compare method. </p>
+<p>Additionally, <var>TCollection</var> provides a means to filter out duplicates. if you set <var>Duplicates</var> to <var>False</var> (the default) then duplicates will not be allowed. </p>
+<p>The example below defines a descendent of <var>TSortedCollection</var> which is used in the examples. </p>
+<h2>Example</h2>
+<pre><span class="kw">Unit</span> MySortC<span class="sym">;</span>
+
+<span class="kw">Interface</span>
+
+<span class="kw">Uses</span> Objects<span class="sym">;</span>
+
+<span class="kw">Type</span>
+  PMySortedCollection <span class="sym">=</span> <span class="sym">^</span>TMySortedCollection<span class="sym">;</span>
+  TMySortedCollection <span class="sym">=</span> <span class="kw">Object</span><span class="sym">(</span>TSortedCollection<span class="sym">)</span>
+       <span class="kw">Function</span> Compare <span class="sym">(</span>Key1<span class="sym">,</span>Key2 <span class="sym">:</span> Pointer<span class="sym">)</span><span class="sym">:</span> Sw_integer<span class="sym">;</span> <span class="kw">virtual</span><span class="sym">;</span>
+       <span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Implementation</span>
+
+<span class="kw">Uses</span> MyObject<span class="sym">;</span>
+
+<span class="kw">Function</span> TMySortedCollection<span class="sym">.</span>Compare <span class="sym">(</span>Key1<span class="sym">,</span>Key2 <span class="sym">:</span> Pointer<span class="sym">)</span> <span class="sym">:</span>sw_integer<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Compare<span class="sym">:=</span>PMyobject<span class="sym">(</span>Key1<span class="sym">)</span><span class="sym">^</span><span class="sym">.</span>GetField <span class="sym">-</span> PMyObject<span class="sym">(</span>Key2<span class="sym">)</span><span class="sym">^</span><span class="sym">.</span>GetField<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>PollKeyEvent</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../keyboard/index.html">Overview</a>][<a href="../keyboard/index-2.html">Constants</a>][<a href="../keyboard/index-3.html">Types</a>][<a href="../keyboard/index-5.html">Procedures and functions</a>][<a href="../keyboard/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'keyboard' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>PollKeyEvent</h1>
+<p>Get next key event, but does not wait.</p>
+<h2>Declaration</h2>
+<p>Source position: keybrdh.inc line 155</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> PollKeyEvent<span class="sym">: </span><a href="../keyboard/tkeyevent.html">TKeyEvent</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>PollKeyEvent</var> checks whether a key event is available,  and returns it if one is found. If no event is pending,  it returns 0.  </p>
+<p>Note that this does not remove the key from the pending keys.  The key should still be retrieved from the pending key events  list with the <a href="../keyboard/getkeyevent.html">GetKeyEvent</a> function. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../keyboard/putkeyevent.html">PutKeyEvent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Put a key event in the event queue.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../keyboard/getkeyevent.html">GetKeyEvent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get the next raw key event, wait if needed.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> example4<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the PollKeyEvent function }</span>
+
+<span class="kw">uses</span> keyboard<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  K <span class="sym">:</span> TKeyEvent<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  InitKeyBoard<span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Press keys, press "q" to end.'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">Repeat</span>
+    K<span class="sym">:=</span>PollKeyEvent<span class="sym">;</span>
+    <span class="kw">If</span> k<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+      <span class="kw">begin</span>
+      K<span class="sym">:=</span>GetKeyEvent<span class="sym">;</span>
+      K<span class="sym">:=</span>TranslateKeyEvent<span class="sym">(</span>K<span class="sym">)</span><span class="sym">;</span>
+      writeln<span class="sym">;</span>
+      Writeln<span class="sym">(</span><span class="str">'Got key : '</span><span class="sym">,</span>KeyEventToString<span class="sym">(</span>K<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">end</span>
+    <span class="kw">else</span>
+      write<span class="sym">(</span><span class="chr">'.'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">Until</span> <span class="sym">(</span>GetKeyEventChar<span class="sym">(</span>K<span class="sym">)</span><span class="sym">=</span><span class="chr">'q'</span><span class="sym">)</span><span class="sym">;</span>
+  DoneKeyBoard<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Normal fields/variables</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 4248--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu24.html" >next</a>] [<a 
+href="#tailrefsu23.html">tail</a>] [<a 
+href="refse35.html#refsu23.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.2.1   </span> <a 
+href="ref.html#QQ2-71-99" id="x71-930006.2.1">Normal fields/variables</a></h4>
+<!--l. 4249--><p class="noindent" >There are 2 ways to declare a normal field. The first one is the classical way, similar to a definition
+in an object:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-163">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;cl=class
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;l&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;cl1,cl2&#x00A0;:&#x00A0;cl;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;cl1:=cl.create;
+&#x00A0;<br />&#x00A0;&#x00A0;cl2:=cl.create;
+&#x00A0;<br />&#x00A0;&#x00A0;cl1.l:=2;
+&#x00A0;<br />&#x00A0;&#x00A0;writeln(cl1.l);
+&#x00A0;<br />&#x00A0;&#x00A0;writeln(cl2.l);
+&#x00A0;<br />end.
+</div>
+<!--l. 4267--><p class="nopar" >will be the following
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-164">
+2
+&#x00A0;<br />0
+</div>
+<!--l. 4272--><p class="nopar" >The example demonstrates that values of fields are initialized with zero (or the equivalent of zero
+for non ordinal types: empty string, empty array and so on).
+<!--l. 4276--><p class="noindent" >The second way to declare a field (only available in more recent versions of Free Pascal) is using a
+<span 
+class="cmtt-10">var </span>block:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-165">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;cl=class
+&#x00A0;<br />&#x00A0;&#x00A0;var
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;l&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 4284--><p class="nopar" >This definition is completely equivalent to the previous definition.
+<!--l. 4287--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> As of version 3.0 of the compiler, the compiler can re-order the fields in memory if this leads to
+better alignment and smaller instances. That means that in an instance, the fields do not
+necessarily appear in the same order as in the declaration. RTTI generated for a class will reflect
+this change.
+                                                                            
+
+                                                                            
+<!--l. 4294--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu24.html" >next</a>] [<a 
+href="refsu23.html" >front</a>] [<a 
+href="refse35.html#refsu23.html" >up</a>] </p></div>
+<!--l. 4294--><p class="noindent" ><a 
+ id="tailrefsu23.html"></a>  
+</body></html> 

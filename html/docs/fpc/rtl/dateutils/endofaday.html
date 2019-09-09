@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>EndOfADay</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dateutils/index.html">Overview</a>][<a href="../dateutils/index-2.html">Constants</a>][<a href="../dateutils/index-5.html">Procedures and functions</a>][<a href="../dateutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dateutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>EndOfADay</h1>
+<p>Calculates a DateTime value representing the end of a specified day</p>
+<h2>Declaration</h2>
+<p>Source position: dateutil.inc line 169</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> EndOfADay<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AYear<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AMonth<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ADay<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tdatetime.html">TDateTime</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> EndOfADay<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AYear<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ADayOfYear<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tdatetime.html">TDateTime</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AYear</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Year</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AMonth</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Month in the year</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADay</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Day in the month</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>A datetime value representing the time 23:59:59.999 of the given day.</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AYear</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Year</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADayOfYear</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Day of the year</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>EndOfADay</var>  returns a <var>TDateTime</var> value with the date/time indication of  the last moment  (23:59:59.999) of the day given by <var>AYear</var>, <var>AMonth</var>, <var>ADay</var>. </p>
+<p>The day may also be indicated with a <var>AYear</var>, <var>ADayOfYear</var> pair. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dateutils/startoftheday.html">StartOfTheDay</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the start of the day as a DateTime value, given a moment in the day.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/startofaday.html">StartOfADay</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the start of a day as a DateTime value, given a day indication</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/startoftheweek.html">StartOfTheWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the first day of the week, given a date.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/startofaweek.html">StartOfAWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return a day of the week, given a year, week and day in the week.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/startofamonth.html">StartOfAMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return first date of month, given a year/month pair.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/startofthemonth.html">StartOfTheMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the first day of the month, given a date in that month.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/endoftheweek.html">EndOfTheWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate a DateTime value which represents the end of a week, given a date in that week.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/endofaweek.html">EndOfAWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the last moment of day of the week, given a year and a week in the year.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/endoftheyear.html">EndOfTheYear</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate a DateTime value representing the last day of a year, given a date in that year.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/endofayear.html">EndOfAYear</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate a DateTime value representing the last day of a year</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/endofthemonth.html">EndOfTheMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate a DateTime value representing the last day of the month, given a day in that month.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/endofamonth.html">EndOfAMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate a datetime value representing the last day of the indicated month</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/endoftheday.html">EndOfTheDay</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate a datetime value that represents the end of a given day.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example39<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the EndOfADay function }</span>
+
+<span class="kw">Uses</span> SysUtils<span class="sym">,</span>DateUtils<span class="sym">;</span>
+
+<span class="kw">Const</span>
+  Fmt <span class="sym">=</span> <span class="str">'"End of the day : "dd mmmm yyyy hh:nn:ss'</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  Y<span class="sym">,</span>M<span class="sym">,</span>D <span class="sym">:</span> Word<span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  Y<span class="sym">:=</span>YearOf<span class="sym">(</span>Today<span class="sym">)</span><span class="sym">;</span>
+  M<span class="sym">:=</span>MonthOf<span class="sym">(</span>Today<span class="sym">)</span><span class="sym">;</span>
+  D<span class="sym">:=</span>DayOf<span class="sym">(</span>Today<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>FormatDateTime<span class="sym">(</span>Fmt<span class="sym">,</span>EndOfADay<span class="sym">(</span>Y<span class="sym">,</span>M<span class="sym">,</span>D<span class="sym">)</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  DecodeDateDay<span class="sym">(</span>Today<span class="sym">,</span>Y<span class="sym">,</span>D<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>FormatDateTime<span class="sym">(</span>Fmt<span class="sym">,</span>EndOfADay<span class="sym">(</span>Y<span class="sym">,</span>D<span class="sym">)</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

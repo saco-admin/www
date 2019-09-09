@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCollection.IndexOf</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../objects/index.html">Overview</a>][<a href="../objects/index-2.html">Constants</a>][<a href="../objects/index-3.html">Types</a>][<a href="../objects/index-4.html">Classes</a>][<a href="../objects/index-5.html">Procedures and functions</a>][<a href="../objects/index-6.html">Variables</a>][<a href="../objects/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Objects' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TCollection.IndexOf</h1>
+<p>Find the position of a certain item.</p>
+<h2>Declaration</h2>
+<p>Source position: objects.pp line 408</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code">  <span class="kw">function</span> <a href="../objects/tcollection.html">TCollection</a><span class="sym">.</span>IndexOf<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Item<span class="sym">: </span>Pointer</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../objects/sw_integer.html">Sw_Integer</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>IndexOf</var> returns the index of <var>Item</var> in the collection. If <var>Item</var> isn't present in the collection, -1 is returned. </p>
+<h2>Errors</h2>
+<p>If the item is not present, -1 is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../objects/tcollection.at.html">TCollection.At</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the item at a certain index.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../objects/tcollection.getitem.html">TCollection.GetItem</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read one item off the stream.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../objects/tcollection.insert.html">TCollection.Insert</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Insert a new item in the collection at the end.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> ex24<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the TCollection.IndexOf method }</span>
+
+<span class="kw">Uses</span> Objects<span class="sym">,</span>MyObject<span class="sym">;</span> <span class="cmt">{ For TMyObject definition and registration }</span>
+
+<span class="kw">Var</span> C <span class="sym">:</span> PCollection<span class="sym">;</span>
+    M<span class="sym">,</span>Keep <span class="sym">:</span> PMyObject<span class="sym">;</span>
+    I <span class="sym">:</span> Longint<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Randomize<span class="sym">;</span>
+  C<span class="sym">:=</span>New<span class="sym">(</span>PCollection<span class="sym">,</span>Init<span class="sym">(</span><span class="num">100</span><span class="sym">,</span><span class="num">10</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Keep<span class="sym">:=</span><span class="kw">Nil</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> to <span class="num">100</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    M<span class="sym">:=</span>New<span class="sym">(</span>PMyObject<span class="sym">,</span>Init<span class="sym">)</span><span class="sym">;</span>
+    M<span class="sym">^</span><span class="sym">.</span>SetField<span class="sym">(</span>I<span class="sym">-</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> Random<span class="sym">&lt;</span><span class="num">0</span><span class="sym">.</span><span class="num">1</span> <span class="kw">then</span>
+     Keep<span class="sym">:=</span>M<span class="sym">;</span>
+    C<span class="sym">^</span><span class="sym">.</span>Insert<span class="sym">(</span>M<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  <span class="kw">If</span> Keep<span class="sym">=</span><span class="kw">Nil</span> <span class="kw">then</span>
+    <span class="kw">begin</span>
+    Writeln <span class="sym">(</span><span class="str">'Please run again. No object selected'</span><span class="sym">)</span><span class="sym">;</span>
+    Halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Selected object has field : '</span><span class="sym">,</span>Keep<span class="sym">^</span><span class="sym">.</span>GetField<span class="sym">)</span><span class="sym">;</span>
+  Write <span class="sym">(</span><span class="str">'Selected object has index : '</span><span class="sym">,</span>C<span class="sym">^</span><span class="sym">.</span>IndexOf<span class="sym">(</span>Keep<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">' should match it''s field.'</span><span class="sym">)</span><span class="sym">;</span>
+  C<span class="sym">^</span><span class="sym">.</span>FreeAll<span class="sym">;</span>
+  Dispose<span class="sym">(</span>C<span class="sym">,</span>Done<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TField.Value</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TField.Value</h1>
+<p>Value of the field as a variant value</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 423</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../db/tfield.html">TField</a><span class="sym">.</span>Value<span class="sym"> : </span>variant<br>&nbsp;&nbsp;<span class="kw">read </span>GetAsVariant<br>&nbsp;&nbsp;<span class="kw">write </span>SetAsVariant<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Value</var> can be used to read or write the value of the field as a Variant value. When setting the value, the value will be converted to the actual type of  the field as defined in the underlying data. Likewise, when reading the value property, the actual field value will be converted to a variant value. If the field  does not contain a value (when <a href="../db/tfield.isnull.html">IsNull</a> returns <var>True</var>), then <var>Value</var> will contain <var>Null</var>. </p>
+<p>It is not recommended to use the <var>Value</var> property: it should only be used when the type of the field is unknown. If the type of the field is known, it is better to use one of the <var>AsXXX</var> properties, which will not only result in faster code, but will also avoid strange type conversions. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tfield.isnull.html">TField.IsNull</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the field empty</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfield.text.html">TField.Text</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Text representation of the field</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfield.displaytext.html">TField.DisplayText</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Formatted field value</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

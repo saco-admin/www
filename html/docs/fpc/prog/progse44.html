@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Programming threads</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 6201--><div class="crosslinks"><p class="noindent">[<a 
+href="progse45.html" >next</a>] [<a 
+href="progse43.html" >prev</a>] [<a 
+href="progse43.html#tailprogse43.html" >prev-tail</a>] [<a 
+href="#tailprogse44.html">tail</a>] [<a 
+href="progch10.html#progse44.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.2   </span> <a 
+href="prog.html#QQ2-233-269" id="x233-24700010.2">Programming threads</a></h3>
+<!--l. 6202--><p class="noindent" >To start a new thread, the <span 
+class="cmtt-10">BeginThread </span>function should be used. It has one mandatory argument:
+the function which will be executed in the new thread. The result of the function is the
+exit result of the thread. The thread function can be passed a pointer, which can be
+used to access initialization data: The programmer must make sure that the data is
+accessible from the thread and does not go out of scope before the thread has accessed
+it.
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-231">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TThreadFunc&#x00A0;=&#x00A0;function(parameter&#x00A0;:&#x00A0;pointer)&#x00A0;:&#x00A0;ptrint;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;BeginThread(sa&#x00A0;:&#x00A0;Pointer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;stacksize&#x00A0;:&#x00A0;SizeUInt;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;ThreadFunction&#x00A0;:&#x00A0;tthreadfunc;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;p&#x00A0;:&#x00A0;pointer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;creationFlags&#x00A0;:&#x00A0;dword;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;var&#x00A0;ThreadId&#x00A0;:&#x00A0;TThreadID)&#x00A0;:&#x00A0;TThreadID;
+</div>
+<!--l. 6218--><p class="nopar" >This rather complicated full form of the function also comes in more simplified forms:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-232">
+function&#x00A0;BeginThread(ThreadFunction&#x00A0;:&#x00A0;tthreadfunc)&#x00A0;:&#x00A0;TThreadID;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;BeginThread(ThreadFunction&#x00A0;:&#x00A0;tthreadfunc;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;p&#x00A0;:&#x00A0;pointer)&#x00A0;:&#x00A0;TThreadID;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;BeginThread(ThreadFunction&#x00A0;:&#x00A0;tthreadfunc;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;p&#x00A0;:&#x00A0;pointer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;var&#x00A0;ThreadId&#x00A0;:&#x00A0;TThreadID)&#x00A0;:&#x00A0;TThreadID;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;BeginThread(ThreadFunction&#x00A0;:&#x00A0;tthreadfunc;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;p&#x00A0;:&#x00A0;pointer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;var&#x00A0;ThreadId&#x00A0;:&#x00A0;TThreadID;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;const&#x00A0;stacksize:&#x00A0;SizeUInt)&#x00A0;:&#x00A0;TThreadID;
+</div>
+<!--l. 6235--><p class="nopar" >The parameters have the following meaning:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">ThreadFunction</span> </dt><dd 
+class="description">is the function that should be executed in the thread.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">p</span> </dt><dd 
+class="description">If present, the pointer <span 
+class="cmtt-10">p </span>will be passed to the thread function when it is started. If <span 
+class="cmtt-10">p </span>is
+     not specified, <span 
+class="cmtt-10">Nil </span>is passed.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ThreadID</span> </dt><dd 
+class="description">If <span 
+class="cmtt-10">ThreadID </span>is present, the ID of the thread will be stored in it.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">stacksize</span> </dt><dd 
+class="description">if present, this parameter specifies the stack size used for the thread.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">sa</span> </dt><dd 
+class="description">signal action. Important for <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>only.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">creationflags</span> </dt><dd 
+class="description">these are system-specific creation flags. Important for Windows and <span 
+class="cmcsc-10"><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span>/2</span>
+     only.</dd></dl>
+<!--l. 6248--><p class="noindent" >The newly started thread will run until the <span 
+class="cmtt-10">ThreadFunction </span>exits, or until it explicitly calls the
+<span 
+class="cmtt-10">EndThread </span>function:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-233">
+procedure&#x00A0;EndThread(ExitCode&#x00A0;:&#x00A0;DWord);
+&#x00A0;<br />procedure&#x00A0;EndThread;
+</div>
+<!--l. 6253--><p class="nopar" >The exitcode can be examined by the code which started the thread.
+<!--l. 6256--><p class="noindent" >The following is a small example of how to program a thread:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-234">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />
+&#x00A0;<br />uses
+&#x00A0;<br />&#x00A0;&#x00A0;sysutils&#x00A0;{$ifdef&#x00A0;unix},cthreads{$endif}&#x00A0;;
+&#x00A0;<br />
+&#x00A0;<br />const
+&#x00A0;<br />&#x00A0;&#x00A0;threadcount&#x00A0;=&#x00A0;100;
+&#x00A0;<br />&#x00A0;&#x00A0;stringlen&#x00A0;=&#x00A0;10000;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;finished&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />
+&#x00A0;<br />threadvar
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;thri&#x00A0;:&#x00A0;ptrint;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;f(p&#x00A0;:&#x00A0;pointer)&#x00A0;:&#x00A0;ptrint;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;s&#x00A0;:&#x00A0;ansistring;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;thread&#x00A0;&#8217;,longint(p),&#8217;&#x00A0;started&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;thri:=0;
+&#x00A0;<br />&#x00A0;&#x00A0;while&#x00A0;(thri&#x003C;stringlen)&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;s:=s+&#8217;1&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;inc(thri);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;thread&#x00A0;&#8217;,longint(p),&#8217;&#x00A0;finished&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;InterLockedIncrement(finished);
+&#x00A0;<br />&#x00A0;&#x00A0;f:=0;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;i&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;finished:=0;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;for&#x00A0;i:=1&#x00A0;to&#x00A0;threadcount&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;BeginThread(@f,pointer(i));
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;while&#x00A0;finished&#x003C;threadcount&#x00A0;do&#x00A0;;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Writeln(finished);
+&#x00A0;<br />end.
+&#x00A0;<br />
+</div>
+<!--l. 6302--><p class="nopar" >The <span 
+class="cmtt-10">InterLockedIncrement </span>is a thread-safe version of the standard <span 
+class="cmtt-10">Inc </span>function.
+<!--l. 6305--><p class="noindent" >To provide system-independent support for thread programming, some utility functions are
+implemented to manipulate threads. To use these functions the thread ID must have been retrieved
+when the thread was started, because most functions require the ID to identify the thread on
+                                                                            
+
+                                                                            
+which they should act:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-235">
+function&#x00A0;SuspendThread(threadHandle:&#x00A0;TThreadID):&#x00A0;dword;
+&#x00A0;<br />function&#x00A0;ResumeThread(threadHandle:&#x00A0;TThreadID):&#x00A0;dword;
+&#x00A0;<br />function&#x00A0;KillThread(threadHandle:&#x00A0;TThreadID):&#x00A0;dword;
+&#x00A0;<br />function&#x00A0;WaitForThreadTerminate(threadHandle:&#x00A0;TThreadID;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;TimeoutMs&#x00A0;:&#x00A0;longint):&#x00A0;dword;
+&#x00A0;<br />function&#x00A0;ThreadSetPriority(threadHandle:&#x00A0;TThreadID;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Prio:&#x00A0;longint):&#x00A0;boolean;
+&#x00A0;<br />function&#x00A0;ThreadGetPriority(threadHandle:&#x00A0;TThreadID):&#x00A0;Integer;
+&#x00A0;<br />function&#x00A0;GetCurrentThreadId:&#x00A0;dword;
+&#x00A0;<br />procedure&#x00A0;ThreadSwitch;
+</div>
+<!--l. 6320--><p class="nopar" >The meaning of these functions should be clear:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">SuspendThread</span> </dt><dd 
+class="description">Suspends the execution of the thread.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ResumeThread</span> </dt><dd 
+class="description">Resumes execution of a suspended thread.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">KillThread</span> </dt><dd 
+class="description">Kills the thread: the thread is removed from memory.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">WaitForThreadTerminate</span> </dt><dd 
+class="description">Waits for the thread to terminate. The function returns when
+     the thread has finished executing, or when the timeout expired.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ThreadSetPriority</span> </dt><dd 
+class="description">Sets  the  execution  priority  of  the  thread.  This  call  is  not  always
+     allowed: your process may not have the necessary permissions to do this.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ThreadGetPriority</span> </dt><dd 
+class="description">Returns the current execution priority of the thread.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">GetCurrentThreadId</span> </dt><dd 
+class="description">Returns the ID of the current thread.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ThreadSwitch</span> </dt><dd 
+class="description">Allows other threads to execute at this point. This means that it can cause
+     a thread switch, but this is not guaranteed, it depends on the OS and the number of
+     processors.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 6341--><div class="crosslinks"><p class="noindent">[<a 
+href="progse45.html" >next</a>] [<a 
+href="progse43.html" >prev</a>] [<a 
+href="progse43.html#tailprogse43.html" >prev-tail</a>] [<a 
+href="progse44.html" >front</a>] [<a 
+href="progch10.html#progse44.html" >up</a>] </p></div>
+<!--l. 6341--><p class="noindent" ><a 
+ id="tailprogse44.html"></a>  
+</body></html> 

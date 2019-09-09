@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Variable typecasts</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 8045--><div class="crosslinks"><p class="noindent">[<a 
+href="refse82.html" >next</a>] [<a 
+href="refse80.html" >prev</a>] [<a 
+href="refse80.html#tailrefse80.html" >prev-tail</a>] [<a 
+href="#tailrefse81.html">tail</a>] [<a 
+href="refch12.html#refse81.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">12.5   </span> <a 
+href="ref.html#QQ2-144-173" id="x144-16600012.5">Variable typecasts</a></h3>
+<a 
+ id="dx144-166001"></a>
+<a 
+ id="dx144-166002"></a>
+<!--l. 8047--><p class="noindent" >A variable can be considered a single factor in an expression. It can therefore be typecast as well. A
+variable can be typecast to any type, provided the type has the same size as the original
+variable.
+<!--l. 8051--><p class="noindent" >It is a bad idea to typecast integer types to real types and vice versa. It&#8217;s better to
+rely on type assignment compatibility and using some of the standard type changing
+functions.
+<!--l. 8055--><p class="noindent" >Note that variable typecasts can occur on either side of an assignment, i.e. the following are both
+valid typecasts:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-334">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;Char;
+&#x00A0;<br />&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;Byte;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;B:=Byte(C);
+&#x00A0;<br />&#x00A0;&#x00A0;Char(B):=C;
+&#x00A0;<br />end;
+</div>
+<!--l. 8066--><p class="nopar" >Pointer variables can be typecasted to procedural types, but not to method pointers.
+<!--l. 8070--><p class="noindent" >A typecast is an expression of the given type, which means the typecast can be followed by a
+qualifier:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-335">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TWordRec&#x00A0;=&#x00A0;Packed&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;L,H&#x00A0;:&#x00A0;Byte;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;P&#x00A0;:&#x00A0;Pointer;
+&#x00A0;<br />&#x00A0;&#x00A0;W&#x00A0;:&#x00A0;Word;
+&#x00A0;<br />&#x00A0;&#x00A0;S&#x00A0;:&#x00A0;String;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;TWordRec(W).L:=$FF;
+&#x00A0;<br />&#x00A0;&#x00A0;TWordRec(W).H:=0;
+&#x00A0;<br />&#x00A0;&#x00A0;S:=TObject(P).ClassName;
+</div>
+<!--l. 8087--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 8091--><div class="crosslinks"><p class="noindent">[<a 
+href="refse82.html" >next</a>] [<a 
+href="refse80.html" >prev</a>] [<a 
+href="refse80.html#tailrefse80.html" >prev-tail</a>] [<a 
+href="refse81.html" >front</a>] [<a 
+href="refch12.html#refse81.html" >up</a>] </p></div>
+<!--l. 8091--><p class="noindent" ><a 
+ id="tailrefse81.html"></a>  
+</body></html> 

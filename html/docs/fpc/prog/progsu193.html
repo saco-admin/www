@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Available WPO optimizations</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 6958--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu194.html" >next</a>] [<a 
+href="progsu192.html" >prev</a>] [<a 
+href="progsu192.html#tailprogsu192.html" >prev-tail</a>] [<a 
+href="#tailprogsu193.html">tail</a>] [<a 
+href="progse53.html#progsu193.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">11.7.2   </span> <a 
+href="prog.html#QQ2-261-299" id="x261-27700011.7.2">Available WPO optimizations</a></h4>
+<!--l. 6959--><p class="noindent" >The <span 
+class="cmtt-10">-OW </span>and <span 
+class="cmtt-10">-Ow </span>command-line options require a comma-separated list of whole-program-optimization
+options. These are strings, each string denotes an option. The following is a list of available
+options:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">all</span> </dt><dd 
+class="description">This enables all available whole program optimisations.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">devirtcalls</span> </dt><dd 
+class="description">Changes  virtual  method  calls  into  normal  (static)  method  calls  when  the
+     compiler can determine that a virtual method call will always go to the same static
+     method. This makes such code both smaller and faster. In general, it is mainly an
+     enabling optimisation for other optimisations, because it makes the program easier to
+     analyse due to the fact that it reduces indirect control flow.
+     <!--l. 6972--><p class="noindent" >There are 2 limitations to this option:
+         <ol  class="enumerate1" >
+         <li 
+  class="enumerate" id="x261-277002x1">The current implementation is context-insensitive. This means that the compiler
+         only looks at the program as a whole and determines for each class type which
+         methods can be devirtualised, rather than that it looks at each call statement and
+         the surrounding code to determine whether or not this call can be devirtualised;
+         </li>
+         <li 
+  class="enumerate" id="x261-277004x2">The current implementation does not yet devirtualise interface method calls. Not
+         when calling them via an interface instance, nor when calling them via a class
+         instance.</li></ol>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">optvmts</span> </dt><dd 
+class="description">This optimisation looks at which class types can be instantiated and which virtual
+     methods can be called in a program, and based on this information it replaces virtual method
+     table (VMT) entries that can never be called with references to FPC_ABSTRACTERROR.
+     This means that such methods, unless they are called directly via an inherited call from a
+     child class/object, can be removed by the linker. It has little or no effect on speed, but can
+     help reducing code size.
+     <!--l. 6993--><p class="noindent" >This option has 2 limitations:
+         <ol  class="enumerate1" >
+         <li 
+  class="enumerate" id="x261-277006x1">Methods that are published, or getters/setters of published properties, can never
+         be optimised in this way, because they can always be referred to and called via
+         the RTTI (which the compiler cannot detect).
+         </li>
+         <li 
+  class="enumerate" id="x261-277008x2">Such optimisations are not yet done for virtual class methods.</li></ol>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">wsymbolliveness</span> </dt><dd 
+class="description">This parameter does not perform any optimisation by itself. It simply tells the
+     compiler to record which functions/procedures were kept by the linker in the final
+                                                                            
+
+                                                                            
+     program. During a subsequent wpo pass, the compiler can then ignore the removed
+     functions/procedures as far as WPO is concerned (e.g., if a particular class type is only
+     constructed in one unused procedure, then ignoring this procedure can improve the
+     effectiveness of the previous two optimisations).
+     <!--l. 7010--><p class="noindent" >Again, there are some limitations:
+         <ol  class="enumerate1" >
+         <li 
+  class="enumerate" id="x261-277010x1">This optimisation requires that the nm utility is installed on the system. For Linux
+         binaries, objdump will also work. In the future, this information could also be
+         extracted from the internal linker for the platforms that it supports.
+         </li>
+         <li 
+  class="enumerate" id="x261-277012x2">Collecting information for this optimisation (using -OWsymbolliveness) requires
+         that smart linking is enabled (-XX) and that symbol stripping is disabled (-Xs-).
+         When only using such previously collected information, these limitations do not
+         apply.</li></ol>
+     </dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 7023--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu194.html" >next</a>] [<a 
+href="progsu192.html" >prev</a>] [<a 
+href="progsu192.html#tailprogsu192.html" >prev-tail</a>] [<a 
+href="progsu193.html" >front</a>] [<a 
+href="progse53.html#progsu193.html" >up</a>] </p></div>
+<!--l. 7023--><p class="noindent" ><a 
+ id="tailprogsu193.html"></a>  
+</body></html> 

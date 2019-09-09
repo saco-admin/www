@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCustomApplication.ShowException</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../custapp/index.html">Overview</a>][<a href="../custapp/index-3.html">Types</a>][<a href="../custapp/index-4.html">Classes</a>][<a href="../custapp/index-6.html">Variables</a>][<a href="../custapp/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'CustApp' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCustomApplication.ShowException</h1>
+<p>Show an exception to the user</p>
+<h2>Declaration</h2>
+<p>Source position: custapp.pp line 66</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../custapp/tcustomapplication.html">TCustomApplication</a><span class="sym">.</span>ShowException<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;E<span class="sym">: </span><a href="../../rtl/sysutils/exception.html">Exception</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">E</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Exception object to show</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ShowException</var> should be overridden by descendent classes to show an exception message to the user. The default behaviour is to call the <a href="../../rtl/sysutils/showexception.html">ShowException</a> procedure in the <span class="file">SysUtils</span> unit. </p>
+<p>Descendent classes should do something appropriate for their context: GUI applications can show a message box, daemon applications can write the exception message to the system log, web applications can send a 500 error response code. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../../rtl/sysutils/showexception.html">ShowException</a></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../custapp/tcustomapplication.handleexception.html">TCustomApplication.HandleException</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Handle an exception.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>TCustomApplication.StopException</b></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

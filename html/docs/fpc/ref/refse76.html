@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Enumeration in Objective-C classes</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 7745--><div class="crosslinks"><p class="noindent">[<a 
+href="refse75.html" >prev</a>] [<a 
+href="refse75.html#tailrefse75.html" >prev-tail</a>] [<a 
+href="#tailrefse76.html">tail</a>] [<a 
+href="refch11.html#refse76.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">11.10   </span> <a 
+href="ref.html#QQ2-138-166" id="x138-16000011.10">Enumeration in Objective-C classes</a></h3>
+<!--l. 7746--><p class="noindent" >Fast enumeration in Objective-C is a construct which allows to enumerate the elements
+in a Cocoa container class in a generic way. It is implemented using a <span 
+class="cmtt-10">for-in </span>loop in
+Objective-C.
+<!--l. 7750--><p class="noindent" >This has been translated to Objective-Pascal using the existing <span 
+class="cmtt-10">for-in </span>loop mechanism. Therefor,
+the feature behaves identically in both languages. Note that it requires the Objective-C 2.0 mode
+switch to be activated.
+<!--l. 7754--><p class="noindent" >The following is an example of the use of for-in:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-320">
+{$mode&#x00A0;delphi}
+&#x00A0;<br />{$modeswitch&#x00A0;objectivec2}
+&#x00A0;<br />
+&#x00A0;<br />uses
+&#x00A0;<br />&#x00A0;&#x00A0;CocoaAll;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;arr:&#x00A0;NSMutableArray;
+&#x00A0;<br />&#x00A0;&#x00A0;element:&#x00A0;NSString;
+&#x00A0;<br />&#x00A0;&#x00A0;pool:&#x00A0;NSAutoreleasePool;
+&#x00A0;<br />&#x00A0;&#x00A0;i:&#x00A0;longint;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;pool:=NSAutoreleasePool.alloc.init;
+&#x00A0;<br />&#x00A0;&#x00A0;arr:=NSMutableArray.arrayWithObjects(
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;NSSTR(&#8217;One&#8217;),
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;NSSTR(&#8217;Two&#8217;),
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;NSSTR(&#8217;Three&#8217;),
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;NSSTR(&#8217;Four&#8217;),
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;NSSTR(&#8217;Five&#8217;),
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;NSSTR(&#8217;Six&#8217;),
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;NSSTR(&#8217;Seven&#8217;),
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;nil);
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;i:=0;
+&#x00A0;<br />&#x00A0;&#x00A0;for&#x00A0;element&#x00A0;in&#x00A0;arr&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;inc(i);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;if&#x00A0;i=2&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;continue;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;if&#x00A0;i=5&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;break;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;if&#x00A0;i&#x00A0;in&#x00A0;[2,5..10]&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;halt(1);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;NSLog(NSSTR(&#8217;element:&#x00A0;%@&#8217;),element);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;pool.release;
+&#x00A0;<br />end.
+</div>
+<!--l. 7793--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 7798--><div class="crosslinks"><p class="noindent">[<a 
+href="refse75.html" >prev</a>] [<a 
+href="refse75.html#tailrefse75.html" >prev-tail</a>] [<a 
+href="refse76.html" >front</a>] [<a 
+href="refch11.html#refse76.html" >up</a>] </p></div>
+<!--l. 7798--><p class="noindent" ><a 
+ id="tailrefse76.html"></a>  
+</body></html> 

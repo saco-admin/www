@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Overview</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 6876--><div class="crosslinks"><p class="noindent">[<a 
+href="#tailprogsu191.html">tail</a>] [<a 
+href="progse52.html#progsu191.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">11.6.1   </span> <a 
+href="prog.html#QQ2-258-294" id="x258-27200011.6.1">Overview</a></h4>
+<!--l. 6877--><p class="noindent" >Traditionally, compilers optimise a program procedure by procedure, or at best compilation unit
+per compilation unit. Whole program optimisation (WPO) means that the compiler considers all
+compilation units that make up a program or library and optimises them using the combined
+knowledge of how they are used together in this particular case.
+<!--l. 6883--><p class="noindent" >The way WPO generally works is as follows:
+     <ul class="itemize1">
+     <li class="itemize">The program is compiled normally, with an option to tell the compiler that it should
+     store various bits of information into a feedback file.
+     </li>
+     <li class="itemize">The program is recompiled a second time (and optionally all units that it uses) with
+     WPO enabled, providing the feedback file generated in the first step as extra input to
+     the compiler.</li></ul>
+<!--l. 6891--><p class="noindent" >This is the scheme followed by Free Pascal.
+<!--l. 6893--><p class="noindent" >The implementation of this scheme is highly compiler dependent. Another implementation could be
+that the compiler generates some kind of intermediary code (e.g., byte code) and the linker
+performs all wpo along with the translation to the target machine code
+                                                                            
+
+                                                                            
+<!--l. 6897--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu191.html" >front</a>] [<a 
+href="progse52.html#progsu191.html" >up</a>] </p></div>
+<!--l. 6897--><p class="noindent" ><a 
+ id="tailprogsu191.html"></a>  
+</body></html> 

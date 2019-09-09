@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Exec</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dos/index.html">Overview</a>][<a href="../dos/index-2.html">Constants</a>][<a href="../dos/index-3.html">Types</a>][<a href="../dos/index-5.html">Procedures and functions</a>][<a href="../dos/index-6.html">Variables</a>][<a href="../dos/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Dos' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Exec</h1>
+<p>Execute another program, and wait for it to finish.</p>
+<h2>Declaration</h2>
+<p>Source position: dosh.inc line 94</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> Exec<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>path<span class="sym">: </span><a href="../dos/pathstr.html">PathStr</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>comline<span class="sym">: </span><a href="../dos/comstr.html">ComStr</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Exec</var> executes the program in <var>Path</var>, with the options given by <var>ComLine</var>. The program name should <em>not</em> appear again in <var>ComLine</var>, it is specified in <var>Path</var>. Comline contains only the  parameters that are passed to the program. </p>
+<p>After the program has terminated, the procedure returns. The Exit value of the program can be consulted with the <var>DosExitCode</var> function. </p>
+<p>For an example, see <b>DosExitCode</b></p>
+<h2>Errors</h2>
+<p>Errors are reported in <var>DosError</var>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><b>DosExitCode</b></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Exit code of last executed program.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

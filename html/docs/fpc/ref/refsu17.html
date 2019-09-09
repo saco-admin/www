@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>File types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2453--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu16.html" >prev</a>] [<a 
+href="refsu16.html#tailrefsu16.html" >prev-tail</a>] [<a 
+href="#tailrefsu17.html">tail</a>] [<a 
+href="refse14.html#refsu17.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.3.4   </span> <a 
+href="ref.html#QQ2-41-65" id="x41-590003.3.4">File types</a></h4>
+<a 
+ id="dx41-59001"></a>
+<a 
+ id="dx41-59002"></a>
+<a 
+ id="dx41-59003"></a>
+<!--l. 2454--><p class="noindent" ><a name="keyword_file"></a> File types are types that store a sequence of some base type, which can be any type except
+another file type. It can contain (in principle) an infinite number of elements. File types are used
+commonly to store data on disk. However, nothing prevents the programmer, from writing a file
+driver that stores its data for instance in memory.
+<!--l. 2461--><p class="noindent" >Here is the type declaration for a file type:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">File types</span><br 
+class="newline" /><BR/><img 
+src="ref45x.png" alt="--file type -file--|------------------------------------------------
+               -of- type--
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 2463--><p class="noindent" >If no type identifier is given, then the file is an untyped file; it can be considered as equivalent to a
+file of bytes. Untyped files require special commands to act on them (see <span 
+class="cmtt-10">Blockread</span>, <span 
+class="cmtt-10">Blockwrite</span>).
+The following declaration declares a file of records:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-87">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;Point&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;X,Y,Z&#x00A0;:&#x00A0;real;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;PointFile&#x00A0;=&#x00A0;File&#x00A0;of&#x00A0;Point;
+</div>
+<!--l. 2473--><p class="nopar" >Internally, files are represented by the <span 
+class="cmtt-10">FileRec </span>record, which is declared in the <span 
+class="cmss-10">Dos </span>or <span 
+class="cmss-10">SysUtils</span>
+units.
+<!--l. 2477--><p class="noindent" ><a name="keyword_Text"></a> A special file type is the <span 
+class="cmtt-10">Text </span>file type, represented by the <span 
+class="cmtt-10">TextRec </span>record. A file of type <span 
+class="cmtt-10">Text</span>
+uses special input-output routines. The default <span 
+class="cmtt-10">Input</span>, <span 
+class="cmtt-10">Output </span>and <span 
+class="cmtt-10">StdErr </span>file types are defined in
+the system unit: they are all of type <span 
+class="cmtt-10">Text</span>, and are opened by the system unit initialization
+code.
+                                                                            
+
+                                                                            
+<!--l. 2486--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu16.html" >prev</a>] [<a 
+href="refsu16.html#tailrefsu16.html" >prev-tail</a>] [<a 
+href="refsu17.html" >front</a>] [<a 
+href="refse14.html#refsu17.html" >up</a>] </p></div>
+<!--l. 2486--><p class="noindent" ><a 
+ id="tailrefsu17.html"></a>  
+</body></html> 

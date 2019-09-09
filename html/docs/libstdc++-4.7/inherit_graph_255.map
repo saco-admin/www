@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$a00002.html" title="Base class for atomic integrals." alt="" coords="7,334,199,362"/>
+<area shape="rect" id="node3" href="$a00539.html" title="Explicit specialization for char." alt="" coords="295,5,441,33"/>
+<area shape="rect" id="node5" href="$a00540.html" title="Explicit specialization for char16_t." alt="" coords="281,55,455,83"/>
+<area shape="rect" id="node7" href="$a00541.html" title="Explicit specialization for char32_t." alt="" coords="281,106,455,134"/>
+<area shape="rect" id="node9" href="$a00542.html" title="Explicit specialization for int." alt="" coords="300,157,436,185"/>
+<area shape="rect" id="node11" href="$a00543.html" title="Explicit specialization for long." alt="" coords="295,207,441,235"/>
+<area shape="rect" id="node13" href="$a00544.html" title="Explicit specialization for long long." alt="" coords="279,258,457,286"/>
+<area shape="rect" id="node15" href="$a00545.html" title="Explicit specialization for short." alt="" coords="292,309,444,337"/>
+<area shape="rect" id="node17" href="$a00546.html" title="Explicit specialization for signed char." alt="" coords="271,359,465,387"/>
+<area shape="rect" id="node19" href="$a00547.html" title="Explicit specialization for unsigned char." alt="" coords="263,410,473,438"/>
+<area shape="rect" id="node21" href="$a00548.html" title="Explicit specialization for unsigned int." alt="" coords="269,461,467,489"/>
+<area shape="rect" id="node23" href="$a00549.html" title="Explicit specialization for unsigned long." alt="" coords="264,511,472,539"/>
+<area shape="rect" id="node25" href="$a00550.html" title="Explicit specialization for unsigned long long." alt="" coords="248,562,488,590"/>
+<area shape="rect" id="node27" href="$a00551.html" title="Explicit specialization for unsigned short." alt="" coords="261,613,475,641"/>
+<area shape="rect" id="node29" href="$a00552.html" title="Explicit specialization for wchar_t." alt="" coords="284,663,452,691"/>
+</map>

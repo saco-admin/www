@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Typed constants</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 775--><div class="crosslinks"><p class="noindent">[<a 
+href="refse11.html" >next</a>] [<a 
+href="refse9.html" >prev</a>] [<a 
+href="refse9.html#tailrefse9.html" >prev-tail</a>] [<a 
+href="#tailrefse10.html">tail</a>] [<a 
+href="refch2.html#refse10.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">2.2   </span> <a 
+href="ref.html#QQ2-22-21" id="x22-210002.2">Typed constants</a></h3>
+<a 
+ id="dx22-21001"></a>
+<a 
+ id="dx22-21002"></a>
+<!--l. 778--><p class="noindent" >Sometimes it is necessary to specify the type of a constant, for instance for constants of complex
+structures (defined later in the manual). Their definition is quite simple.
+<!--l. 1--><p class="noindent" >
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Typed constant declaration</span><br 
+class="newline" /><BR/><img 
+src="ref26x.png" alt=" typed constant declaration-|identifier- :-type- = -typed constant -hintdirective -;---
+-----------------------------------------------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref27x.png" alt="--            -------      -------------------------------------
+  typed constant  ---addrcoenssstaconntstant---|
+               ---array constant ---|
+               ---record constant--|
+               -procedural constant-|
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 784--><p class="noindent" >Contrary to ordinary constants, a value can be assigned to them at run-time. This is an old
+concept from Turbo Pascal, which has been replaced with support for initialized variables: For a
+detailed description, see section <a 
+href="refse24.html#x55-730004.4">4.4<!--tex4ht:ref: se:initializedvars --></a>, page <a 
+href="refse24.html#x55-730004.4">223<!--tex4ht:ref: se:initializedvars --></a>.
+<!--l. 789--><p class="noindent" >Support for assigning values to typed constants is controlled by the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$J</span><span 
+class="cmsy-10">} </span>directive: it can be
+switched off, but is on by default (for Turbo Pascal compatibility). Initialized variables are always
+allowed.
+<!--l. 793--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> It should be stressed that typed constants are automatically initialized at program start. This is
+also true for <span 
+class="cmti-10">local </span>typed constants and initialized variables. Local typed constants are also
+initialized at program start. If their value was changed during previous invocations of the function,
+they will retain their changed value, i.e. they are not initialized each time the function is
+invoked.
+                                                                            
+
+                                                                            
+<!--l. 803--><div class="crosslinks"><p class="noindent">[<a 
+href="refse11.html" >next</a>] [<a 
+href="refse9.html" >prev</a>] [<a 
+href="refse9.html#tailrefse9.html" >prev-tail</a>] [<a 
+href="refse10.html" >front</a>] [<a 
+href="refch2.html#refse10.html" >up</a>] </p></div>
+<!--l. 803--><p class="noindent" ><a 
+ id="tailrefse10.html"></a>  
+</body></html> 

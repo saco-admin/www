@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpStat</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpStat</h1>
+<p>Retrieve file information about a file descriptor.</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 81</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpStat<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;path<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>buf<span class="sym">: </span><a href="../baseunix/stat.html">Stat</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> FpStat<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>path<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>buf<span class="sym">: </span><a href="../baseunix/stat.html">Stat</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> FpStat<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;path<span class="sym">: </span>ShortString<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>buf<span class="sym">: </span><a href="../baseunix/stat.html">Stat</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FpFStat</var> gets information about the file specified in <var>Path</var>, and stores it in  <var>Info</var>, which is of  type <a href="../baseunix/stat.html">stat</a>.  The function returns zero if the call was succesfull, a nonzero return value indicates failure. </p>
+<h2>Errors</h2>
+<p>Extended error information can be retrieved using <a href="../baseunix/fpgeterrno.html">fpGetErrno</a>. </p>
+<dl>
+<dt>sys_enoent</dt>
+<dd><var>Path</var> does not exist.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpstat.html">FpStat</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Retrieve file information about a file descriptor.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fplstat.html">FpLStat</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return information about symbolic link. Do not follow the link</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> example28<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the FStat function. }</span>
+
+<span class="kw">uses</span> BaseUnix<span class="sym">;</span>
+
+<span class="kw">var</span> f <span class="sym">:</span> text<span class="sym">;</span>
+    i <span class="sym">:</span> byte<span class="sym">;</span>
+    info <span class="sym">:</span> stat<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="cmt">{ Make a file }</span>
+  assign <span class="sym">(</span>f<span class="sym">,</span><span class="str">'test.fil'</span><span class="sym">)</span><span class="sym">;</span>
+  rewrite <span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">for</span> i<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span> writeln <span class="sym">(</span>f<span class="sym">,</span><span class="str">'Testline # '</span><span class="sym">,</span>i<span class="sym">)</span><span class="sym">;</span>
+  close <span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ Do the call on made file. }</span>
+  <span class="kw">if</span> fpstat <span class="sym">(</span><span class="str">'test.fil'</span><span class="sym">,</span>info<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+     <span class="kw">begin</span>
+       writeln<span class="sym">(</span><span class="str">'Fstat failed. Errno : '</span><span class="sym">,</span>fpgeterrno<span class="sym">)</span><span class="sym">;</span>
+       halt <span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+     <span class="kw">end</span><span class="sym">;</span>
+  writeln<span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'Result of fstat on file ''test.fil''.'</span><span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'Inode   : '</span><span class="sym">,</span>info<span class="sym">.</span>st_ino<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'Mode    : '</span><span class="sym">,</span>info<span class="sym">.</span>st_mode<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'nlink   : '</span><span class="sym">,</span>info<span class="sym">.</span>st_nlink<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'uid     : '</span><span class="sym">,</span>info<span class="sym">.</span>st_uid<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'gid     : '</span><span class="sym">,</span>info<span class="sym">.</span>st_gid<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'rdev    : '</span><span class="sym">,</span>info<span class="sym">.</span>st_rdev<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'Size    : '</span><span class="sym">,</span>info<span class="sym">.</span>st_size<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'Blksize : '</span><span class="sym">,</span>info<span class="sym">.</span>st_blksize<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'Blocks  : '</span><span class="sym">,</span>info<span class="sym">.</span>st_blocks<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'atime   : '</span><span class="sym">,</span>info<span class="sym">.</span>st_atime<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'mtime   : '</span><span class="sym">,</span>info<span class="sym">.</span>st_mtime<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'ctime   : '</span><span class="sym">,</span>info<span class="sym">.</span>st_ctime<span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ Remove file }</span>
+  erase <span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

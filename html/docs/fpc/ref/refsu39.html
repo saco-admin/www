@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Overriding properties</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5195--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu38.html" >prev</a>] [<a 
+href="refsu38.html#tailrefsu38.html" >prev-tail</a>] [<a 
+href="#tailrefsu39.html">tail</a>] [<a 
+href="refse39.html#refsu39.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.6.7   </span> <a 
+href="ref.html#QQ2-91-119" id="x91-1130006.6.7">Overriding properties</a></h4>
+<!--l. 5196--><p class="noindent" >Properties can be overridden in descendent classes, just like methods. The difference is that for
+properties, the overriding can always be done: properties should not be marked &#8217;virtual&#8217; so they
+can be overridden, they are always overridable (in this sense, properties are always &#8217;virtual&#8217;). The
+type of the overridden property does not have to be the same as the parents class property
+type.
+<!--l. 5203--><p class="noindent" >Since they can be overridden, the keyword &#8217;inherited&#8217; <a 
+ id="dx91-113001"></a>can also be used to refer to the parent
+definition of the property. For example consider the following code:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-207">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;TAncestor&#x00A0;=&#x00A0;class
+&#x00A0;<br />&#x00A0;&#x00A0;private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FP1&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;property&#x00A0;P:&#x00A0;integer&#x00A0;Read&#x00A0;FP1&#x00A0;write&#x00A0;FP1;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TClassA&#x00A0;=&#x00A0;class(TAncestor)
+&#x00A0;<br />&#x00A0;&#x00A0;private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;SetP(const&#x00A0;AValue:&#x00A0;char);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;getP&#x00A0;:&#x00A0;Char;
+&#x00A0;<br />&#x00A0;&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;constructor&#x00A0;Create;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;property&#x00A0;P:&#x00A0;char&#x00A0;Read&#x00A0;GetP&#x00A0;write&#x00A0;SetP;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;TClassA.SetP(const&#x00A0;AValue:&#x00A0;char);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Inherited&#x00A0;P:=Ord(AValue);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;TClassA.GetP&#x00A0;:&#x00A0;char;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=Char((Inherited&#x00A0;P)&#x00A0;and&#x00A0;$FF);
+&#x00A0;<br />end;
+</div>
+<!--l. 5235--><p class="nopar" >TClassA redefines <span 
+class="cmtt-10">P </span>as a character property instead of an integer property, but uses the parents <span 
+class="cmtt-10">P</span>
+property to store the value.
+<!--l. 5239--><p class="noindent" >Care must be taken when using virtual get/set routines for a property: setting the inherited
+property still observes the normal rules of inheritance for methods. Consider the following
+example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-208">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;TAncestor&#x00A0;=&#x00A0;class
+&#x00A0;<br />&#x00A0;&#x00A0;private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;SetP1(const&#x00A0;AValue:&#x00A0;integer);&#x00A0;virtual;
+&#x00A0;<br />&#x00A0;&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;property&#x00A0;P:&#x00A0;integer&#x00A0;write&#x00A0;SetP1;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TClassA&#x00A0;=&#x00A0;class(TAncestor)
+&#x00A0;<br />&#x00A0;&#x00A0;private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;SetP1(const&#x00A0;AValue:&#x00A0;integer);&#x00A0;override;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;SetP2(const&#x00A0;AValue:&#x00A0;char);
+&#x00A0;<br />&#x00A0;&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;constructor&#x00A0;Create;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;property&#x00A0;P:&#x00A0;char&#x00A0;write&#x00A0;SetP2;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />constructor&#x00A0;TClassA.Create;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;inherited&#x00A0;P:=3;
+&#x00A0;<br />end;
+</div>
+<!--l. 5264--><p class="nopar" >In this case, when setting the inherited property <span 
+class="cmtt-10">P</span>, the implementation <span 
+class="cmtt-10">TClassA.SetP1 </span>will be
+called, because the <span 
+class="cmtt-10">SetP1 </span>method is overridden.
+<!--l. 5269--><p class="noindent" >If the parent class implementation of <span 
+class="cmtt-10">SetP1 </span>must be called, then this must be called
+explicitly:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-209">
+constructor&#x00A0;TClassA.Create;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;inherited&#x00A0;SetP1(3);
+&#x00A0;<br />end;
+</div>
+<!--l. 5276--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 5278--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu38.html" >prev</a>] [<a 
+href="refsu38.html#tailrefsu38.html" >prev-tail</a>] [<a 
+href="refsu39.html" >front</a>] [<a 
+href="refse39.html#refsu39.html" >up</a>] </p></div>
+<!--l. 5278--><p class="noindent" ><a 
+ id="tailrefsu39.html"></a>  
+</body></html> 

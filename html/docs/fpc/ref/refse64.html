@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>A note on scope and lifetime for record and type helpers</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 7037--><div class="crosslinks"><p class="noindent">[<a 
+href="refse65.html" >next</a>] [<a 
+href="refse63.html" >prev</a>] [<a 
+href="refse63.html#tailrefse63.html" >prev-tail</a>] [<a 
+href="#tailrefse64.html">tail</a>] [<a 
+href="refch10.html#refse64.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.5   </span> <a 
+href="ref.html#QQ2-125-153" id="x125-14700010.5">A note on scope and lifetime for record and type helpers</a></h3>
+<!--l. 7038--><p class="noindent" >For classes, the lifetime of an instance of a class is explicitly managed by the programmer. It is
+therefor clear what the <span 
+class="cmtt-10">Self </span>parameter means and when it is valid.
+<!--l. 7041--><p class="noindent" >Records and other simple types are allocated on the stack, which means they go out of scope when
+the function, procedure or method in which they are used, exits.
+<!--l. 7044--><p class="noindent" >Combined with the fact that helper methods are type compatible to class methods, and can
+therefor be used as event handlers, this can lead to surprising situations: The data pointer in a
+helper method is set to the address of the variable.
+<!--l. 7048--><p class="noindent" >Consider the following example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-297">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />{$modeswitch&#x00A0;typehelpers}
+&#x00A0;<br />uses
+&#x00A0;<br />&#x00A0;&#x00A0;Classes;
+&#x00A0;<br />
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;TInt32Helper&#x00A0;=&#x00A0;type&#x00A0;helper&#x00A0;for&#x00A0;Int32
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Foo(Sender:&#x00A0;TObject);
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;TInt32Helper.Foo(Sender:&#x00A0;TObject);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(Self);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;i:&#x00A0;Int32&#x00A0;=&#x00A0;10;
+&#x00A0;<br />&#x00A0;&#x00A0;m:&#x00A0;TNotifyEvent;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;m&#x00A0;:=&#x00A0;@i.Foo;
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn(&#8217;Data&#x00A0;:&#x00A0;&#8217;,PtrUInt(TMethod(m).Data));
+&#x00A0;<br />&#x00A0;&#x00A0;m(nil);
+&#x00A0;<br />end.
+</div>
+<!--l. 7073--><p class="nopar" >This will print something like (the actual value for data may differ):
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-298">
+Data&#x00A0;:&#x00A0;6848896
+&#x00A0;<br />10
+</div>
+<!--l. 7078--><p class="nopar" >The variable <span 
+class="cmtt-10">i </span>is still in scope when <span 
+class="cmtt-10">m </span>is called.
+<!--l. 7081--><p class="noindent" >But changing the code to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-299">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />{$modeswitch&#x00A0;typehelpers}
+&#x00A0;<br />uses
+&#x00A0;<br />&#x00A0;&#x00A0;Classes;
+&#x00A0;<br />
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;TInt32Helper&#x00A0;=&#x00A0;type&#x00A0;helper&#x00A0;for&#x00A0;Int32
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Foo(Sender:&#x00A0;TObject);
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;TInt32Helper.Foo(Sender:&#x00A0;TObject);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(Self);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;GetHandler&#x00A0;&#x00A0;:TNotifyEvent;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;i:&#x00A0;Int32&#x00A0;=&#x00A0;10;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=@i.foo;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;m:&#x00A0;TNotifyEvent;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;m&#x00A0;:=&#x00A0;GetHandler;
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn(PtrUInt(TMethod(m).Data));
+&#x00A0;<br />&#x00A0;&#x00A0;m(nil);
+&#x00A0;<br />end.
+</div>
+<!--l. 7114--><p class="nopar" >The output will be:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-300">
+140727246638796
+&#x00A0;<br />0
+</div>
+<!--l. 7119--><p class="nopar" >The actual output will depend on the architecture, but the point is that <span 
+class="cmtt-10">i </span>is no longer in scope,
+making the output of it&#8217;s value meaningless, and possibly even leading to access violations and
+program crashes.
+                                                                            
+
+                                                                            
+<!--l. 7123--><div class="crosslinks"><p class="noindent">[<a 
+href="refse65.html" >next</a>] [<a 
+href="refse63.html" >prev</a>] [<a 
+href="refse63.html#tailrefse63.html" >prev-tail</a>] [<a 
+href="refse64.html" >front</a>] [<a 
+href="refch10.html#refse64.html" >up</a>] </p></div>
+<!--l. 7123--><p class="noindent" ><a 
+ id="tailrefse64.html"></a>  
+</body></html> 

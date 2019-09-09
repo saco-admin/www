@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>abs</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>abs</h1>
+<p>Calculate absolute value</p>
+<h2>Declaration</h2>
+<p>Source position: systemh.inc line 806</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> abs<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;l<span class="sym">: </span><a href="../system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/longint.html">LongInt</a><span class="sym">;</span><br><br><span class="kw">function</span> abs<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;l<span class="sym">: </span><a href="../system/int64.html">Int64</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/int64.html">Int64</a><span class="sym">;</span><br><br><span class="kw">function</span> abs<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;d<span class="sym">: </span><a href="../system/valreal.html">ValReal</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/valreal.html">ValReal</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Abs</var> returns the absolute value of a variable. The result of the function has the same type as its argument, which can be any numerical type. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/round.html">Round</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Round floating point value to nearest integer number.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example1<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Abs function. }</span>
+
+<span class="kw">Var</span>
+  r <span class="sym">:</span> real<span class="sym">;</span>
+  i <span class="sym">:</span> integer<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  r<span class="sym">:=</span>abs<span class="sym">(</span><span class="sym">-</span><span class="num">1</span><span class="sym">.</span><span class="num">0</span><span class="sym">)</span><span class="sym">;</span>   <span class="cmt">{ r:=1.0 }</span>
+  i<span class="sym">:=</span>abs<span class="sym">(</span><span class="sym">-</span><span class="num">21</span><span class="sym">)</span><span class="sym">;</span>    <span class="cmt">{ i:=21 }</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

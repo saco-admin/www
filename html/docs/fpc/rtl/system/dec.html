@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Dec</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Dec</h1>
+<p>Decrease value of variable</p>
+<h2>Declaration</h2>
+<p>Source position: system.fpd line 38</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> Dec<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>X<span class="sym">: </span>TOrdinal</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> Dec<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>X<span class="sym">: </span>TOrdinal<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Decrement<span class="sym">: </span>TOrdinal</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Dec</var> decreases the value of <var>X</var> with <var>Decrement</var>. If <var>Decrement</var> isn't specified, then 1 is taken as a default. </p>
+<h2>Errors</h2>
+<p>A range check can occur, or an underflow error, if an attempt is made to decrease <var>X</var> below its minimum value. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/inc.html">Inc</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Increase value of integer variable</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example14<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Dec function. }</span>
+
+<span class="kw">Var</span>
+  I  <span class="sym">:</span> Integer<span class="sym">;</span>
+  L  <span class="sym">:</span> Longint<span class="sym">;</span>
+  W  <span class="sym">:</span> Word<span class="sym">;</span>
+  B  <span class="sym">:</span> Byte<span class="sym">;</span>
+  Si <span class="sym">:</span> ShortInt<span class="sym">;</span>
+
+<span class="kw">begin</span>
+ I<span class="sym">:=</span><span class="num">1</span><span class="sym">;</span>
+ L<span class="sym">:=</span><span class="num">2</span><span class="sym">;</span>
+ W<span class="sym">:=</span><span class="num">3</span><span class="sym">;</span>
+ B<span class="sym">:=</span><span class="num">4</span><span class="sym">;</span>
+ Si<span class="sym">:=</span><span class="num">5</span><span class="sym">;</span>
+ Dec <span class="sym">(</span>i<span class="sym">)</span><span class="sym">;</span>    <span class="cmt">{ i:=0  }</span>
+ Dec <span class="sym">(</span>L<span class="sym">,</span><span class="num">2</span><span class="sym">)</span><span class="sym">;</span>  <span class="cmt">{ L:=0  }</span>
+ Dec <span class="sym">(</span>W<span class="sym">,</span><span class="num">2</span><span class="sym">)</span><span class="sym">;</span>  <span class="cmt">{ W:=1  }</span>
+ Dec <span class="sym">(</span>B<span class="sym">,</span><span class="sym">-</span><span class="num">2</span><span class="sym">)</span><span class="sym">;</span> <span class="cmt">{ B:=6  }</span>
+ Dec <span class="sym">(</span>Si<span class="sym">,</span><span class="num">0</span><span class="sym">)</span><span class="sym">;</span> <span class="cmt">{ Si:=5 }</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

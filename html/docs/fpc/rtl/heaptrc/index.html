@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Reference for unit 'heaptrc'</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[Overview][<a href="../heaptrc/index-2.html">Constants</a>][<a href="../heaptrc/index-3.html">Types</a>][<a href="../heaptrc/index-5.html">Procedures and functions</a>][<a href="../heaptrc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'heaptrc' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Reference for unit 'heaptrc'</h1>
+<p>Heap debugging functionality.</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">uses</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../system/index.html">System</a><span class="sym">;</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The system unit</p></td>
+</tr>
+</table>
+<h2>Overview</h2>
+<p>This document describes the HEAPTRC unit for Free Pascal. It was written by Pierre Muller. It is system independent, and works on all supported systems. </p>
+<p>The HEAPTRC unit can be used to debug your memory allocation/deallocation. It keeps track of the calls to getmem/freemem, and, implicitly, of New/Dispose statements. </p>
+<p>When the program exits, or when you request it explicitly. It displays the total memory used, and then dumps a list of blocks that were allocated but not freed. It also displays where the memory was allocated. </p>
+<p>If there are any inconsistencies, such as memory blocks being allocated or freed twice, or a memory block that is released but with wrong size, this will be displayed also. </p>
+<p>The information that is stored/displayed can be customized using some constants. </p>
+<p>Do not use this unit directly, instead use the  <var>-gh</var> switch, to let the compiler insert the unit in the uses clause. </p>
+<h2>Related topics</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../heaptrc/environment.html">environment</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Controlling HeapTrc with environment variables</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../heaptrc/usage.html">usage</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">HeapTrc Usage</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

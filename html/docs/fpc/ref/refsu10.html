@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Multi-byte String types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 1656--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu11.html" >next</a>] [<a 
+href="refsu9.html" >prev</a>] [<a 
+href="refsu9.html#tailrefsu9.html" >prev-tail</a>] [<a 
+href="#tailrefsu10.html">tail</a>] [<a 
+href="refse13.html#refsu10.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.2.5   </span> <a 
+href="ref.html#QQ2-33-45" id="x33-410003.2.5">Multi-byte String types</a></h4>
+<a 
+ id="dx33-41001"></a>
+<!--l. 1658--><p class="noindent" >For multi-byte string types, the basic character has a size of at least 2. This means it can be used
+to store a unicode character in UTF16 or UCS2 encoding.
+<!--l. 1661--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="refse13.html#QQ2-33-46" id="x33-420003.2.5">UnicodeStrings</a></h5>
+<a 
+ id="dx33-42001"></a>
+<a 
+ id="dx33-42002"></a>
+<a 
+ id="dx33-42003"></a>
+<a 
+ id="dx33-42004"></a>
+<!--l. 1663--><p class="noindent" ><a name="keyword_UnicodeString"></a> Unicodestrings (used to represent unicode character strings) are implemented in much the same
+way as ansistrings: reference counted, null-terminated arrays, only they are implemented as arrays
+of <span 
+class="cmtt-10">WideChars </span>instead of regular <span 
+class="cmtt-10">Chars</span>. A <span 
+class="cmtt-10">WideChar </span>is a two-byte character (an element of a
+DBCS: Double Byte Character Set). Mostly the same rules apply for <span 
+class="cmtt-10">UnicodeStrings </span>as for
+<span 
+class="cmtt-10">AnsiStrings</span>. The compiler transparently converts UnicodeStrings to AnsiStrings and vice versa.
+<a 
+ id="dx33-42005"></a>
+<!--l. 1672--><p class="noindent" >Similarly to the typecast<a 
+ id="dx33-42006"></a> of an Ansistring to a <span 
+class="cmtt-10">PChar </span>null-terminated <a 
+ id="dx33-42007"></a><a 
+ id="dx33-42008"></a> array of characters, a
+UnicodeString can be converted to a <span 
+class="cmtt-10">PUnicodeChar </span>null-terminated array of characters. Note that
+the <span 
+class="cmtt-10">PUnicodeChar </span>array is terminated by 2 null bytes instead of 1, so a typecast to a pchar is not
+automatic.
+<!--l. 1678--><p class="noindent" >The compiler itself provides no support for any conversion from Unicode to ansistrings or vice
+versa. The <span 
+class="cmss-10">system </span>unit has a unicodestring manager record, which can be initialized with
+some OS-specific unicode handling routines. For more information, see the <span 
+class="cmss-10">system </span>unit
+reference.
+<!--l. 1683--><p class="noindent" >A unicode string literal can be constructed in a similar manner as a widechar:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-58">
+Const
+&#x00A0;<br />&#x00A0;&#x00A0;ws2:&#x00A0;unicodestring&#x00A0;=&#x00A0;&#8217;phi&#x00A0;omega&#x00A0;:&#x00A0;&#8217;#$03A8&#8217;&#x00A0;&#8217;#$03A9;
+</div>
+<!--l. 1687--><p class="nopar" >
+<!--l. 1690--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="refse13.html#QQ2-33-47" id="x33-430003.2.5">WideStrings</a></h5>
+<a 
+ id="dx33-43001"></a>
+<a 
+ id="dx33-43002"></a>
+<a 
+ id="dx33-43003"></a>
+<!--l. 1692--><p class="noindent" ><a name="keyword_Widestring"></a> The <span 
+class="cmtt-10">Widestring </span>type (used to represent unicode character strings in COM applications) is
+implemented in much the same way as <span 
+class="cmtt-10">Unicodestring </span>on Windows, and on other platforms, they
+are simply the same type. If interaction with COM is not required, the <span 
+class="cmtt-10">UnicodeString </span>type should
+be used.
+<!--l. 1698--><p class="noindent" >On Windows, unlike <span 
+class="cmtt-10">UnicodeString</span>, the <span 
+class="cmtt-10">WideString </span>type is <span 
+class="cmti-10">not </span>reference counted, and are
+allocated with a special windows function which allows them to be used for OLE automation.
+This means they are implemented as null-terminated arrays of <span 
+class="cmtt-10">WideChars </span>instead of
+regular <span 
+class="cmtt-10">Chars</span>. <span 
+class="cmtt-10">WideString </span>obeys the same rules as for <span 
+class="cmtt-10">UnicodeStrings</span>. Similar to
+unicodestrings, the compiler transparenty converts WideStrings to AnsiStrings and vice versa.
+<a 
+ id="dx33-43004"></a>
+<!--l. 1705--><p class="noindent" >For typecasting and conversion, the same rules apply as for the <span 
+class="cmtt-10">UnicodeString </span>type.
+                                                                            
+
+                                                                            
+<!--l. 1708--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu11.html" >next</a>] [<a 
+href="refsu9.html" >prev</a>] [<a 
+href="refsu9.html#tailrefsu9.html" >prev-tail</a>] [<a 
+href="refsu10.html" >front</a>] [<a 
+href="refse13.html#refsu10.html" >up</a>] </p></div>
+<!--l. 1708--><p class="noindent" ><a 
+ id="tailrefsu10.html"></a>  
+</body></html> 

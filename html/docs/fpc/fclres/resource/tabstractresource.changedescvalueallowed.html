@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TAbstractResource.ChangeDescValueAllowed</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../resource/index.html">Overview</a>][<a href="../resource/index-1.html">Resource strings</a>][<a href="../resource/index-2.html">Constants</a>][<a href="../resource/index-3.html">Types</a>][<a href="../resource/index-4.html">Classes</a>][<a href="../resource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'resource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TAbstractResource.ChangeDescValueAllowed</h1>
+<p>Reports whether changing the value of resource type or name is allowed</p>
+<h2>Declaration</h2>
+<p>Source position: resource.pp line 155</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">protected</span> <span class="kw">function</span> <a href="../resource/tabstractresource.html">TAbstractResource</a><span class="sym">.</span>ChangeDescValueAllowed<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aDesc<span class="sym">: </span><a href="../resource/tresourcedesc.html">TResourceDesc</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">aDesc</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The <a href="../resource/tresourcedesc.html">TResourceDesc</a> whose value should be changed</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>True if the resource allows the given <a href="../resource/tresourcedesc.html">TResourceDesc</a> to change value</p>
+<h2>Description</h2>
+<p>Descendant classes must implement this method to declare if the resource allows changing the value of one of its resource description (type or name).</p>
+<p><b>Example:</b></p>
+<p>A certain resource class allows its name only to be changed: e.g. a <a href="../bitmapresource/tbitmapresource.html">TBitmapResource</a> doesn't want its type to be anything else than <a href="../resource/rt_bitmap.html">RT_BITMAP</a>. It then allows changing the value of the description only if the description is the resource name:</p>
+<pre>Result<span class="sym">:=</span>aDesc<span class="sym">=</span>fName<span class="sym">;</span>
+</pre>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><b>TAbstractResource.ChangDescTypeAllowed</b></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Working with help files</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2486--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu81.html" >next</a>] [<a 
+href="usersu79.html" >prev</a>] [<a 
+href="usersu79.html#tailusersu79.html" >prev-tail</a>] [<a 
+href="#tailusersu80.html">tail</a>] [<a 
+href="userse31.html#usersu80.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.13.2   </span> <a 
+href="user.html#QQ2-119-167" id="x119-1260006.13.2">Working with help files</a></h4>
+<!--l. 2487--><p class="noindent" >The IDE contains a help system which can display the following file formats:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">TPH</span> </dt><dd 
+class="description">The help format for the Turbo Pascal help viewer.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">INF</span> </dt><dd 
+class="description">The OS/2 help format.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">NG</span> </dt><dd 
+class="description">The Norton Guide Help format.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">HTML</span> </dt><dd 
+class="description">HTML files.</dd></dl>
+<!--l. 2494--><p class="noindent" >In future some more formats may be added. However, the above formats should cover already a
+wide spectrum of available help files.
+<!--l. 2497--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Concerning the support for HTML files the following should be noted:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x119-126002x1">The HTML viewer of the help system is limited, it can only handle the most basic
+     HTML files (graphics excluded), since it is only designed to display the Free Pascal help
+     files. <span class="footnote-mark"><a 
+href="#fn6x7" id="fn6x7-bk"><sup class="textsuperscript">6</sup></a></span><a 
+ id="x119-126003f6"></a>.
+     </li>
+     <li 
+  class="enumerate" id="x119-126005x2">When the HTML help viewer encounters a graphics file, it will try and find a file with
+     the same name but an extension of <span 
+class="cmss-10">.ans</span>; If this file is found, this will be interpreted as
+     a file with ANSI escape sequences, and these will be used to display a text image. The
+     displays of the IDE dialogs in the IDE help files are made in this way.</li></ol>
+<!--l. 2514--><p class="noindent" >The menu item <span 
+class="cmbx-10">&#8221;Help&#8212;Files&#8221; </span>permits help files to be added to, and deleted from,
+the list of files in the help table of contents. The help files dialog is displayed in figure
+(<a 
+href="#x119-126006r37">6.37<!--tex4ht:ref: fig:helpfils --></a>).
+<!--l. 2518--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x119-126006r37"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 2518--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;6.37: </span><span  
+class="content">The help files dialog</span></div><!--tex4ht:label?: x119-126006r37 -->
+<!--l. 2518--><p class="noindent" ><img 
+src="user38x.png" alt="PIC" class="graphics" width="400.34999pt" height="179.61641pt" ><!--tex4ht:graphics  
+name="user38x.png" src="pics/ide/helpfils.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 2518--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 2520--><p class="noindent" >The dialog lists the files that will be presented in the table of contents window of the help system.
+Each entry has a small descriptive title and a filename next to it. The following actions are
+available when adding help files:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">New</span> </dt><dd 
+class="description">Adds a new file. IDE will display a prompt, in which the location of the help file should
+     be entered.
+     <!--l. 2528--><p class="noindent" >If the added file is an HTML file, a dialog box will be displayed which asks for a title.
+     This title will then be included in the contents of help.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Delete</span> </dt><dd 
+class="description">Deletes the currently highlighted file from the help system. It is <span 
+class="cmti-10">not </span>deleted from
+     the hard disk; only the help system entry is removed.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Cancel</span> </dt><dd 
+class="description">Discards all changes and closes the dialog.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">OK</span> </dt><dd 
+class="description">Saves the changes and closes the dialog.</dd></dl>
+<!--l. 2538--><p class="noindent" >The Free Pascal documentation in HTML format can be added to the IDE&#8217;s help system. This way
+the documentation can be viewed from within the IDE. If Free Pascal has been installed using the
+installer, the installer should have added the FPC documentation to the list of help files, if the
+documentation was installed as well.
+                                                                            
+
+                                                                            
+<div class="footnotes"><!--l. 2504--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn6x7-bk" id="fn6x7"><sup class="textsuperscript">6</sup></a></span><span 
+class="cmr-8">...but feel free to improve it and send patches to the Free Pascal development team...</span>             </div> <!--l. 2547--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu81.html" >next</a>]
+[<a 
+href="usersu79.html" >prev</a>] [<a 
+href="usersu79.html#tailusersu79.html" >prev-tail</a>] [<a 
+href="usersu80.html" >front</a>] [<a 
+href="userse31.html#usersu80.html" >up</a>] </p></div>
+<!--l. 2547--><p class="noindent" ><a 
+ id="tailusersu80.html"></a>  
+</body></html> 

@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Interface delegation</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5542--><div class="crosslinks"><p class="noindent">[<a 
+href="refse46.html" >next</a>] [<a 
+href="refse44.html" >prev</a>] [<a 
+href="refse44.html#tailrefse44.html" >prev-tail</a>] [<a 
+href="#tailrefse45.html">tail</a>] [<a 
+href="refch7.html#refse45.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">7.4   </span> <a 
+href="ref.html#QQ2-98-126" id="x98-1200007.4">Interface delegation</a></h3>
+<!--l. 5543--><p class="noindent" >Sometimes, the methods of an interface are implemented by a helper (or delegate) object, or the
+class instance has obtained an interface pointer for this interface and that should be used. This can
+be for instance when an interface must be added to a series of totally unrelated classes: the needed
+interface functionality is added to a separate class, and each of these classes uses an instance of the
+helper class to implement the functionality.
+<!--l. 5550--><p class="noindent" >In such a case, it is possible to instruct the compiler that the interface is not implemented by the
+object itself, but actually resides in a helper class or interface. This can be done with the
+<span 
+class="cmtt-10">implements </span>property modifier.
+<!--l. 5554--><p class="noindent" >If the class has a pointer to the desired interface, the following will instruct the compiler
+that when the <span 
+class="cmtt-10">IMyInterface </span>interface is requested, it should use the reference in the
+field:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-221">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;IMyInterface&#x00A0;=&#x00A0;interface
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;P1;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TMyClass&#x00A0;=&#x00A0;class(TInterfacedObject,&#x00A0;IMyInterface)
+&#x00A0;<br />&#x00A0;&#x00A0;private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FMyInterface:&#x00A0;IMyInterface;&#x00A0;//&#x00A0;interface&#x00A0;type
+&#x00A0;<br />&#x00A0;&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;property&#x00A0;MyInterface:&#x00A0;IMyInterface
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;read&#x00A0;FMyInterface&#x00A0;implements&#x00A0;IMyInterface;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 5570--><p class="nopar" >The interface should not necessarily be in a field, any read identifier can be used.
+<!--l. 5574--><p class="noindent" >If the interface is implemented by a delegate object, (a helper object that actually implements the
+interface) then it can be used as well with the <span 
+class="cmtt-10">implements </span>keyword:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-222">
+{$interfaces&#x00A0;corba}
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;IMyInterface&#x00A0;=&#x00A0;interface
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;P1;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;NOTE:&#x00A0;Interface&#x00A0;must&#x00A0;be&#x00A0;specified&#x00A0;here
+&#x00A0;<br />&#x00A0;&#x00A0;TDelegateClass&#x00A0;=&#x00A0;class(TObject,&#x00A0;IMyInterface)
+&#x00A0;<br />&#x00A0;&#x00A0;private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;P1;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TMyClass&#x00A0;=&#x00A0;class(TInterfacedObject,&#x00A0;IMyInterface)
+&#x00A0;<br />&#x00A0;&#x00A0;private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FMyInterface:&#x00A0;TDelegateClass;&#x00A0;//&#x00A0;class&#x00A0;type
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;property&#x00A0;MyInterface:&#x00A0;TDelegateClass
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;read&#x00A0;FMyInterface&#x00A0;implements&#x00A0;IMyInterface;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 5596--><p class="nopar" >Note that in difference with Delphi, the delegate class must explicitly specify the interface: the
+compiler will not search for the methods in the delegate class, it will simply check if the delegate
+class implements the specified interface.
+<!--l. 5602--><p class="noindent" >It is possible to implement multiple interfaces using a single delegated object:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-223">
+{$interfaces&#x00A0;corba}
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;IMyInterface&#x00A0;=&#x00A0;interface
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;P1;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;IMyInterface1&#x00A0;=&#x00A0;interface
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;P2;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;NOTE:&#x00A0;Interface&#x00A0;must&#x00A0;be&#x00A0;specified&#x00A0;here
+&#x00A0;<br />&#x00A0;&#x00A0;TDelegateClass&#x00A0;=&#x00A0;class(TObject,&#x00A0;IMyInterface,IMyInterface1)
+&#x00A0;<br />&#x00A0;&#x00A0;private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;P1;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;P2;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TMyClass&#x00A0;=&#x00A0;class(TInterfacedObject,&#x00A0;IMyInterface,&#x00A0;IMyInterface1)
+&#x00A0;<br />&#x00A0;&#x00A0;private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FMyInterface:&#x00A0;TDelegateClass;&#x00A0;//&#x00A0;class&#x00A0;type
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;property&#x00A0;MyInterface:&#x00A0;TDelegateClass
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;read&#x00A0;FMyInterface&#x00A0;implements&#x00A0;IMyInterface,IMyInterface1;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 5627--><p class="nopar" >
+<!--l. 5629--><p class="noindent" >It is not possible to mix method resolution and interface delegation. That means, it is not possible
+to implement part of an interface through method resolution and implement part of the interface
+through delegation. The following attempts to implement <span 
+class="cmtt-10">IMyInterface </span>partly through method
+resolution (P1), and partly through delegation. The compiler will not accept the following
+code:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-224">
+{$interfaces&#x00A0;corba}
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;IMyInterface&#x00A0;=&#x00A0;interface
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;P1;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;P2;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TMyClass&#x00A0;=&#x00A0;class(TInterfacedObject,&#x00A0;IMyInterface)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FI&#x00A0;:&#x00A0;IMyInterface;
+&#x00A0;<br />&#x00A0;&#x00A0;protected
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;IMyInterface.P1&#x00A0;=&#x00A0;MyP1;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;MyP1;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;property&#x00A0;MyInterface:&#x00A0;IMyInterface&#x00A0;&#x00A0;read&#x00A0;FI&#x00A0;implements&#x00A0;IMyInterface;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 5651--><p class="nopar" >The compiler will throw an error:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-225">
+Error:&#x00A0;Interface&#x00A0;"IMyInterface"&#x00A0;can&#8217;t&#x00A0;be&#x00A0;delegated&#x00A0;by&#x00A0;"TMyClass",
+&#x00A0;<br />it&#x00A0;already&#x00A0;has&#x00A0;method&#x00A0;resolutions
+</div>
+<!--l. 5656--><p class="nopar" >
+<!--l. 5658--><p class="noindent" >However, it is possible to implement one interface through method resolution, and another through
+delegation:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-226">
+{$interfaces&#x00A0;corba}
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;IMyInterface&#x00A0;=&#x00A0;interface
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;P1;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;IMyInterface2&#x00A0;=&#x00A0;interface
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;P2;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TMyClass&#x00A0;=&#x00A0;class(TInterfacedObject,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;IMyInterface,&#x00A0;IMyInterface2)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FI2&#x00A0;:&#x00A0;IMyInterface2;
+&#x00A0;<br />&#x00A0;&#x00A0;protected
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;IMyInterface.P1&#x00A0;=&#x00A0;MyP1;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;MyP1;
+&#x00A0;<br />&#x00A0;&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;property&#x00A0;MyInterface:&#x00A0;IMyInterface2
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;read&#x00A0;FI2&#x00A0;implements&#x00A0;IMyInterface2;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 5681--><p class="nopar" >
+<!--l. 5683--><p class="noindent" >Note that interface delegation can be used to specify that a class implements parent
+interfaces:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-227">
+IGMGetFileName&#x00A0;=&#x00A0;interface(IUnknown)
+&#x00A0;<br />&#x00A0;&#x00A0;[&#8217;{D3ECCB42-A563-4cc4-B375-79931031ECBA}&#8217;]
+&#x00A0;<br />&#x00A0;&#x00A0;function&#x00A0;GetFileName:&#x00A0;String;&#x00A0;stdcall;
+&#x00A0;<br />&#x00A0;&#x00A0;property&#x00A0;FileName:&#x00A0;String&#x00A0;read&#x00A0;GetFileName;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />IGMGetSetFileName&#x00A0;=&#x00A0;Interface(IGMGetFileName)
+&#x00A0;<br />&#x00A0;&#x00A0;[&#8217;{ECFB879F-86F6-41a3-A685-0C899A2B5BCA}&#8217;]
+&#x00A0;<br />&#x00A0;&#x00A0;procedure&#x00A0;SetFileName(const&#x00A0;Value:&#x00A0;String);&#x00A0;stdcall;
+&#x00A0;<br />&#x00A0;&#x00A0;property&#x00A0;FileName:&#x00A0;String&#x00A0;read&#x00A0;GetFileName&#x00A0;write&#x00A0;SetFileName;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />TIntfDelegator&#x00A0;=&#x00A0;class(TInterfacedObject,&#x00A0;IGMGetFileName,&#x00A0;IGMGetSetFileName)
+&#x00A0;<br />&#x00A0;protected
+&#x00A0;<br />&#x00A0;&#x00A0;FGetSetFileName:&#x00A0;IGMGetSetFileName;
+&#x00A0;<br />&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;constructor&#x00A0;Create;
+&#x00A0;<br />&#x00A0;&#x00A0;destructor&#x00A0;Destroy;&#x00A0;override;
+&#x00A0;<br />&#x00A0;&#x00A0;property&#x00A0;Implementor:&#x00A0;IGMGetSetFileName&#x00A0;read&#x00A0;FGetSetFileName
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;implements&#x00A0;IGMGetFileName,&#x00A0;IGMGetSetFileName;
+&#x00A0;<br />end;
+</div>
+<!--l. 5707--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 5709--><div class="crosslinks"><p class="noindent">[<a 
+href="refse46.html" >next</a>] [<a 
+href="refse44.html" >prev</a>] [<a 
+href="refse44.html#tailrefse44.html" >prev-tail</a>] [<a 
+href="refse45.html" >front</a>] [<a 
+href="refch7.html#refse45.html" >up</a>] </p></div>
+<!--l. 5709--><p class="noindent" ><a 
+ id="tailrefse45.html"></a>  
+</body></html> 

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TResourceStringTable</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../coffwriter/index.html">Overview</a>][<a href="../coffwriter/index-3.html">Types</a>][<a href="../coffwriter/index-4.html">Classes</a>][<a href="../coffwriter/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'coffwriter' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TResourceStringTable</h1>
+<p>[<a href="../coffwriter/tresourcestringtable-1.html" onClick="window.open('../coffwriter/tresourcestringtable-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../coffwriter/tresourcestringtable-2.html" onClick="window.open('../coffwriter/tresourcestringtable-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../coffwriter/tresourcestringtable-3.html" onClick="window.open('../coffwriter/tresourcestringtable-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../coffwriter/tresourcestringtable-4.html" onClick="window.open('../coffwriter/tresourcestringtable-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../coffwriter/tresourcestringtable-5.html" onClick="window.open('../coffwriter/tresourcestringtable-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../coffwriter/tresourcestringtable-6.html" onClick="window.open('../coffwriter/tresourcestringtable-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>COFF resource string table</p>
+<h2>Declaration</h2>
+<p>Source position: coffwriter.pp line 41</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TResourceStringTable <span class="sym">=</span> <span class="kw">class</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../coffwriter/tresourcestringtable.create.html">Create</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../coffwriter/tresourcestringtable.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../coffwriter/tresourcestringtable.add.html">Add</a><span class="sym">();</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../coffwriter/tresourcestringtable.clear.html">Clear</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../coffwriter/tresourcestringtable.count.html">Count</a><span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span>  [r]</span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../coffwriter/tresourcestringtable.items.html">Items</a> []<span class="sym">: </span>string<span class="sym">;</span><span class="kw"> default</span><span class="sym">;</span>  [r]</span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../coffwriter/tresourcestringtable.startrva.html">StartRVA</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../coffwriter/tresourcestringtable.currrva.html">CurrRVA</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span>  [r]</span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../coffwriter/tresourcestringtable.endrva.html">EndRVA</a><span class="sym">: </span><a href="../../rtl/system/longword.html">LongWord</a><span class="sym">;</span>  [r]</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../coffwriter/tresourcestringtable.html">TResourceStringTable</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">COFF resource string table</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TObject</span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This class is used internally by <a href="../coffwriter/tcoffresourcewriter.html">TCoffResourceWriter</a>.</p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

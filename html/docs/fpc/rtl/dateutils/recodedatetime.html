@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>RecodeDateTime</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dateutils/index.html">Overview</a>][<a href="../dateutils/index-2.html">Constants</a>][<a href="../dateutils/index-5.html">Procedures and functions</a>][<a href="../dateutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dateutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>RecodeDateTime</h1>
+<p>Replace selected parts of a <var>TDateTime</var> value with other values</p>
+<h2>Declaration</h2>
+<p>Source position: dateutil.inc line 354</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> RecodeDateTime<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AValue<span class="sym">: </span><a href="../system/tdatetime.html">TDateTime</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AYear<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AMonth<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ADay<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AHour<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AMinute<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ASecond<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AMilliSecond<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tdatetime.html">TDateTime</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AValue</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Date/time to recode</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AYear</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">New value for year part</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AMonth</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">New value for month part</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADay</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">New value for day part</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AHour</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">New value for hour part</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AMinute</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">New value for minute part</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ASecond</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">New value for second part</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AMilliSecond</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">New value for millisecond part</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p><var>AValue</var> with replaced parts</p>
+<h2>Description</h2>
+<p><var>RecodeDateTime</var> replaces selected parts of the timestamp <var>AValue</var> with the date/time values specified in <var>AYear</var>, <var>AMonth</var>, <var>ADay</var>, <var>AHour</var>, <var>AMinute</var>, <var>ASecond</var> and  <var>AMilliSecond</var>. If any of these values equals the pre-defined constant <a href="../dateutils/recodeleavefieldasis.html">RecodeLeaveFieldAsIs</a>, then  the corresponding part of the date/time stamp is left untouched. </p>
+<h2>Errors</h2>
+<p>If one of the values <var>AYear</var>, <var>AMonth</var>, <var>ADay</var>, <var>AHour</var>, <var>AMinute</var>, <var>ASecond</var><var>AMilliSecond</var> is not within a valid range (<var>RecodeLeaveFieldAsIs</var> excepted)  then an <var>EConvertError</var> exception is raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dateutils/recodeyear.html">RecodeYear</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Replace year part of a <var>TDateTime</var> value with another year.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/recodemonth.html">RecodeMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Replace month part of a <var>TDateTime</var> value with another month.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/recodeday.html">RecodeDay</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Replace day part of a <var>TDateTime</var> value with another day.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/recodehour.html">RecodeHour</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Replace hours part of a <var>TDateTime</var> value with another hour.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/recodeminute.html">RecodeMinute</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Replace minutse part of a <var>TDateTime</var> value with another minute.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/recodesecond.html">RecodeSecond</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Replace seconds part of a <var>TDateTime</var> value with another second.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/recodemillisecond.html">RecodeMilliSecond</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Replace milliseconds part of a <var>TDateTime</var> value with another millisecond.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/recodedate.html">RecodeDate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Replace date part of a <var>TDateTime</var> value with another date.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/recodetime.html">RecodeTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Replace time part of a <var>TDateTime</var> value with another time.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/tryrecodedatetime.html">TryRecodeDateTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Replace selected parts of a <var>TDateTime</var> value with other values</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example96<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the RecodeDateTime function }</span>
+
+<span class="kw">Uses</span> SysUtils<span class="sym">,</span>DateUtils<span class="sym">;</span>
+
+<span class="kw">Const</span>
+  Fmt <span class="sym">=</span> <span class="str">'dddd dd mmmm yyyy hh:nn:ss'</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  S <span class="sym">:</span> AnsiString<span class="sym">;</span>
+  D <span class="sym">:</span> TDateTime <span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  D<span class="sym">:=</span>Now<span class="sym">;</span>
+  D<span class="sym">:=</span>RecodeDateTime<span class="sym">(</span>D<span class="sym">,</span><span class="num">2000</span><span class="sym">,</span><span class="num">2</span><span class="sym">,</span>RecodeLeaveFieldAsIs<span class="sym">,</span><span class="num">0</span><span class="sym">,</span><span class="num">0</span><span class="sym">,</span><span class="num">0</span><span class="sym">,</span><span class="num">0</span><span class="sym">)</span><span class="sym">;</span>
+  S<span class="sym">:=</span>FormatDateTime<span class="sym">(</span>Fmt<span class="sym">,</span>D<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'This moment in februari 2000 : '</span><span class="sym">,</span>S<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

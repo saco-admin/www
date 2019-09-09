@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Nested types, constants and variables</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5312--><div class="crosslinks"><p class="noindent">[<a 
+href="refse40.html" >prev</a>] [<a 
+href="refse40.html#tailrefse40.html" >prev-tail</a>] [<a 
+href="#tailrefse41.html">tail</a>] [<a 
+href="refch6.html#refse41.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">6.8   </span> <a 
+href="ref.html#QQ2-93-121" id="x93-1150006.8">Nested types, constants and variables</a></h3>
+<!--l. 5313--><p class="noindent" >A class definition can contain a type section, const section and a variable section. The type and
+constant sections act as a regular type section as found in a unit or method/function/procedure
+implementation. The variables act as regular fields of the class, unless they are in a <span 
+class="cmtt-10">class var</span>
+section, in which case they act as if they were defined at the unit level, within the namespace of the
+class (section <a 
+href="refse35.html#x70-920006.2">6.2<!--tex4ht:ref: se:classfields --></a>, page <a 
+href="refse35.html#x70-920006.2">288<!--tex4ht:ref: se:classfields --></a>).
+<!--l. 5319--><p class="noindent" >However, the visibility of these sections does play a role: private and protected (strict or not)
+constants, types and variables can only be used as far as their visibility allows.
+<!--l. 5323--><p class="noindent" >Public types can be used outside the class, by their full name:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-211">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;TA&#x00A0;=&#x00A0;Class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;Public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Type&#x00A0;TEnum&#x00A0;=&#x00A0;(a,b,c);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Class&#x00A0;Function&#x00A0;DoSomething&#x00A0;:&#x00A0;TEnum;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Class&#x00A0;Function&#x00A0;TA.DoSomething&#x00A0;:&#x00A0;TEnum;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=a;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;E&#x00A0;:&#x00A0;TA.TEnum;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;E:=TA.DoSomething;
+&#x00A0;<br />end.
+</div>
+<!--l. 5344--><p class="nopar" >Whereas
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-212">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;TA&#x00A0;=&#x00A0;Class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;Strict&#x00A0;Private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Type&#x00A0;TEnum&#x00A0;=&#x00A0;(a,b,c);
+&#x00A0;<br />&#x00A0;&#x00A0;Public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Class&#x00A0;Function&#x00A0;DoSomething&#x00A0;:&#x00A0;TEnum;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Class&#x00A0;Function&#x00A0;TA.DoSomething&#x00A0;:&#x00A0;TEnum;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=a;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;E&#x00A0;:&#x00A0;TA.TEnum;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;E:=TA.DoSomething;
+&#x00A0;<br />end.
+</div>
+<!--l. 5367--><p class="nopar" >Will not compile and will return an error:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-213">
+tt.pp(20,10)&#x00A0;Error:&#x00A0;identifier&#x00A0;idents&#x00A0;no&#x00A0;member&#x00A0;"TEnum"
+</div>
+<!--l. 5371--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 5376--><div class="crosslinks"><p class="noindent">[<a 
+href="refse40.html" >prev</a>] [<a 
+href="refse40.html#tailrefse40.html" >prev-tail</a>] [<a 
+href="refse41.html" >front</a>] [<a 
+href="refch6.html#refse41.html" >up</a>] </p></div>
+<!--l. 5376--><p class="noindent" ><a 
+ id="tailrefse41.html"></a>  
+</body></html> 

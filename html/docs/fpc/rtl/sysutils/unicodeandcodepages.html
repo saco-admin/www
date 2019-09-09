@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Unicode and codepage awareness</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/localization.html">Previous</a>][<a href="../sysutils/index.html">Up</a>][<a href="../sysutils/conversionroutines.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>Unicode and codepage awareness</h2>
+<p>The many functions that deal with filenames in the sysutils routines have been changed  from <var>AnsiString</var> to RawByteString so they do not perform implict codepage conversions to the ansi code page. At the same time, overloaded versions that accept a unicode string have been created. </p>
+<p>For routines that access actual OS functions using single-byte string APIS, the strings are converted to ensure that the OS routine receives a string with the correct encoding when using single-byte strings.  This encoding is normally the <a href="../system/defaultfilesystemcodepage.html">DefaultFileSystemCodePage</a> encoding. </p>
+<p>On systems with a unicode I/O API (2-byte strings), the native API is used, meaning that unicode  strings will be passed on as-is, but single-byte strings will be converted (implicitly) to Unicode. </p>
+<p>The following is a minimal list of functions that have been changed and duplicated: </p>
+<table border="0">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="../sysutils/filecreate.html">FileCreate</a></td>
+<td>Create a new file and return a handle to it.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/fileopen.html">FileOpen</a></td>
+<td>Open an existing file and return a filehandle</td>
+</tr>
+<tr>
+<td><a href="../sysutils/fileexists.html">FileExists</a></td>
+<td>Check whether a particular file exists in the filesystem.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/directoryexists.html">DirectoryExists</a></td>
+<td>Check whether a directory exists in the file system.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/filesetdate.html">FileSetDate</a></td>
+<td>Set the date of a file.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/filegetattr.html">FileGetAttr</a></td>
+<td>Return attributes of a file.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/filesetattr.html">FileSetAttr</a></td>
+<td>Set the attributes of a file.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/deletefile.html">DeleteFile</a></td>
+<td>Delete a file from the filesystem.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/renamefile.html">RenameFile</a></td>
+<td>Rename a file.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/filesearch.html">FileSearch</a></td>
+<td>Search for a file in a path.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/exesearch.html">ExeSearch</a></td>
+<td>Search for an executable</td>
+</tr>
+<tr>
+<td><a href="../sysutils/findfirst.html">FindFirst</a></td>
+<td>Start a file search and return a findhandle</td>
+</tr>
+<tr>
+<td><a href="../sysutils/findnext.html">FindNext</a></td>
+<td>Find the next entry in a findhandle.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/findclose.html">FindClose</a></td>
+<td>Close a find handle</td>
+</tr>
+<tr>
+<td><a href="../sysutils/fileisreadonly.html">FileIsReadOnly</a></td>
+<td>Check whether a file is read-only.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/getcurrentdir.html">GetCurrentDir</a></td>
+<td>Return the current working directory of the application.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/setcurrentdir.html">SetCurrentDir</a></td>
+<td>Set the current directory of the application.</td>
+</tr>
+</table>
+<p>The following functions do not interact with the OS, but may nevertheless change the codepage of the strings involved in their operation: </p>
+<table border="0">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="../sysutils/changefileext.html">ChangeFileExt</a></td>
+<td>Change the extension of a filename.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/extractfilepath.html">ExtractFilePath</a></td>
+<td>Extract the path from a filename.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/extractfiledrive.html">ExtractFileDrive</a></td>
+<td>Extract the drive part from a filename.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/extractfilename.html">ExtractFileName</a></td>
+<td>Extract the filename part from a full path filename.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/extractfileext.html">ExtractFileExt</a></td>
+<td>Return the extension from a filename.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/extractfiledir.html">ExtractFileDir</a></td>
+<td>Extract the drive and directory part of a filename.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/extractshortpathname.html">ExtractShortPathName</a></td>
+<td>Returns a 8.3 path name</td>
+</tr>
+<tr>
+<td><a href="../sysutils/expandfilename.html">ExpandFileName</a></td>
+<td>Expand a relative filename to an absolute filename.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/expandfilenamecase.html">ExpandFileNameCase</a></td>
+<td>Expand a filename entered as case insensitive to the full path as stored on the disk.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/extractrelativepath.html">ExtractRelativepath</a></td>
+<td>Extract a relative path from a filename, given a base directory.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/expanduncfilename.html">ExpandUNCFileName</a></td>
+<td>Expand a relative filename to an absolute UNC filename.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/includetrailingpathdelimiter.html">IncludeTrailingPathDelimiter</a></td>
+<td>Add trailing directory separator to a pathname, if needed.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/includetrailingbackslash.html">IncludeTrailingBackslash</a></td>
+<td>Add trailing directory separator to a pathname, if needed.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/excludetrailingbackslash.html">ExcludeTrailingBackslash</a></td>
+<td>Strip trailing directory separator from a pathname, if needed.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/excludetrailingpathdelimiter.html">ExcludeTrailingPathDelimiter</a></td>
+<td>Strip trailing directory separator from a pathname, if needed.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/includeleadingpathdelimiter.html">IncludeLeadingPathDelimiter</a></td>
+<td>Prepend a path delimiter if there is not already one.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/excludeleadingpathdelimiter.html">ExcludeLeadingPathDelimiter</a></td>
+<td>Strip the leading path delimiter of a path</td>
+</tr>
+<tr>
+<td><a href="../sysutils/ispathdelimiter.html">IsPathDelimiter</a></td>
+<td>Is the character at the given position a pathdelimiter ?</td>
+</tr>
+<tr>
+<td><a href="../sysutils/dodirseparators.html">DoDirSeparators</a></td>
+<td>Convert known directory separators to the current directory separator.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/setdirseparators.html">SetDirSeparators</a></td>
+<td>Set the directory separators to the known directory separators.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/getdirs.html">GetDirs</a></td>
+<td>Return a list of directory names from a path.</td>
+</tr>
+<tr>
+<td><a href="../sysutils/concatpaths.html">ConcatPaths</a></td>
+<td>Concatenate an array of paths to form a single path</td>
+</tr>
+<tr>
+<td><a href="../sysutils/getenvironmentvariable.html">GetEnvironmentVariable</a></td>
+<td>Return the value of an environment variable.</td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

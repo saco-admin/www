@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDataSet.ControlsDisabled</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDataSet.ControlsDisabled</h1>
+<p>Check whether the controls are disabled</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1625</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../db/tdataset.html">TDataSet</a><span class="sym">.</span>ControlsDisabled<span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p><var>True</var> if no events are sent to the controls</p>
+<h2>Description</h2>
+<p><var>ControlsDisabled</var> returns <var>True</var> if the controls are disabled, i.e. no events are propagated to the controls connected to this dataset. The <a href="../db/tdataset.disablecontrols.html">TDataset.DisableControls</a> call can be used to disable sending of data events to the controls.  The sending can be re-enabled with <a href="../db/tdataset.enablecontrols.html">TDataset.EnableControls</a>.  This mechanism has a counting mechanism: in order to enable sending of events to the controls, <var>EnableControls</var> must be called as much as <var>DisableControls</var> was called. The <var>ControlsDisabled</var> function will return true as long as the internal counter is not zero. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdataset.disablecontrols.html">TDataset.DisableControls</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Disable event propagation of controls</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.enablecontrols.html">TDataset.EnableControls</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Enable event propagation of controls</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

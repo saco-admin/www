@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>SetToString</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../typinfo/index.html">Overview</a>][<a href="../typinfo/index-2.html">Constants</a>][<a href="../typinfo/index-3.html">Types</a>][<a href="../typinfo/index-4.html">Classes</a>][<a href="../typinfo/index-5.html">Procedures and functions</a>][<a href="../typinfo/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'typinfo' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>SetToString</h1>
+<p>Convert set to a string description</p>
+<h2>Declaration</h2>
+<p>Source position: typinfo.pp line 428</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> SetToString<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;TypeInfo<span class="sym">: </span><a href="../typinfo/ptypeinfo.html">PTypeInfo</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Brackets<span class="sym">: </span>Boolean</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> SetToString<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;PropInfo<span class="sym">: </span><a href="../typinfo/ppropinfo.html">PPropInfo</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Brackets<span class="sym">: </span>Boolean</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span><br><br><span class="kw">function</span> SetToString<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;PropInfo<span class="sym">: </span><a href="../typinfo/ppropinfo.html">PPropInfo</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>SetToString</var> takes an integer representation of a set (as received e.g. by <var>GetOrdProp</var>) and turns it into a string representing the elements in the set, based on the type information found in the <var>PropInfo</var> property information. By default, the string representation is not surrounded by square brackets. Setting the <var>Brackets</var> parameter to <var>True</var> will  surround the string representation with brackets. </p>
+<p>The function returns the string representation of the set. </p>
+<h2>Errors</h2>
+<p>No checking is done to see whether <var>PropInfo</var> points to valid property information. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../typinfo/getenumname.html">GetEnumName</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return name of enumeration constant.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../typinfo/getenumvalue.html">GetEnumValue</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get ordinal value for enumerated type by name</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../typinfo/stringtoset.html">StringToSet</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert string description to a set.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> example18<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the SetToString function }</span>
+
+<span class="dir">{$mode objfpc}</span>
+
+<span class="kw">uses</span> rttiobj<span class="sym">,</span>typinfo<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  O <span class="sym">:</span> TMyTestObject<span class="sym">;</span>
+  PI <span class="sym">:</span> PPropInfo<span class="sym">;</span>
+  I <span class="sym">:</span> longint<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  O<span class="sym">:=</span>TMyTestObject<span class="sym">.</span>Create<span class="sym">;</span>
+  PI<span class="sym">:=</span>GetPropInfo<span class="sym">(</span>O<span class="sym">,</span><span class="str">'SetField'</span><span class="sym">)</span><span class="sym">;</span>
+  O<span class="sym">.</span>SetField<span class="sym">:=</span><span class="sym">[</span>mefirst<span class="sym">,</span>meSecond<span class="sym">,</span>meThird<span class="sym">]</span><span class="sym">;</span>
+  I<span class="sym">:=</span>GetOrdProp<span class="sym">(</span>O<span class="sym">,</span>PI<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Set property to string : '</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Value  : '</span><span class="sym">,</span>SetToString<span class="sym">(</span>PI<span class="sym">,</span>I<span class="sym">,</span>False<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  O<span class="sym">.</span>SetField<span class="sym">:=</span><span class="sym">[</span>mefirst<span class="sym">,</span>meSecond<span class="sym">]</span><span class="sym">;</span>
+  I<span class="sym">:=</span>GetOrdProp<span class="sym">(</span>O<span class="sym">,</span>PI<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Value  : '</span><span class="sym">,</span>SetToString<span class="sym">(</span>PI<span class="sym">,</span>I<span class="sym">,</span>True<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  I<span class="sym">:=</span>StringToSet<span class="sym">(</span>PI<span class="sym">,</span><span class="str">'mefirst'</span><span class="sym">)</span><span class="sym">;</span>
+  SetOrdProp<span class="sym">(</span>O<span class="sym">,</span>PI<span class="sym">,</span>I<span class="sym">)</span><span class="sym">;</span>
+  I<span class="sym">:=</span>GetOrdProp<span class="sym">(</span>O<span class="sym">,</span>PI<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Value  : '</span><span class="sym">,</span>SetToString<span class="sym">(</span>PI<span class="sym">,</span>I<span class="sym">,</span>False<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  I<span class="sym">:=</span>StringToSet<span class="sym">(</span>PI<span class="sym">,</span><span class="str">'[mesecond,methird]'</span><span class="sym">)</span><span class="sym">;</span>
+  SetOrdProp<span class="sym">(</span>O<span class="sym">,</span>PI<span class="sym">,</span>I<span class="sym">)</span><span class="sym">;</span>
+  I<span class="sym">:=</span>GetOrdProp<span class="sym">(</span>O<span class="sym">,</span>PI<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Value  : '</span><span class="sym">,</span>SetToString<span class="sym">(</span>PI<span class="sym">,</span>I<span class="sym">,</span>True<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  O<span class="sym">.</span>Free<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

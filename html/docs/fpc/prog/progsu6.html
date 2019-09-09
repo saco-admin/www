@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$BITPACKING : Enable bitsize packing</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 254--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu7.html" >next</a>] [<a 
+href="progsu5.html" >prev</a>] [<a 
+href="progsu5.html#tailprogsu5.html" >prev-tail</a>] [<a 
+href="#tailprogsu6.html">tail</a>] [<a 
+href="progse2.html#progsu6.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.6   </span> <a 
+href="prog.html#QQ2-13-12" id="x13-120001.2.6"><span 
+class="cmtt-10">$BITPACKING </span>: Enable bitsize packing</a></h4>
+<!--l. 256--><p class="noindent" >The <span 
+class="cmtt-10">$BITPACKING </span>directive tells the compiler whether it should use bitpacking or not when it
+encounters the <span 
+class="cmtt-10">packed </span>keyword for a structured type. The possible values are <span 
+class="cmtt-10">ON </span>and
+<span 
+class="cmtt-10">OFF</span>. If <span 
+class="cmtt-10">ON</span>, then the compiler will bitpack structures when it encounters the <span 
+class="cmtt-10">Packed</span>
+keyword.
+<!--l. 262--><p class="noindent" >In the following example, the <span 
+class="cmtt-10">TMyRecord </span>record will be bitpacked:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-9">
+{$BITPACKING&#x00A0;ON}
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TMyRecord&#x00A0;=&#x00A0;packed&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;B1,B2,B3,B4&#x00A0;:&#x00A0;Boolean;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 269--><p class="nopar" >
+<!--l. 271--><p class="noindent" >Note that:
+     <ul class="itemize1">
+     <li class="itemize">The <span 
+class="cmtt-10">$BITPACKING </span>directive is ignored in macpas mode, where packed records are always
+     bitpacked.
+     </li>
+     <li class="itemize">The <span 
+class="cmtt-10">bitpacked </span>keyword can always be used to force bitwise packing, regardless of the
+     value of the <span 
+class="cmtt-10">$BITPACKING </span>directive, and regardless of the mode.</li></ul>
+                                                                            
+
+                                                                            
+<!--l. 280--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu7.html" >next</a>] [<a 
+href="progsu5.html" >prev</a>] [<a 
+href="progsu5.html#tailprogsu5.html" >prev-tail</a>] [<a 
+href="progsu6.html" >front</a>] [<a 
+href="progse2.html#progsu6.html" >up</a>] </p></div>
+<!--l. 280--><p class="noindent" ><a 
+ id="tailprogsu6.html"></a>  
+</body></html> 

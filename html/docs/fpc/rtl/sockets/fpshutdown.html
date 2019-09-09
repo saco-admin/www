@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>fpshutdown</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sockets/index.html">Overview</a>][<a href="../sockets/index-2.html">Constants</a>][<a href="../sockets/index-3.html">Types</a>][<a href="../sockets/index-5.html">Procedures and functions</a>][<a href="../sockets/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Sockets' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>fpshutdown</h1>
+<p>Close one end of full duplex connection.</p>
+<h2>Declaration</h2>
+<p>Source position: socketsh.inc line 165</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> fpshutdown<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;s<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;how<span class="sym">: </span><a href="../unixtype/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>fpShutDown</var> closes one end of a full duplex socket connection, described by <var>S</var>. The parameter <var>How</var> determines how the connection  will be shut down, and can be one of the following: </p>
+<dl>
+<dt>0</dt>
+<dd>Further receives are disallowed.</dd>
+<dt>1</dt>
+<dd>Further sends are disallowed.</dd>
+<dt>2</dt>
+<dd>Sending nor receiving are allowed.</dd>
+</dl>
+<p>On succes, the function returns 0, on error -1 is returned. </p>
+<h2>Errors</h2>
+<p><var>SocketError</var> is used to report errors, and includes the following: </p>
+<dl>
+<dt><a href="../sockets/esockebadf.html">ESockEBADF</a></dt>
+<dd>The socket descriptor is invalid.</dd>
+<dt><a href="../sockets/esockenotconn.html">ESockENOTCONN</a></dt>
+<dd>The socket isn't connected.</dd>
+<dt><a href="../sockets/esockenotsock.html">ESockENOTSOCK</a></dt>
+<dd>The descriptor is not a socket.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sockets/fpsocket.html">fpSocket</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create new socket</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sockets/fpconnect.html">fpConnect</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Open a connection to a server socket.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

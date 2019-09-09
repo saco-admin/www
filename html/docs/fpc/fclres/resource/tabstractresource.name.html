@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TAbstractResource.Name</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../resource/index.html">Overview</a>][<a href="../resource/index-1.html">Resource strings</a>][<a href="../resource/index-2.html">Constants</a>][<a href="../resource/index-3.html">Types</a>][<a href="../resource/index-4.html">Classes</a>][<a href="../resource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'resource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TAbstractResource.Name</h1>
+<p>The name of the resource</p>
+<h2>Declaration</h2>
+<p>Source position: resource.pp line 165</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../resource/tabstractresource.html">TAbstractResource</a><span class="sym">.</span>Name<span class="sym"> : </span><a href="../resource/tresourcedesc.html">TResourceDesc</a><br>&nbsp;&nbsp;<span class="kw">read </span>GetName<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td><p>Please note that some <a href="../resource/tabstractresource.html">TAbstractResource</a> descendants don't allow resource name to be changed (e.g: a <a href="../stringtableresource/tstringtableresource.html">TStringTableResource</a> name is determined by the range of strings' ID it contains). If it is the case, an <a href="../resource/eresourcedescchangenotallowedexception.html">EResourceDescChangeNotAllowedException</a> exception is raised.</p><p>Moreover, if the resource is contained in a <a href="../resource/tresources.html">TResources</a> object, name change is not allowed.</p></td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresource.changedesctypeallowed.html">TAbstractResource.ChangeDescTypeAllowed</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reports whether changing the type of resource type or name is allowed</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresource.changedescvalueallowed.html">TAbstractResource.ChangeDescValueAllowed</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reports whether changing the value of resource type or name is allowed</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

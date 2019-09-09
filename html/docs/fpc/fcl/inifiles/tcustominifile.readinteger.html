@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCustomIniFile.ReadInteger</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../inifiles/index.html">Overview</a>][<a href="../inifiles/index-3.html">Types</a>][<a href="../inifiles/index-4.html">Classes</a>][<a href="../inifiles/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'IniFiles' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCustomIniFile.ReadInteger</h1>
+<p>Read an integer value from the file</p>
+<h2>Declaration</h2>
+<p>Source position: inifiles.pp line 166</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../inifiles/tcustominifile.html">TCustomIniFile</a><span class="sym">.</span>ReadInteger<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Section<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Ident<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Default<span class="sym">: </span><a href="../../rtl/system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/system/longint.html">LongInt</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Section</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Section to read <var>Ident</var> from</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Ident</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Name of key to retrieve value from</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Default</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Default value to return when the key <var>Ident</var> does not exist.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Value of <var>Ident</var> as an integer.</p>
+<h2>Description</h2>
+<p><var>ReadInteger</var> reads the key <var>Ident</var> in section <var>Section</var>,  and returns the value as an integer. If the specified key or section do not exist, then the value in <var>Default</var> is returned. If the key exists, but contains an invalid integer value, <var>Default</var> is also returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../inifiles/tcustominifile.writeinteger.html">WriteInteger</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write an integer value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inifiles/tcustominifile.readstring.html">ReadString</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read a string valued key</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inifiles/tcustominifile.readbool.html">ReadBool</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt"></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inifiles/tcustominifile.readdate.html">ReadDate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read a date value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inifiles/tcustominifile.readdatetime.html">ReadDateTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read a Date/Time value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inifiles/tcustominifile.readtime.html">ReadTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read a time value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inifiles/tcustominifile.readfloat.html">ReadFloat</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read a floating point value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inifiles/tcustominifile.readbinarystream.html">ReadBinaryStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read binary data</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

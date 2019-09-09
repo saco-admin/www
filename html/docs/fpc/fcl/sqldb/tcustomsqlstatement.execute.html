@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCustomSQLStatement.Execute</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCustomSQLStatement.Execute</h1>
+<p>Execute the SQL statement.</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 400</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../sqldb/tcustomsqlstatement.html">TCustomSQLStatement</a><span class="sym">.</span>Execute<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Execute</var> executes the <b>SQL</b> statement on the database. If necessary, it will first open the connection and start a transaction, followed by a call to <var>Prepare</var>. </p>
+<h2>Errors</h2>
+<p>An exception is raised if there is no <a href="../sqldb/tsqlstatement.sql.html">SQL</a> statement set or the <a href="../sqldb/tsqlstatement.database.html">Database</a> or <a href="../sqldb/tsqlstatement.transaction.html">Transaction</a> properties are empty. </p>
+<p>If an error occurs at the database level (the SQL failed to execute properly) then an exception is raised as well. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlstatement.sql.html">TSQLStatement.SQL</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The SQL statement to execute</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlstatement.database.html">TSQLStatement.Database</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Database instance to execute statement on.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlstatement.transaction.html">TSQLStatement.Transaction</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The transaction in which the SQL statement should be executed.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

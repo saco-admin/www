@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>strecopy</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../strings/index.html">Overview</a>][<a href="../strings/index-5.html">Procedures and functions</a>][<a href="../strings/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'strings' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>strecopy</h1>
+<p>Copy a null-terminated string, return a pointer to the end.</p>
+<h2>Declaration</h2>
+<p>Source position: strings.pp line 37</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> strecopy<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;dest<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;source<span class="sym">: </span><a href="../system/pchar.html">PChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Copies the Null-terminated string in <var>Source</var> to <var>Dest</var>, and returns a pointer to the end (i.e. the terminating Null-character) of the copied string. </p>
+<h2>Errors</h2>
+<p>No length checking is performed. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../strings/strlcopy.html">StrLCopy</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Copy a null-terminated string, limited in length.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../strings/strcopy.html">StrCopy</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Copy a null-terminated string</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example6<span class="sym">;</span>
+
+<span class="kw">Uses</span> strings<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the StrECopy function. }</span>
+
+<span class="kw">Const</span> P <span class="sym">:</span> PChar <span class="sym">=</span> <span class="str">'This is a PCHAR string.'</span><span class="sym">;</span>
+
+<span class="kw">Var</span> PP <span class="sym">:</span> PChar<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  PP<span class="sym">:=</span>StrAlloc <span class="sym">(</span>StrLen<span class="sym">(</span>P<span class="sym">)</span><span class="sym">+</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> Longint<span class="sym">(</span>StrECopy<span class="sym">(</span>PP<span class="sym">,</span>P<span class="sym">)</span><span class="sym">)</span><span class="sym">-</span>Longint<span class="sym">(</span>PP<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span>StrLen<span class="sym">(</span>P<span class="sym">)</span> <span class="kw">then</span>
+    Writeln<span class="sym">(</span><span class="str">'Something is wrong here !'</span><span class="sym">)</span>
+  <span class="kw">else</span>
+    Writeln <span class="sym">(</span><span class="str">'PP= '</span><span class="sym">,</span>PP<span class="sym">)</span><span class="sym">;</span>
+  StrDispose<span class="sym">(</span>PP<span class="sym">)</span><span class="sym">;</span>  
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

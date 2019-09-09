@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>maxprintedblocklength</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../heaptrc/index.html">Overview</a>][<a href="../heaptrc/index-2.html">Constants</a>][<a href="../heaptrc/index-3.html">Types</a>][<a href="../heaptrc/index-5.html">Procedures and functions</a>][<a href="../heaptrc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'heaptrc' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>maxprintedblocklength</h1>
+<p>Maximum length of memory block dumps.</p>
+<h2>Declaration</h2>
+<p>Source position: heaptrc.pp line 88</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">const</span> maxprintedblocklength<span class="sym">: </span><a href="../system/integer.html">Integer</a> <span class="sym">=</span> <span class="num">128</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>maxprintedblocklength</var> determines the maximum number of bytes written by a memory block dump, as produced when <a href="../heaptrc/printleakedblock.html">printleakedblock</a> or <a href="../heaptrc/printfaultyblock.html">printfaultyblock</a> are true. If the size of the memory block is larger than this size, then only the first <var>maxprintedblocklength</var> will be included in the dump. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../heaptrc/printleakedblock.html">printleakedblock</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Print memory dump of leaked blocks ?</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../heaptrc/printfaultyblock.html">printfaultyblock</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Print memory dump of faulty blocks ?</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

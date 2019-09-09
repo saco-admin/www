@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$L or $LINK : Link object file</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 978--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu44.html" >next</a>] [<a 
+href="progsu42.html" >prev</a>] [<a 
+href="progsu42.html#tailprogsu42.html" >prev-tail</a>] [<a 
+href="#tailprogsu43.html">tail</a>] [<a 
+href="progse2.html#progsu43.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.43   </span> <a 
+href="prog.html#QQ2-50-49" id="x50-490001.2.43"><span 
+class="cmtt-10">$L </span>or <span 
+class="cmtt-10">$LINK </span>: Link object file</a></h4>
+<!--l. 980--><p class="noindent" >The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$L filename</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$LINK filename</span><span 
+class="cmsy-10">} </span>directive tells the compiler that the file <span 
+class="cmss-10">filename </span>should
+be linked to the program. This cannot be used for libraries, see section <a 
+href="progsu46.html#x53-520001.2.46">1.2.46<!--tex4ht:ref: se:linklib --></a>, page <a 
+href="progsu46.html#x53-520001.2.46">122<!--tex4ht:ref: se:linklib --></a> for
+that.
+<!--l. 984--><p class="noindent" >The compiler will look for this file in the following locations:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x50-49002x1">In the path specified in the object file name.
+     </li>
+     <li 
+  class="enumerate" id="x50-49004x2">In the directory where the current source file is.
+     </li>
+     <li 
+  class="enumerate" id="x50-49006x3">In all directories specified in the object file search path.</li></ol>
+<!--l. 990--><p class="noindent" >Directories can be added to the object file search path with the <span 
+class="cmtt-10">-Fo </span>command line option.
+<!--l. 993--><p class="noindent" >On <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>systems and on operating systems with case-sensitive filesystems (such as <span 
+class="cmcsc-10"><span 
+class="small-caps">u</span><span 
+class="small-caps">n</span><span 
+class="small-caps">i</span><span 
+class="small-caps">x</span></span>
+systems), the name is case sensitive, and must be typed exactly as it appears on your
+system.
+<!--l. 997--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span>Take care that the object file you&#8217;re linking is in a format the linker understands. Which format
+this is, depends on the platform you&#8217;re on. Typing <span 
+class="cmtt-10">ld </span>or <span 
+class="cmtt-10">ld --help </span>on the command line gives a
+list of formats <span 
+class="cmtt-10">ld </span>knows about.
+<!--l. 1003--><p class="noindent" >Other files and options can be passed to the linker using the <span 
+class="cmtt-10">-k </span>command line option. More than
+one of these options can be used, and they will be passed to the linker, in the order that they were
+specified on the command line, just before the names of the object files that must be
+linked.
+                                                                            
+
+                                                                            
+<!--l. 1009--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu44.html" >next</a>] [<a 
+href="progsu42.html" >prev</a>] [<a 
+href="progsu42.html#tailprogsu42.html" >prev-tail</a>] [<a 
+href="progsu43.html" >front</a>] [<a 
+href="progse2.html#progsu43.html" >up</a>] </p></div>
+<!--l. 1009--><p class="noindent" ><a 
+ id="tailprogsu43.html"></a>  
+</body></html> 

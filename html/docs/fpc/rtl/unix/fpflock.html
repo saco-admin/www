@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>fpFlock</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unix/index.html">Overview</a>][<a href="../unix/index-2.html">Constants</a>][<a href="../unix/index-3.html">Types</a>][<a href="../unix/index-5.html">Procedures and functions</a>][<a href="../unix/index-6.html">Variables</a>][<a href="../unix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Unix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>fpFlock</h1>
+<p>Lock a file (advisory lock)</p>
+<h2>Declaration</h2>
+<p>Source position: unix.pp line 101</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> fpFlock<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>T<span class="sym">: </span>text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;mode<span class="sym">: </span><a href="../unix/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> fpFlock<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>F<span class="sym">: </span>file<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;mode<span class="sym">: </span><a href="../unix/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> fpFlock<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;fd<span class="sym">: </span><a href="../unix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;mode<span class="sym">: </span><a href="../unix/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FpFLock</var> implements file locking. it sets or removes a lock on the file <var>F</var>. F can be of type <var>Text</var> or <var>File</var>, or it can be a Linux filedescriptor (a longint) <var>Mode</var> can be one of the following constants : </p>
+<dl>
+<dt>LOCK_SH</dt>
+<dd>sets a shared lock.</dd>
+<dt>LOCK_EX</dt>
+<dd>sets an exclusive lock.</dd>
+<dt>LOCK_UN</dt>
+<dd>unlocks the file.</dd>
+<dt>LOCK_NB</dt>
+<dd>This can be OR-ed together with the other. If this is done the application doesn't block when locking. </dd>
+</dl>
+<p>The function returns zero if successful, a nonzero return value indicates an error. </p>
+<h2>Errors</h2>
+<p>Extended error information is returned by the <a href="../baseunix/fpgeterrno.html">FpGetErrno</a> function: </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpfcntl.html">#rtl.baseunix.FpFcntl</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">File control operations.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>FSync</b></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Synchronize file's kernel data with disk.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

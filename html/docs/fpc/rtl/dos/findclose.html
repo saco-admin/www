@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FindClose</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dos/index.html">Overview</a>][<a href="../dos/index-2.html">Constants</a>][<a href="../dos/index-3.html">Types</a>][<a href="../dos/index-5.html">Procedures and functions</a>][<a href="../dos/index-6.html">Variables</a>][<a href="../dos/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Dos' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FindClose</h1>
+<p>Dispose resources allocated by a <a href="../dos/findfirst.html">FindFirst</a>/<a href="../dos/findnext.html">FindNext</a> sequence.</p>
+<h2>Declaration</h2>
+<p>Source position: dosh.inc line 102</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> FindClose<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>f<span class="sym">: </span><a href="../dos/searchrec.html">SearchRec</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FindClose</var> frees any resources associated with the search record <var>F</var>. </p>
+<p>This call is needed to free any internal resources allocated by the  <a href="../dos/findfirst.html">FindFirst</a> or <a href="../dos/findnext.html">FindNext</a> calls. </p>
+<p>The Unix implementation of the Dos unit therefore keeps a table of open directories, and when the table is full, closes one of the directories, and reopens another. This system is adequate but slow if you use a lot of <var>searchrecs</var>. </p>
+<p>So, to speed up the findfirst/findnext system, the <var>FindClose</var> call was implemented. When you don't need a <var>searchrec</var> any more, you can tell this to the Dos unit by issuing a <var>FindClose</var> call. The directory which is kept open for this <var>searchrec</var> is then closed, and the table slot freed. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>It is recommended to use the Linux call <var>Glob</var> when looking for files  on Linux. </td>
+</tr>
+</table>
+<h2>Errors</h2>
+<p>Errors are reported in DosError. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dos/findfirst.html">FindFirst</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Start search for one or more files.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dos/findnext.html">FindNext</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find next matching file after <a href="../dos/findfirst.html">FindFirst</a></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

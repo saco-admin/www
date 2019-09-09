@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStringTableResource.Strings</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../stringtableresource/index.html">Overview</a>][<a href="../stringtableresource/index-1.html">Resource strings</a>][<a href="../stringtableresource/index-4.html">Classes</a>][<a href="../stringtableresource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'stringtableresource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TStringTableResource.Strings</h1>
+<p>Indexed array of strings in the string table</p>
+<h2>Declaration</h2>
+<p>Source position: stringtableresource.pp line 70</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../stringtableresource/tstringtableresource.html">TStringTableResource</a><span class="sym">.</span>Strings<span class="sym">[</span>id<span class="sym">: </span>Word<span class="sym">]</span><span class="sym"> : </span>string<br>&nbsp;&nbsp;<span class="kw">read </span>GetString<br>&nbsp;&nbsp;<span class="kw">write </span>SetString<span class="sym">;</span><br>&nbsp;&nbsp;<span class="kw">default</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This property can be used to access all strings in the object.</p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>Strings are accessed by their ID: valid elements range from <a href="../stringtableresource/tstringtableresource.firstid.html">FirstID</a> to <a href="../stringtableresource/tstringtableresource.lastid.html">LastID</a>. If the index specified isn't in this range, an <a href="../stringtableresource/estringtableindexoutofboundsexception.html">EStringTableIndexOutOfBoundsException</a> exception is raised.</td>
+</tr>
+</table>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>If you need to access <a href="../resource/tabstractresource.rawdata.html">RawData</a> after you modified strings, be sure to call <a href="../resource/tabstractresource.updaterawdata.html">UpdateRawData</a> first. This isn't needed however when resource is written to a stream, since <a href="../resource/tresources.html">TResources</a> takes care of it.</td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../stringtableresource/tstringtableresource.html">TStringTableResource</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String table resource type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../stringtableresource/tstringtableresource.firstid.html">TStringTableResource.FirstID</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The ID of first the string contained in the string table</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../stringtableresource/tstringtableresource.lastid.html">TStringTableResource.LastID</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The ID of the last string contained in the string table</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

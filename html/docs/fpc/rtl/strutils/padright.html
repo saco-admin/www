@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>PadRight</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../strutils/index.html">Overview</a>][<a href="../strutils/index-1.html">Resource strings</a>][<a href="../strutils/index-2.html">Constants</a>][<a href="../strutils/index-3.html">Types</a>][<a href="../strutils/index-5.html">Procedures and functions</a>][<a href="../strutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'strutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>PadRight</h1>
+<p>Add spaces to the right of a string till a certain length is reached.</p>
+<h2>Declaration</h2>
+<p>Source position: strutils.pp line 165</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> PadRight<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;N<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">S</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String to pad.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">N</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Minimal length of the resulting string.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>String of length N, padded to the right with spaces</p>
+<h2>Description</h2>
+<p><var>PadRight</var>  add spaces to the left of the string <var>S</var> till the result reaches length <var>Len</var>. If the string <var>S</var> has length equal to or largert than <var>Len</var>, no spaces are added, and the string <var>S</var> is returned as-is. The resulting string is <var>S</var>, left-justified on length <var>Len</var>.</p>
+<h2>Errors</h2>
+<p>None.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../strutils/padleft.html">PadLeft</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Add spaces to the left of a string till a certain length is reached.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../strutils/padcenter.html">PadCenter</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Pad the string to a certain length, so the string is centered.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../strutils/addchar.html">AddChar</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Add characters to the left of a string till a certain length</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../strutils/addcharr.html">AddCharR</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Add chars at the end of a string till it reaches a certain length</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

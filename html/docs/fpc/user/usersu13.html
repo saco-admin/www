@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Options for getting feedback</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1056--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu14.html" >next</a>] [<a 
+href="usersu12.html" >prev</a>] [<a 
+href="usersu12.html#tailusersu12.html" >prev-tail</a>] [<a 
+href="#tailusersu13.html">tail</a>] [<a 
+href="userse16.html#usersu13.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">5.1.2   </span> <a 
+href="user.html#QQ2-36-45" id="x36-430005.1.2">Options for getting feedback</a></h4>
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">-vxxx</span> </dt><dd 
+class="description">Be verbose. <span 
+class="cmtt-10">xxx </span>is a combination of the following :
+         <ul class="itemize1">
+         <li class="itemize"><span 
+class="cmtt-10">e </span>: Show errors. This option is on by default.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">i </span>: Display some general information.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">w </span>: Issue warnings.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">n </span>: Issue notes.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">h </span>: Issue hints.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">i </span>: Issue informational messages.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">l </span>: Report number of lines processed (every 100 lines).
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">u </span>: Show information on units being loaded.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">t </span>: Show names of files being opened.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">p </span>: Write parse tree (tree.log)
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">q </span>: Show message numbers.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">c </span>: Notify on each conditional being processed.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">mxxx </span>: <span 
+class="cmtt-10">xxx </span>is a comma-separated list of messages numbers which should not be
+         shown. This option can be specified multiple times.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">d </span>: Show additional debugging information.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">0 </span>:  No  messages.  This  is  useful  for  overriding  the  default  setting  in  the
+         configuration file.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">b </span>: Show all procedure declarations if an overloaded function error occurs.
+                                                                            
+
+                                                                            
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">x </span>: Show information about the executable (Win32 platform only).
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">r </span>: Format errors in RHIDE/GCC compatibility mode.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">a </span>: Show all possible information. (this is the same as specifying all options)
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">b </span>: Tells the compiler to write filenames using the full path.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">v </span>: Write copious debugging information to file. <span 
+class="cmss-10">fpcdebug.txt</span>..
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">s </span>: Write timestamps. Mainly for the compiler developers.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">p </span>Write parse tree to file tree.log. (Intended for compiler developers.)
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">z </span>Write compiler messages to standard error instead of standard output.</li></ul>
+     </dd></dl>
+<!--l. 1094--><p class="noindent" >The difference between an error/fatal error/hint/warning/note is the severity:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Fatal</span> </dt><dd 
+class="description">The compiler encountered an error, and can no longer continue compiling. It will stop
+     at once.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error</span> </dt><dd 
+class="description">The compiler encountered an error, but can continue to compile (at most till the end
+     of the current unit).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning</span> </dt><dd 
+class="description">if there is a warning, it means there is probably an error, i.e. something may be
+     wrong in your code.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint</span> </dt><dd 
+class="description">Is issued if the compiler thinks the code could be better, but there is no suspicion of
+     error.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note</span> </dt><dd 
+class="description">Is some noteworthy information, but again there is no error.</dd></dl>
+<!--l. 1106--><p class="noindent" >The difference between hints and notes is not really very clear. Both can be ignored without too
+much risk, but warnings should always be checked.
+                                                                            
+
+                                                                            
+<!--l. 1113--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu14.html" >next</a>] [<a 
+href="usersu12.html" >prev</a>] [<a 
+href="usersu12.html#tailusersu12.html" >prev-tail</a>] [<a 
+href="usersu13.html" >front</a>] [<a 
+href="userse16.html#usersu13.html" >up</a>] </p></div>
+<!--l. 1113--><p class="noindent" ><a 
+ id="tailusersu13.html"></a>  
+</body></html> 

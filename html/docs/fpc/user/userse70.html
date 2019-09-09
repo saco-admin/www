@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Command line handling errors</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2675--><div class="crosslinks"><p class="noindent">[<a 
+href="userse71.html" >next</a>] [<a 
+href="userse69.html" >prev</a>] [<a 
+href="userse69.html#tailuserse69.html" >prev-tail</a>] [<a 
+href="#tailuserse70.html">tail</a>] [<a 
+href="userap3.html#userse70.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">C.11   </span> <a 
+href="user.html#QQ2-184-242" id="x184-191000C.11">Command line handling errors</a></h3>
+<!--l. 2676--><p class="noindent" >This section lists errors that occur when the compiler is processing the command line or handling
+the configuration files.
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Warning: Only one source file supported, changing source file to compile from &#8221;arg1&#8221; into &#8221;arg2&#8221;</span> </dt><dd 
+class="description">
+     You can specify only one source file on the command line. The last one will be compiled,
+     others will be ignored. This may indicate that you forgot a <span 
+class="cmtt-10">&#8217;-&#8217; </span>sign.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: DEF file can be created only for OS/2</span> </dt><dd 
+class="description">This option can only be specified
+     when you&#8217;re compiling for OS/2.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: nested response files are not supported</span> </dt><dd 
+class="description">You  cannot  nest  response  files  with
+     the <span 
+class="cmtt-10">@file </span>command line option.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: No source file name in command line</span> </dt><dd 
+class="description">The compiler expects a source file name
+     on the command line.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: No option inside arg1 config file</span> </dt><dd 
+class="description">The  compiler  didn&#8217;t  find  any  option  in  that
+     config file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal parameter: arg1</span> </dt><dd 
+class="description">You specified an unknown option.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: -? writes help pages</span> </dt><dd 
+class="description">When an unknown option is given, this message is diplayed.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Too many config files nested</span> </dt><dd 
+class="description">You can only nest up to 16 config files.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Unable to open file arg1</span> </dt><dd 
+class="description">The option file cannot be found.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Reading further options from arg1</span> </dt><dd 
+class="description">Displayed when you have notes turned on, and the
+     compiler switches to another options file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Target is already set to: arg1</span> </dt><dd 
+class="description">Displayed  if  more  than  one  <span 
+class="cmtt-10">-T </span>option  is
+     specified.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Shared libs not supported on DOS platform, reverting to static</span> </dt><dd 
+class="description">If you
+     specify <span 
+class="cmtt-10">-CD </span>for the <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>platform, this message is displayed. The compiler supports only
+     static libraries under <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span></span>.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: In options file arg1 at line arg2 too many #IF(N)DEFs encountered</span> </dt><dd 
+class="description">The
+     <span 
+class="cmtt-10">#IF(N)DEF </span>statements in the options file are not balanced with the <span 
+class="cmtt-10">#ENDIF </span>statements.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: In options file arg1 at line arg2 unexpected #ENDIFs encountered</span> </dt><dd 
+class="description">The
+     <span 
+class="cmtt-10">#IF(N)DEF </span>statements in the options file are not balanced with the <span 
+class="cmtt-10">#ENDIF </span>statements.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Open conditional at the end of the options file</span> </dt><dd 
+class="description">The <span 
+class="cmtt-10">#IF(N)DEF </span>statements in
+     the options file are not balanced with the <span 
+class="cmtt-10">#ENDIF </span>statements.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Debug information generation is not supported by this executable</span> </dt><dd 
+class="description">
+     It is possible to have a compiler executable that doesn&#8217;t support the generation of
+     debugging info. If you use such an executable with the <span 
+class="cmtt-10">-g </span>switch, this warning will be
+     displayed.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Try recompiling with -dGDB</span> </dt><dd 
+class="description">It is possible to have a compiler executable that
+     doesn&#8217;t support the generation of debugging info. If you use such an executable with
+     the <span 
+class="cmtt-10">-g </span>switch, this warning will be displayed.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: You are using the obsolete switch arg1</span> </dt><dd 
+class="description">This  warns  you  when  you  use  a
+     switch that is not needed/supported anymore. It is recommended that you remove
+     the switch to overcome problems in the future, when the meaning of the switch may
+     change.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: You are using the obsolete switch arg1, please use arg2</span> </dt><dd 
+class="description">This warns you
+     when you use a switch that is not supported anymore. You must now use the second
+     switch instead. It is recommended that you change the switch to overcome problems
+     in the future, when the meaning of the switch may change.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: Switching assembler to default source writing assembler</span> </dt><dd 
+class="description">This  notifies  you
+     that the assembler has been changed because you used the -a switch, which cannot be
+     used with a binary assembler writer.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Assembler output selected &#8221;arg1&#8221; is not compatible with &#8221;arg2&#8221;</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: &#8221;arg1&#8221; assembler use forced</span> </dt><dd 
+class="description">The assembler output selected cannot generate
+     object files with the correct format. Therefore, the default assembler for this target is
+     used instead.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Reading options from file arg1</span> </dt><dd 
+class="description">Options are also read from this file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Reading options from environment arg1</span> </dt><dd 
+class="description">Options are also read from this environment
+     string.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Handling option &#8221;arg1&#8221;</span> </dt><dd 
+class="description">Debug info that an option is found and will be handled.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">*** press enter ***</span> </dt><dd 
+class="description">Message shown when help is shown page per page. When pressing
+     the ENTER Key, the next page of help is shown. If you press q and then ENTER, the
+     compiler exits.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Start of reading config file arg1</span> </dt><dd 
+class="description">Start of configuration file parsing.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: End of reading config file arg1</span> </dt><dd 
+class="description">End of configuration file parsing.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">interpreting option &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The compiler is interpreting an option
+     </dd><dt class="description">
+<span 
+class="cmbx-10">interpreting firstpass option &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The compiler is interpreting an option for the first
+     time.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">interpreting file option &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The compiler is interpreting an option which it read from
+     the configuration file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Reading config file &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The compiler is starting to read the configuration file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">found source file name &#8221;arg1&#8221;</span> </dt><dd 
+class="description">Additional information about options. Displayed when
+     you have the debug option turned on.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Unknown codepage &#8221;arg1&#8221;</span> </dt><dd 
+class="description">An  unknown  codepage  for  the  source  files  was
+     requested. The compiler is compiled with support for several codepages built-in. The
+     requested codepage is not in that list. You will need to recompile the compiler with
+     support for the codepage you need.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Config file arg1 is a directory</span> </dt><dd 
+class="description">Directories cannot be used as configuration files.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Assembler output selected &#8221;arg1&#8221; cannot generate debug info, debugging disabled</span> </dt><dd 
+class="description">
+     The selected assembler output cannot generate debugging information, debugging option
+     is therefore disabled.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Use of ppc386.cfg is deprecated, please use fpc.cfg instead</span> </dt><dd 
+class="description">
+     Using ppc386.cfg is still supported for historical reasons, however, for a multiplatform
+     system the naming makes no sense anymore. Please continue to use fpc.cfg instead.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: In options file arg1 at line arg2 #ELSE directive without #IF(N)DEF found</span> </dt><dd 
+class="description">
+     An <span 
+class="cmtt-10">#ELSE </span>statement was found in the options file without a matching  <span 
+class="cmtt-10">#IF(N)DEF</span>
+     statement.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: Option &#8221;arg1&#8221; is not, or not yet, supported on the current target platform</span> </dt><dd 
+class="description">
+     Not all options are supported or implemented for all target platforms. This message
+     informs you that a chosen option is incompatible with the currently selected target
+     platform.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Fatal: The feature &#8221;arg1&#8221; is not, or not yet, supported on the selected target platform</span> </dt><dd 
+class="description">
+     Not all features are supported or implemented for all target platforms. This message
+     informs you that a chosen feature is incompatible with the currently selected target
+     platform.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: DWARF debug information cannot be used with smart linking on this target, switching to static linking</span> </dt><dd 
+class="description">
+     Smart  linking  is  currently  incompatble  with  DWARF  debug  information  on  most
+     platforms, so smart linking is disabled in such cases.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Option &#8221;arg1&#8221; is ignored for the current target platform.</span> </dt><dd 
+class="description">Not         all
+     options are supported or implemented for all target platforms. This message informs
+     you that a chosen option is ignored for the currently selected target platform.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Disabling external debug information because it is unsupported for the selected target/debug format combination.</span> </dt><dd 
+class="description">
+     Not all debug formats can be stored in an external file on all platforms. In particular,
+     on Mac OS X only DWARF debug information can be stored externally.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: DWARF debug information cannot be used with smart linking with external assembler, disabling static library creation.</span> </dt><dd 
+class="description">
+     Smart  linking  is  currently  incompatble  with  DWARF  debug  information  on  most
+     platforms, so smart linking is disabled in such cases.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Invalid value for MACOSX</span><span 
+class="cmbx-10">_DEPLOYMENT</span><span 
+class="cmbx-10">_TARGET environment variable: arg1</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Invalid value for IPHONEOS</span><span 
+class="cmbx-10">_DEPLOYMENT</span><span 
+class="cmbx-10">_TARGET environment variable: arg1</span> </dt><dd 
+class="description">
+     On Mac OS X, the MACOSX_DEPLOYMENT_TARGET/IPHONEOS_DEPLOYMENT_TARGET
+     environment variable can be used to set the default target OS version. In case of Mac
+     OS X, it has to be of the format XY.Z or XY.Z.AB with X, Y,Z , A and B all digits
+     from 0-9. In case of iOS, it has to be X.Z.A, where X, Z and A can all be either 1 or 2
+     digits from 0-9.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: You must use a FPU type of VFPV2, VFPV3 or VFPV3</span><span 
+class="cmbx-10">_D16 when using the EABIHF ABI target</span> </dt><dd 
+class="description">
+     The EABIHF (VFP hardfloat) ABI target can only be used with VFP FPUs.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: The selected debug format is not supported on the current target, not changing the current setting</span> </dt><dd 
+class="description">
+     Not all targets support all debug formats (in particular, Stabs is not supported on 64
+     bit targets).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: argument to &#8221;arg1&#8221; is missing</span> </dt><dd 
+class="description">Displayed when parameter must be followed by
+     an argument.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: malformed parameter: arg1</span> </dt><dd 
+class="description">Given argument is not valid for parameter.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Smart linking requires external linker</span> </dt><dd 
+class="description">
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Creating .COM files is not supported in the current memory model. Only the tiny memory model supports making .COM files.</span> </dt><dd 
+class="description">
+     </dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 2818--><div class="crosslinks"><p class="noindent">[<a 
+href="userse71.html" >next</a>] [<a 
+href="userse69.html" >prev</a>] [<a 
+href="userse69.html#tailuserse69.html" >prev-tail</a>] [<a 
+href="userse70.html" >front</a>] [<a 
+href="userap3.html#userse70.html" >up</a>] </p></div>
+<!--l. 2818--><p class="noindent" ><a 
+ id="tailuserse70.html"></a>  
+</body></html> 

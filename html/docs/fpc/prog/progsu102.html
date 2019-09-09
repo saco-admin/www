@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$M or $MEMORY : Memory sizes</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 2071--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu103.html" >next</a>] [<a 
+href="progsu101.html" >prev</a>] [<a 
+href="progsu101.html#tailprogsu101.html" >prev-tail</a>] [<a 
+href="#tailprogsu102.html">tail</a>] [<a 
+href="progse3.html#progsu102.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.3.19   </span> <a 
+href="prog.html#QQ2-110-111" id="x110-1110001.3.19"><span 
+class="cmtt-10">$M </span>or <span 
+class="cmtt-10">$MEMORY </span>: Memory sizes</a></h4>
+<!--l. 2073--><p class="noindent" >This switch can be used to set the heap and stacksize. Its format is as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-96">
+{$M&#x00A0;StackSize,HeapSize}
+</div>
+<!--l. 2077--><p class="nopar" >where <span 
+class="cmtt-10">StackSize </span>and <span 
+class="cmtt-10">HeapSize </span>should be two integer values, greater than 1024. The first number
+sets the size of the stack, and the second the size of the heap. The stack size setting is ignored on
+Unix platforms unless stack checking is enabled: in that case the stack checking code will use the
+size set here as maximum stack size.
+<!--l. 2084--><p class="noindent" >On those systems, in addition to the stack size set here, the operating system or the run-time
+environment may have set other (possibly more strict) limits on stack size using the OS&#8217;es <span 
+class="cmtt-10">ulimit</span>
+system calls.
+<!--l. 2088--><p class="noindent" >The two numbers can be set on the command line using the <span 
+class="cmtt-10">-Ch </span>and <span 
+class="cmtt-10">-Cs </span>switches.
+                                                                            
+
+                                                                            
+<!--l. 2091--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu103.html" >next</a>] [<a 
+href="progsu101.html" >prev</a>] [<a 
+href="progsu101.html#tailprogsu101.html" >prev-tail</a>] [<a 
+href="progsu102.html" >front</a>] [<a 
+href="progse3.html#progsu102.html" >up</a>] </p></div>
+<!--l. 2091--><p class="noindent" ><a 
+ id="tailprogsu102.html"></a>  
+</body></html> 

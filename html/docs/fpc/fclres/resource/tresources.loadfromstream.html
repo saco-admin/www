@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TResources.LoadFromStream</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../resource/index.html">Overview</a>][<a href="../resource/index-1.html">Resource strings</a>][<a href="../resource/index-2.html">Constants</a>][<a href="../resource/index-3.html">Types</a>][<a href="../resource/index-4.html">Classes</a>][<a href="../resource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'resource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TResources.LoadFromStream</h1>
+<p>Loads the contents of the object from a stream</p>
+<h2>Declaration</h2>
+<p>Source position: resource.pp line 267</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../resource/tresources.html">TResources</a><span class="sym">.</span>LoadFromStream<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aStream<span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">procedure</span> <a href="../resource/tresources.html">TResources</a><span class="sym">.</span>LoadFromStream<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aStream<span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aReader<span class="sym">: </span><a href="../resource/tabstractresourcereader.html">TAbstractResourceReader</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">aStream</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The stream to read from</p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">aStream</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The stream to read from</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">aReader</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The resource reader to use to read the stream</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This method clears the TResources object and loads its contents from the stream passed as parameter.</p>
+<p>If a reader is specified, that reader is used. Otherwise, the stream is probed to find a suitable reader.</p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>If <a href="../resource/tresources.cachedata.html">CacheData</a> is set to <var>true</var>, the stream will be used as the underlying stream of each resource <a href="../resource/tabstractresource.rawdata.html">RawData</a> stream. This means that the stream must not be freed until all resources in the TResources object are freed: this happens when the TResources object is cleared or is loaded again from a different source. If you need to free the stream while there are still resources, disable the copy-on-write mechanism by setting <a href="../resource/tresources.cachedata.html">CacheData</a> property to <var>false</var>.</td>
+</tr>
+</table>
+<h2>Errors</h2>
+<p>If no reader is passed and probing fails, an <a href="../resource/eresourcereadernotfoundexception.html">EResourceReaderNotFoundException</a> exception is raised.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresourcereader.html">TAbstractResourceReader</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base abstract resource reader class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresource.rawdata.html">TAbstractResource.RawData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The raw resource data stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresource.cachedata.html">TAbstractResource.CacheData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Controls the copy-on-write behaviour of the resource</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tresources.cachedata.html">TResources.CacheData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Controls the copy-on-write behaviour of all resources</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tresources.loadfromfile.html">TResources.LoadFromFile</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Loads the contents of the object from a file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tresources.clear.html">TResources.Clear</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Deletes all resources</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tresources.findreader.html">TResources.FindReader</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Searches for a suitable resource reader</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

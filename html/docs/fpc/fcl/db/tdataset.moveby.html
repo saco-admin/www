@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDataSet.MoveBy</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDataSet.MoveBy</h1>
+<p>Move the cursor position</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1655</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../db/tdataset.html">TDataSet</a><span class="sym">.</span>MoveBy<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Distance<span class="sym">: </span><a href="../../rtl/system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Distance</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of positions the cursor should be moved</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Number of positions the cursor actually moved</p>
+<h2>Description</h2>
+<p><var>MoveBy</var> moves the current record pointer with <var>Distance</var> positions. <var>Distance</var> may be a positive number,  in which case the cursor is moved forward, or a negative number, in which case the cursor is moved backward. The move operation will stop  as soon as the beginning or end of the data is reached. The <a href="../db/tdataset.beforescroll.html">TDataset.BeforeScroll</a> and <a href="../db/tdataset.afterscroll.html">TDataset.AfterScroll</a> events  are triggered (once) when this method is called. The function returns the distance which was actually moved by the cursor. </p>
+<h2>Errors</h2>
+<p>A negative distance will result in an <a href="../db/edatabaseerror.html">EDatabaseError</a> exception on unidirectional datasets. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdataset.recno.html">TDataset.RecNo</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Current record number</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.beforescroll.html">TDataset.BeforeScroll</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event triggered before the cursor changes position.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.afterscroll.html">TDataset.AfterScroll</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event triggered after the cursor has changed position.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Class definitions</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 4101--><div class="crosslinks"><p class="noindent">[<a 
+href="refse35.html" >next</a>] [<a 
+href="#tailrefse34.html">tail</a>] [<a 
+href="refch6.html#refse34.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">6.1   </span> <a 
+href="ref.html#QQ2-69-97" id="x69-910006.1">Class definitions</a></h3>
+<!--l. 4102--><p class="noindent" >The prototype declaration of a class is as follows:<a 
+ id="dx69-91001"></a>
+                                                                            
+
+                                                                            
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Class types</span><br 
+class="newline" /><BR/><img 
+src="ref76x.png" alt="--class type--|class forward definition-----------------------------------
+            ----class definition-----
+     " ><BR/>
+     <BR/><img 
+src="ref77x.png" alt="--class forward definition-class--------------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref78x.png" alt="--class definition-|---------class -|--------|------------------------
+               -packed--       -heritage- -|component list--end --
+                                         ---------------
+     " ><BR/>
+     <BR/><img 
+src="ref79x.png" alt="--heritage -(- class type identifier|---------------------)------------
+                             - implemented interfaces-
+     " ><BR/>
+     <BR/><img 
+src="ref80x.png" alt="--implemented interfaces--, -interface identifier-------------------------
+                     -------------------|
+     " ><BR/>
+     <BR/><img 
+src="ref81x.png" alt=" --            ------------------|-----------------
+   component list -visibility specifier--||--field definition ---|
+                                   -------------|
+-----------------------------------------------------------------
+   ------const declaration part------|
+    | |---type declaration part----| |
+    | |--variable declaration part--| |
+    | |class variable declaration part| |
+    | |----method definition-----| |
+    | -----property definition------ |
+    ----------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref82x.png" alt="--class variable declaration part class variable declaration part-------------
+     " ><BR/>
+     <BR/><img 
+src="ref83x.png" alt="--field definition- identifier list- :- type- ;--|--------------------------
+                                     -static;--
+     " ><BR/>
+     <BR/><img 
+src="ref84x.png" alt=" --              ------------            ---- --
+   method definition - class -| -pfruoncctediounreh heaedaedrer --|;
+                           -constructor header-|
+                           -desctuctor header-|
+-----------------------------------------------------------------
+   ---| virtual----|------------- ;--|-call modifiers-;--|
+    | -dynamic -- -;- abstract --|
+    |---------override ---------|
+    -message -|integer constant--
+              --string constant---
+     " ><BR/>
+     <BR/><img 
+src="ref85x.png" alt="--class visibility specifier--|--------|-private-------------------------
+                     |-strict-- -protected-- |
+                     |-------public---------|
+                     -------published -------
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 4105--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> In MacPas mode, the <span 
+class="cmtt-10">Object </span>keyword is replaced by the <span 
+class="cmtt-10">class </span>keyword for compatibility
+with other pascal compilers available on the Mac. That means that in MacPas mode,
+the reserved word &#8217;class&#8217; in the above diagram may be replaced by the reserved word
+&#8217;object&#8217;.
+<!--l. 4112--><p class="noindent" >In a class declaration, as many <span 
+class="cmtt-10">private</span>, <span 
+class="cmtt-10">protected</span>, <span 
+class="cmtt-10">published </span>and <span 
+class="cmtt-10">public </span>blocks as needed can
+be used: the various blocks can be repeated, and there is no special order in which they must
+appear.
+<!--l. 4116--><p class="noindent" >Methods are normal function or procedure declarations. As can be seen, the declaration of a class
+is almost identical to the declaration of an object. The real difference between objects and classes is
+in the way they are created (see further in this chapter).
+<!--l. 4121--><p class="noindent" >The visibility of the different sections is as follows:<a 
+ id="dx69-91002"></a>
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Private</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description"><a 
+ id="dx69-91003"></a><a 
+ id="dx69-91004"></a> All fields and methods that are in a <span 
+class="cmtt-10">private </span>block, can only be accessed in the
+     module (i.e. unit) that contains the class definition. They can be accessed from inside
+     the classes&#8217; methods or from outside them (e.g. from other classes&#8217; methods)<a name="keyword_private"></a>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Strict Private</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description"><a 
+ id="dx69-91005"></a><a 
+ id="dx69-91006"></a> All fields and methods that are in a <span 
+class="cmtt-10">strict private </span>block, can only be
+     accessed from methods of the class itself. Other classes or descendent classes (even in
+     the same unit) cannot access strict private members. <a name="keyword_strict"></a>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Protected</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description"><a 
+ id="dx69-91007"></a><a 
+ id="dx69-91008"></a>Is the same as <span 
+class="cmtt-10">Private</span>, except that the members of a <span 
+class="cmtt-10">Protected </span>section are
+     also accessible to descendent types, even if they are implemented in other modules.<a name="keyword_protected"></a>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Strict Protected</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description"><a 
+ id="dx69-91009"></a><a 
+ id="dx69-91010"></a>Is the same as <span 
+class="cmtt-10">Protected</span>, except that the members of a <span 
+class="cmtt-10">Protected</span>
+     section  are  also  accessible  to  other  classes  implemented  in  the  same  unit.  <span 
+class="cmtt-10">Strict</span>
+     <span 
+class="cmtt-10">protected </span>members are only visible to descendent classes, not to other classes in the
+     same unit. <a name="keyword_strict protected"></a>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Public</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description"><a 
+ id="dx69-91011"></a><a 
+ id="dx69-91012"></a> sections are always accessible.<a name="keyword_public"></a>
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Published</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description"><a 
+ id="dx69-91013"></a><a 
+ id="dx69-91014"></a> From a language perspective, this is the same as a <span 
+class="cmtt-10">Public </span>section, but the
+     compiler generates also type information that is needed for automatic streaming of
+     these classes if the compiler is in the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$M+</span><span 
+class="cmsy-10">} </span>state. Fields defined in a <span 
+class="cmtt-10">published </span>section
+     must be of class type. Array properties cannot be in a <span 
+class="cmtt-10">published </span>section.<a name="keyword_published"></a></dd></dl>
+<!--l. 4148--><p class="noindent" >In the syntax diagram, it can be seen that a class can list implemented interfaces. This feature will
+be discussed in the next chapter.
+<!--l. 4151--><p class="noindent" >Classes can contain <span 
+class="cmtt-10">Class </span>methods: these are functions that do not require an instance. The <span 
+class="cmtt-10">Self</span>
+identifier is valid in such methods, but refers to the class pointer (the VMT).
+<!--l. 4155--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Like with functions and pointer types, sometimes a forward definition of a class is needed. A class
+forward definition is simply the name of the class, with the keyword <span 
+class="cmtt-10">Class</span>, as in the following
+example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-158">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TClassB&#x00A0;=&#x00A0;Class;
+&#x00A0;<br />&#x00A0;&#x00A0;TClassA&#x00A0;=&#x00A0;Class
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;TClassB;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TClassB&#x00A0;=&#x00A0;Class
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;TClassA;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 4169--><p class="nopar" >When using a class forward definition, the class must be defined in the same unit, in the same
+section (interface/implementation). It must not necessarily be defined in the same type
+section.
+<!--l. 4175--><p class="noindent" >It is also possible to define class reference types:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Class reference type</span><br 
+class="newline" /><BR/><img 
+src="ref86x.png" alt="--       -       -----------------------------------------------
+  class of classtype
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 4177--><p class="noindent" >Class reference types are used to create instances of a certain class, which is not yet known at
+compile time, but which is specified at run time. Essentially, a variable of a class reference type
+contains a pointer to the definition of the speficied class. This can be used to construct an instance
+of the class corresponding to the definition, or to check inheritance. The following example shows
+how it works:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-159">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TComponentClass&#x00A0;=&#x00A0;Class&#x00A0;of&#x00A0;TComponent;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;CreateComponent(AClass:&#x00A0;TComponentClass;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;AOwner:&#x00A0;TComponent):&#x00A0;TComponent;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=AClass.Create(AOwner);
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;...
+&#x00A0;<br />end;
+</div>
+<!--l. 4195--><p class="nopar" >This function can be passed a class reference of any class that descends from <span 
+class="cmtt-10">TComponent</span>. The
+following is a valid call:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-160">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;TComponent;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;C:=CreateComponent(TEdit,Form1);
+&#x00A0;<br />end;
+</div>
+<!--l. 4205--><p class="nopar" >On return of the <span 
+class="cmtt-10">CreateComponent </span>function, <span 
+class="cmtt-10">C </span>will contain an instance of the class <span 
+class="cmtt-10">TEdit</span>. Note
+that the following call will fail to compile:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-161">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;TComponent;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;C:=CreateComponent(TStream,Form1);
+&#x00A0;<br />end;
+</div>
+<!--l. 4216--><p class="nopar" >because <span 
+class="cmtt-10">TStream </span>does not descend from <span 
+class="cmtt-10">TComponent</span>, and <span 
+class="cmtt-10">AClass </span>refers to a <span 
+class="cmtt-10">TComponent </span>class.
+The compiler can (and will) check this at compile time, and will produce an error.
+<!--l. 4221--><p class="noindent" >References to classes can also be used to check inheritance:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-162">
+&#x00A0;&#x00A0;TMinClass&#x00A0;=&#x00A0;Class&#x00A0;of&#x00A0;TMyClass;
+&#x00A0;<br />&#x00A0;&#x00A0;TMaxClass&#x00A0;=&#x00A0;Class&#x00A0;of&#x00A0;TMyClassChild;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;CheckObjectBetween(Instance&#x00A0;:&#x00A0;TObject)&#x00A0;:&#x00A0;boolean;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;If&#x00A0;not&#x00A0;(Instance&#x00A0;is&#x00A0;TMinClass)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;or&#x00A0;((Instance&#x00A0;is&#x00A0;TMaxClass)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;and&#x00A0;(Instance.ClassType&#x003C;&#x003E;TMaxClass))&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Raise&#x00A0;Exception.Create(SomeError)
+&#x00A0;<br />end;
+</div>
+<!--l. 4234--><p class="nopar" >The above example will raise an exception if the passed instance is not a descendent of <span 
+class="cmtt-10">TMinClass</span>
+or a descendent of <span 
+class="cmtt-10">TMaxClass</span>.
+<!--l. 4238--><p class="noindent" >More about instantiating a class can be found in section <a 
+href="refse36.html#x73-950006.3">6.3<!--tex4ht:ref: se:classinstantiation --></a>, page <a 
+href="refse36.html#x73-950006.3">297<!--tex4ht:ref: se:classinstantiation --></a>.
+                                                                            
+
+                                                                            
+<!--l. 4242--><div class="crosslinks"><p class="noindent">[<a 
+href="refse35.html" >next</a>] [<a 
+href="refse34.html" >front</a>] [<a 
+href="refch6.html#refse34.html" >up</a>] </p></div>
+<!--l. 4242--><p class="noindent" ><a 
+ id="tailrefse34.html"></a>  
+</body></html> 

@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Managed types and reference counts</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 10063--><div class="crosslinks"><p class="noindent">[<a 
+href="refse93.html" >next</a>] [<a 
+href="refse91.html" >prev</a>] [<a 
+href="refse91.html#tailrefse91.html" >prev-tail</a>] [<a 
+href="#tailrefse92.html">tail</a>] [<a 
+href="refch14.html#refse92.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">14.5   </span> <a 
+href="ref.html#QQ2-182-219" id="x182-20400014.5">Managed types and reference counts</a></h3>
+<a 
+ id="dx182-204001"></a>
+<!--l. 10065--><p class="noindent" >Some types (Unicodestring, Ansistring, interfaces, dynamic arrays) are treated somewhat specially
+by the compiler: the data has a reference count which is increased or decreased depending on how
+many reference to the data exists.
+<!--l. 10070--><p class="noindent" >The qualifiers for parameters in function or procedure calls influence what happens to the reference
+count of the managed types:
+     <ul class="itemize1">
+     <li class="itemize">nothing (pass by value): the reference count of the parameter is increased on entry and
+     decreased on exit.
+     </li>
+     <li class="itemize"><span 
+class="cmtt-10">out</span>: the reference count of the value that is passed in is decreased by 1, and the variable
+     that&#8217;s passed into the procedure is initialized to &#8221;empty&#8221; (usually <span 
+class="cmtt-10">Nil</span>, but that is an
+     implementation detail which should not be relied on).
+     </li>
+     <li class="itemize"><span 
+class="cmtt-10">var </span>nothing happens to the reference count. A reference to the original variable is
+     passed in, and changing it or reading it has exactly the same effect as changing/reading
+     the original variable.
+     </li>
+     <li class="itemize"><span 
+class="cmtt-10">const </span>this case is slightly tricky. Nothing happens to the reference count because you
+     can pass non-lvalues here. In particular, you can pass a class implementing an interface
+     rather than the interface itself which can cause the class to be freed unexpectedly.</li></ul>
+<!--l. 10087--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> The function result is internally treated as a var parameter to the function, and the same rules as
+for var parameters apply.
+<!--l. 10092--><p class="noindent" >The following example demonstrates the dangers:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-419">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;ITest&#x00A0;=&#x00A0;Interface
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;DoTest(ACount&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TTest&#x00A0;=&#x00A0;Class(TInterfacedObject,ITest)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;DoTest(ACount&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Destructor&#x00A0;destroy;&#x00A0;override;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Destructor&#x00A0;TTest.Destroy;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Destroy&#x00A0;called&#8217;);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;TTest.DoTest(ACount&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Test&#x00A0;&#8217;,ACount,&#8217;&#x00A0;:&#x00A0;ref&#x00A0;count:&#x00A0;&#8217;,RefCount);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;DoIt1(x:&#x00A0;ITest;&#x00A0;ACount&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Reference&#x00A0;count&#x00A0;is&#x00A0;increased
+&#x00A0;<br />&#x00A0;&#x00A0;x.DoTest(ACount);
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;And&#x00A0;decreased
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;DoIt2(const&#x00A0;x:&#x00A0;ITest;&#x00A0;ACount&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;No&#x00A0;change&#x00A0;to&#x00A0;reference&#x00A0;count.
+&#x00A0;<br />&#x00A0;&#x00A0;x.DoTest(ACount);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;Test1;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;y:&#x00A0;ITest;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;y&#x00A0;:=&#x00A0;TTest.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Ref.&#x00A0;count&#x00A0;is&#x00A0;1&#x00A0;at&#x00A0;this&#x00A0;point.
+&#x00A0;<br />&#x00A0;&#x00A0;y.DoTest(1);
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Calling&#x00A0;DoIT&#x00A0;will&#x00A0;increase&#x00A0;reference&#x00A0;count&#x00A0;and&#x00A0;decrease&#x00A0;on&#x00A0;exit.
+&#x00A0;<br />&#x00A0;&#x00A0;DoIt1(y,2);
+                                                                            
+
+                                                                            
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Reference&#x00A0;count&#x00A0;is&#x00A0;still&#x00A0;one.
+&#x00A0;<br />&#x00A0;&#x00A0;y.DoTest(3);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;Test2;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;Y&#x00A0;:&#x00A0;TTest;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Y&#x00A0;:=&#x00A0;TTest.Create;&#x00A0;//&#x00A0;no&#x00A0;count&#x00A0;on&#x00A0;the&#x00A0;object&#x00A0;yet
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Ref.&#x00A0;count&#x00A0;is&#x00A0;0&#x00A0;at&#x00A0;this&#x00A0;point.
+&#x00A0;<br />&#x00A0;&#x00A0;y.DoTest(3);
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Ref&#x00A0;count&#x00A0;will&#x00A0;remain&#x00A0;zero.
+&#x00A0;<br />&#x00A0;&#x00A0;DoIt2(y,4);
+&#x00A0;<br />&#x00A0;&#x00A0;Y.DoTest(5);
+&#x00A0;<br />&#x00A0;&#x00A0;Y.Free;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;Test3;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;Y&#x00A0;:&#x00A0;TTest;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Y&#x00A0;:=&#x00A0;TTest.Create;&#x00A0;//&#x00A0;no&#x00A0;count&#x00A0;on&#x00A0;the&#x00A0;object&#x00A0;yet
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Ref.&#x00A0;count&#x00A0;is&#x00A0;0&#x00A0;at&#x00A0;this&#x00A0;point.
+&#x00A0;<br />&#x00A0;&#x00A0;y.DoTest(6);
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Ref&#x00A0;count&#x00A0;will&#x00A0;remain&#x00A0;zero.
+&#x00A0;<br />&#x00A0;&#x00A0;DoIt1(y,7);
+&#x00A0;<br />&#x00A0;&#x00A0;y.DoTest(8);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Test1;
+&#x00A0;<br />&#x00A0;&#x00A0;Test2;
+&#x00A0;<br />&#x00A0;&#x00A0;Test3;
+&#x00A0;<br />end.
+</div>
+<!--l. 10180--><p class="nopar" >The output of this example is:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-420">
+Test&#x00A0;1&#x00A0;:&#x00A0;ref&#x00A0;count:&#x00A0;1
+&#x00A0;<br />Test&#x00A0;2&#x00A0;:&#x00A0;ref&#x00A0;count:&#x00A0;2
+&#x00A0;<br />Test&#x00A0;3&#x00A0;:&#x00A0;ref&#x00A0;count:&#x00A0;1
+&#x00A0;<br />Destroy&#x00A0;called
+&#x00A0;<br />Test&#x00A0;3&#x00A0;:&#x00A0;ref&#x00A0;count:&#x00A0;0
+&#x00A0;<br />Test&#x00A0;4&#x00A0;:&#x00A0;ref&#x00A0;count:&#x00A0;0
+&#x00A0;<br />Test&#x00A0;5&#x00A0;:&#x00A0;ref&#x00A0;count:&#x00A0;0
+&#x00A0;<br />Destroy&#x00A0;called
+&#x00A0;<br />Test&#x00A0;6&#x00A0;:&#x00A0;ref&#x00A0;count:&#x00A0;0
+&#x00A0;<br />Test&#x00A0;7&#x00A0;:&#x00A0;ref&#x00A0;count:&#x00A0;1
+&#x00A0;<br />Destroy&#x00A0;called
+&#x00A0;<br />Test&#x00A0;8&#x00A0;:&#x00A0;ref&#x00A0;count:&#x00A0;0
+</div>
+<!--l. 10195--><p class="nopar" >As can be seen, in test3, the reference count is decreased from 1 to 0 at the end of the DoIt call,
+causing the instance to be freed before the call returns.
+<!--l. 10200--><p class="noindent" >The following small program demonstrates the reference counts used in strings:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-421">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />{$H+}
+&#x00A0;<br />
+&#x00A0;<br />//&#x00A0;Auxiliary&#x00A0;function&#x00A0;to&#x00A0;extract&#x00A0;reference&#x00A0;count.
+&#x00A0;<br />function&#x00A0;SRefCount(P&#x00A0;:&#x00A0;Pointer)&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;PAnsiRec&#x00A0;=&#x00A0;^TAnsiRec;
+&#x00A0;<br />&#x00A0;&#x00A0;TAnsiRec&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;CodePage&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;TSystemCodePage;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;ElementSize&#x00A0;:&#x00A0;Word;
+&#x00A0;<br />&#x00A0;&#x00A0;{$ifdef&#x00A0;CPU64}
+&#x00A0;<br />&#x00A0;&#x00A0;{&#x00A0;align&#x00A0;fields&#x00A0;&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Dummy&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;DWord;
+&#x00A0;<br />&#x00A0;&#x00A0;{$endif&#x00A0;CPU64}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Ref&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;SizeInt;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Len&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;SizeInt;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;if&#x00A0;P=Nil&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Result:=0
+&#x00A0;<br />&#x00A0;&#x00A0;else
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Result:=PAnsiRec(P-SizeOf(TAnsiRec))^.Ref;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;ByVar(Var&#x00A0;S&#x00A0;:&#x00A0;string);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;By&#x00A0;var,&#x00A0;ref&#x00A0;count&#x00A0;:&#x00A0;&#8217;,SRefCount(Pointer(S)));
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;ByConst(Const&#x00A0;S&#x00A0;:&#x00A0;string);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Const,&#x00A0;ref&#x00A0;count&#x00A0;:&#x00A0;&#8217;,SRefCount(Pointer(S)));
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;ByVal(S&#x00A0;:&#x00A0;string);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Value,&#x00A0;ref&#x00A0;count&#x00A0;:&#x00A0;&#8217;,SRefCount(Pointer(S)));
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;FunctionResult(Var&#x00A0;S&#x00A0;:&#x00A0;String)&#x00A0;:&#x00A0;String;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Function&#x00A0;argument,&#x00A0;ref&#x00A0;count&#x00A0;:&#x00A0;&#8217;,SRefCount(Pointer(S)));
+                                                                            
+
+                                                                            
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Function&#x00A0;result,&#x00A0;ref&#x00A0;count&#x00A0;:&#x00A0;&#8217;,SRefCount(Pointer(Result)));
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;S,T&#x00A0;:&#x00A0;String;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;S:=&#8217;Some&#x00A0;string&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Constant&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;&#8217;,SrefCount(Pointer(S)));
+&#x00A0;<br />&#x00A0;&#x00A0;UniqueString(S);
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Unique&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;:&#x00A0;&#8217;,SRefCount(Pointer(S)));
+&#x00A0;<br />&#x00A0;&#x00A0;T:=S;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;After&#x00A0;Assign&#x00A0;&#x00A0;&#x00A0;:&#x00A0;&#8217;,SRefCount(Pointer(S)));
+&#x00A0;<br />&#x00A0;&#x00A0;ByVar(S);
+&#x00A0;<br />&#x00A0;&#x00A0;ByConst(S);
+&#x00A0;<br />&#x00A0;&#x00A0;ByVal(S);
+&#x00A0;<br />&#x00A0;&#x00A0;UniqueString(S);
+&#x00A0;<br />&#x00A0;&#x00A0;T:=FunctionResult(S);
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;After&#x00A0;function&#x00A0;:&#x00A0;&#8217;,SRefCount(Pointer(S)));
+&#x00A0;<br />end.
+</div>
+<!--l. 10271--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 10276--><div class="crosslinks"><p class="noindent">[<a 
+href="refse93.html" >next</a>] [<a 
+href="refse91.html" >prev</a>] [<a 
+href="refse91.html#tailrefse91.html" >prev-tail</a>] [<a 
+href="refse92.html" >front</a>] [<a 
+href="refch14.html#refse92.html" >up</a>] </p></div>
+<!--l. 10276--><p class="noindent" ><a 
+ id="tailrefse92.html"></a>  
+</body></html> 

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TJSONObject.IndexOfName</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../fpjson/index.html">Overview</a>][<a href="../fpjson/index-2.html">Constants</a>][<a href="../fpjson/index-3.html">Types</a>][<a href="../fpjson/index-4.html">Classes</a>][<a href="../fpjson/index-5.html">Procedures and functions</a>][<a href="../fpjson/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'fpjson' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TJSONObject.IndexOfName</h1>
+<p>Return index of name in item list</p>
+<h2>Declaration</h2>
+<p>Source position: fpjson.pp line 537</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../fpjson/tjsonobject.html">TJSONObject</a><span class="sym">.</span>IndexOfName<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AName<span class="sym">: </span><a href="../fpjson/tjsonstringtype.html">TJSONStringType</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;CaseInsensitive<span class="sym">: </span>Boolean <span class="sym">=</span> False</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Name to search for.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">CaseInsensitive</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search case-insensitively or not ?</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Index of <var>AName</var> in the array, or -1.</p>
+<h2>Description</h2>
+<p><var>IndexOfName</var> compares the names of all elements in the object with <var>AName</var> and returns the index (in the <a href="../fpjson/tjsondata.items.html">TJSONData.Items</a> property) of the element instance whose name matched <var>AName</var>. If none of the element's names match, the function returns -1. </p>
+<p>Since JSON is a case-sensitive specification, the names are searched case-sensitively by default. This can be changed by setting the optional <var>CaseInsensitive</var> parameter to <var>True</var></p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><b>IndexOf</b></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

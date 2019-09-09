@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDefCollection.create</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDefCollection.create</h1>
+<p>Instantiate a new <var>TDefCollection</var> instance.</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 155</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">constructor</span> <a href="../db/tdefcollection.html">TDefCollection</a><span class="sym">.</span>create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ADataset<span class="sym">: </span><a href="../db/tdataset.html">TDataSet</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AOwner<span class="sym">: </span><a href="../../rtl/classes/tpersistent.html">TPersistent</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AClass<span class="sym">: </span><a href="../../rtl/classes/tcollectionitemclass.html">TCollectionItemClass</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ADataset</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Dataset to manage definitions for</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AOwner</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Owner of the items in the collection.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AClass</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Item class for Add call.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Create</var> saves the <var>ADataset</var> and <var>AOwner</var> components in local variables for later reference,  and then calls the inherited <var>Create</var> with <var>AClass</var> as a parameter. <var>AClass</var> should at least be of type <var>TNamedItem</var>. <var>ADataset</var> is the dataset on whose behalf  the collection is managed. <var>AOwner</var> is the owner of the collection, normally this is the form or datamodule  on which the dataset is dropped. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdataset.html">TDataset</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class for records-based data-access</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tnameditem.html">TNamedItem</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Named collection item</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

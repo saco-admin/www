@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>msgctl</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../ipc/index.html">Overview</a>][<a href="../ipc/index-2.html">Constants</a>][<a href="../ipc/index-3.html">Types</a>][<a href="../ipc/index-5.html">Procedures and functions</a>][<a href="../ipc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'ipc' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>msgctl</h1>
+<p>Perform various operations on a message queue</p>
+<h2>Declaration</h2>
+<p>Source position: ipc.pp line 647</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> msgctl<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;msqid<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;cmd<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;buf<span class="sym">: </span><a href="../ipc/pmsqid_ds.html">PMSQid_ds</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>msgctl</var> performs various operations on the message queue with id <var>ID</var>. Which operation is performed, depends on the <var>cmd</var>  parameter, which can have one of the following values: </p>
+<dl>
+<dt>IPC_STAT</dt>
+<dd>In this case, the <var>msgctl</var> call fills the <var>TMSQid_ds</var> structure with information about the message queue. </dd>
+<dt>IPC_SET</dt>
+<dd>in this case, the <var>msgctl</var> call sets the permissions of the queue as specified in the <var>ipc_perm</var> record inside <var>buf</var>. </dd>
+<dt>IPC_RMID</dt>
+<dd>If this is specified, the message queue will be removed  from the system. </dd>
+</dl>
+<p><var>buf</var> contains the data that are needed by the call. It can be  <var>Nil</var> in case the message queue should be removed. </p>
+<p>The function returns <var>True</var> if successfull, <var>False</var> otherwise. </p>
+<h2>Errors</h2>
+<p>On error, <var>False</var> is returned, and <var>IPCerror</var> is set accordingly. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../ipc/msgget.html">msgget</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return message queue ID, possibly creating the queue</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ipc/msgsnd.html">msgsnd</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Send a message to the messague queue</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ipc/msgrcv.html">msgrcv</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Retrieve a message from the queue</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> msgtool<span class="sym">;</span>
+
+<span class="kw">Uses</span> ipc<span class="sym">,</span>baseunix<span class="sym">;</span>
+
+<span class="kw">Type</span>
+  PMyMsgBuf <span class="sym">=</span> <span class="sym">^</span>TMyMsgBuf<span class="sym">;</span>
+  TMyMsgBuf <span class="sym">=</span> <span class="kw">record</span>
+    mtype <span class="sym">:</span> Longint<span class="sym">;</span>
+    mtext <span class="sym">:</span> string<span class="sym">[</span><span class="num">255</span><span class="sym">]</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> DoError <span class="sym">(</span><span class="kw">Const</span> Msg <span class="sym">:</span> string<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Writeln <span class="sym">(</span>msg<span class="sym">,</span><span class="str">' returned an error : '</span><span class="sym">,</span>fpgeterrno<span class="sym">)</span><span class="sym">;</span>
+  halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> SendMessage <span class="sym">(</span>Id <span class="sym">:</span> Longint<span class="sym">;</span>
+                       <span class="kw">Var</span> Buf <span class="sym">:</span> TMyMsgBuf<span class="sym">;</span>
+                       MType <span class="sym">:</span> Longint<span class="sym">;</span>
+                       <span class="kw">Const</span> MText <span class="sym">:</span> String<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Writeln <span class="sym">(</span><span class="str">'Sending message.'</span><span class="sym">)</span><span class="sym">;</span>
+  Buf<span class="sym">.</span>mtype<span class="sym">:=</span>mtype<span class="sym">;</span>
+  Buf<span class="sym">.</span>Mtext<span class="sym">:=</span>mtext<span class="sym">;</span>
+  <span class="kw">If</span>  msgsnd<span class="sym">(</span>Id<span class="sym">,</span>PMsgBuf<span class="sym">(</span><span class="sym">@</span>Buf<span class="sym">)</span><span class="sym">,</span><span class="num">256</span><span class="sym">,</span><span class="num">0</span><span class="sym">)</span><span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    DoError<span class="sym">(</span><span class="str">'msgsnd'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> ReadMessage <span class="sym">(</span>ID <span class="sym">:</span> Longint<span class="sym">;</span>
+                       <span class="kw">Var</span> Buf <span class="sym">:</span> TMyMsgBuf<span class="sym">;</span>
+                       MType <span class="sym">:</span> longint<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Writeln <span class="sym">(</span><span class="str">'Reading message.'</span><span class="sym">)</span><span class="sym">;</span>
+  Buf<span class="sym">.</span>MType<span class="sym">:=</span>MType<span class="sym">;</span>
+  <span class="kw">If</span> msgrcv<span class="sym">(</span>ID<span class="sym">,</span>PMSGBuf<span class="sym">(</span><span class="sym">@</span>Buf<span class="sym">)</span><span class="sym">,</span><span class="num">256</span><span class="sym">,</span>mtype<span class="sym">,</span><span class="num">0</span><span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    Writeln <span class="sym">(</span><span class="str">'Type : '</span><span class="sym">,</span>buf<span class="sym">.</span>mtype<span class="sym">,</span><span class="str">' Text : '</span><span class="sym">,</span>buf<span class="sym">.</span>mtext<span class="sym">)</span>
+  <span class="kw">else</span>
+    DoError <span class="sym">(</span><span class="str">'msgrcv'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> RemoveQueue <span class="sym">(</span> ID <span class="sym">:</span> Longint<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">If</span> msgctl <span class="sym">(</span>id<span class="sym">,</span>IPC_RMID<span class="sym">,</span><span class="kw">Nil</span><span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    Writeln <span class="sym">(</span><span class="str">'Removed Queue with id '</span><span class="sym">,</span>Id<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> ChangeQueueMode <span class="sym">(</span>ID<span class="sym">,</span>mode <span class="sym">:</span> longint<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span> QueueDS <span class="sym">:</span> TMSQid_ds<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">If</span>  msgctl <span class="sym">(</span>Id<span class="sym">,</span>IPC_STAT<span class="sym">,</span><span class="sym">@</span>QueueDS<span class="sym">)</span><span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    DoError <span class="sym">(</span><span class="str">'msgctl : stat'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Old permissions : '</span><span class="sym">,</span>QueueDS<span class="sym">.</span>msg_perm<span class="sym">.</span>mode<span class="sym">)</span><span class="sym">;</span>
+  QueueDS<span class="sym">.</span>msg_perm<span class="sym">.</span>mode<span class="sym">:=</span>Mode<span class="sym">;</span>
+  <span class="kw">if</span> msgctl <span class="sym">(</span>ID<span class="sym">,</span>IPC_SET<span class="sym">,</span><span class="sym">@</span>QueueDS<span class="sym">)</span><span class="sym">=</span><span class="num">0</span> <span class="kw">then</span>
+    Writeln <span class="sym">(</span><span class="str">'New permissions : '</span><span class="sym">,</span>QueueDS<span class="sym">.</span>msg_perm<span class="sym">.</span>mode<span class="sym">)</span>
+  <span class="kw">else</span>
+   DoError <span class="sym">(</span><span class="str">'msgctl : IPC_SET'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">procedure</span> usage<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Writeln <span class="sym">(</span><span class="str">'Usage : msgtool s(end)    &lt;type&gt; &lt;text&gt; (max 255 characters)'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'                r(eceive) &lt;type&gt;'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'                d(elete)'</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'                m(ode) &lt;decimal mode&gt;'</span><span class="sym">)</span><span class="sym">;</span>
+  halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Function</span> StrToInt <span class="sym">(</span>S <span class="sym">:</span> String<span class="sym">)</span><span class="sym">:</span> longint<span class="sym">;</span>
+
+<span class="kw">Var</span> M <span class="sym">:</span> longint<span class="sym">;</span>
+    C <span class="sym">:</span> Integer<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  val <span class="sym">(</span>S<span class="sym">,</span>M<span class="sym">,</span>C<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> C<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">Then</span> DoError <span class="sym">(</span><span class="str">'StrToInt : '</span><span class="sym">+</span>S<span class="sym">)</span><span class="sym">;</span>
+  StrToInt<span class="sym">:=</span>M<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  Key <span class="sym">:</span> TKey<span class="sym">;</span>
+  ID  <span class="sym">:</span> longint<span class="sym">;</span>
+  Buf <span class="sym">:</span> TMyMsgBuf<span class="sym">;</span>
+
+<span class="kw">const</span> ipckey <span class="sym">=</span> <span class="chr">'.'</span><span class="chr">#0</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">If</span> Paramcount<span class="sym">&lt;</span><span class="num">1</span> <span class="kw">then</span> Usage<span class="sym">;</span>
+  key <span class="sym">:=</span>Ftok<span class="sym">(</span><span class="sym">@</span>ipckey<span class="sym">[</span><span class="num">1</span><span class="sym">]</span><span class="sym">,</span>ord<span class="sym">(</span><span class="chr">'M'</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  ID<span class="sym">:=</span>msgget<span class="sym">(</span>key<span class="sym">,</span>IPC_CREAT <span class="kw">or</span> <span class="num">438</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> ID<span class="sym">&lt;</span><span class="num">0</span> <span class="kw">then</span> DoError <span class="sym">(</span><span class="str">'MsgGet'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">Case</span> upCase<span class="sym">(</span>Paramstr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">[</span><span class="num">1</span><span class="sym">]</span><span class="sym">)</span> <span class="kw">of</span>
+   <span class="chr">'S'</span> <span class="sym">:</span> <span class="kw">If</span> ParamCount<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">3</span> <span class="kw">then</span>
+           Usage
+         <span class="kw">else</span>
+           SendMessage <span class="sym">(</span>id<span class="sym">,</span>Buf<span class="sym">,</span>StrToInt<span class="sym">(</span>Paramstr<span class="sym">(</span><span class="num">2</span><span class="sym">)</span><span class="sym">)</span><span class="sym">,</span>paramstr<span class="sym">(</span><span class="num">3</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+   <span class="chr">'R'</span> <span class="sym">:</span> <span class="kw">If</span> ParamCount<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">2</span> <span class="kw">then</span>
+           Usage
+         <span class="kw">else</span>
+           ReadMessage <span class="sym">(</span>id<span class="sym">,</span>buf<span class="sym">,</span>strtoint<span class="sym">(</span>Paramstr<span class="sym">(</span><span class="num">2</span><span class="sym">)</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+   <span class="chr">'D'</span> <span class="sym">:</span> <span class="kw">If</span> ParamCount<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">1</span> <span class="kw">then</span>
+           Usage
+         <span class="kw">else</span>
+           RemoveQueue <span class="sym">(</span>ID<span class="sym">)</span><span class="sym">;</span>
+   <span class="chr">'M'</span> <span class="sym">:</span> <span class="kw">If</span> ParamCount<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">2</span> <span class="kw">then</span>
+           Usage
+         <span class="kw">else</span>
+           ChangeQueueMode <span class="sym">(</span>id<span class="sym">,</span>strtoint<span class="sym">(</span>paramstr<span class="sym">(</span><span class="num">2</span><span class="sym">)</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+   <span class="kw">else</span>
+     Usage
+   <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

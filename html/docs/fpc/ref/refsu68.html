@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Open array parameters</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 9872--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu69.html" >next</a>] [<a 
+href="refsu67.html" >prev</a>] [<a 
+href="refsu67.html#tailrefsu67.html" >prev-tail</a>] [<a 
+href="#tailrefsu68.html">tail</a>] [<a 
+href="refse91.html#refsu68.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">14.4.5   </span> <a 
+href="ref.html#QQ2-180-217" id="x180-20200014.4.5">Open array parameters</a></h4>
+<a 
+ id="dx180-202001"></a>
+<a 
+ id="dx180-202002"></a>
+<!--l. 9875--><p class="noindent" >Free Pascal supports the passing of open arrays, i.e. a procedure can be declared with an array of
+unspecified length as a parameter, as in Delphi. Open array parameters can be accessed in the
+procedure or function as an array that is declared with starting index 0, and last element index
+<span 
+class="cmtt-10">High(parameter)</span>. For example, the parameter
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-409">
+Row&#x00A0;:&#x00A0;Array&#x00A0;of&#x00A0;Integer;
+</div>
+<!--l. 9883--><p class="nopar" >would be equivalent to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-410">
+Row&#x00A0;:&#x00A0;Array[0..N-1]&#x00A0;of&#x00A0;Integer;
+</div>
+<!--l. 9887--><p class="nopar" >Where <span 
+class="cmtt-10">N </span>would be the actual size of the array that is passed to the function. <span 
+class="cmtt-10">N-1 </span>can be calculated
+as <span 
+class="cmtt-10">High(Row)</span>.
+<!--l. 9891--><p class="noindent" >Specifically, if an empty array is passed, then <span 
+class="cmtt-10">High(Parameter) </span>returns -1, while <span 
+class="cmtt-10">low(Parameter)</span>
+returns 0.
+<!--l. 9894--><p class="noindent" >Open parameters can be passed by value, by reference or as a constant parameter. In the latter
+cases the procedure receives a pointer to the actual array. In the former case, it receives a copy of
+the array. In a function or procedure, open arrays can only be passed to functions which are
+also declared with open arrays as parameters, <span 
+class="cmti-10">not </span>to functions or procedures which
+accept arrays of fixed length. The following is an example of a function using an open
+array:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-411">
+Function&#x00A0;Average&#x00A0;(Row&#x00A0;:&#x00A0;Array&#x00A0;of&#x00A0;integer)&#x00A0;:&#x00A0;Real;
+&#x00A0;<br />Var&#x00A0;I&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Temp&#x00A0;:&#x00A0;Real;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Temp&#x00A0;:=&#x00A0;Row[0];
+&#x00A0;<br />&#x00A0;&#x00A0;For&#x00A0;I&#x00A0;:=&#x00A0;1&#x00A0;to&#x00A0;High(Row)&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Temp&#x00A0;:=&#x00A0;Temp&#x00A0;+&#x00A0;Row[i];
+&#x00A0;<br />&#x00A0;&#x00A0;Average&#x00A0;:=&#x00A0;Temp&#x00A0;/&#x00A0;(High(Row)+1);
+&#x00A0;<br />end;
+</div>
+<!--l. 9911--><p class="nopar" >
+<!--l. 9913--><p class="noindent" >As of FPC 2.2, it is also possible to pass partial arrays to a function that accepts an open array.
+This can be done by specifying the range of the array which should be passed to the open
+array.
+<!--l. 9917--><p class="noindent" >Given the declaration
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-412">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;Array[1..100];
+</div>
+<!--l. 9921--><p class="nopar" >the following call will compute and print the average of the 100 numbers:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-413">
+&#x00A0;&#x00A0;Writeln(&#8217;Average&#x00A0;of&#x00A0;100&#x00A0;numbers:&#x00A0;&#8217;,Average(A));
+</div>
+<!--l. 9925--><p class="nopar" >But the following will compute and print the average of the first and second half:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-414">
+&#x00A0;&#x00A0;Writeln(&#8217;Average&#x00A0;of&#x00A0;first&#x00A0;50&#x00A0;numbers:&#x00A0;&#8217;,Average(A[1..50]));
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Average&#x00A0;of&#x00A0;last&#x00A0;&#x00A0;50&#x00A0;numbers:&#x00A0;&#8217;,Average(A[51..100]));
+</div>
+<!--l. 9931--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 9935--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu69.html" >next</a>] [<a 
+href="refsu67.html" >prev</a>] [<a 
+href="refsu67.html#tailrefsu67.html" >prev-tail</a>] [<a 
+href="refsu68.html" >front</a>] [<a 
+href="refse91.html#refsu68.html" >up</a>] </p></div>
+<!--l. 9935--><p class="noindent" ><a 
+ id="tailrefsu68.html"></a>  
+</body></html> 

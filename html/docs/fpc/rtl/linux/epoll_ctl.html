@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>epoll_ctl</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../linux/index.html">Overview</a>][<a href="../linux/index-2.html">Constants</a>][<a href="../linux/index-3.html">Types</a>][<a href="../linux/index-5.html">Procedures and functions</a>][<a href="../linux/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Linux' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>epoll_ctl</h1>
+<p>Modify an epoll file descriptor</p>
+<h2>Declaration</h2>
+<p>Source position: linux.pp line 278</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> epoll_ctl<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;epfd<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;op<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;fd<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;event<span class="sym">: </span><a href="../linux/pepoll_event.html">PEpoll_Event</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>epoll_ctl</var> performs the <var>op</var> operation on epoll file descriptor <var>epfd</var>. The operation will be monitored on file descriptor <var>fd</var>, and is optionally controlled by <var>event</var>. </p>
+<p><var>op</var> can be one of the following values: </p>
+<dl>
+<dt>EPOLL_CTL_ADD</dt>
+<dd>Add filedescriptor to list of events</dd>
+<dt>EPOLL_CTL_MOD</dt>
+<dd>Modify event for filedescriptor</dd>
+<dt>EPOLL_CTL_DEL</dt>
+<dd>Delete event for filedescriptor</dd>
+</dl>
+<p>The <var>events</var> field in  <var>event_data</var> is a bitmask of one or more of the following values:</p>
+<dl>
+<dt>EPOLLIN</dt>
+<dd>The file is ready for read operations</dd>
+<dt>EPOLLOUT</dt>
+<dd>The file is ready for write operations.</dd>
+<dt>EPOLLPRI</dt>
+<dd>Urgent data is available for read operations.</dd>
+<dt>EPOLLERR</dt>
+<dd>An error condition is signaled on the file descriptor.</dd>
+<dt>EPOLLHUP</dt>
+<dd>A Hang up happened on the file descriptor.</dd>
+<dt>EPOLLET</dt>
+<dd>Set the Edge Triggered behaviour for the file descriptor.</dd>
+<dt>EPOLLONESHOT</dt>
+<dd>Set One-Shot behaviour for the file descriptor. The event will be triggered only once.</dd>
+</dl>
+<h2>Errors</h2>
+<p>On error -1 is returned, and errno is set accordingly. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../linux/epoll_create.html">epoll_create</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create new epoll file descriptor</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../linux/epoll_wait.html">epoll_wait</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Wait for an event on an epoll file descriptor.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpclose.html">fpClose</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Close file descriptor</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

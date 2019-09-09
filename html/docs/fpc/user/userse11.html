@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Compiling a unit</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 866--><div class="crosslinks"><p class="noindent">[<a 
+href="userse12.html" >next</a>] [<a 
+href="userse10.html" >prev</a>] [<a 
+href="userse10.html#tailuserse10.html" >prev-tail</a>] [<a 
+href="#tailuserse11.html">tail</a>] [<a 
+href="userch3.html#userse11.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">3.3   </span> <a 
+href="user.html#QQ2-27-36" id="x27-340003.3">Compiling a unit</a></h3>
+<!--l. 868--><p class="noindent" >Compiling a unit is not essentially different from compiling a program. The difference is mainly
+that the linker isn&#8217;t called in this case.
+<!--l. 871--><p class="noindent" >To compile a unit in the file <span 
+class="cmss-10">foo.pp</span>, just type :
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-39">
+&#x00A0;&#x00A0;fpc&#x00A0;&#x00A0;foo
+</div>
+<!--l. 874--><p class="nopar" >Recall the remark about file extensions in the previous section.
+<!--l. 877--><p class="noindent" >When all went well, you will be left with 2 (two) unit files:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x27-34002x1"><span 
+class="cmss-10">foo.ppu </span>- this is the file describing the unit you just compiled.
+     </li>
+     <li 
+  class="enumerate" id="x27-34004x2"><span 
+class="cmss-10">foo.o </span>- this file contains the actual code of the unit. This file will eventually end up in
+     the executables.</li></ol>
+<!--l. 884--><p class="noindent" >Both files are needed if you plan to use the unit for some programs. So don&#8217;t delete them. If you
+want to distribute the unit, you must provide both the <span 
+class="cmss-10">.ppu </span>and <span 
+class="cmss-10">.o </span>file. One is useless without the
+other.
+                                                                            
+
+                                                                            
+<!--l. 891--><div class="crosslinks"><p class="noindent">[<a 
+href="userse12.html" >next</a>] [<a 
+href="userse10.html" >prev</a>] [<a 
+href="userse10.html#tailuserse10.html" >prev-tail</a>] [<a 
+href="userse11.html" >front</a>] [<a 
+href="userch3.html#userse11.html" >up</a>] </p></div>
+<!--l. 891--><p class="noindent" ><a 
+ id="tailuserse11.html"></a>  
+</body></html> 

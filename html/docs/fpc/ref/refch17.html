@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>17 Exceptions</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 11882--><div class="crosslinks"><p class="noindent">[<a 
+href="refch18.html" >next</a>] [<a 
+href="refch16.html" >prev</a>] [<a 
+href="refch16.html#tailrefch16.html" >prev-tail</a>] [<a 
+href="#tailrefch17.html">tail</a>] [<a 
+href="ref.html#refch17.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;17</span><br /><a 
+href="ref.html#QQ2-226-264" id="x226-24800017">Exceptions</a></h2>
+<a 
+ id="dx226-248001"></a>
+<a 
+ id="dx226-248002"></a>
+<!--l. 11884--><p class="noindent" >Exceptions provide a convenient way to program error and error-recovery mechanisms, and are
+closely related to classes. Exception support is based on 3 constructs:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Raise</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">statements. To raise an exception. This is usually done to signal an error condition.<a 
+ id="dx226-248003"></a>
+     It is however also usable to abort execution and immediately return to a well-known
+     point in the executable.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Try ... Except</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">blocks. These block serve to catch exceptions raised within the scope of
+     the block, and to provide exception-recovery code.<a 
+ id="dx226-248004"></a>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Try ... Finally</span><span 
+class="cmbx-10">&#x00A0;</span> </dt><dd 
+class="description">blocks. These block serve to force code to be executed irrespective of an
+     exception occurrence or not. They generally serve to clean up memory or close files
+     in case an exception occurs. The compiler generates many implicit <span 
+class="cmtt-10">Try ... Finally</span>
+     blocks around procedure, to force memory consistency.</dd></dl>
+<div class="sectionTOCS">
+&#x00A0;<span class="sectionToc" >17.1 <a 
+href="refse112.html#x227-24900017.1">The raise statement</a></span>
+<br />&#x00A0;<span class="sectionToc" >17.2 <a 
+href="refse113.html#x228-25000017.2">The try...except statement</a></span>
+<br />&#x00A0;<span class="sectionToc" >17.3 <a 
+href="refse114.html#x229-25100017.3">The try...finally statement</a></span>
+<br />&#x00A0;<span class="sectionToc" >17.4 <a 
+href="refse115.html#x230-25200017.4">Exception handling nesting</a></span>
+<br />&#x00A0;<span class="sectionToc" >17.5 <a 
+href="refse116.html#x231-25300017.5">Exception classes</a></span>
+</div>
+
+
+
+
+                                                                            
+
+                                                                            
+<!--l. 12170--><div class="crosslinks"><p class="noindent">[<a 
+href="refch18.html" >next</a>] [<a 
+href="refch16.html" >prev</a>] [<a 
+href="refch16.html#tailrefch16.html" >prev-tail</a>] [<a 
+href="refch17.html" >front</a>] [<a 
+href="ref.html#refch17.html" >up</a>] </p></div>
+<!--l. 12170--><p class="noindent" ><a 
+ id="tailrefch17.html"></a>  
+</body></html> 

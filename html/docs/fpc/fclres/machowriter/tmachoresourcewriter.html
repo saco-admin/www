@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TMachOResourceWriter</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../machowriter/index.html">Overview</a>][<a href="../machowriter/index-3.html">Types</a>][<a href="../machowriter/index-4.html">Classes</a>][<a href="../machowriter/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'machowriter' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TMachOResourceWriter</h1>
+<p>[<a href="../machowriter/tmachoresourcewriter-1.html" onClick="window.open('../machowriter/tmachoresourcewriter-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../machowriter/tmachoresourcewriter-2.html" onClick="window.open('../machowriter/tmachoresourcewriter-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../machowriter/tmachoresourcewriter-3.html" onClick="window.open('../machowriter/tmachoresourcewriter-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../machowriter/tmachoresourcewriter-4.html" onClick="window.open('../machowriter/tmachoresourcewriter-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../machowriter/tmachoresourcewriter-5.html" onClick="window.open('../machowriter/tmachoresourcewriter-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../machowriter/tmachoresourcewriter-6.html" onClick="window.open('../machowriter/tmachoresourcewriter-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Mach-O resource writer</p>
+<h2>Declaration</h2>
+<p>Source position: machowriter.pp line 42</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TMachOResourceWriter <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../resource/tabstractresourcewriter.html">TAbstractResourceWriter</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">protected</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresourcewriter.getextensions.html">GetExtensions</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresourcewriter.getdescription.html">GetDescription</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resource/tabstractresourcewriter.write.html">Write</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../resource/tabstractresourcewriter.create.html">Create</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../machowriter/tmachoresourcewriter.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../machowriter/tmachoresourcewriter.machinetype.html">MachineType</a><span class="sym">: </span><a href="../machotypes/tmachomachinetype.html">TMachOMachineType</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The machine type of the object file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../machowriter/tmachoresourcewriter.submachinetype.html">SubMachineType</a><span class="sym">: </span><a href="../machowriter/tmachosubmachinetype.html">TMachoSubMachineType</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../machowriter/tmachoresourcewriter.html">TMachOResourceWriter</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mach-O resource writer</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../resource/tabstractresourcewriter.html">TAbstractResourceWriter</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base abstract resource writer class</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TObject</span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This class provides a writer for Mach-O object files and images containing resources.</p>
+<p>Mach-O is the file format used by Darwin and Mac OS X for object files and image files (executables, dynamic libraries and so on). Free Pascal can store resources in Mach-O files in its own format.</p>
+<p><a href="../machowriter/tmachoresourcewriter.machinetype.html">MachineType</a> property can be used to set the machine type of the object file to generate.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../machowriter/tmachoresourcewriter.machinetype.html">TMachOResourceWriter.MachineType</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The machine type of the object file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresourcewriter.html">TAbstractResourceWriter</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base abstract resource writer class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../machoreader/tmachoresourcereader.html">TMachOResourceReader</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Mach-O resource reader</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../format of resources in object files.html">Format of resources in object files</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Format of resources in object files</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

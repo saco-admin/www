@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Syntax elements</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6100--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu41.html" >next</a>] [<a 
+href="#tailrefsu40.html">tail</a>] [<a 
+href="refse53.html#refsu40.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">8.5.1   </span> <a 
+href="ref.html#QQ2-108-136" id="x108-1300008.5.1">Syntax elements</a></h4>
+<a 
+ id="dx108-130001"></a>
+<!--l. 6102--><p class="noindent" >The syntax shown in the syntax diagrams is the syntax required in the ObjFPC mode of the
+compiler. However, in Delphi mode, the <span 
+class="cmtt-10">specialize </span>and <span 
+class="cmtt-10">generic </span>keywords must not be used, as
+shown in the following example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-255">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TTest&#x003C;T&#x003E;&#x00A0;=&#x00A0;Class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;Private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FObj&#x00A0;:&#x00A0;T;
+&#x00A0;<br />&#x00A0;&#x00A0;Public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Obj&#x00A0;:&#x00A0;T&#x00A0;Read&#x00A0;FObj&#x00A0;Write&#x00A0;FObj;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TIntegerTest&#x00A0;=&#x00A0;TTest&#x003C;Integer&#x003E;;
+</div>
+<!--l. 6114--><p class="nopar" >In difference with Mode Objfpc, the template type names must be repeated in method
+definitions.
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-256">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TTest&#x003C;T&#x003E;&#x00A0;=&#x00A0;Class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;Private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FObj&#x00A0;:&#x00A0;T;
+&#x00A0;<br />&#x00A0;&#x00A0;Public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;DoIt;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Obj&#x00A0;:&#x00A0;T&#x00A0;Read&#x00A0;FObj&#x00A0;Write&#x00A0;FObj;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;TTest&#x003C;T&#x003E;.DoIt;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />end;
+</div>
+<!--l. 6130--><p class="nopar" >This requirement is directly related to the generic type overload capability mentioned in the next
+section.
+                                                                            
+
+                                                                            
+<!--l. 6133--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu41.html" >next</a>] [<a 
+href="refsu40.html" >front</a>] [<a 
+href="refse53.html#refsu40.html" >up</a>] </p></div>
+<!--l. 6133--><p class="noindent" ><a 
+ id="tailrefsu40.html"></a>  
+</body></html> 

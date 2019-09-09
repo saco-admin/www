@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Using a Pascal preprocessor</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 7388--><div class="crosslinks"><p class="noindent">[<a 
+href="progse63.html" >prev</a>] [<a 
+href="progse63.html#tailprogse63.html" >prev-tail</a>] [<a 
+href="#tailprogse64.html">tail</a>] [<a 
+href="progch13.html#progse64.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">13.6   </span> <a 
+href="prog.html#QQ2-275-314" id="x275-29100013.6">Using a Pascal preprocessor</a></h3>
+<!--l. 7390--><p class="noindent" >Sometimes you want to use symbolic names in your resource file, and use the same names in your
+program to access the resources. To accomplish this, there exists a preprocessor for <span 
+class="cmss-10">windres </span>that
+understands pascal syntax: <span 
+class="cmss-10">fprcp</span>. This preprocessor is shipped with the Free Pascal
+distribution.
+<!--l. 7396--><p class="noindent" >The idea is that the preprocessor reads a pascal unit that has some symbolic constants defined in
+it, and replaces symbolic names in the resource file by the values of the constants in the
+unit:
+<!--l. 7400--><p class="noindent" >As an example: consider the following unit:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-257">
+unit&#x00A0;myunit;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />Const
+&#x00A0;<br />&#x00A0;&#x00A0;First&#x00A0;&#x00A0;=&#x00A0;1;
+&#x00A0;<br />&#x00A0;&#x00A0;Second&#x00A0;=&#x00A0;2:
+&#x00A0;<br />&#x00A0;&#x00A0;Third&#x00A0;&#x00A0;=&#x00A0;3;
+&#x00A0;<br />
+&#x00A0;<br />Implementation
+&#x00A0;<br />end.
+</div>
+<!--l. 7413--><p class="nopar" >And the following resource file:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-258">
+#include&#x00A0;"myunit.pp"
+&#x00A0;<br />
+&#x00A0;<br />STRINGTABLE&#x00A0;{&#x00A0;First,&#x00A0;"hello&#x00A0;World&#x00A0;!"
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Second,&#x00A0;"hello&#x00A0;world&#x00A0;again&#x00A0;!"
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Third,&#x00A0;"last&#x00A0;hello&#x00A0;world&#x00A0;!"&#x00A0;}
+&#x00A0;<br />
+</div>
+<!--l. 7422--><p class="nopar" >If you invoke <span 
+class="cmss-10">windres </span>with the <span 
+class="cmtt-10">preprocessor </span>option:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-259">
+windres&#x00A0;--preprocessor&#x00A0;fprcp&#x00A0;-i&#x00A0;myunit.rc&#x00A0;-o&#x00A0;myunit.res
+</div>
+<!--l. 7426--><p class="nopar" >then the preprocessor will replace the symbolic names &#8217;first&#8217;, &#8217;second&#8217; and &#8217;third&#8217; with their actual
+values.
+<!--l. 7430--><p class="noindent" >In your program, you can then refer to the strings by their symbolic names (the constants) instead
+of using a numeric index.
+                                                                            
+
+                                                                            
+<!--l. 7436--><div class="crosslinks"><p class="noindent">[<a 
+href="progse63.html" >prev</a>] [<a 
+href="progse63.html#tailprogse63.html" >prev-tail</a>] [<a 
+href="progse64.html" >front</a>] [<a 
+href="progch13.html#progse64.html" >up</a>] </p></div>
+<!--l. 7436--><p class="noindent" ><a 
+ id="tailprogse64.html"></a>  
+</body></html> 

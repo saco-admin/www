@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Intel 80x86 specific</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 6637--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu190.html" >next</a>] [<a 
+href="#tailprogsu189.html">tail</a>] [<a 
+href="progse48.html#progsu189.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">11.2.1   </span> <a 
+href="prog.html#QQ2-252-288" id="x252-26600011.2.1">Intel 80x86 specific</a></h4>
+<!--l. 6639--><p class="noindent" >Here follows a listing of the optimizing techniques used in the compiler:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x252-266002x1">When optimizing for a specific Processor (<span 
+class="cmtt-10">-Op1, -Op2, -Op3</span>, the following is
+     done:
+         <ul class="itemize1">
+         <li class="itemize">In  <span 
+class="cmtt-10">case </span>statements,  a  check  is  done  whether  a  jump  table  or  a  sequence  of
+         conditional jumps should be used for optimal performance.
+         </li>
+         <li class="itemize">Determines a number of strategies when doing peephole optimization, e.g.: <span 
+class="cmtt-10">movzbl</span>
+         <span 
+class="cmtt-10">(%ebp), %eax </span>will  be  changed  into  <span 
+class="cmtt-10">xorl %eax,%eax; movb (%ebp),%al  </span>for
+         Pentium and PentiumMMX.</li></ul>
+     </li>
+     <li 
+  class="enumerate" id="x252-266004x2">When optimizing for speed (<span 
+class="cmtt-10">-OG</span>, the default) or size (<span 
+class="cmtt-10">-Og</span>), a choice is made between using
+     shorter instructions (for size) such as <span 
+class="cmtt-10">enter $4</span>, or longer instructions <span 
+class="cmtt-10">subl $4,%esp </span>for
+     speed. When smaller size is requested, data is aligned to minimal boundaries.
+     When speed is requested, data is aligned on most efficient boundaries as much as
+     possible.
+     </li>
+     <li 
+  class="enumerate" id="x252-266006x3">Fast optimizations (<span 
+class="cmtt-10">-O1</span>): activate the peephole optimizer
+     </li>
+     <li 
+  class="enumerate" id="x252-266008x4">Slower optimizations (<span 
+class="cmtt-10">-O2</span>): also activate the common subexpression elimination (formerly
+     called the &#8221;reloading optimizer&#8221;)
+                                                                            
+
+                                                                            
+     </li>
+     <li 
+  class="enumerate" id="x252-266010x5">Uncertain optimizations (<span 
+class="cmtt-10">-OoUNCERTAIN</span>): With this switch, the common subexpression
+     elimination algorithm can be forced into making uncertain optimizations.
+     <!--l. 6661--><p class="noindent" >Although you can enable uncertain optimizations in most cases, for people who do not
+     understand the following technical explanation, it might be the safest to leave them
+     off.
+     <!--l. 6666--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span>If uncertain optimizations are enabled, the CSE algorithm assumes that
+         <ul class="itemize1">
+         <li class="itemize">If  something  is  written  to  a  local/global  register  or  a  procedure/function
+         parameter, this value doesn&#8217;t overwrite the value to which a pointer points.
+         </li>
+         <li class="itemize">If something is written to memory pointed to by a pointer variable, this value
+         doesn&#8217;t overwrite the value of a local/global variable or a procedure/function
+         parameter.</li></ul>
+     <!--l. 6678--><p class="noindent" >The practical upshot of this is that you cannot use the uncertain optimizations if you both
+     write and read local or global variables directly and through pointers (this includes <span 
+class="cmtt-10">Var</span>
+     parameters, as those are pointers too).
+     <!--l. 6682--><p class="noindent" >The following example will produce bad code when you switch on uncertain optimizations:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-243">
+     Var&#x00A0;temp:&#x00A0;Longint;
+     &#x00A0;<br />
+     &#x00A0;<br />Procedure&#x00A0;Foo(Var&#x00A0;Bar:&#x00A0;Longint);
+     &#x00A0;<br />Begin
+     &#x00A0;<br />&#x00A0;&#x00A0;If&#x00A0;(Bar&#x00A0;=&#x00A0;temp)
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Then
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Begin
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Inc(Bar);
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;If&#x00A0;(Bar&#x00A0;&#x003C;&#x003E;&#x00A0;temp)&#x00A0;then&#x00A0;Writeln(&#8217;bug!&#8217;)
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;End
+     &#x00A0;<br />End;
+     &#x00A0;<br />
+     &#x00A0;<br />Begin
+     &#x00A0;<br />&#x00A0;&#x00A0;Foo(Temp);
+     &#x00A0;<br />End.
+</div>
+     <!--l. 6700--><p class="nopar" >The reason it produces bad code is because you access the global variable <span 
+class="cmtt-10">Temp </span>both through
+     its name <span 
+class="cmtt-10">Temp </span>and through a pointer, in this case using the <span 
+class="cmtt-10">Bar </span>variable parameter, which is
+     nothing but a pointer to <span 
+class="cmtt-10">Temp </span>in the above code.
+     <!--l. 6706--><p class="noindent" >On the other hand, you can use the uncertain optimizations if you access global/local
+     variables or parameters through pointers, and <span 
+class="cmti-10">only </span>access them through this
+     pointer<span class="footnote-mark"><a 
+href="#fn1x12" id="fn1x12-bk"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x252-266011f1"></a>.
+     <!--l. 6712--><p class="noindent" >For example:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-244">
+     Type&#x00A0;TMyRec&#x00A0;=&#x00A0;Record
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;a,&#x00A0;b:&#x00A0;Longint;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;End;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;PMyRec&#x00A0;=&#x00A0;^TMyRec;
+     &#x00A0;<br />
+     &#x00A0;<br />
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;TMyRecArray&#x00A0;=&#x00A0;Array&#x00A0;[1..100000]&#x00A0;of&#x00A0;TMyRec;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;PMyRecArray&#x00A0;=&#x00A0;^TMyRecArray;
+     &#x00A0;<br />
+     &#x00A0;<br />Var&#x00A0;MyRecArrayPtr:&#x00A0;PMyRecArray;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;MyRecPtr:&#x00A0;PMyRec;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Counter:&#x00A0;Longint;
+     &#x00A0;<br />
+     &#x00A0;<br />Begin
+     &#x00A0;<br />&#x00A0;&#x00A0;New(MyRecArrayPtr);
+     &#x00A0;<br />&#x00A0;&#x00A0;For&#x00A0;Counter&#x00A0;:=&#x00A0;1&#x00A0;to&#x00A0;100000&#x00A0;Do
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Begin
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;MyRecPtr&#x00A0;:=&#x00A0;@MyRecArrayPtr^[Counter];
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;MyRecPtr^.a&#x00A0;:=&#x00A0;Counter;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;MyRecPtr^.b&#x00A0;:=&#x00A0;Counter&#x00A0;div&#x00A0;2;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;End;
+     &#x00A0;<br />End.
+</div>
+     <!--l. 6736--><p class="nopar" >Will produce correct code, because the global variable <span 
+class="cmtt-10">MyRecArrayPtr </span>is not accessed
+     directly, but only through a pointer (<span 
+class="cmtt-10">MyRecPtr </span>in this case).
+     <!--l. 6741--><p class="noindent" >In conclusion, one could say that you can use uncertain optimizations <span 
+class="cmti-10">only </span>when you know
+     what you&#8217;re doing.</li></ol>
+                                                                            
+
+                                                                            
+<div class="footnotes"><!--l. 6710--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn1x12-bk" id="fn1x12"><sup class="textsuperscript">1</sup></a></span><span 
+class="cmr-8">You can use multiple pointers to point to the same variable as well, that doesn&#8217;t matter.</span>           </div> <!--l. 6745--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu190.html" >next</a>]
+[<a 
+href="progsu189.html" >front</a>] [<a 
+href="progse48.html#progsu189.html" >up</a>] </p></div>
+<!--l. 6745--><p class="noindent" ><a 
+ id="tailprogsu189.html"></a>  
+</body></html> 

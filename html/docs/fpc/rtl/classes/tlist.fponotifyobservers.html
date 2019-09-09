@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TList.FPONotifyObservers</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TList.FPONotifyObservers</h1>
+<p>Notify observers of changes in the list</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 325</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../classes/tlist.html">TList</a><span class="sym">.</span>FPONotifyObservers<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ASender<span class="sym">: </span><a href="../system/tobject.html">TObject</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AOperation<span class="sym">: </span><a href="../classes/tfpobservedoperation.html">TFPObservedOperation</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Data<span class="sym">: </span>Pointer</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FPONotifyObservers</var> is called to notify observers of changes in the list. The following notifications are sent: </p>
+<dl>
+<dt>ooAddItem</dt>
+<dd>when a pointer is added. <var>Data</var> is the pointer that is added.</dd>
+<dt>ooDeleteItem</dt>
+<dd>when a pointer is deleted or extracted. <var>Data</var> is the pointer that is deleted or extracted.</dd>
+<dt>ooChange</dt>
+<dd>called when 2 pointers are exchanged.</dd>
+<dt>ooFree</dt>
+<dd>Called when the list is freed.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><b>FPODetachObserver</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>FPOAttachObserver</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>Add</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>Exchange</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/delete.html">Delete</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Delete part of a string.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>Extract</b></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

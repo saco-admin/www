@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TJSONData.AsBoolean</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../fpjson/index.html">Overview</a>][<a href="../fpjson/index-2.html">Constants</a>][<a href="../fpjson/index-3.html">Types</a>][<a href="../fpjson/index-4.html">Classes</a>][<a href="../fpjson/index-5.html">Procedures and functions</a>][<a href="../fpjson/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'fpjson' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TJSONData.AsBoolean</h1>
+<p>Access the raw JSON value as a boolean</p>
+<h2>Declaration</h2>
+<p>Source position: fpjson.pp line 133</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../fpjson/tjsondata.html">TJSONData</a><span class="sym">.</span>AsBoolean<span class="sym"> : </span>Boolean<br>&nbsp;&nbsp;<span class="kw">read </span>GetAsBoolean<br>&nbsp;&nbsp;<span class="kw">write </span>SetAsBoolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>AsBoolean</var> allows access to the raw value as a boolean value. When reading, it attempts to convert the native value of the data to a boolean value.  When writing, it attempts to transform the boolean value to a native value. For numbers this means that nonzero numbers result in <var>True</var>, a zero resutls in <var>False</var>.  If either conversion fails, an <var>EConvertError</var> exception is raised. </p>
+<p>For <a href="../fpjson/tjsonboolean.html">TJSONBoolean</a> this will return the native value. </p>
+<p>For complex values, reading or writing this property will always result in an <var>EConvertError</var> exception. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><b>AsFloat</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>Value</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>AsInt64</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>AsString</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>AsInteger</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>IsNull</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>AsJSON</b></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

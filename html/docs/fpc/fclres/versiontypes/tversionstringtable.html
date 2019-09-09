@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TVersionStringTable</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../versiontypes/index.html">Overview</a>][<a href="../versiontypes/index-1.html">Resource strings</a>][<a href="../versiontypes/index-3.html">Types</a>][<a href="../versiontypes/index-4.html">Classes</a>][<a href="../versiontypes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'versiontypes' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TVersionStringTable</h1>
+<p>[<a href="../versiontypes/tversionstringtable-1.html" onClick="window.open('../versiontypes/tversionstringtable-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../versiontypes/tversionstringtable-2.html" onClick="window.open('../versiontypes/tversionstringtable-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../versiontypes/tversionstringtable-3.html" onClick="window.open('../versiontypes/tversionstringtable-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../versiontypes/tversionstringtable-4.html" onClick="window.open('../versiontypes/tversionstringtable-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../versiontypes/tversionstringtable-5.html" onClick="window.open('../versiontypes/tversionstringtable-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../versiontypes/tversionstringtable-6.html" onClick="window.open('../versiontypes/tversionstringtable-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Version information for a specific language-codepage combination</p>
+<h2>Declaration</h2>
+<p>Source position: versiontypes.pp line 74</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TVersionStringTable <span class="sym">=</span> <span class="kw">class</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../versiontypes/tversionstringtable.create.html">Create</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a new string table</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../versiontypes/tversionstringtable.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Destroys the string table</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../versiontypes/tversionstringtable.add.html">Add</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Adds a new item to the string table</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../versiontypes/tversionstringtable.clear.html">Clear</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Deletes all items</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../versiontypes/tversionstringtable.delete.html">Delete</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Deletes an item</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../versiontypes/tversionstringtable.name.html">Name</a><span class="sym">: </span>string<span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The name of the string table</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../versiontypes/tversionstringtable.count.html">Count</a><span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The number of items in the object</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../versiontypes/tversionstringtable.keys.html">Keys</a> []<span class="sym">: </span>string<span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed array of keys in the object</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../versiontypes/tversionstringtable.valuesbyindex.html">ValuesByIndex</a> []<span class="sym">: </span>string<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed array of values in the object</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../versiontypes/tversionstringtable.values.html">Values</a> []<span class="sym">: </span>string<span class="sym">;</span><span class="kw"> default</span><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Array of values in the object, accessed by key</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../versiontypes/tversionstringtable.html">TVersionStringTable</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Version information for a specific language-codepage combination</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TObject</span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This class represents version information for a specific language-codepage combination.</p>
+<p>It is contained in a <a href="../versiontypes/tversionstringfileinfo.html">TVersionStringFileInfo</a> object.</p>
+<p>Information is stored as key-value pairs. The name of the string table specifies the language id - codepage to which the object applies.</p>
+<p>There are some predefined keys that Microsoft Windows searches for. They are:</p>
+<ul>
+<li><var>Comments</var></li>
+<li><var>CompanyName</var></li>
+<li><var>FileDescription</var></li>
+<li><var>FileVersion</var></li>
+<li><var>InternalName</var></li>
+<li><var>LegalCopyright</var></li>
+<li><var>LegalTrademarks</var></li>
+<li><var>OriginalFilename</var></li>
+<li><var>PrivateBuild</var> (only if <a href="../versionconsts/vs_ff_privatebuild.html">VS_FF_PRIVATEBUILD</a> is set in <a href="../versiontypes/tversionfixedinfo.fileflags.html">TVersionFixedInfo.FileFlags</a>)</li>
+<li><var>ProductName</var></li>
+<li><var>ProductVersion</var></li>
+<li><var>SpecialBuild</var> (only if <a href="../versionconsts/vs_ff_specialbuild.html">VS_FF_SPECIALBUILD</a> is set in <a href="../versiontypes/tversionfixedinfo.fileflags.html">TVersionFixedInfo.FileFlags</a>)</li>
+</ul>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../versiontypes/tversionstringfileinfo.html">TVersionStringFileInfo</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Language dependent part of version information</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../versiontypes/tversionstringtable.name.html">TVersionStringTable.Name</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The name of the string table</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../versiontypes/tversionstringtable.keys.html">TVersionStringTable.Keys</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed array of keys in the object</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../versiontypes/tversionstringtable.values.html">TVersionStringTable.Values</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Array of values in the object, accessed by key</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../versiontypes/tversionstringtable.valuesbyindex.html">TVersionStringTable.ValuesByIndex</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed array of values in the object</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

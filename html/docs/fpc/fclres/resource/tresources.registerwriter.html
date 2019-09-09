@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TResources.RegisterWriter</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../resource/index.html">Overview</a>][<a href="../resource/index-1.html">Resource strings</a>][<a href="../resource/index-2.html">Constants</a>][<a href="../resource/index-3.html">Types</a>][<a href="../resource/index-4.html">Classes</a>][<a href="../resource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'resource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TResources.RegisterWriter</h1>
+<p>Registers a resource writer class</p>
+<h2>Declaration</h2>
+<p>Source position: resource.pp line 272</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">class procedure</span> <a href="../resource/tresources.html">TResources</a><span class="sym">.</span>RegisterWriter<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>aExtension<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aClass<span class="sym">: </span><a href="../resource/tresourcewriterclass.html">TResourceWriterClass</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">aExtension</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The extension for which the class must be registered</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">aClass</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The <a href="../resource/tabstractresourcewriter.html">TAbstractResourceWriter</a> descendant to register</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This class method registers a resource writer class.</p>
+<p>When registered, a class is known to TResources class, and can be used by <a href="../resource/tresources.writetofile.html">WriteToFile</a> method when probing.</p>
+<p>Usually this method is called in the <var>initialization</var> section of the unit implementing a <a href="../resource/tabstractresourcewriter.html">TAbstractResourceWriter</a> descendant.</p>
+<p>A class can be registered multiple times, one for each extension it is able to write. Multiple class can be registered for the same extension (e.g. both a coff and a elf writer can be registered for the .o extension) although only the first one found will be used when probing. The extension must include the leading dot unless the empty string is used (which means "no extension", e.g. a unix executable, which doesn't have an extension).</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresourcewriter.html">TAbstractResourceWriter</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base abstract resource writer class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resource/tresources.writetofile.html">TResources.WriteToFile</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Writes the contents of the object to a file</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

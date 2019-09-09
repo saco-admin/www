@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>6 The IDE</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 24--><div class="crosslinks"><p class="noindent">[<a 
+href="userch7.html" >next</a>] [<a 
+href="userch5.html" >prev</a>] [<a 
+href="userch5.html#tailuserch5.html" >prev-tail</a>] [<a 
+href="#tailuserch6.html">tail</a>] [<a 
+href="user.html#userch6.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;6</span><br /><a 
+href="user.html#QQ2-53-62" id="x53-600006">The IDE</a></h2>
+<!--l. 26--><p class="noindent" >The IDE (<span 
+class="cmbx-10">I</span>ntegrated <span 
+class="cmbx-10">D</span>evelopment <span 
+class="cmbx-10">E</span>nvironment) provides a comfortable user interface to the
+compiler. It contains an editor with syntax highlighting, a debugger, symbol browser etc. The IDE
+is a text-mode application which has the same look and feel on all supported operating systems. It
+is modelled after the IDE of Turbo Pascal, so many people should feel comfortable using
+it.
+<!--l. 33--><p class="noindent" >Currently, the IDE is available for <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span></span>, <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> </span>and <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span></span>.
+<div class="sectionTOCS">
+&#x00A0;<span class="sectionToc" >6.1 <a 
+href="userse19.html#x54-610006.1">First steps with the IDE</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.1.1 <a 
+href="usersu28.html#x55-620006.1.1">Starting the IDE</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.1.2 <a 
+href="usersu29.html#x56-630006.1.2">IDE command line options</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.1.3 <a 
+href="usersu30.html#x57-640006.1.3">The IDE screen</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.2 <a 
+href="userse20.html#x58-650006.2">Navigating in the IDE</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.2.1 <a 
+href="usersu31.html#x59-660006.2.1">Using the keyboard</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.2.2 <a 
+href="usersu32.html#x60-670006.2.2">Using the mouse</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.2.3 <a 
+href="usersu33.html#x61-680006.2.3">Navigating in dialogs</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.3 <a 
+href="userse21.html#x62-690006.3">Windows</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.1 <a 
+href="usersu34.html#x63-700006.3.1">Window basics</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.2 <a 
+href="usersu35.html#x64-710006.3.2">Sizing and moving windows</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.3 <a 
+href="usersu36.html#x65-720006.3.3">Working with multiple windows</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.3.4 <a 
+href="usersu37.html#x66-730006.3.4">Dialog windows</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.4 <a 
+href="userse22.html#x67-740006.4">The Menu</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.4.1 <a 
+href="usersu38.html#x68-750006.4.1">Accessing the menu</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.4.2 <a 
+href="usersu39.html#x69-760006.4.2">The File menu</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.4.3 <a 
+href="usersu40.html#x70-770006.4.3">The Edit menu</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.4.4 <a 
+href="usersu41.html#x71-780006.4.4">The Search menu</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.4.5 <a 
+href="usersu42.html#x72-790006.4.5">The Run menu</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.4.6 <a 
+href="usersu43.html#x73-800006.4.6">The Compile menu</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.4.7 <a 
+href="usersu44.html#x74-810006.4.7">The Debug menu</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.4.8 <a 
+href="usersu45.html#x75-820006.4.8">The Tools menu</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.4.9 <a 
+href="usersu46.html#x76-830006.4.9">The Options menu</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.4.10 <a 
+href="usersu47.html#x77-840006.4.10">The Window menu</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.4.11 <a 
+href="usersu48.html#x78-850006.4.11">The Help menu</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.5 <a 
+href="userse23.html#x79-860006.5">Editing text</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.5.1 <a 
+href="usersu49.html#x80-870006.5.1">Insert modes</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.5.2 <a 
+href="usersu50.html#x81-880006.5.2">Blocks</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.5.3 <a 
+href="usersu51.html#x82-890006.5.3">Setting bookmarks</a></span>
+                                                                            
+
+                                                                            
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.5.4 <a 
+href="usersu52.html#x83-900006.5.4">Jumping to a source line</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.5.5 <a 
+href="usersu53.html#x84-910006.5.5">Syntax highlighting</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.5.6 <a 
+href="usersu54.html#x85-920006.5.6">Code Completion</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.5.7 <a 
+href="usersu55.html#x86-930006.5.7">Code Templates</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.6 <a 
+href="userse24.html#x87-940006.6">Searching and replacing</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.7 <a 
+href="userse25.html#x88-950006.7">The symbol browser</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.8 <a 
+href="userse26.html#x89-960006.8">Running programs</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.9 <a 
+href="userse27.html#x90-970006.9">Debugging programs</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.9.1 <a 
+href="usersu56.html#x91-980006.9.1">Using breakpoints</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.9.2 <a 
+href="usersu57.html#x92-990006.9.2">Using watches</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.9.3 <a 
+href="usersu58.html#x93-1000006.9.3">The call stack</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.9.4 <a 
+href="usersu59.html#x94-1010006.9.4">The GDB window</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.10 <a 
+href="userse28.html#x95-1020006.10">Using Tools</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.10.1 <a 
+href="usersu60.html#x96-1030006.10.1">The messages window</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.10.2 <a 
+href="usersu61.html#x97-1040006.10.2">Grep</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.10.3 <a 
+href="usersu62.html#x98-1050006.10.3">The ASCII table</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.10.4 <a 
+href="usersu63.html#x99-1060006.10.4">The calculator</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.10.5 <a 
+href="usersu64.html#x100-1070006.10.5">Adding new tools</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.10.6 <a 
+href="usersu65.html#x101-1080006.10.6">Meta parameters</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.10.7 <a 
+href="usersu66.html#x102-1090006.10.7">Building a command line dialog box</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.11 <a 
+href="userse29.html#x103-1100006.11">Project management and compiler options</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.11.1 <a 
+href="usersu67.html#x104-1110006.11.1">The primary file</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.11.2 <a 
+href="usersu68.html#x105-1120006.11.2">The directory dialog</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.11.3 <a 
+href="usersu69.html#x106-1130006.11.3">The target operating system</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.11.4 <a 
+href="usersu70.html#x107-1140006.11.4">Compiler options</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.11.5 <a 
+href="usersu71.html#x108-1150006.11.5">Linker options</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.11.6 <a 
+href="usersu72.html#x109-1160006.11.6">Memory sizes</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.11.7 <a 
+href="usersu73.html#x110-1170006.11.7">Debug options</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.11.8 <a 
+href="usersu74.html#x111-1180006.11.8">The switches mode</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.12 <a 
+href="userse30.html#x112-1190006.12">Customizing the IDE</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.12.1 <a 
+href="usersu75.html#x113-1200006.12.1">Preferences</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.12.2 <a 
+href="usersu76.html#x114-1210006.12.2">The desktop</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.12.3 <a 
+href="usersu77.html#x115-1220006.12.3">The Editor</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.12.4 <a 
+href="usersu78.html#x116-1230006.12.4">Keyboard &amp; Mouse</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.13 <a 
+href="userse31.html#x117-1240006.13">The help system</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.13.1 <a 
+href="usersu79.html#x118-1250006.13.1">Navigating in the help system</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.13.2 <a 
+href="usersu80.html#x119-1260006.13.2">Working with help files</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >6.13.3 <a 
+href="usersu81.html#x120-1270006.13.3">The about dialog</a></span>
+<br />&#x00A0;<span class="sectionToc" >6.14 <a 
+href="userse32.html#x121-1280006.14">Keyboard shortcuts</a></span>
+                                                                            
+
+                                                                            
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                            
+
+                                                                            
+<!--l. 1903--><div class="crosslinks"><p class="noindent">[<a 
+href="userch7.html" >next</a>] [<a 
+href="userch5.html" >prev</a>] [<a 
+href="userch5.html#tailuserch5.html" >prev-tail</a>] [<a 
+href="userch6.html" >front</a>] [<a 
+href="user.html#userch6.html" >up</a>] </p></div>
+<!--l. 1903--><p class="noindent" ><a 
+ id="tailuserch6.html"></a>  
+</body></html> 

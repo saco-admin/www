@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSQLConnection.ExecuteDirect</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TSQLConnection.ExecuteDirect</h1>
+<p>Execute a piece of SQL code directly, using a Transaction if specified</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 269</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../sqldb/tsqlconnection.html">TSQLConnection</a><span class="sym">.</span>ExecuteDirect<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;SQL<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">procedure</span> <a href="../sqldb/tsqlconnection.html">TSQLConnection</a><span class="sym">.</span>ExecuteDirect<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;SQL<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ATransaction<span class="sym">: </span><a href="../sqldb/tsqltransaction.html">TSQLTransaction</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">SQL</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">SQL statement to be executed</p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">SQL</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">SQL statement to be executed</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ATransaction</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Transaction to be used. The default transaction will be used if none is passed</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ExecuteDirect</var> executes an SQL statement directly. If <var>ATransaction</var> is <var>Nil</var> then the default transaction is used, otherwise the specified transaction is used. </p>
+<p><var>ExecuteDirect</var> does not offer support for parameters, so only statements that do not need parsing and parameters substitution can be handled. If parameter substitution is required, use a <a href="../sqldb/tsqlquery.html">TSQLQuery</a> component and its <a href="../sqldb/tcustomsqlquery.execsql.html">ExecSQL</a> method. </p>
+<h2>Errors</h2>
+<p>If no transaction is assigned, and no transaction is passed, an exception will be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlquery.html">TSQLQuery</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Class to handle SQL commands (with or without result set)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tcustomsqlquery.execsql.html">ExecSQL</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute a SQL statement that does not return a result set</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

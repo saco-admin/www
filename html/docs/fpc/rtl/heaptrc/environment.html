@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Controlling HeapTrc with environment variables</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../heaptrc/index.html">Up</a>][<a href="../heaptrc/usage.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'heaptrc' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>Controlling HeapTrc with environment variables</h2>
+<p>The <span class="file">HeapTrc</span> unit can be controlled with the <var>HEAPTRC</var> environment variable. The contents of this variable controls the initial setting of some constants in the unit. <var>HEAPTRC</var> consists of one or more of the following strings, separated by spaces: </p>
+<dl>
+<dt>keepreleased</dt>
+<dd>If this string occurs, then the <a href="../heaptrc/keepreleased.html">KeepReleased</a> variable is set to <var>True</var></dd>
+<dt>disabled</dt>
+<dd>If this string occurs, then the <a href="../heaptrc/useheaptrace.html">UseHeapTrace</a> variable is set to <var>False</var> and the heap trace is disabled. It does not make sense to combine this value with other values.</dd>
+<dt>nohalt</dt>
+<dd>If this string occurs, then the <a href="../heaptrc/haltonerror.html">HaltOnError</a> variable is set to <var>False</var>, so the program continues executing even in case of a heap error.</dd>
+<dt>log=filename</dt>
+<dd>If this string occurs, then the output of heaptrc is sent to the specified <var>Filename</var>. (see also <a href="../heaptrc/setheaptraceoutput.html">SetHeapTraceOutput</a>) </dd>
+</dl>
+<p>The following are valid values for the HEAPTRC variable: </p>
+<pre>HEAPTRC<span class="sym">=</span>disabled
+HEAPTRC<span class="sym">=</span><font color="red">"</font>keepreleased log<span class="sym">=</span>heap<span class="sym">.</span>log<font color="red">"</font>
+HEAPTRC<span class="sym">=</span><font color="red">"</font>log<span class="sym">=</span>myheap<span class="sym">.</span>log nohalt<font color="red">"</font>
+</pre>
+<p>Note that these strings are case sensitive, and the name of the variable too. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

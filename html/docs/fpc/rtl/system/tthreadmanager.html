@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TThreadManager</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TThreadManager</h1>
+<p>Thread manager record.</p>
+<h2>Declaration</h2>
+<p>Source position: threadh.inc line 67</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TThreadManager<span class="sym"> = </span><span class="kw">record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;InitManager<span class="sym">: </span><span class="kw">function</span><span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Initialize the thread manager.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;DoneManager<span class="sym">: </span><span class="kw">function</span><span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clean up the thread manager.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;BeginThread<span class="sym">: </span><a href="../system/tbeginthreadhandler.html">TBeginThreadHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Start a new thread.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;EndThread<span class="sym">: </span><a href="../system/tendthreadhandler.html">TEndThreadHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">End the current thread.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;SuspendThread<span class="sym">: </span><a href="../system/tthreadhandler.html">TThreadHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Suspend a running thread.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ResumeThread<span class="sym">: </span><a href="../system/tthreadhandler.html">TThreadHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Resumt a suspended thread.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;KillThread<span class="sym">: </span><a href="../system/tthreadhandler.html">TThreadHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Kill a running thread.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;CloseThread<span class="sym">: </span><a href="../system/tthreadhandler.html">TThreadHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Implements <var>CloseThread</var>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ThreadSwitch<span class="sym">: </span><a href="../system/tthreadswitchhandler.html">TThreadSwitchHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Cause a threadswitch.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;WaitForThreadTerminate<span class="sym">: </span><a href="../system/twaitforthreadterminatehandler.html">TWaitForThreadTerminateHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Wait for a thread to stop.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ThreadSetPriority<span class="sym">: </span><a href="../system/tthreadsetpriorityhandler.html">TThreadSetPriorityHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set thread priority</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ThreadGetPriority<span class="sym">: </span><a href="../system/tthreadgetpriorityhandler.html">TThreadGetPriorityHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get thread priority.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;GetCurrentThreadId<span class="sym">: </span><a href="../system/tgetcurrentthreadidhandler.html">TGetCurrentThreadIdHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get current thread ID</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;InitCriticalSection<span class="sym">: </span><a href="../system/tcriticalsectionhandler.html">TCriticalSectionHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Initialize a critical section.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;DoneCriticalSection<span class="sym">: </span><a href="../system/tcriticalsectionhandler.html">TCriticalSectionHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Free a critical section</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;EnterCriticalSection<span class="sym">: </span><a href="../system/tcriticalsectionhandler.html">TCriticalSectionHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Enter a critical section</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;TryEnterCriticalSection<span class="sym">: </span><a href="../system/tcriticalsectionhandlertryenter.html">TCriticalSectionHandlerTryEnter</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Implements <var>TryEnterCriticalsection</var>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;LeaveCriticalSection<span class="sym">: </span><a href="../system/tcriticalsectionhandler.html">TCriticalSectionHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">leave a critical section.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;InitThreadVar<span class="sym">: </span><a href="../system/tinitthreadvarhandler.html">TInitThreadVarHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Initialize a thread variable.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;RelocateThreadVar<span class="sym">: </span><a href="../system/trelocatethreadvarhandler.html">TRelocateThreadVarHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Relocate a thread variable.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;AllocateThreadVars<span class="sym">: </span><a href="../system/tallocatethreadvarshandler.html">TAllocateThreadVarsHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Allocate thread variables.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ReleaseThreadVars<span class="sym">: </span><a href="../system/treleasethreadvarshandler.html">TReleaseThreadVarsHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Release thread variables.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;BasicEventCreate<span class="sym">: </span><a href="../system/tbasiceventcreatehandler.html">TBasicEventCreateHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a basic event.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;BasicEventDestroy<span class="sym">: </span><a href="../system/tbasiceventhandler.html">TBasicEventHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Destroy a basic event.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;BasicEventResetEvent<span class="sym">: </span><a href="../system/tbasiceventhandler.html">TBasicEventHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reset a basic event.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;BasicEventSetEvent<span class="sym">: </span><a href="../system/tbasiceventhandler.html">TBasicEventHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set a basic event</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;BasiceventWaitFOr<span class="sym">: </span><a href="../system/tbasiceventwaitforhandler.html">TBasicEventWaitForHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Wait for a basic event</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;RTLEventCreate<span class="sym">: </span><a href="../system/trtlcreateeventhandler.html">TRTLCreateEventHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create an RTL event</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;RTLEventDestroy<span class="sym">: </span><a href="../system/trtleventhandler.html">TRTLEventHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Free an RTL event</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;RTLEventSetEvent<span class="sym">: </span><a href="../system/trtleventhandler.html">TRTLEventHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set an RTL event</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;RTLEventResetEvent<span class="sym">: </span><a href="../system/trtleventhandler.html">TRTLEventHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reset an RTL event</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;RTLEventWaitFor<span class="sym">: </span><a href="../system/trtleventhandler.html">TRTLEventHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Wait for an RTL event.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;RTLEventWaitForTimeout<span class="sym">: </span><a href="../system/trtleventhandlertimeout.html">TRTLEventHandlerTimeout</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Wait for RTL event, with timeout.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;SemaphoreInit<span class="sym">: </span><a href="../system/tsempahoreinithandler.html">TSempahoreInitHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Initialize (create) a new semaphore</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;SemaphoreDestroy<span class="sym">: </span><a href="../system/tsemaphoredestroyhandler.html">TSemaphoreDestroyHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Destroy (free) a semaphore created using <var>SemaphoreInit</var>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;SemaphorePost<span class="sym">: </span><a href="../system/tsemaphoreposthandler.html">TSemaphorePostHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Post an event on a semaphore created using <var>SemaphoreInit</var>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;SemaphoreWait<span class="sym">: </span><a href="../system/tsemaphorewaithandler.html">TSemaphoreWaitHandler</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Wait on a semaphore event posted by <var>SemaphorePost</var>.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TThreadManager</var> is a record that contains all callbacks needed for the thread handling routines of the Free Pascal Run-Time Library. The thread manager can be set by the <a href="../system/setthreadmanager.html">SetThreadManager</a> procedure, and the current thread manager can be retrieved with the <a href="../system/getthreadmanager.html">GetThreadManager</a> procedure. </p>
+<p>The Windows RTL will set the thread manager automatically to a system thread manager, based on the Windows threading routines. Unix operating systems provide a unit <span class="file">cthreads</span> which implements threads based on the C library POSIX thread routines. It is not included by default, because it would make the system unit dependent on the C library. </p>
+<p>For more information about thread programming, see the programmer's guide. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/getthreadmanager.html">GetThreadManager</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the current thread manager</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/setthreadmanager.html">SetThreadManager</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set the thread manager, optionally return the current thread manager.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

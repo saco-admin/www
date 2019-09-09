@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Reference for unit 'daemonapp'</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[Overview][<a href="../daemonapp/index-1.html">Resource strings</a>][<a href="../daemonapp/index-3.html">Types</a>][<a href="../daemonapp/index-4.html">Classes</a>][<a href="../daemonapp/index-5.html">Procedures and functions</a>][<a href="../daemonapp/index-6.html">Variables</a>][<a href="../daemonapp/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'daemonapp' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>Reference for unit 'daemonapp'</h1>
+<p>Daemon (service) application class</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">uses</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../../rtl/system/index.html">System</a><span class="sym">,</span>  </span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../custapp/index.html">CustApp</a><span class="sym">,</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Custom application class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../../rtl/classes/index.html">Classes</a><span class="sym">,</span>  </span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../../rtl/sysutils/index.html">sysutils</a><span class="sym">,</span>  </span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../eventlog/index.html">eventlog</a><span class="sym">,</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unit implementing system log class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;rtlconsts<span class="sym">;</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Constant strings for messages</p></td>
+</tr>
+</table>
+<h2>Overview</h2>
+<p>The <span class="file">daemonapp</span> unit implements a <var>TApplication</var> class which encapsulates a daemon or service application. It handles installation where this is necessary, and does instantiation of the various daemons where necessary. </p>
+<p>The unit consists of 3 separate classes which cooperate tightly: </p>
+<dl>
+<dt>TDaemon</dt>
+<dd>This is a class that implements the daemon's functionality. One or more descendents of this class can be implemented and instantiated in a single daemon application. For more information, see <a href="../daemonapp/tdaemon.html">TDaemon</a>.</dd>
+<dt>TDaemonApplication</dt>
+<dd>This is  the actual daemon application class.  A global instance of this class is instantiated. It handles the command-line arguments, and instantiates the various daemons. For more information, see <a href="../daemonapp/tdaemonapplication.html">TDaemonApplication</a>.</dd>
+<dt>TDaemonDef</dt>
+<dd>This class defines the daemon in the operation system. The <var>TDaemonApplication</var> class has a collection of <var>TDaemonDef</var> instances, which it uses to start the various daemons. For more information, see <a href="../daemonapp/tdaemondef.html">TDaemonDef</a>. </dd>
+</dl>
+<p>As can be seen, a single application can implement one ore more daemons (services). Each daemon will be run in a separate thread which is controlled by the application class. </p>
+<p>The classes take care of logging through the <a href="../eventlog/teventlog.html">TEventLog</a> class. </p>
+<p>Many options are needed only to make the application behave as a windows service application on windows. These options are ignored in unix-like environment. The documentation will mention this. </p>
+<h2>Related topics</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../daemonapp/architecture.html">Architecture</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Daemon application architecture</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

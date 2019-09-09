@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>GetPropUCA</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unicodedata/index.html">Overview</a>][<a href="../unicodedata/index-1.html">Resource strings</a>][<a href="../unicodedata/index-2.html">Constants</a>][<a href="../unicodedata/index-3.html">Types</a>][<a href="../unicodedata/index-5.html">Procedures and functions</a>][<a href="../unicodedata/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'unicodedata' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>GetPropUCA</h1>
+<p>Get unicode collation algorithm properties for a unicode character</p>
+<h2>Declaration</h2>
+<p>Source position: unicodedata.pas line 379</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> GetPropUCA<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AHighS<span class="sym">: </span><a href="../system/unicodechar.html">UnicodeChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ALowS<span class="sym">: </span><a href="../system/unicodechar.html">UnicodeChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ABook<span class="sym">: </span><a href="../unicodedata/puca_databook.html">PUCA_DataBook</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unicodedata/puca_propitemrec.html">PUCA_PropItemRec</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> GetPropUCA<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AChar<span class="sym">: </span><a href="../system/unicodechar.html">UnicodeChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ABook<span class="sym">: </span><a href="../unicodedata/puca_databook.html">PUCA_DataBook</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unicodedata/puca_propitemrec.html">PUCA_PropItemRec</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AHighS</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">High character of surrogate pair.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ALowS</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Low character of surrogate pair.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ABook</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unicode Collation Algorithm data set.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>UCA data for the character, nil if none is available.</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AChar</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unicode character</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ABook</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unicode Collation Algorithm data set.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>GetPropUCA</var> returns UCA data for the unicode character (<var>AChar</var>)  or surrogate pair <var>AHighS</var>, <var>ALowS</var>) in the collation data book <var>ABook</var>. If no data is available, <var>Nil</var> is returned. </p>
+<h2>Errors</h2>
+<p>if an invalid <var>ABook</var> is specified, an access violation may occur. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../unicodedata/getprops.html">GetProps</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get unicode character data</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

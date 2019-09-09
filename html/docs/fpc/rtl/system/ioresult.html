@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>IOResult</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>IOResult</h1>
+<p>Return result of last file IO operation</p>
+<h2>Declaration</h2>
+<p>Source position: systemh.inc line 1320</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> IOResult<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>IOresult contains the result of any input/output call, when the <var>{\$i-}</var> compiler directive is active, disabling IO checking. When the flag is read, it is reset to zero. If <var>IOresult</var> is zero, the operation completed successfully. If non-zero, an error occurred. The following errors can occur: </p>
+<p>dos errors : </p>
+<dl>
+<dt>2</dt>
+<dd>File not found.</dd>
+<dt>3</dt>
+<dd>Path not found.</dd>
+<dt>4</dt>
+<dd>Too many open files.</dd>
+<dt>5</dt>
+<dd>Access denied.</dd>
+<dt>6</dt>
+<dd>Invalid file handle.</dd>
+<dt>12</dt>
+<dd>Invalid file-access mode.</dd>
+<dt>15</dt>
+<dd>Invalid disk number.</dd>
+<dt>16</dt>
+<dd>Cannot remove current directory.</dd>
+<dt>17</dt>
+<dd>Cannot rename across volumes.</dd>
+</dl>
+<p>I/O errors : </p>
+<dl>
+<dt>100</dt>
+<dd>Error when reading from disk.</dd>
+<dt>101</dt>
+<dd>Error when writing to disk.</dd>
+<dt>102</dt>
+<dd>File not assigned.</dd>
+<dt>103</dt>
+<dd>File not open.</dd>
+<dt>104</dt>
+<dd>File not opened for input.</dd>
+<dt>105</dt>
+<dd>File not opened for output.</dd>
+<dt>106</dt>
+<dd>Invalid number.</dd>
+</dl>
+<p>Fatal errors : </p>
+<dl>
+<dt>150</dt>
+<dd>Disk is write protected.</dd>
+<dt>151</dt>
+<dd>Unknown device.</dd>
+<dt>152</dt>
+<dd>Drive not ready.</dd>
+<dt>153</dt>
+<dd>Unknown command.</dd>
+<dt>154</dt>
+<dd>CRC check failed.</dd>
+<dt>155</dt>
+<dd>Invalid drive specified..</dd>
+<dt>156</dt>
+<dd>Seek error on disk.</dd>
+<dt>157</dt>
+<dd>Invalid media type.</dd>
+<dt>158</dt>
+<dd>Sector not found.</dd>
+<dt>159</dt>
+<dd>Printer out of paper.</dd>
+<dt>160</dt>
+<dd>Error when writing to device.</dd>
+<dt>161</dt>
+<dd>Error when reading from device.</dd>
+<dt>162</dt>
+<dd>Hardware failure.</dd>
+</dl>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example35<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the IOResult function. }</span>
+
+<span class="kw">Var</span> F <span class="sym">:</span> text<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Assign <span class="sym">(</span>f<span class="sym">,</span>paramstr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="dir">{$i-}</span>
+  Reset <span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+  <span class="dir">{$i+}</span>
+  <span class="kw">If</span> IOresult<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+    writeln <span class="sym">(</span><span class="str">'File '</span><span class="sym">,</span>paramstr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">,</span><span class="str">' doesn''t exist'</span><span class="sym">)</span>
+  <span class="kw">else</span>
+    writeln <span class="sym">(</span><span class="str">'File '</span><span class="sym">,</span>paramstr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">,</span><span class="str">' exists'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

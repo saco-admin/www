@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>RenameFile</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>RenameFile</h1>
+<p>Rename a file.</p>
+<h2>Declaration</h2>
+<p>Source position: filutilh.inc line 136</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> RenameFile<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>OldName<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>NewName<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><br><br><span class="kw">function</span> RenameFile<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>OldName<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>NewName<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<var>RenameFile</var> renames a file from 
+<var>OldName</var> to 
+<var>NewName</var>. The function returns 
+<var>True</var> if successful, 
+<var>False</var> otherwise. For safety, the new name must be a full path specification, including the directory, otherwise it will be assumed to be a filename relative to the current working directory.  
+<em>Remark:</em> The implementation of 
+<var>RenameFile</var> relies on the undelying OS's support for renaming/moving a file. Whether or not a file can be renamed accros disks or partitions depends entirely on the OS. On unix-like OS-es, the rename function will fail when used accross partitions. On Windows, it will work. 
+<h2>Errors</h2>
+<p>On Error, <var>False</var> is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/deletefile.html">DeleteFile</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Delete a file from the filesystem.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example44<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the RenameFile function }</span>
+
+<span class="kw">Uses</span> sysutils<span class="sym">;</span>
+
+<span class="kw">Var</span> F <span class="sym">:</span> Longint<span class="sym">;</span>
+    S <span class="sym">:</span> String<span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  S<span class="sym">:=</span><span class="str">'Some short file.'</span><span class="sym">;</span>
+  F<span class="sym">:=</span>FileCreate <span class="sym">(</span><span class="str">'test.dap'</span><span class="sym">)</span><span class="sym">;</span>
+  FileWrite<span class="sym">(</span>F<span class="sym">,</span>S<span class="sym">[</span><span class="num">1</span><span class="sym">]</span><span class="sym">,</span>Length<span class="sym">(</span>S<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  FileClose<span class="sym">(</span>F<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> RenameFile <span class="sym">(</span><span class="str">'test.dap'</span><span class="sym">,</span><span class="str">'test.dat'</span><span class="sym">)</span> <span class="kw">then</span>
+    Writeln <span class="sym">(</span><span class="str">'Successfully renamed files.'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

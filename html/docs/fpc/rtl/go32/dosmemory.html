@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>dos memory access</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../go32/ioports.html">Previous</a>][<a href="../go32/index.html">Up</a>][<a href="../go32/fpcspecs.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'go32' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>dos memory access</h2>
+<p>Dos memory is accessed by the predefined <var>dosmemselector</var> selector;  the GO32 unit additionally provides some functions to help you with standard tasks, like copying memory from heap to dos memory and the likes. Because of this it is strongly recommened to use them, but you are still free to use the provided standard memory accessing functions which use 48 bit pointers. The third, but only thought for compatibility purposes, is using the <var>mem[]</var>-arrays. These arrays map the whole 1 Mb dos space. They shouldn't be used within new programs. To convert a segment:offset real mode address to a protected mode linear address you have to multiply the segment by 16 and add its offset. This linear address can be used in combination with the DOSMEMSELECTOR variable. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../go32/dosmemget.html">dosmemget</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Copy data from DOS memory to the heap.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/dosmemput.html">dosmemput</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Copy data from the heap to DOS real mode memory</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/dosmemmove.html">dosmemmove</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Move data between 2 DOS real mode memory locations</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/dosmemfillchar.html">dosmemfillchar</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Fill a region of DOS memory with a specific byte-sized value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/dosmemfillword.html">dosmemfillword</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Fill a region of DOS memory with a specific word-sized value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/seg_move.html">seg_move</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Move data between 2 locations</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/seg_fillchar.html">seg_fillchar</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Fill segment with byte value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/seg_fillword.html">seg_fillword</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Fill segment with word value</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

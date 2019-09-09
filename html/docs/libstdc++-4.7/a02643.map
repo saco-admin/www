@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node5" href="$a00069.html" title="Provides a layer of compatibility for C/POSIX.This GNU extension provides extensions for working with..." alt="" coords="969,5,1252,33"/>
+<area shape="rect" id="node7" href="$a00421.html" title="std::basic_filebuf\&lt; _CharT, encoding_char_traits\&lt; _CharT \&gt; \&gt;" alt="" coords="908,55,1313,83"/>
+<area shape="rect" id="node11" href="$a00421.html" title="std::basic_filebuf\&lt; char_type, traits_type \&gt;" alt="" coords="965,106,1256,134"/>
+<area shape="rect" id="node2" href="$a00426.html" title="The actual work of input and output (interface).This is a base class. Derived stream buffers each con..." alt="" coords="7,55,276,83"/>
+<area shape="rect" id="node9" href="$a00042.html" title="class enc_filebuf." alt="" coords="1367,55,1593,83"/>
+</map>

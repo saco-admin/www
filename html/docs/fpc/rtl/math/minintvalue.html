@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>MinIntValue</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../math/index.html">Overview</a>][<a href="../math/index-2.html">Constants</a>][<a href="../math/index-3.html">Types</a>][<a href="../math/index-4.html">Classes</a>][<a href="../math/index-5.html">Procedures and functions</a>][<a href="../math/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'math' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>MinIntValue</h1>
+<p>Return smallest value in integer array</p>
+<h2>Declaration</h2>
+<p>Source position: math.pp line 153</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> MinIntValue<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Data<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>MinIntvalue</var> returns the smallest value in the <var>Data</var> array. </p>
+<p>This function is provided for Delphi compatibility, use <var>minvalue</var> instead. </p>
+<h2>Errors</h2>
+<p>None </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../math/minvalue.html">minvalue</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return smallest value in array</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../math/maxintvalue.html">maxIntValue</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return largest element in integer array</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../math/maxvalue.html">maxvalue</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return largest value in array</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example30<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the MinIntValue function. }</span>
+
+<span class="cmt">{ Make sore integer is 32 bit}</span>
+<span class="dir">{$mode objfpc}</span>
+
+<span class="kw">Uses</span> math<span class="sym">;</span>
+
+<span class="kw">Type</span>
+  TExArray <span class="sym">=</span> <span class="kw">Array</span><span class="sym">[</span><span class="num">1</span><span class="sym">.</span><span class="sym">.</span><span class="num">100</span><span class="sym">]</span> <span class="kw">of</span> Integer<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  I <span class="sym">:</span> Integer<span class="sym">;</span>
+  ExArray <span class="sym">:</span> TExArray<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Randomize<span class="sym">;</span>
+  <span class="kw">for</span> I<span class="sym">:=</span>low<span class="sym">(</span>ExArray<span class="sym">)</span> to high<span class="sym">(</span>ExArray<span class="sym">)</span> <span class="kw">do</span>
+    ExArray<span class="sym">[</span>i<span class="sym">]</span><span class="sym">:=</span>Random<span class="sym">(</span>I<span class="sym">)</span><span class="sym">-</span>Random<span class="sym">(</span><span class="num">100</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>MinIntValue<span class="sym">(</span>ExArray<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

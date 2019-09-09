@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$PACKENUM or $Z : Minimum enumeration type size</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 1306--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu60.html" >next</a>] [<a 
+href="progsu58.html" >prev</a>] [<a 
+href="progsu58.html#tailprogsu58.html" >prev-tail</a>] [<a 
+href="#tailprogsu59.html">tail</a>] [<a 
+href="progse2.html#progsu59.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.59   </span> <a 
+href="prog.html#QQ2-66-65" id="x66-650001.2.59"><span 
+class="cmtt-10">$PACKENUM </span>or <span 
+class="cmtt-10">$Z </span>: Minimum enumeration type size</a></h4>
+<!--l. 1309--><p class="noindent" >This directive tells the compiler the minimum number of bytes it should use when storing
+enumerated types. It is of the following form:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-60">
+{$PACKENUM&#x00A0;xxx}
+&#x00A0;<br />{$MINENUMSIZE&#x00A0;xxx}
+</div>
+<!--l. 1314--><p class="nopar" >Where the form with <span 
+class="cmtt-10">$MINENUMSIZE </span>is for Delphi compatibility. <span 
+class="cmtt-10">xxx </span>can be one of <span 
+class="cmtt-10">1,2 </span>or <span 
+class="cmtt-10">4</span>, or
+<span 
+class="cmtt-10">NORMAL </span>or <span 
+class="cmtt-10">DEFAULT </span>(or 0).
+<!--l. 1319--><p class="noindent" >The default enumeration size depends on the compiler mode:
+     <ul class="itemize1">
+     <li class="itemize">In Delphi and TP mode, the size is 1.
+     </li>
+     <li class="itemize">In MacPas mode, the size is 2.
+     </li>
+     <li class="itemize">In all other modes, the default is 4.</li></ul>
+<!--l. 1326--><p class="noindent" >As an alternative form one can use <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$Z1</span><span 
+class="cmsy-10">}</span>, <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$Z2</span><span 
+class="cmsy-10">}{</span><span 
+class="cmtt-10">$Z4</span><span 
+class="cmsy-10">}</span>. The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$Z</span><span 
+class="cmsy-10">} </span>form takes a boolean argument,
+where <span 
+class="cmtt-10">ON </span>is equivalent to <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$Z4</span><span 
+class="cmsy-10">} </span>and <span 
+class="cmtt-10">OFF </span>is equivalent to <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$Z1</span><span 
+class="cmsy-10">}</span>.
+<!--l. 1331--><p class="noindent" >So the following code
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-61">
+{$PACKENUM&#x00A0;1}
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;Days&#x00A0;=&#x00A0;(monday,&#x00A0;tuesday,&#x00A0;wednesday,&#x00A0;thursday,&#x00A0;friday,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;saturday,&#x00A0;sunday);
+</div>
+<!--l. 1337--><p class="nopar" >will use 1 byte to store a variable of type <span 
+class="cmtt-10">Days</span>, whereas it normally would use 4 bytes. The above
+code is equivalent to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-62">
+{$Z1}
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;Days&#x00A0;=&#x00A0;(monday,&#x00A0;tuesday,&#x00A0;wednesday,&#x00A0;thursday,&#x00A0;friday,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;saturday,&#x00A0;sunday);
+</div>
+<!--l. 1345--><p class="nopar" >or equivalent to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-63">
+{$Z&#x00A0;OFF}
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;Days&#x00A0;=&#x00A0;(monday,&#x00A0;tuesday,&#x00A0;wednesday,&#x00A0;thursday,&#x00A0;friday,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;saturday,&#x00A0;sunday);
+</div>
+<!--l. 1352--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 1354--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu60.html" >next</a>] [<a 
+href="progsu58.html" >prev</a>] [<a 
+href="progsu58.html#tailprogsu58.html" >prev-tail</a>] [<a 
+href="progsu59.html" >front</a>] [<a 
+href="progse2.html#progsu59.html" >up</a>] </p></div>
+<!--l. 1354--><p class="noindent" ><a 
+ id="tailprogsu59.html"></a>  
+</body></html> 

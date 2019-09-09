@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Line numbers in run-time error backtraces</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 3514--><div class="crosslinks"><p class="noindent">[<a 
+href="userse59.html" >next</a>] [<a 
+href="userse57.html" >prev</a>] [<a 
+href="userse57.html#tailuserse57.html" >prev-tail</a>] [<a 
+href="#tailuserse58.html">tail</a>] [<a 
+href="userch10.html#userse58.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.6   </span> <a 
+href="user.html#QQ2-169-227" id="x169-17600010.6">Line numbers in run-time error backtraces</a></h3>
+<!--l. 3517--><p class="noindent" >Normally, when a run-time error occurs, you are presented with a list of addresses that represent
+the call stack backtrace, i.e. the addresses of all procedures that were invoked when the run-time
+error occurred.
+<!--l. 3521--><p class="noindent" >This list is not very informative, so there exists a unit that generates the file names and line
+numbers of the called procedures using the addresses of the stack backtrace. This unit is called
+lineinfo.
+<!--l. 3525--><p class="noindent" >You can use this unit by giving the <span 
+class="cmtt-10">-gl </span>option to the compiler. The unit will be automatically
+included. It is also possible to use the unit explicitly in your <span 
+class="cmtt-10">uses </span>clause, but you must make sure
+that you compile your program with debug info.
+<!--l. 3530--><p class="noindent" >Here is an example program:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-122">
+program&#x00A0;testline;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;generateerror255;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;runerror(255);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;generateanerror;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;generateerror255;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;generateanerror;
+&#x00A0;<br />end.
+</div>
+<!--l. 3549--><p class="nopar" >When compiled with <span 
+class="cmtt-10">-gl</span>, the following output is generated:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-123">
+Runtime&#x00A0;error&#x00A0;255&#x00A0;at&#x00A0;0x0040BDE5
+&#x00A0;<br />&#x00A0;&#x00A0;0x0040BDE5&#x00A0;&#x00A0;GENERATEERROR255,&#x00A0;&#x00A0;line&#x00A0;6&#x00A0;of&#x00A0;testline.pp
+&#x00A0;<br />&#x00A0;&#x00A0;0x0040BDF0&#x00A0;&#x00A0;GENERATEANERROR,&#x00A0;&#x00A0;line&#x00A0;13&#x00A0;of&#x00A0;testline.pp
+&#x00A0;<br />&#x00A0;&#x00A0;0x0040BE0C&#x00A0;&#x00A0;main,&#x00A0;&#x00A0;line&#x00A0;17&#x00A0;of&#x00A0;testline.pp
+&#x00A0;<br />&#x00A0;&#x00A0;0x0040B7B1
+</div>
+<!--l. 3557--><p class="nopar" >This is more understandable than the normal message. Make sure that all units you use are
+compiled with debug info, because if they are not, no line number and filename can be
+found.
+                                                                            
+
+                                                                            
+<!--l. 3564--><div class="crosslinks"><p class="noindent">[<a 
+href="userse59.html" >next</a>] [<a 
+href="userse57.html" >prev</a>] [<a 
+href="userse57.html#tailuserse57.html" >prev-tail</a>] [<a 
+href="userse58.html" >front</a>] [<a 
+href="userch10.html#userse58.html" >up</a>] </p></div>
+<!--l. 3564--><p class="noindent" ><a 
+ id="tailuserse58.html"></a>  
+</body></html> 

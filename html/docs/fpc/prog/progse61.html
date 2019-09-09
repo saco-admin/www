@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Using string tables.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 7283--><div class="crosslinks"><p class="noindent">[<a 
+href="progse62.html" >next</a>] [<a 
+href="progse60.html" >prev</a>] [<a 
+href="progse60.html#tailprogse60.html" >prev-tail</a>] [<a 
+href="#tailprogse61.html">tail</a>] [<a 
+href="progch13.html#progse61.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">13.3   </span> <a 
+href="prog.html#QQ2-272-311" id="x272-28800013.3">Using string tables.</a></h3>
+<!--l. 7284--><p class="noindent" >String tables can be used to store and retrieve large collections of strings in your application.
+<!--l. 7287--><p class="noindent" >A string table looks as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-252">
+STRINGTABLE&#x00A0;{&#x00A0;1,&#x00A0;"hello&#x00A0;World&#x00A0;!"
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;2,&#x00A0;"hello&#x00A0;world&#x00A0;again&#x00A0;!"
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;3,&#x00A0;"last&#x00A0;hello&#x00A0;world&#x00A0;!"&#x00A0;}
+</div>
+<!--l. 7292--><p class="nopar" >You can compile this (we assume the file is called <span 
+class="cmss-10">tests.rc</span>) as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-253">
+windres&#x00A0;-i&#x00A0;tests.rc&#x00A0;-o&#x00A0;tests.res
+</div>
+<!--l. 7297--><p class="nopar" >And this is the way to retrieve the strings from your program:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-254">
+program&#x00A0;tests;
+&#x00A0;<br />
+&#x00A0;<br />{$mode&#x00A0;objfpc}
+&#x00A0;<br />
+&#x00A0;<br />Uses&#x00A0;Windows;
+&#x00A0;<br />
+&#x00A0;<br />{$R&#x00A0;*.res}
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;Function&#x00A0;LoadResourceString&#x00A0;(Index&#x00A0;:&#x00A0;longint):&#x00A0;Shortstring;
+&#x00A0;<br />&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;SetLength(Result,LoadString(FindResource(0,Nil,RT_STRING),
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Index,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;@Result[1],
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;SizeOf(Result))
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;)
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;I:&#x00A0;longint;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;For&#x00A0;i:=1&#x00A0;to&#x00A0;3&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln(LoadResourceString(I));
+&#x00A0;<br />end.
+</div>
+<!--l. 7324--><p class="nopar" >The call to <span 
+class="cmtt-10">FindResource </span>searches for the stringtable in the compiled-in resources. The
+<span 
+class="cmtt-10">LoadString </span>function then reads the string with index <span 
+class="cmtt-10">i </span>out of the table, and puts it in a buffer,
+which can then be used. Both calls are in the <span 
+class="cmss-10">windows </span>unit.
+                                                                            
+
+                                                                            
+<!--l. 7330--><div class="crosslinks"><p class="noindent">[<a 
+href="progse62.html" >next</a>] [<a 
+href="progse60.html" >prev</a>] [<a 
+href="progse60.html#tailprogse60.html" >prev-tail</a>] [<a 
+href="progse61.html" >front</a>] [<a 
+href="progch13.html#progse61.html" >up</a>] </p></div>
+<!--l. 7330--><p class="noindent" ><a 
+ id="tailprogse61.html"></a>  
+</body></html> 

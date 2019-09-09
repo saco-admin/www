@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TVersionStringTable.Create</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../versiontypes/index.html">Overview</a>][<a href="../versiontypes/index-1.html">Resource strings</a>][<a href="../versiontypes/index-3.html">Types</a>][<a href="../versiontypes/index-4.html">Classes</a>][<a href="../versiontypes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'versiontypes' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TVersionStringTable.Create</h1>
+<p>Creates a new string table</p>
+<h2>Declaration</h2>
+<p>Source position: versiontypes.pp line 89</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">constructor</span> <a href="../versiontypes/tversionstringtable.html">TVersionStringTable</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>aName<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">aName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The name of the string table</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Creates a new string table with the name passed as <var>aName</var> parameter.</p>
+<p><var>aName</var> must be a hex representation of a 4-bytes unsigned number: first 4 ciphers represent the language id, and last 4 the codepage.</p>
+<p><b>Sample code</b></p>
+<p>This code creates a string table for Italian, with unicode codepage.</p>
+<pre><span class="kw">var</span>
+  st <span class="sym">:</span> TVersionStringTable<span class="sym">;</span>
+<span class="kw">begin</span>
+  <span class="cmt">//0410 = Italian</span>
+  <span class="cmt">//04B0 = unicode codepage</span>
+  st<span class="sym">:=</span>TVersionStringTable<span class="sym">.</span>Create<span class="sym">(</span><span class="str">'041004B0'</span><span class="sym">)</span><span class="sym">;</span>
+
+  <span class="cmt">//do something useful...</span>
+
+  st<span class="sym">.</span>Free<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+</pre>
+<h2>Errors</h2>
+<p>If name is not a valid 8-cipher hexadecimal string, an <a href="../versiontypes/enamenotallowedexception.html">ENameNotAllowedException</a> exception is raised.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../versiontypes/tversionstringtable.name.html">TVersionStringTable.Name</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The name of the string table</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

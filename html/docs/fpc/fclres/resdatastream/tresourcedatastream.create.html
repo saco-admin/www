@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TResourceDataStream.Create</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../resdatastream/index.html">Overview</a>][<a href="../resdatastream/index-3.html">Types</a>][<a href="../resdatastream/index-4.html">Classes</a>][<a href="../resdatastream/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'resdatastream' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TResourceDataStream.Create</h1>
+<p>Creates a new object</p>
+<h2>Declaration</h2>
+<p>Source position: resdatastream.pp line 75</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">constructor</span> <a href="../resdatastream/tresourcedatastream.html">TResourceDataStream</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aStream<span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aResource<span class="sym">: </span><a href="../resource/tabstractresource.html">TAbstractResource</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aSize<span class="sym">: </span><a href="../../rtl/system/int64.html">Int64</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aClass<span class="sym">: </span><a href="../resdatastream/tcachedstreamclass.html">TCachedStreamClass</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">aStream</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The stream which resource data must be read from. It can be <var>nil</var></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">aResource</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The resource whose data must be read</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">aSize</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The size of the resource data</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">aClass</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The class to use to create the underlying cached stream</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>A new <a href="../resdatastream/tresourcedatastream.html">TResourceDataStream</a> object is created.</p>
+<p>If <var>aStream</var> is <var>nil</var>, the underlying stream is a memory stream. Otherwise, a cached stream of the class specified in <var>aClass</var> is created and set as the underlying stream.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../resdatastream/tresourcedatastream.html">TResourceDataStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Stream class that provides copy-on-write functionality</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resdatastream/tcacheddatastream.html">TCachedDataStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base cached stream class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resdatastream/tresourcedatastream.setcustomstream.html">TResourceDataStream.SetCustomStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Sets a custom stream as the underlying stream</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>variance</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../math/index.html">Overview</a>][<a href="../math/index-2.html">Constants</a>][<a href="../math/index-3.html">Types</a>][<a href="../math/index-4.html">Classes</a>][<a href="../math/index-5.html">Procedures and functions</a>][<a href="../math/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'math' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>variance</h1>
+<p>Return variance of values</p>
+<h2>Declaration</h2>
+<p>Source position: math.pp line 477</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> variance<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>data<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> Single</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../math/float.html">Float</a><span class="sym">;</span><br><br><span class="kw">function</span> variance<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>data<span class="sym">: </span><a href="../system/psingle.html">PSingle</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>N<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../math/float.html">Float</a><span class="sym">;</span><br><br><span class="kw">function</span> variance<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>data<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> Double</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../math/float.html">Float</a><span class="sym">;</span><br><br><span class="kw">function</span> variance<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>data<span class="sym">: </span><a href="../system/pdouble.html">PDouble</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>N<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../math/float.html">Float</a><span class="sym">;</span><br><br><span class="kw">function</span> variance<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>data<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> Extended</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../math/float.html">Float</a><span class="sym">;</span><br><br><span class="kw">function</span> variance<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>data<span class="sym">: </span><a href="../system/pextended.html">PExtended</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>N<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Variance</var> returns the variance of the values in the  <var>data</var> array. It returns zero if there is only one value. </p>
+<p>The second form of the function accepts a pointer to an array of <var>N</var> values. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../math/totalvariance.html">totalvariance</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return total varians of values</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../math/stddev.html">stddev</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return standard deviation of data</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../math/mean.html">mean</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return mean value of array</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example50<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Variance function. }</span>
+<span class="cmt">{ @ should return typed pointer }</span>
+<span class="dir">{$T+}</span>
+
+<span class="kw">Uses</span> math<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  I <span class="sym">:</span> <span class="num">1</span><span class="sym">.</span><span class="sym">.</span><span class="num">100</span><span class="sym">;</span>
+  ExArray <span class="sym">:</span> <span class="kw">Array</span><span class="sym">[</span><span class="num">1</span><span class="sym">.</span><span class="sym">.</span><span class="num">100</span><span class="sym">]</span> <span class="kw">of</span> Float<span class="sym">;</span>
+  V <span class="sym">:</span> float<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Randomize<span class="sym">;</span>
+  <span class="kw">for</span> I<span class="sym">:=</span>low<span class="sym">(</span>ExArray<span class="sym">)</span> to high<span class="sym">(</span>ExArray<span class="sym">)</span> <span class="kw">do</span>
+    ExArray<span class="sym">[</span>i<span class="sym">]</span><span class="sym">:=</span><span class="sym">(</span>Random<span class="sym">-</span>Random<span class="sym">)</span><span class="sym">*</span><span class="num">100</span><span class="sym">;</span>
+  V<span class="sym">:=</span>Variance<span class="sym">(</span>ExArray<span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Variance     : '</span><span class="sym">,</span>V<span class="sym">:</span><span class="num">8</span><span class="sym">:</span><span class="num">4</span><span class="sym">)</span><span class="sym">;</span>
+  V<span class="sym">:=</span>Variance<span class="sym">(</span><span class="sym">@</span>ExArray<span class="sym">[</span><span class="num">1</span><span class="sym">]</span><span class="sym">,</span><span class="num">100</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Variance (b) : '</span><span class="sym">,</span>V<span class="sym">:</span><span class="num">8</span><span class="sym">:</span><span class="num">4</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>allocate_ldt_descriptors</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../go32/index.html">Overview</a>][<a href="../go32/index-2.html">Constants</a>][<a href="../go32/index-3.html">Types</a>][<a href="../go32/index-5.html">Procedures and functions</a>][<a href="../go32/index-6.html">Variables</a>][<a href="../go32/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'go32' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>allocate_ldt_descriptors</h1>
+<p>Allocate a number of descriptors</p>
+<h2>Declaration</h2>
+<p>Source position: go32.pp line 87</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> allocate_ldt_descriptors<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;count<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Allocates a number of new descriptors. </p>
+<p>Parameters:  </p>
+<dl>
+<dt>count:\</dt>
+<dd>specifies the number of requested unique descriptors.</dd>
+</dl>
+<p>Return value: The base selector. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>Notes: The descriptors allocated must be initialized by the application with other function calls. This function returns descriptors with a limit and size value set to zero. If more than one descriptor was requested, the function returns a base selector referencing the first of a contiguous array of descriptors. The selector values for subsequent descriptors in the array can be calculated by adding the value returned by the <a href="../go32/get_next_selector_increment_value.html">get_next_selector_increment_value</a>  function. </td>
+</tr>
+</table>
+<h2>Errors</h2>
+<p>Check the <a href="../go32/int31error.html">int31error</a> variable.  </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../go32/free_ldt_descriptor.html">free_ldt_descriptor</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Free a descriptor</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/get_next_selector_increment_value.html">get_next_selector_increment_value</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return selector increment value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/segment_to_descriptor.html">segment_to_descriptor</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Map segment address to descriptor</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/create_code_segment_alias_descriptor.html">create_code_segment_alias_descriptor</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create new descriptor from existing descriptor</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/set_segment_limit.html">set_segment_limit</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set descriptor limit</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/set_segment_base_address.html">set_segment_base_address</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set descriptor's base address</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="cmt">{</span>
+<span class="cmt">This example demonstrates the usage of descriptors and the effects of</span>
+<span class="cmt">changing its limit and base address.</span>
+<span class="cmt"></span>
+<span class="cmt">In more detail, the program fills the region described by an</span>
+<span class="cmt">allocated descriptor in text screen memory with various characters.</span>
+<span class="cmt">Before doing this it saves the entire screen contents to the heap and</span>
+<span class="cmt">restores it afterwards.</span>
+<span class="cmt"></span>
+<span class="cmt">Some additional background:</span>
+<span class="cmt"></span>
+<span class="cmt">The text screen of a VGA card has it's address space at $B800:0;</span>
+<span class="cmt">screen memory is organized in a linear fashion, e.g. the second line</span>
+<span class="cmt">comes directly after the first, where each cell occupies 2 bytes of</span>
+<span class="cmt">memory (1 byte character data, 1 byte attributes). It is 32 kb in</span>
+<span class="cmt">size.</span>
+<span class="cmt"></span>
+<span class="cmt">Hence the offset of a single memory cell from its origin is:</span>
+<span class="cmt"></span>
+<span class="cmt">        Y * columns * 2 + X * 2</span>
+<span class="cmt"></span>
+<span class="cmt">where X and Y mark the point and columns is the number of character</span>
+<span class="cmt">cells per line</span>
+<span class="cmt">}</span>
+<span class="dir">{$mode delphi}</span>
+<span class="kw">uses</span>
+        crt<span class="sym">,</span>
+        go32<span class="sym">;</span>
+
+<span class="kw">const</span>
+        <span class="cmt">{ screen x and y dimensions }</span>
+        maxx <span class="sym">=</span> <span class="num">80</span><span class="sym">;</span>
+        maxy <span class="sym">=</span> <span class="num">25</span><span class="sym">;</span>
+        <span class="cmt">{ bytes used for every character cell }</span>
+        bytespercell <span class="sym">=</span> <span class="num">2</span><span class="sym">;</span>
+        <span class="cmt">{ screen size in bytes }</span>
+        screensize <span class="sym">=</span> maxx <span class="sym">*</span> maxy <span class="sym">*</span> bytespercell<span class="sym">;</span>
+
+        <span class="cmt">{ the linear address of $B800:0 }</span>
+        linB8000 <span class="sym">=</span> <span class="num">$B800</span> <span class="sym">*</span> <span class="num">16</span><span class="sym">;</span>
+
+<span class="kw">type</span>
+        string80 <span class="sym">=</span> string<span class="sym">[</span><span class="num">80</span><span class="sym">]</span><span class="sym">;</span>
+
+<span class="kw">var</span>
+        <span class="cmt">{ holds the old screen contents }</span>
+        text_save <span class="sym">:</span> <span class="kw">array</span><span class="sym">[</span><span class="num">0</span><span class="sym">.</span><span class="sym">.</span>screensize<span class="sym">-</span><span class="num">1</span><span class="sym">]</span> <span class="kw">of</span> byte<span class="sym">;</span>
+        <span class="cmt">{ old cursor x and y coordinates }</span>
+        text_oldx<span class="sym">,</span> text_oldy <span class="sym">:</span> Word<span class="sym">;</span>
+
+        <span class="cmt">{ selector to the text mode screen }</span>
+        text_sel <span class="sym">:</span> Word<span class="sym">;</span>
+
+<span class="cmt">{ prints a status message on the first line of the screen and then</span>
+<span class="cmt">waits for a keypress }</span>
+<span class="kw">procedure</span> status<span class="sym">(</span>s <span class="sym">:</span> string80<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">begin</span>
+     gotoxy<span class="sym">(</span><span class="num">1</span><span class="sym">,</span> <span class="num">1</span><span class="sym">)</span><span class="sym">;</span> clreol<span class="sym">;</span> write<span class="sym">(</span>s<span class="sym">)</span><span class="sym">;</span> readkey<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="cmt">{ writes some descriptor info on the last 2 lines }</span>
+<span class="kw">procedure</span> selinfo<span class="sym">(</span>sel <span class="sym">:</span> Word<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">begin</span>
+     gotoxy<span class="sym">(</span><span class="num">1</span><span class="sym">,</span> <span class="num">24</span><span class="sym">)</span><span class="sym">;</span>
+     clreol<span class="sym">;</span> writeln<span class="sym">(</span><span class="str">'Descriptor base address : $'</span><span class="sym">,</span>
+        hexstr<span class="sym">(</span>get_segment_base_address<span class="sym">(</span>sel<span class="sym">)</span><span class="sym">,</span> <span class="num">8</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+     clreol<span class="sym">;</span> write<span class="sym">(</span><span class="str">'Descriptor limit : '</span><span class="sym">,</span> get_segment_limit<span class="sym">(</span>sel<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="cmt">{ returns a 2 byte character cell, which includes character data</span>
+<span class="cmt">and its color attributes }</span>
+<span class="kw">function</span> makechar<span class="sym">(</span>ch <span class="sym">:</span> char<span class="sym">;</span> color <span class="sym">:</span> byte<span class="sym">)</span> <span class="sym">:</span> Word<span class="sym">;</span>
+<span class="kw">begin</span>
+     result <span class="sym">:=</span> byte<span class="sym">(</span>ch<span class="sym">)</span> <span class="kw">or</span> <span class="sym">(</span>color shl <span class="num">8</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+     <span class="cmt">{ save original screen contents to variable, this time by using</span>
+<span class="cmt">     seg_move() and the dosmemselector variable }</span>
+     seg_move<span class="sym">(</span>dosmemselector<span class="sym">,</span> linB8000<span class="sym">,</span> get_ds<span class="sym">,</span> longint<span class="sym">(</span><span class="sym">@</span>text_save<span class="sym">)</span><span class="sym">,</span>
+        screensize<span class="sym">)</span><span class="sym">;</span>
+     <span class="cmt">{ additionally we have to save the old screen cursor</span>
+<span class="cmt">     coordinates }</span>
+     text_oldx <span class="sym">:=</span> wherex<span class="sym">;</span> text_oldy <span class="sym">:=</span> wherey<span class="sym">;</span>
+     <span class="cmt">{ clear the whole screen }</span>
+     seg_fillword<span class="sym">(</span>dosmemselector<span class="sym">,</span> linB8000<span class="sym">,</span> screensize <span class="kw">div</span> <span class="num">2</span><span class="sym">,</span>
+        makechar<span class="sym">(</span><span class="chr">' '</span><span class="sym">,</span> Black <span class="kw">or</span> <span class="sym">(</span>Black shl <span class="num">4</span><span class="sym">)</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+     <span class="cmt">{ output message }</span>
+     status<span class="sym">(</span><span class="str">'Creating selector ''text_sel'' to a part of '</span> <span class="sym">+</span>
+        <span class="str">'text screen memory'</span><span class="sym">)</span><span class="sym">;</span>
+     <span class="cmt">{ allocate descriptor }</span>
+     text_sel <span class="sym">:=</span> allocate_ldt_descriptors<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+     <span class="cmt">{ set its base address to the linear address of the text screen</span>
+<span class="cmt">     + the byte size of one line (=maxx * bytespercell * 1) }</span>
+     <span class="kw">set</span>_segment_base_address<span class="sym">(</span>text_sel<span class="sym">,</span>
+        linB8000 <span class="sym">+</span> bytespercell <span class="sym">*</span> maxx <span class="sym">*</span> <span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+     <span class="cmt">{ the limit is set to the screensize reduced by one (a must be)</span>
+<span class="cmt">     and the number of lines we don't want to have touched (first</span>
+<span class="cmt">     line + lower 2 lines) }</span>
+     <span class="kw">set</span>_segment_limit<span class="sym">(</span>text_sel<span class="sym">,</span> screensize <span class="sym">-</span> <span class="num">1</span> <span class="sym">-</span> bytespercell <span class="sym">*</span>
+        maxx <span class="sym">*</span> <span class="num">3</span><span class="sym">)</span><span class="sym">;</span>
+     <span class="cmt">{ write descriptor info  }</span>
+     selinfo<span class="sym">(</span>text_sel<span class="sym">)</span><span class="sym">;</span>
+
+     status<span class="sym">(</span><span class="str">'and clearing entire memory selected by ''text_sel'''</span> <span class="sym">+</span>
+        <span class="str">' descriptor'</span><span class="sym">)</span><span class="sym">;</span>
+     <span class="cmt">{ fill the entire selected memory with single characters }</span>
+     seg_fillword<span class="sym">(</span>text_sel<span class="sym">,</span> <span class="num">0</span><span class="sym">,</span> <span class="sym">(</span>get_segment_limit<span class="sym">(</span>text_sel<span class="sym">)</span><span class="sym">+</span><span class="num">1</span><span class="sym">)</span> <span class="kw">div</span> <span class="num">2</span><span class="sym">,</span>
+        makechar<span class="sym">(</span><span class="chr">' '</span><span class="sym">,</span> LightBlue shl <span class="num">4</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+
+     status<span class="sym">(</span><span class="str">'Notice that only the memory described by the '</span> <span class="sym">+</span>
+        <span class="str">'descriptor changed, nothing else'</span><span class="sym">)</span><span class="sym">;</span>
+
+     status<span class="sym">(</span><span class="str">'Now reducing it''s limit and base and setting it''s '</span> <span class="sym">+</span>
+        <span class="str">'described memory'</span><span class="sym">)</span><span class="sym">;</span>
+     <span class="cmt">{ set the base address of the descriptor (increase it by the</span>
+<span class="cmt">     byte size of one line) }</span>
+     <span class="kw">set</span>_segment_base_address<span class="sym">(</span>text_sel<span class="sym">,</span>
+        get_segment_base_address<span class="sym">(</span>text_sel<span class="sym">)</span> <span class="sym">+</span> bytespercell <span class="sym">*</span> maxx<span class="sym">)</span><span class="sym">;</span>
+     <span class="cmt">{ decrease the limit by byte size of 2 lines (1 line because</span>
+<span class="cmt">        base address changed, one line on the lower end) }</span>
+     <span class="kw">set</span>_segment_limit<span class="sym">(</span>text_sel<span class="sym">,</span>
+        get_segment_limit<span class="sym">(</span>text_sel<span class="sym">)</span> <span class="sym">-</span> bytespercell <span class="sym">*</span> maxx <span class="sym">*</span> <span class="num">2</span><span class="sym">)</span><span class="sym">;</span>
+     <span class="cmt">{ write descriptor info  }</span>
+     selinfo<span class="sym">(</span>text_sel<span class="sym">)</span><span class="sym">;</span>
+     status<span class="sym">(</span><span class="str">'Notice that the base addr increased by one line but '</span> <span class="sym">+</span>
+        <span class="str">'the limit decreased by 2 lines'</span><span class="sym">)</span><span class="sym">;</span>
+     status<span class="sym">(</span><span class="str">'This should give you the hint that the limit is '</span> <span class="sym">+</span>
+        <span class="str">'relative to the base'</span><span class="sym">)</span><span class="sym">;</span>
+     <span class="cmt">{ fill the descriptor area }</span>
+     seg_fillword<span class="sym">(</span>text_sel<span class="sym">,</span> <span class="num">0</span><span class="sym">,</span> <span class="sym">(</span>get_segment_limit<span class="sym">(</span>text_sel<span class="sym">)</span><span class="sym">+</span><span class="num">1</span><span class="sym">)</span> <span class="kw">div</span> <span class="num">2</span><span class="sym">,</span>
+        makechar<span class="sym">(</span><span class="chr">#176</span><span class="sym">,</span> LightMagenta <span class="kw">or</span> Brown shl <span class="num">4</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+
+     status<span class="sym">(</span><span class="str">'Now let''s get crazy and copy 10 lines of data from '</span> <span class="sym">+</span>
+        <span class="str">'the previously saved screen'</span><span class="sym">)</span><span class="sym">;</span>
+     <span class="cmt">{ copy memory from the data segment to screen }</span>
+     seg_move<span class="sym">(</span>get_ds<span class="sym">,</span> longint<span class="sym">(</span><span class="sym">@</span>text_save<span class="sym">)</span><span class="sym">,</span> text_sel<span class="sym">,</span>
+        maxx <span class="sym">*</span> bytespercell <span class="sym">*</span> <span class="num">2</span><span class="sym">,</span> maxx <span class="sym">*</span> bytespercell <span class="sym">*</span> <span class="num">10</span><span class="sym">)</span><span class="sym">;</span>
+
+     status<span class="sym">(</span><span class="str">'At last freeing the descriptor and restoring the old '</span> <span class="sym">+</span>
+        <span class="str">' screen contents..'</span><span class="sym">)</span><span class="sym">;</span>
+     status<span class="sym">(</span><span class="str">'I hope this little program may give you some hints '</span> <span class="sym">+</span>
+        <span class="str">'on working with descriptors'</span><span class="sym">)</span><span class="sym">;</span>
+     <span class="cmt">{ free the descriptor so that it can be used for things }</span>
+     free_ldt_descriptor<span class="sym">(</span>text_sel<span class="sym">)</span><span class="sym">;</span>
+     <span class="cmt">{ restore old state  }</span>
+     seg_move<span class="sym">(</span>get_ds<span class="sym">,</span> longint<span class="sym">(</span><span class="sym">@</span>text_save<span class="sym">)</span><span class="sym">,</span> dosmemselector<span class="sym">,</span>
+        linB8000<span class="sym">,</span> screensize<span class="sym">)</span><span class="sym">;</span>
+     gotoxy<span class="sym">(</span>text_oldx<span class="sym">,</span> text_oldy<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

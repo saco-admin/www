@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Stack frame omission</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 6610--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu188.html" >next</a>] [<a 
+href="progsu186.html" >prev</a>] [<a 
+href="progsu186.html#tailprogsu186.html" >prev-tail</a>] [<a 
+href="#tailprogsu187.html">tail</a>] [<a 
+href="progse47.html#progsu187.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">11.1.12   </span> <a 
+href="prog.html#QQ2-249-285" id="x249-26300011.1.12">Stack frame omission</a></h4>
+<!--l. 6612--><p class="noindent" >Under specific conditions, the stack frame (entry and exit code for the routine, see section section
+<a 
+href="progse22.html#x173-1760006.3">6.3<!--tex4ht:ref: se:CallingConventions --></a>, page <a 
+href="progse22.html#x173-1760006.3">396<!--tex4ht:ref: se:CallingConventions --></a>) will be omitted, and the variable will directly be accessed via the stack
+pointer.
+<!--l. 6616--><p class="noindent" >Conditions for omission of the stack frame:
+     <ul class="itemize1">
+     <li class="itemize">The target CPU is x86 or ARM.
+     </li>
+     <li class="itemize">The -O2 or -OoSTACKFRAME command line switch must be specified.
+     </li>
+     <li class="itemize">No inline assembler is used.
+     </li>
+     <li class="itemize">No exceptions are used.
+     </li>
+     <li class="itemize">No routines are called with outgoing parameters on the stack.
+     </li>
+     <li class="itemize">The function has no parameters.</li></ul>
+                                                                            
+
+                                                                            
+<!--l. 6626--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu188.html" >next</a>] [<a 
+href="progsu186.html" >prev</a>] [<a 
+href="progsu186.html#tailprogsu186.html" >prev-tail</a>] [<a 
+href="progsu187.html" >front</a>] [<a 
+href="progse47.html#progsu187.html" >up</a>] </p></div>
+<!--l. 6626--><p class="noindent" ><a 
+ id="tailprogsu187.html"></a>  
+</body></html> 

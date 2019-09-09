@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TResourceManager</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TResourceManager</h1>
+<p>Resource manager definition</p>
+<h2>Declaration</h2>
+<p>Source position: resh.inc line 73</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TResourceManager<span class="sym"> = </span><span class="kw">record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;HINSTANCEFunc<span class="sym">: </span><span class="kw">function</span><span class="sym">: </span><a href="../system/tfpresourcehmodule.html">TFPResourceHMODULE</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the programs instance handle.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;EnumResourceTypesFunc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Handler for <a href="../system/enumresourcetypes.html">EnumResourceTypes</a>.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ModuleHandle<span class="sym">: </span><a href="../system/tfpresourcehmodule.html">TFPResourceHMODULE</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;EnumFunc<span class="sym">: </span><a href="../system/enumrestypeproc.html">EnumResTypeProc</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;lParam<span class="sym">: </span><a href="../system/ptrint.html">PtrInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>LongBool<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;EnumResourceNamesFunc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Handler for <a href="../system/enumresourcenames.html">EnumResourceNames</a>.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ModuleHandle<span class="sym">: </span><a href="../system/tfpresourcehmodule.html">TFPResourceHMODULE</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ResourceType<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;EnumFunc<span class="sym">: </span><a href="../system/enumresnameproc.html">EnumResNameProc</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;lParam<span class="sym">: </span><a href="../system/ptrint.html">PtrInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>LongBool<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;EnumResourceLanguagesFunc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Handler for <a href="../system/enumresourcelanguages.html">EnumResourceLanguages</a>.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ModuleHandle<span class="sym">: </span><a href="../system/tfpresourcehmodule.html">TFPResourceHMODULE</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ResourceType<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ResourceName<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;EnumFunc<span class="sym">: </span><a href="../system/enumreslangproc.html">EnumResLangProc</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;lParam<span class="sym">: </span><a href="../system/ptrint.html">PtrInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>LongBool<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;FindResourceFunc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Handler for <a href="../system/findresource.html">FindResource</a></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ModuleHandle<span class="sym">: </span><a href="../system/tfpresourcehmodule.html">TFPResourceHMODULE</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ResourceName<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ResourceType<span class="sym">: </span><a href="../system/pchar.html">PChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tfpresourcehandle.html">TFPResourceHandle</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;FindResourceExFunc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Handler for <a href="../system/findresourceex.html">FindResourceEx</a></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ModuleHandle<span class="sym">: </span><a href="../system/tfpresourcehmodule.html">TFPResourceHMODULE</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ResourceType<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ResourceName<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Language<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tfpresourcehandle.html">TFPResourceHandle</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;LoadResourceFunc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Handler for <a href="../system/loadresource.html">LoadResource</a></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ModuleHandle<span class="sym">: </span><a href="../system/tfpresourcehmodule.html">TFPResourceHMODULE</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ResHandle<span class="sym">: </span><a href="../system/tfpresourcehandle.html">TFPResourceHandle</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tfpresourcehglobal.html">TFPResourceHGLOBAL</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;SizeofResourceFunc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Handler for <a href="../system/sizeofresource.html">SizeOfResource</a></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ModuleHandle<span class="sym">: </span><a href="../system/tfpresourcehmodule.html">TFPResourceHMODULE</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ResHandle<span class="sym">: </span><a href="../system/tfpresourcehandle.html">TFPResourceHandle</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/longword.html">LongWord</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;LockResourceFunc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Handler for <a href="../system/lockresource.html">LockResource</a></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ResData<span class="sym">: </span><a href="../system/tfpresourcehglobal.html">TFPResourceHGLOBAL</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;UnlockResourceFunc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Handler for <a href="../system/unlockresource.html">UnLockResource</a></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ResData<span class="sym">: </span><a href="../system/tfpresourcehglobal.html">TFPResourceHGLOBAL</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>LongBool<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;FreeResourceFunc<span class="sym">: </span><span class="kw">function</span><span class="sym">(</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Handler for <a href="../system/freeresource.html">FreeResource</a></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ResData<span class="sym">: </span><a href="../system/tfpresourcehglobal.html">TFPResourceHGLOBAL</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>LongBool<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TResourceManager</var> is the record describing the resource manager. Depending on the kind of resources (internal, external), another resource  managing handler is installed by the system. The resource manager record is used by all resource handling functions to do the actual work: for each function in the API, a handler function is available. People wishing to implement their own resource manager, must implement all handler functions in their implementation. </p>
+<p>As soon as resources are used, the compiler will install a resource manager, depending on the platform, this may be an internal or an external resource manager. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/getresourcemanager.html">GetResourceManager</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the currently active resource manager</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/setresourcemanager.html">SetResourceManager</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set the resource manager</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

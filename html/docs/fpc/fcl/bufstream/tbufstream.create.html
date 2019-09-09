@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TBufStream.Create</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../bufstream/index.html">Overview</a>][<a href="../bufstream/index-2.html">Constants</a>][<a href="../bufstream/index-4.html">Classes</a>][<a href="../bufstream/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'bufstream' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TBufStream.Create</h1>
+<p>Create a new <var>TBufStream</var> instance.</p>
+<h2>Declaration</h2>
+<p>Source position: bufstream.pp line 47</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">constructor</span> <a href="../bufstream/tbufstream.html">TBufStream</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ASource<span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ACapacity<span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">constructor</span> <a href="../bufstream/tbufstream.html">TBufStream</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ASource<span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ASource</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Source stream to buffer data from</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ACapacity</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Buffer capacity</p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ASource</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Source stream to buffer data from</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Create</var> creates a new <var>TBufStream</var> instance. A buffer of size <var>ACapacity</var> is allocated, and the <var>ASource</var> source (or destination) stream is stored. If no capacity is specified, then <a href="../bufstream/defaultbuffercapacity.html">DefaultBufferCapacity</a> is used as the capacity. </p>
+<p>An instance of <var>TBufStream</var> should never be instantiated  directly. Instead, an instance of <a href="../bufstream/treadbufstream.html">TReadBufStream</a> or <a href="../bufstream/twritebufstream.html">TWriteBufStream</a> should be created. </p>
+<h2>Errors</h2>
+<p>If not enough memory is available for the buffer, then an exception may be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../bufstream/tbufstream.destroy.html">TBufStream.Destroy</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Destroys the <var>TBufStream</var> instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../bufstream/treadbufstream.html">TReadBufStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read-only buffered stream.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../bufstream/twritebufstream.html">TWriteBufStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write-only buffered stream.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

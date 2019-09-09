@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Using external code and variables</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 4362--><div class="crosslinks"><p class="noindent">[<a 
+href="progse29.html" >next</a>] [<a 
+href="#tailprogse28.html">tail</a>] [<a 
+href="progch7.html#progse28.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">7.1   </span> <a 
+href="prog.html#QQ2-185-196" id="x185-1880007.1">Using external code and variables</a></h3>
+<!--l. 4364--><p class="noindent" >In general, there are 3 things you must do to use a function that resides in an external library or
+object file:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x185-188002x1">You must make a pascal declaration of the function or procedure you want to use.
+     </li>
+     <li 
+  class="enumerate" id="x185-188004x2">You must declare the correct calling convention to use.
+     </li>
+     <li 
+  class="enumerate" id="x185-188006x3">You must tell the compiler where the function resides, i.e. in what object file or what
+     library, so the compiler can link the necessary code in.</li></ol>
+<!--l. 4373--><p class="noindent" >The same holds for variables. To access a variable that resides in an external object file, you must
+declare it, and tell the compiler where to find it. The following sections attempt to explain how to
+do this.
+                                                                            
+
+                                                                            
+<!--l. 4379--><p class="noindent" >
+<div class="subsectionTOCS">
+&#x00A0;&#x00A0;<span class="subsectionToc" >7.1.1 <a 
+href="progsu147.html#x186-1890007.1.1">Declaring external functions or procedures</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >7.1.2 <a 
+href="progsu148.html#x187-1900007.1.2">Declaring external variables</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >7.1.3 <a 
+href="progsu149.html#x188-1910007.1.3">Declaring the calling convention modifier</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >7.1.4 <a 
+href="progsu150.html#x189-1920007.1.4">Declaring the external object code</a></span>
+<br />&#x00A0;&#x00A0;&#x00A0;<span class="subsubsectionToc" ><a 
+href="progsu150.html#x189-1930007.1.4" id="QQ2-189-201">Linking to an object file</a></span>
+<br />&#x00A0;&#x00A0;&#x00A0;<span class="subsubsectionToc" ><a 
+href="progsu150.html#x189-1940007.1.4" id="QQ2-189-202">Linking to a library</a></span>
+</div>
+
+
+
+                                                                            
+
+                                                                            
+<div class="footnotes"></div> <!--l. 4719--><div class="crosslinks"><p class="noindent">[<a 
+href="progse29.html" >next</a>] [<a 
+href="progse28.html" >front</a>] [<a 
+href="progch7.html#progse28.html" >up</a>] </p></div>
+<!--l. 4719--><p class="noindent" ><a 
+ id="tailprogse28.html"></a>  
+</body></html> 

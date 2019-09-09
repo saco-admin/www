@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TField.GetData</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TField.GetData</h1>
+<p>Get the data from this field</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 382</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../db/tfield.html">TField</a><span class="sym">.</span>GetData<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Buffer<span class="sym">: </span>Pointer</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../db/tfield.html">TField</a><span class="sym">.</span>GetData<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Buffer<span class="sym">: </span>Pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;NativeFormat<span class="sym">: </span>Boolean</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Buffer</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Buffer to store field contents in.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>True if data is available.</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Buffer</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Buffer to store field contents in.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">NativeFormat</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return date/time values in native (TDateTime) format.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>GetData</var> is used internally by <var>TField</var> to fetch the value of the data of this field into the data buffer pointed to by <var>Buffer</var>. If it returns <var>False</var> if the field has no value (i.e. is Null). If the <var>NativeFormat</var> parameter is true, then date/time formats should use the <var>TDateTime</var> format. It should not be necessary to use this method, instead use the various 'AsXXX' methods to access the data. </p>
+<h2>Errors</h2>
+<p>No validity checks are performed on <var>Buffer</var>: it should point to a valid memory area, and should be large enough to contain the value of the field.  Failure to provide a buffer that matches these criteria will result in an exception. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tfield.isnull.html">TField.IsNull</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the field empty</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfield.setdata.html">TField.SetData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Save the field data</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfield.value.html">TField.Value</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value of the field as a variant value</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

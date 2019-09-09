@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$MMX : Intel MMX support (Intel 80x86 only)</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 1181--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu54.html" >next</a>] [<a 
+href="progsu52.html" >prev</a>] [<a 
+href="progsu52.html#tailprogsu52.html" >prev-tail</a>] [<a 
+href="#tailprogsu53.html">tail</a>] [<a 
+href="progse2.html#progsu53.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.53   </span> <a 
+href="prog.html#QQ2-60-59" id="x60-590001.2.53"><span 
+class="cmtt-10">$MMX </span>: Intel MMX support (Intel 80x86 only)</a></h4>
+<!--l. 1183--><p class="noindent" >Free Pascal supports optimization for the <span 
+class="cmbx-10">MMX </span>Intel processor (see also chapter <a 
+href="progch5.html#x153-1540005">5<!--tex4ht:ref: ch:MMXSupport --></a>).
+<!--l. 1186--><p class="noindent" >This optimizes certain code parts for the <span 
+class="cmbx-10">MMX </span>Intel processor, thus greatly improving speed.
+The speed is noticed mostly when moving large amounts of data. Things that change
+are
+     <ul class="itemize1">
+     <li class="itemize">Data with a size that is a multiple of 8 bytes is moved using the <span 
+class="cmtt-10">movq </span>assembler
+     instruction, which moves 8 bytes at a time</li></ul>
+<!--l. 1193--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span>MMX support is NOT emulated on non-MMX systems, i.e. if the processor doesn&#8217;t have the MMX
+extensions, the MMX optimizations cannot be used.
+<!--l. 1197--><p class="noindent" >When <span 
+class="cmbx-10">MMX </span>support is on, it is not allowed to do floating point arithmetic. It is allowed to move
+floating point data, but no arithmetic can be done. If floating point math must be done anyway,
+first <span 
+class="cmbx-10">MMX </span>support must be switched off and the FPU must be cleared using the <span 
+class="cmtt-10">emms </span>function of
+the <span 
+class="cmss-10">cpu </span>unit.
+<!--l. 1203--><p class="noindent" >The following example will make this more clear:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-54">
+Program&#x00A0;MMXDemo;
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;mmx;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;d1&#x00A0;:&#x00A0;double;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;a&#x00A0;:&#x00A0;array[0..10000]&#x00A0;of&#x00A0;double;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;i&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;d1:=1.0;
+&#x00A0;<br />{$mmx+}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;{&#x00A0;floating&#x00A0;point&#x00A0;data&#x00A0;is&#x00A0;used,&#x00A0;but&#x00A0;we&#x00A0;do&#x00A0;_no_&#x00A0;arithmetic&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;for&#x00A0;i:=0&#x00A0;to&#x00A0;10000&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;a[i]:=d2;&#x00A0;&#x00A0;{&#x00A0;this&#x00A0;is&#x00A0;done&#x00A0;with&#x00A0;64&#x00A0;bit&#x00A0;moves&#x00A0;}
+&#x00A0;<br />{$mmx-}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;emms;&#x00A0;&#x00A0;&#x00A0;{&#x00A0;clear&#x00A0;fpu&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;{&#x00A0;now&#x00A0;we&#x00A0;can&#x00A0;do&#x00A0;floating&#x00A0;point&#x00A0;arithmetic&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />end.
+</div>
+<!--l. 1225--><p class="nopar" >See the chapter on MMX (<a 
+href="progch5.html#x153-1540005">5<!--tex4ht:ref: ch:MMXSupport --></a>) for more information on this topic.
+                                                                            
+
+                                                                            
+<!--l. 1229--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu54.html" >next</a>] [<a 
+href="progsu52.html" >prev</a>] [<a 
+href="progsu52.html#tailprogsu52.html" >prev-tail</a>] [<a 
+href="progsu53.html" >front</a>] [<a 
+href="progse2.html#progsu53.html" >up</a>] </p></div>
+<!--l. 1229--><p class="noindent" ><a 
+ id="tailprogsu53.html"></a>  
+</body></html> 

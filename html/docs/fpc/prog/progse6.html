@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Compile time variables</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 2717--><div class="crosslinks"><p class="noindent">[<a 
+href="progse7.html" >next</a>] [<a 
+href="progse5.html" >prev</a>] [<a 
+href="progse5.html#tailprogse5.html" >prev-tail</a>] [<a 
+href="#tailprogse6.html">tail</a>] [<a 
+href="progch2.html#progse6.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">2.3   </span> <a 
+href="prog.html#QQ2-138-141" id="x138-1390002.3">Compile time variables</a></h3>
+<!--l. 2718--><p class="noindent" >In MacPas mode, compile time variables can be defined. They are distinct from symbols in that
+they have a value, and they are distinct from macros, in that they cannot be used to replace
+portions of the source text with their value. Their behaviour is compatible with compile time
+variables found in popular pascal compilers for Macintosh.
+<!--l. 2724--><p class="noindent" >A compile time variable is defined like this:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-122">
+{$SETC&#x00A0;&#x00A0;ident:=&#x00A0;expression}
+</div>
+<!--l. 2727--><p class="nopar" >The expression is a so-called compile time expression, which is evaluated once, at the point where
+the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$SETC </span><span 
+class="cmsy-10">} </span>directve is encountered in the source. The resulting value is then assigned to the
+compile time variable.
+<!--l. 2732--><p class="noindent" >A second <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$SETC </span><span 
+class="cmsy-10">} </span>directive for the same variable overwrites the previous value.
+<!--l. 2734--><p class="noindent" >Contrary to macros and symbols, compile time variables defined in the Interface part of a unit
+are exported. This means their value will be available in units which uses the unit in
+which the variable is defined. This requires that both units are compiled in macpas
+mode.
+<!--l. 2739--><p class="noindent" >The big difference between macros and compile time variables is that the former is a pure text
+substitution mechanism (much like in C), where the latter resemble normal programming language
+variables, but they are available to the compiler only.
+<!--l. 2744--><p class="noindent" >In mode MacPas, compile time variables are always enabled.
+                                                                            
+
+                                                                            
+<!--l. 2746--><div class="crosslinks"><p class="noindent">[<a 
+href="progse7.html" >next</a>] [<a 
+href="progse5.html" >prev</a>] [<a 
+href="progse5.html#tailprogse5.html" >prev-tail</a>] [<a 
+href="progse6.html" >front</a>] [<a 
+href="progch2.html#progse6.html" >up</a>] </p></div>
+<!--l. 2746--><p class="noindent" ><a 
+ id="tailprogse6.html"></a>  
+</body></html> 

@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+    <head>
+	<link rel="stylesheet" href="/../css/normalize.css" type="text/css" />
+	<link rel="stylesheet" href="/../css/sakura.css" type="text/css" />
+
+        <title>Preparation for the South African Programming Olympiad (SAPO)</title>
+    </head>
+    <body>
+
+        <h1>Preparation for the South African Programming Olympiad (SAPO)</h1>
+
+        <ol>
+            <li>
+                <a href="#r1">Talent Search</a>
+            </li>
+            <li>
+                <a href="#r2">First Round</a>
+                <ol>
+                    <li><a href="#r2_python">Learning Python</a></li>
+                    <li><a href="#r2_practice">Practice</a></li>
+                    <li><a href="#r2_alg">Algorithms and Data Structures</a></li>
+                    <li><a href="#r2_advice">General Advice</a></li>
+                    <li><a href="#r2_ask">Ask Questions</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="#r3">Final Round</a>
+                <ol>
+                    <li><a href="#r3_practice">Practice</a></li>
+                    <li><a href="#r3_alg">Algorithms and Data Structures</a></li>
+                    <li><a href="#r3_contests">Other Contests</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="#ioi">International Olympiad in Informatics (IOI)</a>
+            </li>
+        </ol>
+
+        <h2><a name="r1">Talent Search</a></h2>
+
+        <p>The talent search round of the SAPO is like an aptitude test. Therefore you
+        should not need to prepare for it.</p>
+
+        <h2><a name="r2">First Round</a></h2>
+
+        <p>The first round is a test of programming and basic algorithms and
+        data structures. It is considerably different to the talent search,
+        although a high mark in the talent search is an indication of potential to
+        do well in the first round. The sections below outline how to prepare
+        for the first round from learning to program to mastering the ultimate
+        fifth problem.</p>
+
+        <h3><a name="r2_python">Learning Python</a></h3>
+
+        <p>If you have no experience with programming then Python is a great
+        language to start with. If you have learned Java, Pascal or Delphi at
+        school, or any other language for that matter, you might also be
+        interested in learning Python <strike>due to the large cash prizes available</strike>, as
+        well as being generally interested in learning a new programming
+        language. <b>Note:</b> As of 2014, using Python does not give an additional cash prize for the final round.</p>
+
+        <p>The free ebook <i>A Byte of Python</i> is targeted at beginner
+        programmers (i.e. if you have little or no knowledge of programming).
+        You can <a
+          href="http://www.ibiblio.org/swaroopch/byteofpython/read/">read it
+          online</a> or <a
+          href="http://www.ibiblio.org/swaroopch/byteofpython/files/120/byteofpython_120.pdf">download
+          a PDF</a>. It covers downloading and installing Python so those
+        instructions won't be repeated here.</p>
+
+        <p><i>Dive Into Python</i> is another free ebook, but targeted at
+        experienced programmers looking for a rapid jump into Python. It is
+        useful if you are already thoroughly understand another programming
+        language. You can <a
+          href="http://diveintopython.org/toc/index.html">read it online</a> or
+        <a
+          href="http://diveintopython.org/download/diveintopython-pdf-5.4.zip">download
+          a PDF</a>.</p>
+
+        <p>Using Python in the SAPO after learning it the night before is a bad
+        idea!</p>
+
+        <h3><a name="r2_practice">Practice</a></h3>
+
+        <p>The Computer Olympiad website has a collection of the first round
+        papers dating back to 2003 <a
+          href="http://olympiad.org.za/programming-olympiad/past-papers/school-rounds/">here</a>. Some
+        solutions are available <a href="../old/">here</a>. Solving these
+        problems as practice will prepare you well for the first round. You
+        should also time yourself, remembering that the paper is two hours long.</p>
+
+        <p>For those who complete all the past first round papers and want more
+        challenging problems to practice on, there's plenty such resources! The
+        best place to go is the <a href="http://train.usaco.org/usacogate">USACO
+          Training Program</a>, which allow you to progress from easy to very
+        challenging problems as well as testing them against secret test data.
+        This is an excellent resource and has several problems with a wide range
+        of difficulty.</p>
+
+        <h3><a name="r2_alg">Algorithms and Data Structures</a></h3>
+
+        <p>In the OPEN division, the fifth problem (as well as sometimes the
+        fourth) almost always tests algorithms and/or data structures. The USACO
+        Training Program mentioned above has some articles as you proceed
+        through the problems. Another useful collection of articles on data
+        structures and algorithms is by Bruce Merry, the most successful SAPO
+        contestant to date, available <a
+          href="http://www.brucemerry.org.za/manual/">here</a>.</p>
+
+        <h3><a name="r2_advice">General Advice</a></h3>
+
+        <p>There are many aspects of contest programming that differ from
+        everyday programming. You do <i>not</i> need to check that the input
+        matches the constraints -- these are only there to give you a guarantee
+        on the input.</p>
+
+        <p>Time is everything. You only have two hours to solve five problems.
+        If you think the problems are easy, try time yourself while doing one of
+        the past papers. This is where Python becomes useful as the code is
+        almost always at least half the length of Java or Pascal code. You do
+        not need to go for the most complex solution, just one that solves the
+        problem for the provided test cases in a reasonable amount of time and
+        memory. The fifth (and sometimes also fourth) problem will require
+        a clever solution, even if a brute force solution would work on smaller
+        data.</p>
+
+        <p>The "Test your program with" inputs are the ones used in marking, so
+        make sure you do test your program on them and that once you are
+        satisfied with the answers move on to the next problem. There is also an
+        additional 5 marks per problem (in addition to the 15 for correct
+        answers) assigned to your code, so don't try hard coding the answers!
+        And while you don't have to spend half the time beautifying your code,
+        don't send us hideous code either.</p>
+
+        <h3><a name="r2_ask">Ask Questions</a></h3>
+
+        <p>The best way to learn is to ask questions. For questions regarding
+	administration and general matters, send an e-mail to <a
+          href="mailto:info@olympiad.org.za">info@olympiad.org.za</a>. For
+	training matters, please approach your IT teacher, or on of the many forums
+	that deal with algorithms or specific languages.</p>
+
+        <h2><a name="r3">Final Round</a></h2>
+
+        <p>The top +/- 12 contestants from the first round are invited to the
+        University of Cape Town to participate in the final round of the SAPO.
+        This is a lot tougher than the first round, making preparation vital.</p>
+
+        <h3><a name="r3_practice">Practice</a></h3>
+
+        <p>There is a large collection of past final round and even more
+        challenging training camp problems available <a
+          href="../old/">here</a>. There are online
+        evaluation systems for the problems going back to 2002, where you can
+        submit solutions for evaluation. The evaluation system is the same as
+        you will use for the final round, so it would be a good idea to become
+        familiar with it beforehand.</p>
+
+        <p>Continue churning through the USACO Training Program mentioned above.
+        As you progress you will find that the problems quickly reach very
+        challenging levels.</p>
+
+        <h3><a name="r3_alg">Algorithms and Data Structures</a></h3>
+
+        <p>Algorithms and data structures become far more important in the final
+        round. With a decent understanding of dynamic programming and graph
+        theory you will do well.</p>
+
+        <p>There is an archive of presentations from IOI training camps
+        available <a href="../presentations/">here</a>
+        as well as a long list of algorithm tutorials on <a
+          href="http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=alg_index">TopCoder</a></p>
+
+        <h3><a name="r3_contests">Other Contests</a></h3>
+
+        <p>Competitive programming has becoming very popular in recent years and
+        so there are now many programming contests. <a
+          href="http://usaco.org/">USACO</a> host a number of
+        contests, although none are between our first and final rounds. <a
+          href="http://www.topcoder.com/tc">TopCoder</a> has weekly algorithm
+        contests, which are only 75 minutes long. There are many more,
+        especially once you make it into university level.</p>
+
+        <h2><a name="ioi">International Olympiad in Informatics (IOI)</a></h2>
+
+        <p>If you come in a top ranking in the final round then you will enter
+        a full training programming at the University of Cape Town. This forms
+        the basis of team selection for the IOI and if you make it this far then
+        preparation gets a lot more intense.</p>
+
+    </body>
+</html>

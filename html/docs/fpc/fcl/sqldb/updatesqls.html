@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Automatic generation of update SQL statements</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/retrievingschemainformation.html">Previous</a>][<a href="../sqldb/index.html">Up</a>][<a href="../sqldb/usingparams.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h2>Automatic generation of update SQL statements</h2>
+<p>SQLDB (more in particular, <a href="../sqldb/tsqlquery.html">TSQLQuery</a>) can automatically generate update statements for the data it fetches. To this end, it will scan the SQL statement and determine the main table in the query: this is the first table encountered in the <var>FROM</var> part of the <var>SELECT</var> statement. </p>
+<p>For <var>INSERT</var> and <var>UPDATE</var> operations, the SQL statement will update/insert all fields that have <var>pfInUpdate</var> in their <var>ProviderFlags</var> property. Read-only fields will not be added to the SQL statement. Fields that are NULL will not be added to an insert query, which means that the database server will insert whatever is in the <var>DEFAULT</var> clause of the corresponding field definition. </p>
+<p>The <var>WHERE</var> clause for update and delete statements consists of all fields with <var>pfInKey</var> in their <var>ProviderFlags</var> property. Depending on the value of the <a href="../sqldb/tsqlquery.updatemode.html">UpdateMode</a> property, additional fields may be added to the <var>WHERE</var> clause: </p>
+<dl>
+<dt>upWhereKeyOnly</dt>
+<dd>No additional fields are added: only fields marked with <var>pfInKey</var> are used in the WHERE clause</dd>
+<dt>upWhereChanged</dt>
+<dd>All fields whose value changed are added to the WHERE clause, using their old value.</dd>
+<dt>upWhereAll</dt>
+<dd>All fields are added to the WHERE clause, using their old value.</dd>
+</dl>
+<p>In order to let SQLDB generate correct statements, it is important to set the <a href="../db/tfield.providerflags.html">ProviderFlags</a> properties correct for all fields. </p>
+<p>In many cases, for example when only a single table is queried, and no <var>AS</var> field aliases are used, setting <a href="../sqldb/tsqlquery.useprimarykeyaskey.html">TSQLQuery.UsePrimaryKeyAsKey</a> combined with <var>UpdateMode</var> equal to <var>upWhereKeyOnly</var> is sufficient. </p>
+<p>If the automatically generated queries are not correct, it is possible to specify the SQL statements to be used in the <a href="../sqldb/tsqlquery.updatesql.html">UpdateSQL</a>, <a href="../sqldb/tsqlquery.insertsql.html">InsertSQL</a> and <a href="../sqldb/tsqlquery.deletesql.html">DeleteSQL</a> properties. The new field values should be specified using params with the same name as the field. The old field values should be specified using the <var>OLD_</var> prefix to the field name. The following example demonstrates this: </p>
+<pre>INSERT INTO MYTABLE
+  <span class="sym">(</span>MYFIELD<span class="sym">,</span>MYFIELD2<span class="sym">)</span>
+VALUES
+  <span class="sym">(</span><span class="sym">:</span>MYFIELD<span class="sym">,</span><span class="sym">:</span>MYFIELD2<span class="sym">)</span><span class="sym">;</span>
+
+UPDATE MYTABLE <span class="kw">SET</span>
+  MYFIELD<span class="sym">=</span><span class="sym">:</span>MYFIELD
+  MYFIELD2<span class="sym">=</span><span class="sym">:</span>MYFIELD2
+WHERE
+  <span class="sym">(</span>MYFIELD<span class="sym">=</span><span class="sym">:</span>OLD_MYFIELD<span class="sym">)</span><span class="sym">;</span>
+
+DELETE FROM MYTABLE WHERE <span class="sym">(</span>MyField<span class="sym">=</span><span class="sym">:</span>OLD_MYFIELD<span class="sym">)</span><span class="sym">;</span>
+</pre>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/usingparams.html">UsingParams</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Using parameters</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlquery.html">TSQLQuery</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Class to handle SQL commands (with or without result set)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlquery.updatesql.html">UpdateSQL</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Statement to be used when updating an existing row in the database</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlquery.insertsql.html">InsertSQL</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Statement to be used when inserting a new row in the database</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlquery.updatesql.html">DeleteSQL</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Statement to be used when updating an existing row in the database</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

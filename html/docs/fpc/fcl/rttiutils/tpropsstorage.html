@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TPropsStorage</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../rttiutils/index.html">Overview</a>][<a href="../rttiutils/index-2.html">Constants</a>][<a href="../rttiutils/index-3.html">Types</a>][<a href="../rttiutils/index-4.html">Classes</a>][<a href="../rttiutils/index-5.html">Procedures and functions</a>][<a href="../rttiutils/index-6.html">Variables</a>][<a href="../rttiutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'rttiutils' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TPropsStorage</h1>
+<p>[<a href="../rttiutils/tpropsstorage-1.html" onClick="window.open('../rttiutils/tpropsstorage-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../rttiutils/tpropsstorage-2.html" onClick="window.open('../rttiutils/tpropsstorage-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../rttiutils/tpropsstorage-3.html" onClick="window.open('../rttiutils/tpropsstorage-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../rttiutils/tpropsstorage-4.html" onClick="window.open('../rttiutils/tpropsstorage-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../rttiutils/tpropsstorage-5.html" onClick="window.open('../rttiutils/tpropsstorage-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../rttiutils/tpropsstorage-6.html" onClick="window.open('../rttiutils/tpropsstorage-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Property storage mechanism</p>
+<h2>Declaration</h2>
+<p>Source position: rttiutils.pp line 68</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TPropsStorage <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../../rtl/system/tobject.html">TObject</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../rttiutils/tpropsstorage.storeanyproperty.html">StoreAnyProperty</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Store a property value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../rttiutils/tpropsstorage.loadanyproperty.html">LoadAnyProperty</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Load a property value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../rttiutils/tpropsstorage.storeproperties.html">StoreProperties</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Store a list of properties</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../rttiutils/tpropsstorage.loadproperties.html">LoadProperties</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Load a list of properties</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../rttiutils/tpropsstorage.loadobjectsprops.html">LoadObjectsProps</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Load a list of component properties</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../rttiutils/tpropsstorage.storeobjectsprops.html">StoreObjectsProps</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Store a list of component properties</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../rttiutils/tpropsstorage.options.html">Options</a><span class="sym">: </span><a href="../rttiutils/tpropstorageoptions.html">TPropStorageOptions</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Options to take into account when saving or loading properties from the storage</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../rttiutils/tpropsstorage.aobject.html">AObject</a><span class="sym">: </span><a href="../../rtl/system/tobject.html">TObject</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Object to load or store properties from</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../rttiutils/tpropsstorage.prefix.html">Prefix</a><span class="sym">: </span>string<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Prefix to use in storage</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../rttiutils/tpropsstorage.section.html">Section</a><span class="sym">: </span>string<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Section name for storage</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../rttiutils/tpropsstorage.onreadstring.html">OnReadString</a><span class="sym">: </span><a href="../rttiutils/treadstrevent.html">TReadStrEvent</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read a string value from storage</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../rttiutils/tpropsstorage.onwritestring.html">OnWriteString</a><span class="sym">: </span><a href="../rttiutils/twritestrevent.html">TWriteStrEvent</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write a string value to storage</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../rttiutils/tpropsstorage.onerasesection.html">OnEraseSection</a><span class="sym">: </span><a href="../rttiutils/terasesectevent.html">TEraseSectEvent</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Erase a section in storage</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../rttiutils/tpropsstorage.html">TPropsStorage</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Property storage mechanism</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TPropsStorage</var> provides a mechanism to store properties from any class which has published properties (usually a <var>TPersistent</var> descendent) in a storage mechanism. </p>
+<p><var>TPropsStorage</var> does not handle the storage by itself, instead,  the storage is handled through a series of callbacks to read and/or write strings. Conversion of property types to string is handled by <var>TPropsStorage</var> itself: all that needs to be done is set the 3 handlers. The storage mechanism is assumed to have the structure of an  .ini file : sections with key/value pairs. The three callbacks should take this into account, but they do not need to create an actual .ini file. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../rttiutils/tpropinfolist.html">TPropInfoList</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Class for keeping property information</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

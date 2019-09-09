@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Class or Static fields</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3627--><div class="crosslinks"><p class="noindent">[<a 
+href="refse31.html" >next</a>] [<a 
+href="refse29.html" >prev</a>] [<a 
+href="refse29.html#tailrefse29.html" >prev-tail</a>] [<a 
+href="#tailrefse30.html">tail</a>] [<a 
+href="refch5.html#refse30.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">5.3   </span> <a 
+href="ref.html#QQ2-62-86" id="x62-800005.3">Class or Static fields</a></h3>
+<!--l. 3628--><p class="noindent" ><a name="keyword_static"></a> An object can contain class or static fields: these fields are global to the object type, and act like
+global variables, but are known only in the scope of the object. The difference between static and
+class variables is purely the mode in which they work: The <span 
+class="cmtt-10">static </span>keyword will always work, the
+<span 
+class="cmtt-10">class </span>keyword will need <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MODE DELPHI</span><span 
+class="cmsy-10">}</span>.
+<!--l. 3634--><p class="noindent" >They can be referenced from within the objects methods, but can also be referenced from outside
+the object by providing the fully qualified name.
+<!--l. 3637--><p class="noindent" >For instance, the output of the following program:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-139">
+{$mode&#x00A0;delphi}
+&#x00A0;<br />{$static&#x00A0;on}
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;cl=object
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;l&#x00A0;:&#x00A0;longint;&#x00A0;static;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;class&#x00A0;var&#x00A0;v&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;cl1,cl2&#x00A0;:&#x00A0;cl;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Static&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;cl1.l:=2;
+&#x00A0;<br />&#x00A0;&#x00A0;writeln(cl2.l);
+&#x00A0;<br />&#x00A0;&#x00A0;cl2.l:=3;
+&#x00A0;<br />&#x00A0;&#x00A0;writeln(cl1.l);
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(cl.l);
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Class&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;cl1.v:=4;
+&#x00A0;<br />&#x00A0;&#x00A0;writeln(cl2.v);
+&#x00A0;<br />&#x00A0;&#x00A0;cl2.v:=5;
+&#x00A0;<br />&#x00A0;&#x00A0;writeln(cl1.v);
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(cl.v);
+&#x00A0;<br />end.
+</div>
+<!--l. 3664--><p class="nopar" >will be the following
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-140">
+Static
+&#x00A0;<br />2
+&#x00A0;<br />3
+&#x00A0;<br />3
+&#x00A0;<br />Class
+&#x00A0;<br />4
+&#x00A0;<br />5
+&#x00A0;<br />5
+</div>
+<!--l. 3675--><p class="nopar" >Note that the last line of code references the object type itself (<span 
+class="cmtt-10">cl</span>), and not an instance of the
+object (<span 
+class="cmtt-10">cl1 </span>or <span 
+class="cmtt-10">cl2</span>).
+                                                                            
+
+                                                                            
+<!--l. 3682--><div class="crosslinks"><p class="noindent">[<a 
+href="refse31.html" >next</a>] [<a 
+href="refse29.html" >prev</a>] [<a 
+href="refse29.html#tailrefse29.html" >prev-tail</a>] [<a 
+href="refse30.html" >front</a>] [<a 
+href="refch5.html#refse30.html" >up</a>] </p></div>
+<!--l. 3682--><p class="noindent" ><a 
+ id="tailrefse30.html"></a>  
+</body></html> 

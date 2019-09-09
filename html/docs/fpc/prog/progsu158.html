@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Enumeration types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 4947--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu159.html" >next</a>] [<a 
+href="progsu157.html" >prev</a>] [<a 
+href="progsu157.html#tailprogsu157.html" >prev-tail</a>] [<a 
+href="#tailprogsu158.html">tail</a>] [<a 
+href="progse32.html#progsu158.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">8.2.4   </span> <a 
+href="prog.html#QQ2-202-215" id="x202-2070008.2.4">Enumeration types</a></h4>
+<!--l. 4949--><p class="noindent" >By default all enumerations are stored as a longword (4 bytes), which is equivalent to specifying
+the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$Z4</span><span 
+class="cmsy-10">}</span>, <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKENUM 4</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKENUM DEFAULT</span><span 
+class="cmsy-10">} </span>switches.
+<!--l. 4954--><p class="noindent" >This default behavior can be changed by compiler switches, and by the compiler mode.
+<!--l. 4957--><p class="noindent" >In the <span 
+class="cmtt-10">tp </span>compiler mode, or while the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$Z1</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKENUM 1</span><span 
+class="cmsy-10">} </span>switches are in effect, the storage
+space used is shown in table (<a 
+href="#x202-207001r1">8.1<!--tex4ht:ref: tab:enumstoragetp --></a>).
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 4961--><p class="noindent" ><a 
+ id="x202-207001r1"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;8.1: </span><span  
+class="content">Enumeration storage for <span 
+class="cmtt-10">tp </span>mode</span></div><!--tex4ht:label?: x202-207001r1 -->
+<div class="center" 
+>
+<!--l. 4961--><p class="noindent" >
+<div class="tabular"> <table id="TBL-10" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-10-1g"><col 
+id="TBL-10-1"><col 
+id="TBL-10-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-10-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-10-1-1"  
+class="td11"># Of Elements in Enum.</td><td  style="white-space:nowrap; text-align:left;" id="TBL-10-1-2"  
+class="td11">Storage space used</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-10-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-10-2-1"  
+class="td11">0..255                          </td><td  style="white-space:nowrap; text-align:left;" id="TBL-10-2-2"  
+class="td11">byte (1 byte)        </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-10-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-10-3-1"  
+class="td11">256..65535                    </td><td  style="white-space:nowrap; text-align:left;" id="TBL-10-3-2"  
+class="td11">word (2 bytes)      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-10-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-10-4-1"  
+class="td11">¿ 65535                        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-10-4-2"  
+class="td11">longword (4 bytes)</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-10-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-10-5-1"  
+class="td11">                     </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+<!--l. 4969--><p class="noindent" >When the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$Z2</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKENUM 2</span><span 
+class="cmsy-10">} </span>switches are in effect, the value is stored in 2 bytes (a <span 
+class="cmtt-10">word</span>), if
+the enumeration has less or equal than 65535 elements. If there are more elements, the enumeration
+value is stored as a 4 byte value (a <span 
+class="cmtt-10">longword</span>).
+                                                                            
+
+                                                                            
+<!--l. 4974--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu159.html" >next</a>] [<a 
+href="progsu157.html" >prev</a>] [<a 
+href="progsu157.html#tailprogsu157.html" >prev-tail</a>] [<a 
+href="progsu158.html" >front</a>] [<a 
+href="progse32.html#progsu158.html" >up</a>] </p></div>
+<!--l. 4974--><p class="noindent" ><a 
+ id="tailprogsu158.html"></a>  
+</body></html> 

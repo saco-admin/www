@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>cotan</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../math/index.html">Overview</a>][<a href="../math/index-2.html">Constants</a>][<a href="../math/index-3.html">Types</a>][<a href="../math/index-4.html">Classes</a>][<a href="../math/index-5.html">Procedures and functions</a>][<a href="../math/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'math' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>cotan</h1>
+<p>Return cotangent</p>
+<h2>Declaration</h2>
+<p>Source position: math.pp line 297</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> cotan<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;x<span class="sym">: </span><a href="../math/float.html">Float</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../math/float.html">Float</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Cotan</var> returns the cotangent of it's argument <var>x</var>.  The argument <var>x</var> must be in radians. <var>x</var> should be different from zero.  </p>
+<h2>Errors</h2>
+<p>If <var>x</var> is zero then a overflow error will occur. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../math/tanh.html">tanh</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return hyperbolic tangent</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example9<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the cotan function. }</span>
+
+<span class="kw">Uses</span> math<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  writeln<span class="sym">(</span>cotan<span class="sym">(</span>pi<span class="sym">/</span><span class="num">2</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>cotan<span class="sym">(</span>pi<span class="sym">/</span><span class="num">3</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>cotan<span class="sym">(</span>pi<span class="sym">/</span><span class="num">4</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

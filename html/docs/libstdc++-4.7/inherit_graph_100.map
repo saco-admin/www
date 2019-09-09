@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$a00190.html" title="__gnu_pbds::basic_invalidation_guarantee" alt="" coords="5,5,291,33"/>
+<area shape="rect" id="node3" href="$a00355.html" title="__gnu_pbds::point_invalidation_guarantee" alt="" coords="340,5,623,33"/>
+<area shape="rect" id="node5" href="$a00359.html" title="__gnu_pbds::range_invalidation_guarantee" alt="" coords="673,5,961,33"/>
+</map>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Retrieving Schema Information</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/universalconnectors.html">Previous</a>][<a href="../sqldb/index.html">Up</a>][<a href="../sqldb/updatesqls.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h2>Retrieving Schema Information</h2>
+<p>Schema Information (lists of available database objects) can be retrieved using some specialized calls in <a href="../sqldb/tsqlconnection.html">TSQLConnection</a>: </p>
+<ul>
+<li><a href="../sqldb/tsqlconnection.gettablenames.html">TSQLConnection.GetTableNames</a> retrieves a list of available tables. The system tables can be requested. </li>
+<li><a href="../sqldb/tsqlconnection.getprocedurenames.html">TSQLConnection.GetProcedureNames</a> retrieves a list of available stored procedures. </li>
+<li><a href="../sqldb/tsqlconnection.getfieldnames.html">TSQLConnection.GetFieldNames</a> retrieves a list of fields for a given table. </li>
+</ul>
+<p>These calls are pretty straightforward and need little explanation. A more versatile system is the schema info query: the <a href="../sqldb/tcustomsqlquery.setschemainfo.html">TCustomSQLQuery.SetSchemaInfo</a> method can be used to create a result set (dataset) with schema information. The parameter <var>SchemaType</var> determines the resulting information when the dataset is opened. The following information can be requested: </p>
+<dl>
+<dt>stTables</dt>
+<dd>Retrieves the list of user Tables in database. This is used internally by <a href="../sqldb/tsqlconnection.gettablenames.html">TSQLConnection.GetTableNames</a>. </dd>
+<dt>stSysTables</dt>
+<dd>Retrieves the list of system Tables in database. This is used internally by <a href="../sqldb/tsqlconnection.gettablenames.html">TSQLConnection.GetTableNames</a> when the system tables are requested </dd>
+<dt>stProcedures</dt>
+<dd>Retrieves a list of stored procedures in database. This is used internally by <a href="../sqldb/tsqlconnection.getprocedurenames.html">TSQLConnection.GetProcedureNames</a>. </dd>
+<dt>stColumns</dt>
+<dd>Retrieves the list of columns (fields) in a table. This is used internally by <a href="../sqldb/tsqlconnection.getfieldnames.html">TSQLConnection.GetFieldNames</a>. </dd>
+<dt>stProcedureParams</dt>
+<dd>This retrieves the parameters for a stored procedure. </dd>
+<dt>stIndexes</dt>
+<dd>Retrieves the indexes for one or more tables. (currently not implemented) </dd>
+<dt>stPackages </dt>
+<dd>Retrieves packages for databases that support them. (currently not implemented). </dd>
+</dl>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

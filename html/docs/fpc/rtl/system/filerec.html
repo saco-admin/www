@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FileRec</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FileRec</h1>
+<p>Untyped file type</p>
+<h2>Declaration</h2>
+<p>Source position: filerec.inc line 32</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>FileRec<span class="sym"> = </span><span class="kw">record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Handle<span class="sym">: </span><a href="../system/thandle.html">THandle</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">OS file handle</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Mode<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">File open mode</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;RecSize<span class="sym">: </span><a href="../system/sizeint.html">SizeInt</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Record size</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;_private<span class="sym">: </span><span class="kw">array</span> <span class="sym">[</span><span class="num">1</span><span class="sym">.</span><span class="sym">.</span><span class="num">3</span><span class="sym">*</span>SizeOf<span class="sym">(</span>SizeInt<span class="sym">)</span><span class="sym">+</span><span class="num">5</span><span class="sym">*</span>SizeOf<span class="sym">(</span>pointer<span class="sym">)</span><span class="sym">]</span> <span class="kw">of</span> <a href="../system/byte.html">Byte</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Private field</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;UserData<span class="sym">: </span><span class="kw">array</span> <span class="sym">[</span><span class="num">1</span><span class="sym">.</span><span class="sym">.</span><span class="num">32</span><span class="sym">]</span> <span class="kw">of</span> <a href="../system/byte.html">Byte</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">User data for use in custom file types</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;name<span class="sym">: </span><span class="kw">array</span> <span class="sym">[</span><span class="num">0</span><span class="sym">.</span><span class="sym">.</span>filerecnamelength<span class="sym">]</span> <span class="kw">of</span> <a href="../system/tfiletextrecchar.html">TFileTextRecChar</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">File name</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FileRec</var> is the underlying type used in untyped files. It should be treated as opaque and never manipulated directly. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/textrec.html">TextRec</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Text file type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/assign.html">Assign</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Assign a name to a file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/reset.html">Reset</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Open file for reading</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/close.html">Close</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Close a file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/rewrite.html">Rewrite</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Open file for writing</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

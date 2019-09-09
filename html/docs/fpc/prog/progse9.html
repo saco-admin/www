@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Using assembler in the sources</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 3130--><div class="crosslinks"><p class="noindent">[<a 
+href="progse10.html" >next</a>] [<a 
+href="#tailprogse9.html">tail</a>] [<a 
+href="progch3.html#progse9.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">3.1   </span> <a 
+href="prog.html#QQ2-144-147" id="x144-1450003.1">Using assembler in the sources</a></h3>
+<!--l. 3132--><p class="noindent" >There are essentially 2 ways to embed assembly code in the pascal source. The first one is the
+simplest, by using an asm block:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-145">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;I&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;I:=3;
+&#x00A0;<br />&#x00A0;&#x00A0;asm
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;movl&#x00A0;I,%eax
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />end;
+</div>
+<!--l. 3143--><p class="nopar" >Everything between the <span 
+class="cmtt-10">asm </span>and <span 
+class="cmtt-10">end </span>block is inserted as assembler in the generated code.
+Depending on the assembler reader mode, the compiler performs substitution of certain names with
+their addresses.
+<!--l. 3148--><p class="noindent" >The second way is implementing a complete procedure or function in assembler. This is done by
+adding a <span 
+class="cmtt-10">assembler </span>modifier to the function or procedure header:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-146">
+function&#x00A0;geteipasebx&#x00A0;:&#x00A0;pointer;assembler;
+&#x00A0;<br />asm
+&#x00A0;<br />&#x00A0;&#x00A0;movl&#x00A0;(%esp),%ebx
+&#x00A0;<br />&#x00A0;&#x00A0;ret
+&#x00A0;<br />end;
+</div>
+<!--l. 3157--><p class="nopar" >It&#8217;s still possible to declare variables in an assembler procedure:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-147">
+procedure&#x00A0;Move(const&#x00A0;source;var&#x00A0;dest;count:SizeInt);assembler;
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;saveesi,saveedi&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />asm
+&#x00A0;<br />&#x00A0;&#x00A0;movl&#x00A0;%edi,saveedi
+&#x00A0;<br />end;
+</div>
+<!--l. 3166--><p class="nopar" >The compiler will reserve space on the stack for these variables, it inserts some commands for
+this.
+<!--l. 3170--><p class="noindent" >Note that the assembler name of an assembler function will still be &#8217;mangled&#8217; by the compiler, i.e.
+the label for this function will not be the name of the function as declared. To change this, an
+<span 
+class="cmtt-10">Alias </span>modifier can be used:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-148">
+function&#x00A0;geteipasebx&#x00A0;:&#x00A0;pointer;assembler;[alias:&#8217;FPC_GETEIPINEBX&#8217;];
+&#x00A0;<br />asm
+&#x00A0;<br />&#x00A0;&#x00A0;movl&#x00A0;(%esp),%ebx
+&#x00A0;<br />&#x00A0;&#x00A0;ret
+&#x00A0;<br />end;
+</div>
+<!--l. 3180--><p class="nopar" >To make the function available in assembler code outside the current unit, the <span 
+class="cmtt-10">Public </span>modifier can
+be added:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-149">
+function&#x00A0;geteipasebx&#x00A0;:&#x00A0;pointer;assembler;[public,alias:&#8217;FPC_GETEIPINEBX&#8217;];
+&#x00A0;<br />asm
+&#x00A0;<br />&#x00A0;&#x00A0;movl&#x00A0;(%esp),%ebx
+&#x00A0;<br />&#x00A0;&#x00A0;ret
+&#x00A0;<br />end;
+</div>
+<!--l. 3189--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 3193--><div class="crosslinks"><p class="noindent">[<a 
+href="progse10.html" >next</a>] [<a 
+href="progse9.html" >front</a>] [<a 
+href="progch3.html#progse9.html" >up</a>] </p></div>
+<!--l. 3193--><p class="noindent" ><a 
+ id="tailprogse9.html"></a>  
+</body></html> 

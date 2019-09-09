@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>tstatfs</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unix/index.html">Overview</a>][<a href="../unix/index-2.html">Constants</a>][<a href="../unix/index-3.html">Types</a>][<a href="../unix/index-5.html">Procedures and functions</a>][<a href="../unix/index-6.html">Variables</a>][<a href="../unix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Unix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>tstatfs</h1>
+<p>Record describing a file system in the <a href="../unix/fpstatfs.html">fpstatfs</a> call.</p>
+<h2>Declaration</h2>
+<p>Source position: aliasptp.inc line 76</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>tstatfs<span class="sym"> = </span><a href="../unixtype/tstatfs.html">UnixType.TStatFs</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>StatFS</var> returns in <var>Info</var> information about the filesystem on which the file <var>Path</var> resides.  <var>Info</var> is of type <a href="../unixtype/tstatfs.html">TStatFS</a>.  </p>
+<p>The function returns zero if the call was succesful, a nonzero value is  returned if the call failed. </p>
+<h2>Errors</h2>
+<p>Extended error information is returned by the <a href="../baseunix/fpgeterrno.html">FpGetErrno</a> function: </p>
+<dl>
+<dt>sys_enotdir</dt>
+<dd>A component of <var>Path</var> is not a directory.</dd>
+<dt>sys_einval</dt>
+<dd>Invalid character in <var>Path</var>.</dd>
+<dt>sys_enoent</dt>
+<dd><var>Path</var> does not exist.</dd>
+<dt>sys_eaccess</dt>
+<dd>Search permission is denied for  component in<var>Path</var>.</dd>
+<dt>sys_eloop</dt>
+<dd>A circular symbolic link was encountered in <var>Path</var>.</dd>
+<dt>sys_eio</dt>
+<dd>An error occurred while reading from the filesystem.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpstat.html">#rtl.baseunix.FpStat</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Retrieve file information about a file descriptor.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fplstat.html">#rtl.baseunix.FpLStat</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return information about symbolic link. Do not follow the link</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> Example30<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the FSStat function. }</span>
+
+<span class="kw">uses</span> BaseUnix<span class="sym">,</span>Unix<span class="sym">,</span>UnixType<span class="sym">;</span>
+
+<span class="kw">var</span> s <span class="sym">:</span> string<span class="sym">;</span>
+    fd <span class="sym">:</span> cint<span class="sym">;</span>
+    info <span class="sym">:</span> tstatfs<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  writeln <span class="sym">(</span><span class="str">'Info about current partition : '</span><span class="sym">)</span><span class="sym">;</span>
+  s<span class="sym">:=</span><span class="chr">'.'</span><span class="sym">;</span>
+  <span class="kw">while</span> s<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="chr">'q'</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    Fd<span class="sym">:=</span>fpOpen<span class="sym">(</span>S<span class="sym">,</span>O_RDOnly<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">if</span> <span class="sym">(</span>fd<span class="sym">&gt;</span><span class="sym">=</span><span class="num">0</span><span class="sym">)</span> <span class="kw">then</span>
+      <span class="kw">begin</span>
+      <span class="kw">if</span> fpfstatfs <span class="sym">(</span>fd<span class="sym">,</span><span class="sym">@</span>info<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+        <span class="kw">begin</span>
+        writeln<span class="sym">(</span><span class="str">'Fstat failed. Errno : '</span><span class="sym">,</span>fpgeterrno<span class="sym">)</span><span class="sym">;</span>
+        halt <span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">end</span><span class="sym">;</span>
+      FpClose<span class="sym">(</span>fd<span class="sym">)</span><span class="sym">;</span>
+      writeln<span class="sym">;</span>
+      writeln <span class="sym">(</span><span class="str">'Result of fsstat on file '''</span><span class="sym">,</span>s<span class="sym">,</span><span class="str">'''.'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="dir">{$if defined(Linux) or defined(sunos)}</span> 
+      <span class="cmt">// SysV like.</span>
+      writeln <span class="sym">(</span><span class="str">'fstype  : '</span><span class="sym">,</span>info<span class="sym">.</span>fstype<span class="sym">)</span><span class="sym">;</span>
+<span class="dir">{$else}</span>
+      <span class="cmt">// BSD like, incl Mac OS X.</span>
+      writeln <span class="sym">(</span><span class="str">'fstype  : '</span><span class="sym">,</span>info<span class="sym">.</span>ftype<span class="sym">)</span><span class="sym">;</span>
+<span class="dir">{$endif}</span>
+
+      writeln <span class="sym">(</span><span class="str">'bsize   : '</span><span class="sym">,</span>info<span class="sym">.</span>bsize<span class="sym">)</span><span class="sym">;</span>
+      writeln <span class="sym">(</span><span class="str">'bfree   : '</span><span class="sym">,</span>info<span class="sym">.</span>bfree<span class="sym">)</span><span class="sym">;</span>
+      writeln <span class="sym">(</span><span class="str">'bavail  : '</span><span class="sym">,</span>info<span class="sym">.</span>bavail<span class="sym">)</span><span class="sym">;</span>
+      writeln <span class="sym">(</span><span class="str">'files   : '</span><span class="sym">,</span>info<span class="sym">.</span>files<span class="sym">)</span><span class="sym">;</span>
+      writeln <span class="sym">(</span><span class="str">'ffree   : '</span><span class="sym">,</span>info<span class="sym">.</span>ffree<span class="sym">)</span><span class="sym">;</span>
+      <span class="dir">{$ifdef FreeBSD}</span>
+      writeln <span class="sym">(</span><span class="str">'fsid    : '</span><span class="sym">,</span>info<span class="sym">.</span>fsid<span class="sym">[</span><span class="num">0</span><span class="sym">]</span><span class="sym">)</span><span class="sym">;</span>
+      <span class="dir">{$else}</span>
+      writeln <span class="sym">(</span><span class="str">'fsid    : '</span><span class="sym">,</span>info<span class="sym">.</span>fsid<span class="sym">[</span><span class="num">0</span><span class="sym">]</span><span class="sym">)</span><span class="sym">;</span>
+      writeln <span class="sym">(</span><span class="str">'Namelen : '</span><span class="sym">,</span>info<span class="sym">.</span>namelen<span class="sym">)</span><span class="sym">;</span>
+      <span class="dir">{$endif}</span>
+      write <span class="sym">(</span><span class="str">'Type name of file to do fsstat. (q quits) :'</span><span class="sym">)</span><span class="sym">;</span>
+      readln <span class="sym">(</span>s<span class="sym">)</span>
+
+      <span class="kw">end</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

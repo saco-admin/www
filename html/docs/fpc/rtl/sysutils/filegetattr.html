@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FileGetAttr</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FileGetAttr</h1>
+<p>Return attributes of a file.</p>
+<h2>Declaration</h2>
+<p>Source position: filutilh.inc line 133</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FileGetAttr<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>FileName<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/longint.html">LongInt</a><span class="sym">;</span><br><br><span class="kw">function</span> FileGetAttr<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>FileName<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FileGetAttr</var> returns the attribute settings of file <var>FileName</var>. The attribute is a <var>OR</var>-ed combination of the following constants: </p>
+<dl>
+<dt>faReadOnly</dt>
+<dd>The file is read-only.</dd>
+<dt>faHidden</dt>
+<dd>The file is hidden. (On unix, this means that the filename starts with a dot) </dd>
+<dt>faSysFile</dt>
+<dd>The file is a system file (On unix, this means that the file is a character, block or FIFO file). </dd>
+<dt>faVolumeId</dt>
+<dd>Volume Label. Only for DOS/Windows on a plain FAT (not VFAT or Fat32) filesystem.</dd>
+<dt>faDirectory</dt>
+<dd>File is a directory.</dd>
+<dt>faArchive</dt>
+<dd>file should be archived. Not possible on Unix</dd>
+</dl>
+<h2>Errors</h2>
+<p>In case of error, -1 is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/filesetattr.html">FileSetAttr</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set the attributes of a file.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/fileage.html">FileAge</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the timestamp of a file.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/filegetdate.html">FileGetDate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the file time of an opened file.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example40<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the FileGetAttr function }</span>
+
+<span class="kw">Uses</span> sysutils<span class="sym">;</span>
+
+<span class="kw">Procedure</span> Testit <span class="sym">(</span>Name <span class="sym">:</span> String<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span> F <span class="sym">:</span> Longint<span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  F<span class="sym">:=</span>FileGetAttr<span class="sym">(</span>Name<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> F<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    <span class="kw">begin</span>
+    Writeln <span class="sym">(</span><span class="str">'Testing : '</span><span class="sym">,</span>Name<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> <span class="sym">(</span>F <span class="kw">and</span> faReadOnly<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+      Writeln <span class="sym">(</span><span class="str">'File is ReadOnly'</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> <span class="sym">(</span>F <span class="kw">and</span> faHidden<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+      Writeln <span class="sym">(</span><span class="str">'File is hidden'</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> <span class="sym">(</span>F <span class="kw">and</span> faSysFile<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+      Writeln <span class="sym">(</span><span class="str">'File is a system file'</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> <span class="sym">(</span>F <span class="kw">and</span> faVolumeID<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+      Writeln <span class="sym">(</span><span class="str">'File is a disk label'</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> <span class="sym">(</span>F <span class="kw">and</span> faArchive<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+      Writeln <span class="sym">(</span><span class="str">'File is artchive file'</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> <span class="sym">(</span>F <span class="kw">and</span> faDirectory<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+      Writeln <span class="sym">(</span><span class="str">'File is a directory'</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span>
+  <span class="kw">else</span>
+   Writeln <span class="sym">(</span><span class="str">'Error reading attributes of '</span><span class="sym">,</span>Name<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  testit <span class="sym">(</span><span class="str">'ex40.pp'</span><span class="sym">)</span><span class="sym">;</span>
+  testit <span class="sym">(</span>ParamStr<span class="sym">(</span><span class="num">0</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  testit <span class="sym">(</span><span class="chr">'.'</span><span class="sym">)</span><span class="sym">;</span>
+  testit <span class="sym">(</span><span class="chr">'/'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

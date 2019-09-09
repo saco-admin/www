@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Definition</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6792--><div class="crosslinks"><p class="noindent">[<a 
+href="refse61.html" >next</a>] [<a 
+href="#tailrefse60.html">tail</a>] [<a 
+href="refch10.html#refse60.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.1   </span> <a 
+href="ref.html#QQ2-121-149" id="x121-14300010.1">Definition</a></h3>
+<!--l. 6793--><p class="noindent" >Class, record and type helpers can be used to add methods to an existing class, record or simple
+type, without making a derivation of the class or re-declaring the record.
+<!--l. 6796--><p class="noindent" >For a record or a simple type, the type helper acts as if record or the simple type is a class, and
+methods are declared for it. Inside the methods, <span 
+class="cmtt-10">Self </span>will refer to the value of the record or simple
+type.
+<!--l. 6800--><p class="noindent" >For classes, the effect is like inserting a method in the method table of the class. If the helper
+declaration is in the current scope of the code, then the methods and properties of the helper can
+be used as if they were part of the class declaration for the class or record that the helper
+extends.
+<!--l. 6805--><p class="noindent" >The syntax diagram for a class, record or type helper is presented below:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Helper type</span><br 
+class="newline" /><BR/><img 
+src="ref114x.png" alt="        -        -                    -
+ ---class ---helper -----------------for Identifier-helper component list
+  --record--|         (  basehelper )
+----tenydpe hint modifiers---------------------------------------------
+     " ><BR/>
+                                                                            
+
+                                                                            
+     <BR/><img 
+src="ref115x.png" alt="--                 ---             -----------------------------
+  helper component list-pmreotphoedrtyd deefinfiintiitoionn -|
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 6807--><p class="noindent" >The diagram shows that a helper definition looks very much like a regular class definition. It
+simply declares some extra constructors, methods, properties and fields for a class: the class,
+record or simple type for which the helper is an extension is indicated after the <span 
+class="cmtt-10">for</span>
+keyword.
+<!--l. 6812--><p class="noindent" >Since an enumerator for a class is obtained through a regular method, class helpers can also be
+used to override the enumerators for the class.
+<!--l. 6815--><p class="noindent" >As can be seen from the syntax diagram, it is possible to create descendants of helpers: the helpers
+can form a hierarchy of their own, allowing to override methods of a parent helper. They also have
+visibility specifiers, just like records and classes.
+<!--l. 6820--><p class="noindent" >As in an instance of the class, the <span 
+class="cmtt-10">Self </span>identifier in a method of a class helper refers to the class
+instance (not the helper instance). For a record, it refers to the record.
+<!--l. 6824--><p class="noindent" >The following is a simple class helper for the <span 
+class="cmtt-10">TObject </span>class, which provides an alternate version of
+the standard <span 
+class="cmtt-10">ToString </span>method.
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-287">
+TObjectHelper&#x00A0;=&#x00A0;class&#x00A0;helper&#x00A0;for&#x00A0;TObject
+&#x00A0;<br />&#x00A0;&#x00A0;function&#x00A0;AsString(const&#x00A0;aFormat:&#x00A0;String):&#x00A0;String;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;TObjectHelper.AsString(const&#x00A0;aFormat:&#x00A0;String):&#x00A0;String;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result&#x00A0;:=&#x00A0;Format(aFormat,&#x00A0;[ToString]);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;o:&#x00A0;TObject;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(o.AsString(&#8217;The&#x00A0;object&#8217;&#8217;s&#x00A0;name&#x00A0;is&#x00A0;%s&#8217;));
+&#x00A0;<br />end.
+</div>
+<!--l. 6841--><p class="nopar" >
+<!--l. 6843--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> The <span 
+class="cmtt-10">helper </span>modifier is only a modifier just after the <span 
+class="cmtt-10">class </span>or <span 
+class="cmtt-10">record </span>keywords. That means that
+the first member of a class or record cannot be named <span 
+class="cmtt-10">helper</span>. A member of a class or record can
+be called <span 
+class="cmtt-10">helper</span>, it just cannot be the first one, unless it is escaped with a <span 
+class="cmtt-10">&amp;</span>, as for all identifiers
+that match a keyword.
+<!--l. 6851--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Support for type helpers requires the use of Delphi mode or the use of a <span 
+class="cmtt-10">typehelpers </span>modeswitch
+in other modes:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-288">
+{$MODESWITCH&#x00A0;TYPEHELPERS}
+</div>
+<!--l. 6856--><p class="nopar" >
+<!--l. 6859--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Support for record helpers requires the use of Delphi mode or the use of a <span 
+class="cmtt-10">advancedrecords</span>
+modeswitch in other modes:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-289">
+{$MODESWITCH&#x00A0;ADVANCEDRECORDS}
+</div>
+<!--l. 6864--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 6867--><div class="crosslinks"><p class="noindent">[<a 
+href="refse61.html" >next</a>] [<a 
+href="refse60.html" >front</a>] [<a 
+href="refch10.html#refse60.html" >up</a>] </p></div>
+<!--l. 6867--><p class="noindent" ><a 
+ id="tailrefse60.html"></a>  
+</body></html> 

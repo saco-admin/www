@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>ParseURI</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../uriparser/index.html">Overview</a>][<a href="../uriparser/index-3.html">Types</a>][<a href="../uriparser/index-5.html">Procedures and functions</a>][<a href="../uriparser/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'URIParser' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>ParseURI</h1>
+<p>Parse a URI and split it into its constituent parts</p>
+<h2>Declaration</h2>
+<p>Source position: uriparser.pp line 40</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> ParseURI<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>URI<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Decode<span class="sym">: </span>Boolean <span class="sym">=</span> True</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../uriparser/turi.html">TURI</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> ParseURI<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>URI<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>DefaultProtocol<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;DefaultPort<span class="sym">: </span><a href="../../rtl/system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Decode<span class="sym">: </span>Boolean <span class="sym">=</span> True</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../uriparser/turi.html">TURI</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">URI</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">URI to decode</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Record with the URI split out in parts.</p>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">URI</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">URI to decode</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">DefaultProtocol</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Default protocol to use if none is specified.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">DefaultPort</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Default port to use if none is specified.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ParseURI</var> decodes <var>URI</var> and returns the various parts of the URI in the result record. </p>
+<p>The function accepts the most general URI scheme: </p>
+<pre>proto://user:pwd@host:port/path/document?params#bookmark
+</pre>
+<p>Missing (optional) parts in the URI will be left blank in the result record. If a default protocol and port are specified, they will be used in the record if the corresponding part is not present in the URI. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../uriparser/encodeuri.html">EncodeURI</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Form a string representation of the URI</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

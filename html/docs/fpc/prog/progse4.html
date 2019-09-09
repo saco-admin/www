@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Conditionals</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 2545--><div class="crosslinks"><p class="noindent">[<a 
+href="progse5.html" >next</a>] [<a 
+href="#tailprogse4.html">tail</a>] [<a 
+href="progch2.html#progse4.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">2.1   </span> <a 
+href="prog.html#QQ2-135-136" id="x135-1360002.1">Conditionals</a></h3>
+<!--l. 2547--><p class="noindent" >The rules for using conditional symbols are the same as under Turbo Pascal or Delphi. Defining a
+symbol goes as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-113">
+{$define&#x00A0;Symbol}
+</div>
+<!--l. 2551--><p class="nopar" >From this point on in your code, the compiler knows the symbol <span 
+class="cmtt-10">Symbol</span>. Symbols are, like the
+Pascal language, case insensitive.
+<!--l. 2555--><p class="noindent" >You can also define a symbol on the command line. the <span 
+class="cmtt-10">-dSymbol </span>option defines the symbol
+<span 
+class="cmtt-10">Symbol</span>. You can specify as many symbols on the command line as you want.
+<!--l. 2559--><p class="noindent" >Undefining an existing symbol is done in a similar way:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-114">
+{$undef&#x00A0;Symbol}
+</div>
+<!--l. 2562--><p class="nopar" >If the symbol didn&#8217;t exist yet, this doesn&#8217;t do anything. If the symbol existed previously, the
+symbol will be erased, and will not be recognized any more in the code following the <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">{$undef</span><span 
+class="cmtt-10">&#x00A0;...}</span></span></span>
+statement.
+<!--l. 2567--><p class="noindent" >You can also undefine symbols from the command line with the <span 
+class="cmtt-10">-u </span>command line switch.
+<!--l. 2570--><p class="noindent" >To compile code conditionally, depending on whether a symbol is defined or not, you can enclose
+the code in a <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">{$ifdef</span><span 
+class="cmtt-10">&#x00A0;Symbol}</span></span></span> &#x2026;<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">{$endif}</span></span></span> pair. For instance the following code will never be
+compiled:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-115">
+{$undef&#x00A0;MySymbol}
+&#x00A0;<br />{$ifdef&#x00A0;Mysymbol}
+&#x00A0;<br />&#x00A0;&#x00A0;DoSomething;
+&#x00A0;<br />&#x00A0;&#x00A0;...
+&#x00A0;<br />{$endif}
+</div>
+<!--l. 2579--><p class="nopar" >
+<!--l. 2581--><p class="noindent" >Similarly, you can enclose your code in a <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">{$ifndef</span><span 
+class="cmtt-10">&#x00A0;Symbol}</span></span></span> &#x2026;<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">{$endif}</span></span></span> pair. Then the code
+between the pair will only be compiled when the used symbol doesn&#8217;t exist. For example, in the
+following code, the call to the <span 
+class="cmtt-10">DoSomething </span>will always be compiled:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-116">
+{$undef&#x00A0;MySymbol}
+&#x00A0;<br />{$ifndef&#x00A0;Mysymbol}
+&#x00A0;<br />&#x00A0;&#x00A0;DoSomething;
+&#x00A0;<br />&#x00A0;&#x00A0;...
+&#x00A0;<br />{$endif}
+</div>
+<!--l. 2591--><p class="nopar" >
+<!--l. 2593--><p class="noindent" >You can combine the two alternatives in one structure, namely as follows
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-117">
+{$ifdef&#x00A0;Mysymbol}
+&#x00A0;<br />&#x00A0;&#x00A0;DoSomething;
+&#x00A0;<br />{$else}
+&#x00A0;<br />&#x00A0;&#x00A0;DoSomethingElse
+&#x00A0;<br />{$endif}
+</div>
+<!--l. 2600--><p class="nopar" >In this example, if <span 
+class="cmtt-10">MySymbol </span>exists, then the call to <span 
+class="cmtt-10">DoSomething </span>will be compiled. If it doesn&#8217;t
+exist, the call to <span 
+class="cmtt-10">DoSomethingElse </span>is compiled.
+<!--l. 2605--><p class="noindent" >
+<div class="subsectionTOCS">
+&#x00A0;&#x00A0;<span class="subsectionToc" >2.1.1 <a 
+href="progsu126.html#x136-1370002.1.1">Predefined symbols</a></span>
+</div>
+                                                                            
+
+                                                                            
+<!--l. 2619--><div class="crosslinks"><p class="noindent">[<a 
+href="progse5.html" >next</a>] [<a 
+href="progse4.html" >front</a>] [<a 
+href="progch2.html#progse4.html" >up</a>] </p></div>
+<!--l. 2619--><p class="noindent" ><a 
+ id="tailprogse4.html"></a>  
+</body></html> 

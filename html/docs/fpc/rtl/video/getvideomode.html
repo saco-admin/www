@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>GetVideoMode</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../video/index.html">Overview</a>][<a href="../video/index-2.html">Constants</a>][<a href="../video/index-3.html">Types</a>][<a href="../video/index-5.html">Procedures and functions</a>][<a href="../video/index-6.html">Variables</a>][<a href="../video/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'video' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>GetVideoMode</h1>
+<p>Return current video mode</p>
+<h2>Declaration</h2>
+<p>Source position: videoh.inc line 144</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> GetVideoMode<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>Mode<span class="sym">: </span><a href="../video/tvideomode.html">TVideoMode</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>GetVideoMode</var> returns the settings of the currently active video mode. The <var>row,col</var> fields indicate the dimensions of the current video mode, and <var>Color</var> is true if the current video supports colors. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../video/setvideomode.html">SetVideoMode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set current video mode.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../video/getvideomodedata.html">GetVideoModeData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get the specifications for a video mode</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example7<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the GetVideoMode function. }</span>
+
+<span class="kw">Uses</span> video<span class="sym">,</span>keyboard<span class="sym">,</span>vidutil<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  M <span class="sym">:</span> TVideoMode<span class="sym">;</span>
+  S <span class="sym">:</span> String<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  InitVideo<span class="sym">;</span>
+  InitKeyboard<span class="sym">;</span>
+  GetVideoMode<span class="sym">(</span>M<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> M<span class="sym">.</span>Color <span class="kw">then</span>
+    TextOut<span class="sym">(</span><span class="num">1</span><span class="sym">,</span><span class="num">1</span><span class="sym">,</span><span class="str">'Current mode has color'</span><span class="sym">)</span>
+  <span class="kw">else</span>
+    TextOut<span class="sym">(</span><span class="num">1</span><span class="sym">,</span><span class="num">1</span><span class="sym">,</span><span class="str">'Current mode does not have color'</span><span class="sym">)</span><span class="sym">;</span>
+  Str<span class="sym">(</span>M<span class="sym">.</span>Row<span class="sym">,</span>S<span class="sym">)</span><span class="sym">;</span>
+  TextOut<span class="sym">(</span><span class="num">1</span><span class="sym">,</span><span class="num">2</span><span class="sym">,</span><span class="str">'Number of rows    : '</span><span class="sym">+</span>S<span class="sym">)</span><span class="sym">;</span>
+  Str<span class="sym">(</span>M<span class="sym">.</span>Col<span class="sym">,</span>S<span class="sym">)</span><span class="sym">;</span>
+  TextOut<span class="sym">(</span><span class="num">1</span><span class="sym">,</span><span class="num">3</span><span class="sym">,</span><span class="str">'Number of columns : '</span><span class="sym">+</span>S<span class="sym">)</span><span class="sym">;</span>
+  Textout<span class="sym">(</span><span class="num">1</span><span class="sym">,</span><span class="num">4</span><span class="sym">,</span><span class="str">'Press any key to exit.'</span><span class="sym">)</span><span class="sym">;</span>
+  UpdateScreen<span class="sym">(</span>False<span class="sym">)</span><span class="sym">;</span>
+  GetKeyEvent<span class="sym">;</span>
+  DoneKeyboard<span class="sym">;</span>
+  DoneVideo<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

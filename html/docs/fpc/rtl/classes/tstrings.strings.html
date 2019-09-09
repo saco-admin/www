@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStrings.Strings</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TStrings.Strings</h1>
+<p>Indexed access to the strings in the list.</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 709</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../classes/tstrings.html">TStrings</a><span class="sym">.</span>Strings<span class="sym">[</span>Index<span class="sym">: </span>Integer<span class="sym">]</span><span class="sym"> : </span>string<br>&nbsp;&nbsp;<span class="kw">read </span>Get<br>&nbsp;&nbsp;<span class="kw">write </span>Put<span class="sym">;</span><br>&nbsp;&nbsp;<span class="kw">default</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Strings</var> is the default property of <var>TStrings</var>. It provides indexed read-write access to the list of strings. Reading it will return the string at position <var>Index</var> in the list. Writing it will set the string at position <var>Index</var>.  </p>
+<p><var>Index</var> is the position of the string in the list. It is zero-based, i.e. valued values range from <var>0</var> (the first string in the list) till <var>Count-1</var> (the last string in the list).  When browsing through the strings in the list, this fact must be taken into account. </p>
+<p>To access the objects associated with the strings in the list, use the <a href="../classes/tstrings.objects.html">TStrings.Objects</a> property. The name parts of name-value pairs can be accessed with the <a href="../classes/tstrings.names.html">TStrings.Names</a> property, and the values can be set or read through the <a href="../classes/tstrings.values.html">TStrings.Values</a> property. </p>
+<p>Searching through the list can be done using the <a href="../classes/tstrings.indexof.html">TStrings.IndexOf</a> method. </p>
+<h2>Errors</h2>
+<p>If <var>Index</var> is outside the allowed range, an <a href="../classes/estringlisterror.html">EStringListError</a> exception is raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/tstrings.count.html">TStrings.Count</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of strings in the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstrings.objects.html">TStrings.Objects</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed access to the objects associated with the strings in the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstrings.names.html">TStrings.Names</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Name parts of the name-value pairs in the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstrings.values.html">TStrings.Values</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value parts of the name-value pairs in the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstrings.indexof.html">TStrings.IndexOf</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find a string in the list and return its position.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

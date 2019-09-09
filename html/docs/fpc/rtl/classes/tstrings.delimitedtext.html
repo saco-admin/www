@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStrings.DelimitedText</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TStrings.DelimitedText</h1>
+<p>Get or set all strings in the list in a delimited form.</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 697</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../classes/tstrings.html">TStrings</a><span class="sym">.</span>DelimitedText<span class="sym"> : </span>string<br>&nbsp;&nbsp;<span class="kw">read </span>GetDelimitedText<br>&nbsp;&nbsp;<span class="kw">write </span>SetDelimitedText<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>DelimitedText</var> returns all strings, properly quoted with <a href="../classes/tstrings.quotechar.html">QuoteChar</a> and separated by the <a href="../classes/tstrings.delimiter.html">Delimiter</a> character. </p>
+<p>Strings are quoted if they contain a space or any character with ASCII value less than 32. </p>
+<p>The <a href="../classes/tstrings.commatext.html">CommaText</a> property is a special case of delimited text where the delimiter character is a comma and the quote character is a double quote. </p>
+<p>If <a href="../classes/tstrings.strictdelimiter.html">StrictDelimiter</a> is set to <var>True</var>, then no quoting is done (The <var>QuoteChar</var> property  is disregarded completely): the returned text will contain the items in the stringlist, separated by the <var>Delimiter</var> character. When writing the <var>DelimitedText</var> property, the text will be split at all occurrences of the <var>Delimiter</var> character; however,  when reading, the <var>QuoteChar</var> property will be taken into account. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/tstrings.delimiter.html">TStrings.Delimiter</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Delimiter character used in <a href="../classes/tstrings.delimitedtext.html">DelimitedText</a>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstrings.text.html">TStrings.Text</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Contents of the list as one big string.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstrings.quotechar.html">TStrings.QuoteChar</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Quote character used in <a href="../classes/tstrings.delimitedtext.html">DelimitedText</a>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstrings.commatext.html">TStrings.CommaText</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Contents of the list as a comma-separated string.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

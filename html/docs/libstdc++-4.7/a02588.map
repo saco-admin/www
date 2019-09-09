@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00001.html" title="Uniform interface to C++98 and C++0x allocators." alt="" coords="5,99,240,127"/>
+<area shape="rect" id="node7" href="$a00420.html" title="std::allocator_traits\&lt; _Tp_alloc_type \&gt;" alt="" coords="264,99,525,127"/>
+<area shape="rect" id="node5" href="$a00001.html" title="__gnu_cxx::__alloc_traits\&lt; _Tp_alloc_type \&gt;" alt="" coords="131,193,419,221"/>
+</map>

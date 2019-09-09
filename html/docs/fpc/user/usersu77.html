@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The Editor</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2281--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu78.html" >next</a>] [<a 
+href="usersu76.html" >prev</a>] [<a 
+href="usersu76.html#tailusersu76.html" >prev-tail</a>] [<a 
+href="#tailusersu77.html">tail</a>] [<a 
+href="userse30.html#usersu77.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.12.3   </span> <a 
+href="user.html#QQ2-115-161" id="x115-1220006.12.3">The Editor</a></h4>
+<!--l. 2282--><p class="noindent" >Several aspects of the editor window behaviour can be set in this dialog. The editor
+preferences dialog is shown in figure (<a 
+href="#x115-122001r35">6.35<!--tex4ht:ref: fig:oeeditor --></a>). Note that some of these options affect only
+newly opened windows, not already opened windows (e.g. Vertical Blocks, Highlight
+Column/Row).
+<!--l. 2287--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x115-122001r35"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 2287--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;6.35: </span><span  
+class="content">The editor preferences dialog</span></div><!--tex4ht:label?: x115-122001r35 -->
+<!--l. 2287--><p class="noindent" ><img 
+src="user36x.png" alt="PIC" class="graphics" width="400.34999pt" height="280.18205pt" ><!--tex4ht:graphics  
+name="user36x.png" src="pics/ide/oeeditor.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 2287--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 2289--><p class="noindent" >The following elements can be set in the editor preferences dialog:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Create backup files</span> </dt><dd 
+class="description">Whenever an editor file is saved, a backup is made of the old file. On
+     by default.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Insert mode</span> </dt><dd 
+class="description">Start with insert mode.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Auto indent mode</span> </dt><dd 
+class="description">Smart indenting is on. This means that pressing <span 
+class="cmcsc-10">E<span 
+class="small-caps">n</span><span 
+class="small-caps">t</span><span 
+class="small-caps">e</span><span 
+class="small-caps">r</span> </span>will position
+     the cursor on the next line in the same column where text starts on the current line.
+     On by default.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Use tab characters</span> </dt><dd 
+class="description">When the tab key is pressed, use a tab character. Normally, when the
+     tab key is pressed, spaces are inserted. When this option is checked, tab characters will
+     be inserted instead. Off by default.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Backspace unindents</span> </dt><dd 
+class="description">Pressing the <span 
+class="cmcsc-10">B<span 
+class="small-caps">k</span><span 
+class="small-caps">s</span><span 
+class="small-caps">p</span> </span>key will unindent if the beginning of the text
+     on the current line is reached, instead of deleting just the previous character. On by
+     default.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Persistent blocks</span> </dt><dd 
+class="description">When a selection is made, and the cursor is moved, the selection is not
+     destroyed, i.e. the selected block stays selected. On by default.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Syntax highlight</span> </dt><dd 
+class="description">Use syntax highlighting on the files that have an extension which appears
+     in the list of highlight extensions. On by default.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Block insert cursor</span> </dt><dd 
+class="description">The insert cursor is a block instead of an underscore character. By
+     default the overwrite cursor is a block. This option reverses that behaviour. Off by
+     default.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Vertical blocks</span> </dt><dd 
+class="description">When selecting blocks spanning several lines, the selection doesn&#8217;t contain
+     the entirety of the lines within the block; instead, it contains the lines as far as the
+     column on which the cursor is located. Off by default.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Highlight column</span> </dt><dd 
+class="description">When checked, the current column (i.e. the column where the cursor
+     is) is highlighted. Off by default.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Highlight row</span> </dt><dd 
+class="description">When  checked,  the  current  row  (i.e.  the  row  where  the  cursor  is)  is
+     highlighted. Off by default.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Auto closing brackets</span> </dt><dd 
+class="description">When an opening bracket character is typed, the closing bracket
+     is also inserted at once. Off by default.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Keep trailing spaces</span> </dt><dd 
+class="description">When saving a file, the spaces at the end of lines are stripped off.
+     This option disables that behaviour; i.e. any trailing spaces are also saved to file. Off
+     by default.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Codecomplete enabled</span> </dt><dd 
+class="description">Enable code completion. On by default.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Enable folds</span> </dt><dd 
+class="description">Enable code folding. Off by default.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Tab size</span> </dt><dd 
+class="description">The number of spaces that are inserted when the <span 
+class="cmcsc-10">T<span 
+class="small-caps">a</span><span 
+class="small-caps">b</span> </span>key is pressed. The default
+     value is 8.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Indent size</span> </dt><dd 
+class="description">The  number  of  spaces  a  block  is  indented  when  calling  the  block  indent
+     function. The default value is 2.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Highlight extensions</span> </dt><dd 
+class="description">When syntax highlighting is on, the list of file masks entered here
+     will be used to determine which files are highlighted. File masks should be separated
+     with semicolon (;) characters. The default is <span 
+class="cmss-10">*.pas;*.pp;*.inc</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">File patterns needing tabs</span> </dt><dd 
+class="description">Some  files  (such  as  makefiles)  need  actual  tab  characters
+     instead of spaces. Here a series of file masks can be entered to indicate files for which
+     tab characters will always be used. Default is <span 
+class="cmss-10">make*;make*.*</span>.</dd></dl>
+<!--l. 2355--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> These options will not be applied to already opened windows; only newly opened windows will
+have these options.
+<!--l. 2362--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu78.html" >next</a>] [<a 
+href="usersu76.html" >prev</a>] [<a 
+href="usersu76.html#tailusersu76.html" >prev-tail</a>] [<a 
+href="usersu77.html" >front</a>] [<a 
+href="userse30.html#usersu77.html" >up</a>] </p></div>
+<!--l. 2362--><p class="noindent" ><a 
+ id="tailusersu77.html"></a>  
+</body></html> 

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>AnsiStrUpper</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>AnsiStrUpper</h1>
+<p>Convert a null-terminated string to all-uppercase characters.</p>
+<h2>Declaration</h2>
+<p>Source position: sysstrh.inc line 94</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> AnsiStrUpper<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Str<span class="sym">: </span><a href="../system/pchar.html">PChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>AnsiStrUpper</var> converts the <var>PChar</var><var>Str</var> to uppercase characters and returns the resulting string. Note that <var>Str</var> itself is modified, not a copy, as in the case of <a href="../sysutils/ansiuppercase.html">AnsiUpperCase</a>. It takes into account the operating system language settings when doing this, so special characters are converted correctly as well. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>A widestring manager must be installed in order for this function to work correctly with various character sets. </td>
+</tr>
+</table>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/ansiuppercase.html">AnsiUpperCase</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return an uppercase version of a string, taking into account special characters.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/ansistrlower.html">AnsiStrLower</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a null-terminated string to all-lowercase characters.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/ansilowercase.html">AnsiLowerCase</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return a lowercase version of a string.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example60<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the AnsiStrUpper function }</span>
+
+<span class="kw">Uses</span> sysutils<span class="sym">;</span>
+
+<span class="kw">Procedure</span> Testit <span class="sym">(</span>S <span class="sym">:</span> Pchar<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+ Writeln <span class="sym">(</span>S<span class="sym">,</span><span class="str">' -&gt; '</span><span class="sym">,</span>AnsiStrUpper<span class="sym">(</span>S<span class="sym">)</span><span class="sym">)</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  Testit<span class="sym">(</span><span class="str">'AN UPPERCASE STRING'</span><span class="sym">)</span><span class="sym">;</span>
+  Testit<span class="sym">(</span><span class="str">'Some mixed STring'</span><span class="sym">)</span><span class="sym">;</span>
+  Testit<span class="sym">(</span><span class="str">'a lowercase string'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$MODESWITCH : Select mode features</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 2132--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu106.html" >next</a>] [<a 
+href="progsu104.html" >prev</a>] [<a 
+href="progsu104.html#tailprogsu104.html" >prev-tail</a>] [<a 
+href="#tailprogsu105.html">tail</a>] [<a 
+href="progse3.html#progsu105.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.3.22   </span> <a 
+href="prog.html#QQ2-113-114" id="x113-1140001.3.22"><span 
+class="cmtt-10">$MODESWITCH </span>: Select mode features</a></h4>
+<!--l. 2133--><p class="noindent" >As of FPC 2.3.1, the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MODESWITCH</span><span 
+class="cmsy-10">} </span>directive can be used to select some of the features that a
+<span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MODE </span><span 
+class="cmsy-10">} </span>directive would select.
+<!--l. 2136--><p class="noindent" >It can be used to enable language features that would otherwise not be available in the current
+mode. For example, you might be programming in TP mode, but want to use the <span 
+class="cmtt-10">Out </span>parameters,
+which are only available in Delphi mode.
+<!--l. 2140--><p class="noindent" >The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MODESWITCH </span><span 
+class="cmsy-10">} </span>directive enables or disables individual mode features without changing the
+current compiler mode.
+<!--l. 2143--><p class="noindent" >This switch is a global switch, and can be used wherever the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MODE</span><span 
+class="cmsy-10">} </span>switch can be
+used.
+<!--l. 2146--><p class="noindent" >The syntax is as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-98">
+{$MODESWITCH&#x00A0;XXX}
+&#x00A0;<br />{$MODESWITCH&#x00A0;XXX+}
+&#x00A0;<br />{$MODESWITCH&#x00A0;XXX-}
+</div>
+<!--l. 2151--><p class="nopar" >The first two will switch on feature XXX, the last one will switch it off.
+<!--l. 2154--><p class="noindent" >The feature <span 
+class="cmtt-10">XXX </span>can be one of the following:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">CLASS</span> </dt><dd 
+class="description">Use object pascal classes.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">OBJPAS</span> </dt><dd 
+class="description">Automatically include the ObjPas unit.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">RESULT</span> </dt><dd 
+class="description">Enable the <span 
+class="cmtt-10">Result </span>identifier for function results.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">PCHARTOSTRING</span> </dt><dd 
+class="description">Allow automatic conversion of null-terminated strings to strings,
+     </dd><dt class="description">
+<span 
+class="cmbx-10">CVAR</span> </dt><dd 
+class="description">Allow the use of the <span 
+class="cmtt-10">CVAR </span>keyword.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">NESTEDCOMMENTS</span> </dt><dd 
+class="description">Allow use of nested comments.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">CLASSICPROCVARS</span> </dt><dd 
+class="description">Use classical procedural variables.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">MACPROCVARS</span> </dt><dd 
+class="description">Use mac-style procedural variables.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">REPEATFORWARD</span> </dt><dd 
+class="description">Implementation and Forward declaration must match completely.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">POINTERTOPROCVAR</span> </dt><dd 
+class="description">Allow silent conversion of pointers to procedural variables.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">AUTODEREF</span> </dt><dd 
+class="description">Automatic (silent) dereferencing of typed pointers.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">INITFINAL</span> </dt><dd 
+class="description">Allow use of <span 
+class="cmtt-10">Initialization </span>and <span 
+class="cmtt-10">Finalization</span>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ANSISTRINGS</span> </dt><dd 
+class="description">Allow use of ansistrings.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">OUT</span> </dt><dd 
+class="description">Allow use of the <span 
+class="cmtt-10">out </span>parameter type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">DEFAULTPARAMETERS</span> </dt><dd 
+class="description">Allow use of default parameter values.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">HINTDIRECTIVE</span> </dt><dd 
+class="description">Support the hint directives (<span 
+class="cmtt-10">deprecated</span>, <span 
+class="cmtt-10">platform </span>etc.)
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">DUPLICATELOCALS</span> </dt><dd 
+class="description">Allow local variables in class methods to have the same names as
+     properties of the class.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">PROPERTIES</span> </dt><dd 
+class="description">Allow use of properties.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ALLOWINLINE</span> </dt><dd 
+class="description">Allow inline procedures.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">EXCEPTIONS</span> </dt><dd 
+class="description">Allow the use of exceptions.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ADVANCEDRECORDS</span> </dt><dd 
+class="description">allow the use of advanced records (i.e. records with methods)
+     </dd><dt class="description">
+<span 
+class="cmbx-10">UNICODESTRINGS</span> </dt><dd 
+class="description">string is by default unicode string.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">TYPEHELPERS</span> </dt><dd 
+class="description">Allow the use of type helpers.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">CBLOCKS</span> </dt><dd 
+class="description">C style blocks.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ISOIO</span> </dt><dd 
+class="description">input/output as required by ISO pascal.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ISOPROGRAMPARAS</span> </dt><dd 
+class="description">Program parameters as required by ISO pascal.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ISOMOD</span> </dt><dd 
+class="description">mod operation as required by ISO pascal.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ISOUNARYMINUS</span> </dt><dd 
+class="description">Unary minus as required by ISO pascal.</dd></dl>
+<!--l. 2189--><p class="noindent" >Hence, the following:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-99">
+{$MODE&#x00A0;TP}
+&#x00A0;<br />{$MODESWITCH&#x00A0;OUT}
+</div>
+<!--l. 2193--><p class="nopar" >Will switch on the support for the <span 
+class="cmtt-10">out </span>parameter type in TP mode. It is equivalent
+to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-100">
+{$MODE&#x00A0;TP}
+&#x00A0;<br />{$MODESWITCH&#x00A0;OUT+}
+</div>
+<!--l. 2199--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 2201--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu106.html" >next</a>] [<a 
+href="progsu104.html" >prev</a>] [<a 
+href="progsu104.html#tailprogsu104.html" >prev-tail</a>] [<a 
+href="progsu105.html" >front</a>] [<a 
+href="progse3.html#progsu105.html" >up</a>] </p></div>
+<!--l. 2201--><p class="noindent" ><a 
+ id="tailprogsu105.html"></a>  
+</body></html> 

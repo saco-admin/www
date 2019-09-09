@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Copy2Symb</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../strutils/index.html">Overview</a>][<a href="../strutils/index-1.html">Resource strings</a>][<a href="../strutils/index-2.html">Constants</a>][<a href="../strutils/index-3.html">Types</a>][<a href="../strutils/index-5.html">Procedures and functions</a>][<a href="../strutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'strutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Copy2Symb</h1>
+<p>Returns all characters in a string till a given character (not included).</p>
+<h2>Declaration</h2>
+<p>Source position: strutils.pp line 167</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> Copy2Symb<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Symb<span class="sym">: </span><a href="../system/char.html">Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">S</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String to return first characters from.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Symb</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Symbol till which characters will be copied. Will not be included in the result.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Characters from the string till the first occurrence of the given character.</p>
+<h2>Description</h2>
+<p><var>Copy2Symb</var>  determines the position of the first occurrence of <var>Symb</var> in the string <var>S</var>  and returns all characters up to this position. The <var>Symb</var> character itself is not included in the result string. The string <var>S</var> is left untouched.  If <var>Symb</var> does not appear in <var>S</var>, then the whole of <var>S</var> is returned. </p>
+<h2>Errors</h2>
+<p>None.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../strutils/copy2space.html">Copy2Space</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns all characters in a string till the first space character (not included).</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../strutils/copy2symbdel.html">Copy2SymbDel</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Deletes and returns all characters in a string till a given character (not included).</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

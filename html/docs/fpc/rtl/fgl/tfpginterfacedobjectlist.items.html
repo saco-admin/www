@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFPGInterfacedObjectList.Items</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../fgl/index.html">Overview</a>][<a href="../fgl/index-2.html">Constants</a>][<a href="../fgl/index-3.html">Types</a>][<a href="../fgl/index-4.html">Classes</a>][<a href="../fgl/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'fgl' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TFPGInterfacedObjectList.Items</h1>
+<p>Indexed access to objects in the list.</p>
+<h2>Declaration</h2>
+<p>Source position: fgl.pp line 227</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../fgl/tfpginterfacedobjectlist.html">TFPGInterfacedObjectList</a><span class="sym">.</span>Items<span class="sym">[</span>Index<span class="sym">: </span>Integer<span class="sym">]</span><span class="sym"> : </span>T<br>&nbsp;&nbsp;<span class="kw">read </span>Get<br>&nbsp;&nbsp;<span class="kw">write </span>Put<span class="sym">;</span><br>&nbsp;&nbsp;<span class="kw">default</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Items</var> provides indexed access to the objects in the list.  The objects can be get or set.  </p>
+<p>The index <var>Index</var> is zero based, and has a maximum value of <a href="../fgl/tfpslist.count.html">Count-1</a>. </p>
+<p>The previous object at position <var>Index</var> may be freed when setting the property, depending on its reference count. </p>
+<h2>Errors</h2>
+<p>If an invalid index is used, an <a href="../fgl/elisterror.html">EListError</a> exception is raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../fgl/tfpslist.count.html">TFPSList.Count</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Current element count</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

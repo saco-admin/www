@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>shmctl</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../ipc/index.html">Overview</a>][<a href="../ipc/index-2.html">Constants</a>][<a href="../ipc/index-3.html">Types</a>][<a href="../ipc/index-5.html">Procedures and functions</a>][<a href="../ipc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'ipc' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>shmctl</h1>
+<p>Perform control operations on a shared memory block.</p>
+<h2>Declaration</h2>
+<p>Source position: ipc.pp line 408</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> shmctl<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;shmid<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;cmd<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;buf<span class="sym">: </span><a href="../ipc/pshmid_ds.html">PShmid_DS</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>shmctl</var> performs various operations on the shared memory block identified by identifier <var>shmid</var>. </p>
+<p>The <var>buf</var> parameter points to a <var>TSHMid_ds</var> record. The  <var>cmd</var> parameter is used to pass which operation is to be performed. It can have one of the following values : </p>
+<dl>
+<dt>IPC_STAT</dt>
+<dd><var>shmctl</var> fills the <var>TSHMid_ds</var> record that  <var>buf</var> points to with the available information about the shared memory block.</dd>
+<dt>IPC_SET</dt>
+<dd>applies the values in the <var>ipc_perm</var> record that <var>buf</var> points to, to the shared memory block.</dd>
+<dt>IPC_RMID</dt>
+<dd>the shared memory block is destroyed (after all processes to which the block is attached, have detached from it).</dd>
+</dl>
+<p>If successful, the function returns <var>True</var>, <var>False</var> otherwise. </p>
+<h2>Errors</h2>
+<p>If an error occurs, the function returns <var>False</var>, and <var>IPCerror</var> is set. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../ipc/shmget.html">shmget</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the ID of a shared memory block, possibly creating it</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ipc/shmat.html">shmat</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Attach a shared memory block.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ipc/shmdt.html">shmdt</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Detach shared memory block.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> shmtool<span class="sym">;</span>
+
+<span class="kw">uses</span> ipc<span class="sym">,</span>strings<span class="sym">,</span>Baseunix<span class="sym">;</span>
+
+<span class="kw">Const</span> SegSize <span class="sym">=</span> <span class="num">100</span><span class="sym">;</span>
+
+<span class="kw">var</span> key <span class="sym">:</span> Tkey<span class="sym">;</span>
+    shmid<span class="sym">,</span>cntr <span class="sym">:</span> longint<span class="sym">;</span>
+    segptr <span class="sym">:</span> pchar<span class="sym">;</span>
+
+<span class="kw">Procedure</span> USage<span class="sym">;</span>
+
+<span class="kw">begin</span>
+ Writeln <span class="sym">(</span><span class="str">'Usage : shmtool w(rite) text'</span><span class="sym">)</span><span class="sym">;</span>
+ writeln <span class="sym">(</span><span class="str">'                r(ead)'</span><span class="sym">)</span><span class="sym">;</span>
+ writeln <span class="sym">(</span><span class="str">'                d(elete)'</span><span class="sym">)</span><span class="sym">;</span>
+ writeln <span class="sym">(</span><span class="str">'                m(ode change) mode'</span><span class="sym">)</span><span class="sym">;</span>
+ halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> Writeshm <span class="sym">(</span>ID <span class="sym">:</span> Longint<span class="sym">;</span> ptr <span class="sym">:</span> pchar<span class="sym">;</span> S <span class="sym">:</span> string<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  strpcopy <span class="sym">(</span>ptr<span class="sym">,</span>s<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> Readshm<span class="sym">(</span>ID <span class="sym">:</span> longint<span class="sym">;</span> ptr <span class="sym">:</span> pchar<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Writeln <span class="sym">(</span><span class="str">'Read : '</span><span class="sym">,</span>ptr<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> removeshm <span class="sym">(</span>ID <span class="sym">:</span> Longint<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  shmctl <span class="sym">(</span>ID<span class="sym">,</span>IPC_RMID<span class="sym">,</span><span class="kw">Nil</span><span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'Shared memory marked for deletion'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span> CHangeMode <span class="sym">(</span>ID <span class="sym">:</span> longint<span class="sym">;</span> mode <span class="sym">:</span> String<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Var</span> m <span class="sym">:</span> word<span class="sym">;</span>
+    code <span class="sym">:</span> integer<span class="sym">;</span>
+    data <span class="sym">:</span> TSHMid_ds<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  val <span class="sym">(</span>mode<span class="sym">,</span>m<span class="sym">,</span>code<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> code<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+    usage<span class="sym">;</span>
+  <span class="kw">If</span> shmctl <span class="sym">(</span>shmid<span class="sym">,</span>IPC_STAT<span class="sym">,</span><span class="sym">@</span>data<span class="sym">)</span><span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    <span class="kw">begin</span>
+     writeln <span class="sym">(</span><span class="str">'Error : shmctl :'</span><span class="sym">,</span>fpgeterrno<span class="sym">)</span><span class="sym">;</span>
+     halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'Old permissions : '</span><span class="sym">,</span>data<span class="sym">.</span>shm_perm<span class="sym">.</span>mode<span class="sym">)</span><span class="sym">;</span>
+  data<span class="sym">.</span>shm_perm<span class="sym">.</span>mode<span class="sym">:=</span>m<span class="sym">;</span>
+  <span class="kw">If</span> shmctl <span class="sym">(</span>shmid<span class="sym">,</span>IPC_SET<span class="sym">,</span><span class="sym">@</span>data<span class="sym">)</span><span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    <span class="kw">begin</span>
+    writeln <span class="sym">(</span><span class="str">'Error : shmctl :'</span><span class="sym">,</span>fpgeterrno<span class="sym">)</span><span class="sym">;</span>
+    halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'New permissions : '</span><span class="sym">,</span>data<span class="sym">.</span>shm_perm<span class="sym">.</span>mode<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">const</span> ftokpath <span class="sym">=</span> <span class="chr">'.'</span><span class="chr">#0</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">if</span> paramcount<span class="sym">&lt;</span><span class="num">1</span> <span class="kw">then</span> usage<span class="sym">;</span>
+   key <span class="sym">:=</span> ftok <span class="sym">(</span>pchar<span class="sym">(</span><span class="sym">@</span>ftokpath<span class="sym">[</span><span class="num">1</span><span class="sym">]</span><span class="sym">)</span><span class="sym">,</span>ord<span class="sym">(</span><span class="chr">'S'</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  shmid <span class="sym">:=</span> shmget<span class="sym">(</span>key<span class="sym">,</span>segsize<span class="sym">,</span>IPC_CREAT <span class="kw">or</span> IPC_EXCL <span class="kw">or</span> <span class="num">438</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> shmid<span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    <span class="kw">begin</span>
+    Writeln <span class="sym">(</span><span class="str">'Shared memory exists. Opening as client'</span><span class="sym">)</span><span class="sym">;</span>
+    shmid <span class="sym">:=</span> shmget<span class="sym">(</span>key<span class="sym">,</span>segsize<span class="sym">,</span><span class="num">0</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> shmid <span class="sym">=</span> <span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+      <span class="kw">begin</span>
+      Writeln <span class="sym">(</span><span class="str">'shmget : Error !'</span><span class="sym">,</span>fpgeterrno<span class="sym">)</span><span class="sym">;</span>
+      halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">end</span>
+    <span class="kw">end</span>
+  <span class="kw">else</span>
+    Writeln <span class="sym">(</span><span class="str">'Creating new shared memory segment.'</span><span class="sym">)</span><span class="sym">;</span>
+  segptr<span class="sym">:=</span>shmat<span class="sym">(</span>shmid<span class="sym">,</span><span class="kw">nil</span><span class="sym">,</span><span class="num">0</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> longint<span class="sym">(</span>segptr<span class="sym">)</span><span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+    <span class="kw">begin</span>
+    Writeln <span class="sym">(</span><span class="str">'Shmat : error !'</span><span class="sym">,</span>fpgeterrno<span class="sym">)</span><span class="sym">;</span>
+    halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  <span class="kw">case</span> upcase<span class="sym">(</span>paramstr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">[</span><span class="num">1</span><span class="sym">]</span><span class="sym">)</span> <span class="kw">of</span>
+    <span class="chr">'W'</span> <span class="sym">:</span> writeshm <span class="sym">(</span>shmid<span class="sym">,</span>segptr<span class="sym">,</span>paramstr<span class="sym">(</span><span class="num">2</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="chr">'R'</span> <span class="sym">:</span> readshm <span class="sym">(</span>shmid<span class="sym">,</span>segptr<span class="sym">)</span><span class="sym">;</span>
+    <span class="chr">'D'</span> <span class="sym">:</span> removeshm<span class="sym">(</span>shmid<span class="sym">)</span><span class="sym">;</span>
+    <span class="chr">'M'</span> <span class="sym">:</span> changemode <span class="sym">(</span>shmid<span class="sym">,</span>paramstr<span class="sym">(</span><span class="num">2</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">else</span>
+    <span class="kw">begin</span>
+    writeln <span class="sym">(</span>paramstr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    usage<span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

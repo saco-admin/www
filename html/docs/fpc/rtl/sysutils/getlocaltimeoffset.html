@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>GetLocalTimeOffset</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>GetLocalTimeOffset</h1>
+<p>Return local timezone offset</p>
+<h2>Declaration</h2>
+<p>Source position: datih.inc line 198</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> GetLocalTimeOffset<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>GetLocalTimeOffset</var> returns the local timezone offset in minutes. This is the difference between UTC time and local time: </p>
+<pre>UTC = LocalTime + GetLocalTimeOffset
+</pre>
+<p>Note that on Linux/Unix, this information may be inaccurate around the DST time changes (for optimization). In that case, the <a href="../unix/rereadlocaltime.html">unix.ReReadLocalTime</a>  unit must be used to re-initialize the timezone information. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../unix/rereadlocaltime.html">unix.ReReadLocalTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Re-Read the local time files.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/date.html">Date</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the current date.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/time.html">Time</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the current time.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/now.html">Now</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the current date and time.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

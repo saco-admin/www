@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Constructors and destructors </title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3682--><div class="crosslinks"><p class="noindent">[<a 
+href="refse32.html" >next</a>] [<a 
+href="refse30.html" >prev</a>] [<a 
+href="refse30.html#tailrefse30.html" >prev-tail</a>] [<a 
+href="#tailrefse31.html">tail</a>] [<a 
+href="refch5.html#refse31.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">5.4   </span> <a 
+href="ref.html#QQ2-63-87" id="x63-810005.4">Constructors and destructors </a></h3>
+<a 
+ id="dx63-81001"></a>
+<a 
+ id="dx63-81002"></a>
+<!--l. 3683--><p class="noindent" ><a name="keyword_constructor"></a> <a name="keyword_destructor"></a> <a 
+ id="dx63-81003"></a> As can be seen in the syntax diagram for an object declaration, Free Pascal supports
+constructors and destructors. The programmer is responsible for calling the constructor and the
+destructor explicitly when using objects.
+<!--l. 3691--><p class="noindent" >The declaration of a constructor or destructor is as follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Constructors and destructors</span><br 
+class="newline" /><BR/><img 
+src="ref70x.png" alt="--constructor declaration-constructor header ;-subroutine block-------------
+     " ><BR/>
+     <BR/><img 
+src="ref71x.png" alt="--destructor declaration-destructor header-;- subroutine block-------------
+     " ><BR/>
+     <BR/><img 
+src="ref72x.png" alt=" --constructor header constructor--|-------identifier --------
+                              -qualified method identifier-
+----formal parameter list--------------------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref73x.png" alt=" --destructor header-destructor -|-------identifier---------
+----               ----------qualified method identifier--------------
+    formal parameter list
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 3693--><p class="noindent" >A constructor/destructor pair is <span 
+class="cmti-10">required </span>if the object uses virtual methods.<a 
+ id="dx63-81004"></a> The reason is that for an
+object with virtual methods, some internal housekeeping must be done: this housekeeping is done by the
+constructor<span class="footnote-mark"><a 
+href="#fn1x6" id="fn1x6-bk"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x63-81005f1"></a>.
+<!--l. 3698--><p class="noindent" >In the declaration of the object type, a simple identifier should be used for the name of the
+constructor or destructor. When the constructor or destructor is implemented, a qualified method
+identifier should be used, i.e. an identifier of the form <span 
+class="cmtt-10">objectidentifier.methodidentifier</span>.
+<!--l. 3703--><p class="noindent" >Free Pascal supports also the extended syntax of the <span 
+class="cmtt-10">New </span>and <span 
+class="cmtt-10">Dispose </span>procedures. In case a
+dynamic variable of an object type must be allocated the constructor&#8217;s name can be specified in
+the call to <span 
+class="cmtt-10">New</span>. The <span 
+class="cmtt-10">New </span>is implemented as a function which returns a pointer to the instantiated
+object. Consider the following declarations:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-141">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TObj&#x00A0;=&#x00A0;object;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;Constructor&#x00A0;init;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;...
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;Pobj&#x00A0;=&#x00A0;^TObj;
+&#x00A0;<br />Var&#x00A0;PP&#x00A0;:&#x00A0;Pobj;
+</div>
+<!--l. 3716--><p class="nopar" >Then the following 3 calls are equivalent:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-142">
+&#x00A0;pp&#x00A0;:=&#x00A0;new&#x00A0;(Pobj,Init);
+</div>
+<!--l. 3720--><p class="nopar" >and
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-143">
+&#x00A0;&#x00A0;new(pp,init);
+</div>
+<!--l. 3724--><p class="nopar" >and also
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-144">
+&#x00A0;&#x00A0;new&#x00A0;(pp);
+&#x00A0;<br />&#x00A0;&#x00A0;pp^.init;
+</div>
+<!--l. 3729--><p class="nopar" >In the last case, the compiler will issue a warning that the extended syntax of <span 
+class="cmtt-10">new </span>and <span 
+class="cmtt-10">dispose</span>
+must be used to generate instances of an object. It is possible to ignore this warning, but it&#8217;s better
+programming practice to use the extended syntax to create instances of an object. Similarly, the
+<span 
+class="cmtt-10">Dispose </span>procedure accepts the name of a destructor. The destructor will then be called, before
+removing the object from the heap.
+<!--l. 3737--><p class="noindent" >In view of the compiler warning remark, the following chapter presents the Delphi approach to
+object-oriented programming, and may be considered a more natural way of object-oriented
+programming.
+                                                                            
+
+                                                                            
+<div class="footnotes"><!--l. 3696--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn1x6-bk" id="fn1x6"><sup class="textsuperscript">1</sup></a></span><span 
+class="cmr-8">A pointer to the VMT must be set up.</span>                                              </div> <!--l. 3743--><div class="crosslinks"><p class="noindent">[<a 
+href="refse32.html" >next</a>]
+[<a 
+href="refse30.html" >prev</a>] [<a 
+href="refse30.html#tailrefse30.html" >prev-tail</a>] [<a 
+href="refse31.html" >front</a>] [<a 
+href="refch5.html#refse31.html" >up</a>] </p></div>
+<!--l. 3743--><p class="noindent" ><a 
+ id="tailrefse31.html"></a>  
+</body></html> 

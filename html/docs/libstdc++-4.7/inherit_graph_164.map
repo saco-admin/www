@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$a00263.html" title="__gnu_pbds::detail::left_child_next_sibling_heap\&lt; Value_Type, Cmp_Fn, _Alloc::size_type, _Alloc \&gt;" alt="" coords="5,55,624,83"/>
+<area shape="rect" id="node3" href="$a00221.html" title="Base class for binomial heap." alt="" coords="672,30,1139,58"/>
+<area shape="rect" id="node9" href="$a00313.html" title="__gnu_pbds::detail::thin_heap\&lt; Value_Type, Cmp_Fn, _Alloc \&gt;" alt="" coords="704,81,1107,109"/>
+<area shape="rect" id="node5" href="$a00220.html" title="__gnu_pbds::detail::binomial_heap\&lt; Value_Type, Cmp_Fn, _Alloc \&gt;" alt="" coords="1196,5,1625,33"/>
+<area shape="rect" id="node7" href="$a00304.html" title="__gnu_pbds::detail::rc_binomial_heap\&lt; Value_Type, Cmp_Fn, _Alloc \&gt;" alt="" coords="1187,55,1635,83"/>
+</map>

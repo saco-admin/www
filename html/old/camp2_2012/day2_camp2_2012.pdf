@@ -1,0 +1,11 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	 "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>Error</title>
+</head>
+<body>
+<pre>/bin/sh: line 1:   945 Segmentation fault      ./tel &lt; tel.in &gt; tel.out
+make: *** [../data/etel10a.in] Error 139
+</pre>
+</body>
+</html>

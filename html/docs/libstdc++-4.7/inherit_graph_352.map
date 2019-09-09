@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$a00426.html" title="The actual work of input and output (interface).This is a base class. Derived stream buffers each con..." alt="" coords="7,55,276,83"/>
+<area shape="rect" id="node3" href="$a00070.html" title="Provides a layer of compatibility for C.This GNU extension provides extensions for working with stand..." alt="" coords="325,5,643,33"/>
+<area shape="rect" id="node5" href="$a00421.html" title="The actual work of input and output (for files).This class associates both its input and output seque..." alt="" coords="363,55,605,83"/>
+<area shape="rect" id="node9" href="$a00572.html" title="The actual work of input and output (for std::string).This class associates either or both of its inp..." alt="" coords="332,106,636,134"/>
+<area shape="rect" id="node7" href="$a00069.html" title="Provides a layer of compatibility for C/POSIX.This GNU extension provides extensions for working with..." alt="" coords="691,55,973,83"/>
+</map>

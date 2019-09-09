@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Dec2Numb</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../strutils/index.html">Overview</a>][<a href="../strutils/index-1.html">Resource strings</a>][<a href="../strutils/index-2.html">Constants</a>][<a href="../strutils/index-3.html">Types</a>][<a href="../strutils/index-5.html">Procedures and functions</a>][<a href="../strutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'strutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Dec2Numb</h1>
+<p>Convert a decimal number to a string representation, using given a base.</p>
+<h2>Declaration</h2>
+<p>Source position: strutils.pp line 193</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> Dec2Numb<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;N<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Len<span class="sym">: </span><a href="../system/byte.html">Byte</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Base<span class="sym">: </span><a href="../system/byte.html">Byte</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">N</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number to represent.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Len</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Minimal length of the returned string</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Base</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base to use when converting</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>The representation of the given number.</p>
+<h2>Description</h2>
+<p><var>Dec2Numb</var> converts <var>N</var> to its representation using base <var>Base</var>.  <var>N</var> must be a positive integer. The resulting string is left-padded with zeroes till it has length <var>Len</var>. <var>Base</var> must be in the range 2-36 to be meaningful, but no checking on this is performed.</p>
+<h2>Errors</h2>
+<p>If <var>Base</var> is out of range, the resulting string will contain unreadable (non-alphanumeric) characters.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../strutils/hex2dec.html">Hex2Dec</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Converts a hexadecimal string to a decimal value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../strutils/inttobin.html">IntToBin</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Converts an integer to a binary string representation, inserting spaces at fixed locations.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../strutils/inttoroman.html">intToRoman</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Represent an integer with roman numerals</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../strutils/romantoint.html">RomanToInt</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a string with a Roman number to it's decimal value.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

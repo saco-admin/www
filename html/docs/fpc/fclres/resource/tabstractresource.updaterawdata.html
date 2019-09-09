@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TAbstractResource.UpdateRawData</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../resource/index.html">Overview</a>][<a href="../resource/index-1.html">Resource strings</a>][<a href="../resource/index-2.html">Constants</a>][<a href="../resource/index-3.html">Types</a>][<a href="../resource/index-4.html">Classes</a>][<a href="../resource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'resource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TAbstractResource.UpdateRawData</h1>
+<p>Updates RawData stream.</p>
+<h2>Declaration</h2>
+<p>Source position: resource.pp line 162</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../resource/tabstractresource.html">TAbstractResource</a><span class="sym">.</span>UpdateRawData<span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>When operating on resource data with more high-level streams than <a href="../resource/tabstractresource.rawdata.html">RawData</a> (e.g: <a href="../bitmapresource/tbitmapresource.bitmapdata.html">TBitmapResource.BitmapData</a>) RawData contents are no longer valid. This method ensures that <a href="../resource/tabstractresource.rawdata.html">RawData</a> stream is properly synchronized with the contents of the higher-level stream.</p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>Normally a resource writer doesn't need to call this method when it is about to write the resource data to a stream, since <a href="../resource/tresources.html">TResources</a> class takes care of this before telling the resource writer to write resources to a stream.</td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../resource/tabstractresource.rawdata.html">TAbstractResource.RawData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The raw resource data stream</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

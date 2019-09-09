@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Generic type definition</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5799--><div class="crosslinks"><p class="noindent">[<a 
+href="refse51.html" >next</a>] [<a 
+href="refse49.html" >prev</a>] [<a 
+href="refse49.html#tailrefse49.html" >prev-tail</a>] [<a 
+href="#tailrefse50.html">tail</a>] [<a 
+href="refch8.html#refse50.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">8.2   </span> <a 
+href="ref.html#QQ2-104-132" id="x104-1260008.2">Generic type definition</a></h3>
+<!--l. 5800--><p class="noindent" >A generic type definition is much like a type definition, with the exception that it contains a list of
+placeholders for types, as can be seen in the following syntax diagram:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Generic class types</span><br 
+class="newline" /><BR/><img 
+src="ref103x.png" alt="--generic type generic -identifier- &#x003C;  template list- &#x003E; =  -generic type -;---
+     " ><BR/>
+     <BR/><img 
+src="ref104x.png" alt="--          ---         ----------------------------------------
+  template list -identifi;er-list--|
+     " ><BR/>
+     <BR/><img 
+src="ref105x.png" alt="--identifier list--identifier-------------------------------------------
+                  ,       :  |-type identifier| |
+                             -----cl,ass ------|
+                             ----interface-----|
+                             -----object------|
+                             -----record------|
+     " ><BR/>
+     <BR/><img 
+src="ref106x.png" alt="--generic type---- class type----------------------------------------
+             ---object type---|
+             --interface type--|
+             -procedural type-|
+             |--record type---|
+             ---array type-----
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 5803--><p class="noindent" >For classes, objects, procedural types and extended records, the generic type declaration should be
+followed by a type implementation. It is the same as a normal class implementation with a single
+exception, namely that any identifier with the same name as one of the template identifiers must
+be a type identifier.
+<!--l. 5809--><p class="noindent" >So, the generic type declaration is much like a normal type declaration, except that there is an as
+yet unknown type present. The unknown types are listed in the placeholder list, and they are
+unknown until the class is specialized.
+                                                                            
+
+                                                                            
+<!--l. 5812--><p class="noindent" >The following is a valid generic class definition:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-229">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;generic&#x00A0;TList&#x003C;_T&#x003E;=class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;Public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;type
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;TCompareFunc&#x00A0;=&#x00A0;function(const&#x00A0;Item1,&#x00A0;Item2:&#x00A0;_T):&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;var
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;data&#x00A0;:&#x00A0;_T;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Add(item:&#x00A0;_T);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Sort(compare:&#x00A0;TCompareFunc);
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 5824--><p class="nopar" >This class could be followed by an implementation as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-230">
+procedure&#x00A0;TList.Add(item:&#x00A0;_T);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;data:=item;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;TList.Sort(compare:&#x00A0;TCompareFunc);
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;if&#x00A0;compare(data,&#x00A0;20)&#x00A0;&#x003C;=&#x00A0;0&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;halt(1);
+&#x00A0;<br />end;
+</div>
+<!--l. 5837--><p class="nopar" >There are some noteworthy things about this declaration and implementation:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x104-126002x1">There is a single placeholder <span 
+class="cmtt-10">_T</span>. It will be substituted by a type identifier when the generic
+     class is specialized. The identifier <span 
+class="cmtt-10">_T </span>may not be used for anything else than a type
+     placeholder. This means that the following would be invalid:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-231">
+     procedure&#x00A0;TList.Sort(compare:&#x00A0;TCompareFunc);
+     &#x00A0;<br />
+     &#x00A0;<br />Var
+     &#x00A0;<br />&#x00A0;&#x00A0;_t&#x00A0;:&#x00A0;integer;
+     &#x00A0;<br />
+     &#x00A0;<br />begin
+     &#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;do&#x00A0;something.
+     &#x00A0;<br />end;
+</div>
+     <!--l. 5853--><p class="nopar" >
+     </li>
+     <li 
+  class="enumerate" id="x104-126004x2">The local type block contains a single type <span 
+class="cmtt-10">TCompareFunc</span>. Note that the actual type is not
+     yet known inside the generic class definition: the definition contains a reference to the
+     placeholder <span 
+class="cmtt-10">_T</span>. All other identifier references must be known when the generic class is
+     defined, <span 
+class="cmti-10">not </span>when the generic class is specialized.
+     </li>
+     <li 
+  class="enumerate" id="x104-126006x3">The local variable block is equivalent to the following:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-232">
+     &#x00A0;&#x00A0;generic&#x00A0;TList&#x003C;_T&#x003E;=class(TObject)
+     &#x00A0;<br />&#x00A0;&#x00A0;Public
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;type
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;TCompareFunc&#x00A0;=&#x00A0;function(const&#x00A0;Item1,&#x00A0;Item2:&#x00A0;_T):&#x00A0;Integer;
+     &#x00A0;<br />&#x00A0;&#x00A0;Public
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;data&#x00A0;:&#x00A0;_T;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Add(item:&#x00A0;_T);
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Sort(compare:&#x00A0;TCompareFunc);
+     &#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+     <!--l. 5870--><p class="nopar" ></li></ol>
+<!--l. 5873--><p class="noindent" >Not only generic classes can be defined, but also other types:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-233">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />{$INTERFACES&#x00A0;CORBA}
+&#x00A0;<br />type
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;generic&#x00A0;PlanarCoordinate&#x003C;t&#x003E;&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;x,y&#x00A0;:&#x00A0;t;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TScreenCoordinate&#x00A0;=&#x00A0;specialize&#x00A0;PLanarCoordinate&#x003C;word&#x003E;;
+&#x00A0;<br />&#x00A0;&#x00A0;TDiscreteCoordinate&#x00A0;=&#x00A0;specialize&#x00A0;PlanarCoordinate&#x003C;integer&#x003E;;
+&#x00A0;<br />&#x00A0;&#x00A0;TRealCoordinate&#x00A0;=&#x00A0;specialize&#x00A0;PlanarCoordinate&#x003C;extended&#x003E;;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;generic&#x00A0;TDistanceFunction&#x003C;t&#x003E;&#x00A0;=&#x00A0;function&#x00A0;(x,y&#x00A0;:&#x00A0;t)&#x00A0;:&#x00A0;Extended&#x00A0;of&#x00A0;object;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TScreenDistance&#x00A0;=&#x00A0;specialize&#x00A0;TDistanceFunction&#x003C;word&#x003E;;
+&#x00A0;<br />&#x00A0;&#x00A0;TDiscreteDistance&#x00A0;=&#x00A0;specialize&#x00A0;TDistanceFunction&#x003C;integer&#x003E;;
+&#x00A0;<br />&#x00A0;&#x00A0;TRealDistance&#x00A0;=&#x00A0;specialize&#x00A0;TDistanceFunction&#x003C;Extended&#x003E;;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;generic&#x00A0;TArray&#x003C;t&#x003E;&#x00A0;=&#x00A0;array&#x00A0;of&#x00A0;t;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TMyIntegerArray&#x00A0;=&#x00A0;specialize&#x00A0;TArray&#x003C;integer&#x003E;;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;generic&#x00A0;IList&#x003C;_T&#x003E;&#x00A0;=&#x00A0;Interface
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;GetItem(AIndex&#x00A0;:&#x00A0;Integer)&#x00A0;:&#x00A0;_T;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;SetItem(AIndex&#x00A0;:&#x00A0;Integer;&#x00A0;AValue&#x00A0;:&#x00A0;_T);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;GetCount&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Items&#x00A0;[AIndex&#x00A0;:&#x00A0;Integer]&#x00A0;:&#x00A0;_T&#x00A0;Read&#x00A0;GetItem&#x00A0;Write&#x00A0;SetItem;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Count&#x00A0;:&#x00A0;Integer&#x00A0;Read&#x00A0;GetCount;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;generic&#x00A0;TList&#x003C;_T&#x003E;=class(TObject,&#x00A0;specialize&#x00A0;IList&#x003C;_T&#x003E;)
+&#x00A0;<br />&#x00A0;&#x00A0;public&#x00A0;type
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;TCompareFunc&#x00A0;=&#x00A0;function(const&#x00A0;Item1,&#x00A0;Item2:&#x00A0;_T):&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;GetItem(AIndex&#x00A0;:&#x00A0;Integer)&#x00A0;:&#x00A0;_T;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;SetItem(AIndex&#x00A0;:&#x00A0;Integer;&#x00A0;AValue&#x00A0;:&#x00A0;_T);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;GetCount&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;Public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;data&#x00A0;:&#x00A0;_T;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Add(item:&#x00A0;_T);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Sort(compare:&#x00A0;TCompareFunc);
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;generic&#x00A0;TPointSet&#x003C;t&#x003E;&#x00A0;=&#x00A0;array&#x00A0;of&#x00A0;specialize&#x00A0;PlanarCoordinate&#x003C;t&#x003E;;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TScreenPointSet&#x00A0;=&#x00A0;specialize&#x00A0;TPointSet&#x003C;word&#x003E;;
+&#x00A0;<br />&#x00A0;&#x00A0;TDiscretePointSet&#x00A0;=&#x00A0;&#x00A0;specialize&#x00A0;TPointSet&#x003C;integer&#x003E;;
+&#x00A0;<br />&#x00A0;&#x00A0;TRealPointSet&#x00A0;=&#x00A0;specialize&#x00A0;TPointSet&#x003C;extended&#x003E;;
+</div>
+<!--l. 5922--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 5924--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> A word on visibility: the template types <span 
+class="cmtt-10">T </span>or <span 
+class="cmtt-10">_T </span>are available as strict private types. That means
+that the types are not available in the descendent classes, unless they are made available through
+some protected or private mechanism, as in the following example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-234">
+&#x00A0;&#x00A0;generic&#x00A0;TList&#x003C;_T&#x003E;=class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;public&#x00A0;type
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;TItemType&#x00A0;=&#x00A0;_T;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 5933--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 5936--><div class="crosslinks"><p class="noindent">[<a 
+href="refse51.html" >next</a>] [<a 
+href="refse49.html" >prev</a>] [<a 
+href="refse49.html#tailrefse49.html" >prev-tail</a>] [<a 
+href="refse50.html" >front</a>] [<a 
+href="refch8.html#refse50.html" >up</a>] </p></div>
+<!--l. 5936--><p class="noindent" ><a 
+ id="tailrefse50.html"></a>  
+</body></html> 

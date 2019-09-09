@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Static class methods</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 4661--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu31.html" >next</a>] [<a 
+href="refsu29.html" >prev</a>] [<a 
+href="refsu29.html#tailrefsu29.html" >prev-tail</a>] [<a 
+href="#tailrefsu30.html">tail</a>] [<a 
+href="refse38.html#refsu30.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">6.5.6   </span> <a 
+href="ref.html#QQ2-81-109" id="x81-1030006.5.6">Static class methods</a></h4>
+<a 
+ id="dx81-103001"></a>
+<a 
+ id="dx81-103002"></a>
+<!--l. 4663--><p class="noindent" >FPC knows static class methods in classes: these are class methods that have the <span 
+class="cmtt-10">Static </span>keyword
+at the end. These methods behave completely like regular procedures or functions. This means
+that:
+     <ul class="itemize1">
+     <li class="itemize">They do not have a <span 
+class="cmtt-10">Self </span>parameter. As a result, they cannot access properties or fields
+     or regular methods.
+     </li>
+     <li class="itemize">They cannot be virtual.
+     </li>
+     <li class="itemize">They can be assigned to regular procedural variables.</li></ul>
+<!--l. 4671--><p class="noindent" >Their use is mainly to include the method in the namespace of the class as opposed to having the
+procedure in the namespace of the unit. Note that they do have access to all class variables, types
+etc, meaning something like this is possible:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-184">
+&#x00A0;{$mode&#x00A0;objfpc}
+&#x00A0;<br />{$h+}
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TA&#x00A0;=&#x00A0;Class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;Private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;class&#x00A0;var&#x00A0;myprivatea&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />&#x00A0;&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;class&#x00A0;Function&#x00A0;GetA&#x00A0;:&#x00A0;Integer;&#x00A0;&#x00A0;static;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;class&#x00A0;Procedure&#x00A0;SetA(AValue&#x00A0;:&#x00A0;Integer);&#x00A0;static;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Class&#x00A0;Function&#x00A0;TA.GetA&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=myprivateA;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Class&#x00A0;Procedure&#x00A0;TA.SetA(AValue&#x00A0;:&#x00A0;integer);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;myprivateA:=AValue;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;TA.SetA(123);
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(TA.MyPrivateA);
+&#x00A0;<br />end.
+</div>
+<!--l. 4704--><p class="nopar" >Which will output <span 
+class="cmtt-10">123</span>, when run.
+<!--l. 4707--><p class="noindent" >In the implementation of a static class method, the <span 
+class="cmtt-10">Self </span>identifier is not available. The method
+behaves as if <span 
+class="cmtt-10">Self </span>is hardcoded to the declared class, not the actual class with which it was called.
+In regular class methods, <span 
+class="cmtt-10">Self </span>contains the Actual class for which the method was called. The
+following example makes this clear:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-185">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TA&#x00A0;=&#x00A0;Class
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Class&#x00A0;procedure&#x00A0;DoIt;&#x00A0;virtual;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Class&#x00A0;Procedure&#x00A0;DoitStatic;&#x00A0;static;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TB&#x00A0;=&#x00A0;CLass(TA)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Class&#x00A0;procedure&#x00A0;DoIt;&#x00A0;override;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />Class&#x00A0;procedure&#x00A0;TA.DOit;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;TA.Doit&#x00A0;:&#x00A0;&#8217;,Self.ClassName);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Class&#x00A0;procedure&#x00A0;TA.DOitStatic;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Doit;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;TA.DoitStatic&#x00A0;:&#x00A0;&#8217;,ClassName);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Class&#x00A0;procedure&#x00A0;TB.DoIt;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Inherited;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;TB.Doit&#x00A0;:&#x00A0;&#8217;,Self.ClassName);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Through&#x00A0;static&#x00A0;method:&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;TB.DoItStatic;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(&#8217;Through&#x00A0;class&#x00A0;method:&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;TB.Doit;
+&#x00A0;<br />end.
+</div>
+<!--l. 4750--><p class="nopar" >When run, this example will print:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-186">
+Through&#x00A0;static&#x00A0;method:
+&#x00A0;<br />TA.Doit&#x00A0;:&#x00A0;TA
+&#x00A0;<br />TA.DoitStatic&#x00A0;:&#x00A0;TA
+&#x00A0;<br />Through&#x00A0;class&#x00A0;method:
+&#x00A0;<br />TA.Doit&#x00A0;:&#x00A0;TB
+&#x00A0;<br />TB.Doit&#x00A0;:&#x00A0;TB
+</div>
+<!--l. 4759--><p class="nopar" >For the static class method, even though it was called using <span 
+class="cmtt-10">TB</span>, the class (<span 
+class="cmtt-10">Self</span>, if it were available)
+is set to <span 
+class="cmtt-10">TA</span>, the class in which the static method was defined. For the class method, the class is set
+to the actual class used to call the method (<span 
+class="cmtt-10">TB</span>).
+                                                                            
+
+                                                                            
+<!--l. 4766--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu31.html" >next</a>] [<a 
+href="refsu29.html" >prev</a>] [<a 
+href="refsu29.html#tailrefsu29.html" >prev-tail</a>] [<a 
+href="refsu30.html" >front</a>] [<a 
+href="refse38.html#refsu30.html" >up</a>] </p></div>
+<!--l. 4766--><p class="noindent" ><a 
+ id="tailrefsu30.html"></a>  
+</body></html> 

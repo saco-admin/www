@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>ReReadLocalTime</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unix/index.html">Overview</a>][<a href="../unix/index-2.html">Constants</a>][<a href="../unix/index-3.html">Types</a>][<a href="../unix/index-5.html">Procedures and functions</a>][<a href="../unix/index-6.html">Variables</a>][<a href="../unix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Unix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>ReReadLocalTime</h1>
+<p>Re-Read the local time files.</p>
+<h2>Declaration</h2>
+<p>Source position: unix.pp line 78</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> ReReadLocalTime<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ReReadLocalTime</var> can be used to re-initialize the local timezone information.  </p>
+<p>To speed up conversion of epoch (UTC) time to local time, the timezone information is loaded only once, at program startup.  Calling this routine re-reads the timezone information using current timezone settings. </p>
+<p>The <a href="../unixutil/epochtolocal.html">EpochToLocal</a> function uses timezone information to transform epoch time to local time. This timezone information does not change while the application is running: in particular, on DST transitions or when the timezone files change, the time returned by local time routines will be wrong.  </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/date.html">Date</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the current date.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/time.html">Time</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the current time.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/now.html">Now</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the current date and time.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unixutil/epochtolocal.html">EpochToLocal</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert epoch time to local time</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

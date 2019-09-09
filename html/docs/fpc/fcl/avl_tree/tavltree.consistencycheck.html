@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TAVLTree.ConsistencyCheck</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../avl_tree/index.html">Overview</a>][<a href="../avl_tree/index-4.html">Classes</a>][<a href="../avl_tree/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'AVL_Tree' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TAVLTree.ConsistencyCheck</h1>
+<p>Check the consistency of the tree</p>
+<h2>Declaration</h2>
+<p>Source position: avl_tree.pp line 107</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../avl_tree/tavltree.html">TAVLTree</a><span class="sym">.</span>ConsistencyCheck<span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>0 if the tree is OK, a negative number if something is wrong.</p>
+<h2>Description</h2>
+<p><var>ConsistencyCheck</var> checks the correctness of the tree. It returns 0 if the tree is internally consistent, and a negative number if the tree contais an error somewhere. </p>
+<dl>
+<dt>-1</dt>
+<dd>The Count property doesn't match the actual node count</dd>
+<dt>-2</dt>
+<dd>A left node does not point to the correct parent</dd>
+<dt>-3</dt>
+<dd>A left node is larger than parent node</dd>
+<dt>-4</dt>
+<dd>A right node does not point to the correct parent</dd>
+<dt>-5</dt>
+<dd>A right node is less than parent node</dd>
+<dt>-6</dt>
+<dd>The balance of a node is not calculated correctly</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../avl_tree/tavltree.writereporttostream.html">TAVLTree.WriteReportToStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write the contents of the tree consistency check to the stream</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

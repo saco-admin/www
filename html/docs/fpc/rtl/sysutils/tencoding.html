@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TEncoding</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TEncoding</h1>
+<p>[<a href="../sysutils/tencoding-1.html" onClick="window.open('../sysutils/tencoding-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../sysutils/tencoding-2.html" onClick="window.open('../sysutils/tencoding-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../sysutils/tencoding-3.html" onClick="window.open('../sysutils/tencoding-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../sysutils/tencoding-4.html" onClick="window.open('../sysutils/tencoding-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../sysutils/tencoding-5.html" onClick="window.open('../sysutils/tencoding-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../sysutils/tencoding-6.html" onClick="window.open('../sysutils/tencoding-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Encoding support</p>
+<h2>Declaration</h2>
+<p>Source position: sysencodingh.inc line 21</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TEncoding <span class="sym">=</span> <span class="kw">class</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class procedure </span><a href="../sysutils/tencoding.freeencodings.html">FreeEncodings</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Free all standard encodings</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../sysutils/tencoding.clone.html">Clone</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clone a <var>TEncoding</var> instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sysutils/tencoding.convert.html">Convert</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert an array of bytes from one encoding to another</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sysutils/tencoding.isstandardencoding.html">IsStandardEncoding</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check if the encoding is one of the standard encodings</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sysutils/tencoding.getbufferencoding.html">GetBufferEncoding</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Attempt to guess the encoding of a buffer</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">class function </span><a href="../sysutils/tencoding.getencoding.html">GetEncoding</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get an encoding instance for a given codepage.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../sysutils/tencoding.getmaxbytecount.html">GetMaxByteCount</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the maximum number of bytes needed to represent a string</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../sysutils/tencoding.getmaxcharcount.html">GetMaxCharCount</a><span class="sym">();</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the maximum number of characters that can be represented in a number of bytes</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../sysutils/tencoding.getpreamble.html">GetPreamble</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span><span class="kw"> abstract</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the BOM Marker used by the encoding</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../sysutils/tencoding.getstring.html">GetString</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return a string based on an array of bytes</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sysutils/tencoding.codepage.html">CodePage</a><span class="sym">: </span><a href="../system/cardinal.html">Cardinal</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Codepage for this encoding</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sysutils/tencoding.encodingname.html">EncodingName</a><span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Name of this encoding</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sysutils/tencoding.issinglebyte.html">IsSingleByte</a><span class="sym">: </span>Boolean<span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the encoding a single-byte encoding or not ?</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sysutils/tencoding.ansi.html">ANSI</a><span class="sym">: </span><a href="../sysutils/tencoding.html">TEncoding</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Ansi encoding instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sysutils/tencoding.ascii.html">ASCII</a><span class="sym">: </span><a href="../sysutils/tencoding.html">TEncoding</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">ASCII encoding instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sysutils/tencoding.bigendianunicode.html">BigEndianUnicode</a><span class="sym">: </span><a href="../sysutils/tencoding.html">TEncoding</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Big-endian Unicode (UTF16BE) encoding instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sysutils/tencoding.default.html">Default</a><span class="sym">: </span><a href="../sysutils/tencoding.html">TEncoding</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Default codepage</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sysutils/tencoding.unicode.html">Unicode</a><span class="sym">: </span><a href="../sysutils/tencoding.html">TEncoding</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">UTF16 encoding instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sysutils/tencoding.utf7.html">UTF7</a><span class="sym">: </span><a href="../sysutils/tencoding.html">TEncoding</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">UTF7 encoding instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../sysutils/tencoding.utf8.html">UTF8</a><span class="sym">: </span><a href="../sysutils/tencoding.html">TEncoding</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">UTF8 encoding instance</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../sysutils/tencoding.html">TEncoding</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encoding support</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TObject</span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TEncoding</var> is a mostly abstract class that contains various methods to deal with different encodings  in single- and double-byte strings. In practice, one instance of a descendent of this class for each needed encoding can be  instantiated and used. The class contains several class methods and properties to create such instances, and  has several often-used instances available as class properties, in particular the default encoding. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/tencoding.ansi.html">TEncoding.ANSI</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Ansi encoding instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tencoding.ascii.html">TEncoding.ASCII</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">ASCII encoding instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tencoding.default.html">TEncoding.Default</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Default codepage</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tencoding.bigendianunicode.html">TEncoding.BigEndianUnicode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Big-endian Unicode (UTF16BE) encoding instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tencoding.unicode.html">TEncoding.Unicode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">UTF16 encoding instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tencoding.utf7.html">TEncoding.UTF7</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">UTF7 encoding instance</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tencoding.utf8.html">TEncoding.UTF8</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">UTF8 encoding instance</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

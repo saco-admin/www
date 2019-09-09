@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Interface identification: A GUID</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5435--><div class="crosslinks"><p class="noindent">[<a 
+href="refse44.html" >next</a>] [<a 
+href="refse42.html" >prev</a>] [<a 
+href="refse42.html#tailrefse42.html" >prev-tail</a>] [<a 
+href="#tailrefse43.html">tail</a>] [<a 
+href="refch7.html#refse43.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">7.2   </span> <a 
+href="ref.html#QQ2-96-124" id="x96-1180007.2">Interface identification: A GUID</a></h3>
+<!--l. 5436--><p class="noindent" >An interface can be identified by a GUID. This is a 128-bit number, which is represented in a text
+representation (a string literal):
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-215">
+[&#8217;{HHHHHHHH-HHHH-HHHH-HHHH-HHHHHHHHHHHH}&#8217;]
+</div>
+<!--l. 5440--><p class="nopar" >Each <span 
+class="cmtt-10">H </span>character represents a hexadecimal number (0-9,A-F). The format contains 8-4-4-4-12
+numbers. A GUID can also be represented by the following record, defined in the <span 
+class="cmss-10">objpas </span>unit
+(included automatically when in <span 
+class="cmtt-10">DELPHI </span>or <span 
+class="cmtt-10">OBJFPC </span>mode):
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-216">
+PGuid&#x00A0;=&#x00A0;^TGuid;
+&#x00A0;<br />TGuid&#x00A0;=&#x00A0;packed&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;case&#x00A0;integer&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;1&#x00A0;:&#x00A0;(
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Data1&#x00A0;:&#x00A0;DWord;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Data2&#x00A0;:&#x00A0;word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Data3&#x00A0;:&#x00A0;word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Data4&#x00A0;:&#x00A0;array[0..7]&#x00A0;of&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;2&#x00A0;:&#x00A0;(
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;D1&#x00A0;:&#x00A0;DWord;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;D2&#x00A0;:&#x00A0;word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;D3&#x00A0;:&#x00A0;word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;D4&#x00A0;:&#x00A0;array[0..7]&#x00A0;of&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;3&#x00A0;:&#x00A0;(&#x00A0;{&#x00A0;uuid&#x00A0;fields&#x00A0;according&#x00A0;to&#x00A0;RFC4122&#x00A0;}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;time_low&#x00A0;:&#x00A0;dword;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;time_mid&#x00A0;:&#x00A0;word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;time_hi_and_version&#x00A0;:&#x00A0;word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;clock_seq_hi_and_reserved&#x00A0;:&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;clock_seq_low&#x00A0;:&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;node&#x00A0;:&#x00A0;array[0..5]&#x00A0;of&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;);
+&#x00A0;<br />end;
+</div>
+<!--l. 5470--><p class="nopar" >A constant of type TGUID can be specified using a string literal:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-217">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />program&#x00A0;testuid;
+&#x00A0;<br />
+&#x00A0;<br />Const
+&#x00A0;<br />&#x00A0;&#x00A0;MyGUID&#x00A0;:&#x00A0;TGUID&#x00A0;=&#x00A0;&#8217;{10101010-1010-0101-1001-110110110110}&#8217;;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />end.
+</div>
+<!--l. 5481--><p class="nopar" >Normally, the GUIDs are only used in Windows, when using COM interfaces. More on this in the
+next section.
+                                                                            
+
+                                                                            
+<!--l. 5485--><div class="crosslinks"><p class="noindent">[<a 
+href="refse44.html" >next</a>] [<a 
+href="refse42.html" >prev</a>] [<a 
+href="refse42.html#tailrefse42.html" >prev-tail</a>] [<a 
+href="refse43.html" >front</a>] [<a 
+href="refch7.html#refse43.html" >up</a>] </p></div>
+<!--l. 5485--><p class="noindent" ><a 
+ id="tailrefse43.html"></a>  
+</body></html> 

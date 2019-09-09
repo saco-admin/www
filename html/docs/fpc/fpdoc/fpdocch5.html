@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>5 The description file</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="fpdoc.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="fpdoc.css"> 
+</head><body 
+>
+<!--l. 1094--><div class="crosslinks"><p class="noindent">[<a 
+href="fpdocch6.html" >next</a>] [<a 
+href="fpdocch4.html" >prev</a>] [<a 
+href="fpdocch4.html#tailfpdocch4.html" >prev-tail</a>] [<a 
+href="#tailfpdocch5.html">tail</a>] [<a 
+href="fpdoc.html#fpdocch5.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;5</span><br /><a 
+href="fpdoc.html#QQ2-74-73" id="x74-730005">The description file</a></h2>
+<div class="sectionTOCS">
+&#x00A0;<span class="sectionToc" >5.1 <a 
+href="fpdocse12.html#x75-740005.1">Introduction</a></span>
+<br />&#x00A0;<span class="sectionToc" >5.2 <a 
+href="fpdocse13.html#x76-750005.2">Element names and cross-referencing</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.1 <a 
+href="fpdocsu57.html#x77-760005.2.1">Element name conventions</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.2 <a 
+href="fpdocsu58.html#x78-770005.2.2">Cross referencing: the <span 
+class="cmtt-10">link </span>tag</a></span>
+<br />&#x00A0;<span class="sectionToc" >5.3 <a 
+href="fpdocse14.html#x79-780005.3">Tag reference</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.1 <a 
+href="fpdocsu59.html#x80-790005.3.1">Overview</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.2 <a 
+href="fpdocsu60.html#x81-800005.3.2"><span 
+class="cmbx-10">b </span>: format bold</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.3 <a 
+href="fpdocsu61.html#x82-810005.3.3"><span 
+class="cmbx-10">caption </span>: Specify table caption</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.4 <a 
+href="fpdocsu62.html#x83-820005.3.4"><span 
+class="cmbx-10">code </span>: format as pascal code</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.5 <a 
+href="fpdocsu63.html#x84-830005.3.5"><span 
+class="cmbx-10">descr </span>: Descriptions</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.6 <a 
+href="fpdocsu64.html#x85-840005.3.6"><span 
+class="cmbx-10">dd </span>: definition data.</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.7 <a 
+href="fpdocsu65.html#x86-850005.3.7"><span 
+class="cmbx-10">dl </span>: definition list.</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.8 <a 
+href="fpdocsu66.html#x87-860005.3.8"><span 
+class="cmbx-10">dt </span>: definition term.</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.9 <a 
+href="fpdocsu67.html#x88-870005.3.9"><span 
+class="cmbx-10">element </span>: Identifier documentation</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.10 <a 
+href="fpdocsu68.html#x89-880005.3.10"><span 
+class="cmbx-10">errors </span>: Error section.</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.11 <a 
+href="fpdocsu69.html#x90-890005.3.11"><span 
+class="cmbx-10">example </span>: Include an example source file.</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.12 <a 
+href="fpdocsu70.html#x91-900005.3.12"><span 
+class="cmbx-10">fpdoc-description </span>: Global tag</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.13 <a 
+href="fpdocsu71.html#x92-910005.3.13"><span 
+class="cmbx-10">i </span>: Format italics</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.14 <a 
+href="fpdocsu72.html#x93-920005.3.14"><span 
+class="cmbx-10">img </span>: include image</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.15 <a 
+href="fpdocsu73.html#x94-930005.3.15"><span 
+class="cmbx-10">li </span>: list element</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.16 <a 
+href="fpdocsu74.html#x95-940005.3.16"><span 
+class="cmbx-10">link </span>: Cross-reference</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.17 <a 
+href="fpdocsu75.html#x96-950005.3.17"><span 
+class="cmbx-10">module </span>: Unit reference</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.18 <a 
+href="fpdocsu76.html#x97-960005.3.18"><span 
+class="cmbx-10">notes </span>: Documentation notes (annotations).</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.19 <a 
+href="fpdocsu77.html#x98-970005.3.19"><span 
+class="cmbx-10">note </span>: Notes/Annotation entry.</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.20 <a 
+href="fpdocsu78.html#x99-980005.3.20"><span 
+class="cmbx-10">ol </span>: Numbered list.</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.21 <a 
+href="fpdocsu79.html#x100-990005.3.21"><span 
+class="cmbx-10">p </span>: Paragraph</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.22 <a 
+href="fpdocsu80.html#x101-1000005.3.22"><span 
+class="cmbx-10">package </span>: Package reference</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.23 <a 
+href="fpdocsu81.html#x102-1010005.3.23"><span 
+class="cmbx-10">pre </span>: Insert text as-is</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.24 <a 
+href="fpdocsu82.html#x103-1020005.3.24"><span 
+class="cmbx-10">printshort </span>: insert short description</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.25 <a 
+href="fpdocsu83.html#x104-1030005.3.25"><span 
+class="cmbx-10">remark </span>: format as remark</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.26 <a 
+href="fpdocsu84.html#x105-1040005.3.26"><span 
+class="cmbx-10">seealso </span>: Cross-reference section</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.27 <a 
+href="fpdocsu85.html#x106-1050005.3.27"><span 
+class="cmbx-10">short </span>: Short description</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.28 <a 
+href="fpdocsu86.html#x107-1060005.3.28"><span 
+class="cmbx-10">table </span>: Table start</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.29 <a 
+href="fpdocsu87.html#x108-1070005.3.29"><span 
+class="cmbx-10">td </span>: Table cell</a></span>
+                                                                            
+
+                                                                            
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.30 <a 
+href="fpdocsu88.html#x109-1080005.3.30"><span 
+class="cmbx-10">th </span>: Table header</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.31 <a 
+href="fpdocsu89.html#x110-1090005.3.31"><span 
+class="cmbx-10">topic </span>: Topic section</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.32 <a 
+href="fpdocsu90.html#x111-1100005.3.32"><span 
+class="cmbx-10">tr </span>: table row</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.33 <a 
+href="fpdocsu91.html#x112-1110005.3.33"><span 
+class="cmbx-10">u </span>: Format underlined</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.34 <a 
+href="fpdocsu92.html#x113-1120005.3.34"><span 
+class="cmbx-10">ul </span>: bulleted list</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.35 <a 
+href="fpdocsu93.html#x114-1130005.3.35"><span 
+class="cmbx-10">url </span>: Hyperlink</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.36 <a 
+href="fpdocsu94.html#x115-1140005.3.36"><span 
+class="cmbx-10">var </span>: variable</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.3.37 <a 
+href="fpdocsu95.html#x116-1150005.3.37"><span 
+class="cmbx-10">version </span>: version info</a></span>
+</div>
+
+
+                                                                            
+
+                                                                            
+<!--l. 2319--><div class="crosslinks"><p class="noindent">[<a 
+href="fpdocch6.html" >next</a>] [<a 
+href="fpdocch4.html" >prev</a>] [<a 
+href="fpdocch4.html#tailfpdocch4.html" >prev-tail</a>] [<a 
+href="fpdocch5.html" >front</a>] [<a 
+href="fpdoc.html#fpdocch5.html" >up</a>] </p></div>
+<!--l. 2319--><p class="noindent" ><a 
+ id="tailfpdocch5.html"></a>  
+</body></html> 

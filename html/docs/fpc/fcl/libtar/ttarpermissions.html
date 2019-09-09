@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TTarPermissions</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../libtar/index.html">Overview</a>][<a href="../libtar/index-2.html">Constants</a>][<a href="../libtar/index-3.html">Types</a>][<a href="../libtar/index-4.html">Classes</a>][<a href="../libtar/index-5.html">Procedures and functions</a>][<a href="../libtar/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'libtar' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TTarPermissions</h1>
+<p>Complete set of permissions for file</p>
+<h2>Declaration</h2>
+<p>Source position: libtar.pp line 117</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TTarPermissions<span class="sym"> = </span><span class="kw">set of </span><span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;tpReadByOwner<span class="sym">,</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Owner can read the file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;tpWriteByOwner<span class="sym">,</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Owner can write the file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;tpExecuteByOwner<span class="sym">,</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Owner can execute the file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;tpReadByGroup<span class="sym">,</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Group can read the file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;tpWriteByGroup<span class="sym">,</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Group can write the file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;tpExecuteByGroup<span class="sym">,</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Group can execute the file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;tpReadByOther<span class="sym">,</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Other people can read the file.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;tpWriteByOther<span class="sym">,</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Other people can write the file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;tpExecuteByOther</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Other people can execute the file</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">);</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TTarPermissions</var> describes the complete set of permissions that a file has. It is used in the <var>Permissions</var> field of the <a href="../libtar/ttardirrec.html">TTarDirRec</a> record. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../libtar/ttardirrec.html">TTarDirRec</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Tar Directory entry</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../libtar/tfiletype.html">TFileType</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">File type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../libtar/ttarmodes.html">TTarModes</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Full set of modes</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Tcompressionstream.create</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../zstream/index.html">Overview</a>][<a href="../zstream/index-3.html">Types</a>][<a href="../zstream/index-4.html">Classes</a>][<a href="../zstream/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'zstream' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>Tcompressionstream.create</h1>
+<p>Create a new instance of the compression stream.</p>
+<h2>Declaration</h2>
+<p>Source position: zstream.pp line 59</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">constructor</span> <a href="../zstream/tcompressionstream.html">Tcompressionstream</a><span class="sym">.</span>create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;level<span class="sym">: </span><a href="../zstream/tcompressionlevel.html">Tcompressionlevel</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;dest<span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Askipheader<span class="sym">: </span>Boolean <span class="sym">=</span> False</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">level</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compression level for compression stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">dest</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Output stream to which compressed data is written.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Askipheader</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">If set, the deflated data block header is not written to stream</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Create</var> creates a new instance of the compression stream. It merely calls the inherited constructor with the destination stream <var>Dest</var> and stores the compression level. </p>
+<p>If <var>ASkipHeader</var> is set to <var>True</var>, the method will not write the block header to the stream. This is required for deflated data in a zip file. </p>
+<p>Note that the compressed data is only completely written after the compression stream is destroyed. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../zstream/tcompressionstream.destroy.html">Destroy</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Flushe data to the output stream and destroys the compression stream.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

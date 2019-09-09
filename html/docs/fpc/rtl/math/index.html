@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Reference for unit 'math'</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[Overview][<a href="../math/index-2.html">Constants</a>][<a href="../math/index-3.html">Types</a>][<a href="../math/index-4.html">Classes</a>][<a href="../math/index-5.html">Procedures and functions</a>][<a href="../math/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'math' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Reference for unit 'math'</h1>
+<p>Additional mathematical routines.</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">uses</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../system/index.html">System</a><span class="sym">,</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The system unit</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../sysutils/index.html">sysutils</a><span class="sym">;</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Various system utilities.</p></td>
+</tr>
+</table>
+<h2>Overview</h2>
+<p>This document describes the <span class="file">math</span> unit. The <var>math</var> unit was initially written by Florian Klaempfl. It provides mathematical functions which aren't covered by the system unit. </p>
+<p>This chapter starts out with a definition of all types and constants that are defined, after which an overview is presented of the available  functions, grouped by category, and the last part contains a  complete explanation of each function. </p>
+<p>The following things must be taken into account when using this unit: </p>
+<ol>
+<li>This unit is compiled in Object Pascal mode so all <var>integers</var> are 32 bit.</li>
+<li>Some overloaded functions exist for data arrays of integers and floats. When using the address operator (<var>@</var>) to pass an array of  data to such a function, make sure the address is typecasted to the  right type, or turn on the 'typed address operator' feature. failing to do so, will cause the compiler not be able to decide which function you  want to call. </li>
+</ol>
+<h2>Related topics</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../math/cashflowfunctions.html">CashFlowFunctions</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Cash flow functions</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../math/geometricalroutines.html">GeometricalRoutines</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Geometrical functions</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../math/statisticalroutines.html">StatisticalRoutines</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Statistical functions</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../math/numberconversionroutines.html">NumberConversionRoutines</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number converting</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../math/explogroutines.html">ExpLogRoutines</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Exponential and logarithmic functions</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../math/hyperbolicroutines.html">HyperbolicRoutines</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Hyperbolic functions</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../math/trigoniometricroutines.html">TrigoniometricRoutines</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Trigoniometric functions</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../math/angleconversionroutines.html">AngleConversionRoutines</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Angle unit conversion</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../math/minmaxroutines.html">MinMaxRoutines</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Min/max determination</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

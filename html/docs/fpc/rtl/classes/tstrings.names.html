@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStrings.Names</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TStrings.Names</h1>
+<p>Name parts of the name-value pairs in the list.</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 706</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../classes/tstrings.html">TStrings</a><span class="sym">.</span>Names<span class="sym">[</span>Index<span class="sym">: </span>Integer<span class="sym">]</span><span class="sym"> : </span>string<br>&nbsp;&nbsp;<span class="kw">read </span>GetName<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Names</var> provides indexed access to the names of the name-value pairs in the list. It returns the name part of the <var>Index</var>-th string in the list. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>The index is not an index based on the number of name-value pairs in the list. It is the name part of the name-value pair a string <var>Index</var> in the list. If the string at position <var>Index</var> is not a name-value pair (i.e. does not contain the equal sign (=)), then an empty name is returned. </td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/tstrings.values.html">TStrings.Values</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value parts of the name-value pairs in the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstrings.indexofname.html">TStrings.IndexOfName</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Finds the index of a name in the name-value pairs.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>strlicomp</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../strings/index.html">Overview</a>][<a href="../strings/index-5.html">Procedures and functions</a>][<a href="../strings/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'strings' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>strlicomp</h1>
+<p>Compare limited number of characters in 2 null-terminated strings, ignoring case.</p>
+<h2>Declaration</h2>
+<p>Source position: strings.pp line 58</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> strlicomp<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;str1<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;str2<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;l<span class="sym">: </span><a href="../system/sizeint.html">SizeInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/sizeint.html">SizeInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Compares maximum <var>L</var> characters of the null-terminated strings <var>S1</var>  and <var>S2</var>, ignoring case. The result is  </p>
+<ul>
+<li>A negative <var>SizeInt</var> when <var>S1&lt;S2</var>. </li>
+<li>0 when <var>S1=S2</var>. </li>
+<li>A positive <var>SizeInt</var> when <var>S1&gt;S2</var>. </li>
+</ul>
+<p>For an example, see <a href="../strings/stricomp.html">StrIComp</a></p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../strings/strlcomp.html">StrLComp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compare limited number of characters of 2 null-terminated strings</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../strings/strcomp.html">StrComp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compare 2 null-terminated strings, case sensitive.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../strings/stricomp.html">StrIComp</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compare 2 null-terminated strings, case insensitive.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

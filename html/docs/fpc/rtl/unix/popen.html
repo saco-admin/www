@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>POpen</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unix/index.html">Overview</a>][<a href="../unix/index-2.html">Constants</a>][<a href="../unix/index-3.html">Types</a>][<a href="../unix/index-5.html">Procedures and functions</a>][<a href="../unix/index-6.html">Variables</a>][<a href="../unix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Unix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>POpen</h1>
+<p>Pipe file to standard input/output of program</p>
+<h2>Declaration</h2>
+<p>Source position: unix.pp line 117</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> POpen<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>F<span class="sym">: </span>text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Prog<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;rw<span class="sym">: </span><a href="../system/char.html">Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> POpen<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>F<span class="sym">: </span>file<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Prog<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;rw<span class="sym">: </span><a href="../system/char.html">Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> POpen<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>F<span class="sym">: </span>text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Prog<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;rw<span class="sym">: </span><a href="../system/char.html">Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> POpen<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>F<span class="sym">: </span>file<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Prog<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;rw<span class="sym">: </span><a href="../system/char.html">Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>POpen</var> runs the command specified in <var>Prog</var>, and redirects the standard in or output of the command to the other end of the pipe <var>F</var>. The parameter <var>rw</var> indicates the direction of the pipe. If it is set to <var>'W'</var>, then F can be used to write data, which will then be read by the command from stdinput. If it is set to <var>'R'</var>, then the standard output of the command can be  read from <var>F</var>. <var>F</var> should be reset or rewritten prior to using it. <var>F</var> can be of type <var>Text</var> or <var>File</var>. A file opened with <var>POpen</var> can be closed with <var>Close</var>, but also with <a href="../unix/pclose.html">PClose</a>. The result is the same, but <var>PClose</var> returns the exit status of the command <var>Prog</var>. </p>
+<h2>Errors</h2>
+<p>Extended error information is returned by the <a href="../baseunix/fpgeterrno.html">FpGetErrno</a> function.  Errors  are essentially those of the Execve, Dup and AssignPipe commands. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../unix/assignpipe.html">AssignPipe</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a set of pipe file handlers</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unix/pclose.html">PClose</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Close file opened with <a href="../unix/popen.html">POpen</a></p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example37<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Popen function. }</span>
+
+<span class="kw">uses</span> BaseUnix<span class="sym">,</span>Unix<span class="sym">;</span>
+
+<span class="kw">var</span> f <span class="sym">:</span> text<span class="sym">;</span>
+    i <span class="sym">:</span> longint<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  writeln <span class="sym">(</span><span class="str">'Creating a shell script to which echoes its arguments'</span><span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'and input back to stdout'</span><span class="sym">)</span><span class="sym">;</span>
+  assign <span class="sym">(</span>f<span class="sym">,</span><span class="str">'test21a'</span><span class="sym">)</span><span class="sym">;</span>
+  rewrite <span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span>f<span class="sym">,</span><span class="str">'#!/bin/sh'</span><span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span>f<span class="sym">,</span><span class="str">'echo this is the child speaking.... '</span><span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span>f<span class="sym">,</span><span class="str">'echo got arguments \*"$*"\*'</span><span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span>f<span class="sym">,</span><span class="str">'cat'</span><span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span>f<span class="sym">,</span><span class="str">'exit 2'</span><span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+  close <span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+  fpchmod <span class="sym">(</span><span class="str">'test21a'</span><span class="sym">,</span><span class="sym">&amp;</span><span class="num">755</span><span class="sym">)</span><span class="sym">;</span>
+  popen <span class="sym">(</span>f<span class="sym">,</span><span class="str">'./test21a arg1 arg2'</span><span class="sym">,</span><span class="chr">'W'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> fpgeterrno<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+     writeln <span class="sym">(</span><span class="str">'error from POpen : errno : '</span><span class="sym">,</span> fpgeterrno<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">for</span> i<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+    writeln <span class="sym">(</span>f<span class="sym">,</span><span class="str">'This is written to the pipe, and should appear on stdout.'</span><span class="sym">)</span><span class="sym">;</span>
+  Flush<span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'The script exited with status : '</span><span class="sym">,</span>PClose <span class="sym">(</span>f<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  writeln<span class="sym">;</span>
+  writeln <span class="sym">(</span><span class="str">'Press &lt;return&gt; to remove shell script.'</span><span class="sym">)</span><span class="sym">;</span>
+  readln<span class="sym">;</span>
+  assign <span class="sym">(</span>f<span class="sym">,</span><span class="str">'test21a'</span><span class="sym">)</span><span class="sym">;</span>
+  erase <span class="sym">(</span>f<span class="sym">)</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

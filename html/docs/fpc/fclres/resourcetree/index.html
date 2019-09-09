@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Reference for unit 'resourcetree'</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[Overview][<a href="../resourcetree/index-4.html">Classes</a>][<a href="../resourcetree/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'resourcetree' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>Reference for unit 'resourcetree'</h1>
+<p>Implements an ordered tree of resources</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">uses</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../../rtl/system/index.html">System</a><span class="sym">,</span>  </span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../../rtl/classes/index.html">Classes</a><span class="sym">,</span>  </span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../../rtl/sysutils/index.html">sysutils</a><span class="sym">,</span>  </span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../resource/index.html">resource</a><span class="sym">;</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Contains base classes for resource handling</p></td>
+</tr>
+</table>
+<h2>Overview</h2>
+<p>This unit implements classes that represent an ordered tree of resources.</p>
+<p>Such a tree is used internally by <a href="../resource/tresources.html">TResources</a> to speed up operations, and by certain resource readers and writers that deal with resource formats where data is stored as ordered trees of resources. For this reason, only implementors of resource readers and writers should be interested in these classes.</p>
+<p>A tree begins with a root node, which is an instance of <a href="../resourcetree/trootrestreenode.html">TRootResTreeNode</a>. The root node contains type nodes, that contain name nodes, that contain language id nodes. Finally, a language id node contains a resource.</p>
+<p>Each node contains its sub nodes in two lists: a Named list for nodes identified by a name (a string), and an ID list for nodes identified by an ID (an integer). In each list, nodes are sorted in ascending order.</p>
+<p>Many resource formats (PECOFF, ELF, Mach-O, and external resource files) use this exact format to store resource information.</p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>When a tree is destroyed, the resources it references aren't destroyed.</td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

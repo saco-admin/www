@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Categories</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 7606--><div class="crosslinks"><p class="noindent">[<a 
+href="refse73.html" >next</a>] [<a 
+href="refse71.html" >prev</a>] [<a 
+href="refse71.html#tailrefse71.html" >prev-tail</a>] [<a 
+href="#tailrefse72.html">tail</a>] [<a 
+href="refch11.html#refse72.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">11.6   </span> <a 
+href="ref.html#QQ2-134-162" id="x134-15600011.6">Categories</a></h3>
+<!--l. 7607--><p class="noindent" >Similar to class helpers in Object Pascal, Objective-C has Categories. Categories allow to extend
+classes without actually creating a descendant of these classes. However, Objective-C categories
+provide more functionality than a class helper:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x134-156002x1">In Object Pascal, only 1 helper class can be in scope (the last one). In Objective-C,
+     multiple categories can be in scope at the same time for a particular class.
+     </li>
+     <li 
+  class="enumerate" id="x134-156004x2">In Object Pascal, a helper method cannot change an existing method present in the
+     original class (but it can hide a method). In Objective-C, a category can also replace
+     existing methods in another class rather than only add new ones. Since all methods are
+     virtual in Objective-C, this also means that this method changes for all classes that
+     inherit from the class in which the method was replaced (unless they override it).
+     </li>
+     <li 
+  class="enumerate" id="x134-156006x3">Object Pascal helpers cannot be used to add interfaces to existing classes. By contrast,
+     an Objective-C category can also implement protocols.</li></ol>
+<!--l. 7625--><p class="noindent" >The definition of an objective-C class closely resembles a protocol definition, and is started with
+the <span 
+class="cmtt-10">objccategory </span>keyword: <a name="keyword_objcategory"></a>
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Category type</span><br 
+class="newline" /><BR/><img 
+src="ref127x.png" alt=" --objccategory -|---------------------------------|-------
+                -external--|---------------------- heritage-
+                         -name - string constant-
+----category method list --end ----------------------------------------
+     " ><BR/>
+     <BR/><img 
+src="ref128x.png" alt="--heritage -(- Objective Class type identifier|protocol type identifier-- )-----
+                                     ---------, ----------
+     " ><BR/>
+     <BR/><img 
+src="ref129x.png" alt="--category method list|--method definition----------------------------
+                   |                 -reintroduce -|  |
+                   |--------------------------------|
+     " ><BR/>
+     ___________________________________________________________________</div>
+                                                                            
+
+                                                                            
+<!--l. 7629--><p class="noindent" >Note again the possibility of an alias for externally defined categories: objective-C 2.0 allows an
+empty category name. Note that the <span 
+class="cmtt-10">reintroduce </span>modifier must be used if an existing method is
+being replaced rather than that a new method is being added.
+<!--l. 7634--><p class="noindent" >When replacing a method, calling &#8217;inherited&#8217; will not call the original method of the class, but
+instead will call the parent class&#8217; implementation of the method.
+<!--l. 7638--><p class="noindent" >The following is an example of a category definition:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-317">
+MyProtocol&#x00A0;=&#x00A0;objcprotocol
+&#x00A0;<br />&#x00A0;&#x00A0;procedure&#x00A0;protocolmethod;&#x00A0;message&#x00A0;&#8217;protocolmethod&#8217;;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />MyCategory&#x00A0;=&#x00A0;objccategory(NSObject,MyProtocol)
+&#x00A0;<br />&#x00A0;&#x00A0;function&#x00A0;hash:&#x00A0;cuint;&#x00A0;reintroduce;
+&#x00A0;<br />&#x00A0;&#x00A0;procedure&#x00A0;protocolmethod;&#x00A0;//&#x00A0;from&#x00A0;MyProtocol.
+&#x00A0;<br />&#x00A0;&#x00A0;class&#x00A0;procedure&#x00A0;newmethod;&#x00A0;message&#x00A0;&#8217;newmethod&#8217;;
+&#x00A0;<br />end;
+</div>
+<!--l. 7649--><p class="nopar" >Note that this declaration replaces the <span 
+class="cmtt-10">Hash </span>method of every class that descends from <span 
+class="cmtt-10">NSObject</span>
+(unless it specifically overrides it).
+                                                                            
+
+                                                                            
+<!--l. 7655--><div class="crosslinks"><p class="noindent">[<a 
+href="refse73.html" >next</a>] [<a 
+href="refse71.html" >prev</a>] [<a 
+href="refse71.html#tailrefse71.html" >prev-tail</a>] [<a 
+href="refse72.html" >front</a>] [<a 
+href="refch11.html#refse72.html" >up</a>] </p></div>
+<!--l. 7655--><p class="noindent" ><a 
+ id="tailrefse72.html"></a>  
+</body></html> 

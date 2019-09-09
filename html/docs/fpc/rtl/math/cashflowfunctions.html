@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Cash flow functions</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../math/index.html">Up</a>][<a href="../math/geometricalroutines.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'math' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>Cash flow functions</h2>
+<p>The cash flow functions in the math unit resolve the following equation: </p>
+<pre>FV + PV * q^n + PMT (q^n - 1) / (q - 1) = 0
+</pre>
+<p>In this formula, the following variables are present: </p>
+<dl>
+<dt>FV</dt>
+<dd>Future value</dd>
+<dt>PV</dt>
+<dd>Present value</dd>
+<dt>PMT</dt>
+<dd>Payment per period</dd>
+<dt>n</dt>
+<dd>Number of payments (number of periods)</dd>
+<dt>q&gt;</dt>
+<dd>Interest Rate (return rate)</dd>
+</dl>
+<p>The financial functions <a href="../math/futurevalue.html">FutureValue</a>, <a href="../math/numberofperiods.html">NumberOfPeriods</a>,  <a href="../math/payment.html">Payment</a>, <a href="../math/presentvalue.html">PresentValue</a> and  <a href="../math/interestrate.html">InterestRate</a> solve this equation for one of the variables, when the other variables are known. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../math/futurevalue.html">FutureValue</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the future value of an investment.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../math/numberofperiods.html">NumberOfPeriods</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the number of periods for an investment</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../math/payment.html">Payment</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the payment for an investment</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../math/presentvalue.html">PresentValue</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the present value given the future value of an investment.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../math/tpaymenttime.html">TPaymentTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Type used in financial (interest) calculations.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

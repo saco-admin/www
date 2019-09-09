@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpAlarm</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpAlarm</h1>
+<p>Schedule an alarm signal to be delivered</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 42</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpAlarm<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;seconds<span class="sym">: </span><a href="../baseunix/cuint.html">cuint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cuint.html">cuint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FpAlarm</var> schedules an alarm signal to be delivered to your process in <var>Seconds</var> seconds. When <var>Seconds</var> seconds have elapsed,  the system will send a <var>SIGALRM</var> signal to the current process.   If <var>Seconds</var> is zero, then no new alarm will be set. Whatever the value of <var>Seconds</var>, any previous alarm is cancelled. </p>
+<p>The function returns the number of seconds till the previously scheduled alarm was due to be delivered, or zero if there was none. A negative value indicates an error. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpsigaction.html">fpSigAction</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Install signal handler</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fppause.html">fpPause</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Wait for a signal to arrive</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example59<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Alarm function. }</span>
+
+<span class="kw">Uses</span> BaseUnix<span class="sym">;</span>
+
+<span class="kw">Procedure</span> AlarmHandler<span class="sym">(</span>Sig <span class="sym">:</span> cint<span class="sym">)</span><span class="sym">;</span>cdecl<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Writeln <span class="sym">(</span><span class="str">'Got to alarm handler'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Writeln<span class="sym">(</span><span class="str">'Setting alarm handler'</span><span class="sym">)</span><span class="sym">;</span>
+  fpSignal<span class="sym">(</span>SIGALRM<span class="sym">,</span>SignalHandler<span class="sym">(</span><span class="sym">@</span>AlarmHandler<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Scheduling Alarm in 10 seconds'</span><span class="sym">)</span><span class="sym">;</span>
+  fpAlarm<span class="sym">(</span><span class="num">10</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Pausing'</span><span class="sym">)</span><span class="sym">;</span>
+  fpPause<span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Pause returned'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

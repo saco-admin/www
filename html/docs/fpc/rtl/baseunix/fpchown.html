@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpChown</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpChown</h1>
+<p>Change owner of file</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 35</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpChown<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;path<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;owner<span class="sym">: </span><a href="../baseunix/tuid.html">TUid</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;group<span class="sym">: </span><a href="../baseunix/tgid.html">TGid</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> FpChown<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>path<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;owner<span class="sym">: </span><a href="../baseunix/tuid.html">TUid</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;group<span class="sym">: </span><a href="../baseunix/tgid.html">TGid</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>fpChown</var> sets the User ID and Group ID of the file in <var>Path</var> to <var>Owner</var>,<var>Group</var>. </p>
+<p>The function returns zero if the call was succesfull, a nonzero return value indicates an error. </p>
+<h2>Errors</h2>
+<p>The following error codes are returned: </p>
+<dl>
+<dt>sys_eperm</dt>
+<dd>The effective UID doesn't match the ownership of the file, and is not zero. Owner or group were not specified correctly.</dd>
+<dt>sys_eaccess</dt>
+<dd>One of the directories in <var>Path</var> has no search (=execute) permission.</dd>
+<dt>sys_enoent</dt>
+<dd>A directory entry in <var>Path</var> does not exist or is a symbolic link pointing to a non-existent directory.</dd>
+<dt>sys_enomem</dt>
+<dd>Insufficient kernel memory.</dd>
+<dt>sys_erofs</dt>
+<dd>The file is on a read-only filesystem.</dd>
+<dt>sys_eloop</dt>
+<dd><var>Path</var> has a reference to a circular symbolic link, i.e. a symbolic link, whose expansion points to itself.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpchmod.html">fpChmod</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Change file permission bits</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpaccess.html">fpAccess</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check file access</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example24<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Chown function. }</span>
+
+<span class="kw">Uses</span> BaseUnix<span class="sym">;</span>
+
+<span class="kw">Var</span> UID <span class="sym">:</span> TUid<span class="sym">;</span>
+    GID <span class="sym">:</span> TGid<span class="sym">;</span>
+    F <span class="sym">:</span> Text<span class="sym">;</span>
+
+<span class="kw">begin</span>
+
+  Writeln <span class="sym">(</span><span class="str">'This will only work if you are root.'</span><span class="sym">)</span><span class="sym">;</span>
+  Write <span class="sym">(</span><span class="str">'Enter a UID : '</span><span class="sym">)</span><span class="sym">;</span>readln<span class="sym">(</span>UID<span class="sym">)</span><span class="sym">;</span>
+  Write <span class="sym">(</span><span class="str">'Enter a GID : '</span><span class="sym">)</span><span class="sym">;</span>readln<span class="sym">(</span>GID<span class="sym">)</span><span class="sym">;</span>
+  Assign <span class="sym">(</span>f<span class="sym">,</span><span class="str">'test.txt'</span><span class="sym">)</span><span class="sym">;</span>
+  Rewrite <span class="sym">(</span>f<span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span>f<span class="sym">,</span><span class="str">'The owner of this file should become : '</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span>f<span class="sym">,</span><span class="str">'UID : '</span><span class="sym">,</span>UID<span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span>f<span class="sym">,</span><span class="str">'GID : '</span><span class="sym">,</span>GID<span class="sym">)</span><span class="sym">;</span>
+  Close <span class="sym">(</span>F<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> fpChown <span class="sym">(</span><span class="str">'test.txt'</span><span class="sym">,</span>UID<span class="sym">,</span>GID<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+    <span class="kw">if</span> fpgeterrno<span class="sym">=</span>ESysEPERM <span class="kw">then</span>
+      Writeln <span class="sym">(</span><span class="str">'You are not root !'</span><span class="sym">)</span>
+    <span class="kw">else</span>
+      Writeln <span class="sym">(</span><span class="str">'Chmod failed with exit code : '</span><span class="sym">,</span>fpgeterrno<span class="sym">)</span>
+  <span class="kw">else</span>
+    Writeln <span class="sym">(</span><span class="str">'Changed owner successfully !'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>DaysInAMonth</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dateutils/index.html">Overview</a>][<a href="../dateutils/index-2.html">Constants</a>][<a href="../dateutils/index-5.html">Procedures and functions</a>][<a href="../dateutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dateutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>DaysInAMonth</h1>
+<p>Number of days in a month of a certain year.</p>
+<h2>Declaration</h2>
+<p>Source position: dateutil.inc line 101</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> DaysInAMonth<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AYear<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AMonth<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AYear</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Year in which the month occurs.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AMonth</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Month of which the number of days should be returned.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>The number of days in month <var>AMonth</var>, in year <var>AYear</var>.</p>
+<h2>Description</h2>
+<p><var>DaysInYMonth</var> returns the number of days in the month <var>AMonth</var> in the year<var>AYear</var>.  The return value takes leap years into account. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dateutils/weeksinayear.html">WeeksInAYear</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the number of weeks in a given year</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/weeksinyear.html">WeeksInYear</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">return the number of weeks in the year, given a date</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/daysinyear.html">DaysInYear</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the number of days in the year in which a date occurs.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/daysinayear.html">DaysInAYear</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of days in a particular year.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/daysinmonth.html">DaysInMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the number of days in the month in which a date occurs.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example17<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the DaysInAMonth function }</span>
+
+<span class="kw">Uses</span> SysUtils<span class="sym">,</span>DateUtils<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  Y<span class="sym">,</span>M <span class="sym">:</span> Word<span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  <span class="kw">For</span> Y<span class="sym">:=</span><span class="num">1992</span> to <span class="num">2010</span> <span class="kw">do</span>
+    <span class="kw">For</span> M<span class="sym">:=</span><span class="num">1</span> to <span class="num">12</span> <span class="kw">do</span>
+      Writeln<span class="sym">(</span>LongMonthNames<span class="sym">[</span>m<span class="sym">]</span><span class="sym">,</span><span class="chr">' '</span><span class="sym">,</span>Y<span class="sym">,</span><span class="str">' has '</span><span class="sym">,</span>DaysInAMonth<span class="sym">(</span>Y<span class="sym">,</span>M<span class="sym">)</span><span class="sym">,</span><span class="str">' days.'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>GetMouseX</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../mouse/index.html">Overview</a>][<a href="../mouse/index-2.html">Constants</a>][<a href="../mouse/index-3.html">Types</a>][<a href="../mouse/index-5.html">Procedures and functions</a>][<a href="../mouse/index-6.html">Variables</a>][<a href="../mouse/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Mouse' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>GetMouseX</h1>
+<p>Query the current horizontal position of the mouse cursor.</p>
+<h2>Declaration</h2>
+<p>Source position: mouseh.inc line 80</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> GetMouseX<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>GetMouseX</var> returns the current <var>X</var> position of the mouse. <var>X</var> is measured in characters, starting at 0 for the left side of the screen. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../mouse/getmousebuttons.html">GetMouseButtons</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get the state of the mouse buttons</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../mouse/getmouseevent.html">GetMouseEvent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get next mouse event from the queue.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../mouse/getmousey.html">GetMouseY</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Query the current vertical position of the mouse cursor.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example4<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the GetMouseX,GetMouseY functions. }</span>
+
+<span class="kw">Uses</span> mouse<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  X<span class="sym">,</span>Y <span class="sym">:</span> Word<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  InitMouse<span class="sym">;</span>
+  Writeln<span class="sym">(</span><span class="str">'Move mouse cursor to square 10,10 to end'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">Repeat</span>
+    X<span class="sym">:=</span>GetMouseX<span class="sym">;</span>
+    Y<span class="sym">:=</span>GetMouseY<span class="sym">;</span>
+    Writeln<span class="sym">(</span><span class="str">'X,Y= ('</span><span class="sym">,</span>X<span class="sym">,</span><span class="chr">','</span><span class="sym">,</span>Y<span class="sym">,</span><span class="chr">')'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">Until</span> <span class="sym">(</span>X<span class="sym">=</span><span class="num">9</span><span class="sym">)</span> <span class="kw">and</span> <span class="sym">(</span>Y<span class="sym">=</span><span class="num">9</span><span class="sym">)</span><span class="sym">;</span>
+  DoneMouse<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

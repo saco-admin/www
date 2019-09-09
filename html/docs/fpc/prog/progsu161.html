@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>String types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 5065--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu162.html" >next</a>] [<a 
+href="progsu160.html" >prev</a>] [<a 
+href="progsu160.html#tailprogsu160.html" >prev-tail</a>] [<a 
+href="#tailprogsu161.html">tail</a>] [<a 
+href="progse32.html#progsu161.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">8.2.7   </span> <a 
+href="prog.html#QQ2-205-227" id="x205-2150008.2.7">String types</a></h4>
+<!--l. 5067--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="progse32.html#QQ2-205-228" id="x205-2160008.2.7">Ansistring types</a></h5>
+<!--l. 5068--><p class="noindent" >The ansistring is a dynamically allocated string which has no length limitation (other than
+addressable memory). When the string is no longer being referenced (its reference count reaches
+zero), its memory is automatically freed.
+<!--l. 5072--><p class="noindent" >If the ansistring is a constant, then its reference count will be equal to -1, indicating that it should
+never be freed. The structure in memory for an ansistring is shown in table (<a 
+href="#x205-216001r3">8.3<!--tex4ht:ref: tab:ansistrings32 --></a>) for 32-bit
+programs, and table (<a 
+href="#x205-218002r6">8.6<!--tex4ht:ref: tab:ansistrings64 --></a>) for 64-bit programs
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 5077--><p class="noindent" ><a 
+ id="x205-216001r3"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;8.3: </span><span  
+class="content">AnsiString memory structure (32-bit model)</span></div><!--tex4ht:label?: x205-216001r3 -->
+<div class="center" 
+>
+<!--l. 5077--><p class="noindent" >
+<div class="tabular"> <table id="TBL-12" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-12-1g"><col 
+id="TBL-12-1"><col 
+id="TBL-12-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-12-1-"><td  style="white-space:nowrap; text-align:right;" id="TBL-12-1-1"  
+class="td11">Offset</td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-1-2"  
+class="td11">Contains                                       </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-2-"><td  style="white-space:nowrap; text-align:right;" id="TBL-12-2-1"  
+class="td11">   -12</td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-2-2"  
+class="td11">Code page indicator (2 bytes).           </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-3-"><td  style="white-space:nowrap; text-align:right;" id="TBL-12-3-1"  
+class="td11">   -10</td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-3-2"  
+class="td11">Character size (2 bytes)                   </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-4-"><td  style="white-space:nowrap; text-align:right;" id="TBL-12-4-1"  
+class="td11">    -8</td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-4-2"  
+class="td11">Longint with reference count.            </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-5-"><td  style="white-space:nowrap; text-align:right;" id="TBL-12-5-1"  
+class="td11">    -4</td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-5-2"  
+class="td11">Longint with actual string size.         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-6-"><td  style="white-space:nowrap; text-align:right;" id="TBL-12-6-1"  
+class="td11">     0</td><td  style="white-space:nowrap; text-align:left;" id="TBL-12-6-2"  
+class="td11">Actual array of <span 
+class="cmtt-10">char</span>, null-terminated.</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-12-7-"><td  style="white-space:nowrap; text-align:right;" id="TBL-12-7-1"  
+class="td11">      </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 5086--><p class="noindent" ><a 
+ id="x205-216002r4"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;8.4: </span><span  
+class="content">AnsiString memory structure (64-bit model)</span></div><!--tex4ht:label?: x205-216002r4 -->
+<div class="center" 
+>
+<!--l. 5086--><p class="noindent" >
+<div class="tabular"> <table id="TBL-13" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-13-1g"><col 
+id="TBL-13-1"><col 
+id="TBL-13-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-13-1-"><td  style="white-space:nowrap; text-align:right;" id="TBL-13-1-1"  
+class="td11">Offset</td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-1-2"  
+class="td11">Contains                                       </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-2-"><td  style="white-space:nowrap; text-align:right;" id="TBL-13-2-1"  
+class="td11">   -24</td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-2-2"  
+class="td11">Code page indicator (2 bytes).           </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-3-"><td  style="white-space:nowrap; text-align:right;" id="TBL-13-3-1"  
+class="td11">   -22</td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-3-2"  
+class="td11">Character size (2 bytes)                   </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-4-"><td  style="white-space:nowrap; text-align:right;" id="TBL-13-4-1"  
+class="td11">   -16</td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-4-2"  
+class="td11">Sizeint with reference count.             </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-5-"><td  style="white-space:nowrap; text-align:right;" id="TBL-13-5-1"  
+class="td11">    -8</td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-5-2"  
+class="td11">Sizeint with actual string size.           </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-6-"><td  style="white-space:nowrap; text-align:right;" id="TBL-13-6-1"  
+class="td11">     0</td><td  style="white-space:nowrap; text-align:left;" id="TBL-13-6-2"  
+class="td11">Actual array of <span 
+class="cmtt-10">char</span>, null-terminated.</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-13-7-"><td  style="white-space:nowrap; text-align:right;" id="TBL-13-7-1"  
+class="td11">      </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+<h5 class="subsubsectionHead"><a 
+href="progse32.html#QQ2-205-231" id="x205-2170008.2.7">Shortstring types</a></h5>
+<!--l. 5098--><p class="noindent" >A shortstring occupies as many bytes as its maximum length plus one. The first byte contains the
+current dynamic length of the string. The following bytes contain the actual characters (of type
+<span 
+class="cmtt-10">char</span>) of the string. The maximum size of a short string is the length byte followed by 255
+characters.
+<!--l. 5106--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="progse32.html#QQ2-205-232" id="x205-2180008.2.7">Unicodestring types</a></h5>
+<!--l. 5108--><p class="noindent" >A unicode string is allocated on the heap, much like an ansistring. Unlike the ansistring, a
+unicodestring takes 2 bytes per character, and is terminated with a double null. It is reference
+counted just like an ansistring. The structure in memory for a unicodestring is shown in table (<a 
+href="#x205-216001r3">8.3<!--tex4ht:ref: tab:ansistrings32 --></a>)
+for 32-bit programs, and table (<a 
+href="#x205-218002r6">8.6<!--tex4ht:ref: tab:ansistrings64 --></a>) for 64-bit programs
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 5115--><p class="noindent" ><a 
+ id="x205-218001r5"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;8.5: </span><span  
+class="content">UnicodeString memory structure (32-bit model)</span></div><!--tex4ht:label?: x205-218001r5 -->
+<div class="center" 
+>
+<!--l. 5115--><p class="noindent" >
+<div class="tabular"> <table id="TBL-14" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-14-1g"><col 
+id="TBL-14-1"><col 
+id="TBL-14-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-14-1-"><td  style="white-space:nowrap; text-align:right;" id="TBL-14-1-1"  
+class="td11">Offset</td><td  style="white-space:nowrap; text-align:left;" id="TBL-14-1-2"  
+class="td11">Contains                                       </td></tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-2-"><td  style="white-space:nowrap; text-align:right;" id="TBL-14-2-1"  
+class="td11"> -8</td><td  style="white-space:nowrap; text-align:left;" id="TBL-14-2-2"  
+class="td11">Longint with reference count.</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-3-"><td  style="white-space:nowrap; text-align:right;" id="TBL-14-3-1"  
+class="td11">    -4</td><td  style="white-space:nowrap; text-align:left;" id="TBL-14-3-2"  
+class="td11">Longint with actual string size.         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-4-"><td  style="white-space:nowrap; text-align:right;" id="TBL-14-4-1"  
+class="td11">     0</td><td  style="white-space:nowrap; text-align:left;" id="TBL-14-4-2"  
+class="td11">Actual array of <span 
+class="cmtt-10">char</span>, null-terminated.</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-14-5-"><td  style="white-space:nowrap; text-align:right;" id="TBL-14-5-1"  
+class="td11">      </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 5123--><p class="noindent" ><a 
+ id="x205-218002r6"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;8.6: </span><span  
+class="content">AnsiString memory structure (64-bit model)</span></div><!--tex4ht:label?: x205-218002r6 -->
+<div class="center" 
+>
+<!--l. 5123--><p class="noindent" >
+<div class="tabular"> <table id="TBL-15" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-15-1g"><col 
+id="TBL-15-1"><col 
+id="TBL-15-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-15-1-"><td  style="white-space:nowrap; text-align:right;" id="TBL-15-1-1"  
+class="td11">Offset</td><td  style="white-space:nowrap; text-align:left;" id="TBL-15-1-2"  
+class="td11">Contains                                       </td></tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-2-"><td  style="white-space:nowrap; text-align:right;" id="TBL-15-2-1"  
+class="td11"> -16</td><td  style="white-space:nowrap; text-align:left;" id="TBL-15-2-2"  
+class="td11">SizeInt with reference count.</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-3-"><td  style="white-space:nowrap; text-align:right;" id="TBL-15-3-1"  
+class="td11">    -8</td><td  style="white-space:nowrap; text-align:left;" id="TBL-15-3-2"  
+class="td11">SizeInt with actual string size.           </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-4-"><td  style="white-space:nowrap; text-align:right;" id="TBL-15-4-1"  
+class="td11">     0</td><td  style="white-space:nowrap; text-align:left;" id="TBL-15-4-2"  
+class="td11">Actual array of <span 
+class="cmtt-10">char</span>, null-terminated.</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-5-"><td  style="white-space:nowrap; text-align:right;" id="TBL-15-5-1"  
+class="td11">      </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+<h5 class="subsubsectionHead"><a 
+href="progse32.html#QQ2-205-235" id="x205-2190008.2.7">Widestring types</a></h5>
+<!--l. 5132--><p class="noindent" >On Non-Windows platforms, the widestring type is equal to the unicode string type.
+<!--l. 5134--><p class="noindent" >On Windows platforms, a widestring is allocated on the heap, much like a unicode string, and is
+terminated with a double null. In difference with a unicode string, it is not reference
+counted.
+                                                                            
+
+                                                                            
+<!--l. 5138--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu162.html" >next</a>] [<a 
+href="progsu160.html" >prev</a>] [<a 
+href="progsu160.html#tailprogsu160.html" >prev-tail</a>] [<a 
+href="progsu161.html" >front</a>] [<a 
+href="progse32.html#progsu161.html" >up</a>] </p></div>
+<!--l. 5138--><p class="noindent" ><a 
+ id="tailprogsu161.html"></a>  
+</body></html> 

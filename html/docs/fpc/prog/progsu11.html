@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$DEFINE or $DEFINEC : Define a symbol</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 378--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu12.html" >next</a>] [<a 
+href="progsu10.html" >prev</a>] [<a 
+href="progsu10.html#tailprogsu10.html" >prev-tail</a>] [<a 
+href="#tailprogsu11.html">tail</a>] [<a 
+href="progse2.html#progsu11.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.11   </span> <a 
+href="prog.html#QQ2-18-17" id="x18-170001.2.11"><span 
+class="cmtt-10">$DEFINE </span>or <span 
+class="cmtt-10">$DEFINEC </span>: Define a symbol</a></h4>
+<!--l. 379--><p class="noindent" >The directive
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-16">
+{$DEFINE&#x00A0;name}
+</div>
+<!--l. 382--><p class="nopar" >defines the symbol <span 
+class="cmtt-10">name</span>. This symbol remains defined until the end of the current module (i.e. unit
+or program), or until a <span 
+class="cmtt-10">$UNDEF name </span>directive is encountered.
+<!--l. 386--><p class="noindent" >If <span 
+class="cmtt-10">name </span>is already defined, this has no effect. <span 
+class="cmtt-10">Name </span>is case insensitive.
+<!--l. 389--><p class="noindent" >The symbols that are defined in a unit, are not saved in the unit file, so they are also not exported
+from a unit.
+<!--l. 392--><p class="noindent" >Under Mac Pascal mode, the <span 
+class="cmtt-10">$DEFINEC </span>directive is equivalent to the <span 
+class="cmtt-10">$DEFINE </span>directive and is
+provided for Mac Pascal compatibility.
+<!--l. 395--><p class="noindent" ><span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$DEFINE</span><span 
+class="cmsy-10">} </span>can also be used to define macros or compile-time constants:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-17">
+{$DEFINE&#x00A0;cdecl:=stdcall}
+</div>
+<!--l. 398--><p class="nopar" >will redefine the standard modifier <span 
+class="cmtt-10">cdecl </span>as <span 
+class="cmtt-10">stdcall</span>.
+<!--l. 401--><p class="noindent" >More information about macros and compile-time constants, can be found in section <a 
+href="progse5.html#x137-1380002.2">2.2<!--tex4ht:ref: se:Macros --></a>, page
+<a 
+href="progse5.html#x137-1380002.2">283<!--tex4ht:ref: se:Macros --></a>
+<!--l. 404--><p class="noindent" >The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$DEFINE</span><span 
+class="cmsy-10">} </span>directive has a command-line equivalent, <span 
+class="cmtt-10">-d</span>
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-18">
+-dNAME
+</div>
+<!--l. 407--><p class="nopar" >will define the symbol <span 
+class="cmtt-10">Name</span>. Using
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-19">
+-dcdecl:=stdcall
+</div>
+<!--l. 411--><p class="nopar" >one can redefine the standard modifier <span 
+class="cmtt-10">cdecl </span>as <span 
+class="cmtt-10">stdcall </span>from the command-line.
+                                                                            
+
+                                                                            
+<!--l. 415--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu12.html" >next</a>] [<a 
+href="progsu10.html" >prev</a>] [<a 
+href="progsu10.html#tailprogsu10.html" >prev-tail</a>] [<a 
+href="progsu11.html" >front</a>] [<a 
+href="progse2.html#progsu11.html" >up</a>] </p></div>
+<!--l. 415--><p class="noindent" ><a 
+ id="tailprogsu11.html"></a>  
+</body></html> 

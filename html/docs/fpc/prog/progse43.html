@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Introduction</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 6164--><div class="crosslinks"><p class="noindent">[<a 
+href="progse44.html" >next</a>] [<a 
+href="#tailprogse43.html">tail</a>] [<a 
+href="progch10.html#progse43.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.1   </span> <a 
+href="prog.html#QQ2-232-268" id="x232-24600010.1">Introduction</a></h3>
+<!--l. 6165--><p class="noindent" >Free Pascal supports thread programming: There is a language construct available for thread-local
+storage (<span 
+class="cmtt-10">ThreadVar</span>), and cross-platform low-level thread routines are available for those operating
+systems that support threads.
+<!--l. 6170--><p class="noindent" >All routines for threading are available in the system unit, under the form of a thread manager. A
+thread manager must implement some basic routines which the RTL needs to be able to support
+threading. For Windows, a default threading manager is integrated in the system unit. For
+other platforms, a thread manager must be included explicitly by the programmer. On
+systems where posix threads are available, the <span 
+class="cmss-10">cthreads </span>unit implements a thread manager
+which uses the C POSIX thread library. No native pascal thread library exists for such
+systems.
+<!--l. 6179--><p class="noindent" >Although it is not forbidden to do so, it is not recommended to use system-specific threading
+routines: The language support for multithreaded programs will not be enabled, meaning that
+threadvars will not work, the heap manager will be confused which may lead to severe program
+errors.
+<!--l. 6184--><p class="noindent" >If no threading support is present in the binary, the use of thread routines or the creation of a
+thread will result in an exception or a run-time error 232.
+<!--l. 6187--><p class="noindent" >For <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>(and other Unixes), the C thread manager can be enabled by inserting the <span 
+class="cmtt-10">cthreads</span>
+unit in the program&#8217;s unit clause. Without this, threading programs will give an error
+when started. It is imperative that the unit be inserted as early in the uses clause as
+possible.
+<!--l. 6192--><p class="noindent" >At a later time, a system thread manager may be implemented which implements threads without
+Libc support.
+<!--l. 6195--><p class="noindent" >The following sections show how to program threads, and how to protect access to data common to
+all threads using (cross-platform) critical sections. Finally, the thread manager is explained in more
+detail.
+                                                                            
+
+                                                                            
+<!--l. 6201--><div class="crosslinks"><p class="noindent">[<a 
+href="progse44.html" >next</a>] [<a 
+href="progse43.html" >front</a>] [<a 
+href="progch10.html#progse43.html" >up</a>] </p></div>
+<!--l. 6201--><p class="noindent" ><a 
+ id="tailprogse43.html"></a>  
+</body></html> 

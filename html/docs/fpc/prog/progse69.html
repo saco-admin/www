@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Creating ppufiles</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 7673--><div class="crosslinks"><p class="noindent">[<a 
+href="progse68.html" >prev</a>] [<a 
+href="progse68.html#tailprogse68.html" >prev-tail</a>] [<a 
+href="#tailprogse69.html">tail</a>] [<a 
+href="progap1.html#progse69.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">A.5   </span> <a 
+href="prog.html#QQ2-281-326" id="x281-297000A.5">Creating ppufiles</a></h3>
+<!--l. 7674--><p class="noindent" >Creating a new ppufile works almost the same as reading one. First you need to init the object and
+call create:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-264">
+&#x00A0;&#x00A0;ppufile:=new(pppufile,init(&#8217;output.ppu&#8217;));
+&#x00A0;<br />&#x00A0;&#x00A0;ppufile.createfile;
+</div>
+<!--l. 7679--><p class="nopar" >
+<!--l. 7681--><p class="noindent" >After that you can simply write all needed entries. You&#8217;ll have to take care that you write at least
+the basic entries for the sections:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-265">
+&#x00A0;&#x00A0;ibendinterface
+&#x00A0;<br />&#x00A0;&#x00A0;ibenddefs
+&#x00A0;<br />&#x00A0;&#x00A0;ibendsyms
+&#x00A0;<br />&#x00A0;&#x00A0;ibendbrowser&#x00A0;(only&#x00A0;when&#x00A0;you&#8217;ve&#x00A0;set&#x00A0;uf_has_browser!)
+&#x00A0;<br />&#x00A0;&#x00A0;ibendimplementation
+&#x00A0;<br />&#x00A0;&#x00A0;ibend
+</div>
+<!--l. 7690--><p class="nopar" >
+<!--l. 7692--><p class="noindent" >Writing an entry is a little different than reading it. You need to first put everything in the entry
+with ppufile.putxxx:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-266">
+procedure&#x00A0;putdata(var&#x00A0;b;len:longint);
+&#x00A0;<br />procedure&#x00A0;putbyte(b:byte);
+&#x00A0;<br />procedure&#x00A0;putword(w:word);
+&#x00A0;<br />procedure&#x00A0;putlongint(l:longint);
+&#x00A0;<br />procedure&#x00A0;putreal(d:ppureal);
+&#x00A0;<br />procedure&#x00A0;putstring(s:string);
+</div>
+<!--l. 7701--><p class="nopar" >
+<!--l. 7703--><p class="noindent" >After putting all the things in the entry you need to call <span 
+class="cmtt-10">ppufile.writeentry(ibnr:byte) </span>where
+<span 
+class="cmtt-10">ibnr </span>is the entry number you&#8217;re writing.
+<!--l. 7707--><p class="noindent" >At the end of the file you need to call <span 
+class="cmtt-10">ppufile.writeheader </span>to write the new header to the file.
+This takes automatically care of the new size of the ppufile. When that is also done you can call
+<span 
+class="cmtt-10">ppufile.closefile </span>and dispose the object.
+<!--l. 7712--><p class="noindent" >Extra functions/variables available for writing are:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-267">
+ppufile.NewHeader;
+&#x00A0;<br />ppufile.NewEntry;
+</div>
+<!--l. 7716--><p class="nopar" >This will give you a clean header or entry. Normally this is called automatically
+in <span 
+class="cmtt-10">ppufile.writeentry</span>, so there should be no need to call these methods. You can
+call
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-268">
+ppufile.flush;
+</div>
+<!--l. 7722--><p class="nopar" >to flush the current buffers to the disk, and you can set
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-269">
+ppufile.do_crc:boolean;
+</div>
+<!--l. 7726--><p class="nopar" >to <span 
+class="cmtt-10">False </span>if you don&#8217;t want the crc to be updated when writing to disk. This is necessary if you
+write for example the browser data.
+                                                                            
+
+                                                                            
+<!--l. 7734--><div class="crosslinks"><p class="noindent">[<a 
+href="progse68.html" >prev</a>] [<a 
+href="progse68.html#tailprogse68.html" >prev-tail</a>] [<a 
+href="progse69.html" >front</a>] [<a 
+href="progap1.html#progse69.html" >up</a>] </p></div>
+<!--l. 7734--><p class="noindent" ><a 
+ id="tailprogse69.html"></a>  
+</body></html> 

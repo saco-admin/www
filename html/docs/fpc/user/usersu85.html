@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>A note on long file names under dos</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2260--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu84.html" >prev</a>] [<a 
+href="usersu84.html#tailusersu84.html" >prev-tail</a>] [<a 
+href="#tailusersu85.html">tail</a>] [<a 
+href="userse34.html#usersu85.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">7.2.4   </span> <a 
+href="user.html#QQ2-128-184" id="x128-1350007.2.4">A note on long file names under <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span></span></a></h4>
+<!--l. 2261--><p class="noindent" >Under <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> </span>95 and higher, long filenames are supported. Compiling for the <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> </span>target
+ensures that long filenames are supported in all functions that do file or disk access in any
+way.
+<!--l. 2265--><p class="noindent" >Moreover, Free Pascal supports the use of long filenames in the system unit and the
+<span 
+class="cmss-10">Dos </span>unit also for go32v2 executables. The system unit contains the boolean variable
+<span 
+class="cmtt-10">LFNsupport</span>. If it is set to <span 
+class="cmtt-10">True </span>then all system unit functions and <span 
+class="cmss-10">Dos </span>unit functions
+will use long file names if they are available. This should be so on <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> </span>95 and
+98, but not on <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> </span>NT or <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> </span>2000. The system unit will check this by
+calling <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>function <span 
+class="cmtt-10">71A0h </span>and checking whether long filenames are supported on the <span 
+class="cmss-10">C:</span>
+drive.
+<!--l. 2274--><p class="noindent" >It is possible to disable the long filename support by setting the <span 
+class="cmtt-10">LFNSupport </span>variable to <span 
+class="cmtt-10">False</span>; but
+in general it is recommended to compile programs that need long filenames as native <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span></span>
+applications.
+                                                                            
+
+                                                                            
+<!--l. 2278--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu84.html" >prev</a>] [<a 
+href="usersu84.html#tailusersu84.html" >prev-tail</a>] [<a 
+href="usersu85.html" >front</a>] [<a 
+href="userse34.html#usersu85.html" >up</a>] </p></div>
+<!--l. 2278--><p class="noindent" ><a 
+ id="tailusersu85.html"></a>  
+</body></html> 

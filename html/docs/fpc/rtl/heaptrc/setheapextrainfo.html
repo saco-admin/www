@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>SetHeapExtraInfo</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../heaptrc/index.html">Overview</a>][<a href="../heaptrc/index-2.html">Constants</a>][<a href="../heaptrc/index-3.html">Types</a>][<a href="../heaptrc/index-5.html">Procedures and functions</a>][<a href="../heaptrc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'heaptrc' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>SetHeapExtraInfo</h1>
+<p>Store extra information in blocks.</p>
+<h2>Declaration</h2>
+<p>Source position: heaptrc.pp line 47</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> SetHeapExtraInfo<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;size<span class="sym">: </span><a href="../system/ptruint.html">PtrUInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;fillproc<span class="sym">: </span><a href="../heaptrc/tfillextrainfoproc.html">tFillExtraInfoProc</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;displayproc<span class="sym">: </span><a href="../heaptrc/tdisplayextrainfoproc.html">tdisplayextrainfoProc</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>You can use <var>SetHeapExtraInfo</var> to store extra info in the blocks that the heaptrc unit reserves when tracing getmem calls. <var>Size</var> indicates the size (in bytes) that the trace mechanism should reserve for your extra information. For each call to <var>getmem</var>, <var>FillProc</var> will be called, and passed a pointer to the memory reserved. </p>
+<p>When dumping the memory summary, the extra info is shown by calling <var>displayproc</var> and passing it the memory location which was filled by <var>fillproc</var>. It should write the information in readable form to the text file provided in the call to <var>displayproc</var></p>
+<h2>Errors</h2>
+<p>You can only call <var>SetHeapExtraInfo</var> if no memroy has been allocated yet. If memory was already allocated prior to the call to <var>SetHeapExtraInfo</var>, then an error will be displayed on standard error output, and a <a href="../heaptrc/dumpheap.html">DumpHeap</a> is executed. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../heaptrc/dumpheap.html">DumpHeap</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Dump memory usage report to stderr.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../heaptrc/setheaptraceoutput.html">SetHeapTraceOutput</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Specify filename for heap trace output.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> heapex<span class="sym">;</span>
+
+<span class="cmt">{ Program used to demonstrate the usage of heaptrc unit }</span>
+
+<span class="kw">Uses</span> heaptrc<span class="sym">;</span>
+
+<span class="kw">Var</span> P1 <span class="sym">:</span> <span class="sym">^</span>Longint<span class="sym">;</span>
+    P2 <span class="sym">:</span> Pointer<span class="sym">;</span>
+    I <span class="sym">:</span> longint<span class="sym">;</span>
+    Marker <span class="sym">:</span> Longint<span class="sym">;</span>
+
+<span class="kw">Procedure</span> SetMarker <span class="sym">(</span>P <span class="sym">:</span> pointer<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">Type</span> PLongint <span class="sym">=</span> <span class="sym">^</span>Longint<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  PLongint<span class="sym">(</span>P<span class="sym">)</span><span class="sym">^</span><span class="sym">:=</span>Marker<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span>  Part1<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="cmt">// Blocks allocated here are marked with $FFAAFFAA = -5570646</span>
+  Marker <span class="sym">:=</span> <span class="num">$FFAAFFAA</span><span class="sym">;</span>
+  New<span class="sym">(</span>P1<span class="sym">)</span><span class="sym">;</span>
+  New<span class="sym">(</span>P1<span class="sym">)</span><span class="sym">;</span>
+  Dispose<span class="sym">(</span>P1<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    GetMem <span class="sym">(</span>P2<span class="sym">,</span><span class="num">128</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> <span class="sym">(</span>I mod <span class="num">2</span><span class="sym">)</span> <span class="sym">=</span> <span class="num">0</span> <span class="kw">Then</span> FreeMem<span class="sym">(</span>P2<span class="sym">,</span><span class="num">128</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  GetMem<span class="sym">(</span>P2<span class="sym">,</span><span class="num">128</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Procedure</span>  Part2<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="cmt">// Blocks allocated here are marked with $FAFAFAFA = -84215046</span>
+  Marker <span class="sym">:=</span> <span class="num">$FAFAFAFA</span><span class="sym">;</span>
+  New<span class="sym">(</span>P1<span class="sym">)</span><span class="sym">;</span>
+  New<span class="sym">(</span>P1<span class="sym">)</span><span class="sym">;</span>
+  Dispose<span class="sym">(</span>P1<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    GetMem <span class="sym">(</span>P2<span class="sym">,</span><span class="num">128</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> <span class="sym">(</span>I mod <span class="num">2</span><span class="sym">)</span> <span class="sym">=</span> <span class="num">0</span> <span class="kw">Then</span> FreeMem<span class="sym">(</span>P2<span class="sym">,</span><span class="num">128</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  GetMem<span class="sym">(</span>P2<span class="sym">,</span><span class="num">128</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+ SetExtraInfo<span class="sym">(</span>SizeOf<span class="sym">(</span>Marker<span class="sym">)</span><span class="sym">,</span><span class="sym">@</span>SetMarker<span class="sym">)</span><span class="sym">;</span>
+ Writeln <span class="sym">(</span><span class="str">'Part 1'</span><span class="sym">)</span><span class="sym">;</span>
+ part1<span class="sym">;</span>
+ Writeln<span class="sym">(</span><span class="str">'Part 2'</span><span class="sym">)</span><span class="sym">;</span>
+ part2<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

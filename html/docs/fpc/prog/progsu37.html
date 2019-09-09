@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$INTERFACES : Specify Interface type.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 745--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu38.html" >next</a>] [<a 
+href="progsu36.html" >prev</a>] [<a 
+href="progsu36.html#tailprogsu36.html" >prev-tail</a>] [<a 
+href="#tailprogsu37.html">tail</a>] [<a 
+href="progse2.html#progsu37.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.37   </span> <a 
+href="prog.html#QQ2-44-43" id="x44-430001.2.37"><span 
+class="cmtt-10">$INTERFACES </span>: Specify Interface type.</a></h4>
+<!--l. 746--><p class="noindent" >The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$INTERFACES</span><span 
+class="cmsy-10">} </span>directive tells the compiler what it should take as the parent interface of an
+interface declaration which does not explicitly specify a parent interface. By default the Windows
+COM <span 
+class="cmtt-10">IUnknown </span>interface is used. Other implementations of interfaces (CORBA or Java) do not
+necessarily have this interface, and for such cases, this directive can be used. It accepts the
+following three values:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">COM</span> </dt><dd 
+class="description">Interfaces will descend from <span 
+class="cmtt-10">IUnknown </span>and will be reference counted.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">CORBA</span> </dt><dd 
+class="description">Interfaces will not have a parent and are not reference counted (so the programmer
+     is responsible for bookkeeping). Corba interfaces are identified by a simple string so
+     they are assignment compatible with strings and not <span 
+class="cmtt-10">TGUID</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">DEFAULT</span> </dt><dd 
+class="description">Currently, this is COM.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 762--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu38.html" >next</a>] [<a 
+href="progsu36.html" >prev</a>] [<a 
+href="progsu36.html#tailprogsu36.html" >prev-tail</a>] [<a 
+href="progsu37.html" >front</a>] [<a 
+href="progse2.html#progsu37.html" >up</a>] </p></div>
+<!--l. 762--><p class="noindent" ><a 
+ id="tailprogsu37.html"></a>  
+</body></html> 

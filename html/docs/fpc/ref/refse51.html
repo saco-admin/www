@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Generic type specialization</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5936--><div class="crosslinks"><p class="noindent">[<a 
+href="refse52.html" >next</a>] [<a 
+href="refse50.html" >prev</a>] [<a 
+href="refse50.html#tailrefse50.html" >prev-tail</a>] [<a 
+href="#tailrefse51.html">tail</a>] [<a 
+href="refch8.html#refse51.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">8.3   </span> <a 
+href="ref.html#QQ2-105-133" id="x105-1270008.3">Generic type specialization</a></h3>
+<!--l. 5937--><p class="noindent" >Once a generic type is defined, it can be used to generate other types: this is like replaying
+the definition of the types, with the template placeholders filled in with actual type
+definitions.
+<!--l. 5941--><p class="noindent" >This can be done in any <span 
+class="cmtt-10">Type </span>definition block. The specialized type looks as follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Specialized type</span><br 
+class="newline" /><BR/><img 
+src="ref107x.png" alt="--specialized type specialize -identifier- &#x003C; type identifier list &#x003E;----------
+     " ><BR/>
+     <BR/><img 
+src="ref108x.png" alt="--type identifier list-|identifier---------------------------------------
+                 ----,-----
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 5944--><p class="noindent" >Which is a very simple definition. Given the declaration of <span 
+class="cmtt-10">TList </span>in the previous section, the
+following would be a valid type definition:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-235">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TPointerList&#x00A0;=&#x00A0;specialize&#x00A0;TList&#x003C;Pointer&#x003E;;
+&#x00A0;<br />&#x00A0;&#x00A0;TIntegerList&#x00A0;=&#x00A0;specialize&#x00A0;TList&#x003C;Integer&#x003E;;
+</div>
+<!--l. 5950--><p class="nopar" >As of version 3.0 of Free Pascal, the specialize keyword can also be used in a variable
+declaration:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-236">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;P&#x00A0;:&#x00A0;specialize&#x00A0;TList&#x003C;Pointer&#x003E;;
+</div>
+<!--l. 5955--><p class="nopar" >
+<!--l. 5957--><p class="noindent" >The type in the specialize statement must be known, except in another generic type definition.
+Given the 2 generic class definitions:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-237">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;Generic&#x00A0;TMyFirstType&#x003C;T1&#x003E;&#x00A0;=&#x00A0;Class(TMyObject);
+&#x00A0;<br />&#x00A0;&#x00A0;Generic&#x00A0;TMySecondType&#x003C;T2&#x003E;&#x00A0;=&#x00A0;Class(TMyOtherObject);
+</div>
+<!--l. 5963--><p class="nopar" >Then the following specialization is not valid:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-238">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;TMySpecialType&#x00A0;=&#x00A0;specialize&#x00A0;TMySecondType&#x003C;TMyFirstType&#x003E;;
+</div>
+<!--l. 5968--><p class="nopar" >because the type <span 
+class="cmtt-10">TMyFirstType </span>is a generic type, and thus not fully defined. The compiler will
+complain:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-239">
+Error:&#x00A0;Generics&#x00A0;cannot&#x00A0;be&#x00A0;used&#x00A0;as&#x00A0;parameters&#x00A0;when&#x00A0;specializing&#x00A0;generics
+</div>
+<!--l. 5972--><p class="nopar" >
+<!--l. 5974--><p class="noindent" >However, the following is allowed:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-240">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;TA&#x00A0;=&#x00A0;specialize&#x00A0;TMyFirstType&#x003C;Atype&#x003E;;
+&#x00A0;<br />&#x00A0;&#x00A0;TB&#x00A0;=&#x00A0;specialize&#x00A0;TMySecondType&#x003C;TA&#x003E;;
+</div>
+<!--l. 5979--><p class="nopar" >because <span 
+class="cmtt-10">TA </span>is already fully defined when <span 
+class="cmtt-10">TB </span>is specialized.
+<!--l. 5982--><p class="noindent" >However, the <span 
+class="cmtt-10">specialize </span>keyword can be used in another generic type definition as shown in the
+example above:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-241">
+&#x00A0;&#x00A0;generic&#x00A0;TList&#x003C;_T&#x003E;=class(TObject,&#x00A0;specialize&#x00A0;IList&#x003C;_T&#x003E;)
+</div>
+<!--l. 5985--><p class="nopar" >and
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-242">
+&#x00A0;&#x00A0;generic&#x00A0;TPointSet&#x003C;t&#x003E;&#x00A0;=&#x00A0;array&#x00A0;of&#x00A0;specialize&#x00A0;PlanarCoordinate&#x003C;t&#x003E;;
+</div>
+<!--l. 5989--><p class="nopar" >In these definitions, the specialization is only performed when the generic type itself is specialized,
+and at that time, the types are known.
+<!--l. 5993--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> As of version 3.0, it is possible to make a forward definition of a generic class. In prior versions the
+compiler would generate an error if a forward declaration of a class was later defined as a generic
+specialization. This means that the following is now possible:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-243">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TMyClass&#x00A0;=&#x00A0;Class;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Other&#x00A0;declarations
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TMyClass&#x00A0;=&#x00A0;specialize&#x00A0;TList&#x003C;T&#x003E;;
+</div>
+<!--l. 6005--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 6009--><div class="crosslinks"><p class="noindent">[<a 
+href="refse52.html" >next</a>] [<a 
+href="refse50.html" >prev</a>] [<a 
+href="refse50.html#tailrefse50.html" >prev-tail</a>] [<a 
+href="refse51.html" >front</a>] [<a 
+href="refch8.html#refse51.html" >up</a>] </p></div>
+<!--l. 6009--><p class="noindent" ><a 
+ id="tailrefse51.html"></a>  
+</body></html> 

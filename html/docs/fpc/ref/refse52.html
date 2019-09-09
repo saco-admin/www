@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Generic type restrictions</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6009--><div class="crosslinks"><p class="noindent">[<a 
+href="refse53.html" >next</a>] [<a 
+href="refse51.html" >prev</a>] [<a 
+href="refse51.html#tailrefse51.html" >prev-tail</a>] [<a 
+href="#tailrefse52.html">tail</a>] [<a 
+href="refch8.html#refse52.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">8.4   </span> <a 
+href="ref.html#QQ2-106-134" id="x106-1280008.4">Generic type restrictions</a></h3>
+<a 
+ id="dx106-128001"></a>
+<a 
+ id="dx106-128002"></a>
+<!--l. 6011--><p class="noindent" >The diagram in section <a 
+href="refse49.html#x103-1250008.1">8.1<!--tex4ht:ref: se:genericsintroduction --></a>, page <a 
+href="refse49.html#x103-1250008.1">393<!--tex4ht:ref: se:genericsintroduction --></a> shows that the type template list can have extra specifiers for
+the types. This is especially useful for object types: if the template type must descend from a
+certain class, then this can be specified in the template list:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-244">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />{$h+}
+&#x00A0;<br />uses&#x00A0;sysutils,&#x00A0;classes;
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;generic&#x00A0;TList&#x003C;_T&#x00A0;:&#x00A0;TComponent&#x003E;&#x00A0;=&#x00A0;class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Type&#x00A0;TCompareFunc&#x00A0;=&#x00A0;function(const&#x00A0;Item1,&#x00A0;Item2:&#x00A0;_T):&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;Public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;data&#x00A0;:&#x00A0;_T;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Add(item:&#x00A0;_T);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Sort(compare:&#x00A0;TCompareFunc);
+&#x00A0;<br />&#x00A0;end;
+</div>
+<!--l. 6028--><p class="nopar" >Given the above definition, the following will compile:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-245">
+TPersistentList&#x00A0;=&#x00A0;specialize&#x00A0;TList&#x003C;TComponent&#x003E;;
+</div>
+<!--l. 6032--><p class="nopar" >But this will not compile
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-246">
+TPersistentList&#x00A0;=&#x00A0;specialize&#x00A0;TList&#x003C;TPersistent&#x003E;;
+</div>
+<!--l. 6036--><p class="nopar" >The compiler will return an error:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-247">
+Error:&#x00A0;Incompatible&#x00A0;types:&#x00A0;got&#x00A0;"TPersistent"&#x00A0;expected&#x00A0;"TComponent"
+</div>
+<!--l. 6040--><p class="nopar" >Multiple types can be grouped together:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-248">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;generic&#x00A0;TList&#x003C;Key1,Key2&#x00A0;:&#x00A0;TComponent;&#x00A0;Value1&#x00A0;:&#x00A0;TObject&#x003E;&#x00A0;=&#x00A0;class(TObject)
+</div>
+<!--l. 6045--><p class="nopar" >
+<!--l. 6047--><p class="noindent" >Additionally, it is possible to specify more than one type identifier for class and interface type
+restrictions. If a class is specified, then the type used for the template must be equal to or descend
+from the indicated type:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-249">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;generic&#x00A0;TList&#x003C;T:&#x00A0;TComponent,&#x00A0;IEnumerable&#x003E;&#x00A0;=&#x00A0;class(TObject)
+</div>
+<!--l. 6052--><p class="nopar" >A class used to specialize <span 
+class="cmtt-10">T </span>must descend from <span 
+class="cmtt-10">TComponent </span>and must implement <span 
+class="cmtt-10">IEnumerable</span>.
+<!--l. 6055--><p class="noindent" >If an interface is specified, then the template type must implement at least this interface, but it can
+also be a descendent interface from this interface:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-250">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;generic&#x00A0;TGenList&#x003C;T:&#x00A0;IEnumerable&#x003E;&#x00A0;=&#x00A0;class(TObject)
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;IMyEnum&#x00A0;=&#x00A0;Interface&#x00A0;(IEnumerable)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;DoMy;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TList&#x00A0;=&#x00A0;specialize&#x00A0;TGenList&#x003C;IMyEnum&#x003E;;
+&#x00A0;<br />&#x00A0;&#x00A0;TSomeList&#x00A0;=&#x00A0;Specialize&#x00A0;TGenList&#x003C;TList&#x003E;;
+</div>
+<!--l. 6066--><p class="nopar" >
+<!--l. 6068--><p class="noindent" >Multiple interfaces can be specified, in that case the class type must implement all listed interfaces:
+It is possible to mix one class name with several interface names.
+<!--l. 6071--><p class="noindent" >If no type restrictions are in effect, the compiler will assume that template types are <span 
+class="cmti-10">not</span>
+assignment compatible.
+<!--l. 6073--><p class="noindent" >This is specially important when the generic class contains overloaded methods. Given the
+following generic type declaration:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-251">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;generic&#x00A0;TTest&#x003C;T1,&#x00A0;T2&#x003E;&#x00A0;=&#x00A0;class
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Test(aArg:&#x00A0;LongInt);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Test(aArg:&#x00A0;T1);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Test(aArg:&#x00A0;T2);
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 6081--><p class="nopar" >Specializing the above will compile if <span 
+class="cmtt-10">T1 </span>and <span 
+class="cmtt-10">T2 </span>are of two different types and neither is also
+<span 
+class="cmtt-10">LongInt</span>. The following will compile:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-252">
+T1&#x00A0;=&#x00A0;specialize&#x00A0;TTest&#x003C;String,&#x00A0;TObject&#x003E;;
+</div>
+<!--l. 6086--><p class="nopar" >But the following 2 will not compile:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-253">
+T2&#x00A0;=&#x00A0;specialize&#x00A0;TTest&#x003C;String,&#x00A0;String&#x003E;;
+</div>
+<!--l. 6090--><p class="nopar" >or
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-254">
+T2&#x00A0;=&#x00A0;specialize&#x00A0;TTest&#x003C;String,&#x00A0;Longint&#x003E;;
+</div>
+<!--l. 6094--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 6096--><div class="crosslinks"><p class="noindent">[<a 
+href="refse53.html" >next</a>] [<a 
+href="refse51.html" >prev</a>] [<a 
+href="refse51.html#tailrefse51.html" >prev-tail</a>] [<a 
+href="refse52.html" >front</a>] [<a 
+href="refch8.html#refse52.html" >up</a>] </p></div>
+<!--l. 6096--><p class="noindent" ><a 
+ id="tailrefse52.html"></a>  
+</body></html> 

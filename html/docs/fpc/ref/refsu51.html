@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Class operators</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 8436--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu50.html" >prev</a>] [<a 
+href="refsu50.html#tailrefsu50.html" >prev-tail</a>] [<a 
+href="#tailrefsu51.html">tail</a>] [<a 
+href="refse84.html#refsu51.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">12.8.7   </span> <a 
+href="ref.html#QQ2-154-189" id="x154-17600012.8.7">Class operators</a></h4>
+<!--l. 8437--><p class="noindent" >Class operators are slightly different from the operators above in the sense that they can only be
+used in class expressions which return a class. There are only 2 class operators, as can be seen in
+table (<a 
+href="#x154-176001r8">12.8<!--tex4ht:ref: tab:classoperators --></a>). <a name="keyword_as"></a> <a name="keyword_is"></a> <div class="table">
+                                                                            
+
+                                                                            
+<!--l. 8441--><p class="noindent" ><a 
+ id="x154-176001r8"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;12.8: </span><span  
+class="content">Class operators</span></div><!--tex4ht:label?: x154-176001r8 -->
+<div class="center" 
+>
+<!--l. 8441--><p class="noindent" >
+<div class="tabular"> <table id="TBL-15" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-15-1g"><col 
+id="TBL-15-1"><col 
+id="TBL-15-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-15-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-1-1"  
+class="td11">Operator</td><td  style="white-space:nowrap; text-align:left;" id="TBL-15-1-2"  
+class="td11">Action                   </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-2-1"  
+class="td11"><span 
+class="cmtt-10">is      </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-15-2-2"  
+class="td11">Checks class type    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-3-1"  
+class="td11"><span 
+class="cmtt-10">as      </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-15-3-2"  
+class="td11">Conditional typecast</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-15-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-15-4-1"  
+class="td11">        </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+<!--l. 8446--><p class="noindent" >An expression containing the <span 
+class="cmtt-10">is </span>operator results in a boolean type. The <span 
+class="cmtt-10">is </span>operator can
+only be used with a class reference or a class instance. The usage of this operator is as
+follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-349">
+&#x00A0;Object&#x00A0;is&#x00A0;Class
+</div>
+<!--l. 8451--><p class="nopar" >This expression is completely equivalent to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-350">
+&#x00A0;Object.InheritsFrom(Class)
+</div>
+<!--l. 8455--><p class="nopar" >If <span 
+class="cmtt-10">Object </span>is <span 
+class="cmtt-10">Nil</span>, <span 
+class="cmtt-10">False </span>will be returned.
+<!--l. 8458--><p class="noindent" >The following are examples:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-351">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;TObject;
+&#x00A0;<br />&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;TClass;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;if&#x00A0;A&#x00A0;is&#x00A0;TComponent&#x00A0;then&#x00A0;;
+&#x00A0;<br />&#x00A0;&#x00A0;If&#x00A0;A&#x00A0;is&#x00A0;B&#x00A0;then;
+&#x00A0;<br />end;
+</div>
+<!--l. 8468--><p class="nopar" >
+<!--l. 8470--><p class="noindent" >The <span 
+class="cmtt-10">as </span>operator performs a conditional typecast. It results in an expression that has the type of
+the class:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-352">
+&#x00A0;&#x00A0;Object&#x00A0;as&#x00A0;Class
+</div>
+<!--l. 8474--><p class="nopar" >This is equivalent to the following statements:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-353">
+&#x00A0;&#x00A0;If&#x00A0;Object=Nil&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Result:=Nil
+&#x00A0;<br />&#x00A0;&#x00A0;else&#x00A0;if&#x00A0;Object&#x00A0;is&#x00A0;Class&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Result:=Class(Object)
+&#x00A0;<br />&#x00A0;&#x00A0;else
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Raise&#x00A0;Exception.Create(SErrInvalidTypeCast);
+</div>
+<!--l. 8483--><p class="nopar" >Note that if the object is <span 
+class="cmtt-10">nil</span>, the <span 
+class="cmtt-10">as </span>operator does not generate an exception.
+<!--l. 8487--><p class="noindent" >The following are some examples of the use of the <span 
+class="cmtt-10">as </span>operator:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-354">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;TComponent;
+&#x00A0;<br />&#x00A0;&#x00A0;O&#x00A0;:&#x00A0;TObject;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;(C&#x00A0;as&#x00A0;TEdit).Text:=&#8217;Some&#x00A0;text&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;C:=O&#x00A0;as&#x00A0;TComponent;
+&#x00A0;<br />end;
+</div>
+<!--l. 8497--><p class="nopar" >
+<!--l. 8499--><p class="noindent" >The <span 
+class="cmtt-10">as </span>and <span 
+class="cmtt-10">is </span>operators also work on interfaces (both COM and CORBA). They can be
+used to check whether an interface also implements another interface as in the following
+example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-355">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />
+&#x00A0;<br />uses
+&#x00A0;<br />&#x00A0;&#x00A0;SysUtils;
+&#x00A0;<br />
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;IMyInterface1&#x00A0;=&#x00A0;interface
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;[&#8217;{DD70E7BB-51E8-45C3-8CE8-5F5188E19255}&#8217;]
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Bar;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;IMyInterface2&#x00A0;=&#x00A0;interface
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;[&#8217;{7E5B86C4-4BC5-40E6-A0DF-D27DBF77BCA0}&#8217;]
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Foo;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TMyObject&#x00A0;=&#x00A0;class(TInterfacedObject,&#x00A0;IMyInterface1,&#x00A0;IMyInterface2)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Bar;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Foo;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;TMyObject.Bar;
+&#x00A0;<br />begin
+&#x00A0;<br />
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />procedure&#x00A0;TMyObject.Foo;
+&#x00A0;<br />begin
+&#x00A0;<br />
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;i:&#x00A0;IMyInterface1;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;i&#x00A0;:=&#x00A0;TMyObject.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;i.Bar;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(BoolToStr(i&#x00A0;is&#x00A0;IMyInterface2,&#x00A0;True));&#x00A0;//&#x00A0;prints&#x00A0;true
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(BoolToStr(i&#x00A0;is&#x00A0;IDispatch,&#x00A0;True));&#x00A0;//&#x00A0;prints&#x00A0;false
+&#x00A0;<br />&#x00A0;&#x00A0;(i&#x00A0;as&#x00A0;IMyInterface2).Foo;
+&#x00A0;<br />end.
+</div>
+<!--l. 8543--><p class="nopar" >
+<!--l. 8545--><p class="noindent" >Additionally, the <span 
+class="cmtt-10">is </span>operator can be used to check if a class implements an interface, and the varas
+operator can be used to typecast an interface back to the class:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-356">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;i:&#x00A0;IMyInterface;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;i&#x00A0;:=&#x00A0;TMyObject.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(BoolToStr(i&#x00A0;is&#x00A0;TMyObject,True));&#x00A0;//&#x00A0;prints&#x00A0;true
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(BoolToStr(i&#x00A0;is&#x00A0;TObject,True));&#x00A0;//&#x00A0;prints&#x00A0;true
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(BoolToStr(i&#x00A0;is&#x00A0;TAggregatedObject,True));&#x00A0;//&#x00A0;prints&#x00A0;false
+&#x00A0;<br />&#x00A0;&#x00A0;(i&#x00A0;as&#x00A0;TMyObject).Foo;
+&#x00A0;<br />end.
+</div>
+<!--l. 8559--><p class="nopar" >Although the interfaces must be COM interfaces, the typecast back to a class will only work if the
+interface comes from an Object Pascal class. It will not work on interfaces obtained from the
+system by COM.
+                                                                            
+
+                                                                            
+<!--l. 8567--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu50.html" >prev</a>] [<a 
+href="refsu50.html#tailrefsu50.html" >prev-tail</a>] [<a 
+href="refsu51.html" >front</a>] [<a 
+href="refse84.html#refsu51.html" >up</a>] </p></div>
+<!--l. 8567--><p class="noindent" ><a 
+ id="tailrefsu51.html"></a>  
+</body></html> 

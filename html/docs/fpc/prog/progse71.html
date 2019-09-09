@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The RTL source tree</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 7755--><div class="crosslinks"><p class="noindent">[<a 
+href="progse70.html" >prev</a>] [<a 
+href="progse70.html#tailprogse70.html" >prev-tail</a>] [<a 
+href="#tailprogse71.html">tail</a>] [<a 
+href="progap2.html#progse71.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">B.2   </span> <a 
+href="prog.html#QQ2-284-329" id="x284-300000B.2">The RTL source tree</a></h3>
+<!--l. 7756--><p class="noindent" >The RTL source tree is divided in many subdirectories, but is very structured and easy to
+understand. It mainly consists of three parts:
+<!--l. 7759--><p class="noindent" >
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x284-300002x1">A OS-dependent directory. This contains the files that are different for each operating
+     system. When compiling the RTL, you should do it here. The following directories
+     exist:
+         <ul class="itemize1">
+         <li class="itemize"><span 
+class="cmss-10">amiga </span>for the <span 
+class="cmcsc-10">A<span 
+class="small-caps">m</span><span 
+class="small-caps">i</span><span 
+class="small-caps">g</span><span 
+class="small-caps">a</span></span>.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">atari </span>for the <span 
+class="cmcsc-10">A<span 
+class="small-caps">t</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">i</span></span>.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">beos </span>for <span 
+class="cmcsc-10">B<span 
+class="small-caps">e</span>OS</span>. It has one subdirectory for each of the supported processors.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">bsd </span>Common files for the various BSD platforms.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">darwin </span>for the unix-compatibility layer on Mac OS.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">embedded </span>A template for embedded targets.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">emx </span>OS/2 using the EMX extender.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">freebsd </span>for the <span 
+class="cmcsc-10">F<span 
+class="small-caps">r</span><span 
+class="small-caps">e</span><span 
+class="small-caps">e</span>BSD </span>platform.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">gba </span>Game Boy Advanced.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">go32v2 </span>For <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span></span>, using the GO32v2 extender.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">linux  </span>for  <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>platforms.  It  has  one  subdirectory  for  each  of  the  supported
+         processors.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">macos </span>for the Mac OS platform.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">morphos </span>for the MorphOS platform.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">nds </span>for the Nintendo DS platform.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">netbsd </span>for <span 
+class="cmcsc-10">N<span 
+class="small-caps">e</span><span 
+class="small-caps">t</span>BSD </span>platforms. It has one subdirectory for each of the supported
+         processors.
+                                                                            
+
+                                                                            
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">netware </span>for the Novell netware platform.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">netwlibc </span>for the Novell netware platform using the C library.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">openbsd </span>for the OpenBSD platform.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">os2 </span>for <span 
+class="cmcsc-10"><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span>/2</span>.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">palmos </span>for the <span 
+class="cmcsc-10">P<span 
+class="small-caps">a</span><span 
+class="small-caps">l</span><span 
+class="small-caps">m</span>OS </span>Dragonball processor based platform.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">posix </span>for posix interfaces (used for easier porting).
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">solaris </span>for the <span 
+class="cmcsc-10">S<span 
+class="small-caps">o</span><span 
+class="small-caps">l</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">i</span><span 
+class="small-caps">s</span> </span>platform. It has one subdirectory for each of the supported
+         processors.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">symbian </span>for the symbian mobile phone OS.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">qnx </span>for the <span 
+class="cmcsc-10">QNX R<span 
+class="small-caps">e</span><span 
+class="small-caps">a</span><span 
+class="small-caps">l</span><span 
+class="small-caps">t</span><span 
+class="small-caps">i</span><span 
+class="small-caps">m</span><span 
+class="small-caps">e</span> <span 
+class="small-caps">p</span><span 
+class="small-caps">l</span><span 
+class="small-caps">a</span><span 
+class="small-caps">t</span><span 
+class="small-caps">f</span><span 
+class="small-caps">o</span><span 
+class="small-caps">r</span><span 
+class="small-caps">m</span></span>.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">unix </span>for unix common interfaces (used for easier porting).
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">win32 </span>for Windows 32-bit platforms.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">win64 </span>for Windows 64-bit platforms.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">wince </span>for the Windows CE embedded platform (arm CPU).
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">posix </span>for posix interfaces (used for easier porting).</li></ul>
+     </li>
+     <li 
+  class="enumerate" id="x284-300004x2">A processor dependent directory. This contains files that are system independent, but
+     processor dependent. It contains mostly optimized routines for a specific processor. The
+     following directories exist:
+         <ul class="itemize1">
+         <li class="itemize"><span 
+class="cmss-10">arm </span>for the ARM series of processors.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">i386 </span>for the Intel 80x86 series of processors.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">m68k </span>for the Motorola 680x0 series of processors.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">powerpc </span>for the PowerPC processor.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">powerpc64 </span>for the PowerPC 64-bit processor.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">sparc </span>for the SUN SPARC processor.
+         </li>
+         <li class="itemize"><span 
+class="cmss-10">x86</span><span 
+class="cmss-10">_64 </span>for Intel compatible 64-bit processors such as the AMD64.</li></ul>
+                                                                            
+
+                                                                            
+     </li>
+     <li 
+  class="enumerate" id="x284-300006x3">An OS-independent and Processor independent directory: <span 
+class="cmss-10">inc</span>. This contains complete units,
+     and include files containing interface parts of units as well as generic versions of processor
+     specific routines.
+     </li>
+     <li 
+  class="enumerate" id="x284-300008x4">The Object Pascal extensions (mainly Delphi compatibility units) are in the <span 
+class="cmss-10">objpas</span>
+     directory. The <span 
+class="cmss-10">sysutils </span>and <span 
+class="cmss-10">classes </span>units are in separate subdirectories of the <span 
+class="cmss-10">objpas</span>
+     directory.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 7822--><div class="crosslinks"><p class="noindent">[<a 
+href="progse70.html" >prev</a>] [<a 
+href="progse70.html#tailprogse70.html" >prev-tail</a>] [<a 
+href="progse71.html" >front</a>] [<a 
+href="progap2.html#progse71.html" >up</a>] </p></div>
+<!--l. 7822--><p class="noindent" ><a 
+ id="tailprogse71.html"></a>  
+</body></html> 

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>WideChar</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 1262--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu8.html" >next</a>] [<a 
+href="refsu6.html" >prev</a>] [<a 
+href="refsu6.html#tailrefsu6.html" >prev-tail</a>] [<a 
+href="#tailrefsu7.html">tail</a>] [<a 
+href="refse13.html#refsu7.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.2.2   </span> <a 
+href="ref.html#QQ2-30-37" id="x30-330003.2.2">WideChar</a></h4>
+<a 
+ id="dx30-33001"></a>
+<!--l. 1263--><p class="noindent" ><a name="keyword_widechar"></a> Free Pascal supports the type <span 
+class="cmtt-10">WideChar</span>. A <span 
+class="cmtt-10">WideChar </span>is exactly 2 bytes in size, and contains one
+UNICODE character in UTF-16 encoding.
+<!--l. 1267--><p class="noindent" >A unicode character can be specified by its character value (an UTF-16 code), by preceding the
+ordinal value with the number symbol (#).
+<!--l. 1270--><p class="noindent" >A normal ansi (1-byte) character literal can also be used for a widechar, the compiler will
+automatically convert it to a 2-byte UTF-16 character.
+<!--l. 1273--><p class="noindent" >The following defines some greek characters (phi, omega):
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-42">
+Const
+&#x00A0;<br />&#x00A0;&#x00A0;C3&#x00A0;:&#x00A0;widechar&#x00A0;=&#x00A0;#$03A8;
+&#x00A0;<br />&#x00A0;&#x00A0;C4&#x00A0;:&#x00A0;widechar&#x00A0;=&#x00A0;#$03A9;
+</div>
+<!--l. 1278--><p class="nopar" >The same can be accomplished by typecasting a word to widechar:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-43">
+Const
+&#x00A0;<br />&#x00A0;&#x00A0;C3&#x00A0;:&#x00A0;widechar&#x00A0;=&#x00A0;widechar($03A8);
+&#x00A0;<br />&#x00A0;&#x00A0;C4&#x00A0;:&#x00A0;widechar&#x00A0;=&#x00A0;widechar($03A9);
+</div>
+<!--l. 1284--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 1286--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu8.html" >next</a>] [<a 
+href="refsu6.html" >prev</a>] [<a 
+href="refsu6.html#tailrefsu6.html" >prev-tail</a>] [<a 
+href="refsu7.html" >front</a>] [<a 
+href="refse13.html#refsu7.html" >up</a>] </p></div>
+<!--l. 1286--><p class="noindent" ><a 
+ id="tailrefsu7.html"></a>  
+</body></html> 

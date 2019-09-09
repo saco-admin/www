@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TEventObject.SetEvent</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../syncobjs/index.html">Overview</a>][<a href="../syncobjs/index-2.html">Constants</a>][<a href="../syncobjs/index-3.html">Types</a>][<a href="../syncobjs/index-4.html">Classes</a>][<a href="../syncobjs/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'syncobjs' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TEventObject.SetEvent</h1>
+<p>Set the event</p>
+<h2>Declaration</h2>
+<p>Source position: syncobjs.pp line 73</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../syncobjs/teventobject.html">TEventObject</a><span class="sym">.</span>SetEvent<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>SetEvent</var> sets the event.  If the <a href="../syncobjs/teventobject.manualreset.html">ManualReset</a> is <var>True</var>  any thread that was waiting for the event to be set (using <a href="../syncobjs/teventobject.waitfor.html">WaitFor</a>)  will resume it's operation. After the event was set, any thread that executes <var>WaitFor</var> will  return at once. If <var>ManualReset</var> is <var>False</var>, only one thread will be notified that the event was set, and the event will be immediately reset after that. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../syncobjs/teventobject.waitfor.html">WaitFor</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Wait for the event to be set.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../syncobjs/teventobject.manualreset.html">ManualReset</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should the event be reset manually</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

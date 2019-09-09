@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStringHelper.IndexOfAnyUnquoted</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TStringHelper.IndexOfAnyUnquoted</h1>
+<p>Find the position (index) of any string or character in a list.</p>
+<h2>Declaration</h2>
+<p>Source position: syshelph.inc line 105</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>IndexOfAnyUnquoted<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AnyOf<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;StartQuote<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;EndQuote<span class="sym">: </span><a href="../system/char.html">Char</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>IndexOfAnyUnquoted<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AnyOf<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;StartQuote<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;EndQuote<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;StartIndex<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>IndexOfAnyUnquoted<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AnyOf<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> <a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;StartQuote<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;EndQuote<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;StartIndex<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ACount<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span><br><br><span class="kw">function</span> <a href="../sysutils/tstringhelper.html">TStringHelper</a><span class="sym">.</span>IndexOfAnyUnquoted<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AnyOf<span class="sym">: </span><span class="kw">array</span> <span class="kw">of</span> string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;StartQuote<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;EndQuote<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;StartIndex<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>Matched<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>IndexOfAnyUnQuoted</var> returns the zero-based index of the first matching element in an array of charaters or strings (<var>AnyOf</var>), but disregards  any quoted parts in the string. A quoted part is determined by a starting <var>StartQuote</var> and end-quote character <var>EndQuote</var>. </p>
+<p>if no match is found, -1 is returned. </p>
+<p>The search can be refined by specifying a (zero-based) index <var>StartIndex</var>. When specified, the search will start at the given character. Not specifying this option is equivalent to specifying zero. </p>
+<p>If <var>ACount</var> is given, at most <var>ACount</var> characters in the source string will be considered for the search. This count includes the starting character. Not specifying this argument is equivalent to specifying the amount of remaining characters. </p>
+<p>If <var>AMatch</var> is specified, on succesful return it will contain the index of the element in the array that contains the found match.  </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/pos.html">Pos</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for substring in a string.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tstringhelper.indexof.html">TStringHelper.IndexOf</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find the position (index) of a string or character</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tstringhelper.indexofunquoted.html">TStringHelper.IndexOfUnquoted</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Index of string, skipping quoted parts.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tstringhelper.indexofany.html">TStringHelper.IndexOfAny</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find the position (index) of any string or character in a list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tstringhelper.lastindexof.html">TStringHelper.LastIndexOf</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find the last position (index) of a string or character</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/tstringhelper.lastindexofany.html">TStringHelper.LastIndexOfAny</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find the last position (index) of any string or character in a list.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

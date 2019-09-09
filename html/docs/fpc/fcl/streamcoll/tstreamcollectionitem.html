@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStreamCollectionItem</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../streamcoll/index.html">Overview</a>][<a href="../streamcoll/index-4.html">Classes</a>][<a href="../streamcoll/index-5.html">Procedures and functions</a>][<a href="../streamcoll/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'streamcoll' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TStreamCollectionItem</h1>
+<p>[<a href="../streamcoll/tstreamcollectionitem-1.html" onClick="window.open('../streamcoll/tstreamcollectionitem-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../streamcoll/tstreamcollectionitem-2.html" onClick="window.open('../streamcoll/tstreamcollectionitem-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../streamcoll/tstreamcollectionitem-3.html" onClick="window.open('../streamcoll/tstreamcollectionitem-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../streamcoll/tstreamcollectionitem-4.html" onClick="window.open('../streamcoll/tstreamcollectionitem-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../streamcoll/tstreamcollectionitem-5.html" onClick="window.open('../streamcoll/tstreamcollectionitem-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../streamcoll/tstreamcollectionitem-6.html" onClick="window.open('../streamcoll/tstreamcollectionitem-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Collection item with streaming support</p>
+<h2>Declaration</h2>
+<p>Source position: streamcoll.pp line 23</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TStreamCollectionItem <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../../rtl/classes/tcollectionitem.html">TCollectionItem</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../streamcoll/tstreamcollectionitem.html">TStreamCollectionItem</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Collection item with streaming support</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tcollectionitem.html">TCollectionItem</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tpersistent.html">TPersistent</a>,<a href="../../rtl/classes/ifpobserved.html">IFPObserved</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TStreamCollectionItem</var> is a <a href="../../rtl/classes/tcollectionitem.html">TCollectionItem</a> descendent which  implements 2 abstract routines: <var>LoadFromStream</var> and <var>SaveToStream</var> which must be overridden in a descendent class. </p>
+<p>These 2 routines will be called by the <a href="../streamcoll/tstreamcollection.html">TStreamCollection</a> to save or load the item from the stream. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../streamcoll/tstreamcollection.html">TStreamCollection</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Collection with stream support</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

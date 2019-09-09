@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TBlobField.Transliterate</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TBlobField.Transliterate</h1>
+<p>Should the contents of the field be transliterated</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 906</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../db/tblobfield.html">TBlobField</a><span class="sym">.</span>Transliterate<span class="sym"> : </span>Boolean<br>&nbsp;&nbsp;<span class="kw">read </span>FTransliterate<br>&nbsp;&nbsp;<span class="kw">write </span>FTransliterate<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Transliterate</var> indicates whether the contents of the field should be transliterated  (i.e. changed from OEM to non OEM codepage and vice versa) when reading or writing the value.  The actual transliteration must be done in the <a href="../db/tdataset.translate.html">TDataset.Translate</a> method of the  dataset to which the field belongs. By default this property is <var>False</var>,  but it can be set to <var>True</var> for BLOB data which contains text in another codepage. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tstringfield.transliterate.html">TStringField.Transliterate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should the field value be transliterated when reading or writing</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.translate.html">TDataset.Translate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Transliterate a buffer</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

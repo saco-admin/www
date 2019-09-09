@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TProcess.WaitOnExit</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../process/index.html">Overview</a>][<a href="../process/index-3.html">Types</a>][<a href="../process/index-4.html">Classes</a>][<a href="../process/index-5.html">Procedures and functions</a>][<a href="../process/index-6.html">Variables</a>][<a href="../process/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'process' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TProcess.WaitOnExit</h1>
+<p>Wait for the program to stop executing.</p>
+<h2>Declaration</h2>
+<p>Source position: process.pp line 123</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../process/tprocess.html">TProcess</a><span class="sym">.</span>WaitOnExit<span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p><var>True</var> means the process was successfully waited on, <var>False</var> indicates some error occurred.</p>
+<h2>Description</h2>
+<p><var>WaitOnExit</var> waits for the running program to exit. It returns <var>True</var> if the wait was succesful, or <var>False</var> if there was some error waiting for the program to exit. </p>
+<p>Note that the return value of this function has changed. The old return value was a DWord with a platform dependent error code. To make things consistent and cross-platform, a boolean return type was used.  </p>
+<h2>Errors</h2>
+<p>On error, <var>False</var> is returned. No extended error information is available, as it is highly system dependent. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../process/tprocess.exitstatus.html">TProcess.ExitStatus</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Exit status of the process.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.terminate.html">TProcess.Terminate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Terminate a running process</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.running.html">TProcess.Running</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Determines wheter the process is still running.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.exitcode.html">TProcess.ExitCode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Exit code of the process</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

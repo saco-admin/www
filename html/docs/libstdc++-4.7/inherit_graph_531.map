@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$a00432.html" title="std::integral_constant\&lt; bool,(__is_floating_point_helper\&lt; remove_cv\&lt; _Rep \&gt;::type \&gt;::value)\&gt;" alt="" coords="5,5,616,33"/>
+<area shape="rect" id="node3" href="$a00435.html" title="std::is_floating_point\&lt; _Rep \&gt;" alt="" coords="664,5,872,33"/>
+<area shape="rect" id="node5" href="$a00594.html" title="treat_as_floating_point" alt="" coords="921,5,1223,33"/>
+</map>

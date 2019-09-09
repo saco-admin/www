@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>InvalidDateMonthWeekError</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dateutils/index.html">Overview</a>][<a href="../dateutils/index-2.html">Constants</a>][<a href="../dateutils/index-5.html">Procedures and functions</a>][<a href="../dateutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dateutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>InvalidDateMonthWeekError</h1>
+<p>Raise an <var>EConvertError</var> exception when a Year,Month,WeekOfMonth,DayofWeek is invalid.</p>
+<h2>Declaration</h2>
+<p>Source position: dateutil.inc line 389</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> InvalidDateMonthWeekError<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AYear<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AMonth<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AWeekOfMonth<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ADayOfWeek<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AYear</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Year</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AMonth</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Month of the year</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AWeekOfMonth</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Week of the month</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADayOfWeek</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Day of the week</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>InvalidDateMonthWeekError</var> raises an <a href="../sysutils/econverterror.html">EConvertError</a>  exception and formats the error message with an appropriate description made up from the parts <var>AYear</var>, <var>Amonth</var>, <var>AWeekOfMonth</var> and <var>ADayOfWeek</var>. </p>
+<p>Normally this function should not be needed, the conversion routines call it when they have received invalid arguments. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dateutils/invaliddateweekerror.html">InvalidDateWeekError</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Raise an EConvertError with an invalid Year, WeekOfyear and DayOfWeek specification</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/invaliddatetimeerror.html">InvalidDateTimeError</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Raise an <var>EConvertError</var> about an invalid date-time specification.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/invaliddatedayerror.html">InvalidDateDayError</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Raise an <var>EConvertError</var> exception when a day is not a valid day of a year.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/invaliddayofweekinmontherror.html">InvalidDayOfWeekInMonthError</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Raise an <var>EConvertError</var> exception when a Year,Month,NthDayofWeek,DayofWeek is invalid.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

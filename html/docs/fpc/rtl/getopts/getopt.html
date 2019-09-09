@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>GetOpt</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../getopts/index.html">Overview</a>][<a href="../getopts/index-2.html">Constants</a>][<a href="../getopts/index-3.html">Types</a>][<a href="../getopts/index-5.html">Procedures and functions</a>][<a href="../getopts/index-6.html">Variables</a>][<a href="../getopts/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'getopts' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>GetOpt</h1>
+<p>Get next short option.</p>
+<h2>Declaration</h2>
+<p>Source position: getopts.pp line 45</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> GetOpt<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ShortOpts<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Returns the next option found on the command-line. If no more options are found, returns <var>EndOfOptions</var>. If the option requires an argument, it is returned in the <var>OptArg</var> variable. </p>
+<p><var>ShortOptions</var> is a string containing all possible one-letter options. If a letter is followed by a colon (:), then that option needs an argument. If a letter is followed by 2 colons, the option has an optional argument. If the first character of <var>shortoptions</var> is a <var>'+'</var> then options following a non-option are regarded as non-options (standard Unix behavior). If it is a <var>'-'</var>, then all non-options are treated as arguments of a option with character <var>#0</var>. This is useful for applications that require their options in the exact order as they appear on the command-line. If the first character of <var>shortoptions</var> is none of the above, options and non-options are permuted, so all non-options are behind all options. This allows options and non-options to be in random order on the command line. </p>
+<h2>Errors</h2>
+<p>Errors are reported through giving back a <var>'?'</var> character. <var>OptOpt</var> then gives the character which caused the error. If <var>OptErr</var> is <var>True</var> then getopt prints an error-message to <var>stdout</var>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../getopts/getlongopts.html">GetLongOpts</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return next long option.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> testopt<span class="sym">;</span>
+
+<span class="cmt">{ Program to depmonstrate the getopts function. }</span>
+
+<span class="cmt">{</span>
+<span class="cmt">  Valid calls to this program are</span>
+<span class="cmt">  optex --verbose --add me --delete you</span>
+<span class="cmt">  optex --append --create child</span>
+<span class="cmt">  optex -ab -c me -d you</span>
+<span class="cmt">  and so on</span>
+<span class="cmt">}</span>
+<span class="kw">uses</span> getopts<span class="sym">;</span>
+
+<span class="kw">var</span> c <span class="sym">:</span> char<span class="sym">;</span>
+    optionindex <span class="sym">:</span> Longint<span class="sym">;</span>
+    theopts <span class="sym">:</span> <span class="kw">array</span><span class="sym">[</span><span class="num">1</span><span class="sym">.</span><span class="sym">.</span><span class="num">7</span><span class="sym">]</span> <span class="kw">of</span> TOption<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">with</span> theopts<span class="sym">[</span><span class="num">1</span><span class="sym">]</span> <span class="kw">do</span>
+   <span class="kw">begin</span>
+    name<span class="sym">:=</span><span class="str">'add'</span><span class="sym">;</span>
+    has_arg<span class="sym">:=</span><span class="num">1</span><span class="sym">;</span>
+    flag<span class="sym">:=</span><span class="kw">nil</span><span class="sym">;</span>
+    value<span class="sym">:=</span><span class="chr">#0</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+  <span class="kw">with</span> theopts<span class="sym">[</span><span class="num">2</span><span class="sym">]</span> <span class="kw">do</span>
+   <span class="kw">begin</span>
+    name<span class="sym">:=</span><span class="str">'append'</span><span class="sym">;</span>
+    has_arg<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+    flag<span class="sym">:=</span><span class="kw">nil</span><span class="sym">;</span>
+    value<span class="sym">:=</span><span class="chr">#0</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+  <span class="kw">with</span> theopts<span class="sym">[</span><span class="num">3</span><span class="sym">]</span> <span class="kw">do</span>
+   <span class="kw">begin</span>
+    name<span class="sym">:=</span><span class="str">'delete'</span><span class="sym">;</span>
+    has_arg<span class="sym">:=</span><span class="num">1</span><span class="sym">;</span>
+    flag<span class="sym">:=</span><span class="kw">nil</span><span class="sym">;</span>
+    value<span class="sym">:=</span><span class="chr">#0</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+  <span class="kw">with</span> theopts<span class="sym">[</span><span class="num">4</span><span class="sym">]</span> <span class="kw">do</span>
+   <span class="kw">begin</span>
+    name<span class="sym">:=</span><span class="str">'verbose'</span><span class="sym">;</span>
+    has_arg<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+    flag<span class="sym">:=</span><span class="kw">nil</span><span class="sym">;</span>
+    value<span class="sym">:=</span><span class="chr">#0</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+  <span class="kw">with</span> theopts<span class="sym">[</span><span class="num">5</span><span class="sym">]</span> <span class="kw">do</span>
+   <span class="kw">begin</span>
+    name<span class="sym">:=</span><span class="str">'create'</span><span class="sym">;</span>
+    has_arg<span class="sym">:=</span><span class="num">1</span><span class="sym">;</span>
+    flag<span class="sym">:=</span><span class="kw">nil</span><span class="sym">;</span>
+    value<span class="sym">:=</span><span class="chr">'c'</span>
+  <span class="kw">end</span><span class="sym">;</span>
+  <span class="kw">with</span> theopts<span class="sym">[</span><span class="num">6</span><span class="sym">]</span> <span class="kw">do</span>
+   <span class="kw">begin</span>
+    name<span class="sym">:=</span><span class="str">'file'</span><span class="sym">;</span>
+    has_arg<span class="sym">:=</span><span class="num">1</span><span class="sym">;</span>
+    flag<span class="sym">:=</span><span class="kw">nil</span><span class="sym">;</span>
+    value<span class="sym">:=</span><span class="chr">#0</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+  <span class="kw">with</span> theopts<span class="sym">[</span><span class="num">7</span><span class="sym">]</span> <span class="kw">do</span>
+   <span class="kw">begin</span>
+    name<span class="sym">:=</span><span class="str">''</span><span class="sym">;</span>
+    has_arg<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+    flag<span class="sym">:=</span><span class="kw">nil</span><span class="sym">;</span>
+  <span class="kw">end</span><span class="sym">;</span>
+  c<span class="sym">:=</span><span class="chr">#0</span><span class="sym">;</span>
+  <span class="kw">repeat</span>
+    c<span class="sym">:=</span>getlongopts<span class="sym">(</span><span class="str">'abc:d:012'</span><span class="sym">,</span><span class="sym">@</span>theopts<span class="sym">[</span><span class="num">1</span><span class="sym">]</span><span class="sym">,</span>optionindex<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">case</span> c <span class="kw">of</span>
+      <span class="chr">'1'</span><span class="sym">,</span><span class="chr">'2'</span><span class="sym">,</span><span class="chr">'3'</span><span class="sym">,</span><span class="chr">'4'</span><span class="sym">,</span><span class="chr">'5'</span><span class="sym">,</span><span class="chr">'6'</span><span class="sym">,</span><span class="chr">'7'</span><span class="sym">,</span><span class="chr">'8'</span><span class="sym">,</span><span class="chr">'9'</span> <span class="sym">:</span>
+        <span class="kw">begin</span>
+        writeln <span class="sym">(</span><span class="str">'Got optind : '</span><span class="sym">,</span>c<span class="sym">)</span>
+        <span class="kw">end</span><span class="sym">;</span>
+      <span class="chr">#0</span> <span class="sym">:</span> <span class="kw">begin</span>
+           write <span class="sym">(</span><span class="str">'Long option : '</span><span class="sym">,</span>theopts<span class="sym">[</span>optionindex<span class="sym">]</span><span class="sym">.</span>name<span class="sym">)</span><span class="sym">;</span>
+           <span class="kw">if</span> theopts<span class="sym">[</span>optionindex<span class="sym">]</span><span class="sym">.</span>has_arg<span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+             writeln <span class="sym">(</span><span class="str">' With value  : '</span><span class="sym">,</span>optarg<span class="sym">)</span>
+           <span class="kw">else</span>
+             writeln
+           <span class="kw">end</span><span class="sym">;</span>
+      <span class="chr">'a'</span> <span class="sym">:</span> writeln <span class="sym">(</span><span class="str">'Option a.'</span><span class="sym">)</span><span class="sym">;</span>
+      <span class="chr">'b'</span> <span class="sym">:</span> writeln <span class="sym">(</span><span class="str">'Option b.'</span><span class="sym">)</span><span class="sym">;</span>
+      <span class="chr">'c'</span> <span class="sym">:</span> writeln <span class="sym">(</span><span class="str">'Option c : '</span><span class="sym">,</span> optarg<span class="sym">)</span><span class="sym">;</span>
+      <span class="chr">'d'</span> <span class="sym">:</span> writeln <span class="sym">(</span><span class="str">'Option d : '</span><span class="sym">,</span> optarg<span class="sym">)</span><span class="sym">;</span>
+      <span class="chr">'?'</span><span class="sym">,</span><span class="chr">':'</span> <span class="sym">:</span> writeln <span class="sym">(</span><span class="str">'Error with opt : '</span><span class="sym">,</span>optopt<span class="sym">)</span><span class="sym">;</span>
+   <span class="kw">end</span><span class="sym">;</span> <span class="cmt">{ case }</span>
+ <span class="kw">until</span> c<span class="sym">=</span>endofoptions<span class="sym">;</span>
+ <span class="kw">if</span> optind<span class="sym">&lt;</span><span class="sym">=</span>paramcount <span class="kw">then</span>
+    <span class="kw">begin</span>
+    write <span class="sym">(</span><span class="str">'Non options : '</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">while</span> optind<span class="sym">&lt;</span><span class="sym">=</span>paramcount <span class="kw">do</span>
+      <span class="kw">begin</span>
+      write <span class="sym">(</span>paramstr<span class="sym">(</span>optind<span class="sym">)</span><span class="sym">,</span><span class="chr">' '</span><span class="sym">)</span><span class="sym">;</span>
+      inc<span class="sym">(</span>optind<span class="sym">)</span>
+      <span class="kw">end</span><span class="sym">;</span>
+    writeln
+    <span class="kw">end</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

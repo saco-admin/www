@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>WithinPastDays</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dateutils/index.html">Overview</a>][<a href="../dateutils/index-2.html">Constants</a>][<a href="../dateutils/index-5.html">Procedures and functions</a>][<a href="../dateutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dateutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>WithinPastDays</h1>
+<p>Check whether two datetimes are only a number of days apart</p>
+<h2>Declaration</h2>
+<p>Source position: dateutil.inc line 246</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> WithinPastDays<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ANow<span class="sym">: </span><a href="../system/tdatetime.html">TDateTime</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AThen<span class="sym">: </span><a href="../system/tdatetime.html">TDateTime</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ADays<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ANow</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">First moment in time</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AThen</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Second moment in time</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADays</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of days to check</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p><var>True</var> if <var>ANow</var> and <var>Athen</var> are only <var>ADays</var> apart, <var>false</var> otherwise</p>
+<h2>Description</h2>
+<p><var>WithinPastDays</var> compares the timestamps <var>ANow</var> and <var>AThen</var>  and returns <var>True</var> if the difference between them is at most <var>ADays</var> days apart, or <var>False</var> if they are further apart. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>Since this function uses the <a href="../dateutils/daysbetween.html">DaysBetween</a> function to calculate the difference in days, this means that fractional days do not count, and the fractional part is simply dropped, so for two dates actually 2 and a half days apart, the result will also be <var>True</var></td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dateutils/withinpastyears.html">WithinPastYears</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether two datetimes are only a number of years apart</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/withinpastmonths.html">WithinPastMonths</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether two datetimes are only a number of months apart</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/withinpastweeks.html">WithinPastWeeks</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether two datetimes are only a number of weeks apart</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/withinpasthours.html">WithinPastHours</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether two datetimes are only a number of hours apart</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/withinpastminutes.html">WithinPastMinutes</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether two datetimes are only a number of minutes apart</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/withinpastseconds.html">WithinPastSeconds</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether two datetimes are only a number of seconds apart</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/withinpastmilliseconds.html">WithinPastMilliSeconds</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether two datetimes are only a number of milliseconds apart</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example50<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the WithinPastDays function }</span>
+
+<span class="kw">Uses</span> SysUtils<span class="sym">,</span>DateUtils<span class="sym">;</span>
+
+<span class="kw">Procedure</span> Test<span class="sym">(</span>ANow<span class="sym">,</span>AThen <span class="sym">:</span> TDateTime<span class="sym">;</span> ADays <span class="sym">:</span> Integer<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+ Write<span class="sym">(</span>DateTimeToStr<span class="sym">(</span>AThen<span class="sym">)</span><span class="sym">,</span><span class="str">' and '</span><span class="sym">,</span>DateTimeToStr<span class="sym">(</span>ANow<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+ Write<span class="sym">(</span><span class="str">' are within '</span><span class="sym">,</span>ADays<span class="sym">,</span><span class="str">' days: '</span><span class="sym">)</span><span class="sym">;</span>
+ Writeln<span class="sym">(</span>WithinPastDays<span class="sym">(</span>ANow<span class="sym">,</span>AThen<span class="sym">,</span>ADays<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  D1<span class="sym">,</span>D2 <span class="sym">:</span> TDateTime<span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  D1<span class="sym">:=</span>Now<span class="sym">;</span>
+  D2<span class="sym">:=</span>Today<span class="sym">-</span><span class="num">23</span><span class="sym">/</span><span class="num">24</span><span class="sym">;</span>
+  Test<span class="sym">(</span>D1<span class="sym">,</span>D2<span class="sym">,</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+  D2<span class="sym">:=</span>Today<span class="sym">-</span><span class="num">1</span><span class="sym">;</span>
+  Test<span class="sym">(</span>D1<span class="sym">,</span>D2<span class="sym">,</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+  D2<span class="sym">:=</span>Today<span class="sym">-</span><span class="num">25</span><span class="sym">/</span><span class="num">24</span><span class="sym">;</span>
+  Test<span class="sym">(</span>D1<span class="sym">,</span>D2<span class="sym">,</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+  D2<span class="sym">:=</span>Today<span class="sym">-</span><span class="num">26</span><span class="sym">/</span><span class="num">24</span><span class="sym">;</span>
+  Test<span class="sym">(</span>D1<span class="sym">,</span>D2<span class="sym">,</span><span class="num">5</span><span class="sym">)</span><span class="sym">;</span>
+  D2<span class="sym">:=</span>Today<span class="sym">-</span><span class="num">5</span><span class="sym">.</span><span class="num">4</span><span class="sym">;</span>
+  Test<span class="sym">(</span>D1<span class="sym">,</span>D2<span class="sym">,</span><span class="num">5</span><span class="sym">)</span><span class="sym">;</span>
+  D2<span class="sym">:=</span>Today<span class="sym">-</span><span class="num">2</span><span class="sym">.</span><span class="num">5</span><span class="sym">;</span>
+  Test<span class="sym">(</span>D1<span class="sym">,</span>D2<span class="sym">,</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+  Test<span class="sym">(</span>D1<span class="sym">,</span>D2<span class="sym">,</span><span class="num">2</span><span class="sym">)</span><span class="sym">;</span>
+  Test<span class="sym">(</span>D1<span class="sym">,</span>D2<span class="sym">,</span><span class="num">3</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

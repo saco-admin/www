@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TOption</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../getopts/index.html">Overview</a>][<a href="../getopts/index-2.html">Constants</a>][<a href="../getopts/index-3.html">Types</a>][<a href="../getopts/index-5.html">Procedures and functions</a>][<a href="../getopts/index-6.html">Variables</a>][<a href="../getopts/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'getopts' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TOption</h1>
+<p>Long option description record</p>
+<h2>Declaration</h2>
+<p>Source position: getopts.pp line 27</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TOption<span class="sym"> = </span><span class="kw">record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Name<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Long option name</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Has_arg<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Does the option have arguments (values)</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Flag<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Where to write <var>Value</var> if the option is found.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Value<span class="sym">: </span><a href="../system/char.html">Char</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value to return when option is encountered</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>The <var>TOption</var> type is used to communicate the long options to <a href="../getopts/getlongopts.html">GetLongOpts</a>. The <var>Name</var> field is the name of the option. <var>Has_arg</var> specifies if the option wants an argument, <var>Flag</var> is a pointer to a <var>char</var>, which is set to <var>Value</var>, if it is non-<var>nil</var>. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TryStrToInt64</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TryStrToInt64</h1>
+<p>Try to convert a string to an int64 value, and report on success.</p>
+<h2>Declaration</h2>
+<p>Source position: sysstrh.inc line 120</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> TryStrToInt64<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>s<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>i<span class="sym">: </span><a href="../system/int64.html">Int64</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TryStrToInt64</var> tries to convert the string <var>S</var> to a Int64 value, and returns this value in <var>I</var> if successful. If the conversion was succesful, the function result is <var>True</var>, or <var>False</var> otherwise. The string can only contain numerical characters, and optionally a minus sign as the first character. Whitespace is not allowed. </p>
+<p>Hexadecimal values (starting with the $ character) are supported. </p>
+<h2>Errors</h2>
+<p>None. On error, <var>False</var> is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/strtoint64.html">StrToInt64</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a string to an Int64 value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/strtoint64def.html">StrToInt64Def</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a string to an Int64 value, with a default value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/strtoint.html">StrToInt</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a string to an integer value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/trystrtoint.html">TryStrToInt</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Try to convert a string to an integer, and report on success.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/strtointdef.html">StrToIntDef</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Convert a string to an integer value, with a default value.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

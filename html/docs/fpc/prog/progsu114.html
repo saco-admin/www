@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$S : Stack checking</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 2313--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu115.html" >next</a>] [<a 
+href="progsu113.html" >prev</a>] [<a 
+href="progsu113.html#tailprogsu113.html" >prev-tail</a>] [<a 
+href="#tailprogsu114.html">tail</a>] [<a 
+href="progse3.html#progsu114.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.3.31   </span> <a 
+href="prog.html#QQ2-122-123" id="x122-1230001.3.31"><span 
+class="cmtt-10">$S </span>: Stack checking</a></h4>
+<!--l. 2315--><p class="noindent" >The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$S+</span><span 
+class="cmsy-10">} </span>directive tells the compiler to generate stack checking code. This generates code to
+check if a stack overflow occurred, i.e. to see whether the stack has grown beyond its maximally
+allowed size. If the stack grows beyond the maximum size, then a run-time error is generated, and
+the program will exit with exit code 202.
+<!--l. 2321--><p class="noindent" >Specifying <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$S-</span><span 
+class="cmsy-10">} </span>will turn generation of stack-checking code off.
+<!--l. 2323--><p class="noindent" >The command line compiler switch <span 
+class="cmtt-10">-Ct </span>has the same effect as the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$S+</span><span 
+class="cmsy-10">} </span>directive.
+<!--l. 2326--><p class="noindent" >By default, no stack checking is performed.
+<!--l. 2328--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Stack checking can only be used to provide help during debugging, to try and track routines that
+use an excessive amount of local memory. It is not intended and cannot be used to actually safely
+handle such errors. It does not matter whether the error handling is through exception handling or
+otherwise.
+<!--l. 2335--><p class="noindent" >When a stack error occurs, this is a fatal error and the application cannot be kept running
+correctly, neither in a production environment, nor under debugging.
+                                                                            
+
+                                                                            
+<!--l. 2340--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu115.html" >next</a>] [<a 
+href="progsu113.html" >prev</a>] [<a 
+href="progsu113.html#tailprogsu113.html" >prev-tail</a>] [<a 
+href="progsu114.html" >front</a>] [<a 
+href="progse3.html#progsu114.html" >up</a>] </p></div>
+<!--l. 2340--><p class="noindent" ><a 
+ id="tailprogsu114.html"></a>  
+</body></html> 

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDataSet.BeforePost</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDataSet.BeforePost</h1>
+<p>Event called before changes are posted to the underlying database</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1699</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../db/tdataset.html">TDataSet</a><span class="sym">.</span>BeforePost<span class="sym"> : </span><a href="../db/tdatasetnotifyevent.html">TDataSetNotifyEvent</a><br>&nbsp;&nbsp;<span class="kw">read </span>FBeforePost<br>&nbsp;&nbsp;<span class="kw">write </span>FBeforePost<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>BeforePost</var> is triggered at the start of the <a href="../db/tdataset.post.html">TDataset.Post</a> method,  when the datset is still in one of the edit states (<var>dsEdit</var>,<var>dsInsert</var>). If the dataset was not in an edit state when <var>Post</var> is called, the <var>BeforePost</var> event is not triggered. This event can be used to supply values for required fields that have no value yet (the <var>Post</var> operation performs the check on required fields only after this event), or it can be used to abort the post operation: if an exception is  raised during the <var>BeforePost</var> operation, the posting operation is cancelled, and the dataset remains in the  editing state it was in before the post operation. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdataset.post.html">TDataset.post</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Post pending edits to the database.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.afterpost.html">TDataset.AfterPost</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event called after changes have been posted to the underlying database</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.state.html">TDataset.State</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Current operational state of the dataset</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

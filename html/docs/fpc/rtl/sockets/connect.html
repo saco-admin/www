@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Connect</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sockets/index.html">Overview</a>][<a href="../sockets/index-2.html">Constants</a>][<a href="../sockets/index-3.html">Types</a>][<a href="../sockets/index-5.html">Procedures and functions</a>][<a href="../sockets/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Sockets' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Connect</h1>
+<p>Open a connection to a server socket (deprecated).</p>
+<h2>Declaration</h2>
+<p>Source position: socketsh.inc line 181</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> Connect<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Sock<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>addr<span class="sym">: </span><a href="../sockets/tinetsockaddr.html">TInetSockAddr</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>SockIn<span class="sym">: </span>text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>SockOut<span class="sym">: </span>text</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><br><br><span class="kw">function</span> Connect<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Sock<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>addr<span class="sym">: </span><a href="../sockets/tinetsockaddr.html">TInetSockAddr</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>SockIn<span class="sym">: </span>file<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>SockOut<span class="sym">: </span>file</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><br><br><span class="kw">function</span> Connect<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Sock<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>addr<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>SockIn<span class="sym">: </span>text<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>SockOut<span class="sym">: </span>text</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><br><br><span class="kw">function</span> Connect<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Sock<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>addr<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>SockIn<span class="sym">: </span>file<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>SockOut<span class="sym">: </span>file</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Connect</var> opens a connection to a peer, whose address is described by <var>Addr</var>. <var>AddrLen</var> contains the length of the address. The type of <var>Addr</var> depends on the kind of connection you're trying to make, but is generally one of <var>TSockAddr</var> or <var>TUnixSockAddr</var>. </p>
+<p>The forms of the <a href="../sockets/connect.html">Connect</a> command with the <var>Text</var> or <var>File</var> arguments are equivalent to subsequently calling the regular <var>Connect</var>  function and the  <a href="../sockets/sock2text.html">Sock2Text</a> or <a href="../sockets/sock2file.html">Sock2File</a> functions. These functions return <var>True</var> if successfull, <var>False</var> otherwise. </p>
+<p>The <var>Connect</var> function returns a file descriptor if the call was successfull, <var>-1</var> in case of error. </p>
+<h2>Errors</h2>
+<p>On error, <var>-1</var> is returned and errors are reported in  <var>SocketError</var>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sockets/fplisten.html">FPListen</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Listen for connections on a socket.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sockets/fpbind.html">FPBind</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Bind a socket to an address.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sockets/accept.html">Accept</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Accept a connection from a socket (deprecated).</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sockets/fpaccept.html">FPAccept</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Accept a connection from a socket.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Client<span class="sym">;</span>
+
+<span class="cmt">{</span>
+<span class="cmt">  Program to test Sockets unit by Michael van Canneyt and Peter Vreman</span>
+<span class="cmt">  Client Version, First Run sock_svr to let it create a socket and then</span>
+<span class="cmt">  sock_cli to connect to that socket</span>
+<span class="cmt">}</span>
+
+<span class="kw">uses</span> Sockets<span class="sym">;</span>
+
+<span class="kw">procedure</span> PError<span class="sym">(</span><span class="kw">const</span> S <span class="sym">:</span> string<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">begin</span>
+  writeln<span class="sym">(</span>S<span class="sym">,</span>SocketError<span class="sym">)</span><span class="sym">;</span>
+  halt<span class="sym">(</span><span class="num">100</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+
+<span class="kw">Var</span>
+  SAddr    <span class="sym">:</span> TInetSockAddr<span class="sym">;</span>
+  Buffer   <span class="sym">:</span> string <span class="sym">[</span><span class="num">255</span><span class="sym">]</span><span class="sym">;</span>
+  S        <span class="sym">:</span> Longint<span class="sym">;</span>
+  Sin<span class="sym">,</span>Sout <span class="sym">:</span> Text<span class="sym">;</span>
+  i        <span class="sym">:</span> integer<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  S<span class="sym">:=</span>fpSocket <span class="sym">(</span>AF_INET<span class="sym">,</span>SOCK_STREAM<span class="sym">,</span><span class="num">0</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> s<span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+   Perror<span class="sym">(</span><span class="str">'Client : Socket : '</span><span class="sym">)</span><span class="sym">;</span>
+  SAddr<span class="sym">.</span>sin_family<span class="sym">:=</span>AF_INET<span class="sym">;</span>
+  <span class="cmt">{ port 50000 in network order }</span>
+  SAddr<span class="sym">.</span>sin_port<span class="sym">:=</span>htons<span class="sym">(</span><span class="num">5000</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="cmt">{ localhost : 127.0.0.1 in network order }</span>
+  SAddr<span class="sym">.</span>sin_addr<span class="sym">.</span>s_addr<span class="sym">:=</span>HostToNet<span class="sym">(</span><span class="sym">(</span><span class="num">127</span> shl <span class="num">24</span><span class="sym">)</span> <span class="kw">or</span> <span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> <span class="kw">not</span> Connect <span class="sym">(</span>S<span class="sym">,</span>SAddr<span class="sym">,</span>Sin<span class="sym">,</span>Sout<span class="sym">)</span> <span class="kw">then</span>
+   PError<span class="sym">(</span><span class="str">'Client : Connect : '</span><span class="sym">)</span><span class="sym">;</span>
+  Reset<span class="sym">(</span>Sin<span class="sym">)</span><span class="sym">;</span>
+  ReWrite<span class="sym">(</span>Sout<span class="sym">)</span><span class="sym">;</span>
+  Buffer<span class="sym">:=</span><span class="str">'This is a textstring sent by the Client.'</span><span class="sym">;</span>
+  <span class="kw">for</span> i<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+    Writeln<span class="sym">(</span>Sout<span class="sym">,</span>Buffer<span class="sym">)</span><span class="sym">;</span>
+  Flush<span class="sym">(</span>Sout<span class="sym">)</span><span class="sym">;</span>
+  Readln<span class="sym">(</span>SIn<span class="sym">,</span>Buffer<span class="sym">)</span><span class="sym">;</span>
+  WriteLn<span class="sym">(</span>Buffer<span class="sym">)</span><span class="sym">;</span>
+  Close<span class="sym">(</span>sout<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<h2>Example</h2>
+<pre><span class="kw">program</span> pfinger<span class="sym">;</span>
+
+<span class="kw">uses</span> sockets<span class="sym">,</span>errors<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  Addr <span class="sym">:</span> TInetSockAddr<span class="sym">;</span>
+  S <span class="sym">:</span> Longint<span class="sym">;</span>
+  Sin<span class="sym">,</span>Sout <span class="sym">:</span> Text<span class="sym">;</span>
+  Line <span class="sym">:</span> string<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Addr<span class="sym">.</span>sin_family<span class="sym">:=</span>AF_INET<span class="sym">;</span>
+  <span class="cmt">{ port 79 in network order }</span>
+  Addr<span class="sym">.</span>sin_port<span class="sym">:=</span><span class="num">79</span> shl <span class="num">8</span><span class="sym">;</span>
+  <span class="cmt">{ localhost : 127.0.0.1 in network order }</span>
+  Addr<span class="sym">.</span>sin_addr<span class="sym">.</span>s_addr<span class="sym">:=</span><span class="sym">(</span><span class="sym">(</span><span class="num">1</span> shl <span class="num">24</span><span class="sym">)</span> <span class="kw">or</span> <span class="num">127</span><span class="sym">)</span><span class="sym">;</span>
+  S<span class="sym">:=</span>fpSocket<span class="sym">(</span>AF_INET<span class="sym">,</span>SOCK_STREAM<span class="sym">,</span><span class="num">0</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> <span class="kw">Not</span> Connect <span class="sym">(</span>S<span class="sym">,</span>ADDR<span class="sym">,</span>SIN<span class="sym">,</span>SOUT<span class="sym">)</span> <span class="kw">Then</span>
+    <span class="kw">begin</span>
+    Writeln <span class="sym">(</span><span class="str">'Couldn''t connect to localhost'</span><span class="sym">)</span><span class="sym">;</span>
+    Writeln <span class="sym">(</span><span class="str">'Socket error : '</span><span class="sym">,</span>strerror<span class="sym">(</span>SocketError<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+    halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  rewrite <span class="sym">(</span>sout<span class="sym">)</span><span class="sym">;</span>
+  reset<span class="sym">(</span>sin<span class="sym">)</span><span class="sym">;</span>
+  writeln <span class="sym">(</span>sout<span class="sym">,</span>paramstr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  flush<span class="sym">(</span>sout<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">while</span> <span class="kw">not</span> eof<span class="sym">(</span>sin<span class="sym">)</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    readln <span class="sym">(</span>Sin<span class="sym">,</span>line<span class="sym">)</span><span class="sym">;</span>
+    writeln <span class="sym">(</span>line<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  fpShutdown<span class="sym">(</span>s<span class="sym">,</span><span class="num">2</span><span class="sym">)</span><span class="sym">;</span>
+  close <span class="sym">(</span>sin<span class="sym">)</span><span class="sym">;</span>
+  close <span class="sym">(</span>sout<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

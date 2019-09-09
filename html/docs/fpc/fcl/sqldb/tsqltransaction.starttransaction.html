@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSQLTransaction.StartTransaction</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TSQLTransaction.StartTransaction</h1>
+<p>Start a new transaction</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 335</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../sqldb/tsqltransaction.html">TSQLTransaction</a><span class="sym">.</span>StartTransaction<span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>StartTransaction</var> starts a new transaction context. All changes written to the database must be confirmed with a <a href="../sqldb/tsqltransaction.commit.html">Commit</a> or can be undone with a <a href="../sqldb/tsqltransaction.rollback.html">Rollback</a> call. </p>
+<p>Calling <var>StartTransaction</var> is equivalent to setting <var>Active</var> to <var>True</var>. </p>
+<h2>Errors</h2>
+<p>If <var>StartTransaction</var> is called while the transaction is still active, an exception will be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqltransaction.starttransaction.html">StartTransaction</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Start a new transaction</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqltransaction.commit.html">Commit</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Commit the transaction, end transaction context.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqltransaction.rollback.html">Rollback</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Roll back all changes made in the current transaction.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqltransaction.commitretaining.html">CommitRetaining</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Commit the transaction, retain transaction context.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqltransaction.endtransaction.html">EndTransaction</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">End the transaction</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

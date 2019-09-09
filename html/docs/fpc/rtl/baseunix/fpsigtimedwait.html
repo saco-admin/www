@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpSigTimedWait</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpSigTimedWait</h1>
+<p>Wait for signal, with timeout</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 28</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpSigTimedWait<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>sigset<span class="sym">: </span><a href="../baseunix/tsigset.html">tsigset</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;info<span class="sym">: </span><a href="../baseunix/psiginfo.html">psiginfo</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;timeout<span class="sym">: </span><a href="../baseunix/ptimespec.html">ptimespec</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FpSigTimedWait</var> will suspend the current thread and wait for one of the signals in <var>sigset</var> to be delivered. information on the delivered signal is placed in the location provided by <var>info</var> (or in info itself, if the <var>Var</var> variant of the call is used). If the signal is not delivered within the time limit set in <var>timeout</var>, then the call will return -1, and <var>fpGetErrno</var> will return EAGAIN. </p>
+<p>On success, the signal number is returned. </p>
+<h2>Errors</h2>
+<p>On error, -1 is returned, and extended error information can be obtained with  <var>fpGetErrno</var>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpsigsuspend.html">FpSigSuspend</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set signal mask and suspend process till signal is received</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

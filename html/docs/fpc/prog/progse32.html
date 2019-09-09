@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Data formats</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 4906--><div class="crosslinks"><p class="noindent">[<a 
+href="progse33.html" >next</a>] [<a 
+href="progse31.html" >prev</a>] [<a 
+href="progse31.html#tailprogse31.html" >prev-tail</a>] [<a 
+href="#tailprogse32.html">tail</a>] [<a 
+href="progch8.html#progse32.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">8.2   </span> <a 
+href="prog.html#QQ2-198-211" id="x198-2030008.2">Data formats</a></h3>
+<!--l. 4909--><p class="noindent" >This section gives information on the storage space occupied by the different possible types in Free
+Pascal. Information on internal alignment will also be given.
+<!--l. 4913--><p class="noindent" >
+<div class="subsectionTOCS">
+&#x00A0;&#x00A0;<span class="subsectionToc" >8.2.1 <a 
+href="progsu155.html#x199-2040008.2.1">Integer types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >8.2.2 <a 
+href="progsu156.html#x200-2050008.2.2">Char types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >8.2.3 <a 
+href="progsu157.html#x201-2060008.2.3">Boolean types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >8.2.4 <a 
+href="progsu158.html#x202-2070008.2.4">Enumeration types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >8.2.5 <a 
+href="progsu159.html#x203-2080008.2.5">Floating point types</a></span>
+<br />&#x00A0;&#x00A0;&#x00A0;<span class="subsubsectionToc" ><a 
+href="progsu159.html#x203-2090008.2.5" id="QQ2-203-218">Single</a></span>
+<br />&#x00A0;&#x00A0;&#x00A0;<span class="subsubsectionToc" ><a 
+href="progsu159.html#x203-2100008.2.5" id="QQ2-203-220">Double</a></span>
+<br />&#x00A0;&#x00A0;&#x00A0;<span class="subsubsectionToc" ><a 
+href="progsu159.html#x203-2110008.2.5" id="QQ2-203-222">Extended</a></span>
+<br />&#x00A0;&#x00A0;&#x00A0;<span class="subsubsectionToc" ><a 
+href="progsu159.html#x203-2120008.2.5" id="QQ2-203-223">Comp</a></span>
+<br />&#x00A0;&#x00A0;&#x00A0;<span class="subsubsectionToc" ><a 
+href="progsu159.html#x203-2130008.2.5" id="QQ2-203-224">Real</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >8.2.6 <a 
+href="progsu160.html#x204-2140008.2.6">Pointer types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >8.2.7 <a 
+href="progsu161.html#x205-2150008.2.7">String types</a></span>
+<br />&#x00A0;&#x00A0;&#x00A0;<span class="subsubsectionToc" ><a 
+href="progsu161.html#x205-2160008.2.7" id="QQ2-205-228">Ansistring types</a></span>
+<br />&#x00A0;&#x00A0;&#x00A0;<span class="subsubsectionToc" ><a 
+href="progsu161.html#x205-2170008.2.7" id="QQ2-205-231">Shortstring types</a></span>
+<br />&#x00A0;&#x00A0;&#x00A0;<span class="subsubsectionToc" ><a 
+href="progsu161.html#x205-2180008.2.7" id="QQ2-205-232">Unicodestring types</a></span>
+<br />&#x00A0;&#x00A0;&#x00A0;<span class="subsubsectionToc" ><a 
+href="progsu161.html#x205-2190008.2.7" id="QQ2-205-235">Widestring types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >8.2.8 <a 
+href="progsu162.html#x206-2200008.2.8">Set types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >8.2.9 <a 
+href="progsu163.html#x207-2210008.2.9">Static array types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >8.2.10 <a 
+href="progsu164.html#x208-2220008.2.10">Dynamic array types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >8.2.11 <a 
+href="progsu165.html#x209-2230008.2.11">Record types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >8.2.12 <a 
+href="progsu166.html#x210-2240008.2.12">Object types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >8.2.13 <a 
+href="progsu167.html#x211-2250008.2.13">Class types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >8.2.14 <a 
+href="progsu168.html#x212-2260008.2.14">File types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >8.2.15 <a 
+href="progsu169.html#x213-2270008.2.15">Procedural types</a></span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                            
+
+                                                                            
+<div class="footnotes"></div> <!--l. 5367--><div class="crosslinks"><p class="noindent">[<a 
+href="progse33.html" >next</a>] [<a 
+href="progse31.html" >prev</a>] [<a 
+href="progse31.html#tailprogse31.html" >prev-tail</a>] [<a 
+href="progse32.html" >front</a>] [<a 
+href="progch8.html#progse32.html" >up</a>] </p></div>
+<!--l. 5367--><p class="noindent" ><a 
+ id="tailprogse32.html"></a>  
+</body></html> 

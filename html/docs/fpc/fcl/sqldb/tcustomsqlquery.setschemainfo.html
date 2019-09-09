@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TCustomSQLQuery.SetSchemaInfo</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TCustomSQLQuery.SetSchemaInfo</h1>
+<p>SetSchemaInfo prepares the dataset to retrieve schema info.</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 551</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../sqldb/tcustomsqlquery.html">TCustomSQLQuery</a><span class="sym">.</span>SetSchemaInfo<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ASchemaType<span class="sym">: </span><a href="../sqldb/tschematype.html">TSchemaType</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ASchemaObjectName<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ASchemaPattern<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ASchemaType</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Schema type to use</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ASchemaObjectName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Name of Object for which to return schema information.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ASchemaPattern</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Pattern for schema information</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>SetSchemaInfo</var> will prepare the dataset to retrieve schema information from the connection, and represents the schema info as a dataset. </p>
+<p><var>SetSchemaInfo</var> is used internally to prepare a query to retrieve schema information from a connection. It will store the 3 passed parameters, which are then used in the ParseSQL and Prepare stages to optimize the allocated resources. setting the schema type to anything other than <var>stNoSchema</var> will also set (or mimic) the SQL statement as soon as the query is prepared. For connection types that support this, the SQL statement is then set to whatever statement the database connection supports to retrieve schema information. </p>
+<p>This is used internally by <a href="../sqldb/tsqlconnection.gettablenames.html">TSQLConnection.GetTableNames</a> and <a href="../sqldb/tsqlconnection.getprocedurenames.html">TSQLConnection.GetProcedureNames</a> to get the necessary schema information from the database. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlconnection.gettablenames.html">TSQLConnection.GetTableNames</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get a list of the tables in the specified database</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlconnection.getprocedurenames.html">TSQLConnection.GetProcedureNames</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Gets a list of Stored Procedures in the Database</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/retrievingschemainformation.html">RetrievingSchemaInformation</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Retrieving Schema Information</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

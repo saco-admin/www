@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Macros</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 2619--><div class="crosslinks"><p class="noindent">[<a 
+href="progse6.html" >next</a>] [<a 
+href="progse4.html" >prev</a>] [<a 
+href="progse4.html#tailprogse4.html" >prev-tail</a>] [<a 
+href="#tailprogse5.html">tail</a>] [<a 
+href="progch2.html#progse5.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">2.2   </span> <a 
+href="prog.html#QQ2-137-138" id="x137-1380002.2">Macros</a></h3>
+<!--l. 2621--><p class="noindent" >Macros are very much like symbols or compile-time variables in their syntax, the difference is that
+macros have a value whereas a symbol simply is defined or is not defined. Furthermore, following
+the definition of a macro, any occurrence of the macro in the pascal source will be replaced with
+the value of the macro (much like the macro support in the C preprocessor). If macro support is
+required, the <span 
+class="cmtt-10">-Sm </span>command line switch must be used to switch it on, or the directive must be
+inserted:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-118">
+{$MACRO&#x00A0;ON}
+</div>
+<!--l. 2630--><p class="nopar" >otherwise macros will be regarded as a symbol.
+<!--l. 2633--><p class="noindent" >Defining a macro in a program is done in the same way as defining a symbol; in a <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$define</span><span 
+class="cmsy-10">} </span>preprocessor
+statement<span class="footnote-mark"><a 
+href="#fn1x3" id="fn1x3-bk"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x137-138001f1"></a>:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-119">
+{$define&#x00A0;ident:=expr}
+</div>
+<!--l. 2639--><p class="nopar" >If the compiler encounters <span 
+class="cmtt-10">ident </span>in the rest of the source file, it will be replaced immediately by
+<span 
+class="cmtt-10">expr</span>. This replacement works recursively, meaning that when the compiler expanded one macro, it
+will look at the resulting expression again to see if another replacement can be made. This means
+that care should be taken when using macros, because an infinite loop can occur in this
+manner.
+<!--l. 2647--><p class="noindent" >Here are two examples which illustrate the use of macros:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-120">
+{$define&#x00A0;sum:=a:=a+b;}
+&#x00A0;<br />...
+&#x00A0;<br />sum&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{&#x00A0;will&#x00A0;be&#x00A0;expanded&#x00A0;to&#x00A0;&#8217;a:=a+b;&#8217;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Note&#x00A0;the&#x00A0;absence&#x00A0;of&#x00A0;the&#x00A0;semicolon}
+&#x00A0;<br />...
+&#x00A0;<br />{$define&#x00A0;b:=100}
+&#x00A0;<br />sum&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{&#x00A0;Will&#x00A0;be&#x00A0;expanded&#x00A0;recursively&#x00A0;to&#x00A0;a:=a+100;&#x00A0;}
+&#x00A0;<br />...
+</div>
+<!--l. 2657--><p class="nopar" >The previous example could go wrong:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-121">
+{$define&#x00A0;sum:=a:=a+b;}
+&#x00A0;<br />...
+&#x00A0;<br />sum&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{&#x00A0;will&#x00A0;be&#x00A0;expanded&#x00A0;to&#x00A0;&#8217;a:=a+b;&#8217;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Note&#x00A0;the&#x00A0;absence&#x00A0;of&#x00A0;the&#x00A0;semicolon}
+&#x00A0;<br />...
+&#x00A0;<br />{$define&#x00A0;b=sum}&#x00A0;{&#x00A0;DON&#8217;T&#x00A0;do&#x00A0;this&#x00A0;!!!}
+&#x00A0;<br />sum&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{&#x00A0;Will&#x00A0;be&#x00A0;infinitely&#x00A0;recursively&#x00A0;expanded...&#x00A0;}
+&#x00A0;<br />...
+</div>
+<!--l. 2668--><p class="nopar" >On my system, the last example results in a heap error, causing the compiler to exit with a
+run-time error 203.
+<!--l. 2672--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Macros defined in the interface part of a unit are not available outside that unit! They can just be
+used as a notational convenience, or in conditional compiles.
+<!--l. 2677--><p class="noindent" >By default the compiler predefines three macros, containing the version number, the release
+number and the patch number. They are listed in table (<a 
+href="#x137-138002r1">2.1<!--tex4ht:ref: tab:DefMacros --></a>). <div class="table">
+                                                                            
+
+                                                                            
+<!--l. 2680--><p class="noindent" ><a 
+ id="x137-138002r1"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;2.1: </span><span  
+class="content">Predefined macros</span></div><!--tex4ht:label?: x137-138002r1 -->
+<div class="center" 
+>
+<!--l. 2680--><p class="noindent" >
+<div class="tabular"> <table id="TBL-2" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-2-1g"><col 
+id="TBL-2-1"><col 
+id="TBL-2-2"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-1-1"  
+class="td11">Symbol             </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-1-2"  
+class="td11">Contains                                             </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-2-1"  
+class="td11"><span 
+class="cmtt-10">FPC</span><span 
+class="cmtt-10">_FULLVERSION</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-2-2"  
+class="td11">An integer version number of the compiler.</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-3-1"  
+class="td11"><span 
+class="cmtt-10">FPC</span><span 
+class="cmtt-10">_VERSION    </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-3-2"  
+class="td11">The version number of the compiler.         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-1"  
+class="td11"><span 
+class="cmtt-10">FPC</span><span 
+class="cmtt-10">_RELEASE    </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-2"  
+class="td11">The release number of the compiler.         </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-1"  
+class="td11"><span 
+class="cmtt-10">FPC</span><span 
+class="cmtt-10">_PATCH      </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-2"  
+class="td11">The patch number of the compiler.           </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-6-1"  
+class="td11">               </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+<!--l. 2688--><p class="noindent" >The <span 
+class="cmtt-10">FPC</span><span 
+class="cmtt-10">_FULLVERSION </span>macro contains a version number which always uses 2 digits for the <span 
+class="cmtt-10">RELEASE</span>
+and <span 
+class="cmtt-10">PATCH </span>version numbers. This means that version 2.3.1 will result in <span 
+class="cmtt-10">FPC</span><span 
+class="cmtt-10">_FULLVERSION=20301</span>.
+This number makes it easier to determine minimum versions.
+<!--l. 2693--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Don&#8217;t forget that macro support isn&#8217;t on by default. It must be turned on with the <span 
+class="cmtt-10">-Sm </span>command
+line switch or using the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$MACRO ON</span><span 
+class="cmsy-10">} </span>directive.
+<!--l. 2699--><p class="noindent" >As of version 3.1.1, for embedded targets (such as AVR), the compiler defines several macros
+defining the memory layout of the target, they are listed in table (<a 
+href="#x137-138003r2">2.2<!--tex4ht:ref: tab:embeddedmacros --></a>). These macros are integer
+values and can be used in code and in $IF statements. <div class="table">
+                                                                            
+
+                                                                            
+<!--l. 2703--><p class="noindent" ><a 
+ id="x137-138003r2"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;2.2: </span><span  
+class="content">Emmbedded target memory layout</span></div><!--tex4ht:label?: x137-138003r2 -->
+<div class="center" 
+>
+<!--l. 2703--><p class="noindent" >
+<div class="tabular"> <table id="TBL-3" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-3-1g"><col 
+id="TBL-3-1"><col 
+id="TBL-3-2"></colgroup><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-1-1"  
+class="td11">Symbol           </td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-1-2"  
+class="td11">Contains                                   </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-2-1"  
+class="td11"><span 
+class="cmtt-10">FPC</span><span 
+class="cmtt-10">_FLASHBASE </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-2-2"  
+class="td11">Base address of flash memory.       </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-3-1"  
+class="td11"><span 
+class="cmtt-10">FPC</span><span 
+class="cmtt-10">_FLASHSIZE </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-3-2"  
+class="td11">Size of flash memory.                   </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-4-1"  
+class="td11"><span 
+class="cmtt-10">FPC</span><span 
+class="cmtt-10">_RAMBASE   </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-4-2"  
+class="td11">Base address of RAM memory.      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-5-1"  
+class="td11"><span 
+class="cmtt-10">FPC</span><span 
+class="cmtt-10">_RAMSIZE   </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-5-2"  
+class="td11">Size of RAM memory.                  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-6-1"  
+class="td11"><span 
+class="cmtt-10">FPC</span><span 
+class="cmtt-10">_BOOTBASE  </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-6-2"  
+class="td11">Base address of boot memory.       </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-7-1"  
+class="td11"><span 
+class="cmtt-10">FPC</span><span 
+class="cmtt-10">_BOOTSIZE  </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-7-2"  
+class="td11">Size of boot memory.                   </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-8-1"  
+class="td11"><span 
+class="cmtt-10">FPC</span><span 
+class="cmtt-10">_EEPROMBASE</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-8-2"  
+class="td11">Base address of EEPROM memory.</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-9-1"  
+class="td11"><span 
+class="cmtt-10">FPC</span><span 
+class="cmtt-10">_EEPROMSIZE</span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-3-9-2"  
+class="td11">Size of EEPROM memory.            </td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-10-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-10-1"  
+class="td11">              </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+                                                                            
+
+                                                                            
+<div class="footnotes"><!--l. 2636--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn1x3-bk" id="fn1x3"><sup class="textsuperscript">1</sup></a></span><span 
+class="cmr-8">In compiler versions older than 0.9.8, the assignment operator for a macros wasn&#8217;t </span><span 
+class="cmtt-8">:= </span><span 
+class="cmr-8">but </span><span 
+class="cmtt-8">=</span>        </div> <!--l. 2717--><div class="crosslinks"><p class="noindent">[<a 
+href="progse6.html" >next</a>]
+[<a 
+href="progse4.html" >prev</a>] [<a 
+href="progse4.html#tailprogse4.html" >prev-tail</a>] [<a 
+href="progse5.html" >front</a>] [<a 
+href="progch2.html#progse5.html" >up</a>] </p></div>
+<!--l. 2717--><p class="noindent" ><a 
+ id="tailprogse5.html"></a>  
+</body></html> 

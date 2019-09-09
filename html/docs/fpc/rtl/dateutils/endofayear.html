@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>EndOfAYear</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dateutils/index.html">Overview</a>][<a href="../dateutils/index-2.html">Constants</a>][<a href="../dateutils/index-5.html">Procedures and functions</a>][<a href="../dateutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dateutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>EndOfAYear</h1>
+<p>Calculate a DateTime value representing the last day of a year</p>
+<h2>Declaration</h2>
+<p>Source position: dateutil.inc line 137</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> EndOfAYear<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AYear<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/tdatetime.html">TDateTime</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AYear</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Year to calculate last day from</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>DateTime representing the last day of <var>AYear</var>.</p>
+<h2>Description</h2>
+<p><var>StartOfAYear</var>  returns a <var>TDateTime</var> value with the date of the last day of the year <var>AYear</var> (December 31). </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dateutils/startoftheyear.html">StartOfTheYear</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the first day of the year, given a date in this year.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/endoftheyear.html">EndOfTheYear</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate a DateTime value representing the last day of a year, given a date in that year.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/endofayear.html">EndOfAYear</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate a DateTime value representing the last day of a year</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/endofthemonth.html">EndOfTheMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate a DateTime value representing the last day of the month, given a day in that month.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/endofamonth.html">EndOfAMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate a datetime value representing the last day of the indicated month</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/startofaweek.html">StartOfAWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return a day of the week, given a year, week and day in the week.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/startoftheweek.html">StartOfTheWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the first day of the week, given a date.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example27<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the EndOfAYear function }</span>
+
+<span class="kw">Uses</span> SysUtils<span class="sym">,</span>DateUtils<span class="sym">;</span>
+
+<span class="kw">Const</span>
+  Fmt <span class="sym">=</span> <span class="str">'"Last day of this year : "dd mmmm yyyy'</span><span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  Writeln<span class="sym">(</span>FormatDateTime<span class="sym">(</span>Fmt<span class="sym">,</span>EndOfAYear<span class="sym">(</span>YearOf<span class="sym">(</span>Today<span class="sym">)</span><span class="sym">)</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

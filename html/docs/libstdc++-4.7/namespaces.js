@@ -1,0 +1,28 @@
+var namespaces =
+[
+    [ "__gnu_cxx", "a01563.html", "a01563" ],
+    [ "__gnu_cxx::__detail", "a01564.html", "a01564" ],
+    [ "__gnu_cxx::typelist", "a01565.html", "a01565" ],
+    [ "__gnu_debug", "a01567.html", "a01567" ],
+    [ "__gnu_internal", "a01568.html", null ],
+    [ "__gnu_parallel", "a01569.html", "a01569" ],
+    [ "__gnu_pbds", "a01570.html", "a01570" ],
+    [ "__gnu_profile", "a01572.html", "a01572" ],
+    [ "__gnu_sequential", "a01573.html", null ],
+    [ "abi", "a01574.html", null ],
+    [ "std", "a01576.html", "a01576" ],
+    [ "std::__debug", "a01578.html", "a01578" ],
+    [ "std::__detail", "a01579.html", "a01579" ],
+    [ "std::__parallel", "a01581.html", "a01581" ],
+    [ "std::__profile", "a01582.html", "a01582" ],
+    [ "std::chrono", "a01584.html", "a01584" ],
+    [ "std::decimal", "a01585.html", "a01585" ],
+    [ "std::placeholders", "a01586.html", "a01586" ],
+    [ "std::regex_constants", "a01587.html", "a01587" ],
+    [ "std::rel_ops", "a01588.html", "a01588" ],
+    [ "std::this_thread", "a01589.html", "a01589" ],
+    [ "std::tr1", "a01590.html", "a01590" ],
+    [ "std::tr1::__detail", "a01591.html", null ],
+    [ "std::tr2", "a01592.html", "a01592" ],
+    [ "std::tr2::__detail", "a01593.html", "a01593" ]
+];

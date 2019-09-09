@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStream.Write</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TStream.Write</h1>
+<p>Writes data from a buffer to the stream and returns the number of bytes written.</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 869</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../classes/tstream.html">TStream</a><span class="sym">.</span>Write<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Buffer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Count<span class="sym">: </span><a href="../system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/longint.html">LongInt</a><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Write</var> attempts to write <var>Count</var> bytes from <var>Buffer</var> to the stream. It returns the actual number of bytes written to the stream. </p>
+<p>This method should be used when the number of bytes that should be written is not determined. If a specific number of bytes should be  written, use <a href="../classes/tstream.writebuffer.html">TSTream.WriteBuffer</a> instead.  </p>
+<p>As implemented in <var>TStream</var>, <var>Write</var> does nothing but raises <a href="../classes/estreamerror.html">EStreamError</a> exception to indicate that writing is not supported. Descendant classes that allow writing must override this method to do the actual writing. </p>
+<p>Descendant classes should (if they don't explicitly raise an exception) return a positive value (&gt;=0), where zero indicates an error. </p>
+<h2>Errors</h2>
+<p>In case a descendant class does not allow writing to the stream, an exception is raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/tstream.read.html">TStream.Read</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reads data from the stream to a buffer and returns the number of bytes read.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstream.writebuffer.html">TStream.WriteBuffer</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Writes data from a buffer to the stream</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

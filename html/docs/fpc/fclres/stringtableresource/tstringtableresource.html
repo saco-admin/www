@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStringTableResource</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../stringtableresource/index.html">Overview</a>][<a href="../stringtableresource/index-1.html">Resource strings</a>][<a href="../stringtableresource/index-4.html">Classes</a>][<a href="../stringtableresource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'stringtableresource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TStringTableResource</h1>
+<p>[<a href="../stringtableresource/tstringtableresource-1.html" onClick="window.open('../stringtableresource/tstringtableresource-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../stringtableresource/tstringtableresource-2.html" onClick="window.open('../stringtableresource/tstringtableresource-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../stringtableresource/tstringtableresource-3.html" onClick="window.open('../stringtableresource/tstringtableresource-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../stringtableresource/tstringtableresource-4.html" onClick="window.open('../stringtableresource/tstringtableresource-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../stringtableresource/tstringtableresource-5.html" onClick="window.open('../stringtableresource/tstringtableresource-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../stringtableresource/tstringtableresource-6.html" onClick="window.open('../stringtableresource/tstringtableresource-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>String table resource type</p>
+<h2>Declaration</h2>
+<p>Source position: stringtableresource.pp line 39</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TStringTableResource <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../resource/tabstractresource.html">TAbstractResource</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">protected</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresource.gettype.html">GetType</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresource.getname.html">GetName</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresource.changedesctypeallowed.html">ChangeDescTypeAllowed</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resource/tabstractresource.changedescvalueallowed.html">ChangeDescValueAllowed</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resource/tabstractresource.notifyresourcesloaded.html">NotifyResourcesLoaded</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../stringtableresource/tstringtableresource.create.html">Create</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a new string table resource</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../resource/tabstractresource.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resource/tabstractresource.updaterawdata.html">UpdateRawData</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../stringtableresource/tstringtableresource.firstid.html">FirstID</a><span class="sym">: </span><a href="../../rtl/system/word.html">Word</a><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The ID of first the string contained in the string table</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../stringtableresource/tstringtableresource.lastid.html">LastID</a><span class="sym">: </span><a href="../../rtl/system/word.html">Word</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The ID of the last string contained in the string table</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../stringtableresource/tstringtableresource.count.html">Count</a><span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The number of strings contained in the string table</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../stringtableresource/tstringtableresource.strings.html">Strings</a> []<span class="sym">: </span>string<span class="sym">;</span><span class="kw"> default</span><span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed array of strings in the string table</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../stringtableresource/tstringtableresource.html">TStringTableResource</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">String table resource type</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../resource/tabstractresource.html">TAbstractResource</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base abstract resource class</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TObject</span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This class represents a resource of type <a href="../resource/rt_string.html">RT_STRING</a>.</p>
+<p>A string table is a resource containing strings, identified by an integer id in the range 0-65535. A string table contains exactly 16 strings, and its name is an ID in the range 1-4096, determined by the highest 12 bits of the strings ID it contains, plus one. That is, a string table with 1 as name holds strings with IDs from 0 to 15, string table 2 contains strings with IDs from 16 to 31 and so on. There is no difference between an empty string and a non-existant string.</p>
+<p>For these reasons, it is not possible to set the name of a string table: it is autogenerated from the value of <a href="../stringtableresource/tstringtableresource.firstid.html">FirstID</a> property. Moreover, <a href="../stringtableresource/tstringtableresource.count.html">Count</a> property is always 16.</p>
+<p><a href="../stringtableresource/tstringtableresource.strings.html">Strings</a> property is provided to access and modify individual strings.</p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>This class doesn't allow its type to be changed to anything else than <a href="../resource/rt_bitmap.html">RT_BITMAP</a>. Its name can't be changed too. Attempts to do so result in a <a href="../resource/eresourcedescchangenotallowedexception.html">EResourceDescChangeNotAllowedException</a>.</td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

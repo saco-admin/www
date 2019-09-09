@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFPSList.Move</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../fgl/index.html">Overview</a>][<a href="../fgl/index-2.html">Constants</a>][<a href="../fgl/index-3.html">Types</a>][<a href="../fgl/index-4.html">Classes</a>][<a href="../fgl/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'fgl' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TFPSList.Move</h1>
+<p>Moves an item from one position in the list to another. </p>
+<h2>Declaration</h2>
+<p>Source position: fgl.pp line 81</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../fgl/tfpslist.html">TFPSList</a><span class="sym">.</span>Move<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;CurIndex<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;NewIndex<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">CurIndex</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Item's current position in the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">NewIndex</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Items new position in the list.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Move</var> moves the item at position <var>CurIndex</var> to position <var>NewIndex</var>. This is done by storing the value  at position <var>CurIndex</var>, deleting the pointer at position <var>CurIndex</var>, and reinserting the value at position <var>NewIndex</var></p>
+<h2>Errors</h2>
+<p>If <var>CurIndex</var> or <var>Newindex</var> are not inside the valid range of indices, an <a href="../fgl/elisterror.html">EListError</a> exception is raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../fgl/tfpslist.exchange.html">Exchange</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Exchange two items in the list</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

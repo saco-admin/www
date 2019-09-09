@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>global_dos_alloc</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../go32/index.html">Overview</a>][<a href="../go32/index-2.html">Constants</a>][<a href="../go32/index-3.html">Types</a>][<a href="../go32/index-5.html">Procedures and functions</a>][<a href="../go32/index-6.html">Variables</a>][<a href="../go32/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'go32' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>global_dos_alloc</h1>
+<p>Allocate DOS real mode memory</p>
+<h2>Declaration</h2>
+<p>Source position: go32.pp line 108</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> global_dos_alloc<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;bytes<span class="sym">: </span><a href="../system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Allocates a block of dos real mode memory. </p>
+<p>Parameters:  </p>
+<dl>
+<dt>bytes</dt>
+<dd>size of requested real mode memory.</dd>
+</dl>
+<p>Return values: The low word of the returned value contains the selector to the allocated dos memory block, the high word the corresponding real mode segment value. The offset value is always zero. This function allocates memory from dos memory pool, i.e. memory below the 1 MB boundary that is controlled by dos. Such memory blocks are typically used to exchange data with real mode programs, TSRs, or device drivers. The function returns both the real mode segment base address of the block and one descriptor that can be used by protected mode applications to access the block. This function should only used for temporary buffers to get real mode information (e.g. interrupts that need a data structure in ES:(E)DI), because every single block needs an unique selector. The returned selector should only be freed by a <a href="../go32/global_dos_free.html">global_dos_free</a>  call. </p>
+<h2>Errors</h2>
+<p>Check the <a href="../go32/int31error.html">int31error</a> variable. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../go32/global_dos_free.html">global_dos_free</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Free DOS memory block</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="cmt">{ This program demonstrates the usage of DOS real mode memory by</span>
+<span class="cmt">executing a software interrupt which needs a buffer to store data</span>
+<span class="cmt">into. Because these interrupts are real mode funcs, the buffer must</span>
+<span class="cmt">be located in real mode memory space (first MB of memory). Such</span>
+<span class="cmt">memory can only be allocated by the global_dos_alloc() and</span>
+<span class="cmt">global_dos_free() functions of the GO32 unit.</span>
+<span class="cmt"></span>
+<span class="cmt">In more detail this program tries to detect a VESA 2.0 BIOS</span>
+<span class="cmt">extension of your graphics card and outputs its version.</span>
+<span class="cmt"></span>
+<span class="cmt">Here's the necessary interrupt call description:</span>
+<span class="cmt"></span>
+<span class="cmt">  Int 10h 4f00h : VESA BIOS extension installation check</span>
+<span class="cmt">  Input : AX = 4F00h</span>
+<span class="cmt">          ES:DI = pointer to 512 byte information buffer</span>
+<span class="cmt">  Output : AX = 004Fh if successful</span>
+<span class="cmt">           ES:DI = pointer to filled buffer</span>
+<span class="cmt"></span>
+<span class="cmt">  Buffer structure : (relevant to this example)</span>
+<span class="cmt"></span>
+<span class="cmt">           must be 'VESA' in the first 4 chars of the buffer to be</span>
+<span class="cmt">           valid VBE version in the next word</span>
+<span class="cmt"></span>
+<span class="cmt">  Note : to request VBE 2.0 information, the first 4 bytes of the</span>
+<span class="cmt">        buffer must contain 'VBE2' prior to the interrupt call.</span>
+<span class="cmt"></span>
+<span class="cmt">        (this makes the problem a bit tougher; we first have to copy the</span>
+<span class="cmt">        buffer with the 'VBE2' id to dos memory...)</span>
+<span class="cmt">}</span>
+
+<span class="kw">uses</span>
+        go32<span class="sym">;</span>
+
+<span class="cmt">{The following 2 functions are wrappers to the GO32</span>
+<span class="cmt">global_dos_alloc() and global_dos_free() functions to simplify their</span>
+<span class="cmt">usage }</span>
+
+<span class="cmt">{ Function : dosalloc }</span>
+<span class="cmt">{ Input    : size of a real mode location }</span>
+<span class="cmt">{ Output   : selector and segment of a real mode location }</span>
+<span class="kw">procedure</span> dosalloc<span class="sym">(</span><span class="kw">var</span> selector <span class="sym">:</span> word<span class="sym">;</span>
+        <span class="kw">var</span> segment <span class="sym">:</span> word<span class="sym">;</span> size <span class="sym">:</span> longint<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">var</span>
+        res <span class="sym">:</span> longint<span class="sym">;</span>
+<span class="kw">begin</span>
+        <span class="cmt">{ try to allocate real mode memory  }</span>
+        res <span class="sym">:=</span> global_dos_alloc<span class="sym">(</span>size<span class="sym">)</span><span class="sym">;</span>
+        <span class="cmt">{ the lower 16 bits of the result contain the selector to the</span>
+<span class="cmt">        allocated memory block }</span>
+        selector <span class="sym">:=</span> word<span class="sym">(</span>res<span class="sym">)</span><span class="sym">;</span>
+        <span class="cmt">{ the upper 16 bits contain the real mode segment address of</span>
+<span class="cmt">        this block; the offset is always 0, so we don't need to return</span>
+<span class="cmt">        this }</span>
+        segment <span class="sym">:=</span> word<span class="sym">(</span>res shr <span class="num">16</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="cmt">{ Function    : dosfree }</span>
+<span class="cmt">{ Input       : selector of a real mode block }</span>
+<span class="cmt">{ Output      : none }</span>
+<span class="cmt">{ Description : de-allocates a previously allocated real mode</span>
+<span class="cmt">memory}</span>
+<span class="kw">procedure</span> dosfree<span class="sym">(</span>selector <span class="sym">:</span> word<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">begin</span>
+        <span class="cmt">{ call the GO32 function with the selector }</span>
+        global_dos_free<span class="sym">(</span>selector<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">type</span>
+        VBEInfoBuf <span class="sym">=</span> <span class="kw">packed</span> <span class="kw">record</span>
+                <span class="cmt">{ contains 'VESA' if successful }</span>
+                Signature <span class="sym">:</span> <span class="kw">array</span><span class="sym">[</span><span class="num">0</span><span class="sym">.</span><span class="sym">.</span><span class="num">3</span><span class="sym">]</span> <span class="kw">of</span> char<span class="sym">;</span>
+                Version <span class="sym">:</span> Word<span class="sym">;</span>
+                <span class="cmt">{ pad to 512 bytes length }</span>
+                reserved <span class="sym">:</span> <span class="kw">array</span><span class="sym">[</span><span class="num">0</span><span class="sym">.</span><span class="sym">.</span><span class="num">505</span><span class="sym">]</span> <span class="kw">of</span> byte<span class="sym">;</span>
+        <span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">var</span>
+        <span class="cmt">{ selector to our real mode buffer }</span>
+        selector<span class="sym">,</span>
+        <span class="cmt">{ real mode segment address of buffer }</span>
+        segment <span class="sym">:</span> Word<span class="sym">;</span>
+
+        <span class="cmt">{ register structure to issue a software interrupt }</span>
+        r <span class="sym">:</span> trealregs<span class="sym">;</span>
+        infobuf <span class="sym">:</span> VBEInfoBuf<span class="sym">;</span>
+
+<span class="kw">begin</span>
+        <span class="cmt">{ first we reset the registers and infobuf variable }</span>
+        fillchar<span class="sym">(</span>r<span class="sym">,</span> sizeof<span class="sym">(</span>r<span class="sym">)</span><span class="sym">,</span> <span class="num">0</span><span class="sym">)</span><span class="sym">;</span>
+        fillchar<span class="sym">(</span>infobuf<span class="sym">,</span> sizeof<span class="sym">(</span>VBEInfoBuf<span class="sym">)</span><span class="sym">,</span> <span class="num">0</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="cmt">{ allocate real mode memory }</span>
+        dosalloc<span class="sym">(</span>selector<span class="sym">,</span> segment<span class="sym">,</span> sizeof<span class="sym">(</span>VBEInfoBuf<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="cmt">{ check if an error occurred during allocation }</span>
+        <span class="kw">if</span> <span class="sym">(</span>int31error<span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span><span class="sym">)</span> <span class="kw">then</span> <span class="kw">begin</span>
+                Writeln<span class="sym">(</span><span class="str">'Error while allocating real mode memory, halting'</span><span class="sym">)</span><span class="sym">;</span>
+                halt<span class="sym">;</span>
+        <span class="kw">end</span><span class="sym">;</span>
+        <span class="cmt">{ request VBE 2.0 information, fill out information buffer }</span>
+        infobuf<span class="sym">.</span>Signature <span class="sym">:=</span> <span class="str">'VBE2'</span><span class="sym">;</span>
+        <span class="cmt">{ copy buffer to the allocated real mode memory }</span>
+        dosmemput<span class="sym">(</span>segment<span class="sym">,</span> <span class="num">0</span><span class="sym">,</span> infobuf<span class="sym">,</span> sizeof<span class="sym">(</span>infobuf<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="cmt">{ issue the interrupt; remember : DI = 0 }</span>
+        r<span class="sym">.</span>ax <span class="sym">:=</span> <span class="num">$4f00</span><span class="sym">;</span> r<span class="sym">.</span>es <span class="sym">:=</span> segment<span class="sym">;</span>
+        realintr<span class="sym">(</span><span class="num">$10</span><span class="sym">,</span> r<span class="sym">)</span><span class="sym">;</span>
+        <span class="cmt">{ copy buffer to our infobuf variable again }</span>
+        dosmemget<span class="sym">(</span>segment<span class="sym">,</span> <span class="num">0</span><span class="sym">,</span> infobuf<span class="sym">,</span> sizeof<span class="sym">(</span>infobuf<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="cmt">{ free allocated real mode memory, because we don't need it</span>
+<span class="cmt">        anymore }</span>
+        dosfree<span class="sym">(</span>selector<span class="sym">)</span><span class="sym">;</span>
+        <span class="cmt">{ check if interrupt call was successful }</span>
+        <span class="kw">if</span> <span class="sym">(</span>r<span class="sym">.</span>ax <span class="sym">&lt;</span><span class="sym">&gt;</span> <span class="num">$4f</span><span class="sym">)</span> <span class="kw">then</span> <span class="kw">begin</span>
+                <span class="cmt">{ write message and exit, because the infobuf doesn't contain</span>
+<span class="cmt">                any useful data we could tell the user }</span>
+                Writeln<span class="sym">(</span><span class="str">'VBE BIOS extension not available, function call '</span><span class="sym">,</span>
+                        <span class="str">'failed'</span><span class="sym">)</span><span class="sym">;</span>
+                halt<span class="sym">;</span>
+        <span class="kw">end</span><span class="sym">;</span>
+        <span class="cmt">{ check if buffer is valid }</span>
+        <span class="kw">if</span> <span class="sym">(</span>infobuf<span class="sym">.</span>signature<span class="sym">[</span><span class="num">0</span><span class="sym">]</span> <span class="sym">=</span> <span class="chr">'V'</span><span class="sym">)</span> <span class="kw">and</span>
+                <span class="sym">(</span>infobuf<span class="sym">.</span>signature<span class="sym">[</span><span class="num">1</span><span class="sym">]</span> <span class="sym">=</span> <span class="chr">'E'</span><span class="sym">)</span> <span class="kw">and</span>
+                <span class="sym">(</span>infobuf<span class="sym">.</span>signature<span class="sym">[</span><span class="num">2</span><span class="sym">]</span> <span class="sym">=</span> <span class="chr">'S'</span><span class="sym">)</span> <span class="kw">and</span>
+                <span class="sym">(</span>infobuf<span class="sym">.</span>signature<span class="sym">[</span><span class="num">3</span><span class="sym">]</span> <span class="sym">=</span> <span class="chr">'A'</span><span class="sym">)</span> <span class="kw">then</span> <span class="kw">begin</span>
+                Writeln<span class="sym">(</span><span class="str">'VBE version '</span><span class="sym">,</span> hi<span class="sym">(</span>infobuf<span class="sym">.</span>version<span class="sym">)</span><span class="sym">,</span> <span class="chr">'.'</span><span class="sym">,</span>
+                        lo<span class="sym">(</span>infobuf<span class="sym">.</span>version<span class="sym">)</span><span class="sym">,</span> <span class="str">' detected'</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

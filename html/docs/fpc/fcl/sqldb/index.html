@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Reference for unit 'sqldb'</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[Overview][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>Reference for unit 'sqldb'</h1>
+<p>A set of classes for connecting to SQL databases and running SQL commands on them. </p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">uses</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../../rtl/system/index.html">System</a><span class="sym">,</span>  </span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../../rtl/sysutils/index.html">sysutils</a><span class="sym">,</span>  </span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../../rtl/classes/index.html">Classes</a><span class="sym">,</span>  </span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../db/index.html">db</a><span class="sym">,</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Database access layer</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;bufdataset<span class="sym">,</span>  </span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;sqlscript<span class="sym">,</span>  </span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../sqltypes/index.html">sqltypes</a><span class="sym">;</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Types used in various SQL related units</p></td>
+</tr>
+</table>
+<h2>Overview</h2>
+<p>The SQLDB unit defines four main classes to handle data in SQL based databases. </p>
+<ol>
+<li><a href="../sqldb/tsqlconnection.html">TSQLConnection</a> represents the connection to the database. Here, properties pertaining to the connection (machine, database, user password) must be set. This is an abstract class, which should not be used directly. Per database type (mysql, firebird, postgres, oracle, sqlite) a descendent should be made and used.</li>
+<li><a href="../sqldb/tsqlquery.html">TSQLQuery</a> is a <a href="../db/tdataset.html">#fcl.db.TDataset</a> descendent which can be used to view and manipulate the result of an SQL select query. It can also be used to execute all kinds of SQL statements.</li>
+<li><a href="../sqldb/tsqltransaction.html">TSQLTransaction</a> represents the transaction in which an SQL command is running. SQLDB supports multiple simultaneous transactions in a database connection. For databases that do not support this functionality natively, it is simulated by maintaining multiple connections to the database. </li>
+<li><a href="../sqldb/tsqlscript.html">TSQLScript</a> can be used when many SQL commands must be executed on a database, for example when creating a database. </li>
+</ol>
+<p>There is also a unified way to retrieve schema information, and a registration for connector types. More information on how to use these components can be found in <a href="../sqldb/usingsqldb.html">UsingSQLDB</a>. </p>
+<h2>Related topics</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../sqldb/usingsqldb.html">UsingSQLDB</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Using SQLDB to access databases</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../sqldb/universalconnectors.html">UniversalConnectors</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Using the universal TSQLConnector type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../sqldb/retrievingschemainformation.html">RetrievingSchemaInformation</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Retrieving Schema Information</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../sqldb/updatesqls.html">UpdateSQLs</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Automatic generation of update SQL statements</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../sqldb/usingparams.html">UsingParams</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Using parameters</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

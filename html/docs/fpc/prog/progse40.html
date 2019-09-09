@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Updating the string tables</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 6002--><div class="crosslinks"><p class="noindent">[<a 
+href="progse41.html" >next</a>] [<a 
+href="progse39.html" >prev</a>] [<a 
+href="progse39.html#tailprogse39.html" >prev-tail</a>] [<a 
+href="#tailprogse40.html">tail</a>] [<a 
+href="progch9.html#progse40.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">9.3   </span> <a 
+href="prog.html#QQ2-228-264" id="x228-2420009.3">Updating the string tables</a></h3>
+<!--l. 6003--><p class="noindent" >Having compiled a program with resourcestrings is not enough to internationalize your program.
+At run-time, the program must initialize the string tables with the correct values for the language
+that the user selected. By default no such initialization is performed. All strings are initialized with
+their declared values.
+<!--l. 6009--><p class="noindent" >The <span 
+class="cmss-10">objpas </span>unit provides the mechanism to correctly initialize the string tables. There is no need to
+include this unit in a <span 
+class="cmtt-10">uses </span>clause, since it is automatically loaded when a program or unit is
+compiled in <span 
+class="cmtt-10">Delphi </span>or <span 
+class="cmtt-10">objfpc </span>mode. Since one of these mode is required to use resource strings,
+the unit is always loaded when needed anyway.
+<!--l. 6016--><p class="noindent" >The resource strings are stored in tables, one per unit, and one for the program, if it contains a
+<span 
+class="cmtt-10">resourcestring </span>section as well. Each resourcestring is stored with its name, hash value, default
+value, and the current value, all as <span 
+class="cmtt-10">AnsiStrings</span>.
+<!--l. 6021--><p class="noindent" >The objpas unit offers methods to retrieve the number of resourcestring tables, the number of
+strings per table, and the above information for each string. It also offers a method to set the
+current value of the strings.
+<!--l. 6025--><p class="noindent" >Here are the declarations of all the functions:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-226">
+Function&#x00A0;ResourceStringTableCount&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />Function&#x00A0;ResourceStringCount(TableIndex:&#x00A0;longint):&#x00A0;longint;
+&#x00A0;<br />Function&#x00A0;GetResourceStringName(TableIndex,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;StringIndex:&#x00A0;Longint):&#x00A0;Ansistring;
+&#x00A0;<br />Function&#x00A0;GetResourceStringHash(TableIndex,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;StringIndex:&#x00A0;Longint):&#x00A0;Longint;
+&#x00A0;<br />Function&#x00A0;GetResourceStringDefaultValue(TableIndex,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;StringIndex:&#x00A0;Longint):&#x00A0;AnsiString;
+&#x00A0;<br />Function&#x00A0;GetResourceStringCurrentValue(TableIndex,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;StringIndex:&#x00A0;Longint):&#x00A0;AnsiString;
+&#x00A0;<br />Function&#x00A0;SetResourceStringValue(TableIndex,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;StringIndex&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Value:&#x00A0;Ansistring):&#x00A0;Boolean;
+&#x00A0;<br />Procedure&#x00A0;SetResourceStrings&#x00A0;(SetFunction:&#x00A0;TResourceIterator);
+</div>
+<!--l. 6041--><p class="nopar" >Two other function exist, for convenience only:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-227">
+Function&#x00A0;Hash(S:&#x00A0;AnsiString):&#x00A0;longint;
+&#x00A0;<br />Procedure&#x00A0;ResetResourceTables;
+</div>
+<!--l. 6046--><p class="nopar" >Here is a short explanation of what each function does. A more detailed explanation of the
+functions can be found in the <a 
+href="../ref/ref.html" >Reference Guide</a>.
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">ResourceStringTableCount</span> </dt><dd 
+class="description">returns the number of resource string tables in the program.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ResourceStringCount</span> </dt><dd 
+class="description">returns the number of resource string entries in a given table (tables
+     are denoted by a zero-based index).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">GetResourceStringName</span> </dt><dd 
+class="description">returns the name of a resource string in a resource table. This
+     is the name of the unit, a dot (.) and the name of the string constant, all in lowercase.
+     The strings are denoted by index, also zero-based.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">GetResourceStringHash</span> </dt><dd 
+class="description">returns the hash value of a resource string, as calculated by the
+     compiler with the <span 
+class="cmtt-10">Hash </span>function.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">GetResourceStringDefaultValue</span> </dt><dd 
+class="description">returns the default value of a resource string, i.e. the
+     value that appears in the resource string declaration, and that is stored in the binary.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">GetResourceStringCurrentValue</span> </dt><dd 
+class="description">returns the current value of a resource string, i.e. the
+     value set by the initialization (the default value), or the value set by some previous
+     internationalization routine.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">SetResourceStringValue</span> </dt><dd 
+class="description">sets the current value of a resource string. This function must
+     be called to initialize all strings.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">SetResourceStrings</span> </dt><dd 
+class="description">giving this function a callback will cause the calback to be called for
+     all resource strings, one by one, and set the value of the string to the return value of
+     the callback.</dd></dl>
+<!--l. 6072--><p class="noindent" >Two other functions exist, for convenience only:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Hash</span> </dt><dd 
+class="description">can be used to calculate the hash value of a string. The hash value stored in the tables
+     is the result of this function, applied on the default value. That value is calculated
+     at compile time by the compiler: having the value available can speed up translation
+     operations.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">ResetResourceTables</span> </dt><dd 
+class="description">will reset all the resource strings to their default values. It is called
+     by the initialization code of the objpas unit.</dd></dl>
+<!--l. 6082--><p class="noindent" >Given some <span 
+class="cmtt-10">Translate </span>function, the following code would initialize all resource strings:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-228">
+Var&#x00A0;I,J&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;S&#x00A0;:&#x00A0;AnsiString;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;For&#x00A0;I:=0&#x00A0;to&#x00A0;ResourceStringTableCount-1&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;For&#x00A0;J:=0&#x00A0;to&#x00A0;ResourceStringCount(i)-1&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;S:=Translate(GetResourceStringDefaultValue(I,J));
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;SetResourceStringValue(I,J,S);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />end;
+</div>
+<!--l. 6096--><p class="nopar" >Other methods are of course possible, and the <span 
+class="cmtt-10">Translate </span>function can be implemented in a variety
+of ways.
+                                                                            
+
+                                                                            
+<!--l. 6099--><div class="crosslinks"><p class="noindent">[<a 
+href="progse41.html" >next</a>] [<a 
+href="progse39.html" >prev</a>] [<a 
+href="progse39.html#tailprogse39.html" >prev-tail</a>] [<a 
+href="progse40.html" >front</a>] [<a 
+href="progch9.html#progse40.html" >up</a>] </p></div>
+<!--l. 6099--><p class="noindent" ><a 
+ id="tailprogse40.html"></a>  
+</body></html> 

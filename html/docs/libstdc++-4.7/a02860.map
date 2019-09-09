@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node7" href="$a00433.html" title="std::is_assignable\&lt; _Tp &amp;, _Tp &amp;&amp; \&gt;" alt="" coords="5,273,256,301"/>
+<area shape="rect" id="node9" href="$a00433.html" title="std::is_assignable\&lt; _Tp &amp;, const _Tp &amp; \&gt;" alt="" coords="280,273,557,301"/>
+<area shape="rect" id="node2" href="$a00432.html" title="std::integral_constant\&lt; bool, __is_assignable_helper\&lt; _Tp, _Up \&gt;::value \&gt;" alt="" coords="32,99,517,127"/>
+<area shape="rect" id="node4" href="$a00432.html" title="integral_constant" alt="" coords="157,6,392,34"/>
+</map>

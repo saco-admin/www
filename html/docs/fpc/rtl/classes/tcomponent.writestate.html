@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TComponent.WriteState</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TComponent.WriteState</h1>
+<p>Writes the component to a stream.</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 1839</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../classes/tcomponent.html">TComponent</a><span class="sym">.</span>WriteState<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Writer<span class="sym">: </span><a href="../classes/twriter.html">TWriter</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>WriteState</var> writes the component's current state to a stream  through the <a href="../classes/twriter.html">writer</a> object <var>writer</var>.  Values for all published properties of the component can be written to  the stream. Normally there is no need to call <var>WriteState</var> directly.  The streaming system calls  <var>WriteState</var> itself.  </p>
+<p>The <a href="../classes/tcomponent.html">TComponent</a> implementation of <var>WriteState</var> simply calls <b>TWriter.WriteData</b>. Descendant classes can, however,  override  <var>WriteState</var>to provide additional processing of stream  data. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><b>ReadState</b></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read the component's state from a stream.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstream.writecomponent.html">TStream.WriteComponent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write component data to the stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><b>TWriter.WriteData</b></p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node7" href="$a00343.html" title="An entry cannot be inserted into a container object for logical reasons (not, e.g., if memory is unabvailable, in which case the allocator_type&#39;s exception will be thrown)." alt="" coords="5,238,181,266"/>
+<area shape="rect" id="node9" href="$a00344.html" title="A join cannot be performed logical reasons (i.e., the ranges of the two container objects being joine..." alt="" coords="205,238,368,266"/>
+<area shape="rect" id="node11" href="$a00362.html" title="A container cannot be resized." alt="" coords="392,238,568,266"/>
+<area shape="rect" id="node2" href="$a00785.html" title="One of two subclasses of exception." alt="" coords="229,83,344,111"/>
+<area shape="rect" id="node4" href="$a00638.html" title="Base class for all library exceptions." alt="" coords="232,6,341,34"/>
+</map>

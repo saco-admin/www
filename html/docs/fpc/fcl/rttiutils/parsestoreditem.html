@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>ParseStoredItem</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../rttiutils/index.html">Overview</a>][<a href="../rttiutils/index-2.html">Constants</a>][<a href="../rttiutils/index-3.html">Types</a>][<a href="../rttiutils/index-4.html">Classes</a>][<a href="../rttiutils/index-5.html">Procedures and functions</a>][<a href="../rttiutils/index-6.html">Variables</a>][<a href="../rttiutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'rttiutils' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>ParseStoredItem</h1>
+<p>Split a property reference to component reference and property name</p>
+<h2>Declaration</h2>
+<p>Source position: rttiutils.pp line 132</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> ParseStoredItem<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Item<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>CompName<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>PropName<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Item</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Property reference to parse</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">CompName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Component part of property reference.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">PropName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Property name part of property reference.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p><var>True</var> if <var>Item</var> contains a valid property reference</p>
+<h2>Description</h2>
+<p><var>ParseStoredItem</var> parses the property reference <var>Item</var> and splits it in a reference to a component (returned in <var>CompName</var>) and a name of a property (returned in <var>PropName</var>). This function basically does the opposite of <a href="../rttiutils/createstoreditem.html">CreateStoredItem</a>. Note that both names should be non-empty, i.e., at least 1 dot character must appear in <var>Item</var>. </p>
+<h2>Errors</h2>
+<p>If an error occurred during parsing, <var>False</var> is returned. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../rttiutils/createstoreditem.html">CreateStoredItem</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Concatenates component and property name</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../rttiutils/updatestoredlist.html">UpdateStoredList</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Update a stringlist with object references</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../rttiutils/tpropsstorage.storeobjectsprops.html">TPropsStorage.StoreObjectsProps</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Store a list of component properties</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../rttiutils/tpropsstorage.loadobjectsprops.html">TPropsStorage.LoadObjectsProps</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Load a list of component properties</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

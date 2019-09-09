@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSQLScript.UseDefines</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TSQLScript.UseDefines</h1>
+<p>Automatically handle pre-processor defines</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 709</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../sqldb/tsqlscript.html">TSQLScript</a><span class="sym">.</span>UseDefines<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>UseDefines</var> will automatically register the following pre-processing directives: </p>
+<pre><span class="chr">#</span>IFDEF
+<span class="chr">#</span>IFNDEF
+<span class="chr">#</span><span class="kw">ELSE</span>
+<span class="chr">#</span>ENDIF
+<span class="chr">#</span>DEFINE
+<span class="chr">#</span>UNDEF
+<span class="chr">#</span>UNDEFINE
+</pre>
+<p>Additionally, these directives will be automatically handled by the <var>TSQLScript</var> component. This can be used to add conditional execution of the SQL script: they are treated as the conditional compilation statements found in the C macro preprocessor or the FPC conditional compilation features. The initial list of defined macros can be specified in the <a href="../sqldb/tsqlscript.defines.html">Defines</a> property, where one define per line can be specified. </p>
+<p>In the following example, the correct statement to create a sequence is selected based on the presence of the macro <var>FIREBIRD</var> in the list of defines: </p>
+<pre><span class="chr">#</span>IFDEF FIREBIRD
+CREATE GENERATOR GEN_MYID<span class="sym">;</span>
+<span class="chr">#</span><span class="kw">ELSE</span>
+CREATE SEQUENCE GEN_MYID<span class="sym">;</span>
+<span class="chr">#</span>ENDIF
+</pre>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlscript.script.html">TSQLScript.Script</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The script to execute</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/tsqlscript.defines.html">TSQLScript.Defines</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Defined macros</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Localization support</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/typehelpers.html">Previous</a>][<a href="../sysutils/index.html">Up</a>][<a href="../sysutils/unicodeandcodepages.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>Localization support</h2>
+<p>Localization support depends on various constants and structures being initialized correctly. On Windows and OS/2 this is done automatically: a widestring manager is installed by default which helps taking care of the current locale when performing various operations on strings. The various internationalization settings (date/time format, currency, language etc) are also initialized correctly on these platforms. </p>
+<p>On unixes, the widestring support is in a separate unit: <span class="file">cwstring</span>, which loads the various needed  functions from the C library. It should be added manually to the uses clause of your program. No internationalization (or localisation) settings are   applied by this unit, these must be initialized separately by including the <span class="file">clocale</span> unit in the uses clause of your program. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

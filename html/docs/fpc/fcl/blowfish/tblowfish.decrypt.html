@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TBlowFish.Decrypt</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../blowfish/index.html">Overview</a>][<a href="../blowfish/index-2.html">Constants</a>][<a href="../blowfish/index-3.html">Types</a>][<a href="../blowfish/index-4.html">Classes</a>][<a href="../blowfish/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BlowFish' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TBlowFish.Decrypt</h1>
+<p>Decrypt a block</p>
+<h2>Declaration</h2>
+<p>Source position: blowfish.pp line 44</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../blowfish/tblowfish.html">TBlowFish</a><span class="sym">.</span>Decrypt<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>Block<span class="sym">: </span><a href="../blowfish/tbfblock.html">TBFBlock</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Block</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encrypted data to decrypt</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ncrypt</var> decrypts the data in <var>Block</var> (always 8 bytes) using the <a href="../blowfish/tblowfishkey.html">key</a> specified when the <var>TBlowFish</var> instance was created. The data must have been encrypted with the same key and the <a href="../blowfish/tblowfish.encrypt.html">Encrypt</a> call. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../blowfish/tblowfishkey.html">TBlowFishKey</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Array to hold blowfish encryption keys</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../blowfish/tblowfish.encrypt.html">Encrypt</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encrypt a block</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../blowfish/tblowfish.create.html">Create</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a new instance of the <var>TBlowFish</var> class</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

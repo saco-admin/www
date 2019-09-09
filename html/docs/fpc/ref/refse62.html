@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Restrictions on record helpers</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6906--><div class="crosslinks"><p class="noindent">[<a 
+href="refse63.html" >next</a>] [<a 
+href="refse61.html" >prev</a>] [<a 
+href="refse61.html#tailrefse61.html" >prev-tail</a>] [<a 
+href="#tailrefse62.html">tail</a>] [<a 
+href="refch10.html#refse62.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.3   </span> <a 
+href="ref.html#QQ2-123-151" id="x123-14500010.3">Restrictions on record helpers</a></h3>
+<!--l. 6907--><p class="noindent" >Records do not offer the same possibilities as classes do. This reflects on the possibilities when
+creating record helpers. Below the restrictions on record helpers are enumerated:
+     <ul class="itemize1">
+     <li class="itemize">A record helper cannot be used to extend a class. The following will fail:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-291">
+     TTestHelper&#x00A0;=&#x00A0;record&#x00A0;helper&#x00A0;for&#x00A0;TObject
+     &#x00A0;<br />end;
+</div>
+     <!--l. 6916--><p class="nopar" >
+     </li>
+     <li class="itemize">Inside a helper&#8217;s declaration the methods/fields of the extended record can&#8217;t be accessed in
+     e.g. a property definition. They can be accessed in the implementation, of course. This means
+     that the following will not compile:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-292">
+     TTest&#x00A0;=&#x00A0;record
+     &#x00A0;<br />&#x00A0;&#x00A0;Test:&#x00A0;Integer;
+     &#x00A0;<br />end;
+     &#x00A0;<br />
+     &#x00A0;<br />TTestHelper&#x00A0;=&#x00A0;record&#x00A0;helper&#x00A0;for&#x00A0;TTest
+     &#x00A0;<br />&#x00A0;&#x00A0;property&#x00A0;AccessTest:&#x00A0;Integer&#x00A0;read&#x00A0;Test;
+     &#x00A0;<br />end;
+</div>
+     <!--l. 6928--><p class="nopar" >
+     </li>
+     <li class="itemize">Record helpers can only access public fields (in case an extended record with visibility
+     specifiers is used).
+     </li>
+     <li class="itemize">Inheritance of record helpers is only allowed in ObjFPC mode; In Delphi mode, it is not
+     allowed.
+     </li>
+     <li class="itemize">Record helpers can only descend from other record helpers, not from class helpers.
+     </li>
+     <li class="itemize">Unlike class helpers, a descendent record helper must extend the same record
+     type.
+     </li>
+     <li class="itemize">In Delphi mode, it is not possible to call the extended record&#8217;s method using <span 
+class="cmtt-10">inherited</span>. It is
+     possible to do so in ObjFPC mode. The following code needs ObjFPC mode to
+     compile:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-293">
+     type
+     &#x00A0;<br />&#x00A0;&#x00A0;TTest&#x00A0;=&#x00A0;record
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;Test(aRecurse:&#x00A0;Boolean):&#x00A0;Integer;
+     &#x00A0;<br />&#x00A0;&#x00A0;end;
+     &#x00A0;<br />
+     &#x00A0;<br />&#x00A0;&#x00A0;TTestHelper&#x00A0;=&#x00A0;record&#x00A0;helper&#x00A0;for&#x00A0;TTest
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;Test(aRecurse:&#x00A0;Boolean):&#x00A0;Integer;
+     &#x00A0;<br />&#x00A0;&#x00A0;end;
+     &#x00A0;<br />
+     &#x00A0;<br />function&#x00A0;TTest.Test(aRecurse:&#x00A0;Boolean):&#x00A0;Integer;
+     &#x00A0;<br />begin
+     &#x00A0;<br />&#x00A0;&#x00A0;Result&#x00A0;:=&#x00A0;1;
+     &#x00A0;<br />end;
+     &#x00A0;<br />
+     &#x00A0;<br />function&#x00A0;TTestHelper.Test(aRecurse:&#x00A0;Boolean):&#x00A0;Integer;
+     &#x00A0;<br />begin
+     &#x00A0;<br />&#x00A0;&#x00A0;if&#x00A0;aRecurse&#x00A0;then
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Result&#x00A0;:=&#x00A0;inherited&#x00A0;Test(False)
+     &#x00A0;<br />&#x00A0;&#x00A0;else
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Result&#x00A0;:=&#x00A0;2;
+     &#x00A0;<br />end;
+</div>
+     <!--l. 6962--><p class="nopar" ></li></ul>
+                                                                            
+
+                                                                            
+<!--l. 6965--><div class="crosslinks"><p class="noindent">[<a 
+href="refse63.html" >next</a>] [<a 
+href="refse61.html" >prev</a>] [<a 
+href="refse61.html#tailrefse61.html" >prev-tail</a>] [<a 
+href="refse62.html" >front</a>] [<a 
+href="refch10.html#refse62.html" >up</a>] </p></div>
+<!--l. 6965--><p class="noindent" ><a 
+ id="tailrefse62.html"></a>  
+</body></html> 

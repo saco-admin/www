@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Exporting variables</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 4763--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu153.html" >next</a>] [<a 
+href="progsu151.html" >prev</a>] [<a 
+href="progsu151.html#tailprogsu151.html" >prev-tail</a>] [<a 
+href="#tailprogsu152.html">tail</a>] [<a 
+href="progse29.html#progsu152.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">7.2.2   </span> <a 
+href="prog.html#QQ2-192-205" id="x192-1970007.2.2">Exporting variables</a></h4>
+<!--l. 4764--><p class="noindent" >Just as you can export functions, you can also export variables. When exporting variables, one
+should only consider the names of the variables. To declare a variable that should be used by a C
+program, one declares it with the <span 
+class="cmtt-10">cvar </span>modifier:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-207">
+Var&#x00A0;MyVar&#x00A0;:&#x00A0;MyTpe;&#x00A0;cvar;
+</div>
+<!--l. 4770--><p class="nopar" >This will tell the compiler that the assembler name of the variable (as used by C programs) should
+be exactly as specified in the declaration, i.e., case-sensitive.
+<!--l. 4775--><p class="noindent" >It is not allowed to declare multiple variables as <span 
+class="cmtt-10">cvar </span>in one statement, i.e. the following code will
+produce an error:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-208">
+var&#x00A0;Z1,Z2&#x00A0;:&#x00A0;longint;cvar;
+</div>
+<!--l. 4779--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 4783--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu153.html" >next</a>] [<a 
+href="progsu151.html" >prev</a>] [<a 
+href="progsu151.html#tailprogsu151.html" >prev-tail</a>] [<a 
+href="progsu152.html" >front</a>] [<a 
+href="progse29.html#progsu152.html" >up</a>] </p></div>
+<!--l. 4783--><p class="noindent" ><a 
+ id="tailprogsu152.html"></a>  
+</body></html> 

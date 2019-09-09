@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TASCII85DecoderStream.Read</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../ascii85/index.html">Overview</a>][<a href="../ascii85/index-3.html">Types</a>][<a href="../ascii85/index-4.html">Classes</a>][<a href="../ascii85/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'ascii85' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TASCII85DecoderStream.Read</h1>
+<p>Read data from stream</p>
+<h2>Declaration</h2>
+<p>Source position: ascii85.pp line 70</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../ascii85/tascii85decoderstream.html">TASCII85DecoderStream</a><span class="sym">.</span>Read<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>aBuffer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aCount<span class="sym">: </span><a href="../../rtl/system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/system/longint.html">LongInt</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">aBuffer</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Buffer to transfer data to</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">aCount</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of bytes to transfer to buffer</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Actual number of bytes transferred to buffer.</p>
+<h2>Description</h2>
+<p><var>Read</var> attempts to read <var>aCount</var> bytes from the stream and places them in <var>aBuffer</var>. It reads only as much data as is available. The actual number of read bytes is returned. </p>
+<p>The read method reads as much data from the input stream as needed to get to <var>aCount</var> bytes, in general this will be <var>aCount*5/4</var> bytes. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

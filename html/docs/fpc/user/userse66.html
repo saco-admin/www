@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Errors of assembling/linking stage</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2357--><div class="crosslinks"><p class="noindent">[<a 
+href="userse67.html" >next</a>] [<a 
+href="userse65.html" >prev</a>] [<a 
+href="userse65.html#tailuserse65.html" >prev-tail</a>] [<a 
+href="#tailuserse66.html">tail</a>] [<a 
+href="userap3.html#userse66.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">C.7   </span> <a 
+href="user.html#QQ2-180-238" id="x180-187000C.7">Errors of assembling/linking stage</a></h3>
+<!--l. 2358--><p class="noindent" >This section lists errors that occur when the compiler is processing the command line or handling
+the configuration files.
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Warning: Source operating system redefined</span> </dt><dd 
+class="description">The    source    operating    system    is
+     redefined.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Info: Assembling (pipe) arg1</span> </dt><dd 
+class="description">Assembling using a pipe to an external assembler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t create assembler file: arg1</span> </dt><dd 
+class="description">The mentioned file cannot be created. Check
+     if you have access permissions to create this file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t create object file: arg1 (error code: arg2)</span> </dt><dd 
+class="description">The  mentioned  file  cannot
+     be created. Check if you have got access permissions to create this file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t create archive file: arg1</span> </dt><dd 
+class="description">The mentioned file cannot be created. Check if
+     you have access permissions to create this file.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Assembler arg1 not found, switching to external assembling</span> </dt><dd 
+class="description">
+     The assembler program was not found. The compiler will produce a script that can be
+     used to assemble and link the program.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Using assembler: arg1</span> </dt><dd 
+class="description">An informational message saying which assembler is being used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Error while assembling exitcode arg1</span> </dt><dd 
+class="description">There was an error while assembling the
+     file using an external assembler. Consult the documentation of the assembler tool to
+     find out more information on this error.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t call the assembler, error arg1 switching to external assembling</span> </dt><dd 
+class="description">An
+     error occurred when calling an external assembler. The compiler will produce a script
+     that can be used to assemble and link the program.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Info: Assembling arg1</span> </dt><dd 
+class="description">An informational message stating which file is being assembled.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Info: Assembling with smartlinking arg1</span> </dt><dd 
+class="description">An informational message stating which file
+     is being assembled using smartlinking.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Object arg1 not found, Linking may fail !</span> </dt><dd 
+class="description">One   of   the   object   files   is
+     missing, and linking will probably fail. Check your paths.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Library arg1 not found, Linking may fail !</span> </dt><dd 
+class="description">One  of  the  library  files  is
+     missing, and linking will probably fail. Check your paths.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Error while linking</span> </dt><dd 
+class="description">Generic error while linking.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t call the linker, switching to external linking</span> </dt><dd 
+class="description">An error occurred when
+     calling an external linker. The compiler will produce a script that can be used to
+     assemble and link the program.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Info: Linking arg1</span> </dt><dd 
+class="description">An informational message, showing which program or library is being
+     linked.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Util arg1 not found, switching to external linking</span> </dt><dd 
+class="description">An external tool was not
+     found. The compiler will produce a script that can be used to assemble and link or
+     postprocess the program.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Using util arg1</span> </dt><dd 
+class="description">An informational message, showing which external program (usually a
+     postprocessor) is being used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Creation of Executables not supported</span> </dt><dd 
+class="description">Creating executable programs is not
+     supported for this platform, because it was not yet implemented in the compiler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Creation of Dynamic/Shared Libraries not supported</span> </dt><dd 
+class="description">
+     Creating dynamically loadable libraries is not supported for this platform, because it
+     was not yet implemented in the compiler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Creation of Static Libraries not supported</span> </dt><dd 
+class="description">Creating  static  libraries  is  not
+     supported for this platform, because it was not yet implemented in the compiler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Info: Closing script arg1</span> </dt><dd 
+class="description">Informational message showing when writing of the external
+     assembling and linking script is finished.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: resource compiler &#8221;arg1&#8221; not found, switching to external mode</span> </dt><dd 
+class="description">An
+     external resource compiler was not found. The compiler will produce a script that can
+     be used to assemble, compile resources and link or postprocess the program.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Info: Compiling resource arg1</span> </dt><dd 
+class="description">An  informational  message,  showing  which  resource  is
+     being compiled.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">unit arg1 cannot be statically linked, switching to smart linking</span> </dt><dd 
+class="description">Static      linking
+     was requested, but a unit which is not statically linkable was used.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">unit arg1 cannot be smart linked, switching to static linking</span> </dt><dd 
+class="description">Smart   linking   was
+     requested, but a unit which is not smart-linkable was used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">unit arg1 cannot be shared linked, switching to static linking</span> </dt><dd 
+class="description">Shared  linking  was
+     requested, but a unit which is not shared-linkable was used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: unit arg1 cannot be smart or static linked</span> </dt><dd 
+class="description">
+     Smart or static linking was requested, but a unit which cannot be used for either was
+     used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: unit arg1 cannot be shared or static linked</span> </dt><dd 
+class="description">Shared   or   static   linking   was
+     requested, but a unit which cannot be used for either was used.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Calling resource compiler &#8221;arg1&#8221; with &#8221;arg2&#8221; as command line</span> </dt><dd 
+class="description">An  informational
+     message showing which command line is used for the resource compiler.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Error while compiling resources</span> </dt><dd 
+class="description">The resource compiler or converter returned
+     an error.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t call the resource compiler &#8221;arg1&#8221;, switching to external mode</span> </dt><dd 
+class="description">
+     An error occurred when calling a resource compiler. The compiler will produce a script
+     that can be used to assemble, compile resources and link or postprocess the program.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t open resource file &#8221;arg1&#8221;</span> </dt><dd 
+class="description">An  error  occurred  resource  file  cannot  be
+     opened.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t write resource file &#8221;arg1&#8221;</span> </dt><dd 
+class="description">An  error  occurred  resource  file  cannot  be
+     written.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Note: File &#8221;arg1&#8221; not found for backquoted cat command</span> </dt><dd 
+class="description">The  compiler  did  not
+     find the file that should be expanded into linker parameters
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: &#8221;arg1&#8221; not found, this will probably cause a linking failure</span> </dt><dd 
+class="description">
+     The compiler adds certain startup code files to the linker only when they are found. If
+     they are not found, they are not added and this might cause a linking failure.
+     </dd></dl>
+<!--l. 2453--><div class="crosslinks"><p class="noindent">[<a 
+href="userse67.html" >next</a>] [<a 
+href="userse65.html" >prev</a>] [<a 
+href="userse65.html#tailuserse65.html" >prev-tail</a>] [<a 
+href="userse66.html" >front</a>] [<a 
+href="userap3.html#userse66.html" >up</a>] </p></div>
+<!--l. 2453--><p class="noindent" ><a 
+ id="tailuserse66.html"></a>  
+</body></html> 

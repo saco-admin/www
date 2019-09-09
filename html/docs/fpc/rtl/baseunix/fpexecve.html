@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpExecve</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpExecve</h1>
+<p>Execute process using environment</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 64</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpExecve<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;path<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;argv<span class="sym">: </span><a href="../system/ppchar.html">PPChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;envp<span class="sym">: </span><a href="../system/ppchar.html">PPChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> FpExecve<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>path<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;argv<span class="sym">: </span><a href="../system/ppchar.html">PPChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;envp<span class="sym">: </span><a href="../system/ppchar.html">PPChar</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Replaces the currently running program with the program, specified in <var>path</var>. It gives the program the options in <var>argv</var>, and the environment in <var>envp</var>. They are pointers to an array of pointers to null-terminated strings. The last pointer in this array should be <var>nil</var>. On success, <var>execve</var> does not return. </p>
+<h2>Errors</h2>
+<p>Extended error information can be retrieved with <a href="../baseunix/fpgeterrno.html">fpGetErrno</a>, and includes the following: </p>
+<dl>
+<dt>sys_eacces</dt>
+<dd>File is not a regular file, or has no execute permission. A compononent of the path has no search permission.</dd>
+<dt>sys_eperm</dt>
+<dd>The file system is mounted \textit{noexec}.</dd>
+<dt>sys_e2big</dt>
+<dd>Argument list too big.</dd>
+<dt>sys_enoexec</dt>
+<dd>The magic number in the file is incorrect.</dd>
+<dt>sys_enoent</dt>
+<dd>The file does not exist.</dd>
+<dt>sys_enomem</dt>
+<dd>Not enough memory for kernel.</dd>
+<dt>sys_enotdir</dt>
+<dd>A component of the path is not a directory.</dd>
+<dt>sys_eloop</dt>
+<dd>The path contains a circular reference (via symlinks).</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpexecv.html">fpExecv</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Execute process</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpfork.html">fpFork</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create child process</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example7<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Execve function. }</span>
+
+<span class="kw">Uses</span> BaseUnix<span class="sym">,</span> strings<span class="sym">;</span>
+
+<span class="kw">Const</span> Arg0 <span class="sym">:</span> PChar <span class="sym">=</span> <span class="str">'/bin/ls'</span><span class="sym">;</span>
+      Arg1 <span class="sym">:</span> Pchar <span class="sym">=</span> <span class="str">'-l'</span><span class="sym">;</span>
+
+<span class="kw">Var</span> PP <span class="sym">:</span> PPchar<span class="sym">;</span>
+
+
+<span class="kw">begin</span>
+  GetMem <span class="sym">(</span>PP<span class="sym">,</span><span class="num">3</span><span class="sym">*</span>SizeOf<span class="sym">(</span>Pchar<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  PP<span class="sym">[</span><span class="num">0</span><span class="sym">]</span><span class="sym">:=</span>Arg0<span class="sym">;</span>
+  PP<span class="sym">[</span><span class="num">1</span><span class="sym">]</span><span class="sym">:=</span>Arg1<span class="sym">;</span>
+  PP<span class="sym">[</span><span class="num">3</span><span class="sym">]</span><span class="sym">:=</span><span class="kw">Nil</span><span class="sym">;</span>
+  <span class="cmt">{ Execute '/bin/ls -l', with current environment }</span>
+  <span class="cmt">{ Envp is defined in system.inc }</span>
+  fpExecVe <span class="sym">(</span><span class="str">'/bin/ls'</span><span class="sym">,</span>pp<span class="sym">,</span>envp<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The Repeat..until statement</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 9338--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu61.html" >next</a>] [<a 
+href="refsu59.html" >prev</a>] [<a 
+href="refsu59.html#tailrefsu59.html" >prev-tail</a>] [<a 
+href="#tailrefsu60.html">tail</a>] [<a 
+href="refse86.html#refsu60.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">13.2.6   </span> <a 
+href="ref.html#QQ2-166-203" id="x166-18800013.2.6">The <span 
+class="cmtt-10">Repeat..until </span>statement</a></h4>
+<a 
+ id="dx166-188001"></a>
+<a 
+ id="dx166-188002"></a>
+<a 
+ id="dx166-188003"></a>
+<!--l. 9340--><p class="noindent" ><a name="keyword_repeat"></a> <a name="keyword_until"></a> The <span 
+class="cmtt-10">repeat </span>statement is used to execute a statement until a certain condition is reached. The
+statement will be executed at least once. The prototype syntax of the <span 
+class="cmtt-10">Repeat..until </span>statement
+is
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Repeat statement</span><br 
+class="newline" /><BR/><img 
+src="ref161x.png" alt="--             -      ---        ---    -         --------------
+  repeat statement repeat  -statement-| until  expression
+                             ;
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 9345--><p class="noindent" >This will execute the statements between <span 
+class="cmtt-10">repeat </span>and <span 
+class="cmtt-10">until </span>up to the moment when <span 
+class="cmtt-10">Expression</span><a 
+ id="dx166-188004"></a>
+evaluates to <span 
+class="cmtt-10">True</span>. Since the <span 
+class="cmtt-10">expression </span>is evaluated <span 
+class="cmti-10">after </span>the execution of the statements, they
+are executed at least once.
+<!--l. 9350--><p class="noindent" >Be aware of the fact that the boolean expression <span 
+class="cmtt-10">Expression </span>will be short-cut evaluated by
+default, meaning that the evaluation will be stopped at the point where the outcome is known with
+certainty.
+<!--l. 9354--><p class="noindent" >The following are valid <span 
+class="cmtt-10">repeat </span>statements
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-389">
+repeat
+&#x00A0;<br />&#x00A0;&#x00A0;WriteLn&#x00A0;(&#8217;I&#x00A0;=&#8217;,i);
+&#x00A0;<br />&#x00A0;&#x00A0;I&#x00A0;:=&#x00A0;I+2;
+&#x00A0;<br />until&#x00A0;I&#x003E;100;
+&#x00A0;<br />
+&#x00A0;<br />repeat
+&#x00A0;<br />&#x00A0;X&#x00A0;:=&#x00A0;X/2
+&#x00A0;<br />until&#x00A0;x&#x003C;10e-3;
+</div>
+<!--l. 9364--><p class="nopar" >Note that the last statement before the <span 
+class="cmtt-10">until </span>keyword does not need a terminating semicolon, but
+it is allowed.
+<!--l. 9368--><p class="noindent" >The <span 
+class="cmtt-10">Break </span>and <span 
+class="cmtt-10">Continue </span>system routines can be used to jump to the end or just after the end of
+the <span 
+class="cmtt-10">repeat .. until </span>statement. Note that <span 
+class="cmtt-10">Break </span>and <span 
+class="cmtt-10">Continue </span>are not reserved words and
+therefor can be overloaded.
+                                                                            
+
+                                                                            
+<!--l. 9372--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu61.html" >next</a>] [<a 
+href="refsu59.html" >prev</a>] [<a 
+href="refsu59.html#tailrefsu59.html" >prev-tail</a>] [<a 
+href="refsu60.html" >front</a>] [<a 
+href="refse86.html#refsu60.html" >up</a>] </p></div>
+<!--l. 9372--><p class="noindent" ><a 
+ id="tailrefsu60.html"></a>  
+</body></html> 

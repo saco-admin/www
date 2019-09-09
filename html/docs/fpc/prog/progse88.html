@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Compiling using make</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 8822--><div class="crosslinks"><p class="noindent">[<a 
+href="progse89.html" >next</a>] [<a 
+href="progse87.html" >prev</a>] [<a 
+href="progse87.html#tailprogse87.html" >prev-tail</a>] [<a 
+href="#tailprogse88.html">tail</a>] [<a 
+href="progap6.html#progse88.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">F.3   </span> <a 
+href="prog.html#QQ2-329-374" id="x329-345000F.3">Compiling using <span 
+class="cmss-10">make</span></a></h3>
+<!--l. 8824--><p class="noindent" >When compiling with <span 
+class="cmtt-10">make </span>it is necessary to have the above directory structure. Compiling the
+compiler is achieved with the target <span 
+class="cmtt-10">cycle</span>.
+<!--l. 8827--><p class="noindent" >Under normal circumstances, recompiling the compiler is limited to the following instructions
+(assuming you start in directory <span 
+class="cmss-10">/pp/src</span>):
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-276">
+cd&#x00A0;compiler
+&#x00A0;<br />make&#x00A0;cycle
+</div>
+<!--l. 8832--><p class="nopar" >This will work only if the <span 
+class="cmss-10">makefile </span>is installed correctly and if the needed tools are present in the
+<span 
+class="cmtt-10">PATH</span>. Which tools must be installed can be found in appendix <a 
+href="progap5.html#x293-309000E">E<!--tex4ht:ref: ch:makefile --></a>.
+<!--l. 8837--><p class="noindent" >The above instructions will do the following:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x329-345002x1">Using the current compiler, the RTL is compiled in the correct directory, which is
+     determined by the OS. e.g. under <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span></span>, the RTL is compiled in directory <span 
+class="cmss-10">rtl/linux</span>.
+     </li>
+     <li 
+  class="enumerate" id="x329-345004x2">The  compiler  is  compiled  using  the  newly  compiled  RTL.  If  successful,  the  newly
+     compiled compiler executable is copied to a temporary executable.
+     </li>
+     <li 
+  class="enumerate" id="x329-345006x3">Using the temporary executable from the previous step, the RTL is re-compiled.
+     </li>
+     <li 
+  class="enumerate" id="x329-345008x4">Using the temporary executable and the newly compiled RTL from the last step, the
+     compiler is compiled again.</li></ol>
+<!--l. 8849--><p class="noindent" >The last two steps are repeated 3 times, until three passes have been made or until the generated
+compiler binary is equal to the binary it was compiled with. This process ensures that the compiler
+binary is correct.
+<!--l. 8853--><p class="noindent" >Compiling for another target: When compiling the compiler for another target, it is necessary to
+specify the <span 
+class="cmtt-10">OS</span><span 
+class="cmtt-10">_TARGET </span>makefile variable. It can be set to the following values: <span 
+class="cmtt-10">win32</span>, <span 
+class="cmtt-10">go32v2</span>, <span 
+class="cmtt-10">os2</span>
+and <span 
+class="cmtt-10">linux</span>. As an example, cross-compilation for the go32v2 target from the win32 target is
+chosen:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-277">
+cd&#x00A0;compiler
+&#x00A0;<br />make&#x00A0;cycle&#x00A0;OS_TARGET=go32v2
+</div>
+<!--l. 8862--><p class="nopar" >This will compile the go32v2 RTL, and compile a <span 
+class="cmtt-10">go32v2 </span>compiler.
+<!--l. 8865--><p class="noindent" >When compiling a new compiler and the compiler should be compiled using an existing compiled
+RTL, the <span 
+class="cmtt-10">all </span>target must be used, and another RTL directory than the default (which is the
+<span 
+class="cmss-10">../rtl/$(OS</span><span 
+class="cmss-10">_TARGET) </span>directory) must be indicated. For instance, assuming that the compiled RTL
+units are in <span 
+class="cmtt-10">/pp/rtl/units/i386-linux</span>, typing
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-278">
+cd&#x00A0;compiler
+&#x00A0;<br />make&#x00A0;clean
+&#x00A0;<br />make&#x00A0;all&#x00A0;UNITDIR=/pp/rtl/units/i386-linux
+</div>
+<!--l. 8874--><p class="nopar" >should use the RTL from the <span 
+class="cmtt-10">/pp/rtl/units/i386-linux </span>directory.
+<!--l. 8877--><p class="noindent" >This will then compile the compiler using the RTL units in <span 
+class="cmss-10">/pp/rtl/units/i386-linux</span>. After this has
+been done, the &#8217;make cycle&#8217; can be used, starting with this compiler:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-279">
+make&#x00A0;cycle&#x00A0;PP=./ppc386
+</div>
+<!--l. 8883--><p class="nopar" >This will do the <span 
+class="cmtt-10">make cycle </span>from above, but will start with the compiler that was generated by
+the <span 
+class="cmtt-10">make all </span>instruction.
+<!--l. 8887--><p class="noindent" >In all cases, many options can be passed to <span 
+class="cmtt-10">make </span>to influence the compile process. In general, the
+makefiles add any needed compiler options to the command line, so that the RTL and compiler can
+be compiled. Additional options (e.g. optimization options) can be specified by passing them in
+<span 
+class="cmtt-10">OPT</span>.
+                                                                            
+
+                                                                            
+<!--l. 8893--><div class="crosslinks"><p class="noindent">[<a 
+href="progse89.html" >next</a>] [<a 
+href="progse87.html" >prev</a>] [<a 
+href="progse87.html#tailprogse87.html" >prev-tail</a>] [<a 
+href="progse88.html" >front</a>] [<a 
+href="progap6.html#progse88.html" >up</a>] </p></div>
+<!--l. 8893--><p class="noindent" ><a 
+ id="tailprogse88.html"></a>  
+</body></html> 

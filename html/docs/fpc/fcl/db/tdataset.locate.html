@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDataSet.Locate</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDataSet.Locate</h1>
+<p>Locate a record based on some key values</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1653</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../db/tdataset.html">TDataSet</a><span class="sym">.</span>Locate<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>KeyFields<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>KeyValues<span class="sym">: </span>Variant<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Options<span class="sym">: </span><a href="../db/tlocateoptions.html">TLocateOptions</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">KeyFields</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">List of fields, separated by semicolons</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">KeyValues</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Single value or array of values.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Options</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Options to take into account when searching for the record.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p><var>True</var> if a record matching <var>KeyValues</var> is found.</p>
+<h2>Description</h2>
+<p><var>Locate</var> attempts to locate a record in the dataset. There are 2 possible cases when using <var>Locate</var>. </p>
+<ol>
+<li><var>Keyvalues</var> is a single value. In that case, <var>KeyFields</var> is the name of the field whose value must be matched to the value in <var>KeyValues</var></li>
+<li><var>Keyvalues</var> is a variant array. In that case, <var>KeyFields</var> must contain a list of names of fields (separated by semicolons) whose values must be matched to the values in the <var>KeyValues</var> array</li>
+</ol>
+<p>The matching always happens according to the <var>Options</var> parameter. For a description of the possible values, see <a href="../db/tlocateoption.html">TLocateOption</a>. </p>
+<p>If a record is found that matches the criteria, then the <var>locate</var> operation positions the cursor on this record, and returns <var>True</var>.  If no record is found to match the criteria, <var>False</var> is returned, and the position of the cursor is unchanged. </p>
+<p>The implementation in <var>TDataset</var> always returns <var>False</var>.  It is up to <var>TDataset</var> descendents to implement this method and return an appropriate value. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><b>TDataset.Find</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.lookup.html">TDataset.Lookup</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for a record and return matching values.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tlocateoption.html">TLocateOption</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Available options when locating a record in a dataset</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

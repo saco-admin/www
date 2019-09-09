@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00411.html" title="std::_Maybe_get_result_type\&lt; __has_result_type\&lt; remove_cv\&lt; _Tp \&gt;::type \&gt;::value, remove_cv\&lt; _Tp \&gt;::type \&gt;" alt="" coords="1604,5,2313,33"/>
+<area shape="rect" id="node9" href="$a00411.html" title="std::_Maybe_get_result_type\&lt; __has_result_type\&lt; _Functor \&gt;::value, _Functor \&gt;" alt="" coords="1028,63,1545,91"/>
+<area shape="rect" id="node19" href="$a00411.html" title="std::_Maybe_get_result_type\&lt; __has_result_type\&lt; remove_cv\&lt; _Functor \&gt;::type \&gt;::value, remove_cv\&lt; _Functor \&gt;::type \&gt;" alt="" coords="1572,127,2345,155"/>
+<area shape="rect" id="node5" href="$a00417.html" title="std::_Weak_result_type_impl\&lt; remove_cv\&lt; _Tp \&gt;::type \&gt;" alt="" coords="2927,37,3297,65"/>
+<area shape="rect" id="node7" href="$a00416.html" title="std::_Weak_result_type\&lt; _Tp \&gt;" alt="" coords="3712,58,3925,86"/>
+<area shape="rect" id="node11" href="$a00417.html" title="std::_Weak_result_type_impl\&lt; _Functor \&gt;" alt="" coords="2372,63,2647,91"/>
+<area shape="rect" id="node13" href="$a00417.html" title="std::_Weak_result_type_impl\&lt; remove_cv\&lt; _Functor \&gt;::type \&gt;" alt="" coords="2911,87,3313,115"/>
+<area shape="rect" id="node15" href="$a00416.html" title="std::_Weak_result_type\&lt; _Functor \&gt;" alt="" coords="3365,87,3611,115"/>
+</map>

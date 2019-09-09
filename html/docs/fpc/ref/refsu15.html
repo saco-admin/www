@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Record types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 2265--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu16.html" >next</a>] [<a 
+href="refsu14.html" >prev</a>] [<a 
+href="refsu14.html#tailrefsu14.html" >prev-tail</a>] [<a 
+href="#tailrefsu15.html">tail</a>] [<a 
+href="refse14.html#refsu15.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.3.2   </span> <a 
+href="ref.html#QQ2-39-61" id="x39-550003.3.2">Record types</a></h4>
+<a 
+ id="dx39-55001"></a>
+<a 
+ id="dx39-55002"></a>
+<a 
+ id="dx39-55003"></a>
+<!--l. 2266--><p class="noindent" ><a name="keyword_record"></a> Free Pascal supports fixed records and records with variant parts. The syntax diagram for a record
+type is
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Record types</span><br 
+class="newline" /><BR/><img 
+src="ref39x.png" alt="--         --------------     ------------    -------------------
+  record type --      --| record  -       -|end
+             -bpitapcakecdked -|         field list
+     " ><BR/>
+     <BR/><img 
+src="ref40x.png" alt="--field list ----------fixed fields-------------------------------------
+            -        -  -|variant part    ;
+             fixed fields ;
+     " ><BR/>
+     <BR/><img 
+src="ref41x.png" alt="--fixed fields-|identifier list :-type----------------------------------
+            --------- ;----------
+     " ><BR/>
+     <BR/><img 
+src="ref42x.png" alt="--variant part case -|-------------ordinal type of--|variant ----------
+                   -identifier -:--                ---;-----
+     " ><BR/>
+     <BR/><img 
+src="ref43x.png" alt="--variant-|-constant---:- (------------) ---------------------------
+         |---, ----|      -field list -|
+     " ><BR/>
+     ___________________________________________________________________</div>
+<a 
+ id="dx39-55004"></a>
+<!--l. 2270--><p class="noindent" >So the following are valid record type declarations:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-81">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;Point&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;X,Y,Z&#x00A0;:&#x00A0;Real;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;RPoint&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Case&#x00A0;Boolean&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;False&#x00A0;:&#x00A0;(X,Y,Z&#x00A0;:&#x00A0;Real);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;True&#x00A0;:&#x00A0;(R,theta,phi&#x00A0;:&#x00A0;Real);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;BetterRPoint&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Case&#x00A0;UsePolar&#x00A0;:&#x00A0;Boolean&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;False&#x00A0;:&#x00A0;(X,Y,Z&#x00A0;:&#x00A0;Real);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;True&#x00A0;:&#x00A0;(R,theta,phi&#x00A0;:&#x00A0;Real);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+</div>
+<!--l. 2286--><p class="nopar" >The variant part must be last in the record. The optional identifier in the case
+statement serves to access the tag field value, which otherwise would be invisible
+to the programmer. It can be used to see which variant is active at a certain
+time<span class="footnote-mark"><a 
+href="#fn3x4" id="fn3x4-bk"><sup class="textsuperscript">3</sup></a></span><a 
+ id="x39-55005f3"></a>.
+In effect, it introduces a new field in the record.
+<!--l. 2292--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> It is possible to nest variant parts, as in:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-82">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;MyRec&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;X&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Case&#x00A0;byte&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;2&#x00A0;:&#x00A0;(Y&#x00A0;:&#x00A0;Longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;case&#x00A0;byte&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;3&#x00A0;:&#x00A0;(Z&#x00A0;:&#x00A0;Longint);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+</div>
+<!--l. 2304--><p class="nopar" >
+<!--l. 2307--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="refse14.html#QQ2-39-62" id="x39-560003.3.2">Record layout and size</a></h5>
+<!--l. 2309--><p class="noindent" >The layout and size of a record is influenced by five aspects:
+     <ul class="itemize1">
+     <li class="itemize">The size of its fields.
+     </li>
+     <li class="itemize">The alignment requirements of the types of the fields, which are platform-dependent.
+     Note that the alignment requirements of a type inside a record may be different from
+     those of a separate variable of that type. Additionally, the location of a field inside a
+     record may also influence its type&#8217;s alignment requirements.
+     </li>
+     <li class="itemize">The currently active <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$ALIGN N</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKRECORDS N</span><span 
+class="cmsy-10">} </span>setting (these settings override
+     each  other,  so  the  last  one  specified  is  the  active  one;  note  that  these  directives
+     to not accept exactly the same arguments, see the programmer&#8217;s manual for more
+     information).
+     </li>
+     <li class="itemize">The currently active <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$CODEALIGN RECORDMIN=X</span><span 
+class="cmsy-10">} </span>setting.
+     </li>
+     <li class="itemize">The currently active <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$CODEALIGN RECORDMAX=X</span><span 
+class="cmsy-10">} </span>setting.</li></ul>
+<!--l. 2326--><p class="noindent" >The layout and size of variant parts in records is determined by replacing them with a field whose
+type is a record with as first element a field of the tag field type <span 
+class="cmti-10">if an identifier was declared for</span>
+<span 
+class="cmti-10">this tag field</span>, followed by the elements of the biggest variant.
+<!--l. 2331--><p class="noindent" >Field <span 
+class="cmtt-10">F2</span>&#8217;s offset in a record is equal to the sum of the previous field <span 
+class="cmtt-10">F1</span>&#8217;s offset and <span 
+class="cmtt-10">F1</span>&#8217;s size,
+rounded up to a multiple of <span 
+class="cmtt-10">F2</span>&#8217;s required alignment. This required alignment is calculated as
+follows:
+     <ul class="itemize1">
+     <li class="itemize">The required alignment is set to the default alignment of the field&#8217;s type, possibly
+     adjusted based on the fact that this type occurs in a record and on the field&#8217;s location
+     in the record.
+                                                                            
+
+                                                                            
+     </li>
+     <li class="itemize">If  the  required  alignment  is  smaller  than  the  currently  active  <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$CODEALIGN</span>
+     <span 
+class="cmtt-10">RECORDMIN=X</span><span 
+class="cmsy-10">} </span>setting, it is changed to this <span 
+class="cmtt-10">X </span>value.
+     </li>
+     <li class="itemize">If the currently active <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$ALIGN N</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKRECORDS N</span><span 
+class="cmsy-10">} </span>setting is
+         <ul class="itemize2">
+         <li class="itemize">a numerical value: if the required alignment is larger than <span 
+class="cmtt-10">N</span>, it is changed to <span 
+class="cmtt-10">N</span>.
+         I.e., if <span 
+class="cmtt-10">N </span>is 1, all fields will be placed right after each other.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">RESET </span>or <span 
+class="cmtt-10">DEFAULT</span>: the resulting required alignment is target dependent.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">C</span>: the required alignment is adjusted according to the rules specified in the official
+         ABI for the current platform.
+         </li>
+         <li class="itemize"><span 
+class="cmtt-10">POWER</span>/<span 
+class="cmtt-10">POWERPC</span>,  <span 
+class="cmtt-10">MAC68K</span>:  the  alignment  value&#8217;s  adjustment  is  determined  by
+         following the official ABI rules for resp.&#x00A0;the (Classic) Macintosh PowerPC or
+         Macintosh 680x0 platforms.</li></ul>
+     </li></ul>
+<!--l. 2358--><p class="noindent" >The size of a record is equal to the sum of the record&#8217;s last field&#8217;s offset and this field&#8217;s size,
+rounded up to a multiple of the record&#8217;s required alignment. The record&#8217;s required alignment is
+calculated as follows:
+     <ul class="itemize1">
+     <li class="itemize">The required alignment is set to the alignment of the record&#8217;s field with the largest
+     alignment, as determined while laying out the record.
+     </li>
+     <li class="itemize">If  the  current  <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$ALIGN N</span><span 
+class="cmsy-10">} </span>or  <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKRECORDS N</span><span 
+class="cmsy-10">} </span>setting  is  different  from  <span 
+class="cmtt-10">C </span>and
+     the  required  alignment  is  larger  than  than  the  currently  active  <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$CODEALIGN</span>
+     <span 
+class="cmtt-10">RECORDMAX=X</span><span 
+class="cmsy-10">}</span>, the required alignment is changed to <span 
+class="cmtt-10">X</span>.
+     </li>
+     <li class="itemize">If the current <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$ALIGN N</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKRECORDS N</span><span 
+class="cmsy-10">} </span>setting is equal to <span 
+class="cmtt-10">C</span>, the required
+     alignment is determined by following the official ABI rules.</li></ul>
+<!--l. 2375--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="refse14.html#QQ2-39-63" id="x39-570003.3.2">Remarks and examples</a></h5>
+<!--l. 2377--><p class="noindent" >Free Pascal also supports a &#8217;packed record&#8217;, which is a record where all the elements are
+byte-aligned. As a result, the two following declarations are equivalent:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-83">
+&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{$PackRecords&#x00A0;1}
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Trec2&#x00A0;=&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;Byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;Word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;{$PackRecords&#x00A0;default}
+</div>
+<!--l. 2387--><p class="nopar" >and
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-84">
+&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Trec2&#x00A0;=&#x00A0;Packed&#x00A0;Record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;A&#x00A0;:&#x00A0;Byte;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;Word;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+</div>
+<!--l. 2394--><p class="nopar" >Note the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PackRecords Default</span><span 
+class="cmsy-10">} </span>after the first declaration to restore the default
+setting!
+<!--l. 2398--><p class="noindent" >Given the platform-dependent nature of how records are laid out in memory, the only way to
+ensure a compatible layout across platforms (assuming that all fields are declared using a
+type with the same meaning across these same platforms) is by using <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKRECORDS</span>
+<span 
+class="cmtt-10">1</span><span 
+class="cmsy-10">}</span>.
+<!--l. 2404--><p class="noindent" >In particular, if a typed file with records, produced by a Turbo Pascal program, must be read, then
+chances are that attempting to read that file correctly will fail. The reason is that Free Pascal&#8217;s
+default <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKRECORDS N</span><span 
+class="cmsy-10">} </span>setting is not necessarily compatible with Turbo Pascal&#8217;s. It can be
+changed to <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKRECORDS 1</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKRECORDS 2</span><span 
+class="cmsy-10">} </span>depending on the setting used in the Turbo
+Pascal program that create the file (although it may still fail with <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKRECORDS 2</span><span 
+class="cmsy-10">}</span>
+due to different type alignment requirements between 16 bit MSDOS and your current
+platform).
+<!--l. 2414--><p class="noindent" >The same remark goes for Delphi: exchanging data is only guaranteed to be possible if both the
+producer and consumer use a packed record, or if they are on the same platform and use the same
+<span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKRECORDS X</span><span 
+class="cmsy-10">} </span>setting.
+                                                                            
+
+                                                                            
+<div class="footnotes"><!--l. 2291--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn3x4-bk" id="fn3x4"><sup class="textsuperscript">3</sup></a></span><span 
+class="cmr-8">However, it is up to the programmer to maintain this field.</span>                               </div> <!--l. 2421--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu16.html" >next</a>]
+[<a 
+href="refsu14.html" >prev</a>] [<a 
+href="refsu14.html#tailrefsu14.html" >prev-tail</a>] [<a 
+href="refsu15.html" >front</a>] [<a 
+href="refse14.html#refsu15.html" >up</a>] </p></div>
+<!--l. 2421--><p class="noindent" ><a 
+ id="tailrefsu15.html"></a>    
+</body></html> 

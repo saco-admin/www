@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$M or $TYPEINFO : Generate type info</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 1055--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu48.html" >next</a>] [<a 
+href="progsu46.html" >prev</a>] [<a 
+href="progsu46.html#tailprogsu46.html" >prev-tail</a>] [<a 
+href="#tailprogsu47.html">tail</a>] [<a 
+href="progse2.html#progsu47.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.47   </span> <a 
+href="prog.html#QQ2-54-53" id="x54-530001.2.47"><span 
+class="cmtt-10">$M </span>or <span 
+class="cmtt-10">$TYPEINFO </span>: Generate type info</a></h4>
+<!--l. 1057--><p class="noindent" >For classes that are compiled in the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$M+</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$TYPEINFO ON</span><span 
+class="cmsy-10">} </span>state, the compiler will generate
+Run-Time Type Information (RTTI). All descendent class of a class that was compiled in the
+<span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$M+</span><span 
+class="cmsy-10">} </span>state will get RTTI information too. Any class that is used as a field or property in a
+published section will also get RTTI information.
+<!--l. 1063--><p class="noindent" >By default, no Run-Time Type Information is generated for published sections, making them
+equivalent to public sections. Only when a class (or one of its parent classes) was compiled in the
+<span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$M+</span><span 
+class="cmsy-10">} </span>state, the compiler will generate RTTI for the methods and properties in the published
+section.
+<!--l. 1069--><p class="noindent" >The <span 
+class="cmtt-10">TPersistent </span>object that is present in the <span 
+class="cmss-10">classes </span>unit (part of the RTL) is generated
+in the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$M+</span><span 
+class="cmsy-10">} </span>state. The generation of RTTI allows programmers to stream objects,
+and to access published properties of objects, without knowing the actual class of the
+object.
+<!--l. 1074--><p class="noindent" >The run-time type information is accessible through the <span 
+class="cmtt-10">TypInfo </span>unit, which is part of the Free
+Pascal Run-Time Library.
+<!--l. 1077--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> The streaming system implemented by Free Pascal requires that all streamable components be
+descendants from <span 
+class="cmtt-10">TPersistent</span>. It is possible to create classes with published sections that do not
+descend from <span 
+class="cmtt-10">TPersistent</span>, but those classes will not be streamed correctly by the streaming
+system of the <span 
+class="cmss-10">Classes </span>unit.
+                                                                            
+
+                                                                            
+<!--l. 1085--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu48.html" >next</a>] [<a 
+href="progsu46.html" >prev</a>] [<a 
+href="progsu46.html#tailprogsu46.html" >prev-tail</a>] [<a 
+href="progsu47.html" >front</a>] [<a 
+href="progse2.html#progsu47.html" >up</a>] </p></div>
+<!--l. 1085--><p class="noindent" ><a 
+ id="tailprogsu47.html"></a>  
+</body></html> 

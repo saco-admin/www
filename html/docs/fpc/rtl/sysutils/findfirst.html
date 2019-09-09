@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FindFirst</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FindFirst</h1>
+<p>Start a file search and return a findhandle</p>
+<h2>Declaration</h2>
+<p>Source position: filutilh.inc line 137</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FindFirst<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Path<span class="sym">: </span><a href="../system/unicodestring.html">UnicodeString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Attr<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>Rslt<span class="sym">: </span><a href="../sysutils/tunicodesearchrec.html">TUnicodeSearchRec</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/longint.html">LongInt</a><span class="sym">;</span><br><br><span class="kw">function</span> FindFirst<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Path<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Attr<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">out </span>Rslt<span class="sym">: </span><a href="../sysutils/trawbytesearchrec.html">TRawbyteSearchRec</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FindFirst</var> looks for files that match the name (possibly with wildcards) in <var>Path</var> and extra attributes <var>Attr</var>. It then fills up the <var>Rslt</var> record with data gathered about the file. It returns 0 if a file matching the specified criteria is found, a nonzero value (-1 on Unix-like platforms) otherwise. </p>
+<p><var>Attr</var> is an or-ed combination of the following constants: </p>
+<dl>
+<dt>faReadOnly</dt>
+<dd>The file is read-only.</dd>
+<dt>faHidden</dt>
+<dd>The file is hidden. (On unix, this means that the filename starts with a dot)</dd>
+<dt>faSysFile</dt>
+<dd>The file is a system file (On unix, this means that the file is a character, block or FIFO file).</dd>
+<dt>faVolumeId</dt>
+<dd>Drive volume Label. Not possible under unix, and on Windows-like systems, this works only for plan FAT (not Fat32 of VFAT) filesystems.</dd>
+<dt>faDirectory</dt>
+<dd>File is a directory.</dd>
+<dt>faArchive</dt>
+<dd>file needs to be archived. Not possible on Unix</dd>
+</dl>
+<p>It is a common misconception that <var>Attr</var> specifies a set of attributes  which must be matched in order for a file to be included in the list. This is not  so: The value of <var>Attr</var> specifies <em>additional</em> attributes, this means that the returned files are either normal files or have an attribute which is present in <var>Attr</var>.</p>
+<p>Specifically: specifying <var>faDirectory</var> as a value for <var>Attr</var> does not mean that only directories will be returned. Normal files <em>and</em> directories will be returned. </p>
+<p>The <var>Rslt</var> record can be fed to subsequent calls to <var>FindNext</var>, in order to find other files matching the specifications. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>A successful <var>FindFirst</var> call must <em>always</em> be followed by a <a href="../sysutils/findclose.html">FindClose</a> call with the same <var>Rslt</var> record. Failure to do so will result in memory leaks. If the findfirst call failed (i.e. returned a nonzero handle) there is no need  to call <var>FindClose</var>. </td>
+</tr>
+</table>
+<h2>Errors</h2>
+<p>On error the function returns -1 on Unix-like platforms, a nonzero error code on Windows. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/findclose.html">FindClose</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Close a find handle</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/findnext.html">FindNext</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find the next entry in a findhandle.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example43<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the FindFirst function }</span>
+
+<span class="kw">Uses</span> SysUtils<span class="sym">;</span>
+
+<span class="kw">Var</span> Info <span class="sym">:</span> TSearchRec<span class="sym">;</span>
+    Count <span class="sym">:</span> Longint<span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  Count<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+  <span class="kw">If</span> FindFirst <span class="sym">(</span><span class="chr">'*'</span><span class="sym">,</span>faAnyFile <span class="kw">and</span> faDirectory<span class="sym">,</span>Info<span class="sym">)</span><span class="sym">=</span><span class="num">0</span> <span class="kw">then</span>
+    <span class="kw">begin</span>
+    <span class="kw">Repeat</span>
+      Inc<span class="sym">(</span>Count<span class="sym">)</span><span class="sym">;</span>
+      <span class="kw">With</span> Info <span class="kw">do</span>
+        <span class="kw">begin</span>
+        <span class="kw">If</span> <span class="sym">(</span>Attr <span class="kw">and</span> faDirectory<span class="sym">)</span> <span class="sym">=</span> faDirectory <span class="kw">then</span>
+          Write<span class="sym">(</span><span class="str">'Dir : '</span><span class="sym">)</span><span class="sym">;</span>
+        Writeln <span class="sym">(</span>Name<span class="sym">:</span><span class="num">40</span><span class="sym">,</span>Size<span class="sym">:</span><span class="num">15</span><span class="sym">)</span><span class="sym">;</span>
+        <span class="kw">end</span><span class="sym">;</span>
+    <span class="kw">Until</span> FindNext<span class="sym">(</span>info<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+  FindClose<span class="sym">(</span>Info<span class="sym">)</span><span class="sym">;</span>
+  Writeln <span class="sym">(</span><span class="str">'Finished search. Found '</span><span class="sym">,</span>Count<span class="sym">,</span><span class="str">' matches'</span><span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

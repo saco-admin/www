@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>IsValidDateTime</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dateutils/index.html">Overview</a>][<a href="../dateutils/index-2.html">Constants</a>][<a href="../dateutils/index-5.html">Procedures and functions</a>][<a href="../dateutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dateutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>IsValidDateTime</h1>
+<p>Check whether a set of values is a valid date and time indication.</p>
+<h2>Declaration</h2>
+<p>Source position: dateutil.inc line 87</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> IsValidDateTime<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AYear<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AMonth<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ADay<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AHour<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AMinute<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ASecond<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AMilliSecond<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AYear</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Year value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AMonth</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Month in the year</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADay</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Day in the month</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AHour</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Hour of the day</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AMinute</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Minute in the hour</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ASecond</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Second in the minute</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AMilliSecond</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Milliseconds in the second</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p><var>True</var> if the given values form a valid date/time pair, <var>False</var> if not.</p>
+<h2>Description</h2>
+<p><var>IsValidTime</var> returns <var>True</var> when the values <var>AYear</var>, <var>AMonth</var>, <var>ADay</var>, <var>AHour</var>, <var>AMinute</var>, <var>ASecond</var>  and <var>AMilliSecond</var> form a valid date and time indication.  If one of the values is not valid (e.g. the seconds are larger than 60), <var>False</var> is returned. </p>
+<p><var>AYear</var> must be in the range 1..9999 to be valid. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dateutils/isvaliddate.html">IsValidDate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a set of values is a valid date indication.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/isvalidtime.html">IsValidTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a set of values is a valid time indication.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/isvaliddateday.html">IsValidDateDay</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a given year/day of year combination is a valid date.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/isvaliddateweek.html">IsValidDateWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a given year/week/day of the week combination is a valid day.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/isvaliddatemonthweek.html">IsValidDateMonthWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether a given year/month/week/day of the week combination is a valid day</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example7<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the IsValidDateTime function }</span>
+
+<span class="kw">Uses</span> SysUtils<span class="sym">,</span>DateUtils<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  Y<span class="sym">,</span>Mo<span class="sym">,</span>D <span class="sym">:</span> Word<span class="sym">;</span>
+  H<span class="sym">,</span>M<span class="sym">,</span>S<span class="sym">,</span>MS <span class="sym">:</span> Word<span class="sym">;</span>
+  I <span class="sym">:</span> Integer<span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    Y<span class="sym">:=</span><span class="num">2000</span><span class="sym">+</span>Random<span class="sym">(</span><span class="num">5</span><span class="sym">)</span><span class="sym">;</span>
+    Mo<span class="sym">:=</span>Random<span class="sym">(</span><span class="num">15</span><span class="sym">)</span><span class="sym">;</span>
+    D<span class="sym">:=</span>Random<span class="sym">(</span><span class="num">40</span><span class="sym">)</span><span class="sym">;</span>
+    H<span class="sym">:=</span>Random<span class="sym">(</span><span class="num">32</span><span class="sym">)</span><span class="sym">;</span>
+    M<span class="sym">:=</span>Random<span class="sym">(</span><span class="num">90</span><span class="sym">)</span><span class="sym">;</span>
+    S<span class="sym">:=</span>Random<span class="sym">(</span><span class="num">90</span><span class="sym">)</span><span class="sym">;</span>
+    MS<span class="sym">:=</span>Random<span class="sym">(</span><span class="num">1500</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">If</span> <span class="kw">Not</span> IsValidDateTime<span class="sym">(</span>Y<span class="sym">,</span>Mo<span class="sym">,</span>D<span class="sym">,</span>H<span class="sym">,</span>M<span class="sym">,</span>S<span class="sym">,</span>MS<span class="sym">)</span> <span class="kw">then</span>
+      Writeln<span class="sym">(</span>Y<span class="sym">,</span><span class="chr">'-'</span><span class="sym">,</span>Mo<span class="sym">,</span><span class="chr">'-'</span><span class="sym">,</span>D<span class="sym">,</span><span class="chr">' '</span><span class="sym">,</span>H<span class="sym">,</span><span class="chr">':'</span><span class="sym">,</span>M<span class="sym">,</span><span class="chr">':'</span><span class="sym">,</span>S<span class="sym">,</span><span class="chr">'.'</span><span class="sym">,</span>MS<span class="sym">,</span><span class="str">' is not a valid date/time.'</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

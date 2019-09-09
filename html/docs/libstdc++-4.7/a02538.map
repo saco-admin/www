@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00412.html" title="std::_Maybe_unary_or_binary_function\&lt; _Res, _ArgTypes...\&gt;" alt="" coords="793,5,1183,33"/>
+<area shape="rect" id="node7" href="$a00412.html" title="std::_Maybe_unary_or_binary_function\&lt; _Res, const _Class *, _ArgTypes...\&gt;" alt="" coords="745,55,1231,83"/>
+<area shape="rect" id="node11" href="$a00412.html" title="std::_Maybe_unary_or_binary_function\&lt; _Res, volatile _Class *, _ArgTypes...\&gt;" alt="" coords="741,106,1235,134"/>
+<area shape="rect" id="node15" href="$a00412.html" title="std::_Maybe_unary_or_binary_function\&lt; _Res, const volatile _Class *, _ArgTypes...\&gt;" alt="" coords="721,157,1255,185"/>
+<area shape="rect" id="node19" href="$a00412.html" title="std::_Maybe_unary_or_binary_function\&lt; _Res, _Class *, _ArgTypes...\&gt;" alt="" coords="765,207,1211,235"/>
+<area shape="rect" id="node5" href="$a00650.html" title="Primary class template for std::function.Polymorphic function wrapper." alt="" coords="1385,5,1620,33"/>
+<area shape="rect" id="node9" href="$a00504.html" title="Implementation of mem_fn for const member function pointers." alt="" coords="1331,55,1675,83"/>
+<area shape="rect" id="node13" href="$a00506.html" title="Implementation of mem_fn for volatile member function pointers." alt="" coords="1327,106,1679,134"/>
+<area shape="rect" id="node17" href="$a00505.html" title="Implementation of mem_fn for const volatile member function pointers." alt="" coords="1307,157,1699,185"/>
+<area shape="rect" id="node21" href="$a00507.html" title="Implementation of mem_fn for member function pointers." alt="" coords="1352,207,1653,235"/>
+</map>

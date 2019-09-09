@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TProcess.Options</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../process/index.html">Overview</a>][<a href="../process/index-3.html">Types</a>][<a href="../process/index-4.html">Classes</a>][<a href="../process/index-5.html">Procedures and functions</a>][<a href="../process/index-6.html">Variables</a>][<a href="../process/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'process' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TProcess.Options</h1>
+<p>Options to be used when starting the process.</p>
+<h2>Declaration</h2>
+<p>Source position: process.pp line 150</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../process/tprocess.html">TProcess</a><span class="sym">.</span>Options<span class="sym"> : </span><a href="../process/tprocessoptions.html">TProcessOptions</a><br>&nbsp;&nbsp;<span class="kw">read </span>FProcessOptions<br>&nbsp;&nbsp;<span class="kw">write </span>SetProcessOptions<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Options</var> determine how the process is started.  They should be set before the <a href="../process/tprocess.execute.html">Execute</a> call is made. </p>
+<table border="0">
+<tr>
+<th>Option</th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td><var>poRunSuspended</var></td>
+<td>Start the process in suspended state.</td>
+</tr>
+<tr>
+<td><var>poWaitOnExit</var></td>
+<td>Wait for the process to terminate before returning.</td>
+</tr>
+<tr>
+<td><var>poUsePipes</var></td>
+<td>Use pipes to redirect standard input and output.</td>
+</tr>
+<tr>
+<td><var>poStderrToOutPut</var></td>
+<td>Redirect standard error to the standard output stream.</td>
+</tr>
+<tr>
+<td><var>poNoConsole</var></td>
+<td>Do not allow access to the console window for the process (Win32 only)</td>
+</tr>
+<tr>
+<td><var>poNewConsole</var></td>
+<td>Start a new console window for the process (Win32 only)</td>
+</tr>
+<tr>
+<td><var>poDefaultErrorMode</var></td>
+<td>Use default error handling.</td>
+</tr>
+<tr>
+<td><var>poNewProcessGroup</var></td>
+<td>Start the process in a new process group (Win32 only)</td>
+</tr>
+<tr>
+<td><var>poDebugProcess</var></td>
+<td>Allow debugging of the process (Win32 only)</td>
+</tr>
+<tr>
+<td><var>poDebugOnlyThisProcess</var></td>
+<td>Do not follow processes started by this process (Win32 only)</td>
+</tr>
+</table>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../process/tprocessoption.html">TProcessOption</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Options to be used when a process is started.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocessoptions.html">TProcessOptions</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set of <a href="../process/tprocessoption.html">TProcessOption</a>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.priority.html">TProcess.Priority</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Priority at which the process is running.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.startupoptions.html">TProcess.StartUpOptions</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Additional (Windows) startup options</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

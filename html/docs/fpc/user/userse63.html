@@ -1,0 +1,903 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Type checking errors</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1472--><div class="crosslinks"><p class="noindent">[<a 
+href="userse64.html" >next</a>] [<a 
+href="userse62.html" >prev</a>] [<a 
+href="userse62.html#tailuserse62.html" >prev-tail</a>] [<a 
+href="#tailuserse63.html">tail</a>] [<a 
+href="userap3.html#userse63.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">C.4   </span> <a 
+href="user.html#QQ2-177-235" id="x177-184000C.4">Type checking errors</a></h3>
+<!--l. 1473--><p class="noindent" >This section lists all errors that can occur when type checking is performed.
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Error: Type mismatch</span> </dt><dd 
+class="description">This can happen in many cases:
+         <ul class="itemize1">
+         <li class="itemize">The variable you&#8217;re assigning to is of a different type than the expression in the
+         assignment.
+         </li>
+         <li class="itemize">You are calling a function or procedure with parameters that are incompatible
+         with the parameters in the function or procedure definition.</li></ul>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Incompatible types: got &#8221;arg1&#8221; expected &#8221;arg2&#8221;</span> </dt><dd 
+class="description">There is no conversion possible
+     between the two types. Another possiblity is that they are declared in different
+     declarations:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-144">
+     &#x00A0;Var
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;A1&#x00A0;:&#x00A0;Array[1..10]&#x00A0;Of&#x00A0;Integer;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;A2&#x00A0;:&#x00A0;Array[1..10]&#x00A0;Of&#x00A0;Integer;
+     &#x00A0;<br />
+     &#x00A0;<br />&#x00A0;Begin
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;A1:=A2;&#x00A0;{&#x00A0;This&#x00A0;statement&#x00A0;also&#x00A0;gives&#x00A0;this&#x00A0;error.&#x00A0;It
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;is&#x00A0;due&#x00A0;to&#x00A0;the&#x00A0;strict&#x00A0;type&#x00A0;checking&#x00A0;of&#x00A0;Pascal&#x00A0;}
+     &#x00A0;<br />&#x00A0;End.
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 1497--><p class="nopar" >
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Type mismatch between &#8221;arg1&#8221; and &#8221;arg2&#8221;</span> </dt><dd 
+class="description">The types are not equal.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Type identifier expected</span> </dt><dd 
+class="description">The identifier is not a type, or you forgot to supply a type
+     identifier.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Variable identifier expected</span> </dt><dd 
+class="description">This happens when you pass a constant to a routine (such
+     as <span 
+class="cmtt-10">Inc </span>var or <span 
+class="cmtt-10">Dec</span>) when it expects a variable. You can only pass variables as arguments to
+     these functions.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Integer expression expected, but got &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The compiler expects an expression of
+     type integer, but gets a different type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Boolean expression expected, but got &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The expression must be a boolean
+     type. It should be return <span 
+class="cmtt-10">True </span>or <span 
+class="cmtt-10">False</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Ordinal expression expected</span> </dt><dd 
+class="description">The expression must be of ordinal type, i.e., maximum a
+     <span 
+class="cmtt-10">Longint</span>. This happens, for instance, when you specify a second argument to <span 
+class="cmtt-10">Inc </span>or <span 
+class="cmtt-10">Dec </span>that
+     doesn&#8217;t evaluate to an ordinal value.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: pointer type expected, but got &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The variable or expression isn&#8217;t of the type
+     <span 
+class="cmtt-10">pointer</span>. This happens when you pass a variable that isn&#8217;t a pointer to <span 
+class="cmtt-10">New </span>or
+     <span 
+class="cmtt-10">Dispose</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: class type expected, but got &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The variable or expression isn&#8217;t of the type
+     <span 
+class="cmtt-10">class</span>. This happens typically when
+         <ol  class="enumerate1" >
+         <li 
+  class="enumerate" id="x177-184002x1">The parent class in a class declaration isn&#8217;t a class.
+         </li>
+         <li 
+  class="enumerate" id="x177-184004x2">An exception handler (<span 
+class="cmtt-10">On</span>) contains a type identifier that isn&#8217;t a class.</li></ol>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t evaluate constant expression</span> </dt><dd 
+class="description">This error can occur when the bounds of an array
+     you declared do not evaluate to ordinal constants.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Set elements are not compatible</span> </dt><dd 
+class="description">You are trying to perform an operation on two sets,
+     when the set element types are not the same. The base type of a set must be the same when
+     taking the union.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Operation not implemented for sets</span> </dt><dd 
+class="description">several binary operations are not defined for sets.
+     These include: <span 
+class="cmtt-10">div</span>, <span 
+class="cmtt-10">mod</span>, <span 
+class="cmtt-10">**</span>, <span 
+class="cmtt-10">&#x003E;= </span>and <span 
+class="cmtt-10">&#x003C;=</span>. The last two may be defined for sets in the
+     future.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Automatic type conversion from floating type to COMP which is an integer type</span> </dt><dd 
+class="description">
+     An implicit type conversion from a real type to a <span 
+class="cmtt-10">comp </span>is encountered. Since <span 
+class="cmtt-10">comp </span>is a 64 bit
+     integer type, this may indicate an error.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: use DIV instead to get an integer result</span> </dt><dd 
+class="description">When hints are on, then an integer division
+     with the &#8217;/&#8217; operator will produce this message, because the result will then be of type
+     real.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: String types have to match exactly in $V+ mode</span> </dt><dd 
+class="description">When compiling in <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$V+</span><span 
+class="cmsy-10">} </span>mode,
+     the string you pass as a parameter should be of the exact same type as the declared
+     parameter of the procedure.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: succ or pred on enums with assignments not possible</span> </dt><dd 
+class="description">If you declare an
+     enumeration type which has C-like assignments in it, such as in the following:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-145">
+     &#x00A0;&#x00A0;&#x00A0;Tenum&#x00A0;=&#x00A0;(a,b,e:=5);
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 1553--><p class="nopar" >then you cannot use the <span 
+class="cmtt-10">Succ </span>or <span 
+class="cmtt-10">Pred </span>functions with this enumeration.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t read or write variables of this type</span> </dt><dd 
+class="description">You are trying to <span 
+class="cmtt-10">read </span>or <span 
+class="cmtt-10">write </span>a variable
+     from or to a file of type text, which doesn&#8217;t support that variable&#8217;s type. Only integer types,
+     reals, pchars and strings can be read from or written to a text file. Booleans can only be
+     written to text files.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t use readln or writeln on typed file</span> </dt><dd 
+class="description"><span 
+class="cmtt-10">readln </span>and <span 
+class="cmtt-10">writeln </span>are only allowed for
+     text files.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t use read or write on untyped file.</span> </dt><dd 
+class="description"><span 
+class="cmtt-10">read </span>and <span 
+class="cmtt-10">write </span>are only allowed for text or
+     typed files.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Type conflict between set elements</span> </dt><dd 
+class="description">There is at least one set element which is of the
+     wrong type, i.e. not of the set type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: lo/hi(dword/qword) returns the upper/lower word/dword</span> </dt><dd 
+class="description">Free Pascal
+     supports an overloaded version of <span 
+class="cmtt-10">lo/hi </span>for <span 
+class="cmtt-10">longint/dword/int64/qword </span>which returns
+     the lower/upper word/dword of the argument. Turbo Pascal always uses a 16
+     bit <span 
+class="cmtt-10">lo/hi </span>which always returns bits 0..7 for <span 
+class="cmtt-10">lo </span>and the bits 8..15 for <span 
+class="cmtt-10">hi</span>. If you
+     want the Turbo Pascal behavior you have to type cast the argument to a <span 
+class="cmtt-10">word </span>or
+     <span 
+class="cmtt-10">integer</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Integer or real expression expected</span> </dt><dd 
+class="description">The first argument to <span 
+class="cmtt-10">str </span>must be a real or
+     integer type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Wrong type &#8221;arg1&#8221; in array constructor</span> </dt><dd 
+class="description">You are trying to use a type in an array
+     constructor which is not allowed.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Incompatible type for arg no. arg1: Got &#8221;arg2&#8221;, expected &#8221;arg3&#8221;</span> </dt><dd 
+class="description">You are trying
+     to pass an invalid type for the specified parameter.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Method (variable) and Procedure (variable) are not compatible</span> </dt><dd 
+class="description">You cannot
+     assign a method to a procedure variable or a procedure to a method pointer.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal constant passed to internal math function</span> </dt><dd 
+class="description">The constant argument passed to
+     a <span 
+class="cmtt-10">ln </span>or <span 
+class="cmtt-10">sqrt </span>function is out of the definition range of these functions.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t take the address of constant expressions</span> </dt><dd 
+class="description">It is not possible to get the address
+     of a constant expression, because they are not stored in memory. You can try making it a
+     typed constant. This error can also be displayed if you try to pass a property to a var
+     parameter.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Argument cannot be assigned to</span> </dt><dd 
+class="description">Only expressions which can be on the left side of an
+     assignment can be passed as call by reference arguments.
+     <!--l. 1594--><p class="noindent" >Remark: Properties can be used on the left side of an assignment, nevertheless they cannot
+     be used as arguments.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t assign local procedure/function to procedure variable</span> </dt><dd 
+class="description">It&#8217;s not allowed to
+     assign a local procedure/function to a procedure variable, because the calling convention of a
+     local procedure/function is different. You can only assign local procedure/function to a void
+     pointer.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t assign values to an address</span> </dt><dd 
+class="description">It is not allowed to assign a value to an address of a
+     variable, constant, procedure or function. You can try compiling with -So if the identifier is a
+     procedure variable.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t assign values to const variable</span> </dt><dd 
+class="description">It&#8217;s not allowed to assign a value to a variable
+     which is declared as a const. This is normally a parameter declared as const. To allow
+     changing the value, pass the parameter by value, or a parameter by reference (using
+     var).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Array type required</span> </dt><dd 
+class="description">If you are accessing a variable using an index &#8217;[¡x¿]&#8217; then the type
+     must be an array. In FPC mode a pointer is also allowed.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: interface type expected, but got &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The compiler expected to encounter an
+     interface type name, but got something else. The following code would produce this
+     error:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-146">
+     &#x00A0;Type
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;TMyStream&#x00A0;=&#x00A0;Class(TStream,Integer)
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 1618--><p class="nopar" >
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Mixing signed expressions and longwords gives a 64bit result</span> </dt><dd 
+class="description">If you divide (or
+     calculate the modulus of) a signed expression by a longword (or vice versa), or if you have
+     overflow and/or range checking turned on and use an arithmetic expression (+, -, *, div,
+     mod) in which both signed numbers and longwords appear, then everything has to be
+     evaluated in 64-bit arithmetic which is slower than normal 32-bit arithmetic. You can
+     avoid this by typecasting one operand so it matches the result type of the other
+     one.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Mixing signed expressions and cardinals here may cause a range check error</span> </dt><dd 
+class="description">If
+     you use a binary operator (and, or, xor) and one of the operands is a longword while the
+     other one is a signed expression, then, if range checking is turned on, you may get a range
+     check error because in such a case both operands are converted to longword before the
+     operation is carried out. You can avoid this by typecasting one operand so it matches the
+     result type of the other one.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Typecast has different size (arg1 -¿ arg2) in assignment</span> </dt><dd 
+class="description">Type casting to a type
+     with a different size is not allowed when the variable is used in an assignment.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: enums with assignments cannot be used as array index</span> </dt><dd 
+class="description">When you declared an
+     enumeration type which has C-like assignments, such as in the following:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-147">
+     &#x00A0;&#x00A0;&#x00A0;Tenum&#x00A0;=&#x00A0;(a,b,e:=5);
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 1641--><p class="nopar" >you cannot use it as the index of an array.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Class or Object types &#8221;arg1&#8221; and &#8221;arg2&#8221; are not related</span> </dt><dd 
+class="description">There is a typecast from
+     one class or object to another while the class/object are not related. This will probably lead
+     to errors.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Class types &#8221;arg1&#8221; and &#8221;arg2&#8221; are not related</span> </dt><dd 
+class="description">There is a typecast from
+     one class to another while the classes are not related. This will probably lead to
+     errors.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Class or interface type expected, but got &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The compiler expected a class or
+     interface name, but got another type or identifier.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Type &#8221;arg1&#8221; is not completely defined</span> </dt><dd 
+class="description">This error occurs when a type is not
+     complete: i.e. a pointer type which points to an undefined type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: String literal has more characters than short string length</span> </dt><dd 
+class="description">The size of the
+     constant string, which is assigned to a shortstring, is longer than the maximum size of the
+     shortstring (255 characters).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Comparison might be always false due to range of constant and expression</span> </dt><dd 
+class="description">
+     There is a comparison between a constant and an expression where the constant is
+     out of the valid range of values of the expression. Because of type promotion,
+     the statement will always evaluate to false. Explicitly typecast the constant or
+     the expression to the correct range to avoid this warning if you think the code is
+     correct.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Comparison might be always true due to range of constant and expression</span> </dt><dd 
+class="description">
+     There is a comparison between a constant and an expression where the constant is
+     out of the valid range of values of the expression. Because of type promotion,
+     the statement will always evaluate to true. Explicitly typecast the constant or
+     the expression to the correct range to avoid this warning if you think the code is
+     correct.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Constructing a class &#8221;arg1&#8221; with abstract method &#8221;arg2&#8221;</span> </dt><dd 
+class="description">An instance of a
+     class is created which contains non-implemented abstract methods. This will probably lead to
+     a runtime error 211 in the code if that routine is ever called. All abstract methods should be
+     overridden.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: The left operand of the IN operator should be byte sized</span> </dt><dd 
+class="description">The left operand of the
+     <span 
+class="cmtt-10">in </span>operator is not an ordinal or enumeration which fits within 8 bits. This may lead to range
+     check errors. The <span 
+class="cmtt-10">in </span>operator currently only supports a left operand which fits within a byte.
+     In the case of enumerations, the size of an element of an enumeration can be controlled with
+     the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$PACKENUM</span><span 
+class="cmsy-10">} </span>or <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$Zn</span><span 
+class="cmsy-10">} </span>switches.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Type size mismatch, possible loss of data / range check error</span> </dt><dd 
+class="description">There is an
+     assignment to a smaller type than the source type. This means that this may cause a
+     range-check error, or may lead to possible loss of data.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Type size mismatch, possible loss of data / range check error</span> </dt><dd 
+class="description">There is an
+     assignment to a smaller type than the source type. This means that this may cause a
+     range-check error, or may lead to possible loss of data.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The address of an abstract method cannot be taken</span> </dt><dd 
+class="description">An abstract method has no
+     body, so the address of an abstract method cannot be taken.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Assignments to formal parameters and open arrays are not possible</span> </dt><dd 
+class="description">You are
+     trying to assign a value to a formal (untyped var, const or out) parameter, or to an open
+     array.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Constant Expression expected</span> </dt><dd 
+class="description">The compiler expects an constant expression, but gets
+     a variable expression.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Operation &#8221;arg1&#8221; not supported for types &#8221;arg2&#8221; and &#8221;arg3&#8221;</span> </dt><dd 
+class="description">The operation is
+     not allowed for the supplied types.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal type conversion: &#8221;arg1&#8221; to &#8221;arg2&#8221;</span> </dt><dd 
+class="description">When doing a type-cast, you
+     must take care that the sizes of the variable and the destination type are the
+     same.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Conversion between ordinals and pointers is not portable</span> </dt><dd 
+class="description">If you typecast a pointer
+     to a longint (or vice-versa), this code will not compile on a machine using 64 bits
+     addressing.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Conversion between ordinals and pointers is not portable</span> </dt><dd 
+class="description">If you typecast a
+     pointer to an ordinal type of a different size (or vice-versa), this can cause problems. This is
+     a warning to help in finding the 32-bit specific code where cardinal/longint is
+     used to typecast pointers to ordinals. A solution is to use the ptrint/ptruint types
+     instead.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t determine which overloaded function to call</span> </dt><dd 
+class="description">You&#8217;re calling overloaded
+     functions with a parameter that doesn&#8217;t correspond to any of the declared function
+     parameter lists. e.g. when you have declared a function with parameters <span 
+class="cmtt-10">word </span>and <span 
+class="cmtt-10">longint</span>,
+     and then you call it with a parameter which is of type <span 
+class="cmtt-10">integer</span>.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Illegal counter variable</span> </dt><dd 
+class="description">The type of a <span 
+class="cmtt-10">for </span>loop variable must be an ordinal type. Loop
+     variables cannot be reals or strings.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Converting constant real value to double for C variable argument, add explicit typecast to prevent this.</span> </dt><dd 
+class="description">
+     In C, constant real values are double by default. For this reason, if you pass a constant real
+     value to a variable argument part of a C function, FPC by default converts this constant to
+     double as well. If you want to prevent this from happening, add an explicit typecast around
+     the constant.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Class or COM interface type expected, but got &#8221;arg1&#8221;</span> </dt><dd 
+class="description">Some operators, such as
+     the AS operator, are only applicable to classes or COM interfaces.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Constant packed arrays are not yet supported</span> </dt><dd 
+class="description">You cannot declare a (bit)packed
+     array as a typed constant.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Incompatible type for arg no. arg1: Got &#8221;arg2&#8221; expected &#8221;(Bit)Packed Array&#8221;</span> </dt><dd 
+class="description">
+     The compiler expects a (bit)packed array as the specified parameter.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Incompatible type for arg no. arg1: Got &#8221;arg2&#8221; expected &#8221;(not packed) Array&#8221;</span> </dt><dd 
+class="description">
+     The compiler expects a regular (i.e., not packed) array as the specified parameter.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Elements of packed arrays cannot be of a type which need to be initialised</span> </dt><dd 
+class="description">
+     Support for packed arrays of types that need initialization (such as ansistrings, or records
+     which contain ansistrings) is not yet implemented.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Constant packed records and objects are not yet supported</span> </dt><dd 
+class="description">You cannot declare a
+     (bit)packed array as a typed constant at this time.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Arithmetic &#8221;arg1&#8221; on untyped pointer is unportable to </span><span 
+class="cmbsy-10">{</span><span 
+class="cmbx-10">$T+</span><span 
+class="cmbsy-10">}</span><span 
+class="cmbx-10">, suggest typecast</span> </dt><dd 
+class="description">
+     Addition/subtraction from an untyped pointer may work differently in <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$T+</span><span 
+class="cmsy-10">}</span>. Use a typecast
+     to a typed pointer.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t take address of a subroutine marked as local</span> </dt><dd 
+class="description">The address of a subroutine
+     marked as local cannot be taken.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Can&#8217;t export subroutine marked as local from a unit</span> </dt><dd 
+class="description">A subroutine marked as local
+     cannot be exported from a unit.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Type is not automatable: &#8221;arg1&#8221;</span> </dt><dd 
+class="description">Only byte, integer, longint, smallint, currency,
+     single, double, ansistring, widestring, tdatetime, variant, olevariant, wordbool and all
+     interfaces are automatable.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Converting the operands to &#8221;arg1&#8221; before doing the add could prevent overflow errors.</span> </dt><dd 
+class="description">
+     Adding two types can cause overflow errors. Since you are converting the result to a larger
+     type, you could prevent such errors by converting the operands to this type before doing the
+     addition.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Converting the operands to &#8221;arg1&#8221; before doing the subtract could prevent overflow errors.</span> </dt><dd 
+class="description">
+     Subtracting two types can cause overflow errors. Since you are converting the result to a
+     larger type, you could prevent such errors by converting the operands to this type before
+     doing the subtraction.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Hint: Converting the operands to &#8221;arg1&#8221; before doing the multiply could prevent overflow errors.</span> </dt><dd 
+class="description">
+     Multiplying two types can cause overflow errors. Since you are converting the result to a
+     larger type, you could prevent such errors by converting the operands to this type before
+     doing the multiplication.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Converting pointers to signed integers may result in wrong comparison results and range errors, use an unsigned type instead.</span> </dt><dd 
+class="description">
+     The virtual address space on 32-bit machines runs from $00000000 to $ffffffff. Many
+     operating systems allow you to allocate memory above $80000000. For example
+     both <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> </span>and <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>allow pointers in the range $0000000 to $bfffffff. If
+     you convert pointers to signed types, this can cause overflow and range check
+     errors, but also $80000000 ¡ $7fffffff. This can cause random errors in code like &#8221;if
+     p¿q&#8221;.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Interface type arg1 has no valid GUID</span> </dt><dd 
+class="description">When applying the as-operator to an
+     interface or class, the desired interface (i.e. the right operand of the as-operator) must have a
+     valid GUID.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Invalid selector name &#8221;arg1&#8221;</span> </dt><dd 
+class="description">An Objective-C selector cannot be empty, must be a
+     valid identifier or a single colon, and if it contains at least one colon it must also end in
+     one.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Expected Objective-C method, but got arg1</span> </dt><dd 
+class="description">A selector can only be created for
+     Objective-C methods, not for any other kind of procedure/function/method.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Expected Objective-C method or constant method name</span> </dt><dd 
+class="description">A selector can only be
+     created for Objective-C methods, either by specifying the name using a string
+     constant, or by using an Objective-C method identifier that is visible in the current
+     scope.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: No type info available for this type</span> </dt><dd 
+class="description">Type information is not generated for some types,
+     such as enumerations with gaps in their value range (this includes enumerations whose lower
+     bound is different from zero).
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Ordinal or string expression expected</span> </dt><dd 
+class="description">The expression must be an ordinal or string
+     type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: String expression expected</span> </dt><dd 
+class="description">The expression must be a string type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Converting 0 to NIL</span> </dt><dd 
+class="description">Use NIL rather than 0 when initialising a pointer.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Objective-C protocol type expected, but got &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The compiler expected a
+     protocol type name, but found something else.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The type &#8221;arg1&#8221; is not supported for interaction with the Objective-C runtime.</span> </dt><dd 
+class="description">
+     Objective-C makes extensive use of run time type information (RTTI). This format is defined
+     by the maintainers of the run time and can therefore not be adapted to all possible Object
+     Pascal types. In particular, types that depend on reference counting by the compiler (such as
+     ansistrings and certain kinds of interfaces) cannot be used as fields of Objective-C classes,
+     cannot be directly passed to Objective-C methods, and cannot be encoded using
+     <span 
+class="cmtt-10">objc</span><span 
+class="cmtt-10">_encode</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Class or objcclass type expected, but got &#8221;arg1&#8221;</span> </dt><dd 
+class="description">It is only possible to create class
+     reference types of <span 
+class="cmtt-10">class </span>and <span 
+class="cmtt-10">objcclass</span>
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Objcclass type expected</span> </dt><dd 
+class="description">The compiler expected an <span 
+class="cmtt-10">objcclass </span>type
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Coerced univ parameter type in procedural variable may cause crash or memory corruption: arg1 to arg2</span> </dt><dd 
+class="description">
+     <span 
+class="cmtt-10">univ </span>parameters are implicitly compatible with all types of the same size, also in procedural
+     variable definitions. That means that the following code is legal, because <span 
+class="cmtt-10">single </span>and
+     <span 
+class="cmtt-10">longint </span>have the same size:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-148">
+     &#x00A0;{$mode&#x00A0;macpas}
+     &#x00A0;<br />&#x00A0;Type
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;TIntProc&#x00A0;=&#x00A0;procedure&#x00A0;(l:&#x00A0;univ&#x00A0;longint);
+     &#x00A0;<br />
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;test(s:&#x00A0;single);
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;begin
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;writeln(s);
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+     &#x00A0;<br />
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;var
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;p:&#x00A0;TIntProc;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;begin
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;p:=test;
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;p(4);
+     &#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;end.
+     &#x00A0;<br />&#x00A0;
+</div>
+     <!--l. 1809--><p class="nopar" >This code may however crash on platforms that pass integers in registers and
+     floating point values on the stack, because then the stack will be unbalanced. Note
+     that this warning will not flagg all potentially dangerous situations. when <span 
+class="cmtt-10">test</span>
+     returns.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Type parameters of specializations of generics cannot reference the currently specialized type</span> </dt><dd 
+class="description">
+     Recursive specializations of generics like <span 
+class="cmtt-10">Type MyType = specialize MyGeneric&#x003C;MyType&#x003E;;</span>
+     are not possible.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Type parameters are not allowed on non-generic class/record/object procedure or function</span> </dt><dd 
+class="description">
+     Type parameters are only allowed for methods of generic classes, records or objects
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Generic declaration of &#8221;arg1&#8221; differs from previous declaration</span> </dt><dd 
+class="description">Generic
+     declaration does not match the previous declaration
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Helper type expected</span> </dt><dd 
+class="description">The compiler expected a <span 
+class="cmtt-10">class helper </span>type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Record type expected</span> </dt><dd 
+class="description">The compiler expected a <span 
+class="cmtt-10">record </span>type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Derived class helper must extend a subclass of &#8221;arg1&#8221; or the class itself</span> </dt><dd 
+class="description">If a
+     class helper inherits from another class helper the extended class must extend either the same
+     class as the parent class helper or a subclass of it
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Derived record or type helper must extend &#8221;arg1&#8221;</span> </dt><dd 
+class="description">If a record helper inherits from
+     another record helper it must extend the same record that the parent record helper
+     extended.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Invalid assignment, procedures return no value</span> </dt><dd 
+class="description">This error occurs when one tries to
+     assign the result of a procedure or destructor call. A procedure or destructor returns no value
+     so this is not possible.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Implicit string type conversion from &#8221;arg1&#8221; to &#8221;arg2&#8221;</span> </dt><dd 
+class="description">An implicit type
+     conversion from an ansi string type to an unicode string type is encountered. To avoid this
+     warning perform an explicit type conversion.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Implicit string type conversion with potential data loss from &#8221;arg1&#8221; to &#8221;arg2&#8221;</span> </dt><dd 
+class="description">
+     An implicit type conversion from an unicode string type to an ansi string type is
+     encountered. This conversion can lose data since not all unicode characters may be
+     represented in the codepage of destination string type.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Explicit string typecast from &#8221;arg1&#8221; to &#8221;arg2&#8221;</span> </dt><dd 
+class="description">An explicit typecast from an
+     ansi string type to an unicode string type is encountered. This warning is off by default. You
+     can turn it on to see all suspicious string conversions.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Explicit string typecast with potential data loss from &#8221;arg1&#8221; to &#8221;arg2&#8221;</span> </dt><dd 
+class="description">An
+     explicit typecast from an unicode string type to an ansi string type is encountered. This
+     conversion can lose data since not all unicode characters may be represented in the codepage
+     of destination string type. This warning is off by default. You can turn it on to see all the
+     places with lossy string conversions.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Unicode constant cast with potential data loss</span> </dt><dd 
+class="description">Conversion from a WideChar
+     to AnsiChar can lose data since now all unicode characters may be represented
+     in the current system codepage You can nest function definitions only 31 levels
+     deep.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: range check error while evaluating constants (arg1 must be between arg2 and arg3)</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: range check error while evaluating constants (arg1 must be between arg2 and arg3)</span> </dt><dd 
+class="description">
+     The constants are outside their allowed range.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: This type is not supported for the Default() intrinsic</span> </dt><dd 
+class="description">Some types like for example
+     Text and File Of X are not supported by the Default intrinsic.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: JVM virtual class methods cannot be static</span> </dt><dd 
+class="description">Virtual class methods cannot be static
+     when targetting the JVM platform, because the self pointer is required for correct
+     dispatching.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Final (class) fields can only be assigned in their class&#8217; (class) constructor</span> </dt><dd 
+class="description">It is
+     only possible to assign a value to a final (class) field inside a (class) constructor of its owning
+     class.
+                                                                            
+
+                                                                            
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: It is not possible to typecast untyped parameters on managed platforms, simply assign a value to them instead.</span> </dt><dd 
+class="description">
+     On managed platforms, untyped parameters are translated by the compiler into
+     the equivalent of <span 
+class="cmtt-10">var x: BaseClassType</span>. Non-class-based types passed to such
+     parameters are automatically wrapped (or boxed) in a class, and after the call the
+     potentially modified value is assigned back to the original variable. On the caller
+     side, changing untyped var/out parameters happens by simply assigning values
+     to them (either class-based or primitive ones). On the caller side, they will be
+     extracted and if their type does not match the original variable&#8217;s, an exception will be
+     raised.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The assignment side of an expression cannot be typecasted to a supertype on managed platforms</span> </dt><dd 
+class="description">
+     Managed platforms guarantee type safety at the bytecode level. This means that the virtual
+     machine must be able to statically determine that no type-unsafe assignments or
+     operations occur. By assigning a parent class type to a variable of a child type by
+     typecasting the assignment side to the parent class type, the type safety would no
+     longer be guaranteed and the generated code would fail verification at run time
+     time.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: The interface method &#8221;arg1&#8221; raises the visibility of &#8221;arg2&#8221; to public when accessed via an interface instance</span> </dt><dd 
+class="description">
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: The interface method &#8221;arg1&#8221; has a higher visibility (public) than &#8221;arg2&#8221;</span> </dt><dd 
+class="description">All
+     methods in an interface have always public visibility. That means that if an interface method
+     is implemented using a (strict) protected or private method, this method is actually publicly
+     accessible via the interface. On the JVM target this situation results in an error because the
+     JVM rejects such attempts to circumvent the visibility rules. On other targets this is a
+     warning that is disabled by default because such situations are common practice, but it can
+     be enabled in case you are concerned with keeping your code compilable for the JVM
+     target.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: TYPEOF can only be used on object types with VMT</span> </dt><dd 
+class="description">Typeof() intrinsic returns
+     pointer to VMT of its argument. It cannot be used on object types that do not have
+     VMT.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: It is not possible to define a default value for a parameter of type &#8221;arg1&#8221;</span> </dt><dd 
+class="description">
+     Parameters declared as structured types, such as files, variants, non-dynamic arrays and
+     TP-style objects, cannot have a default value.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Type &#8221;arg1&#8221; cannot be extended by a type helper</span> </dt><dd 
+class="description">Types like procedural variables
+     cannot be extended by type helpers
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Error: Procedure or function must be far in order to allow taking its address: &#8221;arg1&#8221;</span> </dt><dd 
+class="description">
+     In certain i8086 memory models (medium, large and huge), procedures and functions have to
+     be declared &#8217;far&#8217; in order to allow their address to be taken.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Warning: Creating an instance of abstract class &#8221;arg1&#8221;</span> </dt><dd 
+class="description">The specified class is declared as
+     <span 
+class="cmtt-10">abstract </span>and thus no instance of this class should be created. This is merely a warning for
+     Delphi compatibility.</dd></dl>
+                                                                            
+
+                                                                            
+<!--l. 1901--><div class="crosslinks"><p class="noindent">[<a 
+href="userse64.html" >next</a>] [<a 
+href="userse62.html" >prev</a>] [<a 
+href="userse62.html#tailuserse62.html" >prev-tail</a>] [<a 
+href="userse63.html" >front</a>] [<a 
+href="userap3.html#userse63.html" >up</a>] </p></div>
+<!--l. 1901--><p class="noindent" ><a 
+ id="tailuserse63.html"></a>  
+</body></html> 

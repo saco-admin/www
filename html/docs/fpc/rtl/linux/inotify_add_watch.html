@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>inotify_add_watch</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../linux/index.html">Overview</a>][<a href="../linux/index-2.html">Constants</a>][<a href="../linux/index-3.html">Types</a>][<a href="../linux/index-5.html">Procedures and functions</a>][<a href="../linux/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Linux' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>inotify_add_watch</h1>
+<p>Add a watch to a notify file descriptor</p>
+<h2>Declaration</h2>
+<p>Source position: linux.pp line 431</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> inotify_add_watch<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;fd<span class="sym">: </span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;name<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;mask<span class="sym">: </span><a href="../unixtype/cuint32.html">cuint32</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>inotify_add_watch</var> can be used to add a watch to an initialized inotify file descriptor (<var>fd</var>). The file or directory to watch can be specified in the <var>name</var> parameter, and the events that must be reported can be specified in <var>mask</var>. The following flags can be specified: </p>
+<dl>
+<dt><var>IN_ACCESS</var></dt>
+<dd>Data was read from file.</dd>
+<dt><var>IN_MODIFY</var></dt>
+<dd>Data was written to file.</dd>
+<dt><var>IN_ATTRIB</var></dt>
+<dd>File attributes changed.</dd>
+<dt><var>IN_CLOSE_WRITE</var></dt>
+<dd>File opened for write was closed</dd>
+<dt><var>IN_CLOSE_NOWRITE</var></dt>
+<dd>File opened for read was closed</dd>
+<dt><var>IN_CLOSE</var></dt>
+<dd>File was closed (read or write)</dd>
+<dt><var>IN_OPEN</var></dt>
+<dd>File was opened</dd>
+<dt><var>IN_MOVED_FROM</var></dt>
+<dd>File was moved away from watched directory</dd>
+<dt><var>IN_MOVED_TO</var></dt>
+<dd>File was moved into watched directory</dd>
+<dt><var>IN_MOVE</var></dt>
+<dd>File was moved (in or out of directory)</dd>
+<dt><var>IN_CREATE</var></dt>
+<dd>A file was created in the directory.</dd>
+<dt><var>IN_DELETE</var></dt>
+<dd>A file was deleted from the directory.</dd>
+<dt><var>IN_DELETE_SELF</var></dt>
+<dd>Directory or file under observation was deleted.</dd>
+<dt><var>IN_MOVE_SELF</var></dt>
+<dd>Directory or file under observation was moved.</dd>
+<dt><var>IN_ALL_EVENTS</var></dt>
+<dd>All possible events OR-ed together.</dd>
+</dl>
+<p>These events can be OR-ed with some flags, controlling the behaviour of the watch: </p>
+<dl>
+<dt><var>IN_ONLYDIR</var></dt>
+<dd>Only watch filename if it is a directory.</dd>
+<dt><var>IN_ISDIR</var></dt>
+<dd>Event occurred against directory.</dd>
+<dt><var>IN_DONT_FOLLOW</var></dt>
+<dd>Do not follow symlinks</dd>
+<dt><var>IN_MASK_ADD</var></dt>
+<dd>Add events to existing watch (OR-ing the sets) if one exists.</dd>
+<dt><var>IN_ONESHOT</var></dt>
+<dd>Only report one event, then remove the watch.</dd>
+</dl>
+<p>On return, the function returns a watch descriptor, which will be reported in the <a href="../linux/inotify_event.html">inotify_event</a> structure's <var>wd</var>. </p>
+<h2>Errors</h2>
+<p>On Error, -1 is returned. <var>fpgeterrno</var> can be used to get more detailed error information. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../linux/inotify_init.html">inotify_init</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Initialize a new inotify file descriptor</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../linux/inotify_init1.html">inotify_init1</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Initialize a new inotify file descriptor with extra options.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../linux/inotify_rm_watch.html">inotify_rm_watch</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Remove watch from Inotify file descriptor.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../linux/inotify_event.html">inotify_event</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">INotify event structure</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDataSet.DataConvert</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDataSet.DataConvert</h1>
+<p>Convert data from/to native format</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1629</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../db/tdataset.html">TDataSet</a><span class="sym">.</span>DataConvert<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aField<span class="sym">: </span><a href="../db/tfield.html">TField</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aSource<span class="sym">: </span>Pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aDest<span class="sym">: </span>Pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aToNative<span class="sym">: </span>Boolean</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">aField</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Field for which data should be converted.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">aSource</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Pointer to memory area with source data</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">aDest</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Pointer to memory area for target data</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">aToNative</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt"><var>True</var> if the conversion should happen to native format.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>DataConvert</var> converts the data from field <var>AField</var> in buffer <var>ASource</var> to native format and puts the result in <var>ADest</var>.  If the <var>aToNative</var> parameter equals <var>False</var>, then the data is converted from native format to non-native format. Currently, only date/time/datetime and BCD fields are converted from/to native data.  This means the routine handles conversion between <var>TDateTime</var> (the native format) and <var>TDateTimeRec</var>, and between TBCD and currency (the native format) for BCD fields. </p>
+<p><var>DataConvert</var> is used internally by <var>TDataset</var> and descendent classes. There should be no need to use this routine in application code. </p>
+<h2>Errors</h2>
+<p>No checking on the validity of the buffer pointers is performed. If an invalid pointer is passed, an exception may be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdataset.getfielddata.html">TDataset.GetFieldData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get the data for a field</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.setfielddata.html">TDataset.SetFieldData</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Store the data for a field</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

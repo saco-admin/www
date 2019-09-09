@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Selectors</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 7684--><div class="crosslinks"><p class="noindent">[<a 
+href="refse75.html" >next</a>] [<a 
+href="refse73.html" >prev</a>] [<a 
+href="refse73.html#tailrefse73.html" >prev-tail</a>] [<a 
+href="#tailrefse74.html">tail</a>] [<a 
+href="refch11.html#refse74.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">11.8   </span> <a 
+href="ref.html#QQ2-136-164" id="x136-15800011.8">Selectors</a></h3>
+<!--l. 7685--><p class="noindent" >A Selector in Objective-C can be seen as an equivalent to a procedural type in Object
+Pascal.
+<!--l. 7688--><p class="noindent" >In difference with the procedural type, Objective-C has only 1 selector type: <span 
+class="cmtt-10">SEL</span>. It is defined in
+the <span 
+class="cmtt-10">objc </span>unit - which is automatically included in the uses clause of any unit compiled with the
+<span 
+class="cmtt-10">objectivec1 </span>modeswitch.
+<!--l. 7693--><p class="noindent" >To assign a value to a variable of type <span 
+class="cmtt-10">SEL</span>, the <span 
+class="cmtt-10">objcselector </span>method must be used:
+<a name="keyword_objcselector"></a>
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-319">
+{$modeswitch&#x00A0;objectivec1}
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;a:&#x00A0;SEL;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;a:=objcselector(&#8217;initiWithWidth:andHeight:&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;a:=objcselector(&#8217;myMethod&#8217;);
+&#x00A0;<br />end.
+</div>
+<!--l. 7703--><p class="nopar" >The <span 
+class="cmtt-10">objc </span>unit contains methods to manipulate and use the selector.
+                                                                            
+
+                                                                            
+<!--l. 7708--><div class="crosslinks"><p class="noindent">[<a 
+href="refse75.html" >next</a>] [<a 
+href="refse73.html" >prev</a>] [<a 
+href="refse73.html#tailrefse73.html" >prev-tail</a>] [<a 
+href="refse74.html" >front</a>] [<a 
+href="refch11.html#refse74.html" >up</a>] </p></div>
+<!--l. 7708--><p class="noindent" ><a 
+ id="tailrefse74.html"></a>  
+</body></html> 

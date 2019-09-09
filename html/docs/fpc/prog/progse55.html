@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Creating a library</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 7073--><div class="crosslinks"><p class="noindent">[<a 
+href="progse56.html" >next</a>] [<a 
+href="progse54.html" >prev</a>] [<a 
+href="progse54.html#tailprogse54.html" >prev-tail</a>] [<a 
+href="#tailprogse55.html">tail</a>] [<a 
+href="progch12.html#progse55.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">12.2   </span> <a 
+href="prog.html#QQ2-265-304" id="x265-28100012.2">Creating a library</a></h3>
+<!--l. 7075--><p class="noindent" >Creation of libraries is supported in any mode of the Free Pascal compiler, but it may be that the
+arguments or return values differ if the library is compiled in 2 different modes. E.g. if your
+function expects an <span 
+class="cmtt-10">Integer </span>argument, then the library will expect different integer sizes if you
+compile it in Delphi mode or in TP mode.
+<!--l. 7081--><p class="noindent" >A library can be created just as a program, only it uses the <span 
+class="cmtt-10">library </span>keyword, and it has an
+<span 
+class="cmtt-10">exports </span>section. The following listing demonstrates a simple library:
+<!--l. 7085--><p class="noindent" ><span 
+class="cmssbx-10">Listing: </span><span 
+class="cmss-10">progex/subs.pp</span><HR/><div class="listinginput">
+<!--l. 7085--><p class="noindent" ><div class="obeylines-v">   <span 
+class="cmtt-10">{</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Example</span><span 
+class="cmtt-10">&#x00A0;library</span>
+<br />   <span 
+class="cmtt-10">}</span>
+<br />   <span 
+class="cmtt-10">library</span><span 
+class="cmtt-10">&#x00A0;subs;</span>
+<br />
+<br />   <span 
+class="cmtt-10">function</span><span 
+class="cmtt-10">&#x00A0;SubStr(CString:</span><span 
+class="cmtt-10">&#x00A0;PChar;FromPos,ToPos:</span><span 
+class="cmtt-10">&#x00A0;Longint):</span><span 
+class="cmtt-10">&#x00A0;PChar;</span><span 
+class="cmtt-10">&#x00A0;cdecl;</span>
+<br />
+<br />   <span 
+class="cmtt-10">var</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Length:</span><span 
+class="cmtt-10">&#x00A0;Integer;</span>
+<br />
+<br />   <span 
+class="cmtt-10">begin</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;Length</span><span 
+class="cmtt-10">&#x00A0;:=</span><span 
+class="cmtt-10">&#x00A0;StrLen(CString);</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;SubStr</span><span 
+class="cmtt-10">&#x00A0;:=</span><span 
+class="cmtt-10">&#x00A0;CString</span><span 
+class="cmtt-10">&#x00A0;+</span><span 
+class="cmtt-10">&#x00A0;Length;</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;(FromPos</span><span 
+class="cmtt-10">&#x00A0;&#x003E;</span><span 
+class="cmtt-10">&#x00A0;0)</span><span 
+class="cmtt-10">&#x00A0;and</span><span 
+class="cmtt-10">&#x00A0;(ToPos</span><span 
+class="cmtt-10">&#x00A0;&#x003E;=</span><span 
+class="cmtt-10">&#x00A0;FromPos)</span><span 
+class="cmtt-10">&#x00A0;then</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;begin</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;Length</span><span 
+class="cmtt-10">&#x00A0;&#x003E;=</span><span 
+class="cmtt-10">&#x00A0;FromPos</span><span 
+class="cmtt-10">&#x00A0;then</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;SubStr</span><span 
+class="cmtt-10">&#x00A0;:=</span><span 
+class="cmtt-10">&#x00A0;CString</span><span 
+class="cmtt-10">&#x00A0;+</span><span 
+class="cmtt-10">&#x00A0;FromPos</span><span 
+class="cmtt-10">&#x00A0;-</span><span 
+class="cmtt-10">&#x00A0;1;</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;if</span><span 
+class="cmtt-10">&#x00A0;Length</span><span 
+class="cmtt-10">&#x00A0;&#x003E;</span><span 
+class="cmtt-10">&#x00A0;ToPos</span><span 
+class="cmtt-10">&#x00A0;then</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;CString[ToPos]</span><span 
+class="cmtt-10">&#x00A0;:=</span><span 
+class="cmtt-10">&#x00A0;#0;</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;end;</span>
+<br />   <span 
+class="cmtt-10">end;</span>
+<br />
+<br />   <span 
+class="cmtt-10">exports</span>
+<br />   <span 
+class="cmtt-10">&#x00A0;</span><span 
+class="cmtt-10">&#x00A0;SubStr;</span>
+<br />
+<br />   <span 
+class="cmtt-10">end.</span>
+</div></div><HR/>
+<!--l. 7087--><p class="noindent" >The function <span 
+class="cmtt-10">SubStr </span>does not have to be declared in the library file itself. It can also be declared
+in the interface section of a unit that is used by the library.
+<!--l. 7091--><p class="noindent" >Compilation of this source will result in the creation of a library called <span 
+class="cmss-10">libsubs.so </span>on <span 
+class="cmcsc-10"><span 
+class="small-caps">u</span><span 
+class="small-caps">n</span><span 
+class="small-caps">i</span><span 
+class="small-caps">x</span> </span>systems,
+or <span 
+class="cmss-10">subs.dll </span>on <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> </span>or <span 
+class="cmcsc-10"><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span>/2</span>. The compiler will take care of any additional linking that is
+                                                                            
+
+                                                                            
+required to create a shared library.
+<!--l. 7096--><p class="noindent" >The library exports one function: <span 
+class="cmtt-10">SubStr</span>. The case is important. The case as it appears in the
+<span 
+class="cmtt-10">exports </span>clause is used to export the function.
+<!--l. 7100--><p class="noindent" >If you want your library to be called from programs compiled with other compilers, it is important
+to specify the correct calling convention for the exported functions. Since the generated programs
+by other compilers do not know about the Free Pascal calling conventions, your functions would be
+called incorrectly, resulting in a corrupted stack.
+<!--l. 7108--><p class="noindent" >On <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span></span>, most libraries use the <span 
+class="cmtt-10">stdcall </span>convention, so it may be better to use
+that one if your library is to be used on <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> </span>systems. On most <span 
+class="cmcsc-10"><span 
+class="small-caps">u</span><span 
+class="small-caps">n</span><span 
+class="small-caps">i</span><span 
+class="small-caps">x</span> </span>systems,
+the C calling convention is used, therefore the <span 
+class="cmtt-10">cdecl </span>modifier should be used in that
+case.
+                                                                            
+
+                                                                            
+<!--l. 7113--><div class="crosslinks"><p class="noindent">[<a 
+href="progse56.html" >next</a>] [<a 
+href="progse54.html" >prev</a>] [<a 
+href="progse54.html#tailprogse54.html" >prev-tail</a>] [<a 
+href="progse55.html" >front</a>] [<a 
+href="progch12.html#progse55.html" >up</a>] </p></div>
+<!--l. 7113--><p class="noindent" ><a 
+ id="tailprogse55.html"></a>  
+</body></html> 

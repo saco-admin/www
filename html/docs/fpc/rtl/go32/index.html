@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Reference for unit 'go32'</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[Overview][<a href="../go32/index-2.html">Constants</a>][<a href="../go32/index-3.html">Types</a>][<a href="../go32/index-5.html">Procedures and functions</a>][<a href="../go32/index-6.html">Variables</a>][<a href="../go32/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'go32' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Reference for unit 'go32'</h1>
+<p>GO32 - acces to the 32-bit DOS extender</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">uses</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../system/index.html">System</a><span class="sym">;</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The system unit</p></td>
+</tr>
+</table>
+<h2>Overview</h2>
+<p>This document describes the GO32 unit for the Free Pascal compiler under dos. It was donated by Thomas Schatzl (tom_at_work@geocities.com), for which my thanks. This unit was first written for dos by Florian Klaempfl. </p>
+<p>Only the GO32V2 DPMI mode is discussed by me here due to the fact that new applications shouldn't be created with the older GO32V1 model. The go32v2 version is much more advanced and better. Additionally a lot of functions only work in DPMI mode anyway. I hope the following explanations and introductions aren't too confusing at all. If you notice an error or bug send it to the FPC mailing list or directly to me. So let's get started and happy and error free coding I wish you.... Thomas Schatzl, 25. August 1998 </p>
+<h2>Related topics</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../go32/realmodecallbacks.html">RealModeCallBacks</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Real mode callbacks</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../go32/executinginterrupts.html">ExecutingInterrupts</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Executing software interrupts</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../go32/softwareinterrupts.html">SoftwareInterrupts</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Software interrupts</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../go32/hardwareinterrupts.html">HardwareInterrupts</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Hardware interrupts</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../go32/disablinginterrupts.html">DisablingInterrupts</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Disabling interrupts</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../go32/creatinginterrupthandlers.html">CreatingInterruptHandlers</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creating your own interrupt handlers</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../go32/dpmivsprotectedinterrupts.html">DPMIvsProtectedInterrupts</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Protected mode interrupts vs. Real mode interrupts</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../go32/dpmiinterrupts.html">DPMIInterrupts</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Handling interrupts with DPMI</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../go32/interrupthandling.html">InterruptHandling</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Interrupt redirection</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../go32/processoraccess.html">ProcessorAccess</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Processor access</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../go32/ioports.html">IOPorts</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">I/O port access</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../go32/dosmemory.html">DosMemory</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">dos memory access</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../go32/fpcspecs.html">FPCspecs</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">FPC specialities</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../go32/selectorsdescriptors.html">SelectorsDescriptors</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Selectors and descriptors</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../go32/dpmi.html">DPMI</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">What is DPMI</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,550 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>The For..in..do statement</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 8943--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu60.html" >next</a>] [<a 
+href="refsu58.html" >prev</a>] [<a 
+href="refsu58.html#tailrefsu58.html" >prev-tail</a>] [<a 
+href="#tailrefsu59.html">tail</a>] [<a 
+href="refse86.html#refsu59.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">13.2.5   </span> <a 
+href="ref.html#QQ2-165-202" id="x165-18700013.2.5">The <span 
+class="cmtt-10">For..in..do </span>statement</a></h4>
+<a 
+ id="dx165-187001"></a>
+<a 
+ id="dx165-187002"></a>
+<a 
+ id="dx165-187003"></a>
+<a 
+ id="dx165-187004"></a>
+<!--l. 8945--><p class="noindent" ><a name="keyword_forin"></a><a name="keyword_do"></a> As of version 2.4.2, Free Pascal supports the <span 
+class="cmtt-10">For..in </span>loop construction. A <span 
+class="cmtt-10">for..in </span>loop is used in
+case one wants to calculate something a fixed number of times with an enumerable loop variable.
+The prototype syntax is as follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">For statement</span><br 
+class="newline" /><BR/><img 
+src="ref158x.png" alt="--            -    -            -   -         -   -         ----
+  for in statement  for  control variable in  enumerable  do  statement
+     " ><BR/>
+     <BR/><img 
+src="ref159x.png" alt="--            -              -----------------------------------
+  control variable variable identifier
+     " ><BR/>
+     <BR/><img 
+src="ref160x.png" alt="--         ---             -------------------------------------
+  enumerable  -enumerated type-|
+                expression
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 8950--><p class="noindent" >Here, <span 
+class="cmtt-10">Statement </span>can be a compound statement. The enumerable must be an expression that
+consists of a fixed number of elements: the loop variable will be made equal to each of the elements
+in turn and the statement following the <span 
+class="cmtt-10">do </span>keyword will be executed.
+<!--l. 8955--><p class="noindent" >The enumerable expression can be one of 5 cases:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x165-187006x1">An  enumeration  type  identifier.  The  loop  will  then  be  over  all  elements  of  the
+     enumeration type. The control variable must be of the enumeration type.
+     </li>
+     <li 
+  class="enumerate" id="x165-187008x2">A set value. The loop will then be over all elements in the set, the control variable
+     must be of the base type of the set.
+     </li>
+     <li 
+  class="enumerate" id="x165-187010x3">An array value. The loop will be over all elements in the array, and the control variable
+     must have the same type as an element in the array. As a special case, a string is
+     regarded as an array of characters.
+                                                                            
+
+                                                                            
+     </li>
+     <li 
+  class="enumerate" id="x165-187012x4">An  enumeratable  class  instance.  This  is  an  instance  of  a  class  that  supports  the
+     <span 
+class="cmtt-10">IEnumerator </span>and <span 
+class="cmtt-10">IEnumerable </span>interfaces. In this case, the control variable&#8217;s type must
+     equal the type of the <span 
+class="cmtt-10">IEnumerator.GetCurrent </span>return value.
+     </li>
+     <li 
+  class="enumerate" id="x165-187014x5">Any type for which an <span 
+class="cmtt-10">enumerator </span>operator is defined. The <span 
+class="cmtt-10">enumerator </span>operator must
+     return a class that implements the <span 
+class="cmtt-10">IEnumerator </span>interface. The type of the control
+     variable&#8217;s type must equal the type of the enumerator class <span 
+class="cmtt-10">GetCurrent </span>return value
+     type.</li></ol>
+<!--l. 8976--><p class="noindent" >The simplest case of the <span 
+class="cmtt-10">for..in </span>loop is using an enumerated type:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-373">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TWeekDay&#x00A0;=&#x00A0;(monday,&#x00A0;tuesday,&#x00A0;wednesday,&#x00A0;thursday,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;friday,saturday,sunday);
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;d&#x00A0;:&#x00A0;TWeekday;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;for&#x00A0;d&#x00A0;in&#x00A0;TWeekday&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;writeln(d);
+&#x00A0;<br />end.
+</div>
+<!--l. 8989--><p class="nopar" >This will print all week days to the screen.
+<!--l. 8992--><p class="noindent" >The above <span 
+class="cmtt-10">for..in </span>construct is equivalent to the following <span 
+class="cmtt-10">for..to </span>construct:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-374">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TWeekDay&#x00A0;=&#x00A0;(monday,&#x00A0;tuesday,&#x00A0;wednesday,&#x00A0;thursday,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;friday,saturday,sunday);
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;d&#x00A0;:&#x00A0;TWeekday;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;for&#x00A0;d:=Low(TWeekday)&#x00A0;to&#x00A0;High(TWeekday)&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;writeln(d);
+&#x00A0;<br />end.
+</div>
+<!--l. 9006--><p class="nopar" >
+<!--l. 9008--><p class="noindent" >A second case of <span 
+class="cmtt-10">for..in </span>loop is when the enumerable expression is a set, and then the loop will
+be executed once for each element in the set:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-375">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TWeekDay&#x00A0;=&#x00A0;(monday,&#x00A0;tuesday,&#x00A0;wednesday,&#x00A0;thursday,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;friday,saturday,sunday);
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;Week&#x00A0;:&#x00A0;set&#x00A0;of&#x00A0;TWeekDay
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;=&#x00A0;[monday,&#x00A0;tuesday,&#x00A0;wednesday,&#x00A0;thursday,&#x00A0;friday];
+&#x00A0;<br />&#x00A0;&#x00A0;d&#x00A0;:&#x00A0;TWeekday;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;for&#x00A0;d&#x00A0;in&#x00A0;Week&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;writeln(d);
+&#x00A0;<br />end.
+</div>
+<!--l. 9024--><p class="nopar" >This will print the names of the week days to the screen. Note that the variable <span 
+class="cmtt-10">d </span>is of the same
+type as the base type of the set.
+<!--l. 9028--><p class="noindent" >The above <span 
+class="cmtt-10">for..in </span>construct is equivalent to the following <span 
+class="cmtt-10">for..to </span>construct:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-376">
+Type
+&#x00A0;<br />&#x00A0;&#x00A0;TWeekDay&#x00A0;=&#x00A0;(monday,&#x00A0;tuesday,&#x00A0;wednesday,&#x00A0;thursday,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;friday,saturday,sunday);
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;Week&#x00A0;:&#x00A0;set&#x00A0;of&#x00A0;TWeekDay
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;=&#x00A0;[monday,&#x00A0;tuesday,&#x00A0;wednesday,&#x00A0;thursday,&#x00A0;friday];
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;d&#x00A0;:&#x00A0;TWeekday;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;for&#x00A0;d:=Low(TWeekday)&#x00A0;to&#x00A0;High(TWeekday)&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;if&#x00A0;d&#x00A0;in&#x00A0;Week&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;writeln(d);
+&#x00A0;<br />end.
+</div>
+<!--l. 9046--><p class="nopar" >
+<!--l. 9048--><p class="noindent" >The third possibility for a <span 
+class="cmtt-10">for..in </span>loop is when the enumerable expression is an array:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-377">
+var
+&#x00A0;<br />&#x00A0;&#x00A0;a&#x00A0;:&#x00A0;Array[1..7]&#x00A0;of&#x00A0;string
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;=&#x00A0;(&#8217;monday&#8217;,&#8217;tuesday&#8217;,&#8217;wednesday&#8217;,&#8217;thursday&#8217;,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#8217;friday&#8217;,&#8217;saturday&#8217;,&#8217;sunday&#8217;);
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;S&#x00A0;:&#x00A0;String;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;For&#x00A0;s&#x00A0;in&#x00A0;a&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln(s);
+&#x00A0;<br />end.
+</div>
+<!--l. 9063--><p class="nopar" >This will also print all days in the week, and is equivalent to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-378">
+var
+&#x00A0;<br />&#x00A0;&#x00A0;a&#x00A0;:&#x00A0;Array[1..7]&#x00A0;of&#x00A0;string
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;=&#x00A0;(&#8217;monday&#8217;,&#8217;tuesday&#8217;,&#8217;wednesday&#8217;,&#8217;thursday&#8217;,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#8217;friday&#8217;,&#8217;saturday&#8217;,&#8217;sunday&#8217;);
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;i&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;for&#x00A0;i:=Low(a)&#x00A0;to&#x00A0;high(a)&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln(a[i]);
+&#x00A0;<br />end.
+</div>
+<!--l. 9078--><p class="nopar" >A <span 
+class="cmtt-10">string </span>type is equivalent to an <span 
+class="cmtt-10">array of char</span>, and therefor a string can be used in
+a <span 
+class="cmtt-10">for..in </span>loop. The following will print all letters in the alphabet, each letter on a
+line:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-379">
+Var
+&#x00A0;<br />&#x00A0;&#x00A0;c&#x00A0;:&#x00A0;char;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;for&#x00A0;c&#x00A0;in&#x00A0;&#8217;abcdefghijklmnopqrstuvwxyz&#8217;&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;writeln(c);
+&#x00A0;<br />end.
+</div>
+<!--l. 9090--><p class="nopar" >
+<!--l. 9092--><p class="noindent" >The fourth possibility for a <span 
+class="cmtt-10">for..in </span>loop is using classes. A class can implement the <span 
+class="cmtt-10">IEnumerable</span>
+interface, which is defined as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-380">
+IEnumerable&#x00A0;=&#x00A0;interface(IInterface)
+&#x00A0;<br />&#x00A0;&#x00A0;function&#x00A0;GetEnumerator:&#x00A0;IEnumerator;
+&#x00A0;<br />end;
+</div>
+<!--l. 9099--><p class="nopar" >The actual return type of the <span 
+class="cmtt-10">GetEnumerator </span>must not necessarily be an <span 
+class="cmtt-10">IEnumerator </span>interface,
+instead, it can be a class which implements the methods of <span 
+class="cmtt-10">IEnumerator</span>:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-381">
+IEnumerator&#x00A0;=&#x00A0;interface(IInterface)
+&#x00A0;<br />&#x00A0;&#x00A0;function&#x00A0;GetCurrent:&#x00A0;TObject;
+&#x00A0;<br />&#x00A0;&#x00A0;function&#x00A0;MoveNext:&#x00A0;Boolean;
+&#x00A0;<br />&#x00A0;&#x00A0;procedure&#x00A0;Reset;
+&#x00A0;<br />&#x00A0;&#x00A0;property&#x00A0;Current:&#x00A0;TObject&#x00A0;read&#x00A0;GetCurrent;
+&#x00A0;<br />end;
+</div>
+<!--l. 9110--><p class="nopar" >The <span 
+class="cmtt-10">Current </span>property and the <span 
+class="cmtt-10">MoveNext </span>method must be present in the class returned by the
+<span 
+class="cmtt-10">GetEnumerator </span>method. The actual type of the <span 
+class="cmtt-10">Current </span>property need not be a <span 
+class="cmtt-10">TObject</span>. When
+encountering a <span 
+class="cmtt-10">for..in </span>loop with a class instance as the &#8217;in&#8217; operand, the compiler will check each
+of the following conditions:
+     <ul class="itemize1">
+     <li class="itemize">Whether the class in the enumerable expression implements a method <span 
+class="cmtt-10">GetEnumerator</span>
+     </li>
+     <li class="itemize">Whether the result of <span 
+class="cmtt-10">GetEnumerator </span>is a class with the following method:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-382">
+     Function&#x00A0;MoveNext&#x00A0;:&#x00A0;Boolean
+</div>
+     <!--l. 9123--><p class="nopar" >
+     </li>
+     <li class="itemize">Whether the result of <span 
+class="cmtt-10">GetEnumerator </span>is a class with the following read-only property:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-383">
+     Property&#x00A0;Current&#x00A0;:&#x00A0;AType;
+</div>
+     <!--l. 9128--><p class="nopar" >The type of the property must match the type of the control variable of the <span 
+class="cmtt-10">for..in</span>
+     loop.</li></ul>
+<!--l. 9132--><p class="noindent" >Neither the <span 
+class="cmtt-10">IEnumerator </span>nor the <span 
+class="cmtt-10">IEnumerable </span>interfaces must actually be declared by the
+enumerable class: the compiler will detect whether these interfaces are present using the above
+checks. The interfaces are only defined for Delphi compatibility and are not used internally. (it
+would also be impossible to enforce their correctness).
+<!--l. 9138--><p class="noindent" >The <span 
+class="cmss-10">Classes </span>unit contains a number of classes that are enumerable:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">TFPList</span> </dt><dd 
+class="description">Enumerates all pointers in the list.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">TList</span> </dt><dd 
+class="description">Enumerates all pointers in the list.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">TCollection</span> </dt><dd 
+class="description">Enumerates all items in the collection.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">TStringList</span> </dt><dd 
+class="description">Enumerates all strings in the list.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">TComponent</span> </dt><dd 
+class="description">Enumerates all child components owned by the component.</dd></dl>
+<!--l. 9146--><p class="noindent" >Thus, the following code will also print all days in the week:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-384">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />uses&#x00A0;classes;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;Days&#x00A0;:&#x00A0;TStrings;
+&#x00A0;<br />&#x00A0;&#x00A0;D&#x00A0;:&#x00A0;String;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Days:=TStringList.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;try
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Add(&#8217;Monday&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Add(&#8217;Tuesday&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Add(&#8217;Wednesday&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Add(&#8217;Thursday&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Add(&#8217;Friday&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Add(&#8217;Saturday&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Add(&#8217;Sunday&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;For&#x00A0;D&#x00A0;in&#x00A0;Days&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln(D);
+&#x00A0;<br />&#x00A0;&#x00A0;Finally
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Free;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />end.
+</div>
+<!--l. 9171--><p class="nopar" >Note that the compiler enforces type safety: declaring <span 
+class="cmtt-10">D </span>as an integer will result in a compiler
+error:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-385">
+testsl.pp(20,9)&#x00A0;Error:&#x00A0;Incompatible&#x00A0;types:&#x00A0;got&#x00A0;"AnsiString"&#x00A0;expected&#x00A0;"LongInt"
+</div>
+<!--l. 9176--><p class="nopar" >
+<!--l. 9178--><p class="noindent" >The above code is equivalent to the following:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-386">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />uses&#x00A0;classes;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;Days&#x00A0;:&#x00A0;TStrings;
+&#x00A0;<br />&#x00A0;&#x00A0;D&#x00A0;:&#x00A0;String;
+&#x00A0;<br />&#x00A0;&#x00A0;E&#x00A0;:&#x00A0;TStringsEnumerator;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Days:=TStringList.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;try
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Add(&#8217;Monday&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Add(&#8217;Tuesday&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Add(&#8217;Wednesday&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Add(&#8217;Thursday&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Add(&#8217;Friday&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Add(&#8217;Saturday&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Add(&#8217;Sunday&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;E:=Days.getEnumerator;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;try
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;While&#x00A0;E.MoveNext&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;begin
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;D:=E.Current;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln(D);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Finally
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;E.Free;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;end;
+&#x00A0;<br />&#x00A0;&#x00A0;Finally
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Free;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />end.
+</div>
+<!--l. 9212--><p class="nopar" >Both programs will output the same result.
+<!--l. 9215--><p class="noindent" >The fifth and last possibility to use a <span 
+class="cmtt-10">for..in </span>loop can be used to enumerate almost any type,
+using the <span 
+class="cmtt-10">enumerator </span>operator. The <span 
+class="cmtt-10">enumerator </span>operator must return a class that has the same
+signature as the <span 
+class="cmtt-10">IEnumerator </span>approach above. The following code will define an enumerator for
+the <span 
+class="cmtt-10">Integer </span>type:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-387">
+Type
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />TEvenEnumerator&#x00A0;=&#x00A0;Class
+&#x00A0;<br />&#x00A0;&#x00A0;FCurrent&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;FMax&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;Function&#x00A0;MoveNext&#x00A0;:&#x00A0;Boolean;
+&#x00A0;<br />&#x00A0;&#x00A0;Property&#x00A0;Current&#x00A0;:&#x00A0;Integer&#x00A0;Read&#x00A0;FCurrent;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;TEvenEnumerator.MoveNext&#x00A0;:&#x00A0;Boolean;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;FCurrent:=FCurrent+2;
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=FCurrent&#x003C;=FMax;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />operator&#x00A0;enumerator(i&#x00A0;:&#x00A0;integer)&#x00A0;:&#x00A0;TEvenEnumerator;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=TEvenEnumerator.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;Result.FMax:=i;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;I&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;m&#x00A0;:&#x00A0;Integer&#x00A0;=&#x00A0;4;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;For&#x00A0;I&#x00A0;in&#x00A0;M&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln(i);
+&#x00A0;<br />end.
+</div>
+<!--l. 9253--><p class="nopar" >The loop will print all nonzero even numbers smaller or equal to the enumerable. (2 and 4 in the
+case of the example).
+<!--l. 9257--><p class="noindent" >Care must be taken when defining enumerator operators: the compiler will find and use the first
+available enumerator operator for the enumerable expression. For classes this also means that the
+<span 
+class="cmtt-10">GetEnumerator </span>method is not even considered. The following code will define an enumerator
+operator which extracts the object from a stringlist:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-388">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />uses&#x00A0;classes;
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TDayObject&#x00A0;=&#x00A0;Class
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;DayOfWeek&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Constructor&#x00A0;Create(ADayOfWeek&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TObjectEnumerator&#x00A0;=&#x00A0;Class
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FList&#x00A0;:&#x00A0;TStrings;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FIndex&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;GetCurrent&#x00A0;:&#x00A0;TDayObject;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Function&#x00A0;MoveNext:&#x00A0;boolean;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Property&#x00A0;Current&#x00A0;:&#x00A0;TDayObject&#x00A0;Read&#x00A0;GetCurrent;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Constructor&#x00A0;TDayObject.Create(ADayOfWeek&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;DayOfWeek:=ADayOfWeek;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;TObjectEnumerator.GetCurrent&#x00A0;:&#x00A0;TDayObject;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=FList.Objects[Findex]&#x00A0;as&#x00A0;TDayObject;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;TObjectEnumerator.MoveNext:&#x00A0;boolean;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Inc(FIndex);
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=(FIndex&#x003C;FList.Count);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />operator&#x00A0;enumerator&#x00A0;(s&#x00A0;:&#x00A0;TStrings)&#x00A0;:&#x00A0;TObjectEnumerator;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=TObjectEnumerator.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;Result.Flist:=S;
+&#x00A0;<br />&#x00A0;&#x00A0;Result.FIndex:=-1;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;Days&#x00A0;:&#x00A0;TStrings;
+&#x00A0;<br />&#x00A0;&#x00A0;D&#x00A0;:&#x00A0;String;
+&#x00A0;<br />&#x00A0;&#x00A0;O&#x00A0;:&#x00A0;TdayObject;
+&#x00A0;<br />
+&#x00A0;<br />begin
+                                                                            
+
+                                                                            
+&#x00A0;<br />&#x00A0;&#x00A0;Days:=TStringList.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;try
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.AddObject(&#8217;Monday&#8217;,TDayObject.Create(1));
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.AddObject(&#8217;Tuesday&#8217;,TDayObject.Create(2));
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.AddObject(&#8217;Wednesday&#8217;,TDayObject.Create(3));
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.AddObject(&#8217;Thursday&#8217;,TDayObject.Create(4));
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.AddObject(&#8217;Friday&#8217;,TDayObject.Create(5));
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.AddObject(&#8217;Saturday&#8217;,TDayObject.Create(6));
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.AddObject(&#8217;Sunday&#8217;,TDayObject.Create(7));
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;For&#x00A0;O&#x00A0;in&#x00A0;Days&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;Writeln(O.DayOfWeek);
+&#x00A0;<br />&#x00A0;&#x00A0;Finally
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Days.Free;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />end.
+</div>
+<!--l. 9327--><p class="nopar" >The above code will print the day of the week for each day in the week.
+<!--l. 9330--><p class="noindent" >If a class is not enumerable, the compiler will report an error when it is encountered in a <span 
+class="cmtt-10">for...in</span>
+loop.
+<!--l. 9333--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Like the <span 
+class="cmtt-10">for..to </span>loop, it is not allowed to change (i.e. assign a value to) the value of a loop
+control variable inside the loop.
+                                                                            
+
+                                                                            
+<!--l. 9338--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu60.html" >next</a>] [<a 
+href="refsu58.html" >prev</a>] [<a 
+href="refsu58.html#tailrefsu58.html" >prev-tail</a>] [<a 
+href="refsu59.html" >front</a>] [<a 
+href="refse86.html#refsu59.html" >up</a>] </p></div>
+<!--l. 9338--><p class="noindent" ><a 
+ id="tailrefsu59.html"></a>  
+</body></html> 

@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Variable substitution in paths</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1826--><div class="crosslinks"><p class="noindent">[<a 
+href="userse17.html" >prev</a>] [<a 
+href="userse17.html#tailuserse17.html" >prev-tail</a>] [<a 
+href="#tailuserse18.html">tail</a>] [<a 
+href="userch5.html#userse18.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">5.3   </span> <a 
+href="user.html#QQ2-52-61" id="x52-590005.3">Variable substitution in paths</a></h3>
+<!--l. 1827--><p class="noindent" >To avoid having to edit your configuration files too often, the compiler allows you to insert
+some variables in the paths that you specify for the compiler. They are specified as
+follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-59">
+$VARNAME
+</div>
+<!--l. 1832--><p class="nopar" >The above will be replaced with the value of the variable <span 
+class="cmtt-10">VARNAME</span>.
+<!--l. 1835--><p class="noindent" >Normally, only a set of compiler-defined variable names are recognized. In addition to these
+compiler-defined variable names, the following notation can be used
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-60">
+$ENVVAR$
+</div>
+<!--l. 1840--><p class="nopar" >to substitute the value of an environment variable. The compiler will fetch the value of <span 
+class="cmtt-10">ENVVAR</span>
+from the environment, and replace the <span 
+class="cmtt-10">$ENVVAR$ </span>with this value.
+<!--l. 1845--><p class="noindent" >The compiler defines the following variable names:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">FPCFULLVERSION</span> </dt><dd 
+class="description">is replaced by the compiler&#8217;s version string.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">FPCVERSION</span> </dt><dd 
+class="description">is replaced by the compiler&#8217;s version string.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">FPCDATE</span> </dt><dd 
+class="description">is replaced by the compiler&#8217;s date.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">FPCTARGET</span> </dt><dd 
+class="description">is replaced by the compiler&#8217;s target (combination of CPU-OS)
+     </dd><dt class="description">
+<span 
+class="cmbx-10">FPCCPU</span> </dt><dd 
+class="description">is replaced by the compiler&#8217;s target CPU.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">FPCOS</span> </dt><dd 
+class="description">is replaced by the compiler&#8217;s target OS.</dd></dl>
+<!--l. 1854--><p class="noindent" >Additionally, under windows the following special variables are recognized:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">LOCAL</span><span 
+class="cmbx-10">_APPDATA</span> </dt><dd 
+class="description">Usually the directory &#8221;Local settings/Application Data&#8221; under the
+     user&#8217;s home directory.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">APPDATA</span> </dt><dd 
+class="description">Usually the directory &#8221;Application Data&#8221; under the user&#8217;s home directory.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">COMMON</span><span 
+class="cmbx-10">_APPDATA</span> </dt><dd 
+class="description">Usually the directory &#8221;Application Data&#8221; under the &#8217;All users&#8217;
+     directory.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">PERSONAL</span> </dt><dd 
+class="description">Usually the &#8221;My documents&#8221; directory of the user.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">PROGRAM</span><span 
+class="cmbx-10">_FILES</span> </dt><dd 
+class="description">Usually &#8221;program files&#8221; directory on the system drive
+     </dd><dt class="description">
+<span 
+class="cmbx-10">PROGRAM</span><span 
+class="cmbx-10">_FILES</span><span 
+class="cmbx-10">_COMMON</span> </dt><dd 
+class="description">Usually  the  &#8221;Common  files&#8221;  directory  under  the
+     program files directory.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">PROFILE</span> </dt><dd 
+class="description">The user&#8217;s home directory.</dd></dl>
+<!--l. 1864--><p class="noindent" >The values of these can vary based on the installation, they are fetched from the operating
+system.
+<!--l. 1866--><p class="noindent" >If none of the pre-defines variable names were matched, and the template name ends on $, then the
+environment variable with the same name is used:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-61">
+-Fu$HOME$/FPC/currentversion/
+</div>
+<!--l. 1870--><p class="nopar" >This will refer to the directory <span 
+class="cmss-10">FPC/currentversion </span>under the user&#8217;s home directory on Unix
+(HOME is the environment variable that contains the location of the user&#8217;s directory).
+<!--l. 1875--><p class="noindent" >So, have one of the above variables substituted, just insert them with a <span 
+class="cmtt-10">$ </span>prepended, as
+follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-62">
+-Fu/usr/lib/fpc/$FPCVERSION/rtl/$FPCOS
+</div>
+<!--l. 1879--><p class="nopar" >This is equivalent to
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-63">
+-Fu/usr/lib/fpc/2.6.2/rtl/linux
+</div>
+<!--l. 1883--><p class="nopar" >if the compiler version is <span 
+class="cmtt-10">2.6.2 </span>and the target OS is <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span></span>.
+<!--l. 1886--><p class="noindent" >These replacements are valid on the command line and also in the configuration file.
+<!--l. 1889--><p class="noindent" >On the <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>command line, you must be careful to escape the <span 
+class="cmtt-10">$ </span>since otherwise the shell will
+attempt to expand the variable for you, which may have undesired effects.
+                                                                            
+
+                                                                            
+<!--l. 24--><div class="crosslinks"><p class="noindent">[<a 
+href="userse17.html" >prev</a>] [<a 
+href="userse17.html#tailuserse17.html" >prev-tail</a>] [<a 
+href="userse18.html" >front</a>] [<a 
+href="userch5.html#userse18.html" >up</a>] </p></div>
+<!--l. 24--><p class="noindent" ><a 
+ id="tailuserse18.html"></a>  
+</body></html> 

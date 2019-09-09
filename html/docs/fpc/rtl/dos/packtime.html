@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>PackTime</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dos/index.html">Overview</a>][<a href="../dos/index-2.html">Constants</a>][<a href="../dos/index-3.html">Types</a>][<a href="../dos/index-5.html">Procedures and functions</a>][<a href="../dos/index-6.html">Variables</a>][<a href="../dos/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Dos' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>PackTime</h1>
+<p>Pack DateTime value to a packed-time format.</p>
+<h2>Declaration</h2>
+<p>Source position: dosh.inc line 91</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> PackTime<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>t<span class="sym">: </span><a href="../dos/datetime.html">DateTime</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>p<span class="sym">: </span><a href="../system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>UnPackTime</var> converts the date and time specified in <var>T</var> to a packed-time format which can be fed to <var>SetFTime</var>. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dos/setftime.html">SetFTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set file modification time.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dos/findfirst.html">FindFirst</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Start search for one or more files.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dos/findnext.html">FindNext</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Find next matching file after <a href="../dos/findfirst.html">FindFirst</a></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dos/unpacktime.html">UnPackTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unpack packed file time to a DateTime value</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example4<span class="sym">;</span>
+<span class="kw">uses</span> Dos<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the PackTime and UnPackTime functions. }</span>
+
+<span class="kw">var</span>
+  DT   <span class="sym">:</span> DateTime<span class="sym">;</span>
+  Time <span class="sym">:</span> longint<span class="sym">;</span>
+<span class="kw">begin</span>
+  <span class="kw">with</span> DT <span class="kw">do</span>
+   <span class="kw">begin</span>
+     Year<span class="sym">:=</span><span class="num">2008</span><span class="sym">;</span>
+     Month<span class="sym">:=</span><span class="num">11</span><span class="sym">;</span>
+     Day<span class="sym">:=</span><span class="num">11</span><span class="sym">;</span>
+     Hour<span class="sym">:=</span><span class="num">11</span><span class="sym">;</span>
+     Min<span class="sym">:=</span><span class="num">11</span><span class="sym">;</span>
+     Sec<span class="sym">:=</span><span class="num">11</span><span class="sym">;</span>
+   <span class="kw">end</span><span class="sym">;</span>
+  PackTime<span class="sym">(</span>DT<span class="sym">,</span>Time<span class="sym">)</span><span class="sym">;</span>
+  WriteLn<span class="sym">(</span><span class="str">'Packed Time : '</span><span class="sym">,</span>Time<span class="sym">)</span><span class="sym">;</span>
+  UnPackTime<span class="sym">(</span>Time<span class="sym">,</span>DT<span class="sym">)</span><span class="sym">;</span>
+  WriteLn<span class="sym">(</span><span class="str">'Unpacked Again:'</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">with</span> DT <span class="kw">do</span>
+   <span class="kw">begin</span>
+     WriteLn<span class="sym">(</span><span class="str">'Year  '</span><span class="sym">,</span>Year<span class="sym">)</span><span class="sym">;</span>
+     WriteLn<span class="sym">(</span><span class="str">'Month '</span><span class="sym">,</span>Month<span class="sym">)</span><span class="sym">;</span>
+     WriteLn<span class="sym">(</span><span class="str">'Day   '</span><span class="sym">,</span>Day<span class="sym">)</span><span class="sym">;</span>
+     WriteLn<span class="sym">(</span><span class="str">'Hour  '</span><span class="sym">,</span>Hour<span class="sym">)</span><span class="sym">;</span>
+     WriteLn<span class="sym">(</span><span class="str">'Min   '</span><span class="sym">,</span>Min<span class="sym">)</span><span class="sym">;</span>
+     WriteLn<span class="sym">(</span><span class="str">'Sec   '</span><span class="sym">,</span>Sec<span class="sym">)</span><span class="sym">;</span>
+   <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Usage</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 7154--><div class="crosslinks"><p class="noindent">[<a 
+href="refse65.html" >prev</a>] [<a 
+href="refse65.html#tailrefse65.html" >prev-tail</a>] [<a 
+href="#tailrefse66.html">tail</a>] [<a 
+href="refch10.html#refse66.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.7   </span> <a 
+href="ref.html#QQ2-127-155" id="x127-14900010.7">Usage</a></h3>
+<!--l. 7155--><p class="noindent" >Once a helper class is defined, its methods can be used whenever the helper class is in scope. This
+means that if it is defined in a separate unit, then this unit should be in the uses clause wherever
+the methods of the helper class are used.
+<!--l. 7160--><p class="noindent" >Consider the following unit:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-302">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />{$h+}
+&#x00A0;<br />unit&#x00A0;oha;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TObjectHelper&#x00A0;=&#x00A0;class&#x00A0;helper&#x00A0;for&#x00A0;TObject
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;AsString(const&#x00A0;aFormat:&#x00A0;String):&#x00A0;String;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;sysutils;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;TObjectHelper.AsString(const&#x00A0;aFormat:&#x00A0;String):&#x00A0;String;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result&#x00A0;:=&#x00A0;Format(aFormat,&#x00A0;[ToString]);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 7184--><p class="nopar" >Then the following will compile:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-303">
+Program&#x00A0;Example113;
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;oha;
+&#x00A0;<br />
+&#x00A0;<br />{&#x00A0;Program&#x00A0;to&#x00A0;demonstrate&#x00A0;the&#x00A0;class&#x00A0;helper&#x00A0;scope.&#x00A0;}
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;o&#x00A0;:&#x00A0;TObject;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;O:=TObject.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(O.AsString(&#8217;O&#x00A0;as&#x00A0;a&#x00A0;string&#x00A0;:&#x00A0;%s&#8217;));
+&#x00A0;<br />end.
+</div>
+<!--l. 7200--><p class="nopar" >But, if a second unit (ohb) is created:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-304">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />{$h+}
+&#x00A0;<br />unit&#x00A0;ohb;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TAObjectHelper&#x00A0;=&#x00A0;class&#x00A0;helper&#x00A0;for&#x00A0;TObject
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;MemoryLocation:&#x00A0;String;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;sysutils;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;TAObjectHelper.MemoryLocation:&#x00A0;String;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result&#x00A0;:=&#x00A0;format(&#8217;%p&#8217;,[pointer(Self)]);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 7225--><p class="nopar" >And is added after the first unit in the uses clause:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-305">
+Program&#x00A0;Example113;
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;oha,ohb;
+&#x00A0;<br />
+&#x00A0;<br />{&#x00A0;Program&#x00A0;to&#x00A0;demonstrate&#x00A0;the&#x00A0;class&#x00A0;helper&#x00A0;scope.&#x00A0;}
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;o&#x00A0;:&#x00A0;TObject;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;O:=TObject.Create;
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(O.AsString(&#8217;O&#x00A0;as&#x00A0;a&#x00A0;string&#x00A0;:&#x00A0;%s&#8217;));
+&#x00A0;<br />&#x00A0;&#x00A0;Writeln(O.MemoryLocation);
+&#x00A0;<br />end.
+</div>
+<!--l. 7242--><p class="nopar" >Then the compiler will complain that it does not know the method &#8217;AsString&#8217;. This is because the
+compiler stops looking for class helpers as soon as the first class helper is encountered. Since the
+<span 
+class="cmtt-10">ohb </span>unit comes last in the uses clause, the compiler will only use <span 
+class="cmtt-10">TAObjectHelper </span>as the class
+helper.
+<!--l. 7249--><p class="noindent" >The solution is to re-implement unit ohb:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-306">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />{$h+}
+&#x00A0;<br />unit&#x00A0;ohc;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;oha;
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TAObjectHelper&#x00A0;=&#x00A0;class&#x00A0;helper(TObjectHelper)&#x00A0;for&#x00A0;TObject
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;MemoryLocation:&#x00A0;String;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;sysutils;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;TAObjectHelper.MemoryLocation:&#x00A0;String;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result&#x00A0;:=&#x00A0;format(&#8217;%p&#8217;,[pointer(Self)]);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 7275--><p class="nopar" >And after replacing unit <span 
+class="cmtt-10">ohb </span>with <span 
+class="cmtt-10">ohc</span>, the example program will compile and function as
+expected.
+<!--l. 7279--><p class="noindent" >Note that it is not enough to include a unit with a class helper once in a project; The unit must be
+included whenever the class helper is needed.
+                                                                            
+
+                                                                            
+<!--l. 7286--><div class="crosslinks"><p class="noindent">[<a 
+href="refse65.html" >prev</a>] [<a 
+href="refse65.html#tailrefse65.html" >prev-tail</a>] [<a 
+href="refse66.html" >front</a>] [<a 
+href="refch10.html#refse66.html" >up</a>] </p></div>
+<!--l. 7286--><p class="noindent" ><a 
+ id="tailrefse66.html"></a>  
+</body></html> 

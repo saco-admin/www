@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TProcess.ExitCode</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../process/index.html">Overview</a>][<a href="../process/index-3.html">Types</a>][<a href="../process/index-4.html">Classes</a>][<a href="../process/index-5.html">Procedures and functions</a>][<a href="../process/index-6.html">Variables</a>][<a href="../process/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'process' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TProcess.ExitCode</h1>
+<p>Exit code of the process</p>
+<h2>Declaration</h2>
+<p>Source position: process.pp line 134</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../process/tprocess.html">TProcess</a><span class="sym">.</span>ExitCode<span class="sym"> : </span><a href="../../rtl/system/integer.html">Integer</a><br>&nbsp;&nbsp;<span class="kw">read </span>GetExitCode<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ExitCode</var> is the actual exit code of the process. On unixes, this may differ from the <b>ExitStatus</b> value if the process was terminated by a signal: in that case <var>ExitStatus</var> is the raw exit status as reported by one of the unix <var>Wait</var> command, and <var>ExitCode</var> is the exit code reported by the program. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../process/tprocess.exitstatus.html">TProcess.ExitStatus</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Exit status of the process.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.running.html">TProcess.Running</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Determines wheter the process is still running.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.waitonexit.html">TProcess.WaitOnExit</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Wait for the program to stop executing.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../process/tprocess.terminate.html">TProcess.Terminate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Terminate a running process</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

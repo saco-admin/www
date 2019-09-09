@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>clone</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../linux/index.html">Overview</a>][<a href="../linux/index-2.html">Constants</a>][<a href="../linux/index-3.html">Types</a>][<a href="../linux/index-5.html">Procedures and functions</a>][<a href="../linux/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Linux' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>clone</h1>
+<p>Clone current process (create new thread)</p>
+<h2>Declaration</h2>
+<p>Source position: linux.pp line 217</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> clone<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;func<span class="sym">: </span><a href="../linux/tclonefunc.html">TCloneFunc</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;sp<span class="sym">: </span>pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;flags<span class="sym">: </span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;args<span class="sym">: </span>pointer</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/longint.html">LongInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Clone</var> creates a child process which is a copy of the parent process, just like <a href="../baseunix/fpfork.html">FpFork</a> does. In difference with <var>Fork</var>, however, the child process shares some parts of it's execution context with its parent, so it is suitable for the implementation of threads: many instances of a program that share the same memory. </p>
+<p>When the child process is created, it starts executing the function <var>Func</var>, and passes it <var>Args</var>. The return value of <var>Func</var> is  either the explicit return value of the function, or the exit code of the child process. </p>
+<p>The <var>sp</var> pointer points to the memory reserved as stack space for the child process. This address should be the top of the memory block to be used as stack. </p>
+<p>The <var>Flags</var> determine the behaviour of the <var>Clone</var> call. The low byte of the Flags contains the number of the signal that will be  sent to  the parent when  the child dies.  This may be bitwise OR'ed with the following constants: </p>
+<dl>
+<dt>CLONE_VM</dt>
+<dd>Parent and child share the same memory space, including memory (un)mapped with subsequent <var>mmap</var> calls.</dd>
+<dt>CLONE_FS</dt>
+<dd>Parent and child have the same view of the filesystem; the <var>chroot</var>, <var>chdir</var> and <var>umask</var> calls affect both processes.</dd>
+<dt>CLONE_FILES</dt>
+<dd>the file descriptor table of parent and child is shared.</dd>
+<dt>CLONE_SIGHAND</dt>
+<dd>the parent and child share the same table of signal handlers. The signal masks are different, though.</dd>
+<dt>CLONE_PID</dt>
+<dd>PArent and child have the same process ID.</dd>
+</dl>
+<p>Clone returns the process ID in the parent process, and -1 if an error occurred. </p>
+<h2>Errors</h2>
+<p>On error, -1 is returned to the parent, and no child is created. </p>
+<dl>
+<dt>sys_eagain</dt>
+<dd>Too many processes are running.</dd>
+<dt>sys_enomem</dt>
+<dd>Not enough memory to create child process.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpfork.html">#rtl.baseunix.FpFork</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create child process</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TField.OnGetText</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TField.OnGetText</h1>
+<p>Event to format the field's content</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 450</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">published</span> <span class="kw">property </span><a href="../db/tfield.html">TField</a><span class="sym">.</span>OnGetText<span class="sym"> : </span><a href="../db/tfieldgettextevent.html">TFieldGetTextEvent</a><br>&nbsp;&nbsp;<span class="kw">read </span>FOnGetText<br>&nbsp;&nbsp;<span class="kw">write </span>FOnGetText<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>OnGetText</var> is triggered whenever the <a href="../db/tfield.text.html">TField.Text</a> or <a href="../db/tfield.displaytext.html">TField.DisplayText</a> properties are read.  It can be used to return a custom formatted string in the <var>AText</var> parameter which will then typically be used by a control to display the field's contents  to the user. It is not allowed to change the state of the dataset or the contents of the field during the execution of this event handler. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tfield.text.html">TField.Text</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Text representation of the field</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfield.displaytext.html">TField.DisplayText</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Formatted field value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfield.onsettext.html">TField.OnSetText</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event to set the field's content based on a user-formatted string</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfieldgettextevent.html">TFieldGetTextEvent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event handler to get field content</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

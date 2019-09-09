@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Running programs</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1105--><div class="crosslinks"><p class="noindent">[<a 
+href="userse27.html" >next</a>] [<a 
+href="userse25.html" >prev</a>] [<a 
+href="userse25.html#tailuserse25.html" >prev-tail</a>] [<a 
+href="#tailuserse26.html">tail</a>] [<a 
+href="userch6.html#userse26.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">6.8   </span> <a 
+href="user.html#QQ2-89-107" id="x89-960006.8">Running programs</a></h3>
+<!--l. 1107--><p class="noindent" >A compiled program can be run straight from the IDE. This can be done in one of several
+ways:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x89-96002x1">select the <span 
+class="cmbx-10">&#8221;Run&#8212;Run&#8221; </span>menu, or
+     </li>
+     <li 
+  class="enumerate" id="x89-96004x2">press <span 
+class="cmcsc-10">C<span 
+class="small-caps">t</span><span 
+class="small-caps">r</span><span 
+class="small-caps">l</span>-F9</span>.</li></ol>
+<!--l. 1113--><p class="noindent" >If command line parameters should be passed to the program, then these can be set
+through the <span 
+class="cmbx-10">&#8221;Run&#8212;Parameters&#8221; </span>menu. The program parameters dialog looks like figure
+(<a 
+href="#x89-96005r10">6.10<!--tex4ht:ref: fig:params --></a>).
+<!--l. 1117--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x89-96005r10"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 1117--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;6.10: </span><span  
+class="content">The program parameters dialog.</span></div><!--tex4ht:label?: x89-96005r10 -->
+<!--l. 1117--><p class="noindent" ><img 
+src="user11x.png" alt="PIC" class="graphics" width="400.34999pt" height="77.10129pt" ><!--tex4ht:graphics  
+name="user11x.png" src="pics/ide/params.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 1117--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 1119--><p class="noindent" >Once the program has started, it will continue to run, until
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x89-96007x1">the program quits normally,
+     </li>
+     <li 
+  class="enumerate" id="x89-96009x2">an error happens,
+     </li>
+     <li 
+  class="enumerate" id="x89-96011x3">a breakpoint is encountered, or
+     </li>
+     <li 
+  class="enumerate" id="x89-96013x4">the program is reset by the user.</li></ol>
+<!--l. 1126--><p class="noindent" >The last alternative is only possible if the program is compiled with debug information.
+<!--l. 1129--><p class="noindent" >Alternatively, it is possible to position the cursor somewhere in a source file, and run the program
+till the execution reaches the source line where the cursor is located. This can be done
+by
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x89-96015x1">selecting <span 
+class="cmbx-10">&#8221;Run&#8212;Goto Cursor&#8221; </span>in the menu,
+     </li>
+     <li 
+  class="enumerate" id="x89-96017x2">pressing <span 
+class="cmcsc-10">F4</span>.</li></ol>
+<!--l. 1136--><p class="noindent" >Again, this is only possible if the program was compiled with debug information.
+<!--l. 1139--><p class="noindent" >The program can also executed line by line. Pressing <span 
+class="cmcsc-10">F8 </span>will execute the next line of the
+program. If the program wasn&#8217;t started yet, it is started. Repeatedly pressing <span 
+class="cmcsc-10">F8 </span>will
+execute the program line by line, and the IDE will show the line to be executed in an
+editor window. If somewhere in the code a call occurs to a subroutine, then pressing
+<span 
+class="cmcsc-10">F8 </span>will cause the whole routine to be executed before control returns to the IDE. If
+the code of the subroutine should be stepped through as well, then <span 
+class="cmcsc-10">F7 </span>should be used
+instead. Using <span 
+class="cmcsc-10">F7 </span>will cause the IDE to execute line by line any subroutine that is
+encountered.
+<!--l. 1149--><p class="noindent" >If a subroutine is being stepped through, then the <span 
+class="cmbx-10">&#8221;Run&#8212;Until return&#8221; </span>menu will execute the
+program till the current subroutine ends.
+<!--l. 1152--><p class="noindent" >If the program should be stopped before it quits by itself, then this can be done by
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x89-96019x1">selecting <span 
+class="cmbx-10">&#8221;Run&#8212;Program reset&#8221; </span>from the menu, or
+     </li>
+     <li 
+  class="enumerate" id="x89-96021x2">pressing <span 
+class="cmcsc-10">C<span 
+class="small-caps">t</span><span 
+class="small-caps">r</span><span 
+class="small-caps">l</span>-F2</span>.</li></ol>
+<!--l. 1158--><p class="noindent" >The running program will then be aborted.
+                                                                            
+
+                                                                            
+<!--l. 1162--><div class="crosslinks"><p class="noindent">[<a 
+href="userse27.html" >next</a>] [<a 
+href="userse25.html" >prev</a>] [<a 
+href="userse25.html#tailuserse25.html" >prev-tail</a>] [<a 
+href="userse26.html" >front</a>] [<a 
+href="userch6.html#userse26.html" >up</a>] </p></div>
+<!--l. 1162--><p class="noindent" ><a 
+ id="tailuserse26.html"></a>  
+</body></html> 

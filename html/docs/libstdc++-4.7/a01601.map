@@ -1,0 +1,6 @@
+<map id="structs" name="structs">
+<area shape="rect" id="node1" href="$a01613.html" title="Threads" alt="" coords="191,5,263,33"/>
+<area shape="rect" id="node2" href="$a01606.html" title="Futures" alt="" coords="192,55,261,83"/>
+<area shape="rect" id="node3" href="$a01605.html" title="Condition Variables" alt="" coords="156,106,297,134"/>
+<area shape="rect" id="node5" href="$a01610.html" title="Mutexes" alt="" coords="189,157,264,185"/>
+</map>

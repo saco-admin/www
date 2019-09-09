@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Reference for unit 'cmem'</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[Overview][<a href="../cmem/index-2.html">Constants</a>][<a href="../cmem/index-5.html">Procedures and functions</a>][<a href="../cmem/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'cmem' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Reference for unit 'cmem'</h1>
+<p>Memory manager replacement using the C memory manager</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">uses</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../system/index.html">System</a><span class="sym">;</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The system unit</p></td>
+</tr>
+</table>
+<h2>Overview</h2>
+<p>The <span class="file">cmem</span> memory manager sets the system units memory manager to a C-based memory manager: all memory management calls are shunted through to the C memory manager, using <a href="../cmem/malloc.html">Malloc</a>, <a href="../cmem/free.html">Free</a> and <a href="../cmem/realloc.html">ReAlloc</a>. For this reason, the <span class="file">cmem</span> unit should be the first unit of the uses clause of the program. </p>
+<p>The unit also offers the C memory calls directly as external declarations from the C library, but it is recommended to use the normal FPC routines  for this. </p>
+<p>Obviously, including this unit links your program to the C library. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

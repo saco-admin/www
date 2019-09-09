@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDosStream.Init</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../objects/index.html">Overview</a>][<a href="../objects/index-2.html">Constants</a>][<a href="../objects/index-3.html">Types</a>][<a href="../objects/index-4.html">Classes</a>][<a href="../objects/index-5.html">Procedures and functions</a>][<a href="../objects/index-6.html">Variables</a>][<a href="../objects/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Objects' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TDosStream.Init</h1>
+<p>Instantiate a new instance of TDosStream.</p>
+<h2>Declaration</h2>
+<p>Source position: objects.pp line 317</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code">  <span class="kw">constructor</span> <a href="../objects/tdosstream.html">TDosStream</a><span class="sym">.</span>Init<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;FileName<span class="sym">: </span><a href="../objects/fnamestr.html">FNameStr</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Mode<span class="sym">: </span><a href="../system/word.html">Word</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Init</var> instantiates an instance of <var>TDosStream</var>. The name of the file that contains (or will contain) the data of the stream is given in <var>FileName</var>. The <var>Mode</var> parameter determines whether a new file  should be created and what access rights you have on the file.  It can be one of the following constants: </p>
+<dl>
+<dt>stCreate</dt>
+<dd>Creates a new file.</dd>
+<dt>stOpenRead</dt>
+<dd>Read access only.</dd>
+<dt>stOpenWrite</dt>
+<dd>Write access only.</dd>
+<dt>stOpen</dt>
+<dd>Read and write access.</dd>
+</dl>
+<p>For an example, see <a href="../objects/tdosstream.truncate.html">TDosStream.Truncate</a>. </p>
+<h2>Errors</h2>
+<p>On error, <a href="../objects/tstream.status.html">Status</a> is set to <var>stInitError</var>, and <var>ErrorInfo</var> is set to the dos error code. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../objects/tdosstream.done.html">TDosStream.Done</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Closes the file and cleans up the instance.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

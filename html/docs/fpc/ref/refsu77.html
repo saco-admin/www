@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>noreturn</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 10611--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu78.html" >next</a>] [<a 
+href="refsu76.html" >prev</a>] [<a 
+href="refsu76.html#tailrefsu76.html" >prev-tail</a>] [<a 
+href="#tailrefsu77.html">tail</a>] [<a 
+href="refse97.html#refsu77.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">14.10.8   </span> <a 
+href="ref.html#QQ2-195-232" id="x195-21700014.10.8">noreturn</a></h4>
+<a 
+ id="dx195-217001"></a>
+<a 
+ id="dx195-217002"></a>
+<!--l. 10612--><p class="noindent" ><a name="keyword_noreturn"></a> The <span 
+class="cmtt-10">noreturn </span>modifier can be used to tell the compiler the procedure does not return. This
+information can used by the compiler to avoid emitting warnings about uninitialized variables or
+results not being set.
+<!--l. 10617--><p class="noindent" >In the following example, the compiler will not emit a warning that the result may not be set in
+function <span 
+class="cmtt-10">f</span>:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-433">
+procedure&#x00A0;do_halt;noreturn;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;halt(1);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;f(i&#x00A0;:&#x00A0;integer)&#x00A0;:&#x00A0;integer&#x00A0;;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;if&#x00A0;(i&#x003C;0)&#x00A0;&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;do_halt
+&#x00A0;<br />&#x00A0;&#x00A0;else
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;result:=i;
+&#x00A0;<br />end;
+</div>
+<!--l. 10633--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 10635--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu78.html" >next</a>] [<a 
+href="refsu76.html" >prev</a>] [<a 
+href="refsu76.html#tailrefsu76.html" >prev-tail</a>] [<a 
+href="refsu77.html" >front</a>] [<a 
+href="refse97.html#refsu77.html" >up</a>] </p></div>
+<!--l. 10635--><p class="noindent" ><a 
+ id="tailrefsu77.html"></a>  
+</body></html> 

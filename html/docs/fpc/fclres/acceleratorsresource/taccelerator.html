@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TAccelerator</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../acceleratorsresource/index.html">Overview</a>][<a href="../acceleratorsresource/index-2.html">Constants</a>][<a href="../acceleratorsresource/index-3.html">Types</a>][<a href="../acceleratorsresource/index-4.html">Classes</a>][<a href="../acceleratorsresource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'acceleratorsresource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TAccelerator</h1>
+<p>A single accelerator entry</p>
+<h2>Declaration</h2>
+<p>Source position: acceleratorsresource.pp line 33</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TAccelerator<span class="sym"> = </span><span class="kw">packed record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Flags<span class="sym">: </span><a href="../../rtl/system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">A set of flags that can be combined to specify an accelerator's characteristics.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Ansi<span class="sym">: </span><a href="../../rtl/system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">An ANSI character value or a virtual-key code</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Id<span class="sym">: </span><a href="../../rtl/system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">An integer value that identifies the accelerator</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;padding<span class="sym">: </span><a href="../../rtl/system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Used to keep record size aligned on a DWORD boundary</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>A single accelerator entry in the accelerator table resource.</p>
+<p>The key associated with the accelerator is represented by <var>Ansi</var> field: it can be a character or a virtual-key code (in the latter case, <a href="../acceleratorsresource/fvirtkey.html">FVirtKey</a> flag must be active).</p>
+<p>The accelerator is identified by the value of <var>id</var> field.</p>
+<p><var>Flags</var> is a combination of the following values:</p>
+<ul>
+<li><a href="../acceleratorsresource/fvirtkey.html">FVirtKey</a></li>
+<li><a href="../acceleratorsresource/fshift.html">FShift</a></li>
+<li><a href="../acceleratorsresource/fnoinvert.html">FNoInvert</a></li>
+<li><a href="../acceleratorsresource/fcontrol.html">FControl</a></li>
+<li><a href="../acceleratorsresource/falt.html">FAlt</a></li>
+</ul>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

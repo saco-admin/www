@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>MonthsBetween</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dateutils/index.html">Overview</a>][<a href="../dateutils/index-2.html">Constants</a>][<a href="../dateutils/index-5.html">Procedures and functions</a>][<a href="../dateutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dateutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>MonthsBetween</h1>
+<p>Calculate the number of whole months between two DateTime values</p>
+<h2>Declaration</h2>
+<p>Source position: dateutil.inc line 257</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> MonthsBetween<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>ANow<span class="sym">: </span><a href="../system/tdatetime.html">TDateTime</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AThen<span class="sym">: </span><a href="../system/tdatetime.html">TDateTime</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ANow</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">First moment in time</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AThen</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Second moment in time</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Number of whole months between <var>ANow</var> and <var>AThen</var>.</p>
+<h2>Description</h2>
+<p><var>MonthsBetween</var> returns the number of whole months between <var>ANow</var> and <var>AThen</var>. This number is an approximation, based on an average number of days of 30.4375 per month (average over 4 years). This means the fractional part of a month is dropped. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dateutils/yearsbetween.html">YearsBetween</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the number of whole years between two DateTime values</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/weeksbetween.html">WeeksBetween</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the number of whole weeks between two DateTime values</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/daysbetween.html">DaysBetween</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of whole days between two DateTime values.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/hoursbetween.html">HoursBetween</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the number of whole hours between two DateTime values.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/minutesbetween.html">MinutesBetween</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the number of whole minutes between two DateTime values.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/secondsbetween.html">SecondsBetween</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the number of whole seconds between two DateTime values.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/millisecondsbetween.html">MilliSecondsBetween</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Calculate the number of whole milliseconds between two DateTime values.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example56<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the MonthsBetween function }</span>
+
+<span class="kw">Uses</span> SysUtils<span class="sym">,</span>DateUtils<span class="sym">;</span>
+
+<span class="kw">Procedure</span> Test<span class="sym">(</span>ANow<span class="sym">,</span>AThen <span class="sym">:</span> TDateTime<span class="sym">)</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+ Write<span class="sym">(</span><span class="str">'Number of months between '</span><span class="sym">)</span><span class="sym">;</span>
+ Write<span class="sym">(</span>DateToStr<span class="sym">(</span>AThen<span class="sym">)</span><span class="sym">,</span><span class="str">' and '</span><span class="sym">,</span>DateToStr<span class="sym">(</span>ANow<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+ Writeln<span class="sym">(</span><span class="str">' : '</span><span class="sym">,</span>MonthsBetween<span class="sym">(</span>ANow<span class="sym">,</span>AThen<span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  D1<span class="sym">,</span>D2 <span class="sym">:</span> TDateTime<span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  D1<span class="sym">:=</span>Today<span class="sym">;</span>
+  D2<span class="sym">:=</span>Today<span class="sym">-</span><span class="num">364</span><span class="sym">;</span>
+  Test<span class="sym">(</span>D1<span class="sym">,</span>D2<span class="sym">)</span><span class="sym">;</span>
+  D2<span class="sym">:=</span>Today<span class="sym">-</span><span class="num">365</span><span class="sym">;</span>
+  Test<span class="sym">(</span>D1<span class="sym">,</span>D2<span class="sym">)</span><span class="sym">;</span>
+  D2<span class="sym">:=</span>Today<span class="sym">-</span><span class="num">366</span><span class="sym">;</span>
+  Test<span class="sym">(</span>D1<span class="sym">,</span>D2<span class="sym">)</span><span class="sym">;</span>
+  D2<span class="sym">:=</span>Today<span class="sym">-</span><span class="num">390</span><span class="sym">;</span>
+  Test<span class="sym">(</span>D1<span class="sym">,</span>D2<span class="sym">)</span><span class="sym">;</span>
+  D2<span class="sym">:=</span>Today<span class="sym">-</span><span class="num">368</span><span class="sym">;</span>
+  Test<span class="sym">(</span>D1<span class="sym">,</span>D2<span class="sym">)</span><span class="sym">;</span>
+  D2<span class="sym">:=</span>Today<span class="sym">-</span><span class="num">1000</span><span class="sym">;</span>
+  Test<span class="sym">(</span>D1<span class="sym">,</span>D2<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

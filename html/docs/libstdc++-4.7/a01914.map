@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00013.html" title="Specialization for single thread." alt="" coords="5,83,192,111"/>
+<area shape="rect" id="node5" href="$a00014.html" title="Specialization for thread enabled, via gthreads.h." alt="" coords="216,83,400,111"/>
+</map>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Target specific issues: Linux</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../graph/funcinitializion.html">Previous</a>][<a href="../graph/index.html">Up</a>][<a href="../graph/targetissuesdos.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Graph' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>Target specific issues: Linux</h2>
+<p>There are several issues on Linux that need to be taken care of: </p>
+<p>The Linux version of the <span class="file">Graph</span> unit uses the <span class="file">libvga</span> library. This library works on the console, not under X. </p>
+<p>If you get an error similar to </p>
+<pre><span class="sym">/</span>usr<span class="sym">/</span>bin<span class="sym">/</span>ld<span class="sym">:</span> cannot find <span class="sym">-</span>lvga
+</pre>
+<p>This can mean one of two things: either libvga and it's development package is not installed properly, or the directory where it is installed is not in the linker path. </p>
+<p>To remedy the former, you should install both the libvga package and libvga-devel package (or compile and install from scratch). </p>
+<p>To remedy the latter, you should add the path to the compiler command-line using the <var>-Fl</var> option. </p>
+<p>Programs using <span class="file">libvga</span> need root privileges to run. You can make them setuid root with the following command: </p>
+<pre>chown root<span class="sym">.</span>root myprogram
+chmod u<span class="sym">+</span>s myprogram
+</pre>
+<p>The libvga library will give up the root privileges after it is initialized. </p>
+<p>there is an experimental version of the Graphics library available that uses GGI to do all the drawing, but it is not well tested. It's called <span class="file">ggigraph</span> and is distributed in source form only. </p>
+<p>Do not use the CRT unit together with the Graph unit: the console may end up in an unusable state. Instead, the <span class="file">ncurses</span> unit may function fine. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

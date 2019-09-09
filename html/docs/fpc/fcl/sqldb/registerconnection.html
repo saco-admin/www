@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>RegisterConnection</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sqldb/index.html">Overview</a>][<a href="../sqldb/index-2.html">Constants</a>][<a href="../sqldb/index-3.html">Types</a>][<a href="../sqldb/index-4.html">Classes</a>][<a href="../sqldb/index-5.html">Procedures and functions</a>][<a href="../sqldb/index-6.html">Variables</a>][<a href="../sqldb/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sqldb' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>RegisterConnection</h1>
+<p>Register a new connection type for use in the universal connector</p>
+<h2>Declaration</h2>
+<p>Source position: sqldb.pp line 779</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> RegisterConnection<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Def<span class="sym">: </span><a href="../sqldb/tconnectiondefclass.html">TConnectionDefClass</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Def</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The connection type definition to register.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>RegisterConnection</var> must be called with a class pointer to a <a href="../sqldb/tconnectiondef.html">TConnectionDef</a> descendent to register the connection type described in the <a href="../sqldb/tconnectiondef.html">TConnectionDef</a> descendent. The connection type is registered with the name as returned by <a href="../sqldb/tconnectiondef.typename.html">TConnectionDef.TypeName</a>. </p>
+<p>The various connection types distributed by Free Pascal automatically call <var>RegisterConnection</var> from the <var>initialization</var> section of their unit, so simply including the unit with a particular connection type is enough to register it. </p>
+<p>Connection types registered with this call can be unregistered with <a href="../sqldb/unregisterconnection.html">UnRegisterConnection</a>. </p>
+<h2>Errors</h2>
+<p>if <var>Def</var> is <var>Nil</var>, access violations will occur. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sqldb/tconnectiondef.html">TConnectionDef</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Connection type definition class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sqldb/unregisterconnection.html">UnRegisterConnection</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unregister a registered connection type</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

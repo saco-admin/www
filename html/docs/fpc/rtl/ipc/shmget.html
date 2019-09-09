@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>shmget</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../ipc/index.html">Overview</a>][<a href="../ipc/index-2.html">Constants</a>][<a href="../ipc/index-3.html">Types</a>][<a href="../ipc/index-5.html">Procedures and functions</a>][<a href="../ipc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'ipc' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>shmget</h1>
+<p>Return the ID of a shared memory block, possibly creating it</p>
+<h2>Declaration</h2>
+<p>Source position: ipc.pp line 405</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> shmget<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;key<span class="sym">: </span><a href="../ipc/tkey.html">TKey</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;size<span class="sym">: </span><a href="../unixtype/size_t.html">size_t</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;flag<span class="sym">: </span><a href="../unixtype/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../unixtype/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>shmget</var> returns the ID of a shared memory block, described by <var>key</var>. Depending on the flags in <var>flag</var>, a new memory block is created. </p>
+<p><var>flag</var> can have one or more of the following values (combined by ORs): </p>
+<dl>
+<dt>IPC_CREAT</dt>
+<dd>The queue is created if it doesn't already exist. </dd>
+<dt>IPC_EXCL</dt>
+<dd>If used in combination with <var>IPC_CREAT</var>, causes the call to fail if the queue already exists. It cannot be used by itself. </dd>
+</dl>
+<p>Optionally, the flags can be <var>OR</var>ed with a permission mode, which is the same mode that can be used in the file system. </p>
+<p>if a new memory block is created, then it will have size <var>Size</var> bytes in it. </p>
+<h2>Errors</h2>
+<p>On error, -1 is returned, and <var>IPCError</var> is set. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

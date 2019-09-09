@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDataSet.OnEditError</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDataSet.OnEditError</h1>
+<p>Event triggered when an edit operation fails.</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1711</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../db/tdataset.html">TDataSet</a><span class="sym">.</span>OnEditError<span class="sym"> : </span><a href="../db/tdataseterrorevent.html">TDataSetErrorEvent</a><br>&nbsp;&nbsp;<span class="kw">read </span>FOnEditError<br>&nbsp;&nbsp;<span class="kw">write </span>FOnEditError<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>OnEditError</var> is triggered when the <a href="../db/tdataset.edit.html">TDataset.Edit</a> method fails to put the dataset in edit mode because the underlying database engine reported an error. The event handler can be used to indicate what the response to the failed edit operation should be.  To this end, it gets the exception object passed to it (parameter <var>E</var>), and it can examine this object to return an  appropriate action in the <var>DataAction</var> parameter. The following responses are supported: </p>
+<dl>
+<dt>daFail</dt>
+<dd>The operation should fail (an exception will be raised)</dd>
+<dt>daAbort</dt>
+<dd>The operation should be aborted (edits are undone, and an EAbort exception is raised)</dd>
+<dt>daRetry</dt>
+<dd>Retry the operation.</dd>
+</dl>
+<p>For more information, see also the description of the <a href="../db/tdataseterrorevent.html">TDatasetErrorEvent</a> event handler type.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdataseterrorevent.html">TDatasetErrorEvent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Error handling callback</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.edit.html">TDataset.Edit</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set the dataset in editing mode.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.ondeleteerror.html">TDataset.OnDeleteError</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event triggered when a delete operation fails.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.onposterror.html">TDataset.OnPostError</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Event triggered when a post operation fails.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

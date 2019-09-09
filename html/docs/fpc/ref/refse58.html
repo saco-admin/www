@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Definition</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6585--><div class="crosslinks"><p class="noindent">[<a 
+href="refse59.html" >next</a>] [<a 
+href="#tailrefse58.html">tail</a>] [<a 
+href="refch9.html#refse58.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">9.1   </span> <a 
+href="ref.html#QQ2-118-146" id="x118-1400009.1">Definition</a></h3>
+<!--l. 6586--><p class="noindent" >Extended records are in many ways equivalent to objects and to a lesser extent to classes: they
+are records which have methods associated with them, and properties. Like objects,
+when defined as a variable they are allocated on the stack. They do not need to have a
+constructor. Extended records have limitations over objects and classes in that they do not
+allow inheritance and polymorphism. It is impossible to create a descendant record of a
+record<span class="footnote-mark"><a 
+href="#fn1x10" id="fn1x10-bk"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x118-140001f1"></a>.
+<!--l. 6595--><p class="noindent" >Why then introduce extended records ? They were introduced by Delphi 2005 to support one of
+the features introduced by .NET. Delphi deprecated the old TP style of objects, and
+re-introduced the features of .NET as extended records. Free Pascal aims to be Delphi
+compatible, so extended records are allowed in Free Pascal as well, but only in Delphi
+mode.
+<!--l. 6602--><p class="noindent" >If extended records are desired in ObjFPC mode, then a mode switch must be used:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-282">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />{$modeswitch&#x00A0;advancedrecords}
+</div>
+<!--l. 6607--><p class="nopar" >
+<!--l. 6609--><p class="noindent" >Compatibility is not the only reason for introducing extended records. There are some practical
+reasons for using methods or properties in records:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x118-140003x1">It is more in line with an object-oriented approach to programming: the type also
+     contains any methods that work on it.
+     </li>
+     <li 
+  class="enumerate" id="x118-140005x2">In contrast with a procedural approach, putting all operations that work on a record
+     in the record itself, allows an IDE to show the available methods on the record when
+     it is displaying code completion options.</li></ol>
+<!--l. 6619--><p class="noindent" >Defining an extended record is much as defining an object or class:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">extended record type</span><br 
+class="newline" /><BR/><img 
+src="ref109x.png" alt="------------record ---component list--end--------------------------
+  -packed -|        --------------|
+     " ><BR/>
+     <BR/><img 
+src="ref110x.png" alt=" --            ------------------------------------------
+   component list -                   -| --           ---|
+                 record visibility specifier   -field-definition-|
+-------------------------------------------------variant part--------
+   --record method definition---|---property definition--|
+    ---------------------|    ----------------|
+     " ><BR/>
+     <BR/><img 
+src="ref111x.png" alt="--           -          -  -    -  ------------------------------
+  field definition  identifier list  :  type  ;
+     " ><BR/>
+     <BR/><img 
+src="ref112x.png" alt="--                  -----------       ---------------------------
+  record visibility specifier |-     -| private  |
+                      --strict    ------|
+                            public
+     " ><BR/>
+     <BR/><img 
+src="ref113x.png" alt="--record method definition|-function header----;--|--------------------
+                       -procedure header-    -call modifiers-;--
+                                                                            
+
+                                                                            
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 6621--><p class="noindent" >Some of the restrictions when compared to classes or objects are obvious from the syntax
+diagram:
+     <ul class="itemize1">
+     <li class="itemize">No inheritance of records.
+     </li>
+     <li class="itemize">No published and protected section exists.
+     </li>
+     <li class="itemize">Constructors or destructors cannot be defined.
+     </li>
+     <li class="itemize">Class methods (if one can name them so) require the <span 
+class="cmtt-10">static </span>keyword.
+     </li>
+     <li class="itemize">Methods cannot be virtual or abstract - this is a consequence of the fact that there is
+     no inheritance.</li></ul>
+<!--l. 6631--><p class="noindent" >Other than that the definition much resembles that of a class or object.
+<!--l. 6633--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> In the case of a variant record, the <span 
+class="cmtt-10">Case </span>keyword implicitly starts a <span 
+class="cmtt-10">var </span>section, meaning class
+variables or methods are not allowed in the variant part of the record.
+<!--l. 6640--><p class="noindent" >The following are few examples of valid extended record definitions:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-283">
+TTest1&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;a&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />&#x00A0;&#x00A0;function&#x00A0;Test(aRecurse:&#x00A0;Boolean):&#x00A0;Integer;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />TTest2&#x00A0;=&#x00A0;record
+&#x00A0;<br />private
+&#x00A0;<br />&#x00A0;&#x00A0;A,b&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />public
+&#x00A0;<br />&#x00A0;&#x00A0;procedure&#x00A0;setA(AValue&#x00A0;:&#x00A0;integer);
+&#x00A0;<br />&#x00A0;&#x00A0;property&#x00A0;SafeA&#x00A0;:&#x00A0;Integer&#x00A0;Read&#x00A0;A&#x00A0;Write&#x00A0;SetA;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />TTest3&#x00A0;=&#x00A0;packed&#x00A0;record
+&#x00A0;<br />private
+&#x00A0;<br />&#x00A0;&#x00A0;fA,fb&#x00A0;:&#x00A0;byte;
+&#x00A0;<br />&#x00A0;&#x00A0;procedure&#x00A0;setA(AValue&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />&#x00A0;&#x00A0;function&#x00A0;geta&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />public
+&#x00A0;<br />&#x00A0;&#x00A0;property&#x00A0;A&#x00A0;:&#x00A0;Integer&#x00A0;Read&#x00A0;GetA&#x00A0;Write&#x00A0;SetA;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />TTest4&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;a&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;protected
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;function&#x00A0;getp&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;b&#x00A0;:&#x00A0;string;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;setp&#x00A0;(aValue&#x00A0;:&#x00A0;integer);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;property&#x00A0;p&#x00A0;:&#x00A0;integer&#x00A0;read&#x00A0;Getp&#x00A0;Write&#x00A0;SetP;
+&#x00A0;<br />&#x00A0;public
+&#x00A0;<br />&#x00A0;case&#x00A0;x&#x00A0;:&#x00A0;integer&#x00A0;of
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;1&#x00A0;:&#x00A0;(Q&#x00A0;:&#x00A0;string);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;2&#x00A0;:&#x00A0;(S&#x00A0;:&#x00A0;String);
+&#x00A0;<br />&#x00A0;end;
+</div>
+<!--l. 6678--><p class="nopar" >Note that it is possible to specify a visibility for the members of the record. This is
+particularly useful for example when creating an interface to a C library: the actual fields
+can be declared hidden, and more &#8217;pascal&#8217; like properties can be exposed which act as
+the actual fields. The <span 
+class="cmtt-10">TTest3 </span>record definition shows that the <span 
+class="cmtt-10">packed </span>directive can
+be used in extended records. Extended records have the same memory layout as their
+regular counterparts: the methods and properties are not part of the record structure in
+memory.
+<!--l. 6688--><p class="noindent" >The <span 
+class="cmtt-10">TTest4 </span>record definition in the above examples shows that the extended record still has the
+ability to define a variant part. As with the regular record, the variant part must come last. It
+cannot contain methods.
+                                                                            
+
+                                                                            
+<div class="footnotes"><!--l. 6593--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn1x10-bk" id="fn1x10"><sup class="textsuperscript">1</sup></a></span><span 
+class="cmr-8">although it can be enhanced using record helpers, more about this in the chapter on record helpers.</span>   </div> <!--l. 6692--><div class="crosslinks"><p class="noindent">[<a 
+href="refse59.html" >next</a>]
+[<a 
+href="refse58.html" >front</a>] [<a 
+href="refch9.html#refse58.html" >up</a>] </p></div>
+<!--l. 6692--><p class="noindent" ><a 
+ id="tailrefse58.html"></a>  
+</body></html> 

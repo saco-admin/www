@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Introduction</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 85--><div class="crosslinks"><p class="noindent">[<a 
+href="progse2.html" >next</a>] [<a 
+href="#tailprogse1.html">tail</a>] [<a 
+href="progch1.html#progse1.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">1.1   </span> <a 
+href="prog.html#QQ2-6-5" id="x6-50001.1">Introduction</a></h3>
+<!--l. 86--><p class="noindent" >Free Pascal supports compiler directives in the source file: Basically the same directives as in Turbo
+Pascal, Delphi and Mac OS pascal compilers. Some are recognized for compatibility only, and have
+no effect.
+<!--l. 90--><p class="noindent" >A compiler directive is always specified as a comment using curly braces:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-1">
+{$DIRECTIVE&#x00A0;[value]}
+</div>
+<!--l. 93--><p class="nopar" >The older <span 
+class="cmtt-10">(* *) </span>notation, or the C++ notation <span 
+class="cmtt-10">// </span>cannot be used for directives.
+<!--l. 97--><p class="noindent" >The fact that a directive is specified as a comment means that it is not a pascal instruction. That
+in turn means that if a non-existing directive is specified, the compiler does not give an error, it
+just gives a warning about an invalid/unknown directive.
+<!--l. 102--><p class="noindent" >There is a distinction between local and global directives:
+     <ul class="itemize1">
+     <li class="itemize">Local directives take effect from the moment they are encountered till they are changed
+     by another directive or the same directive with a different argument: they can be
+     specified more than once in a source file.
+     </li>
+     <li class="itemize">Global directives have an effect on all of the compiled code. They can, in general, only
+     be specified once per source file. It also means that their effect ends when the current
+     unit is compiled; the effect does not propagate to another unit.</li></ul>
+<!--l. 113--><p class="noindent" >Some directives can only take a boolean value, a &#8217;+&#8217; to switch them on, or a &#8217;-&#8217; to switch them off.
+These directives are also known as switches. Many switches have a long form also. If they do, then
+the name of the long form is given also.
+<!--l. 118--><p class="noindent" >For long switches, the + or - character to switch the option on or off, may be replaced by the <span 
+class="cmtt-10">ON </span>or
+<span 
+class="cmtt-10">OFF </span>keywords.
+<!--l. 121--><p class="noindent" >Thus <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">{$I+}</span></span></span> is equivalent to <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">{$IOCHECKS</span><span 
+class="cmtt-10">&#x00A0;ON}</span></span></span> or <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">{$IOCHECKS</span><span 
+class="cmtt-10">&#x00A0;+}</span></span></span> and <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">{$C-}</span></span></span> is equivalent to
+<span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">{$ASSERTIONS</span><span 
+class="cmtt-10">&#x00A0;OFF}</span></span></span> or <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">{$ASSERTIONS</span><span 
+class="cmtt-10">&#x00A0;-}</span></span></span>
+<!--l. 126--><p class="noindent" >The long forms of the switches are the same as their Delphi counterparts.
+                                                                            
+
+                                                                            
+<!--l. 133--><div class="crosslinks"><p class="noindent">[<a 
+href="progse2.html" >next</a>] [<a 
+href="progse1.html" >front</a>] [<a 
+href="progch1.html#progse1.html" >up</a>] </p></div>
+<!--l. 133--><p class="noindent" ><a 
+ id="tailprogse1.html"></a>  
+</body></html> 

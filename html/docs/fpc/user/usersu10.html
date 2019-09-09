@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Configuration file</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 773--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu11.html" >next</a>] [<a 
+href="usersu9.html" >prev</a>] [<a 
+href="usersu9.html#tailusersu9.html" >prev-tail</a>] [<a 
+href="#tailusersu10.html">tail</a>] [<a 
+href="userse9.html#usersu10.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.1.5   </span> <a 
+href="user.html#QQ2-24-33" id="x24-310003.1.5">Configuration file</a></h4>
+<!--l. 776--><p class="noindent" >Not all options must be given on the compiler command line. The compiler can use a configuration
+file which can contain the same options as on the command line. There can be only one
+command-line option on each line in the configuration file.
+<!--l. 781--><p class="noindent" >Unless you specify the <span 
+class="cmtt-10">-n </span>(see page <a 
+href="usersu12.html#x35-420005.1.1">103<!--tex4ht:ref: option:n --></a>) option, the compiler will look for a configuration file
+<span 
+class="cmss-10">fpc.cfg </span>in the following places:
+     <ul class="itemize1">
+     <li class="itemize">Under <span 
+class="cmcsc-10"><span 
+class="small-caps">u</span><span 
+class="small-caps">n</span><span 
+class="small-caps">i</span><span 
+class="small-caps">x</span> </span>(such as <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span></span>)
+         <ol  class="enumerate1" >
+         <li 
+  class="enumerate" id="x24-31002x1">The current directory.
+         </li>
+         <li 
+  class="enumerate" id="x24-31004x2">Your home directory, it looks for <span 
+class="cmss-10">.fpc.cfg</span>.
+         </li>
+         <li 
+  class="enumerate" id="x24-31006x3">The directory specified in the environment variable <span 
+class="cmtt-10">PPC</span><span 
+class="cmtt-10">_CONFIG</span><span 
+class="cmtt-10">_PATH</span>.
+         </li>
+         <li 
+  class="enumerate" id="x24-31008x4">in the <span 
+class="cmss-10">etc </span>directory above the compiler directory.<br 
+class="newline" />For instance, if the compiler is in <span 
+class="cmss-10">/usr/local/bin</span>, it will look in <span 
+class="cmss-10">/usr/local/etc</span>. <br 
+class="newline" />Ssee below for some additional information about this point.
+         </li>
+         <li 
+  class="enumerate" id="x24-31010x5">The directory <span 
+class="cmss-10">/etc</span>.</li></ol>
+     </li>
+     <li class="itemize">Under all other OSes:
+         <ol  class="enumerate1" >
+         <li 
+  class="enumerate" id="x24-31012x1">The current directory.
+         </li>
+         <li 
+  class="enumerate" id="x24-31014x2">If it is set, the directory specified in the environment variable <span 
+class="cmtt-10">PPC</span><span 
+class="cmtt-10">_CONFIG</span><span 
+class="cmtt-10">_PATH</span>.
+         </li>
+         <li 
+  class="enumerate" id="x24-31016x3">The directory where the compiler is.</li></ol>
+     </li></ul>
+<!--l. 807--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> Note that the compiler directory is determined by the location of the actual compiler binary. This
+has 2 consequences:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x24-31018x1">The default installation on unix places this under <span 
+class="cmss-10">/usr/local/lib/fpc</span>, or <span 
+class="cmss-10">/usr/lib/fpc</span>. It
+     places several symlinks in <span 
+class="cmss-10">/usr/local/bin </span>or <span 
+class="cmss-10">/usr/bin</span>. These symlinks are not considered
+     when looking for the configuration file(s), so the places to look for the configuration
+     file are <span 
+class="cmss-10">/usr/local/lib/fpc/etc</span>, or <span 
+class="cmss-10">/usr/lib/fpc/etc</span>.
+                                                                            
+
+                                                                            
+     </li>
+     <li 
+  class="enumerate" id="x24-31020x2">The <span 
+class="cmss-10">fpc </span>command is not the actual compiler binary. The fpc command selects the
+     actual compiler binary based on e.g. the CPU target. The actual compiler binary is
+     called <span 
+class="cmss-10">ppcXYZ</span>.
+     </li>
+     <li 
+  class="enumerate" id="x24-31022x3">The actual installation directory may vary: <span 
+class="cmss-10">/usr/local/bin </span>may be <span 
+class="cmss-10">/usr/bin</span>, depending
+     on the packager.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 824--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu11.html" >next</a>] [<a 
+href="usersu9.html" >prev</a>] [<a 
+href="usersu9.html#tailusersu9.html" >prev-tail</a>] [<a 
+href="usersu10.html" >front</a>] [<a 
+href="userse9.html#usersu10.html" >up</a>] </p></div>
+<!--l. 824--><p class="noindent" ><a 
+ id="tailusersu10.html"></a>  
+</body></html> 

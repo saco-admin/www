@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Formal declaration</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 7413--><div class="crosslinks"><p class="noindent">[<a 
+href="refse70.html" >next</a>] [<a 
+href="refse68.html" >prev</a>] [<a 
+href="refse68.html#tailrefse68.html" >prev-tail</a>] [<a 
+href="#tailrefse69.html">tail</a>] [<a 
+href="refch11.html#refse69.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">11.3   </span> <a 
+href="ref.html#QQ2-131-159" id="x131-15300011.3">Formal declaration</a></h3>
+<!--l. 7414--><p class="noindent" >Object Pascal has the concept of Forward declarations. Objective-C takes this concept a bit
+further: it allows to declare a class which is defined in another unit. This has been dubbed &#8217;Formal
+declaration&#8217; in Objective-Pascal. Looking at the syntax diagram, the following is a valid
+declaration:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-311">
+MyExternalClass&#x00A0;=&#x00A0;objcclass&#x00A0;external;
+</div>
+<!--l. 7420--><p class="nopar" >This is a formal declaration. It tells the compiler that <span 
+class="cmtt-10">MyExternalClass </span>is an Objective-C class
+type, but that there is no declaration of the class members. The type can be used in the remainder
+of the unit, but its use is restricted to storage allocation (in a field or method parameter definition)
+and assignment (much like a pointer).
+<!--l. 7427--><p class="noindent" >As soon as the class definition is encountered, the compiler can enforce type compatibility.
+<!--l. 7430--><p class="noindent" >The following unit uses a formal declaration:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-312">
+unit&#x00A0;ContainerClass;
+&#x00A0;<br />
+&#x00A0;<br />{$mode&#x00A0;objfpc}
+&#x00A0;<br />{$modeswitch&#x00A0;objectivec1}
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;MyItemClass&#x00A0;=&#x00A0;objcclass&#x00A0;external;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;MyContainerClass&#x00A0;=&#x00A0;objcclass
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;item:&#x00A0;MyItemClass;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;getItem:&#x00A0;MyItemClass;&#x00A0;message&#x00A0;&#8217;getItem&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;MyContainerClass.getItem:&#x00A0;MyItemClass;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;result:=item;&#x00A0;//&#x00A0;Assignment&#x00A0;is&#x00A0;OK.
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 7457--><p class="nopar" >A second unit can contain the actual class declaration:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-313">
+unit&#x00A0;ItemClass;
+&#x00A0;<br />
+&#x00A0;<br />{$mode&#x00A0;objfpc}
+&#x00A0;<br />{$modeswitch&#x00A0;objectivec1}
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;MyItemClass&#x00A0;=&#x00A0;objcclass(NSObject)
+&#x00A0;<br />&#x00A0;&#x00A0;private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;content&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;initWithContent(c:&#x00A0;longint):&#x00A0;MyItemClass;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;message&#x00A0;&#8217;initWithContent:&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;getContent:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;message&#x00A0;&#8217;getContent&#8217;;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;MyItemClass.initWithContent(c:&#x00A0;longint):
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;MyItemClass;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;content:=c;
+&#x00A0;<br />&#x00A0;&#x00A0;result:=self;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;MyItemClass.getContent:&#x00A0;longint;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;result:=content;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 7493--><p class="nopar" >If both units are used in a program, the compiler knows what the class is and can verify the
+correctness of some assignments:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-314">
+Program&#x00A0;test;
+&#x00A0;<br />
+&#x00A0;<br />{$mode&#x00A0;objfpc}
+&#x00A0;<br />{$modeswitch&#x00A0;objectivec1}
+&#x00A0;<br />
+&#x00A0;<br />uses
+&#x00A0;<br />&#x00A0;&#x00A0;ItemClass,&#x00A0;ContainerClass;
+&#x00A0;<br />
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;c:&#x00A0;MyContainerClass;
+&#x00A0;<br />&#x00A0;&#x00A0;l:&#x00A0;longint;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;c:=MyContainerClass.alloc.init;
+&#x00A0;<br />&#x00A0;&#x00A0;l:=c.getItem.getContent;
+&#x00A0;<br />end.
+</div>
+<!--l. 7512--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 7516--><div class="crosslinks"><p class="noindent">[<a 
+href="refse70.html" >next</a>] [<a 
+href="refse68.html" >prev</a>] [<a 
+href="refse68.html#tailrefse68.html" >prev-tail</a>] [<a 
+href="refse69.html" >front</a>] [<a 
+href="refch11.html#refse69.html" >up</a>] </p></div>
+<!--l. 7516--><p class="noindent" ><a 
+ id="tailrefse69.html"></a>  
+</body></html> 

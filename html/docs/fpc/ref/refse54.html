@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Type compatibility</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6199--><div class="crosslinks"><p class="noindent">[<a 
+href="refse55.html" >next</a>] [<a 
+href="refse53.html" >prev</a>] [<a 
+href="refse53.html#tailrefse53.html" >prev-tail</a>] [<a 
+href="#tailrefse54.html">tail</a>] [<a 
+href="refch8.html#refse54.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">8.6   </span> <a 
+href="ref.html#QQ2-113-141" id="x113-1350008.6">Type compatibility</a></h3>
+<a 
+ id="dx113-135001"></a>
+<!--l. 6201--><p class="noindent" >Whenever a generic class is specialized, this results in a new, distinct type. These types are
+assignment compatible if the same template types are used.
+<!--l. 6204--><p class="noindent" >Take the following generic definition:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-261">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />unit&#x00A0;ua;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />type
+&#x00A0;<br />&#x00A0;&#x00A0;Generic&#x00A0;TMyClass&#x003C;T&#x003E;&#x00A0;=&#x00A0;Class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Procedure&#x00A0;DoSomething(A&#x00A0;:&#x00A0;T;&#x00A0;B&#x00A0;:&#x00A0;INteger);
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />Implementation
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;TMyClass.DoSomething(A&#x00A0;:&#x00A0;T;&#x00A0;B&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;Some&#x00A0;code.
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 6225--><p class="nopar" >And the following specializations:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-262">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />unit&#x00A0;ub;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;ua;
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TB&#x00A0;=&#x00A0;Specialize&#x00A0;TMyClass&#x003C;string&#x003E;;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 6241--><p class="nopar" >the following specializations is identical, but appears in a different unit:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-263">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />unit&#x00A0;uc;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;ua;
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TB&#x00A0;=&#x00A0;Specialize&#x00A0;TMyClass&#x003C;string&#x003E;;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 6257--><p class="nopar" >The following will then compile:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-264">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />unit&#x00A0;ud;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;ua,ub,uc;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;ub.TB;
+&#x00A0;<br />&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;uc.TB;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;B:=C;
+&#x00A0;<br />end.
+</div>
+<!--l. 6276--><p class="nopar" >The types ub.TB and uc.TB are assignment compatible. It does not matter that the types are
+defined in different units. They could be defined in the same unit as well:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-265">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />unit&#x00A0;ue;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;ua;
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TB&#x00A0;=&#x00A0;Specialize&#x00A0;TMyClass&#x003C;string&#x003E;;
+&#x00A0;<br />&#x00A0;&#x00A0;TC&#x00A0;=&#x00A0;Specialize&#x00A0;TMyClass&#x003C;string&#x003E;;
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;TB;
+&#x00A0;<br />&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;TC;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;B:=C;
+&#x00A0;<br />end.
+</div>
+<!--l. 6302--><p class="nopar" >Each specialization of a generic class with the same types as parameters is a new, distinct type, but
+these types are assignment compatible if the template types used to specialize them are
+equal.
+<!--l. 6306--><p class="noindent" >If the specialization is with a different template type, the types are still distinct, but no longer
+assignment compatible. i.e. the following will not compile:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-266">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />unit&#x00A0;uf;
+&#x00A0;<br />
+&#x00A0;<br />interface
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;ua;
+&#x00A0;<br />
+&#x00A0;<br />Type
+&#x00A0;<br />&#x00A0;&#x00A0;TB&#x00A0;=&#x00A0;Specialize&#x00A0;TMyClass&#x003C;string&#x003E;;
+&#x00A0;<br />&#x00A0;&#x00A0;TC&#x00A0;=&#x00A0;Specialize&#x00A0;TMyClass&#x003C;integer&#x003E;;
+&#x00A0;<br />
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;B&#x00A0;:&#x00A0;TB;
+&#x00A0;<br />&#x00A0;&#x00A0;C&#x00A0;:&#x00A0;TC;
+&#x00A0;<br />
+&#x00A0;<br />implementation
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;B:=C;
+&#x00A0;<br />end.
+</div>
+<!--l. 6330--><p class="nopar" >When compiling, an error will result:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-267">
+Error:&#x00A0;Incompatible&#x00A0;types:&#x00A0;got&#x00A0;"TMyClass&#x003C;System.LongInt&#x003E;"
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;expected&#x00A0;"TMyClass&#x003C;System.ShortString&#x003E;"
+</div>
+<!--l. 6335--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 6337--><div class="crosslinks"><p class="noindent">[<a 
+href="refse55.html" >next</a>] [<a 
+href="refse53.html" >prev</a>] [<a 
+href="refse53.html#tailrefse53.html" >prev-tail</a>] [<a 
+href="refse54.html" >front</a>] [<a 
+href="refch8.html#refse54.html" >up</a>] </p></div>
+<!--l. 6337--><p class="noindent" ><a 
+ id="tailrefse54.html"></a>  
+</body></html> 

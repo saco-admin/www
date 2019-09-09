@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Slice</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Slice</h1>
+<p>Return part of an array</p>
+<h2>Declaration</h2>
+<p>Source position: system.fpd line 86</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> Slice<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>A<span class="sym">: </span>ArrayType<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ACount<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>ArrayType2<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Slice</var> returns the first <var>ACount</var> elements from the array <var>A</var>. It returns an array with the same element type as <var>A</var>, but this array is not assignment compatible to any other array, and can therefor only be used in open array arguments to functions. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/length.html">Length</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns length of a string or array.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/setlength.html">SetLength</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set length of a string.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example113<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Slice function. }</span>
+
+<span class="kw">procedure</span> ShowArray<span class="sym">(</span><span class="kw">const</span> A<span class="sym">:</span> <span class="kw">array</span> <span class="kw">of</span> Integer<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">var</span>
+  I<span class="sym">:</span> Integer<span class="sym">;</span>
+<span class="kw">begin</span>
+  <span class="kw">for</span> I <span class="sym">:=</span> Low<span class="sym">(</span>A<span class="sym">)</span> to High<span class="sym">(</span>A<span class="sym">)</span> <span class="kw">do</span>
+    WriteLn<span class="sym">(</span>I<span class="sym">,</span> <span class="str">' : '</span><span class="sym">,</span> A<span class="sym">[</span>I<span class="sym">]</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+  ShowArray<span class="sym">(</span>Slice<span class="sym">(</span><span class="sym">[</span><span class="num">1</span><span class="sym">,</span><span class="num">2</span><span class="sym">,</span><span class="num">3</span><span class="sym">,</span><span class="num">4</span><span class="sym">]</span><span class="sym">,</span><span class="num">2</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

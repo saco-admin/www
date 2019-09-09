@@ -1,0 +1,13 @@
+<p><i>Author: Marco Gallotta</i></p>
+
+<p>This problem isn't too difficult to solve at first glance. We can recursively generate all possible designs, stopping when they get larger than <i>N</i> and counting the number of times we find a design of exactly size <i>N</i> as follows:</p>
+
+<p><pre>count(n):
+    if n == N:
+        return 1
+    else if n &lt; N:
+        return count(n + 2) + count(n + 3)</pre></p>
+
+<p>The above will work on the sample run and first test case of <i>N</i>=9. However, try the second case of <i>N</i>=100 and you will see that it carries on and on, until you eventualy you get a stack overflow. The problem with this naive (brute force) approach is that it gets exponentially slower and comsumes exponentially more memory as <i>N</i> grows. If you know of <a href="http://www.brucemerry.org.za/manual/algorithms/efficiency.html">Big O</a>, this is an O(2<sup><i>N</i></sup>) algorithm.</p>
+
+<p>To come up with a better solution that can solve the last two cases we need to look at a programming technique called Dynamic Programming (DP). Take a look at the first solution and consider how many times we are calling <tt>count(25)</tt> for <i>N</i>=50 for example - we're doing so an astounding 465 times! Read up on Dynamic Programming in <a href="http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=dynProg">this article</a> and then try understand how the solutions below make use of this technique to solve the largest test case very quickly.</p>

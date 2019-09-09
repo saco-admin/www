@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>InitVideo</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../video/index.html">Overview</a>][<a href="../video/index-2.html">Constants</a>][<a href="../video/index-3.html">Types</a>][<a href="../video/index-5.html">Procedures and functions</a>][<a href="../video/index-6.html">Variables</a>][<a href="../video/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'video' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>InitVideo</h1>
+<p>Initialize video driver.</p>
+<h2>Declaration</h2>
+<p>Source position: videoh.inc line 126</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> InitVideo<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>InitVideo</var> Initializes the video subsystem. If the video system was already initialized, it does nothing.  After the driver has been initialized, the <var>VideoBuf</var> and <var>OldVideoBuf</var>  pointers are initialized, based on the <var>ScreenWidth</var> and <var>ScreenHeight</var> variables. When this is done, the screen is cleared. </p>
+<p>For an example, see most other functions. </p>
+<h2>Errors</h2>
+<p>if the driver fails to initialize, the <var>ErrorCode</var> variable is set. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../video/donevideo.html">DoneVideo</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Disable video driver.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

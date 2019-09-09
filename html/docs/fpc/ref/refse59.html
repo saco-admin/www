@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Extended record enumerators</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6692--><div class="crosslinks"><p class="noindent">[<a 
+href="refse58.html" >prev</a>] [<a 
+href="refse58.html#tailrefse58.html" >prev-tail</a>] [<a 
+href="#tailrefse59.html">tail</a>] [<a 
+href="refch9.html#refse59.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">9.2   </span> <a 
+href="ref.html#QQ2-119-147" id="x119-1410009.2">Extended record enumerators</a></h3>
+<!--l. 6693--><p class="noindent" >Extended records can have an enumerator. To this end, a function returning an enumerator record
+must be defined in the extended record:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-284">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;TIntArray&#x00A0;=&#x00A0;array[0..3]&#x00A0;of&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TEnumerator&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FIndex:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FArray:&#x00A0;TIntArray;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;GetCurrent:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;MoveNext:&#x00A0;Boolean;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;property&#x00A0;Current:&#x00A0;Integer&#x00A0;read&#x00A0;GetCurrent;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TMyArray&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;F:&#x00A0;array[0..3]&#x00A0;of&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;GetEnumerator:&#x00A0;TEnumerator;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;TEnumerator.MoveNext:&#x00A0;Boolean;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;inc(FIndex);
+&#x00A0;<br />&#x00A0;&#x00A0;Result&#x00A0;:=&#x00A0;FIndex&#x00A0;&#x003C;&#x00A0;Length(FArray);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;TEnumerator.GetCurrent:&#x00A0;Integer;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result&#x00A0;:=&#x00A0;FArray[FIndex];
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;TMyArray.GetEnumerator:&#x00A0;TEnumerator;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result.FArray&#x00A0;:=&#x00A0;F;
+&#x00A0;<br />&#x00A0;&#x00A0;Result.FIndex&#x00A0;:=&#x00A0;-1;
+&#x00A0;<br />end;
+</div>
+<!--l. 6730--><p class="nopar" >After these definitions, the following code will compile and enumerate all elements in
+F:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-285">
+var
+&#x00A0;<br />&#x00A0;&#x00A0;Arr:&#x00A0;TMyArray;
+&#x00A0;<br />&#x00A0;&#x00A0;I:&#x00A0;Integer;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;for&#x00A0;I&#x00A0;in&#x00A0;Arr&#x00A0;do
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;WriteLn(I);
+&#x00A0;<br />end.
+</div>
+<!--l. 6741--><p class="nopar" >The same effect can be achieved with the enumerator operator:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-286">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;TIntArray&#x00A0;=&#x00A0;array[0..3]&#x00A0;of&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TEnumerator&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;private
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FIndex:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;FArray:&#x00A0;TIntArray;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;GetCurrent:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;function&#x00A0;MoveNext:&#x00A0;Boolean;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;property&#x00A0;Current:&#x00A0;Integer&#x00A0;read&#x00A0;GetCurrent;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />&#x00A0;&#x00A0;TMyArray&#x00A0;=&#x00A0;record
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;F:&#x00A0;array[0..3]&#x00A0;of&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;TEnumerator.MoveNext:&#x00A0;Boolean;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;inc(FIndex);
+&#x00A0;<br />&#x00A0;&#x00A0;Result&#x00A0;:=&#x00A0;FIndex&#x00A0;&#x003C;&#x00A0;Length(FArray);
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />function&#x00A0;TEnumerator.GetCurrent:&#x00A0;Integer;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result&#x00A0;:=&#x00A0;FArray[FIndex];
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />operator&#x00A0;Enumerator(const&#x00A0;A:&#x00A0;TMyArray):&#x00A0;TEnumerator;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result.FArray&#x00A0;:=&#x00A0;A.F;
+&#x00A0;<br />&#x00A0;&#x00A0;Result.FIndex&#x00A0;:=&#x00A0;-1;
+&#x00A0;<br />end;
+</div>
+<!--l. 6777--><p class="nopar" >This will allow the code to run as well.
+                                                                            
+
+                                                                            
+<!--l. 6783--><div class="crosslinks"><p class="noindent">[<a 
+href="refse58.html" >prev</a>] [<a 
+href="refse58.html#tailrefse58.html" >prev-tail</a>] [<a 
+href="refse59.html" >front</a>] [<a 
+href="refch9.html#refse59.html" >up</a>] </p></div>
+<!--l. 6783--><p class="noindent" ><a 
+ id="tailrefse59.html"></a>  
+</body></html> 

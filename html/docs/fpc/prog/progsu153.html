@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Compiling libraries</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 4783--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu154.html" >next</a>] [<a 
+href="progsu152.html" >prev</a>] [<a 
+href="progsu152.html#tailprogsu152.html" >prev-tail</a>] [<a 
+href="#tailprogsu153.html">tail</a>] [<a 
+href="progse29.html#progsu153.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">7.2.3   </span> <a 
+href="prog.html#QQ2-193-206" id="x193-1980007.2.3">Compiling libraries</a></h4>
+<!--l. 4784--><p class="noindent" >To create shared libraries one should use the <span 
+class="cmtt-10">library </span>keyword in the main compilation file
+(the project file). For more information on creating shared libraries, chapter <a 
+href="progch12.html#x263-27900012">12<!--tex4ht:ref: ch:libraries --></a>, page
+<a 
+href="progch12.html#x263-27900012">633<!--tex4ht:ref: ch:libraries --></a>.
+<!--l. 4788--><p class="noindent" >The .o object files that the compiler writes when it compiles a unit, are regular object files as they
+are produced by a C compiler. They can be combined using the <span 
+class="cmtt-10">ar </span>and <span 
+class="cmtt-10">ranlib </span>tools into a static
+library. However, for various reasons, this is a bad idea.
+     <ul class="itemize1">
+     <li class="itemize">The code will be full of references to compiler internal routines in the RTL. These
+     routines are not present in a C library.
+     </li>
+     <li class="itemize">The initialization sections will not be called by a C program.
+     </li>
+     <li class="itemize">The thread vars will not be allocated (or initialized).
+     </li>
+     <li class="itemize">Resource strings will not be initialized.
+     </li>
+     <li class="itemize">Each library thus made will attempt to initialize the RTL.</li></ul>
+<!--l. 4800--><p class="noindent" >To remedy these (and other) problems requires intimate knowledge of the inner workings of the
+compiler and RTL, and it is therefore a bad idea to attempt the use of static libraries with Free
+Pascal.
+                                                                            
+
+                                                                            
+<!--l. 4806--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu154.html" >next</a>] [<a 
+href="progsu152.html" >prev</a>] [<a 
+href="progsu152.html#tailprogsu152.html" >prev-tail</a>] [<a 
+href="progsu153.html" >front</a>] [<a 
+href="progse29.html#progsu153.html" >up</a>] </p></div>
+<!--l. 4806--><p class="noindent" ><a 
+ id="tailprogsu153.html"></a>  
+</body></html> 

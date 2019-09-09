@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TDataSet.Cancel</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TDataSet.Cancel</h1>
+<p>Cancel the current editing operation</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 1621</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../db/tdataset.html">TDataSet</a><span class="sym">.</span>Cancel<span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Cancel</var> cancels the current editing operation and sets the dataset again in browse mode. This operation triggers the <a href="../db/tdataset.beforecancel.html">TDataset.BeforeCancel</a> and <a href="../db/tdataset.aftercancel.html">TDataset.AfterCancel</a> events. If the dataset wa sin insert mode, then the <a href="../db/tdataset.beforescroll.html">TDataset.BeforeScroll</a> and <a href="../db/tdataset.afterscroll.html">TDataset.AfterScroll</a>  events are triggered after and respectively before the <var>BeforeCancel</var> and <var>AfterCancel</var> events. </p>
+<p>If the dataset was not in one of the editing modes when <var>Cancel</var> is called,  then nothing will happen. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../db/tdataset.state.html">TDataset.State</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Current operational state of the dataset</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.append.html">TDataset.Append</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Append a new record to the data</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.insert.html">TDataset.Insert</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Insert a new record at the current position.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tdataset.edit.html">TDataset.Edit</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set the dataset in editing mode.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

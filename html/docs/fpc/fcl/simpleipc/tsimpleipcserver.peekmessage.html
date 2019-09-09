@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TSimpleIPCServer.PeekMessage</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../simpleipc/index.html">Overview</a>][<a href="../simpleipc/index-1.html">Resource strings</a>][<a href="../simpleipc/index-2.html">Constants</a>][<a href="../simpleipc/index-3.html">Types</a>][<a href="../simpleipc/index-4.html">Classes</a>][<a href="../simpleipc/index-6.html">Variables</a>][<a href="../simpleipc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'simpleipc' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TSimpleIPCServer.PeekMessage</h1>
+<p>Check if a client message is available.</p>
+<h2>Declaration</h2>
+<p>Source position: simpleipc.pp line 169</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../simpleipc/tsimpleipcserver.html">TSimpleIPCServer</a><span class="sym">.</span>PeekMessage<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;TimeOut<span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;DoReadMessage<span class="sym">: </span>Boolean</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">TimeOut</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of milliseconds to wait for a message.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">DoReadMessage</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Should the message be read or not ?</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p><var>True</var> if a client message is available.</p>
+<h2>Description</h2>
+<p><var>PeekMessage</var> checks if a message from a client is available. It will return <var>True</var> if a message is available. The call will wait for <var>TimeOut</var> milliseconds for a message to arrive: if after <var>TimeOut</var> milliseconds, no message is available, the function will return <var>False</var>. </p>
+<p>If <var>DoReadMessage</var> is <var>True</var> then <var>PeekMessage</var> will read the message. If it is <var>False</var>, it does not read the  message. The message should then be read manually with <a href="../simpleipc/tsimpleipcserver.readmessage.html">ReadMessage</a>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../simpleipc/tsimpleipcserver.readmessage.html">ReadMessage</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read message from the queue</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

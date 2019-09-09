@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Reference for unit 'keyboard'</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[Overview][<a href="../keyboard/index-2.html">Constants</a>][<a href="../keyboard/index-3.html">Types</a>][<a href="../keyboard/index-5.html">Procedures and functions</a>][<a href="../keyboard/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'keyboard' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>Reference for unit 'keyboard'</h1>
+<p>Access to low-level keyboard functions</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">uses</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<a href="../system/index.html">System</a><span class="sym">;</span>  </span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The system unit</p></td>
+</tr>
+</table>
+<h2>Overview</h2>
+<p>The <span class="file">Keyboard</span> unit implements a keyboard access layer which is system independent. It can be used to poll the keyboard state and wait for certain events. Waiting for a keyboard event can be done with the <a href="../keyboard/getkeyevent.html">GetKeyEvent</a> function, which will return a driver-dependent key event. This key event can be translated to a interpretable event by the <a href="../keyboard/translatekeyevent.html">TranslateKeyEvent</a> function. The result of this function can be used in the other event examining functions. </p>
+<p>A custom keyboard driver can be installed using the <a href="../keyboard/setkeyboarddriver.html">SetKeyboardDriver</a> function. The current keyboard driver can be retrieved using the <a href="../keyboard/getkeyboarddriver.html">GetKeyboardDriver</a> function. The last section of this chapter demonstrates how to make a keyboard driver. </p>
+<h2>Related topics</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../keyboard/kbdunix.html">kbdunix</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Unix specific notes</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../keyboard/kbddriver.html">kbddriver</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Writing a keyboard driver</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code"><a href="../keyboard/kbdscancode.html">kbdscancode</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Keyboard scan codes</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

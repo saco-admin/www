@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Unicode and codepage support</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Up</a>][<a href="../system/miscellaneousfunctions.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>Unicode and codepage support</h2>
+<p>The system unit works with Short-, Ansi-, and UnicodeString routines for all string related operations.  </p>
+<p>Ansistrings are code-page aware, which means that code page information is associated with them. For most routines, the support for converting these code pages is natural.  For some routines, care must be taken when converting from codepage-aware strings to widestring. </p>
+<p>The codepage conversion support is influenced by the following variables: </p>
+<table border="0">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="../system/defaultsystemcodepage.html">DefaultSystemCodePage</a></td>
+<td>Actual code page to use when <a href="../system/cp_acp.html">CP_ACP</a> is encountered</td>
+</tr>
+<tr>
+<td><a href="../system/defaultunicodecodepage.html">DefaultUnicodeCodePage</a></td>
+<td>Code page for new unicode strings</td>
+</tr>
+<tr>
+<td><a href="../system/defaultfilesystemcodepage.html">DefaultFileSystemCodePage</a></td>
+<td>Codepage to use when sending strings to single-byte OS filesystem routines.</td>
+</tr>
+<tr>
+<td><a href="../system/defaultrtlfilesystemcodepage.html">DefaultRTLFileSystemCodePage</a></td>
+<td>Codepage to use when receiving strings from single-byte OS filesystem routines.</td>
+</tr>
+</table>
+<p>The windows code page identifiers are used. There are 3 special codepage identifiers: </p>
+<table border="0">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="../system/cp_acp.html">CP_ACP</a></td>
+<td>Currently set default syststem cpdepage</td>
+</tr>
+<tr>
+<td><a href="../system/cp_oemcp.html">CP_OEMCP</a></td>
+<td>OEM (console)  code page (only on windows)</td>
+</tr>
+<tr>
+<td><a href="../system/cp_none.html">CP_NONE</a></td>
+<td>Indicates absence of code page information for a string</td>
+</tr>
+<tr>
+<td><a href="../system/defaultrtlfilesystemcodepage.html">DefaultRTLFileSystemCodePage</a></td>
+<td></td>
+</tr>
+</table>
+<p>The following routines may perform code page conversions: </p>
+<table border="0">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="../system/lowercase.html">LowerCase</a></td>
+<td>Return lowercase version of a string.</td>
+</tr>
+<tr>
+<td><a href="../system/upcase.html">UpCase</a></td>
+<td>Convert a string to all uppercase.</td>
+</tr>
+<tr>
+<td><a href="../system/getdir.html">GetDir</a></td>
+<td>Return the current directory</td>
+</tr>
+<tr>
+<td><a href="../system/mkdir.html">MkDir</a></td>
+<td>Create a new directory.</td>
+</tr>
+<tr>
+<td><a href="../system/chdir.html">ChDir</a></td>
+<td>Change current working directory.</td>
+</tr>
+<tr>
+<td><a href="../system/rmdir.html">RmDir</a></td>
+<td>Remove directory when empty.</td>
+</tr>
+<tr>
+<td><a href="../system/assign.html">Assign</a></td>
+<td>Assign a name to a file</td>
+</tr>
+<tr>
+<td><a href="../system/erase.html">Erase</a></td>
+<td>Delete a file from disk</td>
+</tr>
+<tr>
+<td><a href="../system/rename.html">Rename</a></td>
+<td>Rename file on disk</td>
+</tr>
+<tr>
+<td><a href="../system/read.html">Read</a></td>
+<td>Read from a text file into variable</td>
+</tr>
+<tr>
+<td><a href="../system/readln.html">ReadLn</a></td>
+<td>Read from a text file into variable and goto next line</td>
+</tr>
+<tr>
+<td><a href="../system/write.html">Write</a></td>
+<td>Write variable to a text file</td>
+</tr>
+<tr>
+<td><a href="../system/writeln.html">WriteLn</a></td>
+<td>Write variable to a text file and append newline</td>
+</tr>
+<tr>
+<td><a href="../system/readstr.html">ReadStr</a></td>
+<td>Read variables from a string</td>
+</tr>
+<tr>
+<td><a href="../system/writestr.html">WriteStr</a></td>
+<td>Write variables to a string</td>
+</tr>
+<tr>
+<td><a href="../system/insert.html">Insert</a></td>
+<td>Insert one string in another.</td>
+</tr>
+<tr>
+<td><a href="../system/copy.html">Copy</a></td>
+<td>Copy part of a string.</td>
+</tr>
+<tr>
+<td><a href="../system/delete.html">Delete</a></td>
+<td>Delete part of a string.</td>
+</tr>
+<tr>
+<td><a href="../system/setstring.html">SetString</a></td>
+<td>Set length of a string and copy buffer.</td>
+</tr>
+</table>
+<p>All these routines exist also in Unicode versions. </p>
+<p>Note that for conversion of codepages and unicode strings, a unicode manager must be present. On windows, the system is used for this. On Unix, one of the fpwidestring or cwstring units must be used.  </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

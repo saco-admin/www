@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>$CHECKPOINTER : Check pointer values</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 301--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu9.html" >next</a>] [<a 
+href="progsu7.html" >prev</a>] [<a 
+href="progsu7.html#tailprogsu7.html" >prev-tail</a>] [<a 
+href="#tailprogsu8.html">tail</a>] [<a 
+href="progse2.html#progsu8.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">1.2.8   </span> <a 
+href="prog.html#QQ2-15-14" id="x15-140001.2.8"><span 
+class="cmtt-10">$CHECKPOINTER </span>: Check pointer values</a></h4>
+<!--l. 302--><p class="noindent" >The <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$CHECKPOINTER</span><span 
+class="cmsy-10">} </span>directive turns heap pointer checking on (value <span 
+class="cmtt-10">ON</span>) or off (value
+<span 
+class="cmtt-10">OFF</span>). If heap pointer checking is on and the code is compiled with the <span 
+class="cmtt-10">-gh </span>(heaptrace)
+option on, then a check is inserted when dereferencing a pointer. The check will verify
+that the pointer contains a valid value, i.e. points to a location that is reachable by
+the program: the stack or a location in the heap. If not, a run-time error 216 or 204 is
+raised.
+<!--l. 310--><p class="noindent" >If the code is compiled without <span 
+class="cmtt-10">-gh </span>switch, then this directive has no effect. Note that this
+considerably slows down the code.
+                                                                            
+
+                                                                            
+<!--l. 313--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu9.html" >next</a>] [<a 
+href="progsu7.html" >prev</a>] [<a 
+href="progsu7.html#tailprogsu7.html" >prev-tail</a>] [<a 
+href="progsu8.html" >front</a>] [<a 
+href="progse2.html#progsu8.html" >up</a>] </p></div>
+<!--l. 313--><p class="noindent" ><a 
+ id="tailprogsu8.html"></a>  
+</body></html> 

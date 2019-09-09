@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStrings.Count</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TStrings.Count</h1>
+<p>Number of strings in the list.</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 705</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../classes/tstrings.html">TStrings</a><span class="sym">.</span>Count<span class="sym"> : </span><a href="../system/integer.html">Integer</a><br>&nbsp;&nbsp;<span class="kw">read </span>GetCount<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Count</var> is the current number of strings in the list. <var>TStrings</var> does not implement this property; descendant classes should override the property read handler to return the correct value. </p>
+<p>Strings in the list are always uniquely identified by their <var>Index</var>; the index of a string is zero-based, i.e. it's supported range is <var>0</var> to <var>Count-1</var>. trying to access a string with an index larger than or equal to <var>Count</var> will result in an error. Code that iterates over the list in a stringlist should always take into account the zero-based character of the list index. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/tstrings.strings.html">TStrings.Strings</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed access to the strings in the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstrings.objects.html">TStrings.Objects</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Indexed access to the objects associated with the strings in the list.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstrings.capacity.html">TStrings.Capacity</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Capacity of the list, i.e. number of strings that the list can currently hold before it tries to expand.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

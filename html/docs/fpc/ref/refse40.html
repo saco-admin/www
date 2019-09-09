@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Class properties</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5278--><div class="crosslinks"><p class="noindent">[<a 
+href="refse41.html" >next</a>] [<a 
+href="refse39.html" >prev</a>] [<a 
+href="refse39.html#tailrefse39.html" >prev-tail</a>] [<a 
+href="#tailrefse40.html">tail</a>] [<a 
+href="refch6.html#refse40.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">6.7   </span> <a 
+href="ref.html#QQ2-92-120" id="x92-1140006.7">Class properties</a></h3>
+<!--l. 5279--><p class="noindent" >Class properties are very much like global property definitions. They are associated with the class,
+not with an instance of the class.
+<!--l. 5282--><p class="noindent" >A consequence of this is that the storage for the property value must be a class var, not a regular
+field or variable of the class: normal fields or variables are stored in an instance of the
+class.
+<!--l. 5286--><p class="noindent" >Class properties can have a getter and setter method like regular properties, but these must be
+static methods of the class.
+<!--l. 5289--><p class="noindent" >That means that the following contains a valid class property definition:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-210">
+TA&#x00A0;=&#x00A0;Class(TObject)
+&#x00A0;<br />Private
+&#x00A0;<br />&#x00A0;&#x00A0;class&#x00A0;var&#x00A0;myprivatea&#x00A0;:&#x00A0;integer;
+&#x00A0;<br />&#x00A0;&#x00A0;class&#x00A0;Function&#x00A0;GetB&#x00A0;:&#x00A0;Integer;&#x00A0;&#x00A0;static;
+&#x00A0;<br />&#x00A0;&#x00A0;class&#x00A0;Procedure&#x00A0;SetA(AValue&#x00A0;:&#x00A0;Integer);&#x00A0;static;
+&#x00A0;<br />&#x00A0;&#x00A0;class&#x00A0;Procedure&#x00A0;SetB(AValue&#x00A0;:&#x00A0;Integer);&#x00A0;static;
+&#x00A0;<br />public
+&#x00A0;<br />&#x00A0;&#x00A0;Class&#x00A0;property&#x00A0;MyA&#x00A0;:&#x00A0;Integer&#x00A0;Read&#x00A0;MyPrivateA&#x00A0;Write&#x00A0;SetA;
+&#x00A0;<br />&#x00A0;&#x00A0;Class&#x00A0;property&#x00A0;MyA&#x00A0;:&#x00A0;Integer&#x00A0;Read&#x00A0;GetB&#x00A0;Write&#x00A0;SetB;
+&#x00A0;<br />end;
+</div>
+<!--l. 5301--><p class="nopar" >The reason for the requirement is that a class property is associated to the particular class in which
+it is defined, but not to descendent classes. Since class methods can be virtual, this would allow
+descendent classes to override the method, making them unsuitable for class property
+access.
+                                                                            
+
+                                                                            
+<!--l. 5312--><div class="crosslinks"><p class="noindent">[<a 
+href="refse41.html" >next</a>] [<a 
+href="refse39.html" >prev</a>] [<a 
+href="refse39.html#tailrefse39.html" >prev-tail</a>] [<a 
+href="refse40.html" >front</a>] [<a 
+href="refch6.html#refse40.html" >up</a>] </p></div>
+<!--l. 5312--><p class="noindent" ><a 
+ id="tailrefse40.html"></a>  
+</body></html> 

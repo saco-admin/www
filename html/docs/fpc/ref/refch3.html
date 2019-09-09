@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>3 Types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 873--><div class="crosslinks"><p class="noindent">[<a 
+href="refch4.html" >next</a>] [<a 
+href="refch2.html" >prev</a>] [<a 
+href="refch2.html#tailrefch2.html" >prev-tail</a>] [<a 
+href="#tailrefch3.html">tail</a>] [<a 
+href="ref.html#refch3.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;3</span><br /><a 
+href="ref.html#QQ2-24-23" id="x24-230003">Types</a></h2>
+<a 
+ id="dx24-23001"></a>
+<!--l. 875--><p class="noindent" >All variables have a type. Free Pascal supports the same basic types as Turbo Pascal, with some
+extra types from Delphi as well as some of its own.
+<!--l. 878--><p class="noindent" >The programmer can declare his own types, which is in essence defining an identifier that can be
+used to denote this custom type when declaring variables further in the source code.<a 
+ id="dx24-23002"></a><a name="keyword_type"></a> Declaring a
+type happens in a <span 
+class="cmtt-10">Type </span>block (section <a 
+href="refse109.html#x219-24100016.5">16.5<!--tex4ht:ref: se:blocks --></a>, page <a 
+href="refse109.html#x219-24100016.5">836<!--tex4ht:ref: se:blocks --></a>), which is a collection of type declarations,
+separated by semicolons:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Type declaration</span><br 
+class="newline" /><BR/><img 
+src="ref28x.png" alt="--type declaration- identifier-=  -type -|--------------;---------------
+                                  -hint directives-
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 884--><p class="noindent" >There are 8 major kinds of types :
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Types</span><br 
+class="newline" /><BR/><img 
+src="ref29x.png" alt="--type ----simple type--------------------------------------------
+        --string type--|
+        -structured type -|
+        --pointer type--|
+        |procedural type-|
+        |-generic type---|
+        |specialized type-|
+        ---type alias-----
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 886--><p class="noindent" >Each of these cases will be examined separately.
+<div class="sectionTOCS">
+&#x00A0;<span class="sectionToc" >3.1 <a 
+href="refse12.html#x25-240003.1">Base types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.1.1 <a 
+href="refsu4.html#x26-250003.1.1">Ordinal types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.1.2 <a 
+href="refsu5.html#x27-300003.1.2">Real types</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.2 <a 
+href="refse13.html#x28-310003.2">Character types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.2.1 <a 
+href="refsu6.html#x29-320003.2.1">Char or AnsiChar</a></span>
+                                                                            
+
+                                                                            
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.2.2 <a 
+href="refsu7.html#x30-330003.2.2">WideChar</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.2.3 <a 
+href="refsu8.html#x31-340003.2.3">Other character types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.2.4 <a 
+href="refsu9.html#x32-350003.2.4">Single-byte String types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.2.5 <a 
+href="refsu10.html#x33-410003.2.5">Multi-byte String types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.2.6 <a 
+href="refsu11.html#x34-440003.2.6">Constant strings</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.2.7 <a 
+href="refsu12.html#x35-450003.2.7">PChar - Null terminated strings</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.2.8 <a 
+href="refsu13.html#x36-460003.2.8">String sizes</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.3 <a 
+href="refse14.html#x37-470003.3">Structured Types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.3.1 <a 
+href="refsu14.html#x38-490003.3.1">Arrays</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.3.2 <a 
+href="refsu15.html#x39-550003.3.2">Record types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.3.3 <a 
+href="refsu16.html#x40-580003.3.3">Set types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.3.4 <a 
+href="refsu17.html#x41-590003.3.4">File types</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.4 <a 
+href="refse15.html#x42-600003.4">Pointers</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.5 <a 
+href="refse16.html#x43-610003.5">Forward type declarations</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.6 <a 
+href="refse17.html#x44-620003.6">Procedural types</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.7 <a 
+href="refse18.html#x45-630003.7">Variant types</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.7.1 <a 
+href="refsu18.html#x46-640003.7.1">Definition</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.7.2 <a 
+href="refsu19.html#x47-650003.7.2">Variants in assignments and expressions</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >3.7.3 <a 
+href="refsu20.html#x48-660003.7.3">Variants and interfaces</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.8 <a 
+href="refse19.html#x49-670003.8">Type aliases</a></span>
+<br />&#x00A0;<span class="sectionToc" >3.9 <a 
+href="refse20.html#x50-680003.9">Managed types</a></span>
+</div>
+
+
+
+
+
+
+
+
+                                                                            
+
+                                                                            
+<!--l. 3108--><div class="crosslinks"><p class="noindent">[<a 
+href="refch4.html" >next</a>] [<a 
+href="refch2.html" >prev</a>] [<a 
+href="refch2.html#tailrefch2.html" >prev-tail</a>] [<a 
+href="refch3.html" >front</a>] [<a 
+href="ref.html#refch3.html" >up</a>] </p></div>
+<!--l. 3108--><p class="noindent" ><a 
+ id="tailrefch3.html"></a>  
+</body></html> 

@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Turbo Pascal compatibility mode</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 2157--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu85.html" >next</a>] [<a 
+href="usersu83.html" >prev</a>] [<a 
+href="usersu83.html#tailusersu83.html" >prev-tail</a>] [<a 
+href="#tailusersu84.html">tail</a>] [<a 
+href="userse34.html#usersu84.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">7.2.3   </span> <a 
+href="user.html#QQ2-127-183" id="x127-1340007.2.3">Turbo Pascal compatibility mode</a></h4>
+<!--l. 2158--><p class="noindent" >When you compile a program with the <span 
+class="cmtt-10">-Mtp </span>switch, the compiler will attempt to mimic the Turbo
+Pascal compiler in the following ways:
+     <ul class="itemize1">
+     <li class="itemize">Assigning a procedural variable doesn&#8217;t require an @ operator. One of the differences
+     between Turbo Pascal and Free Pascal is that the latter requires you to specify an
+     address operator when assigning a value to a procedural variable. In Turbo Pascal
+     compatibility mode, this is not required.
+     </li>
+     <li class="itemize">Procedure overloading is disabled. If procedure overloading is disabled, the function
+     header doesn&#8217;t need to repeat the function header.
+     </li>
+     <li class="itemize">Forward defined procedures don&#8217;t need the full parameter list when they are defined. Due to
+     the procedure overloading feature of Free Pascal, you must always specify the parameter list
+     of a function when you define it, even when it was declared earlier with <span 
+class="cmtt-10">Forward</span>. In Turbo
+     Pascal compatibility mode, there is no function overloading; hence you can omit the
+     parameter list:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-91">
+     Procedure&#x00A0;a&#x00A0;(L&#x00A0;:&#x00A0;Longint);&#x00A0;Forward;
+     &#x00A0;<br />
+     &#x00A0;<br />...
+     &#x00A0;<br />
+     &#x00A0;<br />Procedure&#x00A0;a&#x00A0;;&#x00A0;{&#x00A0;No&#x00A0;need&#x00A0;to&#x00A0;repeat&#x00A0;the&#x00A0;(L&#x00A0;:&#x00A0;Longint)&#x00A0;}
+     &#x00A0;<br />
+     &#x00A0;<br />begin
+     &#x00A0;<br />&#x00A0;...
+     &#x00A0;<br />end;
+     &#x00A0;<br />
+</div>
+     <!--l. 2185--><p class="nopar" >
+     </li>
+     <li class="itemize">Recursive function calls are handled differently. Consider the following example:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-92">
+     Function&#x00A0;expr&#x00A0;:&#x00A0;Longint;
+     &#x00A0;<br />
+     &#x00A0;<br />begin
+     &#x00A0;<br />&#x00A0;&#x00A0;...
+     &#x00A0;<br />&#x00A0;&#x00A0;Expr:=L:
+     &#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(Expr);
+     &#x00A0;<br />&#x00A0;&#x00A0;...
+     &#x00A0;<br />end;
+</div>
+     <!--l. 2197--><p class="nopar" >In Turbo Pascal compatibility mode, the function will be called recursively when the <span 
+class="cmtt-10">writeln</span>
+     statement is processed. In Free Pascal, the function result will be printed. In order to call
+     the function recursively under Free Pascal, you need to implement it as follows
+     :
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-93">
+     Function&#x00A0;expr&#x00A0;:&#x00A0;Longint;
+     &#x00A0;<br />
+     &#x00A0;<br />begin
+     &#x00A0;<br />&#x00A0;&#x00A0;...
+     &#x00A0;<br />&#x00A0;&#x00A0;Expr:=L:
+     &#x00A0;<br />&#x00A0;&#x00A0;Writeln&#x00A0;(Expr());
+     &#x00A0;<br />&#x00A0;&#x00A0;...
+     &#x00A0;<br />end;
+</div>
+     <!--l. 2211--><p class="nopar" >
+     </li>
+     <li class="itemize">You cannot assign procedural variables to untyped pointers; so the following is
+     invalid:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-94">
+     &#x00A0;a:&#x00A0;Procedure;
+     &#x00A0;<br />&#x00A0;b:&#x00A0;Pointer;
+     &#x00A0;<br />begin
+     &#x00A0;<br />&#x00A0;b&#x00A0;:=&#x00A0;a;&#x00A0;//&#x00A0;Error&#x00A0;will&#x00A0;be&#x00A0;generated.
+</div>
+     <!--l. 2221--><p class="nopar" >
+     </li>
+     <li class="itemize">The @ operator is typed when applied on procedures.
+     </li>
+     <li class="itemize">You cannot nest comments.</li></ul>
+<!--l. 2226--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> The <span 
+class="cmtt-10">MemAvail </span>and <span 
+class="cmtt-10">MaxAvail </span>functions are no longer available in Free Pascal as of version 2.0. The
+reason for this incompatibility follows:
+<!--l. 2230--><p class="noindent" >On modern operating systems, <span class="footnote-mark"><a 
+href="#fn1x8" id="fn1x8-bk"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x127-134001f1"></a>
+the idea of &#8221;Available Free Memory&#8221; is not valid for an application. The reasons are:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x127-134003x1">One processor cycle after an application asked the OS how much memory is free,
+     another application may have allocated everything.
+     </li>
+     <li 
+  class="enumerate" id="x127-134005x2">It is not clear what &#8221;free memory&#8221; means: does it include swap memory, does it include
+     disk cache memory (the disk cache can grow and shrink on modern OS&#8217;es), does it
+     include memory allocated to other applications but which can be swapped out, etc.</li></ol>
+<!--l. 2244--><p class="noindent" >Therefore, programs using <span 
+class="cmtt-10">MemAvail </span>and <span 
+class="cmtt-10">MaxAvail </span>functions should be rewritten so they no longer
+use these functions, because it does not make sense any more on modern OS&#8217;es. There are 3
+possibilities:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x127-134007x1">Use exceptions to catch out-of-memory errors.
+     </li>
+     <li 
+  class="enumerate" id="x127-134009x2">Set  the  global  variable  &#8221;ReturnNilIfGrowHeapFails&#8221;  to  <span 
+class="cmtt-10">True </span>and  check  after  each
+     allocation whether the pointer is different from <span 
+class="cmtt-10">Nil</span>.
+     </li>
+     <li 
+  class="enumerate" id="x127-134011x3">Don&#8217;t  care  and  declare  a  dummy  function  called  <span 
+class="cmtt-10">MaxAvail </span>which  always  returns
+     <span 
+class="cmtt-10">High(LongInt) </span>(or some other constant).</li></ol>
+                                                                            
+
+                                                                            
+<div class="footnotes"><!--l. 2232--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn1x8-bk" id="fn1x8"><sup class="textsuperscript">1</sup></a></span><span 
+class="cmr-8">The DOS extender GO32V2 falls under this definition of &#8221;modern&#8221; because it can use paged memory and run in</span>
+<span 
+class="cmr-8">multitasked environments.</span>                                                          </div> <!--l. 2260--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu85.html" >next</a>]
+[<a 
+href="usersu83.html" >prev</a>] [<a 
+href="usersu83.html#tailusersu83.html" >prev-tail</a>] [<a 
+href="usersu84.html" >front</a>] [<a 
+href="userse34.html#usersu84.html" >up</a>] </p></div>
+<!--l. 2260--><p class="noindent" ><a 
+ id="tailusersu84.html"></a>  
+</body></html> 

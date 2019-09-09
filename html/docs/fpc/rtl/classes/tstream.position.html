@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStream.Position</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TStream.Position</h1>
+<p>The current position in the stream.</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 894</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">property </span><a href="../classes/tstream.html">TStream</a><span class="sym">.</span>Position<span class="sym"> : </span><a href="../system/int64.html">Int64</a><br>&nbsp;&nbsp;<span class="kw">read </span>GetPosition<br>&nbsp;&nbsp;<span class="kw">write </span>SetPosition<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Position</var> can be read to determine the current position in the stream. It can be written to set the (absolute) position in the stream. The position is zero-based, so to set the position at the beginning of the stream, the position must be set to zero.  </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>Not all <var>TStream</var>  descendants support setting the position in the  stream, so this should be used with care. </td>
+</tr>
+</table>
+<h2>Errors</h2>
+<p>Some descendants may raise an <a href="../classes/estreamerror.html">EStreamError</a> exception if they do not support setting the stream position. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/tstream.size.html">TStream.Size</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The current size of the stream.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstream.seek.html">TStream.Seek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Sets the current position in the stream</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

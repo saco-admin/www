@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>NthDayOfWeek</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dateutils/index.html">Overview</a>][<a href="../dateutils/index-2.html">Constants</a>][<a href="../dateutils/index-5.html">Procedures and functions</a>][<a href="../dateutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'dateutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>NthDayOfWeek</h1>
+<p>Calculate which occurrence of weekday in the month a given day represents</p>
+<h2>Declaration</h2>
+<p>Source position: dateutil.inc line 374</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> NthDayOfWeek<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AValue<span class="sym">: </span><a href="../system/tdatetime.html">TDateTime</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AValue</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Date to check.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Occurrence of weekday in the month of <var>AValue</var>.</p>
+<h2>Description</h2>
+<p><var>NthDayOfWeek</var> returns the occurrence of the weekday of <var>AValue</var> in the month. This is the N-th time that this weekday occurs in the month (e.g. the third saturday of the month). </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dateutils/encodedatemonthweek.html">EncodeDateMonthWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encodes a year, month, week of month and day of week to a DateTime value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/dayofweek.html">#rtl.sysutils.DayOfWeek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the day of the week.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/decodedayofweekinmonth.html">DecodeDayOfWeekInMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Decode a DateTime value in year, month, day of week parts</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/encodedayofweekinmonth.html">EncodeDayOfWeekInMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encodes a year, month, week, day of week specification to a <var>TDateTime</var> value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dateutils/tryencodedayofweekinmonth.html">TryEncodeDayOfWeekInMonth</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Encode a year, month, week, day of week triplet to a <var>TDateTime</var> value</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example104<span class="sym">;</span>
+
+<span class="cmt">{ This program demonstrates the NthDayOfWeek function }</span>
+
+<span class="kw">Uses</span> SysUtils<span class="sym">,</span>DateUtils<span class="sym">;</span>
+
+<span class="kw">Begin</span>
+  Write<span class="sym">(</span><span class="str">'Today is the '</span><span class="sym">,</span>NthDayOfWeek<span class="sym">(</span>Today<span class="sym">)</span><span class="sym">,</span><span class="str">'-th '</span><span class="sym">)</span><span class="sym">;</span>
+  Writeln<span class="sym">(</span>formatdateTime<span class="sym">(</span><span class="str">'dddd'</span><span class="sym">,</span>Today<span class="sym">)</span><span class="sym">,</span><span class="str">' of the month.'</span><span class="sym">)</span><span class="sym">;</span>
+<span class="kw">End</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

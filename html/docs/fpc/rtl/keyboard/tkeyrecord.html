@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TKeyRecord</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../keyboard/index.html">Overview</a>][<a href="../keyboard/index-2.html">Constants</a>][<a href="../keyboard/index-3.html">Types</a>][<a href="../keyboard/index-5.html">Procedures and functions</a>][<a href="../keyboard/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'keyboard' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TKeyRecord</h1>
+<p>Key event decoding type.</p>
+<h2>Declaration</h2>
+<p>Source position: keybrdh.inc line 22</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type </span>TKeyRecord<span class="sym"> = </span><span class="kw">packed record</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;Flags<span class="sym">: </span><a href="../system/byte.html">Byte</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Additional flags</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;ShiftState<span class="sym">: </span><a href="../system/byte.html">Byte</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">State of shift keys</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;KeyCode<span class="sym">: </span><a href="../system/word.html">Word</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Key code</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>The structure of a <var>TKeyRecord</var> structure is explained in the following table: </p>
+<table border="0">
+<caption>Structure of TKeyRecord</caption>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td>KeyCode</td>
+<td>Depending on <var>flags</var> either the physical representation of a key (under DOS scancode, ascii code pair), or the translated ASCII/unicode character. </td>
+</tr>
+<tr>
+<td>ShiftState</td>
+<td>Shift-state when this key was pressed (or shortly after)  </td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>Determine how to interpret <var>KeyCode</var></td>
+</tr>
+</table>
+<p>The shift-state can be checked using the various shift-state constants,  and the flags in the last byte can be checked using one of the kbASCII, kbUniCode, kbFnKey, kbPhys, kbReleased constants. </p>
+<p>If there are two keys returning the same char-code, there's no way to find out which one was pressed (Gray+ and Simple+). If it needs to be known which was pressed, the untranslated keycodes must be used, but these are system dependent. System dependent constants may be defined to cover those, with possibily having the same name (but different value). </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../keyboard/kbdscancode.html">kbdscancode</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Keyboard scan codes</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../keyboard/tkeyevent.html">TKeyEvent</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base type to describe all key events.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

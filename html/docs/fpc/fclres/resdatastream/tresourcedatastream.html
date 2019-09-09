@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TResourceDataStream</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../resdatastream/index.html">Overview</a>][<a href="../resdatastream/index-3.html">Types</a>][<a href="../resdatastream/index-4.html">Classes</a>][<a href="../resdatastream/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'resdatastream' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TResourceDataStream</h1>
+<p>[<a href="../resdatastream/tresourcedatastream-1.html" onClick="window.open('../resdatastream/tresourcedatastream-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../resdatastream/tresourcedatastream-2.html" onClick="window.open('../resdatastream/tresourcedatastream-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../resdatastream/tresourcedatastream-3.html" onClick="window.open('../resdatastream/tresourcedatastream-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../resdatastream/tresourcedatastream-4.html" onClick="window.open('../resdatastream/tresourcedatastream-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../resdatastream/tresourcedatastream-5.html" onClick="window.open('../resdatastream/tresourcedatastream-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../resdatastream/tresourcedatastream-6.html" onClick="window.open('../resdatastream/tresourcedatastream-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Stream class that provides copy-on-write functionality</p>
+<h2>Declaration</h2>
+<p>Source position: resdatastream.pp line 61</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TResourceDataStream <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../../rtl/classes/tstream.html">TStream</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">protected</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resdatastream/tresourcedatastream.getposition.html">GetPosition</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resdatastream/tresourcedatastream.setposition.html">SetPosition</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resdatastream/tresourcedatastream.getsize.html">GetSize</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resdatastream/tresourcedatastream.setsize64.html">SetSize64</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../resdatastream/tresourcedatastream.create.html">Create</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a new object</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../resdatastream/tresourcedatastream.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resdatastream/tresourcedatastream.compare.html">Compare</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compares the stream to another one</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../resdatastream/tresourcedatastream.setcustomstream.html">SetCustomStream</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Sets a custom stream as the underlying stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resdatastream/tresourcedatastream.read.html">Read</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resdatastream/tresourcedatastream.write.html">Write</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../resdatastream/tresourcedatastream.seek.html">Seek</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../resdatastream/tresourcedatastream.cached.html">Cached</a><span class="sym">: </span>Boolean<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Controls the copy-on-write behaviour of the stream</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../resdatastream/tresourcedatastream.html">TResourceDataStream</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Stream class that provides copy-on-write functionality</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tstream.html">TStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This class provides the copy-on-write mechanism of <a href="../resource/tabstractresource.rawdata.html">TAbstractResource.RawData</a>, via more levels of indirection.</p>
+<p>It uses an underlying stream, to which it redirects operations.</p>
+<p>The underlying stream can be a <a href="../resdatastream/tcacheddatastream.html">TCachedDataStream</a> descendant, a memory stream or a custom stream. Usually when a resource is loaded from a stream, the underlying stream is a <a href="../resdatastream/tcacheddatastream.html">TCachedDataStream</a> descendant, which provides a read-only stream-like interface over a portion of the original stream (that is, the part of the original stream where resource data resides). When <a href="../resdatastream/tresourcedatastream.html">TResourceDataStream</a> is requested to write data, it replaces the underlying stream with a memory stream, whose contents are copied from the previous underlying stream: this way, copy-on-write functionality can be achieved.</p>
+<p>As said before, third possibility is to have a custom stream as the underlying stream: a user can set this stream via <a href="../resource/tabstractresource.setcustomrawdatastream.html">TAbstractResource.SetCustomRawDataStream</a> method, which in turn calls <a href="../resdatastream/tresourcedatastream.setcustomstream.html">TResourceDataStream.SetCustomStream</a></p>
+<p><b>Figure</b>: Levels of indirection</p>
+<pre>.
+                     TResourceDataStream
+                              |
+       _______________________|_______________________________
+      |                       |                               |
+TMemoryStream     TCachedDataStream descendant          custom stream
+                         /           \
+ _______________________|_____________|______________________________
+|                o r i g|i n a l   s t|r e a m                       |
+|_______________________|_____________|______________________________|
+
+</pre>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../resdatastream/tcacheddatastream.html">TCachedDataStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base cached stream class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resdatastream/tresourcedatastream.create.html">TResourceDataStream.Create</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a new object</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resdatastream/tresourcedatastream.setcustomstream.html">TResourceDataStream.SetCustomStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Sets a custom stream as the underlying stream</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

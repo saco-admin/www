@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TIPCServerMsgQueue.Push</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../simpleipc/index.html">Overview</a>][<a href="../simpleipc/index-1.html">Resource strings</a>][<a href="../simpleipc/index-2.html">Constants</a>][<a href="../simpleipc/index-3.html">Types</a>][<a href="../simpleipc/index-4.html">Classes</a>][<a href="../simpleipc/index-6.html">Variables</a>][<a href="../simpleipc/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'simpleipc' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TIPCServerMsgQueue.Push</h1>
+<p>Add a new message to the queue</p>
+<h2>Declaration</h2>
+<p>Source position: simpleipc.pp line 75</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../simpleipc/tipcservermsgqueue.html">TIPCServerMsgQueue</a><span class="sym">.</span>Push<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AItem<span class="sym">: </span><a href="../simpleipc/tipcservermsg.html">TIPCServerMsg</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AItem</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">New message to add to the queue</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Push</var> verifies if the message can be added to the queue (discarding old messages depending on the setting of <a href="../simpleipc/tipcservermsgqueue.maxaction.html">TIPCServerMsgQueue.MaxAction</a>)  and adds the message <var>AItem</var> to the queue. </p>
+<p>The message <var>AItem</var> is owned by the queue until it is popped off the queue. </p>
+<h2>Errors</h2>
+<p>If the maximum queue length is reached, and the <a href="../simpleipc/tipcservermsgqueue.maxaction.html">MaxAction</a> is set to  <var>ipcmoaError</var>, an exception will be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../simpleipc/tipcservermsgqueue.maxcount.html">TIPCServerMsgQueue.MaxCount</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Maximum number of messages in the queue, 0 for unlimited</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../simpleipc/tipcservermsgqueue.maxaction.html">TIPCServerMsgQueue.MaxAction</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Action to take when the number of messages will exceed <var>MaxCount</var>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../simpleipc/tipcservermsgqueue.pop.html">TIPCServerMsgQueue.Pop</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Remove the oldest message from the queue </p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

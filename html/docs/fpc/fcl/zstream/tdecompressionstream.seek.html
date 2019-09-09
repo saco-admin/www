@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Tdecompressionstream.Seek</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../zstream/index.html">Overview</a>][<a href="../zstream/index-3.html">Types</a>][<a href="../zstream/index-4.html">Classes</a>][<a href="../zstream/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'zstream' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>Tdecompressionstream.Seek</h1>
+<p>Move stream position to a certain location in the stream.</p>
+<h2>Declaration</h2>
+<p>Source position: zstream.pp line 79</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../zstream/tdecompressionstream.html">Tdecompressionstream</a><span class="sym">.</span>Seek<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Offset<span class="sym">: </span><a href="../../rtl/system/int64.html">Int64</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Origin<span class="sym">: </span><a href="../../rtl/classes/tseekorigin.html">TSeekOrigin</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/system/int64.html">Int64</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Offset</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Offset to apply to the position in the stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Origin</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Origin from where <var>Offset</var> should be counted.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>New position in the stream</p>
+<h2>Description</h2>
+<p><var>Seek</var> overrides the standard <var>Seek</var> implementation. There are a few differences between the implementation of <var>Seek</var> in Free Pascal compared to Delphi: </p>
+<ul>
+<li>In Free Pascal, you can perform any seek. In case of a forward seek,     the Free Pascal implementation will read some bytes until the desired     position is reached, in case of a backward seek it will seek the     source stream backwards to the position it had at the creation time     of the <var>TDecompressionStream</var> and then again read some bytes     until the desired position has been reached.</li>
+<li>In Free Pascal, a seek with soFromBeginning will reset the source     stream to the position it had when the <var>TDecompressionStream</var>     was created. In Delphi, the source stream is reset to position 0.     This means that at creation time the source stream must always be at     the start of the zstream, you cannot use <var>TDecompressionStream.Seek</var>     to reset the source stream to the begin of the file.</li>
+</ul>
+<h2>Errors</h2>
+<p>An <a href="../zstream/edecompressionerror.html">EDecompressionError</a> exception is raised if the stream does not allow the requested seek operation. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../zstream/tdecompressionstream.read.html">Read</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read data from the compressed stream</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

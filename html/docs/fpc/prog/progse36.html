@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>When porting Turbo Pascal code</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 5832--><div class="crosslinks"><p class="noindent">[<a 
+href="progse37.html" >next</a>] [<a 
+href="progse35.html" >prev</a>] [<a 
+href="progse35.html#tailprogse35.html" >prev-tail</a>] [<a 
+href="#tailprogse36.html">tail</a>] [<a 
+href="progch8.html#progse36.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">8.6   </span> <a 
+href="prog.html#QQ2-223-259" id="x223-2370008.6">When porting Turbo Pascal code</a></h3>
+<!--l. 5833--><p class="noindent" >The fact that 16-bit code is no longer used, means that some of the older Turbo Pascal constructs
+and functions are obsolete. The following is a list of functions which shouldn&#8217;t be used
+anymore:
+     <dl class="description"><dt class="description">
+<span 
+class="cmbx-10">Seg()</span> </dt><dd 
+class="description">: Returned the segment of a memory address. Since segments no longer have meaning,
+     zero is returned in the Free Pascal run-time library implementation of <span 
+class="cmtt-10">Seg</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Ofs()</span> </dt><dd 
+class="description">: Returned the offset of a memory address. Since segments have no more meaning,
+     the complete address is returned in the Free Pascal implementation of this function.
+     This has as a consequence that the return type is <span 
+class="cmtt-10">longint </span>or <span 
+class="cmtt-10">int64 </span>instead of <span 
+class="cmtt-10">Word</span>.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Cseg(), Dseg()</span> </dt><dd 
+class="description">: Returned, respectively, the code and data segments of your program. This
+     returns zero in the Free Pascal implementation of the system unit, since both code and
+     data are in the same memory space.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">Ptr</span> </dt><dd 
+class="description">: Accepted a segment and offset from an address, and would return a pointer to this
+     address. This has been changed in the run-time library, it now simply returns the offset.
+     </dd><dt class="description">
+<span 
+class="cmbx-10">memw and mem</span> </dt><dd 
+class="description">: These arrays gave access to the <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>memory. Free Pascal supports
+     them on the go32v2 platform, they are mapped into <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>memory space. You need the
+     <span 
+class="cmss-10">go32 </span>unit for this. On other platforms, they are <span 
+class="cmti-10">not </span>supported</dd></dl>
+<!--l. 5856--><p class="noindent" >You shouldn&#8217;t use these functions, since they are very non-portable, they&#8217;re specific to <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>and the
+80x86 processor. The Free Pascal compiler is designed to be portable to other platforms, so you
+should keep your code as portable as possible, and not system specific. That is, unless you&#8217;re
+writing some driver units, of course.
+                                                                            
+
+                                                                            
+<!--l. 5864--><div class="crosslinks"><p class="noindent">[<a 
+href="progse37.html" >next</a>] [<a 
+href="progse35.html" >prev</a>] [<a 
+href="progse35.html#tailprogse35.html" >prev-tail</a>] [<a 
+href="progse36.html" >front</a>] [<a 
+href="progch8.html#progse36.html" >up</a>] </p></div>
+<!--l. 5864--><p class="noindent" ><a 
+ id="tailprogse36.html"></a>  
+</body></html> 

@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>E A sample gdb.ini file</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 4129--><div class="crosslinks"><p class="noindent">[<a 
+href="userap6.html" >next</a>] [<a 
+href="userap4.html" >prev</a>] [<a 
+href="userap4.html#tailuserap4.html" >prev-tail</a>] [<a 
+href="#tailuserap5.html">tail</a>] [<a 
+href="user.html#userap5.html" >up</a>] </p></div>
+<h2 class="appendixHead"><span class="titlemark">Appendix&#x00A0;E</span><br /><a 
+href="user.html#QQ2-191-249" id="x191-198000E">A sample <span 
+class="cmss-10">gdb.ini </span>file</a></h2>
+<!--l. 4132--><p class="noindent" >Here you have a sample <span 
+class="cmss-10">gdb.ini </span>file listing, which gives better results when using <span 
+class="cmtt-10">gdb</span>.
+Under <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>you should put this in a <span 
+class="cmss-10">.gdbinit </span>file in your home directory or the current
+directory.
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-153">
+set&#x00A0;print&#x00A0;demangle&#x00A0;off
+&#x00A0;<br />set&#x00A0;gnutarget&#x00A0;auto
+&#x00A0;<br />set&#x00A0;verbose&#x00A0;on
+&#x00A0;<br />set&#x00A0;complaints&#x00A0;1000
+&#x00A0;<br />dir&#x00A0;./rtl/dosv2
+&#x00A0;<br />set&#x00A0;language&#x00A0;c++
+&#x00A0;<br />set&#x00A0;print&#x00A0;vtbl&#x00A0;on
+&#x00A0;<br />set&#x00A0;print&#x00A0;object&#x00A0;on
+&#x00A0;<br />set&#x00A0;print&#x00A0;sym&#x00A0;on
+&#x00A0;<br />set&#x00A0;print&#x00A0;pretty&#x00A0;on
+&#x00A0;<br />disp&#x00A0;/i&#x00A0;$eip
+&#x00A0;<br />
+&#x00A0;<br />define&#x00A0;pst
+&#x00A0;<br />set&#x00A0;$pos=&amp;$arg0
+&#x00A0;<br />set&#x00A0;$strlen&#x00A0;=&#x00A0;{byte}$pos
+&#x00A0;<br />print&#x00A0;{char}&amp;$arg0.st@($strlen+1)
+&#x00A0;<br />end
+&#x00A0;<br />
+&#x00A0;<br />document&#x00A0;pst
+&#x00A0;<br />&#x00A0;&#x00A0;Print&#x00A0;out&#x00A0;a&#x00A0;Pascal&#x00A0;string
+&#x00A0;<br />end
+</div>
+<!--l. 4158--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="userap6.html" >next</a>] [<a 
+href="userap4.html" >prev</a>] [<a 
+href="userap4.html#tailuserap4.html" >prev-tail</a>] [<a 
+href="userap5.html" >front</a>] [<a 
+href="user.html#userap5.html" >up</a>] </p></div>
+<!--l. 1--><p class="noindent" ><a 
+ id="tailuserap5.html"></a>  
+</body></html> 

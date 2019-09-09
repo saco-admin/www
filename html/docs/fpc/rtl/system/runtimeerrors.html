@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Run-Time Error behaviour</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/filefunctions.html">Previous</a>][<a href="../system/index.html">Up</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>Run-Time Error behaviour</h2>
+<p>The sytem unit handles errors by default by generating a run-time error, and halting the program with an exit code equal to the run-time error number. </p>
+<p>This behaviour changes when the <a href="../sysutils/index.html">SysUtils</a> unit is used. In that case, all run-time errors are converted to exceptions: most run-time errors have their own exception class. </p>
+<p>If these exceptions are caught, the program code decides what to do with it. If the exception is not caught, the program will exit through the default exception handler. </p>
+<p>When the system unit documentation refers to run-time errors, the above should be kept in mind. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

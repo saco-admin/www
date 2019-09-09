@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Caveats when debugging with gdb</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 3395--><div class="crosslinks"><p class="noindent">[<a 
+href="userse56.html" >next</a>] [<a 
+href="userse54.html" >prev</a>] [<a 
+href="userse54.html#tailuserse54.html" >prev-tail</a>] [<a 
+href="#tailuserse55.html">tail</a>] [<a 
+href="userch10.html#userse55.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.3   </span> <a 
+href="user.html#QQ2-166-224" id="x166-17300010.3">Caveats when debugging with <span 
+class="cmtt-10">gdb</span></a></h3>
+<!--l. 3397--><p class="noindent" >There are some peculiarities of Free Pascal which you should be aware of when using <span 
+class="cmtt-10">gdb</span>. We list
+the main ones here:
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x166-173002x1">Free Pascal generates information for GDB in uppercase letters. This is a consequence
+     of the fact that Pascal is a case insensitive language. So, when referring to a variable
+     or function, you need to make its name all uppercase.
+     <!--l. 3405--><p class="noindent" >As an example, if you want to watch the value of a loop variable <span 
+class="cmtt-10">count</span>, you should
+     type
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-115">
+     watch&#x00A0;COUNT
+</div>
+     <!--l. 3409--><p class="nopar" >Or if you want to stop when a certain function (e.g <span 
+class="cmtt-10">MyFunction</span>) is called, type
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-116">
+     break&#x00A0;MYFUNCTION
+</div>
+     <!--l. 3414--><p class="nopar" >
+     </li>
+     <li 
+  class="enumerate" id="x166-173004x2"><span 
+class="cmtt-10">gdb </span>does not know sets.
+     </li>
+     <li 
+  class="enumerate" id="x166-173006x3"><span 
+class="cmtt-10">gdb </span>doesn&#8217;t know strings. Strings are represented in <span 
+class="cmtt-10">gdb </span>as records with a length field and an
+     array of char containing the string.
+     <!--l. 3421--><p class="noindent" >You can also use the following user function to print strings:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-117">
+     define&#x00A0;pst
+     &#x00A0;<br />set&#x00A0;$pos=&amp;$arg0
+     &#x00A0;<br />set&#x00A0;$strlen&#x00A0;=&#x00A0;{byte}$pos
+     &#x00A0;<br />print&#x00A0;{char}&amp;$arg0.st@($strlen+1)
+     &#x00A0;<br />end
+     &#x00A0;<br />
+     &#x00A0;<br />document&#x00A0;pst
+     &#x00A0;<br />&#x00A0;&#x00A0;Print&#x00A0;out&#x00A0;a&#x00A0;Pascal&#x00A0;string
+     &#x00A0;<br />end
+</div>
+     <!--l. 3432--><p class="nopar" >If you insert it in your <span 
+class="cmss-10">gdb.ini </span>file, you can look at a string with this function. There is a
+     sample <span 
+class="cmss-10">gdb.ini </span>in appendix <a 
+href="userap5.html#x191-198000E">E<!--tex4ht:ref: ch:GdbIniFile --></a>.
+     </li>
+     <li 
+  class="enumerate" id="x166-173008x4">Objects are difficult to handle, mainly because <span 
+class="cmtt-10">gdb </span>is oriented towards C and C++. The
+     workaround implemented in Free Pascal is that object methods are represented as functions,
+     with an extra parameter <span 
+class="cmtt-10">this </span>(all lowercase!). The name of this function is a
+     concatenation of the object type and the function name, separated by two underscore
+     characters.
+     <!--l. 3442--><p class="noindent" >For example, the method <span 
+class="cmtt-10">TPoint.Draw </span>would be converted to <span 
+class="cmtt-10">TPOINT</span><span 
+class="cmtt-10">_</span><span 
+class="cmtt-10">_DRAW</span>, and you could
+     stop at it by using:
+                                                                            
+
+                                                                            
+     <div class="verbatim" id="verbatim-118">
+     break&#x00A0;TPOINT__DRAW
+</div>
+     <!--l. 3446--><p class="nopar" >
+     </li>
+     <li 
+  class="enumerate" id="x166-173010x5">Global overloaded functions confuse <span 
+class="cmtt-10">gdb </span>because they have the same name. Thus
+     you cannot set a breakpoint at an overloaded function, unless you know its line
+     number, in which case you can set a breakpoint at the starting line number of the
+     function.</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 3456--><div class="crosslinks"><p class="noindent">[<a 
+href="userse56.html" >next</a>] [<a 
+href="userse54.html" >prev</a>] [<a 
+href="userse54.html#tailuserse54.html" >prev-tail</a>] [<a 
+href="userse55.html" >front</a>] [<a 
+href="userch10.html#userse55.html" >up</a>] </p></div>
+<!--l. 3456--><p class="noindent" ><a 
+ id="tailuserse55.html"></a>  
+</body></html> 

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>NewStr</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../objects/index.html">Overview</a>][<a href="../objects/index-2.html">Constants</a>][<a href="../objects/index-3.html">Types</a>][<a href="../objects/index-4.html">Classes</a>][<a href="../objects/index-5.html">Procedures and functions</a>][<a href="../objects/index-6.html">Variables</a>][<a href="../objects/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Objects' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>NewStr</h1>
+<p>Allocate a copy of a shortstring on the heap.</p>
+<h2>Declaration</h2>
+<p>Source position: objects.pp line 624</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> NewStr<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>S<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../objects/pstring.html">PString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>NewStr</var> makes a copy of the string <var>S</var> on the heap, and returns a pointer to this copy. If the string is empty then <var>Nil</var> is returned. </p>
+<p>The allocated memory is not based on the declared size of the string passed to <var>NewStr</var>, but is baed on the actual length of the string. </p>
+<h2>Errors</h2>
+<p>If not enough memory is available, an 'out of memory' error will occur. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../objects/disposestr.html">DisposeStr</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Dispose of a shortstring which was allocated on the heap.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../objects/setstr.html">SetStr</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Allocate a copy of a shortstring on the heap.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> ex40<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the NewStr function }</span>
+
+<span class="kw">Uses</span> Objects<span class="sym">;</span>
+
+<span class="kw">Var</span> S <span class="sym">:</span> String<span class="sym">;</span>
+    P <span class="sym">:</span> PString<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  S<span class="sym">:=</span><span class="str">'Some really cute string'</span><span class="sym">;</span>
+  P<span class="sym">:=</span>NewStr<span class="sym">(</span>S<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">If</span> P<span class="sym">^</span><span class="sym">&lt;</span><span class="sym">&gt;</span>S <span class="kw">then</span>
+    Writeln <span class="sym">(</span><span class="str">'Oh-oh... Something is wrong !!'</span><span class="sym">)</span><span class="sym">;</span>
+  DisposeStr<span class="sym">(</span>P<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

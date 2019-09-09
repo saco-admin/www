@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>#INCLUDE</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1789--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu27.html" >next</a>] [<a 
+href="usersu25.html" >prev</a>] [<a 
+href="usersu25.html#tailusersu25.html" >prev-tail</a>] [<a 
+href="#tailusersu26.html">tail</a>] [<a 
+href="userse17.html#usersu26.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">5.2.10   </span> <a 
+href="user.html#QQ2-50-59" id="x50-570005.2.10">#INCLUDE</a></h4>
+<!--l. 1790--><p class="noindent" >Syntax:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-56">
+#INCLUDE&#x00A0;filename
+</div>
+<!--l. 1793--><p class="nopar" ><span 
+class="cmtt-10">#INCLUDE </span>instructs the compiler to read the contents of <span 
+class="cmss-10">filename </span>before continuing to process
+options in the current file.
+<!--l. 1797--><p class="noindent" >This can be useful if you want to have a particular configuration file for a project (or, under <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span></span>,
+in your home directory), but still want to have the global options that are set in a global
+configuration file.
+<!--l. 1801--><p class="noindent" >Example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-57">
+#IFDEF&#x00A0;LINUX
+&#x00A0;<br />#INCLUDE&#x00A0;/etc/fpc.cfg
+&#x00A0;<br />#ELSE
+&#x00A0;<br />#IFDEF&#x00A0;GO32V2
+&#x00A0;<br />#INCLUDE&#x00A0;c:\pp\bin\fpc.cfg
+&#x00A0;<br />#ENDIF
+&#x00A0;<br />#ENDIF
+</div>
+<!--l. 1810--><p class="nopar" >This will include <span 
+class="cmss-10">/etc/fpc.cfg </span>if you&#8217;re on a <span 
+class="cmcsc-10"><span 
+class="small-caps">l</span><span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span><span 
+class="small-caps">x</span> </span>machine, and will include <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">c:\pp\bin\fpc.cfg</span></span></span>
+on a <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>machine.
+                                                                            
+
+                                                                            
+<!--l. 1815--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu27.html" >next</a>] [<a 
+href="usersu25.html" >prev</a>] [<a 
+href="usersu25.html#tailusersu25.html" >prev-tail</a>] [<a 
+href="usersu26.html" >front</a>] [<a 
+href="userse17.html#usersu26.html" >up</a>] </p></div>
+<!--l. 1815--><p class="noindent" ><a 
+ id="tailusersu26.html"></a>  
+</body></html> 

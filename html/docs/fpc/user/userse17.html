@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Using the configuration file</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1622--><div class="crosslinks"><p class="noindent">[<a 
+href="userse18.html" >next</a>] [<a 
+href="userse16.html" >prev</a>] [<a 
+href="userse16.html#tailuserse16.html" >prev-tail</a>] [<a 
+href="#tailuserse17.html">tail</a>] [<a 
+href="userch5.html#userse17.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">5.2   </span> <a 
+href="user.html#QQ2-40-49" id="x40-470005.2">Using the configuration file</a></h3>
+<!--l. 1624--><p class="noindent" >Using the configuration file <span 
+class="cmss-10">fpc.cfg </span>is an alternative to command line options. When a configuration
+file is found, it is read, and the lines in it are treated as if you had typed them as options on the
+command line: Specify one option on each line of the configuration file. They are treated before the
+options that you type on the command line.
+<!--l. 1630--><p class="noindent" >You can specify comments in the configuration file with the <span 
+class="cmtt-10"># </span>sign. Everything from the <span 
+class="cmtt-10"># </span>on will
+be ignored.
+<!--l. 1633--><p class="noindent" >The algorithm to determine which file is used as a configuration file is described in <a 
+href="usersu10.html#x24-310003.1.5">3.1.5<!--tex4ht:ref: searchconfig --></a> on page
+<a 
+href="usersu10.html#x24-310003.1.5">81<!--tex4ht:ref: searchconfig --></a>.
+<!--l. 1636--><p class="noindent" >When the compiler has finished reading the configuration file, it continues to treat the command
+line options.
+<!--l. 1639--><p class="noindent" >One of the command line options allows you to specify a second configuration file: Specifying <span 
+class="cmss-10">@foo</span>
+on the command line will open file <span 
+class="cmss-10">foo</span>, and read further options from there. When the compiler
+has finished reading this file, it continues to process the command line.
+<!--l. 1644--><p class="noindent" >
+<div class="subsectionTOCS">
+&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.1 <a 
+href="usersu17.html#x41-480005.2.1">Conditional processing of the config file</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.2 <a 
+href="usersu18.html#x42-490005.2.2">#CFGDIR</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.3 <a 
+href="usersu19.html#x43-500005.2.3">#IFDEF</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.4 <a 
+href="usersu20.html#x44-510005.2.4">#IFNDEF</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.5 <a 
+href="usersu21.html#x45-520005.2.5">#ELSE</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.6 <a 
+href="usersu22.html#x46-530005.2.6">#ENDIF</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.7 <a 
+href="usersu23.html#x47-540005.2.7">#DEFINE</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.8 <a 
+href="usersu24.html#x48-550005.2.8">#UNDEF</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.9 <a 
+href="usersu25.html#x49-560005.2.9">#WRITE</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.10 <a 
+href="usersu26.html#x50-570005.2.10">#INCLUDE</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >5.2.11 <a 
+href="usersu27.html#x51-580005.2.11">#SECTION</a></span>
+</div>
+
+
+
+
+
+
+
+
+
+
+                                                                            
+
+                                                                            
+<!--l. 1826--><div class="crosslinks"><p class="noindent">[<a 
+href="userse18.html" >next</a>] [<a 
+href="userse16.html" >prev</a>] [<a 
+href="userse16.html#tailuserse16.html" >prev-tail</a>] [<a 
+href="userse17.html" >front</a>] [<a 
+href="userch5.html#userse17.html" >up</a>] </p></div>
+<!--l. 1826--><p class="noindent" ><a 
+ id="tailuserse17.html"></a>  
+</body></html> 

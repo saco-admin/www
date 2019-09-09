@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Comments</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 210--><div class="crosslinks"><p class="noindent">[<a 
+href="refse3.html" >next</a>] [<a 
+href="refse1.html" >prev</a>] [<a 
+href="refse1.html#tailrefse1.html" >prev-tail</a>] [<a 
+href="#tailrefse2.html">tail</a>] [<a 
+href="refch1.html#refse2.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">1.2   </span> <a 
+href="ref.html#QQ2-10-9" id="x10-90001.2">Comments</a></h3>
+<a 
+ id="dx10-9001"></a>
+<a 
+ id="dx10-9002"></a>
+<!--l. 211--><p class="noindent" ><a name="keyword_Comment"></a> Comments are pieces of the source code which are completely discarded by the compiler. They
+exist only for the benefit of the programmer, so he can explain certain pieces of code. For the
+compiler, it is as if the comments were not present.
+<!--l. 217--><p class="noindent" >The following piece of code demonstrates a comment:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-3">
+&#x00A0;<br />(*&#x00A0;My&#x00A0;beautiful&#x00A0;function&#x00A0;returns&#x00A0;an&#x00A0;interesting&#x00A0;result&#x00A0;*)
+&#x00A0;<br />Function&#x00A0;Beautiful&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+</div>
+<!--l. 223--><p class="nopar" >The use of <span 
+class="cmtt-10">(* </span>and <span 
+class="cmtt-10">*) </span>as comment delimiters dates from the very first days of the Pascal language.
+It has been replaced mostly by the use of <span 
+class="cmsy-10">{ </span>and <span 
+class="cmsy-10">} </span>as comment delimiters, as in the following
+example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-4">
+&#x00A0;<br />{&#x00A0;My&#x00A0;beautiful&#x00A0;function&#x00A0;returns&#x00A0;an&#x00A0;interesting&#x00A0;result&#x00A0;}
+&#x00A0;<br />Function&#x00A0;Beautiful&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+</div>
+<!--l. 233--><p class="nopar" >The comment can also span multiple lines:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-5">
+&#x00A0;<br />{
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;My&#x00A0;beautiful&#x00A0;function&#x00A0;returns&#x00A0;an&#x00A0;interesting&#x00A0;result,
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;but&#x00A0;only&#x00A0;if&#x00A0;the&#x00A0;argument&#x00A0;A&#x00A0;is&#x00A0;less&#x00A0;than&#x00A0;B.
+&#x00A0;<br />}
+&#x00A0;<br />Function&#x00A0;Beautiful&#x00A0;(A,B&#x00A0;:&#x00A0;Integer):&#x00A0;Integer;
+</div>
+<!--l. 242--><p class="nopar" >Single line comments can also be made with the <span 
+class="cmtt-10">// </span>delimiter:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-6">
+&#x00A0;<br />//&#x00A0;My&#x00A0;beautiful&#x00A0;function&#x00A0;returns&#x00A0;an&#x00A0;interesting&#x00A0;result
+&#x00A0;<br />Function&#x00A0;Beautiful&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+</div>
+<!--l. 249--><p class="nopar" >The comment extends from the // character till the end of the line. This kind of comment was
+introduced by Borland in the Delphi Pascal compiler.
+<!--l. 254--><p class="noindent" >Free Pascal supports the use of nested comments. The following constructs are valid
+comments:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-7">
+(*&#x00A0;This&#x00A0;is&#x00A0;an&#x00A0;old&#x00A0;style&#x00A0;comment&#x00A0;*)
+&#x00A0;<br />{&#x00A0;&#x00A0;This&#x00A0;is&#x00A0;a&#x00A0;Turbo&#x00A0;Pascal&#x00A0;comment&#x00A0;}
+&#x00A0;<br />//&#x00A0;This&#x00A0;is&#x00A0;a&#x00A0;Delphi&#x00A0;comment.&#x00A0;All&#x00A0;is&#x00A0;ignored&#x00A0;till&#x00A0;the&#x00A0;end&#x00A0;of&#x00A0;the&#x00A0;line.
+</div>
+<!--l. 260--><p class="nopar" >The following are valid ways of nesting comments:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-8">
+{&#x00A0;Comment&#x00A0;1&#x00A0;(*&#x00A0;comment&#x00A0;2&#x00A0;*)&#x00A0;}
+&#x00A0;<br />(*&#x00A0;Comment&#x00A0;1&#x00A0;{&#x00A0;comment&#x00A0;2&#x00A0;}&#x00A0;*)
+&#x00A0;<br />{&#x00A0;comment&#x00A0;1&#x00A0;//&#x00A0;Comment&#x00A0;2&#x00A0;}
+&#x00A0;<br />(*&#x00A0;comment&#x00A0;1&#x00A0;//&#x00A0;Comment&#x00A0;2&#x00A0;*)
+&#x00A0;<br />//&#x00A0;comment&#x00A0;1&#x00A0;(*&#x00A0;comment&#x00A0;2&#x00A0;*)
+&#x00A0;<br />//&#x00A0;comment&#x00A0;1&#x00A0;{&#x00A0;comment&#x00A0;2&#x00A0;}
+</div>
+<!--l. 269--><p class="nopar" >The last two comments <span 
+class="cmti-10">must </span>be on one line. The following two will give errors:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-9">
+&#x00A0;//&#x00A0;Valid&#x00A0;comment&#x00A0;{&#x00A0;No&#x00A0;longer&#x00A0;valid&#x00A0;comment&#x00A0;!!
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;}
+</div>
+<!--l. 275--><p class="nopar" >and
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-10">
+&#x00A0;//&#x00A0;Valid&#x00A0;comment&#x00A0;(*&#x00A0;No&#x00A0;longer&#x00A0;valid&#x00A0;comment&#x00A0;!!
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;*)
+</div>
+<!--l. 280--><p class="nopar" >The compiler will react with a &#8217;invalid character&#8217; error when it encounters such constructs,
+regardless of the <span 
+class="cmtt-10">-Mtp </span>switch.
+<!--l. 284--><p class="noindent" ><span 
+class="cmbx-10">Remark:</span> In <span 
+class="cmtt-10">TP </span>and <span 
+class="cmtt-10">Delphi </span>mode, nested comments are not allowed, for maximum compatibility with
+existing code for those compilers.
+                                                                            
+
+                                                                            
+<!--l. 291--><div class="crosslinks"><p class="noindent">[<a 
+href="refse3.html" >next</a>] [<a 
+href="refse1.html" >prev</a>] [<a 
+href="refse1.html#tailrefse1.html" >prev-tail</a>] [<a 
+href="refse2.html" >front</a>] [<a 
+href="refch1.html#refse2.html" >up</a>] </p></div>
+<!--l. 291--><p class="noindent" ><a 
+ id="tailrefse2.html"></a>  
+</body></html> 

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>GetAppConfigDir</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../sysutils/index.html">Overview</a>][<a href="../sysutils/index-2.html">Constants</a>][<a href="../sysutils/index-3.html">Types</a>][<a href="../sysutils/index-4.html">Classes</a>][<a href="../sysutils/index-5.html">Procedures and functions</a>][<a href="../sysutils/index-6.html">Variables</a>][<a href="../sysutils/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'sysutils' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>GetAppConfigDir</h1>
+<p>Return the appropriate directory for the application's configuration files.</p>
+<h2>Declaration</h2>
+<p>Source position: osutilsh.inc line 41</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> GetAppConfigDir<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Global<span class="sym">: </span>Boolean</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>GetAppConfigDir</var> returns the name of a directory in which the application should store its configuration files on the current OS.  If the parameter <var>Global</var> is <var>True</var> then the directory  returned is a global directory, i.e. valid for all users on the system. If the parameter <var>Global</var> is false, then the directory is specific for the user who is executing the program. On systems that do not support multi-user environments, these two directories may be the same. </p>
+<p>The directory which is returned is the name of the directory where the application is supposed to store files. This does not mean that the directory exists, or that the user can write in this directory (especially if <var>Global</var>=<var>True</var>). It just returns the name of the appropriate location. Also note that the returned name always contains an ending path delimiter. </p>
+<p>On systems where the operating system provides a call to determine this location, this call will be used. On systems where there is no such call,  an algorithm is used which reflects common practice on that system. </p>
+<p>The application name is deduced from the binary name via the <a href="../sysutils/applicationname.html">ApplicationName</a> call, but can be configured by means of the <a href="../sysutils/ongetapplicationname.html">OnGetApplicationName</a> callback. </p>
+<p>If <a href="../sysutils/vendorname.html">VendorName</a> is not-empty, then <var>VendorName</var> will also be inserted before the application-specific directory. </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../sysutils/getappconfigfile.html">GetAppConfigFile</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return an appropriate name for an application configuration file.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/applicationname.html">ApplicationName</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return a default application name</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/ongetapplicationname.html">OnGetApplicationName</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Callback to get a customized application name.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/createdir.html">CreateDir</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create a new directory</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/sysconfigdir.html">SysConfigDir</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">System configuration directory.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../sysutils/vendorname.html">VendorName</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return Application vendor Name</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FPSigaction</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FPSigaction</h1>
+<p>Install signal handler</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 95</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FPSigaction<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;sig<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;act<span class="sym">: </span><a href="../baseunix/psigactionrec.html">psigactionrec</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;oact<span class="sym">: </span><a href="../baseunix/psigactionrec.html">psigactionrec</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FPSigaction</var> changes the action to take upon receipt of a signal.  <var>Act</var> and <var>Oact</var> are pointers to a <a href="../baseunix/sigactionrec.html">SigActionRec</a> record. <var>Sig</var> specifies the signal, and can be any signal except <b>SIGKILL</b> or <b>SIGSTOP</b>. </p>
+<p>If <var>Act</var> is non-nil, then the new action for signal <var>Sig</var> is taken from it. If <var>OAct</var> is non-nil, the old action is stored there. <var>Sa_Handler</var> may be <var>SIG_DFL</var> for the default action or <var>SIG_IGN</var> to ignore the signal. <var>Sa_Mask</var> Specifies which signals should be ignord during the execution of the signal handler. <var>Sa_Flags</var> Speciefies a series of flags which modify the behaviour of the signal handler. You can 'or' none or more of the following : </p>
+<dl>
+<dt>SA_NOCLDSTOP</dt>
+<dd>If <var>sig</var> is <b>SIGCHLD</b> do not receive notification when child processes stop. </dd>
+<dt>SA_ONESHOT or SA_RESETHAND</dt>
+<dd>Restore the signal action to the default state once the signal handler has been called. </dd>
+<dt>SA_RESTART</dt>
+<dd>For compatibility with BSD signals.</dd>
+<dt>SA_NOMASK or SA_NODEFER</dt>
+<dd>Do not prevent the signal from being received from within its own signal handler. </dd>
+</dl>
+<h2>Errors</h2>
+<p>Extended error information can be retrieved using <a href="../baseunix/fpgeterrno.html">fpGetErrno</a>. </p>
+<dl>
+<dt>sys_einval</dt>
+<dd>an invalid signal was specified, or it was <b>SIGKILL</b> or <b>SIGSTOP</b>.</dd>
+<dt>sys_efault</dt>
+<dd><var>Act,OldAct</var> point outside this process address space</dd>
+<dt>sys_eintr</dt>
+<dd>System call was interrupted.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpsigprocmask.html">FpSigProcMask</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set list of blocked signals</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpsigpending.html">FpSigPending</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return set of currently pending signals</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpsigsuspend.html">FpSigSuspend</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set signal mask and suspend process till signal is received</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpkill.html">FpKill</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Send a signal to a process</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> example57<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the SigAction function.}</span>
+
+<span class="cmt">{</span>
+<span class="cmt">do a kill -USR1 pid from another terminal to see what happens.</span>
+<span class="cmt">replace pid with the real pid of this program.</span>
+<span class="cmt">You can get this pid by running 'ps'.</span>
+<span class="cmt">}</span>
+
+<span class="kw">uses</span> BaseUnix<span class="sym">;</span>
+
+<span class="kw">Var</span>
+   oa<span class="sym">,</span>na <span class="sym">:</span> PSigActionRec<span class="sym">;</span>
+
+<span class="kw">Procedure</span> DoSig<span class="sym">(</span>sig <span class="sym">:</span> cint<span class="sym">)</span><span class="sym">;</span>cdecl<span class="sym">;</span>
+
+<span class="kw">begin</span>
+   writeln<span class="sym">(</span><span class="str">'Receiving signal: '</span><span class="sym">,</span>sig<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">;</span>
+
+<span class="kw">begin</span>
+   new<span class="sym">(</span>na<span class="sym">)</span><span class="sym">;</span>
+   new<span class="sym">(</span>oa<span class="sym">)</span><span class="sym">;</span>
+   na<span class="sym">^</span><span class="sym">.</span>sa_Handler<span class="sym">:=</span>SigActionHandler<span class="sym">(</span><span class="sym">@</span>DoSig<span class="sym">)</span><span class="sym">;</span>
+   fillchar<span class="sym">(</span>na<span class="sym">^</span><span class="sym">.</span>Sa_Mask<span class="sym">,</span>sizeof<span class="sym">(</span>na<span class="sym">^</span><span class="sym">.</span>sa_mask<span class="sym">)</span><span class="sym">,</span><span class="chr">#0</span><span class="sym">)</span><span class="sym">;</span>
+   na<span class="sym">^</span><span class="sym">.</span>Sa_Flags<span class="sym">:=</span><span class="num">0</span><span class="sym">;</span>
+   <span class="dir">{$ifdef Linux}</span>               <span class="cmt">// Linux specific</span>
+     na<span class="sym">^</span><span class="sym">.</span>Sa_Restorer<span class="sym">:=</span><span class="kw">Nil</span><span class="sym">;</span>
+   <span class="dir">{$endif}</span>
+   <span class="kw">if</span> fpSigAction<span class="sym">(</span>SigUsr1<span class="sym">,</span>na<span class="sym">,</span>oa<span class="sym">)</span><span class="sym">&lt;</span><span class="sym">&gt;</span><span class="num">0</span> <span class="kw">then</span>
+     <span class="kw">begin</span>
+     writeln<span class="sym">(</span><span class="str">'Error: '</span><span class="sym">,</span>fpgeterrno<span class="sym">,</span><span class="chr">'.'</span><span class="sym">)</span><span class="sym">;</span>
+     halt<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">;</span>
+     <span class="kw">end</span><span class="sym">;</span>
+   Writeln <span class="sym">(</span><span class="str">'Send USR1 signal or press &lt;ENTER&gt; to exit'</span><span class="sym">)</span><span class="sym">;</span>
+   readln<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

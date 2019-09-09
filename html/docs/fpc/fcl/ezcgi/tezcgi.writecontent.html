@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TEZcgi.WriteContent</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../ezcgi/index.html">Overview</a>][<a href="../ezcgi/index-2.html">Constants</a>][<a href="../ezcgi/index-4.html">Classes</a>][<a href="../ezcgi/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'ezcgi' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TEZcgi.WriteContent</h1>
+<p>Writes the content type to standard output</p>
+<h2>Declaration</h2>
+<p>Source position: ezcgi.pp line 64</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../ezcgi/tezcgi.html">TEZcgi</a><span class="sym">.</span>WriteContent<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ctype<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ctype</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Content type</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>WriteContent</var> writes the content type <var>cType</var> to standard output, followed by an empty line. After this method was called, no more HTTP headers may be written to standard output. Any HTTP headers should be written before <var>WriteContent</var> is called. It should be called from the  <a href="../ezcgi/tezcgi.dopost.html">DoPost</a> or <a href="../ezcgi/tezcgi.doget.html">DoGet</a> methods. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../ezcgi/tezcgi.dopost.html">DoPost</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Method to handle <var>POST</var> requests</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ezcgi/tezcgi.doget.html">DoGet</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Method to handle <var>GET</var> requests</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../ezcgi/tezcgi.putline.html">PutLine</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Send a line of output to the web-client</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

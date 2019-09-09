@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FPC specialities</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../go32/dosmemory.html">Previous</a>][<a href="../go32/index.html">Up</a>][<a href="../go32/selectorsdescriptors.html">Next</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'go32' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h2>FPC specialities</h2>
+<p>The %ds and %es selector MUST always contain the same value or some system routines may crash when called. The %fs selector is preloaded with the DOSMEMSELECTOR variable at startup, and it MUST be restored after use, because again FPC relys on this for some functions. Luckily we asm programmers can still use the %gs selector for our own purposes, but for how long ? </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../go32/get_cs.html">get_cs</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get CS selector</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/get_ds.html">get_ds</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get DS Selector</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/get_ss.html">get_ss</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return SS selector</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/allocate_ldt_descriptors.html">allocate_ldt_descriptors</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Allocate a number of descriptors</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/free_ldt_descriptor.html">free_ldt_descriptor</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Free a descriptor</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/segment_to_descriptor.html">segment_to_descriptor</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Map segment address to descriptor</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/get_next_selector_increment_value.html">get_next_selector_increment_value</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return selector increment value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/get_segment_base_address.html">get_segment_base_address</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return base address from descriptor table</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/set_segment_base_address.html">set_segment_base_address</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set descriptor's base address</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/set_segment_limit.html">set_segment_limit</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set descriptor limit</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../go32/create_code_segment_alias_descriptor.html">create_code_segment_alias_descriptor</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Create new descriptor from existing descriptor</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Using the default intrinsic</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6337--><div class="crosslinks"><p class="noindent">[<a 
+href="refse56.html" >next</a>] [<a 
+href="refse54.html" >prev</a>] [<a 
+href="refse54.html#tailrefse54.html" >prev-tail</a>] [<a 
+href="#tailrefse55.html">tail</a>] [<a 
+href="refch8.html#refse55.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">8.7   </span> <a 
+href="ref.html#QQ2-114-142" id="x114-1360008.7">Using the default intrinsic</a></h3>
+<!--l. 6339--><p class="noindent" >When writing generic routines, sometimes a variable must be initialized whose type is not known
+during the declaration of the generic. This is where the <span 
+class="cmtt-10">Default </span>intrinsic (section <a 
+href="refse25.html#x56-740004.5">4.5<!--tex4ht:ref: se:initusingdefault --></a>, page <a 
+href="refse25.html#x56-740004.5">229<!--tex4ht:ref: se:initusingdefault --></a>)
+also comes into play. Given the following generic declaration:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-268">
+type
+&#x00A0;<br />&#x00A0;&#x00A0;generic&#x00A0;TTest&#x003C;T&#x003E;&#x00A0;=&#x00A0;class
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Test;
+&#x00A0;<br />&#x00A0;&#x00A0;end;
+</div>
+<!--l. 6346--><p class="nopar" >The following code will correctly initialize the variable <span 
+class="cmtt-10">myt </span>during specialization:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-269">
+procedure&#x00A0;TTest.Test;
+&#x00A0;<br />var
+&#x00A0;<br />&#x00A0;&#x00A0;myt:&#x00A0;T;
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;//&#x00A0;will&#x00A0;have&#x00A0;the&#x00A0;correct&#x00A0;Default&#x00A0;if&#x00A0;class&#x00A0;is&#x00A0;specialized
+&#x00A0;<br />&#x00A0;&#x00A0;myt&#x00A0;:=&#x00A0;Default(T);
+&#x00A0;<br />end;
+</div>
+<!--l. 6356--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 6358--><div class="crosslinks"><p class="noindent">[<a 
+href="refse56.html" >next</a>] [<a 
+href="refse54.html" >prev</a>] [<a 
+href="refse54.html#tailrefse54.html" >prev-tail</a>] [<a 
+href="refse55.html" >front</a>] [<a 
+href="refch8.html#refse55.html" >up</a>] </p></div>
+<!--l. 6358--><p class="noindent" ><a 
+ id="tailrefse55.html"></a>  
+</body></html> 

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Delphi mode</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 7891--><div class="crosslinks"><p class="noindent">[<a 
+href="progse75.html" >next</a>] [<a 
+href="progse73.html" >prev</a>] [<a 
+href="progse73.html#tailprogse73.html" >prev-tail</a>] [<a 
+href="#tailprogse74.html">tail</a>] [<a 
+href="progap4.html#progse74.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">D.3   </span> <a 
+href="prog.html#QQ2-289-334" id="x289-305000D.3">Delphi mode</a></h3>
+<!--l. 7892--><p class="noindent" >This mode is selected by the <span 
+class="cmtt-10">$MODE DELPHI </span>switch. It tries to emulate, as closely as possible, the
+behavior of Delphi 4 till Delphi 7. On the command line, this mode is selected by the <span 
+class="cmtt-10">-Mdelphi</span>
+switch.
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x289-305002x1">You cannot use the address operator to assign procedural variables.
+     </li>
+     <li 
+  class="enumerate" id="x289-305004x2">A  forward  declaration  does  not  have  to  be  repeated  exactly  the  same  by  the
+     implementation of a function/procedure. In particular, you can omit the parameters
+     when implementing the function or procedure.
+     </li>
+     <li 
+  class="enumerate" id="x289-305006x3">Ansistrings are default, this means that <span 
+class="cmtt-10">$MODE DELPHI </span>implies an implicit <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$H ON</span><span 
+class="cmsy-10">}</span>.
+     </li>
+     <li 
+  class="enumerate" id="x289-305008x4">Overloading of functions is not allowed.
+     </li>
+     <li 
+  class="enumerate" id="x289-305010x5">Inline code is allowed: There is no need to enable it with the <span 
+class="cmsy-10">{</span><span 
+class="cmtt-10">$INLINE</span><span 
+class="cmsy-10">} </span>directive.
+     </li>
+     <li 
+  class="enumerate" id="x289-305012x6">Nested comments are not allowed.
+     </li>
+     <li 
+  class="enumerate" id="x289-305014x7">The Objpas unit is loaded right after the <span 
+class="cmss-10">system </span>unit. One of the consequences of this
+     is that the type <span 
+class="cmtt-10">Integer </span>is redefined as <span 
+class="cmtt-10">Longint</span>.
+     </li>
+     <li 
+  class="enumerate" id="x289-305016x8">Parameters in class methods can have the same names as class properties (although it
+     is bad programming practice).</li></ol>
+                                                                            
+
+                                                                            
+<!--l. 7931--><div class="crosslinks"><p class="noindent">[<a 
+href="progse75.html" >next</a>] [<a 
+href="progse73.html" >prev</a>] [<a 
+href="progse73.html#tailprogse73.html" >prev-tail</a>] [<a 
+href="progse74.html" >front</a>] [<a 
+href="progap4.html#progse74.html" >up</a>] </p></div>
+<!--l. 7931--><p class="noindent" ><a 
+ id="tailprogse74.html"></a>  
+</body></html> 

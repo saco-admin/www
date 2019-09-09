@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00430.html" title="std::enable_if\&lt; is_void\&lt; _Res \&gt;::value, int \&gt;" alt="" coords="492,5,788,33"/>
+<area shape="rect" id="node5" href="$a00430.html" title="std::enable_if\&lt;(bool) sizeof(&amp;_Rm::actual), void \&gt;" alt="" coords="475,55,805,83"/>
+<area shape="rect" id="node7" href="$a00430.html" title="std::enable_if\&lt;(bool) sizeof(&amp;_Rm::sema), void \&gt;" alt="" coords="477,106,803,134"/>
+<area shape="rect" id="node9" href="$a00430.html" title="std::enable_if\&lt;!is_void\&lt; _Res \&gt;::value, int \&gt;" alt="" coords="492,157,788,185"/>
+</map>

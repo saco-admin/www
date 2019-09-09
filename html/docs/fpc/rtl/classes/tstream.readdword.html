@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TStream.ReadDWord</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TStream.ReadDWord</h1>
+<p>Read a DWord from the stream and return its value.</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 886</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../classes/tstream.html">TStream</a><span class="sym">.</span>ReadDWord<span class="sym">: </span><a href="../system/cardinal.html">Cardinal</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ReadDWord</var> reads one DWord (i.e. 4 bytes) from the stream  and returns its value. This is a utility function which simply calls the <a href="../classes/tstream.read.html">Read</a> function. </p>
+<h2>Errors</h2>
+<p>If the DWord cannot be read, a <a href="../classes/estreamerror.html">EStreamError</a> exception will be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/tstream.read.html">TStream.Read</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reads data from the stream to a buffer and returns the number of bytes read.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstream.writedword.html">TStream.WriteDWord</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write a DWord to the stream.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstream.readbyte.html">TStream.ReadByte</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read a byte from the stream and return its value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstream.readword.html">TStream.ReadWord</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read a word from the stream and return its value.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tstream.readansistring.html">TStream.ReadAnsiString</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read an ansistring from the stream and return its value.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

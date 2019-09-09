@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>New</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>New</h1>
+<p>Dynamically allocate memory for variable</p>
+<h2>Declaration</h2>
+<p>Source position: system.fpd line 50</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> New<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>P<span class="sym">: </span>Pointer</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><br><br><span class="kw">procedure</span> New<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>P<span class="sym">: </span>Pointer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Cons<span class="sym">: </span><a href="../system/tprocedure.html">TProcedure</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>New</var> allocates a new instance of the type pointed to by <var>P</var>, and puts the address in <var>P</var>. If P is an object, then it is possible to specify the name of the constructor with which the instance will be created. </p>
+<p>The newly allocated memory is not initialized in any way, and may contain garbage data.  It must be cleared with a call to <a href="../system/fillchar.html">FillChar</a> or <a href="../system/fillword.html">FillWord</a>. </p>
+<p>For an example, see <a href="../system/dispose.html">Dispose</a>. </p>
+<h2>Errors</h2>
+<p>What happens if no more memory is available, depends on the value of the variable <a href="../system/returnnilifgrowheapfails.html">ReturnNilIfGrowHeapfails</a>: if the variable is <var>True</var> then <var>Nil</var> is returned. If the variable is <var>False</var>, a run-time error is generated.  </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/dispose.html">Dispose</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Free dynamically allocated memory</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/freemem.html">Freemem</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Release allocated memory</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/getmem.html">Getmem</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Allocate new memory on the heap</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/returnnilifgrowheapfails.html">ReturnNilIfGrowHeapfails</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Describe behaviour if getmem fails.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

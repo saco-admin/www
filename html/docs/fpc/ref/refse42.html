@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Definition</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 5378--><div class="crosslinks"><p class="noindent">[<a 
+href="refse43.html" >next</a>] [<a 
+href="#tailrefse42.html">tail</a>] [<a 
+href="refch7.html#refse42.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">7.1   </span> <a 
+href="ref.html#QQ2-95-123" id="x95-1170007.1">Definition</a></h3>
+<!--l. 5379--><p class="noindent" >As of version 1.1, FPC supports interfaces. Interfaces are an alternative to multiple
+inheritance (where a class can have multiple parent classes) as implemented for instance in
+C++. An interface is basically a named set of methods and properties: a class that
+<span 
+class="cmti-10">implements </span>the interface provides <span 
+class="cmti-10">all </span>the methods as they are enumerated in the Interface
+definition. It is not possible for a class to implement only part of the interface: it is all or
+nothing.
+<!--l. 5387--><p class="noindent" >Interfaces can also be ordered in a hierarchy, exactly as classes: an interface definition that inherits
+from another interface definition contains all the methods from the parent interface, as well as the
+methods explicitly named in the interface definition. A class implementing an interface
+must then implement all members of the interface as well as the methods of the parent
+interface(s).
+<!--l. 5394--><p class="noindent" >An interface can be uniquely identified by a GUID. GUID is an acronym
+for Globally Unique Identifier, a 128-bit integer guaranteed always to be
+unique<span class="footnote-mark"><a 
+href="#fn1x8" id="fn1x8-bk"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x95-117001f1"></a>.
+Especially on Windows systems, the GUID of an interface can and must be used when using
+COM.
+<!--l. 5399--><p class="noindent" >The definition of an Interface has the following form:<a 
+ id="dx95-117002"></a><a name="keyword_interface"></a>
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Interface type</span><br 
+class="newline" /><BR/><img 
+src="ref100x.png" alt="--Interface -|-------------------------------------end------------
+           |heritage| -[&#8217;-GUID &#8217;]--|- component list|
+     " ><BR/>
+     <BR/><img 
+src="ref101x.png" alt="--       - -                   - -------------------------------
+  heritage  (  interface type identifier  )
+     " ><BR/>
+     <BR/><img 
+src="ref102x.png" alt="--            ----              ---------------------------------
+  component list | -method definition-||
+               ---property definition--|
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 5402--><p class="noindent" >Along with this definition the following must be noted:
+     <ul class="itemize1">
+     <li class="itemize">Interfaces can only be used in <span 
+class="cmtt-10">DELPHI </span>mode or in <span 
+class="cmtt-10">OBJFPC </span>mode.
+     </li>
+     <li class="itemize">There are no visibility specifiers. All members are public (indeed, it would make little
+     sense to make them private or protected).<a 
+ id="dx95-117003"></a>
+     </li>
+     <li class="itemize">The  properties  declared  in  an  interface  can  only  have  methods  as  read  and  write
+     specifiers.
+     </li>
+     <li class="itemize">There are no constructors or destructors. Instances of interfaces cannot be created
+     directly: instead, an instance of a class implementing the interface must be created.
+     </li>
+     <li class="itemize">Only  calling  convention  modifiers  may  be  present  in  the  definition  of  a  method.
+     Modifiers  as  <span 
+class="cmtt-10">virtual</span>,  <span 
+class="cmtt-10">abstract </span>or  <span 
+class="cmtt-10">dynamic</span>,  and  hence  also  <span 
+class="cmtt-10">override </span>cannot  be
+     present in the interface definition.</li></ul>
+<!--l. 5419--><p class="noindent" >The following are examples of interfaces:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-214">
+IUnknown&#x00A0;=&#x00A0;interface&#x00A0;[&#8217;{00000000-0000-0000-C000-000000000046}&#8217;]
+&#x00A0;<br />&#x00A0;&#x00A0;function&#x00A0;QueryInterface(const&#x00A0;iid&#x00A0;:&#x00A0;tguid;out&#x00A0;obj)&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;function&#x00A0;_AddRef&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />&#x00A0;&#x00A0;function&#x00A0;_Release&#x00A0;:&#x00A0;longint;
+&#x00A0;<br />end;
+&#x00A0;<br />IInterface&#x00A0;=&#x00A0;IUnknown;
+&#x00A0;<br />
+&#x00A0;<br />IMyInterface&#x00A0;=&#x00A0;Interface
+&#x00A0;<br />&#x00A0;&#x00A0;Function&#x00A0;MyFunc&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;Function&#x00A0;MySecondFunc&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />end;
+</div>
+<!--l. 5432--><p class="nopar" >As can be seen, the GUID identifying the interface is optional.
+                                                                            
+
+                                                                            
+<div class="footnotes"><!--l. 5396--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn1x8-bk" id="fn1x8"><sup class="textsuperscript">1</sup></a></span><span 
+class="cmr-8">In theory, of course.</span>                                                           </div> <!--l. 5435--><div class="crosslinks"><p class="noindent">[<a 
+href="refse43.html" >next</a>]
+[<a 
+href="refse42.html" >front</a>] [<a 
+href="refch7.html#refse42.html" >up</a>] </p></div>
+<!--l. 5435--><p class="noindent" ><a 
+ id="tailrefse42.html"></a>  
+</body></html> 

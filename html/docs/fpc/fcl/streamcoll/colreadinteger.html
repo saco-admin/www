@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>ColReadInteger</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../streamcoll/index.html">Overview</a>][<a href="../streamcoll/index-4.html">Classes</a>][<a href="../streamcoll/index-5.html">Procedures and functions</a>][<a href="../streamcoll/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'streamcoll' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>ColReadInteger</h1>
+<p>Read a 32-bit integer from a stream.</p>
+<h2>Declaration</h2>
+<p>Source position: streamcoll.pp line 75</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> ColReadInteger<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;S<span class="sym">: </span><a href="../../rtl/classes/tstream.html">TStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">S</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Stream to read integer value from</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Integer value read from stream <var>S</var></p>
+<h2>Description</h2>
+<p><var>ColReadInteger</var> reads a 32-bit integer from the stream <var>S</var> as it was written by <a href="../streamcoll/colwriteinteger.html">ColWriteInteger</a>  and returns the read value. The value cannot be read and written  across systems that have different endian values. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../streamcoll/colreaddatetime.html">ColReadDateTime</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read a <var>TDateTime</var> value from a stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../streamcoll/colreadboolean.html">ColReadBoolean</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read a boolean value from a stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../streamcoll/colreadstring.html">ColReadString</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read a string from a stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../streamcoll/colwriteinteger.html">ColWriteInteger</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write a 32-bit integer to a stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../streamcoll/colreadfloat.html">ColReadFloat</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read a floating point value from a stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../streamcoll/colreadcurrency.html">ColReadCurrency</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read a currency value from the stream</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

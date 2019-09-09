@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>#ELSE</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 1719--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu22.html" >next</a>] [<a 
+href="usersu20.html" >prev</a>] [<a 
+href="usersu20.html#tailusersu20.html" >prev-tail</a>] [<a 
+href="#tailusersu21.html">tail</a>] [<a 
+href="userse17.html#usersu21.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">5.2.5   </span> <a 
+href="user.html#QQ2-45-54" id="x45-520005.2.5">#ELSE</a></h4>
+<!--l. 1720--><p class="noindent" >Syntax:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-48">
+#ELSE
+</div>
+<!--l. 1723--><p class="nopar" ><span 
+class="cmtt-10">#ELSE </span>can be specified after a <span 
+class="cmtt-10">#IFDEF </span>or <span 
+class="cmtt-10">#IFNDEF </span>directive as an alternative. Lines following <span 
+class="cmtt-10">#ELSE</span>
+are read only if the preceding <span 
+class="cmtt-10">#IFDEF </span>or <span 
+class="cmtt-10">#IFNDEF </span>was not accepted.
+<!--l. 1729--><p class="noindent" >They are skipped until the keyword <span 
+class="cmtt-10">#ENDIF </span>is encountered, after which normal processing is
+resumed.
+<!--l. 1732--><p class="noindent" >Example :
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-49">
+#IFDEF&#x00A0;VER2_6_2
+&#x00A0;<br />-Fu/usr/lib/fpc/2.6.2/linuxunits
+&#x00A0;<br />#ELSE
+&#x00A0;<br />-Fu/usr/lib/fpc/2.6.0/linuxunits
+&#x00A0;<br />#ENDIF
+</div>
+<!--l. 1739--><p class="nopar" >In the above example, <span 
+class="cmss-10">/usr/lib/fpc/2.6.2/linuxunits </span>will be added to the path if you&#8217;re compiling
+with version 2.6.2 of the compiler, otherwise <span 
+class="cmss-10">/usr/lib/fpc/2.6.0/linuxunits </span>will be added to the
+path.
+                                                                            
+
+                                                                            
+<!--l. 1744--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu22.html" >next</a>] [<a 
+href="usersu20.html" >prev</a>] [<a 
+href="usersu20.html#tailusersu20.html" >prev-tail</a>] [<a 
+href="usersu21.html" >front</a>] [<a 
+href="userse17.html#usersu21.html" >up</a>] </p></div>
+<!--l. 1744--><p class="noindent" ><a 
+ id="tailusersu21.html"></a>  
+</body></html> 

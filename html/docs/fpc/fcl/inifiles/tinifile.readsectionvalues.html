@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TIniFile.ReadSectionValues</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../inifiles/index.html">Overview</a>][<a href="../inifiles/index-3.html">Types</a>][<a href="../inifiles/index-4.html">Classes</a>][<a href="../inifiles/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'IniFiles' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TIniFile.ReadSectionValues</h1>
+<p></p>
+<h2>Declaration</h2>
+<p>Source position: inifiles.pp line 223</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">procedure</span> <a href="../inifiles/tinifile.html">TIniFile</a><span class="sym">.</span>ReadSectionValues<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>Section<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Strings<span class="sym">: </span><a href="../../rtl/classes/tstrings.html">TStrings</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AOptions<span class="sym">: </span><a href="../inifiles/tsectionvaluesoptions.html">TSectionValuesOptions</a> <span class="sym">=</span> <span class="sym">[</span>svoIncludeInvalid<span class="sym">]</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Section</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Section to read key name/values from</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Strings</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Stringlist to store key/value pairs in.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AOptions</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Options to control the behaviour of <var>ReadSectionValues</var></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ReadSectionValues</var> is the implementation of <a href="../inifiles/tcustominifile.readsectionvalues.html">TCustomIniFile.ReadSectionValues</a>. It operates on the in-memory copy of the inifile, and places all key names from <var>Section</var> together with their values in <var>Strings</var>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../inifiles/tinifile.readsection.html">TIniFile.ReadSection</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read the key names in a section</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inifiles/tcustominifile.readsectionvalues.html">TCustomIniFile.ReadSectionValues</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read names and values of a section</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../inifiles/tinifile.readsections.html">TIniFile.ReadSections</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read section names</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

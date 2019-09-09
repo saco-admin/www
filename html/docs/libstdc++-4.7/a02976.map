@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node5" href="$a00196.html" title="Base class for exceptions." alt="" coords="331,55,531,83"/>
+<area shape="rect" id="node13" href="$a00632.html" title="std::domain_error" alt="" coords="364,106,497,134"/>
+<area shape="rect" id="node15" href="$a00651.html" title="Exception type thrown by futures." alt="" coords="368,157,493,185"/>
+<area shape="rect" id="node17" href="$a00711.html" title="std::invalid_argument" alt="" coords="353,207,508,235"/>
+<area shape="rect" id="node19" href="$a00777.html" title="std::length_error" alt="" coords="368,258,493,286"/>
+<area shape="rect" id="node21" href="$a00846.html" title="std::out_of_range" alt="" coords="365,309,496,337"/>
+<area shape="rect" id="node2" href="$a00638.html" title="Base class for all library exceptions." alt="" coords="7,182,116,210"/>
+<area shape="rect" id="node7" href="$a00343.html" title="An entry cannot be inserted into a container object for logical reasons (not, e.g., if memory is unabvailable, in which case the allocator_type&#39;s exception will be thrown)." alt="" coords="579,5,755,33"/>
+<area shape="rect" id="node9" href="$a00344.html" title="A join cannot be performed logical reasons (i.e., the ranges of the two container objects being joine..." alt="" coords="585,55,748,83"/>
+<area shape="rect" id="node11" href="$a00362.html" title="A container cannot be resized." alt="" coords="579,106,755,134"/>
+</map>

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TParser.TokenInt</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TParser.TokenInt</h1>
+<p>Returns the current token as an integer.</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 1557</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../classes/tparser.html">TParser</a><span class="sym">.</span>TokenInt<span class="sym">: </span><a href="../system/int64.html">Int64</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>If current token type is <a href="../classes/tointeger.html">toInteger</a>, this method returns the token value as an integer.</p>
+<p>In the input stream an integer can be an hexadecimal (prefixed by <var>'$'</var> character) or decimal number. Decimal numbers can be prefixed by an unary minus: if this is the case, no space must exist between minus and number.</p>
+<h2>Errors</h2>
+<p>If <a href="../classes/tparser.token.html">Token</a> isn't <a href="../classes/tointeger.html">toInteger</a>, an <a href="../sysutils/econverterror.html">EConvertError</a> exception is raised.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/tparser.nexttoken.html">TParser.NextToken</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reads the next token and returns its type.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tparser.token.html">TParser.Token</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The type of the current token.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tointeger.html">toInteger</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Value returned by <a href="../classes/tparser.token.html">TParser.Token</a> when an integer was found in the  input stream. </p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FSearch</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dos/index.html">Overview</a>][<a href="../dos/index-2.html">Constants</a>][<a href="../dos/index-3.html">Types</a>][<a href="../dos/index-5.html">Procedures and functions</a>][<a href="../dos/index-6.html">Variables</a>][<a href="../dos/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Dos' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FSearch</h1>
+<p>Search a file in searchpath</p>
+<h2>Declaration</h2>
+<p>Source position: dosh.inc line 107</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FSearch<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;path<span class="sym">: </span><a href="../dos/pathstr.html">PathStr</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;dirlist<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../dos/pathstr.html">PathStr</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FSearch</var> searches the file <var>Path</var> in all directories listed in <var>DirList</var>. The full name of the found file is returned. <var>DirList</var> must be a list of directories, separated by semi-colons. When no file is found, an empty string is returned. </p>
+<table class="remark" width="100%" border="0" CellSpacing="0">
+<tr>
+<td class="pre" valign="top"><b>Remark:   </b></td>
+<td>On Unix systems, <var>DirList</var> can also be separated by colons, as is customary on those environments. </td>
+</tr>
+</table>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dos/fexpand.html">FExpand</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Expand a relative path to an absolute path</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> Example10<span class="sym">;</span>
+
+<span class="kw">uses</span> Dos<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the FSearch function. }</span>
+
+<span class="kw">var</span> s<span class="sym">:</span>pathstr<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  s<span class="sym">:=</span>FSearch<span class="sym">(</span>ParamStr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">,</span>GetEnv<span class="sym">(</span><span class="str">'PATH'</span><span class="sym">)</span><span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">if</span> s<span class="sym">=</span><span class="str">''</span> <span class="kw">then</span>
+    WriteLn<span class="sym">(</span>ParamStr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">,</span><span class="str">' not Found in PATH'</span><span class="sym">)</span>
+  <span class="kw">else</span>
+    Writeln<span class="sym">(</span>ParamStr<span class="sym">(</span><span class="num">1</span><span class="sym">)</span><span class="sym">,</span><span class="str">' Found in PATH at '</span><span class="sym">,</span>s<span class="sym">)</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

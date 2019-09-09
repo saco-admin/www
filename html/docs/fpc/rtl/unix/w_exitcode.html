@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>W_EXITCODE</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../unix/index.html">Overview</a>][<a href="../unix/index-2.html">Constants</a>][<a href="../unix/index-3.html">Types</a>][<a href="../unix/index-5.html">Procedures and functions</a>][<a href="../unix/index-6.html">Variables</a>][<a href="../unix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Unix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>W_EXITCODE</h1>
+<p>Construct an exit status based on an return code and signal.</p>
+<h2>Declaration</h2>
+<p>Source position: unix.pp line 97</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> W_EXITCODE<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ReturnCode<span class="sym">: </span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Signal<span class="sym">: </span><a href="../system/integer.html">Integer</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>W_EXITCODE</var> combines <var>ReturnCode</var> and <var>Signal</var> to a status code fit for <var>WaitPid</var>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpwaitpid.html">#rtl.baseunix.FpWaitPID</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Wait for a process to terminate</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unix/waitprocess.html">WaitProcess</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Wait for process to terminate.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/wtermsig.html">#rtl.baseunix.WTERMSIG</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the signal that caused a process to exit.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/wstopsig.html">#rtl.baseunix.WSTOPSIG</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the exit code from the process.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/wifexited.html">#rtl.baseunix.WIFEXITED</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether the process exited normally</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unix/wifstopped.html">WIFSTOPPED</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether the process is currently stopped.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/wifsignaled.html">#rtl.baseunix.WIFSIGNALED</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Check whether the process was exited by a signal.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unix/w_exitcode.html">W_EXITCODE</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Construct an exit status based on an return code and signal.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../unix/w_stopcode.html">W_STOPCODE</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Construct an exit status based on a signal.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/wexitstatus.html">#rtl.baseunix.WEXITSTATUS</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Extract the exit status from the <a href="../baseunix/fpwaitpid.html">fpWaitPID</a> result.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

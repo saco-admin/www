@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TIDEADeCryptStream.Read</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../idea/index.html">Overview</a>][<a href="../idea/index-2.html">Constants</a>][<a href="../idea/index-3.html">Types</a>][<a href="../idea/index-4.html">Classes</a>][<a href="../idea/index-5.html">Procedures and functions</a>][<a href="../idea/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'idea' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TIDEADeCryptStream.Read</h1>
+<p>Reads data from the stream, decrypting it as needed</p>
+<h2>Declaration</h2>
+<p>Source position: idea.pp line 107</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../idea/tideadecryptstream.html">TIDEADeCryptStream</a><span class="sym">.</span>Read<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">var </span>Buffer<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;Count<span class="sym">: </span><a href="../../rtl/system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../../rtl/system/longint.html">LongInt</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">Buffer</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Buffer to place the descrypted data</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">Count</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of bytes that should be read from the stream.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p>Number of bytes actually read.</p>
+<h2>Description</h2>
+<p><var>Read</var> attempts to read <var>Count</var> bytes from the stream, placing them in <var>Buffer</var> the bytes are read from the source stream and decrypted as they are read. (bytes are read from the source stream in blocks of 8 bytes. The function returns the number of bytes actually read. </p>
+<h2>Errors</h2>
+<p>If an error occurs when reading data from the source stream, an exception may be raised. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><b>Write</b></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write data to the stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../idea/tideadecryptstream.seek.html">Seek</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Set position on the stream</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../idea/tideaencryptstream.html">TIDEAEncryptStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">IDEA encryption stream.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

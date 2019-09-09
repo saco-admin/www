@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpLseek</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpLseek</h1>
+<p>Set file pointer position.</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 92</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpLseek<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;fd<span class="sym">: </span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;offset<span class="sym">: </span><a href="../baseunix/toff.html">TOff</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;whence<span class="sym">: </span><a href="../baseunix/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/toff.html">TOff</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FpLSeek</var> sets the current fileposition of file <var>fd</var> to <var>Offset</var>, starting from <var>Whence</var>, which can be one of the following: </p>
+<dl>
+<dt>Seek_Set</dt>
+<dd><var>Offset</var> is the absolute position in the file.</dd>
+<dt>Seek_Cur</dt>
+<dd><var>Offset</var> is relative to the current position.</dd>
+<dt>Seek_end</dt>
+<dd><var>Offset</var> is relative to the end of the file.</dd>
+</dl>
+<p>The function returns the new fileposition, or -1 of an error occurred. </p>
+<p>For an example, see <a href="../baseunix/fpopen.html">FpOpen</a>. </p>
+<h2>Errors</h2>
+<p>Extended error information can be retrieved using <a href="../baseunix/fpgeterrno.html">fpGetErrno</a>. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpopen.html">FpOpen</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Open file and return file descriptor</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpwrite.html">FpWrite</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Write data to file descriptor</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpclose.html">FpClose</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Close file descriptor</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpread.html">FpRead</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Read data from file descriptor</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpftruncate.html">FpFTruncate</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Truncate file on certain size.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

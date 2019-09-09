@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$a00308.html" title="Primary template for representation of stored data. Two types of data can be stored: value and hash..." alt="" coords="360,5,629,33"/>
+<area shape="rect" id="node5" href="$a00309.html" title="Specialization for representation of stored data of just value type." alt="" coords="329,55,660,83"/>
+</map>

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>ClearScreen</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../video/index.html">Overview</a>][<a href="../video/index-2.html">Constants</a>][<a href="../video/index-3.html">Types</a>][<a href="../video/index-5.html">Procedures and functions</a>][<a href="../video/index-6.html">Variables</a>][<a href="../video/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'video' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>ClearScreen</h1>
+<p>Clear the video screen.</p>
+<h2>Declaration</h2>
+<p>Source position: videoh.inc line 132</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">procedure</span> ClearScreen<span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>ClearScreen</var> clears the entire screen, and calls <a href="../video/updatescreen.html">UpdateScreen</a> after that. This is done by writing spaces to all character cells of the video buffer in the default color (lightgray on black, color attribute \$07). </p>
+<h2>Errors</h2>
+<p>None. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../video/initvideo.html">InitVideo</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Initialize video driver.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../video/updatescreen.html">UpdateScreen</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Update physical screen with internal screen image.</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">program</span> testvideo<span class="sym">;</span>
+
+<span class="kw">uses</span> video<span class="sym">,</span>keyboard<span class="sym">,</span>vidutil<span class="sym">;</span>
+
+<span class="kw">Var</span>
+  i <span class="sym">:</span> longint<span class="sym">;</span>
+  k <span class="sym">:</span> TkeyEvent<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  InitVideo<span class="sym">;</span>
+  InitKeyboard<span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+    TextOut<span class="sym">(</span>i<span class="sym">,</span>i<span class="sym">,</span> <span class="str">'Press any key to clear screen'</span><span class="sym">)</span><span class="sym">;</span>
+  UpdateScreen<span class="sym">(</span>false<span class="sym">)</span><span class="sym">;</span>
+  K<span class="sym">:=</span>GetKeyEvent<span class="sym">;</span>
+  ClearScreen<span class="sym">;</span>
+  TextOut<span class="sym">(</span><span class="num">1</span><span class="sym">,</span><span class="num">1</span><span class="sym">,</span><span class="str">'Cleared screen. Press any key to end'</span><span class="sym">)</span><span class="sym">;</span>
+  UpdateScreen<span class="sym">(</span>true<span class="sym">)</span><span class="sym">;</span>
+  K<span class="sym">:=</span>GetKeyEvent<span class="sym">;</span>
+  DoneKeyBoard<span class="sym">;</span>
+  DoneVideo<span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>  
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

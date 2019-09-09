@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Support for gprof, the gnu profiler</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 3456--><div class="crosslinks"><p class="noindent">[<a 
+href="userse57.html" >next</a>] [<a 
+href="userse55.html" >prev</a>] [<a 
+href="userse55.html#tailuserse55.html" >prev-tail</a>] [<a 
+href="#tailuserse56.html">tail</a>] [<a 
+href="userch10.html#userse56.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">10.4   </span> <a 
+href="user.html#QQ2-167-225" id="x167-17400010.4">Support for <span 
+class="cmtt-10">gprof</span>, the <span 
+class="cmcsc-10"><span 
+class="small-caps">g</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span> </span>profiler</a></h3>
+<!--l. 3459--><p class="noindent" >You can compile your programs with profiling support. For this, you just have to use the compiler
+switch <span 
+class="cmtt-10">-pg</span>. The compiler will insert the necessary stuff for profiling.
+<!--l. 3463--><p class="noindent" >When you have done this, you can run your program as you would normally run it:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-119">
+yourexe
+</div>
+<!--l. 3467--><p class="nopar" >Where <span 
+class="cmss-10">yourexe </span>is the name of your executable.
+<!--l. 3470--><p class="noindent" >When your program finishes, a file called gmon.out is generated. Then you can start the profiler to
+see the output. You can benefit from redirecting the output to a file, because it could be quite a
+lot:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-120">
+gprof&#x00A0;yourexe&#x00A0;&#x003E;&#x00A0;profile.log
+</div>
+<!--l. 3475--><p class="nopar" >
+<!--l. 3477--><p class="noindent" >Hint: you can use the <span 
+class="cmtt-10">--flat </span>option to reduce the amount of output of gprof. It will then only
+output the information about the timings.
+<!--l. 3480--><p class="noindent" >For more information on the <span 
+class="cmcsc-10"><span 
+class="small-caps">g</span><span 
+class="small-caps">n</span><span 
+class="small-caps">u</span> </span>profiler <span 
+class="cmtt-10">gprof</span>, see its manual.
+                                                                            
+
+                                                                            
+<!--l. 3484--><div class="crosslinks"><p class="noindent">[<a 
+href="userse57.html" >next</a>] [<a 
+href="userse55.html" >prev</a>] [<a 
+href="userse55.html#tailuserse55.html" >prev-tail</a>] [<a 
+href="userse56.html" >front</a>] [<a 
+href="userch10.html#userse56.html" >up</a>] </p></div>
+<!--l. 3484--><p class="noindent" ><a 
+ id="tailuserse56.html"></a>  
+</body></html> 

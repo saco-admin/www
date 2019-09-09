@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TRecall</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../classes/index.html">Overview</a>][<a href="../classes/index-2.html">Constants</a>][<a href="../classes/index-3.html">Types</a>][<a href="../classes/index-4.html">Classes</a>][<a href="../classes/index-5.html">Procedures and functions</a>][<a href="../classes/index-6.html">Variables</a>][<a href="../classes/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Classes' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>TRecall</h1>
+<p>[<a href="../classes/trecall-1.html" onClick="window.open('../classes/trecall-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../classes/trecall-2.html" onClick="window.open('../classes/trecall-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../classes/trecall-3.html" onClick="window.open('../classes/trecall-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../classes/trecall-4.html" onClick="window.open('../classes/trecall-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../classes/trecall-5.html" onClick="window.open('../classes/trecall-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../classes/trecall-6.html" onClick="window.open('../classes/trecall-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Helper class for storing published properties</p>
+<h2>Declaration</h2>
+<p>Source position: classesh.inc line 467</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TRecall <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../system/tobject.html">TObject</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../classes/trecall.create.html">Create</a><span class="sym">();</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a new instance of <var>TRecall</var>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../classes/trecall.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Copies the stored properties to the reference object and destroys the <var>TRecall</var> instance.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/trecall.store.html">Store</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Assigns the reference instance to the storage instance.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../classes/trecall.forget.html">Forget</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clear the reference property.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../classes/trecall.reference.html">Reference</a><span class="sym">: </span><a href="../classes/tpersistent.html">TPersistent</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">The reference object.</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../classes/trecall.html">TRecall</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Helper class for storing published properties</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../system/tobject.html">TObject</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base class of all classes.</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>TRecall</var> is a helper class used to copy published  properties of a class (the reference object) in another class (the storage object). The reference object and storage object must be assignable to each other.  </p>
+<p>The <var>TRecall</var> can be used to store the state of a persistent class, and restore it at a later time. </p>
+<p>When a <var>TRecall</var> object is created, it gets passed a reference instance and a storage instance. It immediately stores the properties of the reference object in the storage object.  </p>
+<p>The <a href="../classes/trecall.store.html">Store</a> method can be called throughout the lifetime of the reference object to update the stored properties. </p>
+<p>When the <var>TRecall</var> instance is destroyed then the properties are copied from the storage object to the reference object. The storage object is freed automatically. </p>
+<p>If the properties should not be copied back from the storage to the reference object, the <a href="../classes/trecall.forget.html">Forget</a> can be called. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../classes/trecall.create.html">TRecall.Create</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Creates a new instance of <var>TRecall</var>.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/trecall.destroy.html">TRecall.Destroy</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Copies the stored properties to the reference object and destroys the <var>TRecall</var> instance.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/trecall.forget.html">TRecall.Forget</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Clear the reference property.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/trecall.store.html">TRecall.Store</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Assigns the reference instance to the storage instance.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../classes/tpersistent.assign.html">TPersistent.Assign</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Assign the contents of one class to another.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

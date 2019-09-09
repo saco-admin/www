@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TGroupCachedDataStream</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../groupresource/index.html">Overview</a>][<a href="../groupresource/index-4.html">Classes</a>][<a href="../groupresource/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'groupresource' (<a href="../index.html">#fcl-res</a>)</span></td>
+</tr>
+</table>
+<h1>TGroupCachedDataStream</h1>
+<p>[<a href="../groupresource/tgroupcacheddatastream-1.html" onClick="window.open('../groupresource/tgroupcacheddatastream-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../groupresource/tgroupcacheddatastream-2.html" onClick="window.open('../groupresource/tgroupcacheddatastream-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../groupresource/tgroupcacheddatastream-3.html" onClick="window.open('../groupresource/tgroupcacheddatastream-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../groupresource/tgroupcacheddatastream-4.html" onClick="window.open('../groupresource/tgroupcacheddatastream-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../groupresource/tgroupcacheddatastream-5.html" onClick="window.open('../groupresource/tgroupcacheddatastream-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../groupresource/tgroupcacheddatastream-6.html" onClick="window.open('../groupresource/tgroupcacheddatastream-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Cached stream for group classes</p>
+<h2>Declaration</h2>
+<p>Source position: groupresource.pp line 62</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TGroupCachedDataStream <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span><a href="../resdatastream/tcacheddatastream.html">TCachedDataStream</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">constructor </span><a href="../resdatastream/tcacheddatastream.create.html">Create</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">destructor </span><a href="../groupresource/tgroupcacheddatastream.destroy.html">Destroy</a><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../groupresource/tgroupcacheddatastream.read.html">Read</a><span class="sym">();</span><span class="kw"> override</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../groupresource/tgroupcacheddatastream.html">TGroupCachedDataStream</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Cached stream for group classes</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../resdatastream/tcacheddatastream.html">TCachedDataStream</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base cached stream class</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/classes/tstream.html">TStream</a></span></tt></p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../../rtl/system/tobject.html">TObject</a></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>This class is used by <a href="../groupresource/tgroupresource.html">TGroupResource</a> descendants to provide an .ico/.cur like stream.</p>
+<p>Unlike <a href="../resdatastream/tcachedresourcedatastream.html">TCachedResourceDataStream</a>, which provides a stream-like interface over a portion of another stream, this class lets multiple stream to be seen as one: this way, several <a href="../resource/rt_icon.html">RT_ICON</a> or <a href="../resource/rt_cursor.html">RT_CURSOR</a> resources can appear like a single .ico or .cur file.</p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../groupresource/tgroupresource.html">TGroupResource</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Abstract common class for group icon and group cursor classes</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../groupiconresource/tgroupiconresource.html">TGroupIconResource</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Group icon resource type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../groupcursorresource/tgroupcursorresource.html">TGroupCursorResource</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Group cursor resource type</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resdatastream/tcacheddatastream.html">TCachedDataStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Base cached stream class</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../resdatastream/tcachedresourcedatastream.html">TCachedResourceDataStream</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">An implementation of a cached stream</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

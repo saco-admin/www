@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Properties</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 3383--><div class="crosslinks"><p class="noindent">[<a 
+href="refse26.html" >prev</a>] [<a 
+href="refse26.html#tailrefse26.html" >prev-tail</a>] [<a 
+href="#tailrefse27.html">tail</a>] [<a 
+href="refch4.html#refse27.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">4.7   </span> <a 
+href="ref.html#QQ2-58-82" id="x58-760004.7">Properties</a></h3>
+<a 
+ id="dx58-76001"></a>
+<!--l. 3384--><p class="noindent" ><a name="keyword_property"></a> A global block can declare properties, just as they could be defined in a class. The
+difference is that the global property does not need a class instance: there is only 1
+instance of this property. Other than that, a global property behaves like a class property.
+The read/write specifiers for the global property must also be regular procedures, not
+methods.
+<!--l. 3391--><p class="noindent" >The concept of a global property is specific to Free Pascal, and does not exist in Delphi. <span 
+class="cmtt-10">ObjFPC</span>
+mode is required to work with properties.
+<!--l. 3394--><p class="noindent" >The concept of a global property can be used to &#8217;hide&#8217; the location of the value, or to calculate the
+value on the fly, or to check the values which are written to the property.
+<!--l. 3398--><p class="noindent" >The declaration is as follows:
+     <div class="quote">
+     <!--l. 1--><p class="noindent" >_________________________________________________________________________________________________________<br 
+class="newline" /><span 
+class="cmbx-10">Properties</span><br 
+class="newline" /><BR/><img 
+src="ref55x.png" alt="--              -        -------------------              ------
+  property definition  identifier  -              -| property specifiers
+                           property interface
+     " ><BR/>
+     <BR/><img 
+src="ref56x.png" alt=" --property interface -|---------------------:-type identifier-
+                  -property parameter list
+------------------------------------------------------------------
+    index  integerconstant
+     " ><BR/>
+     <BR/><img 
+src="ref57x.png" alt="--property parameter list [--|parameter declaration--] ------------------
+                        ---------;---------
+     " ><BR/>
+     <BR/><img 
+src="ref58x.png" alt="--property specifiers--|-------------|--------------|----------------
+                  -read specifier-- -write specifier- -default specifier-
+     " ><BR/>
+     <BR/><img 
+src="ref59x.png" alt="--read specifier- read -field or function-------------------------------
+     " ><BR/>
+                                                                            
+
+                                                                            
+     <BR/><img 
+src="ref60x.png" alt="--           -     -              -------------------------------
+  write specifier write  field or procedure
+     " ><BR/>
+     <BR/><img 
+src="ref61x.png" alt="--            ---      ------------------------------------------
+  default specifier |default  -       -| |
+                ------nodefcaounltstant---|
+     " ><BR/>
+     <BR/><img 
+src="ref62x.png" alt="--field or procedure----field identifier---------------------------------
+                  procedure identifier
+     " ><BR/>
+     <BR/><img 
+src="ref63x.png" alt="--field or function-|--field identifier----------------------------------
+                -function identifier--
+     " ><BR/>
+     ___________________________________________________________________</div>
+<!--l. 3401--><p class="noindent" >The following is an example:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-129">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />unit&#x00A0;testprop;
+&#x00A0;<br />
+&#x00A0;<br />Interface
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;GetMyInt&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />Procedure&#x00A0;SetMyInt(Value&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />
+&#x00A0;<br />Property
+&#x00A0;<br />&#x00A0;&#x00A0;MyProp&#x00A0;:&#x00A0;Integer&#x00A0;Read&#x00A0;GetMyInt&#x00A0;Write&#x00A0;SetMyInt;
+&#x00A0;<br />
+&#x00A0;<br />Implementation
+&#x00A0;<br />
+&#x00A0;<br />Uses&#x00A0;sysutils;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;FMyInt&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;GetMyInt&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=FMyInt;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;SetMyInt(Value&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;If&#x00A0;((Value&#x00A0;mod&#x00A0;2)=1)&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Raise&#x00A0;Exception.Create(&#8217;MyProp&#x00A0;can&#x00A0;only&#x00A0;contain&#x00A0;even&#x00A0;value&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;FMyInt:=Value;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 3436--><p class="nopar" >The read/write specifiers can be hidden by declaring them in another unit which must be in the
+<span 
+class="cmtt-10">uses </span>clause of the unit. This can be used to hide the read/write access specifiers for programmers,
+just as if they were in a <span 
+class="cmtt-10">private </span>section of a class (discussed below). For the previous example,
+this could look as follows:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-130">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />unit&#x00A0;testrw;
+&#x00A0;<br />
+&#x00A0;<br />Interface
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;GetMyInt&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />Procedure&#x00A0;SetMyInt(Value&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />
+&#x00A0;<br />Implementation
+&#x00A0;<br />
+&#x00A0;<br />Uses&#x00A0;sysutils;
+&#x00A0;<br />
+&#x00A0;<br />Var
+&#x00A0;<br />&#x00A0;&#x00A0;FMyInt&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />Function&#x00A0;GetMyInt&#x00A0;:&#x00A0;Integer;
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;Result:=FMyInt;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />Procedure&#x00A0;SetMyInt(Value&#x00A0;:&#x00A0;Integer);
+&#x00A0;<br />
+&#x00A0;<br />begin
+&#x00A0;<br />&#x00A0;&#x00A0;If&#x00A0;((Value&#x00A0;mod&#x00A0;2)=1)&#x00A0;then
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Raise&#x00A0;Exception.Create(&#8217;Only&#x00A0;even&#x00A0;values&#x00A0;are&#x00A0;allowed&#8217;);
+&#x00A0;<br />&#x00A0;&#x00A0;FMyInt:=Value;
+&#x00A0;<br />end;
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 3473--><p class="nopar" >The unit <span 
+class="cmss-10">testprop </span>would then look like:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-131">
+{$mode&#x00A0;objfpc}
+&#x00A0;<br />unit&#x00A0;testprop;
+&#x00A0;<br />
+&#x00A0;<br />Interface
+&#x00A0;<br />
+&#x00A0;<br />uses&#x00A0;testrw;
+&#x00A0;<br />
+&#x00A0;<br />Property
+&#x00A0;<br />&#x00A0;&#x00A0;MyProp&#x00A0;:&#x00A0;Integer&#x00A0;Read&#x00A0;GetMyInt&#x00A0;Write&#x00A0;SetMyInt;
+&#x00A0;<br />
+&#x00A0;<br />Implementation
+&#x00A0;<br />
+&#x00A0;<br />end.
+</div>
+<!--l. 3489--><p class="nopar" >More information about properties can be found in chapter <a 
+href="refch6.html#x68-900006">6<!--tex4ht:ref: ch:Classes --></a>, page <a 
+href="refch6.html#x68-900006">277<!--tex4ht:ref: ch:Classes --></a>.
+                                                                            
+
+                                                                            
+<!--l. 3495--><div class="crosslinks"><p class="noindent">[<a 
+href="refse26.html" >prev</a>] [<a 
+href="refse26.html#tailrefse26.html" >prev-tail</a>] [<a 
+href="refse27.html" >front</a>] [<a 
+href="refch4.html#refse27.html" >up</a>] </p></div>
+<!--l. 3495--><p class="noindent" ><a 
+ id="tailrefse27.html"></a>  
+</body></html> 

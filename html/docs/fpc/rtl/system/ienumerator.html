@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>IEnumerator</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>IEnumerator</h1>
+<p>[<a href="../system/ienumerator-1.html" onClick="window.open('../system/ienumerator-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../system/ienumerator-2.html" onClick="window.open('../system/ienumerator-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../system/ienumerator-3.html" onClick="window.open('../system/ienumerator-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../system/ienumerator-4.html" onClick="window.open('../system/ienumerator-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../system/ienumerator-5.html" onClick="window.open('../system/ienumerator-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../system/ienumerator-6.html" onClick="window.open('../system/ienumerator-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Enumerator support interface</p>
+<h2>Declaration</h2>
+<p>Source position: objpash.inc line 260</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> IEnumerator <span class="sym">=</span> <span class="kw">interface</span><span class="sym">(</span><a href="../system/iinterface.html">IInterface</a><span class="sym">)</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../system/ienumerator.getcurrent.html">GetCurrent</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Returns the current element in the iteration cycle</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">function </span><a href="../system/ienumerator.movenext.html">MoveNext</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Move to the next value</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">procedure </span><a href="../system/ienumerator.reset.html">Reset</a><span class="sym">;</span></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Reset the pointer</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../system/ienumerator.current.html">Current</a><span class="sym">: </span><a href="../system/tobject.html">TObject</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Return the current item</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../system/ienumerator.html">IEnumerator</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Enumerator support interface</p></td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">IInterface</span></tt></p></td>
+</tr>
+<tr>
+<td align="center">?</td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>IEnumerator</var> is the interface needed by the <var>For ... in ...</var> language construct, when operating on classes. It contains all methods that the compiler needs to implement a loop. </p>
+<p>A <var>for in</var> loop like the following: </p>
+<pre><span class="kw">For</span> O <span class="kw">in</span> MyObject <span class="kw">do</span>
+  <span class="kw">begin</span>
+  <span class="cmt">// do things</span>
+  <span class="kw">end</span><span class="sym">;</span>
+</pre>
+<p>is treated by the compiler as equivalent to the following code: </p>
+<pre><span class="kw">Var</span>
+  I <span class="sym">:</span> IEnumerator<span class="sym">;</span>
+  O <span class="sym">:</span> TObject<span class="sym">;</span>
+    
+<span class="kw">begin</span>
+  I<span class="sym">:=</span>MyObject<span class="sym">.</span>GetEnumerator<span class="sym">;</span>
+  <span class="kw">While</span> I<span class="sym">.</span>MoveNext <span class="kw">do</span>
+    <span class="kw">begin</span>
+    O<span class="sym">:=</span>I<span class="sym">.</span>GetCurrent<span class="sym">;</span>
+    <span class="cmt">// Do things</span>
+    <span class="kw">end</span><span class="sym">;</span> 
+<span class="kw">end</span><span class="sym">.</span>  
+</pre>
+<p>Any class that implements the <var>IEnumerable</var> interface must be able to return an <var>IEnumerator</var> instance for the compiler to use in a <var>For in</var> loop. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/ienumerable.html">IEnumerable</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Interface to retrieve an enumerator from a class.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Inserting version information</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 7330--><div class="crosslinks"><p class="noindent">[<a 
+href="progse63.html" >next</a>] [<a 
+href="progse61.html" >prev</a>] [<a 
+href="progse61.html#tailprogse61.html" >prev-tail</a>] [<a 
+href="#tailprogse62.html">tail</a>] [<a 
+href="progch13.html#progse62.html" >up</a>] </p></div>
+<h3 class="sectionHead"><span class="titlemark">13.4   </span> <a 
+href="prog.html#QQ2-273-312" id="x273-28900013.4">Inserting version information</a></h3>
+<!--l. 7332--><p class="noindent" >The win32 API allows the storing of version information in your binaries. This information can be
+made visible with the <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span> </span>Explorer, by right-clicking on the executable or library, and
+selecting the &#8217;Properties&#8217; menu. In the tab &#8217;Version&#8217; the version information will be
+displayed.
+<!--l. 7338--><p class="noindent" >Here is how to insert version information in your binary:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-255">
+1&#x00A0;VERSIONINFO
+&#x00A0;<br />FILEVERSION&#x00A0;4,&#x00A0;0,&#x00A0;3,&#x00A0;17
+&#x00A0;<br />PRODUCTVERSION&#x00A0;3,&#x00A0;0,&#x00A0;0,&#x00A0;0
+&#x00A0;<br />FILEFLAGSMASK&#x00A0;0
+&#x00A0;<br />FILEOS&#x00A0;0x40000
+&#x00A0;<br />FILETYPE&#x00A0;1
+&#x00A0;<br />{
+&#x00A0;<br />&#x00A0;BLOCK&#x00A0;"StringFileInfo"
+&#x00A0;<br />&#x00A0;{
+&#x00A0;<br />&#x00A0;&#x00A0;BLOCK&#x00A0;"040904E4"
+&#x00A0;<br />&#x00A0;&#x00A0;{
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;VALUE&#x00A0;"CompanyName",&#x00A0;"Free&#x00A0;Pascal"
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;VALUE&#x00A0;"FileDescription",&#x00A0;"Free&#x00A0;Pascal&#x00A0;version&#x00A0;information&#x00A0;extractor"
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;VALUE&#x00A0;"FileVersion",&#x00A0;"1.0"
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;VALUE&#x00A0;"InternalName",&#x00A0;"Showver"
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;VALUE&#x00A0;"LegalCopyright",&#x00A0;"GNU&#x00A0;Public&#x00A0;License"
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;VALUE&#x00A0;"OriginalFilename",&#x00A0;"showver.pp"
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;VALUE&#x00A0;"ProductName",&#x00A0;"Free&#x00A0;Pascal"
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;VALUE&#x00A0;"ProductVersion",&#x00A0;"1.0"
+&#x00A0;<br />&#x00A0;&#x00A0;}
+&#x00A0;<br />&#x00A0;}
+&#x00A0;<br />}
+</div>
+<!--l. 7362--><p class="nopar" >As you can see, you can insert various kinds of information in the version info block. The keyword
+<span 
+class="cmtt-10">VERSIONINFO </span>marks the beginning of the version information resource block. The keywords
+<span 
+class="cmtt-10">FILEVERSION</span>, <span 
+class="cmtt-10">PRODUCTVERSION </span>give the actual file version, while the block <span 
+class="cmtt-10">StringFileInfo </span>gives
+other information that is displayed in the explorer.
+<!--l. 7370--><p class="noindent" >The Free Component Library comes with a unit (<span 
+class="cmss-10">fileinfo</span>) that allows to extract and view version
+information in a straightforward and easy manner; the demo program that comes with it (<span 
+class="cmss-10">showver</span>)
+shows version information for an arbitrary executable or DLL.
+                                                                            
+
+                                                                            
+<!--l. 7375--><div class="crosslinks"><p class="noindent">[<a 
+href="progse63.html" >next</a>] [<a 
+href="progse61.html" >prev</a>] [<a 
+href="progse61.html#tailprogse61.html" >prev-tail</a>] [<a 
+href="progse62.html" >front</a>] [<a 
+href="progch13.html#progse62.html" >up</a>] </p></div>
+<!--l. 7375--><p class="noindent" ><a 
+ id="tailprogse62.html"></a>  
+</body></html> 

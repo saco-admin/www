@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>11 Optimizations</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 6505--><div class="crosslinks"><p class="noindent">[<a 
+href="progch12.html" >next</a>] [<a 
+href="progch10.html" >prev</a>] [<a 
+href="progch10.html#tailprogch10.html" >prev-tail</a>] [<a 
+href="#tailprogch11.html">tail</a>] [<a 
+href="prog.html#progch11.html" >up</a>] </p></div>
+<h2 class="chapterHead"><span class="titlemark">Chapter&#x00A0;11</span><br /><a 
+href="prog.html#QQ2-236-272" id="x236-25000011">Optimizations</a></h2>
+<div class="sectionTOCS">
+&#x00A0;<span class="sectionToc" >11.1 <a 
+href="progse47.html#x237-25100011.1">Non processor specific</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.1.1 <a 
+href="progsu176.html#x238-25200011.1.1">Constant folding</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.1.2 <a 
+href="progsu177.html#x239-25300011.1.2">Constant merging</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.1.3 <a 
+href="progsu178.html#x240-25400011.1.3">Short cut evaluation</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.1.4 <a 
+href="progsu179.html#x241-25500011.1.4">Constant set inlining</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.1.5 <a 
+href="progsu180.html#x242-25600011.1.5">Small sets</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.1.6 <a 
+href="progsu181.html#x243-25700011.1.6">Range checking</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.1.7 <a 
+href="progsu182.html#x244-25800011.1.7">And instead of modulo</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.1.8 <a 
+href="progsu183.html#x245-25900011.1.8">Shifts instead of multiply or divide</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.1.9 <a 
+href="progsu184.html#x246-26000011.1.9">Automatic alignment</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.1.10 <a 
+href="progsu185.html#x247-26100011.1.10">Smart linking</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.1.11 <a 
+href="progsu186.html#x248-26200011.1.11">Inline routines</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.1.12 <a 
+href="progsu187.html#x249-26300011.1.12">Stack frame omission</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.1.13 <a 
+href="progsu188.html#x250-26400011.1.13">Register variables</a></span>
+<br />&#x00A0;<span class="sectionToc" >11.2 <a 
+href="progse48.html#x251-26500011.2">Processor specific</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.2.1 <a 
+href="progsu189.html#x252-26600011.2.1">Intel 80x86 specific</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.2.2 <a 
+href="progsu190.html#x253-26700011.2.2">Motorola 680x0 specific</a></span>
+<br />&#x00A0;<span class="sectionToc" >11.3 <a 
+href="progse49.html#x254-26800011.3">Optimization switches</a></span>
+<br />&#x00A0;<span class="sectionToc" >11.4 <a 
+href="progse50.html#x255-26900011.4">Tips to get faster code</a></span>
+<br />&#x00A0;<span class="sectionToc" >11.5 <a 
+href="progse51.html#x256-27000011.5">Tips to get smaller code</a></span>
+<br />&#x00A0;<span class="sectionToc" >11.6 <a 
+href="progse52.html#x257-27100011.6">Whole Program Optimization</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.6.1 <a 
+href="progsu191.html#x258-27200011.6.1">Overview</a></span>
+<br />&#x00A0;<span class="sectionToc" >11.7 <a 
+href="progse53.html#x259-27300011.7">General principles</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.7.1 <a 
+href="progsu192.html#x260-27400011.7.1">How to use</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.7.2 <a 
+href="progsu193.html#x261-27700011.7.2">Available WPO optimizations</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsectionToc" >11.7.3 <a 
+href="progsu194.html#x262-27800011.7.3">format of the WPO file</a></span>
+</div>
+
+
+
+
+
+
+                                                                            
+
+                                                                            
+<!--l. 7045--><div class="crosslinks"><p class="noindent">[<a 
+href="progch12.html" >next</a>] [<a 
+href="progch10.html" >prev</a>] [<a 
+href="progch10.html#tailprogch10.html" >prev-tail</a>] [<a 
+href="progch11.html" >front</a>] [<a 
+href="prog.html#progch11.html" >up</a>] </p></div>
+<!--l. 7045--><p class="noindent" ><a 
+ id="tailprogch11.html"></a>  
+</body></html> 

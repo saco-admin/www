@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Installing under DOS or OS/2</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="user.tex"> 
+<meta name="date" content="2017-09-28 14:24:00"> 
+<link rel="stylesheet" type="text/css" href="user.css"> 
+</head><body 
+>
+<!--l. 254--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu5.html" >next</a>] [<a 
+href="usersu3.html" >prev</a>] [<a 
+href="usersu3.html#tailusersu3.html" >prev-tail</a>] [<a 
+href="#tailusersu4.html">tail</a>] [<a 
+href="userse5.html#usersu4.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">2.2.2   </span> <a 
+href="user.html#QQ2-13-17" id="x13-170002.2.2">Installing under DOS or OS/2</a></h4>
+<!--l. 255--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="userse5.html#QQ2-13-18" id="x13-180002.2.2">Mandatory installation steps.</a></h5>
+<!--l. 256--><p class="noindent" >First, you must get the latest distribution files of Free Pascal. They come as zip files, which you
+must unzip first, or you can download the compiler as a series of separate files. This is
+especially useful if you have a slow connection, but it is also nice if you want to install only
+some parts of the compiler distribution. The distribution zip files for DOS or OS/2
+contain an installation program <span 
+class="cmss-10">INSTALL.EXE</span>. You must run this program to install the
+compiler.
+<!--l. 264--><p class="noindent" >The screen of the DOS or OS/2 installation program looks like figure <a 
+href="#x13-18001r1">2.1<!--tex4ht:ref: fig:install1 --></a>.
+<!--l. 267--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x13-18001r1"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 267--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;2.1: </span><span  
+class="content">The <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>install program screen</span></div><!--tex4ht:label?: x13-18001r1 -->
+<!--l. 267--><p class="noindent" ><img 
+src="user0x.png" alt="PIC" class="graphics" width="400.34999pt" height="225.9129pt" ><!--tex4ht:graphics  
+name="user0x.png" src="pics//install1.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 267--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 268--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x13-18002r2"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 268--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;2.2: </span><span  
+class="content"></span></div><!--tex4ht:label?: x13-18002r2 -->
+<!--l. 268--><p class="noindent" ><img 
+src="user1x.png" alt="PIC" class="graphics" width="400.34999pt" height="225.19588pt" ><!--tex4ht:graphics  
+name="user1x.png" src="pics//install2.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 268--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 270--><p class="noindent" >The program allows you to select:
+     <ul class="itemize1">
+     <li class="itemize">What components you wish to install. e.g do you want the sources or not, do you want
+     docs or not. Items that you didn&#8217;t download when downloading as separate files, will
+     not be enabled, i.e. you can&#8217;t select them.
+     </li>
+     <li class="itemize">Where you want to install (the default location is <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">C:\PP</span></span></span>).</li></ul>
+<!--l. 280--><p class="noindent" >In order to run Free Pascal from any directory on your system, you must extend your path variable
+to contain the <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-10">C:\PP\BIN</span></span></span> directory. Usually this is done in the <span 
+class="cmss-10">AUTOEXEC.BAT </span>file. It should look
+something like this :
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-1">
+&#x00A0;&#x00A0;SET&#x00A0;PATH=%PATH%;C:\PP\2.6\BIN\i386-DOS
+</div>
+<!--l. 286--><p class="nopar" >for <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>or
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-2">
+&#x00A0;&#x00A0;SET&#x00A0;PATH=%PATH%;C:\PP\2.6\BIN\i386-OS2
+</div>
+<!--l. 290--><p class="nopar" >for <span 
+class="cmcsc-10"><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span>/2</span>. (Again, assuming that you installed in the default location).
+<!--l. 294--><p class="noindent" >On <span 
+class="cmcsc-10"><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span>/2</span>, Free Pascal installs some libraries from the EMX package if they were not yet
+installed. (The installer will notify you if they should be installed). They are located in
+the
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-3">
+C:\PP\DLL
+</div>
+<!--l. 299--><p class="nopar" >directory. The name of this directory should be added to the <span 
+class="cmtt-10">LIBPATH </span>directive in the <span 
+class="cmss-10">config.sys</span>
+file:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-4">
+LIBPATH=XXX;C:\PP\DLL
+</div>
+<!--l. 304--><p class="nopar" >Obviously, any existing directories in the <span 
+class="cmtt-10">LIBPATH </span>directive (indicated by <span 
+class="cmtt-10">XXX </span>in the above
+example) should be preserved.
+<h5 class="subsubsectionHead"><a 
+href="userse5.html#QQ2-13-21" id="x13-190002.2.2">Optional Installation: The coprocessor emulation</a></h5>
+<!--l. 309--><p class="noindent" >For people who have an older CPU type, without math coprocessor (i387) it is necessary to install
+a coprocessor emulation, since Free Pascal uses the coprocessor to do all floating point
+operations.
+<!--l. 313--><p class="noindent" >The installation of the coprocessor emulation is handled by the installation program
+(<span 
+class="cmss-10">INSTALL.EXE</span>) under <span 
+class="cmcsc-10"><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">s</span> </span>and <span 
+class="cmcsc-10">W<span 
+class="small-caps">i</span><span 
+class="small-caps">n</span><span 
+class="small-caps">d</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">s</span></span>.
+                                                                            
+
+                                                                            
+<!--l. 319--><div class="crosslinks"><p class="noindent">[<a 
+href="usersu5.html" >next</a>] [<a 
+href="usersu3.html" >prev</a>] [<a 
+href="usersu3.html#tailusersu3.html" >prev-tail</a>] [<a 
+href="usersu4.html" >front</a>] [<a 
+href="userse5.html#usersu4.html" >up</a>] </p></div>
+<!--l. 319--><p class="noindent" ><a 
+ id="tailusersu4.html"></a>  
+</body></html> 

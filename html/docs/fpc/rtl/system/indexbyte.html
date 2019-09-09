@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>IndexByte</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../system/index.html">Overview</a>][<a href="../system/index-2.html">Constants</a>][<a href="../system/index-3.html">Types</a>][<a href="../system/index-4.html">Classes</a>][<a href="../system/index-5.html">Procedures and functions</a>][<a href="../system/index-6.html">Variables</a>][<a href="../system/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'System' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>IndexByte</h1>
+<p>Search for a byte in a memory range.</p>
+<h2>Declaration</h2>
+<p>Source position: systemh.inc line 746</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> IndexByte<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>buf<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;len<span class="sym">: </span><a href="../system/sizeint.html">SizeInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;b<span class="sym">: </span><a href="../system/byte.html">Byte</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/sizeint.html">SizeInt</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>IndexByte</var> searches the memory at <var>buf</var> for maximally <var>len</var> positions for the byte <var>b</var> and returns it's position if it found one. If <var>b</var> is not found then -1 is returned.  The position is zero-based. </p>
+<h2>Errors</h2>
+<p><var>Buf</var> and <var>Len</var> are not checked to see if they are valid values. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../system/indexchar.html">IndexChar</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for a character in a memory range.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/indexdword.html">IndexDWord</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for a DWord value in a memory range.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/indexword.html">IndexWord</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Search for a WORD value in a memory range.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../system/comparebyte.html">CompareByte</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Compare 2 memory buffers byte per byte</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example105<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the IndexByte function. }</span>
+
+<span class="kw">Const</span>
+  ArraySize <span class="sym">=</span> <span class="num">256</span><span class="sym">;</span>
+  MaxValue <span class="sym">=</span> <span class="num">256</span><span class="sym">;</span>
+
+<span class="kw">Var</span>
+  Buffer <span class="sym">:</span> <span class="kw">Array</span><span class="sym">[</span><span class="num">1</span><span class="sym">.</span><span class="sym">.</span>ArraySize<span class="sym">]</span> <span class="kw">of</span> Byte<span class="sym">;</span>
+  I<span class="sym">,</span>J <span class="sym">:</span> longint<span class="sym">;</span>
+  K <span class="sym">:</span> Byte<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  Randomize<span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> To ArraySize <span class="kw">do</span>
+    Buffer<span class="sym">[</span>I<span class="sym">]</span><span class="sym">:=</span>Random<span class="sym">(</span>MaxValue<span class="sym">)</span><span class="sym">;</span>
+  <span class="kw">For</span> I<span class="sym">:=</span><span class="num">1</span> to <span class="num">10</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+    K<span class="sym">:=</span>Random<span class="sym">(</span>MaxValue<span class="sym">)</span><span class="sym">;</span>
+    J<span class="sym">:=</span>IndexByte<span class="sym">(</span>Buffer<span class="sym">,</span>ArraySize<span class="sym">,</span>K<span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">if</span> J<span class="sym">=</span><span class="sym">-</span><span class="num">1</span> <span class="kw">then</span>
+      Writeln<span class="sym">(</span><span class="str">'Value '</span><span class="sym">,</span>K<span class="sym">,</span><span class="str">' was not found in buffer.'</span><span class="sym">)</span>
+    <span class="kw">else</span>
+      Writeln<span class="sym">(</span><span class="str">'Found '</span><span class="sym">,</span>K<span class="sym">,</span><span class="str">' at position '</span><span class="sym">,</span>J<span class="sym">,</span><span class="str">' in buffer'</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

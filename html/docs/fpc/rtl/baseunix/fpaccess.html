@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>FpAccess</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../baseunix/index.html">Overview</a>][<a href="../baseunix/index-2.html">Constants</a>][<a href="../baseunix/index-3.html">Types</a>][<a href="../baseunix/index-5.html">Procedures and functions</a>][<a href="../baseunix/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'BaseUnix' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>FpAccess</h1>
+<p>Check file access</p>
+<h2>Declaration</h2>
+<p>Source position: bunxh.inc line 82</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> FpAccess<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;pathname<span class="sym">: </span><a href="../system/pchar.html">PChar</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aMode<span class="sym">: </span><a href="../baseunix/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span><br><br><span class="kw">function</span> FpAccess<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>pathname<span class="sym">: </span><a href="../system/rawbytestring.html">RawByteString</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;aMode<span class="sym">: </span><a href="../baseunix/cint.html">cint</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../baseunix/cint.html">cint</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>FpAccess</var> tests user's access rights on the specified file.  <var>Mode</var> is a mask existing of one or more of the following: </p>
+<dl>
+<dt>R_OK</dt>
+<dd>User has read rights.</dd>
+<dt>W_OK</dt>
+<dd>User has write rights.</dd>
+<dt>X_OK</dt>
+<dd>User has execute rights.</dd>
+<dt>F_OK</dt>
+<dd>File exists.</dd>
+</dl>
+<p>The test is done with the real user ID, instead of the effective user ID. If the user has the requested rights, zero is returned. If access is denied,  or an error occurred, a nonzero value is returned. </p>
+<h2>Errors</h2>
+<p>Extended error information can be retrieved using <a href="../baseunix/fpgeterrno.html">fpGetErrno</a>. </p>
+<dl>
+<dt>sys_eaccess</dt>
+<dd>The requested access is denied, either to the file or one of the directories in its path.</dd>
+<dt>sys_einval</dt>
+<dd><var>Mode</var> was incorrect.</dd>
+<dt>sys_enoent</dt>
+<dd>A directory component in <var>Path</var> doesn't exist or is a dangling symbolic link.</dd>
+<dt>sys_enotdir</dt>
+<dd>A directory component in <var>Path</var> is not a directory.</dd>
+<dt>sys_enomem</dt>
+<dd>Insufficient kernel memory.</dd>
+<dt>sys_eloop</dt>
+<dd><var>Path</var> has a circular symbolic link.</dd>
+</dl>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../baseunix/fpchown.html">FpChown</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Change owner of file</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../baseunix/fpchmod.html">FpChmod</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Change file permission bits</p></td>
+</tr>
+</table>
+<h2>Example</h2>
+<pre><span class="kw">Program</span> Example26<span class="sym">;</span>
+
+<span class="cmt">{ Program to demonstrate the Access function. }</span>
+
+<span class="kw">Uses</span> BaseUnix<span class="sym">;</span>
+
+<span class="kw">begin</span>
+  <span class="kw">if</span> fpAccess <span class="sym">(</span><span class="str">'/etc/passwd'</span><span class="sym">,</span>W_OK<span class="sym">)</span><span class="sym">=</span><span class="num">0</span> <span class="kw">then</span>
+    <span class="kw">begin</span>
+    Writeln <span class="sym">(</span><span class="str">'Better check your system.'</span><span class="sym">)</span><span class="sym">;</span>
+    Writeln <span class="sym">(</span><span class="str">'I can write to the /etc/passwd file !'</span><span class="sym">)</span><span class="sym">;</span>
+    <span class="kw">end</span><span class="sym">;</span>
+<span class="kw">end</span><span class="sym">.</span>
+</pre>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

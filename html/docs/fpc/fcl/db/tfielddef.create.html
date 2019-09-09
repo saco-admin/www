@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TFieldDef.Create</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../db/index.html">Overview</a>][<a href="../db/index-2.html">Constants</a>][<a href="../db/index-3.html">Types</a>][<a href="../db/index-4.html">Classes</a>][<a href="../db/index-5.html">Procedures and functions</a>][<a href="../db/index-6.html">Variables</a>][<a href="../db/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'db' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TFieldDef.Create</h1>
+<p>Constructor for <var>TFieldDef</var>.</p>
+<h2>Declaration</h2>
+<p>Source position: db.pas line 181</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">constructor</span> <a href="../db/tfielddef.html">TFieldDef</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ACollection<span class="sym">: </span><a href="../../rtl/classes/tcollection.html">TCollection</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> override</span><span class="sym">;</span><br><br><span class="kw">constructor</span> <a href="../db/tfielddef.html">TFieldDef</a><span class="sym">.</span>Create<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AOwner<span class="sym">: </span><a href="../db/tfielddefs.html">TFieldDefs</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>AName<span class="sym">: </span>string<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ADataType<span class="sym">: </span><a href="../db/tfieldtype.html">TFieldType</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ASize<span class="sym">: </span><a href="../../rtl/system/integer.html">Integer</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;ARequired<span class="sym">: </span>Boolean<span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AFieldNo<span class="sym">: </span><a href="../../rtl/system/longint.html">LongInt</a></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">)</span><span class="sym">;</span><span class="kw"> overload</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">ACollection</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">TFieldDefs instance to which to append the definition, or <var>Nil</var></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AOwner</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Owner of the fielddef.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Name of the field</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ADataType</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Data type of the field</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ASize</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Storage size for the field contents, or zero for fixed-size fields</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">ARequired</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the fields required or not</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">AFieldNo</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Number of the field</p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>Create</var> is the constructor for the <var>TFieldDef</var> class. </p>
+<p>If a simple call is used, with a single argument <var>ACollection</var>, the inherited <var>Create</var> is called and the  Field number is set to the incremented current index.</p>
+<p>If the more complicated call is used, with multiple arguments, then after the inherited <var>Create</var> call, the  <b>Name</b>, <a href="../db/tfielddef.datatype.html">datatype</a>, <a href="../db/tfielddef.size.html">size</a>,  <a href="../db/tfielddef.precision.html">precision</a>, <a href="../db/tfielddef.fieldno.html">FieldNo</a> and the <a href="../db/tfielddef.required.html">Required</a>  property are all set according to the passsed arguments.</p>
+<h2>Errors</h2>
+<p>If a duplicate name is passed, then an exception will occur. </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><b>Name</b></p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfielddef.datatype.html">datatype</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Data type for the field</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfielddef.size.html">size</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Size of the buffer needed to store the data of the field</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfielddef.precision.html">precision</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Precision used in BCD (Binary Coded Decimal) fields</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfielddef.fieldno.html">FieldNo</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Field number</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../db/tfielddef.required.html">Required</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Is the field required ?</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

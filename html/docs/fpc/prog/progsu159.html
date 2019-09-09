@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Floating point types</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="prog.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="prog.css"> 
+</head><body 
+>
+<!--l. 4974--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu160.html" >next</a>] [<a 
+href="progsu158.html" >prev</a>] [<a 
+href="progsu158.html#tailprogsu158.html" >prev-tail</a>] [<a 
+href="#tailprogsu159.html">tail</a>] [<a 
+href="progse32.html#progsu159.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">8.2.5   </span> <a 
+href="prog.html#QQ2-203-217" id="x203-2080008.2.5">Floating point types</a></h4>
+<!--l. 4976--><p class="noindent" >Floating point type sizes and mapping vary from one processor to another. Except for the Intel
+80x86 architecture, the <span 
+class="cmtt-10">extended </span>type maps to the IEEE double type if a hardware floating point
+coprocessor is present.
+<!--l. 4982--><p class="noindent" >Floating point types have a storage binary format divided into three distinct fields :
+the mantissa, the exponent and the sign bit which stores the sign of the floating point
+value.
+<!--l. 4987--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="progse32.html#QQ2-203-218" id="x203-2090008.2.5">Single</a></h5>
+<!--l. 4989--><p class="noindent" >The <span 
+class="cmtt-10">single </span>type occupies 4 bytes of storage space, and its memory structure is the same as the
+IEEE-754 single type. This type is the only type which is guaranteed to be available on all
+platforms (either emulated via software or directly via hardware).
+<!--l. 4995--><p class="noindent" >The memory format of the <span 
+class="cmtt-10">single </span>format looks like what is shown in figure (<a 
+href="#x203-209001r1">8.1<!--tex4ht:ref: fig:single --></a>).
+<!--l. 4998--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x203-209001r1"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 4998--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;8.1: </span><span  
+class="content">The single format</span></div><!--tex4ht:label?: x203-209001r1 -->
+<!--l. 4998--><p class="noindent" ><img 
+src="prog0x.png" alt="PIC" class="graphics" width="400.34999pt" height="160.43843pt" ><!--tex4ht:graphics  
+name="prog0x.png" src="pics//single.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 4998--><p class="noindent" ></div><hr class="endfigure">
+<h5 class="subsubsectionHead"><a 
+href="progse32.html#QQ2-203-220" id="x203-2100008.2.5">Double</a></h5>
+<!--l. 5003--><p class="noindent" >The <span 
+class="cmtt-10">double </span>type occupies 8 bytes of storage space, and its memory structure is the same as the
+IEEE-754 double type.
+<!--l. 5007--><p class="noindent" >The memory format of the <span 
+class="cmtt-10">double </span>format looks like like what is shown in figure (<a 
+href="#x203-210001r2">8.2<!--tex4ht:ref: fig:double --></a>).
+<!--l. 5010--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                            
+
+                                                                            
+<a 
+ id="x203-210001r2"></a>
+                                                                            
+
+                                                                            
+<div class="center" 
+>
+<!--l. 5010--><p class="noindent" >
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;8.2: </span><span  
+class="content">The double format</span></div><!--tex4ht:label?: x203-210001r2 -->
+<!--l. 5010--><p class="noindent" ><img 
+src="prog1x.png" alt="PIC" class="graphics" width="400.34999pt" height="127.43408pt" ><!--tex4ht:graphics  
+name="prog1x.png" src="pics//double.eps"  
+--></div>
+                                                                            
+
+                                                                            
+<!--l. 5010--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 5013--><p class="noindent" >On processors which do not support co-processor operations (and which have the <span 
+class="cmsy-10">{</span>$E+<span 
+class="cmsy-10">} </span>switch),
+the <span 
+class="cmtt-10">double </span>type does not exist.
+<h5 class="subsubsectionHead"><a 
+href="progse32.html#QQ2-203-222" id="x203-2110008.2.5">Extended</a></h5>
+<!--l. 5020--><p class="noindent" >For Intel 80x86 processors, the <span 
+class="cmtt-10">extended </span>type takes up 10 bytes of memory space. For more
+information on the <span 
+class="cmtt-10">extended </span>type, consult the Intel Programmer&#8217;s reference.
+<!--l. 5023--><p class="noindent" >For all other processors which support floating point operations, the <span 
+class="cmtt-10">extended </span>type is a nickname
+for the type which supports the most precision, this is usually the <span 
+class="cmtt-10">double </span>type. On processors
+which do not support co-processor operations (and which have the <span 
+class="cmsy-10">{</span>$E+<span 
+class="cmsy-10">} </span>switch), the <span 
+class="cmtt-10">extended</span>
+type usually maps to the <span 
+class="cmtt-10">single </span>type.
+<!--l. 5030--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="progse32.html#QQ2-203-223" id="x203-2120008.2.5">Comp</a></h5>
+<!--l. 5032--><p class="noindent" >For Intel 80x86 processors, the <span 
+class="cmtt-10">comp </span>type contains a 63-bit integral value, and a sign bit (in the
+MSB position). The <span 
+class="cmtt-10">comp </span>type uses 8 bytes of storage space.
+<!--l. 5036--><p class="noindent" >On other processors, the <span 
+class="cmtt-10">comp </span>type is not supported.
+<!--l. 5038--><p class="noindent" >
+<h5 class="subsubsectionHead"><a 
+href="progse32.html#QQ2-203-224" id="x203-2130008.2.5">Real</a></h5>
+<!--l. 5040--><p class="noindent" >Contrary to Turbo Pascal, where the <span 
+class="cmtt-10">real </span>type had a special internal format, under Free Pascal
+the <span 
+class="cmtt-10">real </span>type simply maps to one of the other real types. It maps to the <span 
+class="cmtt-10">double </span>type on processors
+which support floating point operations, while it maps to the <span 
+class="cmtt-10">single </span>type on processors which do
+not support floating point operations in hardware. See table (<a 
+href="#x203-213001r2">8.2<!--tex4ht:ref: tab:RealMapping --></a>) for more information on
+this.
+<div class="table">
+                                                                            
+
+                                                                            
+<!--l. 5049--><p class="noindent" ><a 
+ id="x203-213001r2"></a><hr class="float"><div class="float" 
+>
+                                                                            
+
+                                                                            
+ <div class="caption" 
+><span class="id">Table&#x00A0;8.2: </span><span  
+class="content">Processor mapping of real type</span></div><!--tex4ht:label?: x203-213001r2 -->
+<div class="center" 
+>
+<!--l. 5049--><p class="noindent" >
+<div class="tabular"> <table id="TBL-11" class="tabular" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-11-1g"><col 
+id="TBL-11-1"><col 
+id="TBL-11-2"></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-11-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-11-1-1"  
+class="td11">Processor                                   </td><td  style="white-space:nowrap; text-align:right;" id="TBL-11-1-2"  
+class="td11">Real type mapping</td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-11-2-1"  
+class="td11">Intel 80x86                                  </td><td  style="white-space:nowrap; text-align:right;" id="TBL-11-2-2"  
+class="td11">          <span 
+class="cmtt-10">double</span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-11-3-1"  
+class="td11">Motorola 680x0 (with <span 
+class="cmsy-10">{</span>$E-<span 
+class="cmsy-10">} </span>switch) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-11-3-2"  
+class="td11">          <span 
+class="cmtt-10">double</span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-11-4-1"  
+class="td11">Motorola 680x0 (with <span 
+class="cmsy-10">{</span>$E+<span 
+class="cmsy-10">} </span>switch)</td><td  style="white-space:nowrap; text-align:right;" id="TBL-11-4-2"  
+class="td11">          <span 
+class="cmtt-10">single</span></td>
+</tr><tr 
+class="hline"><td><hr></td><td><hr></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-11-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-11-5-1"  
+class="td11">                               </td></tr></table></div></div>
+                                                                            
+
+                                                                            
+</div><hr class="endfloat" />
+</div>
+                                                                            
+
+                                                                            
+<!--l. 5058--><div class="crosslinks"><p class="noindent">[<a 
+href="progsu160.html" >next</a>] [<a 
+href="progsu158.html" >prev</a>] [<a 
+href="progsu158.html#tailprogsu158.html" >prev-tail</a>] [<a 
+href="progsu159.html" >front</a>] [<a 
+href="progse32.html#progsu159.html" >up</a>] </p></div>
+<!--l. 5058--><p class="noindent" ><a 
+ id="tailprogsu159.html"></a>  
+</body></html> 

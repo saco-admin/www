@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>AddDisk</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../dos/index.html">Overview</a>][<a href="../dos/index-2.html">Constants</a>][<a href="../dos/index-3.html">Types</a>][<a href="../dos/index-5.html">Procedures and functions</a>][<a href="../dos/index-6.html">Variables</a>][<a href="../dos/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'Dos' (<a href="../index.html">#rtl</a>)</span></td>
+</tr>
+</table>
+<h1>AddDisk (platform)</h1>
+<p>Add disk definition to list if drives (Unix only)</p>
+<h2>Declaration</h2>
+<p>Source position: dos.pp line 55</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">function</span> AddDisk<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">const </span>path<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span><a href="../system/byte.html">Byte</a><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p><var>AddDisk</var> adds a filename <var>S</var> to the internal list of disks. It is implemented for systems which do not use DOS type drive letters.  This list is used to determine which disks to use in the <a href="../dos/diskfree.html">DiskFree</a> and <a href="../dos/disksize.html">DiskSize</a> calls.  The <a href="../dos/diskfree.html">DiskFree</a> and <a href="../dos/disksize.html">DiskSize</a> functions need a file on the  specified drive, since this is required for the <var>statfs</var> system call. The names are added sequentially. The Dos initialization code presets the first three disks to: </p>
+<ul>
+<li><var>'.'</var> for the current drive,</li>
+<li><var>'/fd0/.'</var> for the first floppy-drive (Linux only).</li>
+<li><var>'/fd1/.'</var> for the second floppy-drive (Linux only).</li>
+<li><var>'/'</var> for the first hard disk.</li>
+</ul>
+<p>The first call to <var>AddDisk</var> will therefore add a name for the second harddisk, The second call for the third drive, and so on until 23 drives have been added (corresponding to drives <var>'D:'</var> to <var>'Z:'</var>) </p>
+<h2>Errors</h2>
+<p>None </p>
+<h2>See also</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><a href="../dos/diskfree.html">DiskFree</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get free size on Disk.</p></td>
+</tr>
+<tr>
+<td valign="top"><p><a href="../dos/disksize.html">DiskSize</a></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Get total size of disk.</p></td>
+</tr>
+</table>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

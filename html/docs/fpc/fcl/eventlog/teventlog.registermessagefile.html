@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TEventLog.RegisterMessageFile</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../eventlog/index.html">Overview</a>][<a href="../eventlog/index-1.html">Resource strings</a>][<a href="../eventlog/index-3.html">Types</a>][<a href="../eventlog/index-4.html">Classes</a>][<a href="../eventlog/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'eventlog' (<a href="../index.html">#fcl</a>)</span></td>
+</tr>
+</table>
+<h1>TEventLog.RegisterMessageFile</h1>
+<p>Register message file</p>
+<h2>Declaration</h2>
+<p>Source position: eventlog.pp line 74</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"> <span class="kw">public</span> <span class="kw">function</span> <a href="../eventlog/teventlog.html">TEventLog</a><span class="sym">.</span>RegisterMessageFile<span class="sym">(</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code">&nbsp;&nbsp;AFileName<span class="sym">: </span>string</span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="sym">):</span>Boolean<span class="sym">;</span><span class="kw"> virtual</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+</table>
+<h2>Arguments</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top"><p><tt><span class="code">AFileName</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Filename with messages as resource strings.</p></td>
+</tr>
+</table>
+<h2>Function result</h2>
+<p><var>True</var> if the call was succesful, <var>False</var> if not.</p>
+<h2>Description</h2>
+<p><var>RegisterMessageFile</var> is used on Windows to register the file <var>AFileName</var> containing the formatting strings for the system  messages. This should be a file containing resource strings. If <var>AFileName</var> is empty, the filename of the application binary is substituted. </p>
+<p>When a  message is logged to the windows system log, Windows looks for a formatting string in the file registered with this call.  </p>
+<p>There are 2 kinds of formatting strings: </p>
+<p><b>Category strings</b> these should be numbered from 1 to 4 </p>
+<dl>
+<dt>1</dt>
+<dd>Should contain the description of the <var>etInfo</var> event type.</dd>
+<dt>2</dt>
+<dd>Should contain the description of the <var>etWarning</var> event type.</dd>
+<dt>4</dt>
+<dd>Should contain the description of the <var>etError</var> event type.</dd>
+<dt>4</dt>
+<dd>Should contain the description of the <var>etDebug</var> event type.</dd>
+</dl>
+<p>None of these strings should have a string substitution placeholder. </p>
+<p>The second type of strings are the <b>message definitions</b>. Their number starts at <a href="../eventlog/teventlog.eventidoffset.html">EventIDOffset</a> (default is 1000) and each string should have 1 placeholder. </p>
+<p>Free Pascal comes with a <span class="file">fclel.res</span> resource file which contains default values for the 8 strings, in english. It can be linked in the application binary with the statement </p>
+<pre><span class="dir">{$R fclel.res}</span>
+</pre>
+<p>This file is generated from the <span class="file">fclel.mc</span> and <span class="file">fclel.rc</span> files that are distributed with the Free Pascal sources. </p>
+<p>If the strings are not registered, windows will still display the event messages, but they will not be formatted nicely. </p>
+<p>Note that while any messages logged with the event logger are displayed in the event viewern Windows locks the file registered here. This usually means that the binary is locked. </p>
+<p>On non-windows operating systems, this call is ignored. </p>
+<h2>Errors</h2>
+<p>If <var>AFileName</var> is invalid, false is returned. </p>
+<hr>
+
+<span class="footer">Documentation generated on: Sep 28 2017</span>
+</body>
+</html>

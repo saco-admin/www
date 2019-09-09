@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Record type restrictions</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,4,png,sections+,fn-in --> 
+<meta name="src" content="ref.tex"> 
+<meta name="date" content="2017-09-28 14:25:00"> 
+<link rel="stylesheet" type="text/css" href="ref.css"> 
+</head><body 
+>
+<!--l. 6133--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu42.html" >next</a>] [<a 
+href="refsu40.html" >prev</a>] [<a 
+href="refsu40.html#tailrefsu40.html" >prev-tail</a>] [<a 
+href="#tailrefsu41.html">tail</a>] [<a 
+href="refse53.html#refsu41.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">8.5.2   </span> <a 
+href="ref.html#QQ2-109-137" id="x109-1310008.5.2">Record type restrictions</a></h4>
+<!--l. 6134--><p class="noindent" >In Delphi mode, the <span 
+class="cmtt-10">record </span>type restrictions will also allow the use of simple types:
+                                                                            
+
+                                                                            
+<div class="verbatim" id="verbatim-257">
+Type
+&#x00A0;<br />generic&#x00A0;TList&#x003C;_T&#x00A0;:&#x00A0;record&#x003E;&#x00A0;=&#x00A0;class(TObject)
+&#x00A0;<br />&#x00A0;&#x00A0;public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;Type&#x00A0;TCompareFunc&#x00A0;=&#x00A0;function(const&#x00A0;Item1,&#x00A0;Item2:&#x00A0;_T):&#x00A0;Integer;
+&#x00A0;<br />&#x00A0;&#x00A0;Public
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;data&#x00A0;:&#x00A0;_T;
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Add(item:&#x00A0;_T);
+&#x00A0;<br />&#x00A0;&#x00A0;&#x00A0;&#x00A0;procedure&#x00A0;Sort(compare:&#x00A0;TCompareFunc);
+&#x00A0;<br />&#x00A0;end;
+&#x00A0;<br />
+&#x00A0;<br />TIntList&#x00A0;=&#x00A0;TList&#x003C;Integer&#x003E;;
+</div>
+<!--l. 6147--><p class="nopar" >
+                                                                            
+
+                                                                            
+<!--l. 6149--><div class="crosslinks"><p class="noindent">[<a 
+href="refsu42.html" >next</a>] [<a 
+href="refsu40.html" >prev</a>] [<a 
+href="refsu40.html#tailrefsu40.html" >prev-tail</a>] [<a 
+href="refsu41.html" >front</a>] [<a 
+href="refse53.html#refsu41.html" >up</a>] </p></div>
+<!--l. 6149--><p class="noindent" ><a 
+ id="tailrefsu41.html"></a>  
+</body></html> 
